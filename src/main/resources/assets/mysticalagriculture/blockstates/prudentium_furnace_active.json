@@ -1,0 +1,8 @@
+{
+    "variants": {
+        "facing=north": { "model": "mysticalagriculture:prudentium_furnace_active" },
+        "facing=south": { "model": "mysticalagriculture:prudentium_furnace_active", "y": 180 },
+        "facing=west":  { "model": "mysticalagriculture:prudentium_furnace_active", "y": 270 },
+        "facing=east":  { "model": "mysticalagriculture:prudentium_furnace_active", "y": 90 }
+    }
+}
