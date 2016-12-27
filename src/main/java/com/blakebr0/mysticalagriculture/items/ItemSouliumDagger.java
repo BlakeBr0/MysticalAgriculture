@@ -46,7 +46,6 @@ public class ItemSouliumDagger extends ItemSword {
 		int damage = stack.getMaxDamage() - stack.getItemDamage();
 		tooltip.add("Used to obtain \u00A7cMob Chunks\u00A77.");
 		tooltip.add("Durability: \u00A7d" + damage);
-		super.addInformation(stack, player, tooltip, advanced);
 	}
 	
     public boolean getIsRepairable(ItemStack toRepair, ItemStack repair){

@@ -28,6 +28,12 @@ import java.util.List;
 import java.util.Random;
 
 import com.blakebr0.mysticalagriculture.MysticalAgriculture;
+import com.blakebr0.mysticalagriculture.blocks.crop.BlockMysticalCrop;
+import com.blakebr0.mysticalagriculture.blocks.crop.BlockTier1InferiumCrop;
+import com.blakebr0.mysticalagriculture.blocks.crop.BlockTier2InferiumCrop;
+import com.blakebr0.mysticalagriculture.blocks.crop.BlockTier3InferiumCrop;
+import com.blakebr0.mysticalagriculture.blocks.crop.BlockTier4InferiumCrop;
+import com.blakebr0.mysticalagriculture.blocks.crop.BlockTier5InferiumCrop;
 import com.blakebr0.mysticalagriculture.config.ModConfig;
 
 public class BlockAccelerator extends Block {
@@ -48,7 +54,6 @@ public class BlockAccelerator extends Block {
 	@SideOnly(Side.CLIENT)
 	public void addInformation(ItemStack stack, EntityPlayer player, List tooltip, boolean advanced){
 		tooltip.add("Grows Resource Crops above it.");
-		super.addInformation(stack, player, tooltip, advanced);
 	}
 
 	@Override
@@ -75,7 +80,6 @@ public class BlockAccelerator extends Block {
 			IBlockState cropState = world.getBlockState(new BlockPos(x, y, z));
 			Block cropBlock = cropState.getBlock();
 			if(cropBlock instanceof BlockMysticalCrop || cropBlock instanceof BlockTier1InferiumCrop || cropBlock instanceof BlockTier2InferiumCrop || cropBlock instanceof BlockTier3InferiumCrop || cropBlock instanceof BlockTier4InferiumCrop || cropBlock instanceof BlockTier5InferiumCrop) {
-				cropBlock.updateTick(world, new BlockPos(x, y, z), cropState, world.rand);
 				cropBlock.updateTick(world, new BlockPos(x, y, z), cropState, world.rand);
 				cropBlock.updateTick(world, new BlockPos(x, y, z), cropState, world.rand);
 				cropBlock.updateTick(world, new BlockPos(x, y, z), cropState, world.rand);

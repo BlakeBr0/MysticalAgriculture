@@ -80,6 +80,5 @@ public class BlockWitherproofGlass extends BlockGlass {
 	@SideOnly(Side.CLIENT)
 	public void addInformation(ItemStack stack, EntityPlayer player, List tooltip, boolean advanced){
 		tooltip.add("Blast Resistant");
-		super.addInformation(stack, player, tooltip, advanced);
 	}
 }

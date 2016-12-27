@@ -1,5 +1,6 @@
 package com.blakebr0.mysticalagriculture.util;
 
+import net.minecraft.block.BlockCrops;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -9,12 +10,12 @@ import net.minecraft.world.World;
 
 import java.util.List;
 
-import com.blakebr0.mysticalagriculture.blocks.BlockMysticalCrop;
-import com.blakebr0.mysticalagriculture.blocks.BlockTier1InferiumCrop;
-import com.blakebr0.mysticalagriculture.blocks.BlockTier2InferiumCrop;
-import com.blakebr0.mysticalagriculture.blocks.BlockTier3InferiumCrop;
-import com.blakebr0.mysticalagriculture.blocks.BlockTier4InferiumCrop;
-import com.blakebr0.mysticalagriculture.blocks.BlockTier5InferiumCrop;
+import com.blakebr0.mysticalagriculture.blocks.crop.BlockMysticalCrop;
+import com.blakebr0.mysticalagriculture.blocks.crop.BlockTier1InferiumCrop;
+import com.blakebr0.mysticalagriculture.blocks.crop.BlockTier2InferiumCrop;
+import com.blakebr0.mysticalagriculture.blocks.crop.BlockTier3InferiumCrop;
+import com.blakebr0.mysticalagriculture.blocks.crop.BlockTier4InferiumCrop;
+import com.blakebr0.mysticalagriculture.blocks.crop.BlockTier5InferiumCrop;
 
 import mcp.mobius.waila.api.IWailaConfigHandler;
 import mcp.mobius.waila.api.IWailaDataAccessor;

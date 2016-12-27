@@ -75,6 +75,5 @@ public class ItemSupremiumApple extends ItemFood {
 		tooltip.add("- \u00A76Resistance II \u00A77(" + ModConfig.apple_buff_duration + ":00)");
 		tooltip.add("- \u00A7bRegeneration II \u00A77(" + ModConfig.apple_buff_duration + ":00)");
 		tooltip.add("- \u00A7cStrength II \u00A77(" + ModConfig.apple_buff_duration + ":00)");
-		super.addInformation(stack, player, tooltip, advanced);
 	}
 }

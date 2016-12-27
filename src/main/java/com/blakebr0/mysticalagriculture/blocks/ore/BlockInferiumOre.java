@@ -23,7 +23,7 @@ import net.minecraft.world.World;
 
 public class BlockInferiumOre extends Block {
 
-	public BlockInferiumOre(String name, Material material, SoundType sound, float hardness, float resistance, String tool, int level) {
+	public BlockInferiumOre(String name, Material material, SoundType sound, float hardness, float resistance, String tool, int level){
 		super(material);
 		this.setCreativeTab(MysticalAgriculture.tabMysticalAgriculture);
 		this.setSoundType(sound);
@@ -35,65 +35,66 @@ public class BlockInferiumOre extends Block {
 	}
 
     @Nullable
-    public Item getItemDropped(IBlockState state, Random rand, int fortune)
-    {
+    public Item getItemDropped(IBlockState state, Random rand, int fortune){
         return ModItems.inferium_essence;
     }
 
-    public int quantityDropped(Random random)
-    {
-        return 2 + random.nextInt(2);
+    public int quantityDropped(Random random){
+    	int amount = 0;
+    	if(this == ModBlocks.inferium_ore){
+    		amount = 2 + random.nextInt(2);
+    	}
+    	if(this == ModBlocks.nether_inferium_ore){
+    		amount = 3 + random.nextInt(2);
+    	}
+    	if(this == ModBlocks.end_inferium_ore){
+    		amount = 4 + random.nextInt(2);
+    	}
+        return amount; 
     }
 
-    public int quantityDroppedWithBonus(int fortune, Random random)
-    {
-        if (fortune > 0 && Item.getItemFromBlock(this) != this.getItemDropped((IBlockState)this.getBlockState().getValidStates().iterator().next(), random, fortune))
-        {
+    public int quantityDroppedWithBonus(int fortune, Random random){
+        if(fortune > 0 && Item.getItemFromBlock(this) != this.getItemDropped((IBlockState)this.getBlockState().getValidStates().iterator().next(), random, fortune)){
             int i = random.nextInt(fortune + 2) - 1;
 
-            if (i < 1)
-            {
+            if(i < 1){
                 i = 1;
             }
-
             return this.quantityDropped(random) * (i);
-        }
-        else
-        {
+        } else {
             return this.quantityDropped(random);
         }
     }
 
-    public void dropBlockAsItemWithChance(World worldIn, BlockPos pos, IBlockState state, float chance, int fortune)
-    {
+    public void dropBlockAsItemWithChance(World worldIn, BlockPos pos, IBlockState state, float chance, int fortune){
         super.dropBlockAsItemWithChance(worldIn, pos, state, chance, fortune);
     }
     
     @Override
-    public int getExpDrop(IBlockState state, net.minecraft.world.IBlockAccess world, BlockPos pos, int fortune)
-    {
+    public int getExpDrop(IBlockState state, net.minecraft.world.IBlockAccess world, BlockPos pos, int fortune){
         Random rand = world instanceof World ? ((World)world).rand : new Random();
-        if (this.getItemDropped(state, rand, fortune) != Item.getItemFromBlock(this))
-        {
+        if(this.getItemDropped(state, rand, fortune) != Item.getItemFromBlock(this)){
             int i = 0;
 
-            if (this == ModBlocks.inferium_ore)
-            {
+            if(this == ModBlocks.inferium_ore){
+                i = MathHelper.getRandomIntegerInRange(rand, 1, 3);
+            }
+            if(this == ModBlocks.nether_inferium_ore){
                 i = MathHelper.getRandomIntegerInRange(rand, 1, 4);
             }
-
+            if(this == ModBlocks.end_inferium_ore){
+                i = MathHelper.getRandomIntegerInRange(rand, 1, 5);
+            }
             return i;
         }
         return 0;
     }
 
-    public ItemStack getItem(World worldIn, BlockPos pos, IBlockState state)
-    {
+    public ItemStack getItem(World worldIn, BlockPos pos, IBlockState state){
         return new ItemStack(this);
     }
 
-    public int damageDropped(IBlockState state)
-    {
+    public int damageDropped(IBlockState state){
         return 0;
     }
 }

@@ -2,12 +2,12 @@ package com.blakebr0.mysticalagriculture.items;
 
 import java.util.List;
 
-import com.blakebr0.mysticalagriculture.blocks.BlockMysticalCrop;
-import com.blakebr0.mysticalagriculture.blocks.BlockTier1InferiumCrop;
-import com.blakebr0.mysticalagriculture.blocks.BlockTier2InferiumCrop;
-import com.blakebr0.mysticalagriculture.blocks.BlockTier3InferiumCrop;
-import com.blakebr0.mysticalagriculture.blocks.BlockTier4InferiumCrop;
-import com.blakebr0.mysticalagriculture.blocks.BlockTier5InferiumCrop;
+import com.blakebr0.mysticalagriculture.blocks.crop.BlockMysticalCrop;
+import com.blakebr0.mysticalagriculture.blocks.crop.BlockTier1InferiumCrop;
+import com.blakebr0.mysticalagriculture.blocks.crop.BlockTier2InferiumCrop;
+import com.blakebr0.mysticalagriculture.blocks.crop.BlockTier3InferiumCrop;
+import com.blakebr0.mysticalagriculture.blocks.crop.BlockTier4InferiumCrop;
+import com.blakebr0.mysticalagriculture.blocks.crop.BlockTier5InferiumCrop;
 import com.blakebr0.mysticalagriculture.config.ModConfig;
 
 import net.minecraft.block.Block;
@@ -36,7 +36,6 @@ public class ItemFertilizedEssence extends BaseItem {
 	public void addInformation(ItemStack stack, EntityPlayer player, List tooltip, boolean advanced){
 		tooltip.add("Bonemeal that works on Resource Crops.");
 		if(ModConfig.fertilized_essence_chance > 0){ tooltip.add("Drop Chance: \u00A7d" + ModConfig.fertilized_essence_chance + "%"); }
-		super.addInformation(stack, player, tooltip, advanced);
 	}
 	
     public static boolean applyFertilizer(ItemStack stack, World worldIn, BlockPos target, EntityPlayer player){

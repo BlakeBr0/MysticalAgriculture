@@ -28,6 +28,5 @@ public class ItemCharmSpeed extends BaseItem {
 		} else {
 			tooltip.add("Hold \u00A7e\u00A7oSHIFT \u00A7r\u00A77for info.");
 		}
-		super.addInformation(stack, player, tooltip, advanced);
 	}
 }

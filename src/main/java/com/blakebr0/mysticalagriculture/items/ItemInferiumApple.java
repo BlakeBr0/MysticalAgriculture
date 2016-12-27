@@ -51,7 +51,5 @@ public class ItemInferiumApple extends ItemFood {
 	public void addInformation(ItemStack stack, EntityPlayer player, List tooltip, boolean advanced){
 		tooltip.add("Gives Buffs:");
 		tooltip.add("- \u00A7eAbsorption II \u00A77(" + ModConfig.apple_buff_duration + ":00)");
-		super.addInformation(stack, player, tooltip, advanced);
 	}
-
 }

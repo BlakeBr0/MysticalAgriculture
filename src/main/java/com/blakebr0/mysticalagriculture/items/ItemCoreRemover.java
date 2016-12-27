@@ -51,7 +51,5 @@ public class ItemCoreRemover extends Item {
     public void addInformation(ItemStack stack, EntityPlayer player, List tooltip, boolean advanced){
     	int damage = stack.getMaxDamage() - stack.getItemDamage() + 1;
     	tooltip.add("Uses Left: \u00A7c" + damage);
-        super.addInformation(stack, player, tooltip, advanced);
     }
-    
 }

@@ -36,12 +36,11 @@ public class ItemMasterInfusionCrystal extends Item {
     @Override
     public boolean hasEffect(ItemStack stack){
     	return true;
-    };
+    }
     
     @Override
     @SideOnly(Side.CLIENT)
     public void addInformation(ItemStack stack, EntityPlayer player, List tooltip, boolean advanced){
     	tooltip.add("Uses Left: \u00A7cUnlimited");
-        super.addInformation(stack, player, tooltip, advanced);
     }
 }

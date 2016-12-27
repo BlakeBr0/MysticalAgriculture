@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.blakebr0.mysticalagriculture.MysticalAgriculture;
 import com.blakebr0.mysticalagriculture.blocks.ModBlocks;
+import com.blakebr0.mysticalagriculture.blocks.crop.BlockMysticalCrop;
 
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
@@ -20,8 +21,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class ItemSeed extends ItemSeeds {
 	
-	private Block crops;
-	
+	private final Block crops;
 	public int tier;
 	
 	public ItemSeed(String name, Block crops, int tier){
@@ -32,8 +32,8 @@ public class ItemSeed extends ItemSeeds {
         this.crops = crops;
         this.tier = tier;
 	}
-		
-    @Override
+
+	@Override
     @SideOnly(Side.CLIENT)
     public void addInformation(ItemStack stack, EntityPlayer player, List tooltip, boolean advanced){
         switch(this.tier - 1){
@@ -53,6 +53,5 @@ public class ItemSeed extends ItemSeeds {
         	tooltip.add("Tier: \u00A7c5");
             break;
         }
-        super.addInformation(stack, player, tooltip, advanced);
     }
 }

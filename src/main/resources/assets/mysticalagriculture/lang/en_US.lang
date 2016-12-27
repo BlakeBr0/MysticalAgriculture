@@ -21,27 +21,27 @@ tile.ma.soulstone.name=Soulstone
 
 tile.ma.inferium_furnace.name=§eInferium Furnace
 tile.ma.inferium_furnace_active.name=§eInferium Furnace
-container.mysticalagriculture:inferium_furnace.name=Inferium Furnace
+container.ma.inferium_furnace.name=Inferium Furnace
 
 tile.ma.prudentium_furnace.name=§aPrudentium Furnace
 tile.ma.prudentium_furnace_active.name=§aPrudentium Furnace
-container.mysticalagriculture:prudentium_furnace.name=Prudentium Furnace
+container.ma.prudentium_furnace.name=Prudentium Furnace
 
 tile.ma.intermedium_furnace.name=§6Intermedium Furnace
 tile.ma.intermedium_furnace_active.name=§6Intermedium Furnace
-container.mysticalagriculture:intermedium_furnace.name=Intermedium Furnace
+container.ma.intermedium_furnace.name=Intermedium Furnace
 
 tile.ma.superium_furnace.name=§bSuperium Furnace
 tile.ma.superium_furnace_active.name=§bSuperium Furnace
-container.mysticalagriculture:superium_furnace.name=Superium Furnace
+container.ma.superium_furnace.name=Superium Furnace
 
 tile.ma.supremium_furnace.name=§cSupremium Furnace
 tile.ma.supremium_furnace_active.name=§cSupremium Furnace
-container.mysticalagriculture:supremium_furnace.name=Supremium Furnace
+container.ma.supremium_furnace.name=Supremium Furnace
 
 tile.ma.ultimate_furnace.name=§8Ultimate Furnace
 tile.ma.ultimate_furnace_active.name=§8Ultimate Furnace
-container.mysticalagriculture:ultimate_furnace.name=Ultimate Furnace
+container.ma.ultimate_furnace.name=Ultimate Furnace
 
 # ORES
 tile.ma.prosperity_ore.name=Prosperity Ore
@@ -68,6 +68,7 @@ tile.ma.dirt_crop.name=Dirt Crop
 tile.ma.nature_crop.name=Nature Crop
 tile.ma.wood_crop.name=Wood Crop
 tile.ma.water_crop.name=Water Crop
+tile.ma.ice_crop.name=Ice Crop
 tile.ma.fire_crop.name=Fire Crop
 tile.ma.dye_crop.name=Dye Crop
 tile.ma.nether_crop.name=Nether Crop
@@ -99,6 +100,7 @@ tile.ma.ghast_crop.name=Ghast Crop
 tile.ma.enderman_crop.name=Enderman Crop
 tile.ma.wither_skeleton_crop.name=Wither Skeleton Crop
 
+tile.ma.rubber_crop.name=Rubber Crop
 tile.ma.aluminum_crop.name=Aluminum Crop
 tile.ma.copper_crop.name=Copper Crop
 tile.ma.tin_crop.name=Tin Crop
@@ -106,6 +108,8 @@ tile.ma.bronze_crop.name=Bronze Crop
 tile.ma.silver_crop.name=Silver Crop
 tile.ma.lead_crop.name=Lead Crop
 tile.ma.steel_crop.name=Steel Crop
+tile.ma.nickel_crop.name=Nickel Crop
+tile.ma.electrum_crop.name=Electrum Crop
 
 tile.ma.ruby_crop.name=Ruby Crop
 tile.ma.sapphire_crop.name=Sapphire Crop
@@ -139,7 +143,10 @@ tile.ma.yellorium_crop.name=Yellorium Crop
 
 tile.ma.certus_quartz_crop.name=Certus Quartz Crop
 tile.ma.fluix_crop.name=Fluix Crop
+
 tile.ma.quartz_enriched_iron_crop.name=Quartz Enriched Iron Crop
+
+tile.ma.constantan_crop.name=Constantan Crop
 
 # BASE ESSENCES
 item.ma.inferium_essence.name=§eInferium Essence
@@ -216,6 +223,7 @@ item.ma.dirt_essence.name=Dirt Essence
 item.ma.nature_essence.name=Nature Essence
 item.ma.wood_essence.name=Wood Essence
 item.ma.water_essence.name=Water Essence
+item.ma.ice_essence.name=Ice Essence
 item.ma.fire_essence.name=Fire Essence
 item.ma.dye_essence.name=Dye Essence
 item.ma.nether_essence.name=Nether Essence
@@ -247,6 +255,7 @@ item.ma.ghast_essence.name=Ghast Essence
 item.ma.enderman_essence.name=Enderman Essence
 item.ma.wither_skeleton_essence.name=Wither Skeleton Essence
 
+item.ma.rubber_essence.name=Rubber Essence
 item.ma.aluminum_essence.name=Aluminum Essence
 item.ma.copper_essence.name=Copper Essence
 item.ma.tin_essence.name=Tin Essence
@@ -254,6 +263,8 @@ item.ma.bronze_essence.name=Bronze Essence
 item.ma.silver_essence.name=Silver Essence
 item.ma.lead_essence.name=Lead Essence
 item.ma.steel_essence.name=Steel Essence
+item.ma.nickel_essence.name=Nickel Essence
+item.ma.electrum_essence.name=Electrum Essence
 
 item.ma.ruby_essence.name=Ruby Essence
 item.ma.sapphire_essence.name=Sapphire Essence
@@ -290,6 +301,8 @@ item.ma.fluix_essence.name=Fluix Essence
 
 item.ma.quartz_enriched_iron_essence.name=Quartz Enriched Iron Essence
 
+item.ma.constantan_essence.name=Constantan Essence
+
 # SEEDS
 item.ma.tier1_inferium_seeds.name=Inferior Inferium Seeds
 item.ma.tier2_inferium_seeds.name=Prudent Inferium Seeds
@@ -302,6 +315,7 @@ item.ma.dirt_seeds.name=Dirt Seeds
 item.ma.nature_seeds.name=Nature Seeds
 item.ma.wood_seeds.name=Wood Seeds
 item.ma.water_seeds.name=Water Seeds
+item.ma.ice_seeds.name=Ice Seeds
 item.ma.fire_seeds.name=Fire Seeds
 item.ma.dye_seeds.name=Dye Seeds
 item.ma.nether_seeds.name=Nether Seeds
@@ -333,6 +347,7 @@ item.ma.ghast_seeds.name=Ghast Seeds
 item.ma.enderman_seeds.name=Enderman Seeds
 item.ma.wither_skeleton_seeds.name=Wither Skeleton Seeds
 
+item.ma.rubber_seeds.name=Rubber Seeds
 item.ma.aluminum_seeds.name=Aluminum Seeds
 item.ma.copper_seeds.name=Copper Seeds
 item.ma.tin_seeds.name=Tin Seeds
@@ -340,6 +355,8 @@ item.ma.bronze_seeds.name=Bronze Seeds
 item.ma.silver_seeds.name=Silver Seeds
 item.ma.lead_seeds.name=Lead Seeds
 item.ma.steel_seeds.name=Steel Seeds
+item.ma.nickel_seeds.name=Nickel Seeds
+item.ma.electrum_seeds.name=Electrum Seeds
 
 item.ma.ruby_seeds.name=Ruby Seeds
 item.ma.sapphire_seeds.name=Sapphire Seeds
@@ -375,6 +392,8 @@ item.ma.certus_quartz_seeds.name=Certus Quartz Seeds
 item.ma.fluix_seeds.name=Fluix Seeds
 
 item.ma.quartz_enriched_iron_seeds.name=Quartz Enriched Iron Seeds
+
+item.ma.constantan_seeds.name=Constantan Seeds
 
 # GEAR ITEMS
 item.ma.inferium_ingot.name=§eInferium Ingot

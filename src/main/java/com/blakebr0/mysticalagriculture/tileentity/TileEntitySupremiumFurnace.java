@@ -83,7 +83,7 @@ public class TileEntitySupremiumFurnace extends TileEntityLockable implements IT
     }
 
     public String getName(){
-        return this.hasCustomName() ? this.furnaceCustomName : "container.mysticalagriculture:supremium_furnace.name";
+        return this.hasCustomName() ? this.furnaceCustomName : "container.ma.supremium_furnace.name";
     }
 
     public boolean hasCustomName(){

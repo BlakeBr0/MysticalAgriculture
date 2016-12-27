@@ -1,9 +1,6 @@
 package com.blakebr0.mysticalagriculture.crafting;
 
-import com.blakebr0.mysticalagriculture.items.armor.sepremium.ItemSupremiumBoots;
-import com.blakebr0.mysticalagriculture.items.armor.sepremium.ItemSupremiumChestplate;
-import com.blakebr0.mysticalagriculture.items.armor.sepremium.ItemSupremiumHelmet;
-import com.blakebr0.mysticalagriculture.items.armor.sepremium.ItemSupremiumLeggings;
+import com.blakebr0.mysticalagriculture.items.armor.ItemSupremiumArmor;
 import com.blakebr0.mysticalagriculture.util.NBTHelper;
 
 import net.minecraft.inventory.InventoryCrafting;
@@ -36,7 +33,7 @@ public class CharmRecipe extends ShapelessOreRecipe {
         for(int i = 0; i < inventoryCrafting.getSizeInventory(); i++){
             slotStack = inventoryCrafting.getStackInSlot(i);
             if(slotStack != null && slotStack.getItem() != null){
-                if(slotStack.getItem() instanceof ItemSupremiumHelmet || slotStack.getItem() instanceof ItemSupremiumChestplate || slotStack.getItem() instanceof ItemSupremiumLeggings || slotStack.getItem() instanceof ItemSupremiumBoots){
+                if(slotStack.getItem() instanceof ItemSupremiumArmor){
                     tags = (NBTTagCompound) NBTHelper.getDataMap(slotStack).copy();
 	 				int newDamage = MathHelper.clamp_int(slotStack.getItemDamage(), 0, result.getMaxDamage());
 	 				result.setItemDamage(newDamage);
@@ -44,8 +41,6 @@ public class CharmRecipe extends ShapelessOreRecipe {
                 }
             }
         }
-        
-        
         
         if(tags != null){
             result.setTagCompound(tags);

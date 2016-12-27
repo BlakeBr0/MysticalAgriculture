@@ -63,7 +63,5 @@ public class ItemIntermediumApple extends ItemFood {
 		tooltip.add("- \u00A7eAbsorption II \u00A77(" + ModConfig.apple_buff_duration + ":00)");
 		tooltip.add("- \u00A7aSpeed II \u00A77(" + ModConfig.apple_buff_duration + ":00)");
 		tooltip.add("- \u00A76Resistance II \u00A77(" + ModConfig.apple_buff_duration + ":00)");
-		super.addInformation(stack, player, tooltip, advanced);
 	}
-
 }

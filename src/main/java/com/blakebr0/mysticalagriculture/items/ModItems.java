@@ -6,51 +6,21 @@ import java.util.List;
 import com.blakebr0.mysticalagriculture.MysticalAgriculture;
 import com.blakebr0.mysticalagriculture.blocks.ModBlocks;
 import com.blakebr0.mysticalagriculture.config.ModConfig;
-import com.blakebr0.mysticalagriculture.items.BaseCropDrops.FluixCrop;
-import com.blakebr0.mysticalagriculture.items.armor.inferium.ItemInferiumBoots;
-import com.blakebr0.mysticalagriculture.items.armor.inferium.ItemInferiumChestplate;
-import com.blakebr0.mysticalagriculture.items.armor.inferium.ItemInferiumHelmet;
-import com.blakebr0.mysticalagriculture.items.armor.inferium.ItemInferiumLeggings;
-import com.blakebr0.mysticalagriculture.items.armor.intermedium.ItemIntermediumBoots;
-import com.blakebr0.mysticalagriculture.items.armor.intermedium.ItemIntermediumChestplate;
-import com.blakebr0.mysticalagriculture.items.armor.intermedium.ItemIntermediumHelmet;
-import com.blakebr0.mysticalagriculture.items.armor.intermedium.ItemIntermediumLeggings;
-import com.blakebr0.mysticalagriculture.items.armor.prudentium.ItemPrudentiumBoots;
-import com.blakebr0.mysticalagriculture.items.armor.prudentium.ItemPrudentiumChestplate;
-import com.blakebr0.mysticalagriculture.items.armor.prudentium.ItemPrudentiumHelmet;
-import com.blakebr0.mysticalagriculture.items.armor.prudentium.ItemPrudentiumLeggings;
-import com.blakebr0.mysticalagriculture.items.armor.sepremium.ItemSupremiumBoots;
-import com.blakebr0.mysticalagriculture.items.armor.sepremium.ItemSupremiumChestplate;
-import com.blakebr0.mysticalagriculture.items.armor.sepremium.ItemSupremiumHelmet;
-import com.blakebr0.mysticalagriculture.items.armor.sepremium.ItemSupremiumLeggings;
-import com.blakebr0.mysticalagriculture.items.armor.sepremium.upgraded.ItemBootsAbsorption;
-import com.blakebr0.mysticalagriculture.items.armor.sepremium.upgraded.ItemBootsAntivenom;
-import com.blakebr0.mysticalagriculture.items.armor.sepremium.upgraded.ItemBootsFire;
-import com.blakebr0.mysticalagriculture.items.armor.sepremium.upgraded.ItemBootsJump;
-import com.blakebr0.mysticalagriculture.items.armor.sepremium.upgraded.ItemBootsResistance;
-import com.blakebr0.mysticalagriculture.items.armor.sepremium.upgraded.ItemBootsWither;
-import com.blakebr0.mysticalagriculture.items.armor.sepremium.upgraded.ItemChestplateAbsorption;
-import com.blakebr0.mysticalagriculture.items.armor.sepremium.upgraded.ItemChestplateAntivenom;
-import com.blakebr0.mysticalagriculture.items.armor.sepremium.upgraded.ItemChestplateFire;
-import com.blakebr0.mysticalagriculture.items.armor.sepremium.upgraded.ItemChestplateResistance;
-import com.blakebr0.mysticalagriculture.items.armor.sepremium.upgraded.ItemChestplateStrength;
-import com.blakebr0.mysticalagriculture.items.armor.sepremium.upgraded.ItemChestplateWither;
-import com.blakebr0.mysticalagriculture.items.armor.sepremium.upgraded.ItemHelmetAbsorption;
-import com.blakebr0.mysticalagriculture.items.armor.sepremium.upgraded.ItemHelmetAntivenom;
-import com.blakebr0.mysticalagriculture.items.armor.sepremium.upgraded.ItemHelmetFire;
-import com.blakebr0.mysticalagriculture.items.armor.sepremium.upgraded.ItemHelmetNightvision;
-import com.blakebr0.mysticalagriculture.items.armor.sepremium.upgraded.ItemHelmetResistance;
-import com.blakebr0.mysticalagriculture.items.armor.sepremium.upgraded.ItemHelmetWither;
-import com.blakebr0.mysticalagriculture.items.armor.sepremium.upgraded.ItemLeggingsAbsorption;
-import com.blakebr0.mysticalagriculture.items.armor.sepremium.upgraded.ItemLeggingsAntivenom;
-import com.blakebr0.mysticalagriculture.items.armor.sepremium.upgraded.ItemLeggingsFire;
-import com.blakebr0.mysticalagriculture.items.armor.sepremium.upgraded.ItemLeggingsResistance;
-import com.blakebr0.mysticalagriculture.items.armor.sepremium.upgraded.ItemLeggingsSpeed;
-import com.blakebr0.mysticalagriculture.items.armor.sepremium.upgraded.ItemLeggingsWither;
-import com.blakebr0.mysticalagriculture.items.armor.superium.ItemSuperiumBoots;
-import com.blakebr0.mysticalagriculture.items.armor.superium.ItemSuperiumChestplate;
-import com.blakebr0.mysticalagriculture.items.armor.superium.ItemSuperiumHelmet;
-import com.blakebr0.mysticalagriculture.items.armor.superium.ItemSuperiumLeggings;
+import com.blakebr0.mysticalagriculture.handler.ItemColorHandler;
+import com.blakebr0.mysticalagriculture.items.armor.ItemInferiumArmor;
+import com.blakebr0.mysticalagriculture.items.armor.ItemIntermediumArmor;
+import com.blakebr0.mysticalagriculture.items.armor.ItemPrudentiumArmor;
+import com.blakebr0.mysticalagriculture.items.armor.ItemSuperiumArmor;
+import com.blakebr0.mysticalagriculture.items.armor.ItemSupremiumArmor;
+import com.blakebr0.mysticalagriculture.items.armor.upgraded.ItemUpgradedAntivenom;
+import com.blakebr0.mysticalagriculture.items.armor.upgraded.ItemUpgradedNightvision;
+import com.blakebr0.mysticalagriculture.items.armor.upgraded.ItemUpgradedWither;
+import com.blakebr0.mysticalagriculture.items.armor.upgraded.ItemUpgradedJump;
+import com.blakebr0.mysticalagriculture.items.armor.upgraded.ItemUpgradedFire;
+import com.blakebr0.mysticalagriculture.items.armor.upgraded.ItemUpgradedResistance;
+import com.blakebr0.mysticalagriculture.items.armor.upgraded.ItemUpgradedSpeed;
+import com.blakebr0.mysticalagriculture.items.armor.upgraded.ItemUpgradedStrength;
+import com.blakebr0.mysticalagriculture.items.armor.upgraded.ItemUpgradedAbsorption;
 import com.blakebr0.mysticalagriculture.items.charms.ItemCharmAbsorption;
 import com.blakebr0.mysticalagriculture.items.charms.ItemCharmAntivenom;
 import com.blakebr0.mysticalagriculture.items.charms.ItemCharmFire;
@@ -87,7 +57,6 @@ import com.blakebr0.mysticalagriculture.items.tools.supremium.ItemSupremiumShove
 import com.blakebr0.mysticalagriculture.items.tools.supremium.ItemSupremiumSword;
 import com.blakebr0.mysticalagriculture.items.tools.supremium.upgraded.ItemSwordStrength;
 import com.blakebr0.mysticalagriculture.lib.ModToolMaterials;
-import com.sun.jndi.url.iiopname.iiopnameURLContextFactory;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
@@ -176,6 +145,7 @@ public class ModItems {
 	public static BaseItem nature_essence = new BaseItem("nature_essence");
 	public static BaseItem wood_essence = new BaseItem("wood_essence");
 	public static BaseItem water_essence = new BaseItem("water_essence");
+	public static BaseItem ice_essence = new BaseItem("ice_essence");
 	public static BaseItem fire_essence = new BaseItem("fire_essence");
 	public static BaseItem dye_essence = new BaseItem("dye_essence");
 	public static BaseItem nether_essence = new BaseItem("nether_essence");
@@ -207,6 +177,7 @@ public class ModItems {
 	public static BaseItem enderman_essence = new BaseItem("enderman_essence");
 	public static BaseItem wither_skeleton_essence = new BaseItem("wither_skeleton_essence");
 	
+	public static BaseItem rubber_essence = new BaseItem("rubber_essence");
 	public static BaseItem aluminum_essence = new BaseItem("aluminum_essence");
 	public static BaseItem copper_essence = new BaseItem("copper_essence");
 	public static BaseItem tin_essence = new BaseItem("tin_essence");
@@ -214,6 +185,8 @@ public class ModItems {
 	public static BaseItem silver_essence = new BaseItem("silver_essence");
 	public static BaseItem lead_essence = new BaseItem("lead_essence");
 	public static BaseItem steel_essence = new BaseItem("steel_essence");
+	public static BaseItem nickel_essence = new BaseItem("nickel_essence");
+	public static BaseItem electrum_essence = new BaseItem("electrum_essence");
 	
 	public static BaseItem ruby_essence = new BaseItem("ruby_essence");
 	public static BaseItem sapphire_essence = new BaseItem("sapphire_essence");
@@ -250,17 +223,20 @@ public class ModItems {
 	
 	public static BaseItem quartz_enriched_iron_essence = new BaseItem("quartz_enriched_iron_essence");
 	
+	public static BaseItem constantan_essence = new BaseItem("constantan_essence");
+	
 	public static ItemSeed tier1_inferium_seeds = new ItemSeed("tier1_inferium_seeds", ModBlocks.tier1_inferium_crop, 1);
 	public static ItemSeed tier2_inferium_seeds = new ItemSeed("tier2_inferium_seeds", ModBlocks.tier2_inferium_crop, 2);
 	public static ItemSeed tier3_inferium_seeds = new ItemSeed("tier3_inferium_seeds", ModBlocks.tier3_inferium_crop, 3);
 	public static ItemSeed tier4_inferium_seeds = new ItemSeed("tier4_inferium_seeds", ModBlocks.tier4_inferium_crop, 4);
-	public static ItemSeed tier5_inferium_seeds = new ItemSeed("tier5_inferium_seeds", ModBlocks.tier5_inferium_crop, 5);
+	public static ItemSeed tier5_inferium_seeds = new ItemSeed("tier5_inferium_seeds", ModBlocks.tier5_inferium_crop, 5); 
 	
 	public static ItemSeed stone_seeds = new ItemSeed("stone_seeds", ModBlocks.stone_crop, ModConfig.stone_tier);
 	public static ItemSeed dirt_seeds = new ItemSeed("dirt_seeds", ModBlocks.dirt_crop, ModConfig.dirt_tier);
 	public static ItemSeed nature_seeds = new ItemSeed("nature_seeds", ModBlocks.nature_crop, ModConfig.nature_tier);
 	public static ItemSeed wood_seeds = new ItemSeed("wood_seeds", ModBlocks.wood_crop, ModConfig.wood_tier);
 	public static ItemSeed water_seeds = new ItemSeed("water_seeds", ModBlocks.water_crop, ModConfig.water_tier);
+	public static ItemSeed ice_seeds = new ItemSeed("ice_seeds", ModBlocks.ice_crop, ModConfig.ice_tier);
 	public static ItemSeed fire_seeds = new ItemSeed("fire_seeds", ModBlocks.fire_crop, ModConfig.fire_tier);
 	public static ItemSeed dye_seeds = new ItemSeed("dye_seeds", ModBlocks.dye_crop, ModConfig.dye_tier);
 	public static ItemSeed nether_seeds = new ItemSeed("nether_seeds", ModBlocks.nether_crop, ModConfig.nether_tier);
@@ -292,6 +268,7 @@ public class ModItems {
 	public static ItemSeed enderman_seeds = new ItemSeed("enderman_seeds", ModBlocks.enderman_crop, ModConfig.enderman_tier);
 	public static ItemSeed wither_skeleton_seeds = new ItemSeed("wither_skeleton_seeds", ModBlocks.wither_skeleton_crop, ModConfig.wither_skeleton_tier);
 	
+	public static ItemSeed rubber_seeds = new ItemSeed("rubber_seeds", ModBlocks.rubber_crop, ModConfig.rubber_tier);
 	public static ItemSeed aluminum_seeds = new ItemSeed("aluminum_seeds", ModBlocks.aluminum_crop, ModConfig.aluminum_tier);
 	public static ItemSeed copper_seeds = new ItemSeed("copper_seeds", ModBlocks.copper_crop, ModConfig.copper_tier);
 	public static ItemSeed tin_seeds = new ItemSeed("tin_seeds", ModBlocks.tin_crop, ModConfig.tin_tier);
@@ -299,6 +276,8 @@ public class ModItems {
 	public static ItemSeed silver_seeds = new ItemSeed("silver_seeds", ModBlocks.silver_crop, ModConfig.silver_tier);
 	public static ItemSeed lead_seeds = new ItemSeed("lead_seeds", ModBlocks.lead_crop, ModConfig.lead_tier);
 	public static ItemSeed steel_seeds = new ItemSeed("steel_seeds", ModBlocks.steel_crop, ModConfig.steel_tier);
+	public static ItemSeed nickel_seeds = new ItemSeed("nickel_seeds", ModBlocks.nickel_crop, ModConfig.nickel_tier);
+	public static ItemSeed electrum_seeds = new ItemSeed("electrum_seeds", ModBlocks.electrum_crop, ModConfig.electrum_tier);
 	
 	public static ItemSeed ruby_seeds = new ItemSeed("ruby_seeds", ModBlocks.ruby_crop, ModConfig.ruby_tier);
 	public static ItemSeed sapphire_seeds = new ItemSeed("sapphire_seeds", ModBlocks.sapphire_crop, ModConfig.sapphire_tier);
@@ -335,6 +314,8 @@ public class ModItems {
 	
 	public static ItemSeed quartz_enriched_iron_seeds = new ItemSeed("quartz_enriched_iron_seeds", ModBlocks.quartz_enriched_iron_crop, ModConfig.quartz_enriched_iron_tier);
 	
+	public static ItemSeed constantan_seeds = new ItemSeed("constantan_seeds", ModBlocks.constantan_crop, ModConfig.constantan_tier);
+	
 	public static BaseItem inferium_ingot = new BaseItem("inferium_ingot");
 	public static BaseItem prudentium_ingot = new BaseItem("prudentium_ingot");
 	public static BaseItem intermedium_ingot = new BaseItem("intermedium_ingot");
@@ -353,7 +334,7 @@ public class ModItems {
 	public static ItemCore intermedium_armor_core = new ItemCore("intermedium_armor_core");
 	public static ItemCore superium_armor_core = new ItemCore("superium_armor_core");
 	public static ItemCore supremium_armor_core = new ItemCore("supremium_armor_core");
-	
+
 	public static BaseItem charm_blank = new BaseItem("charm_blank");
 	public static ItemCharmNightvision charm_nightvision = new ItemCharmNightvision("charm_nightvision");
 	public static ItemCharmAbsorption charm_absorption = new ItemCharmAbsorption("charm_absorption");
@@ -399,58 +380,58 @@ public class ModItems {
 	public static ItemSwordStrength supremium_sword_strength1 = new ItemSwordStrength(ModToolMaterials.SUPREMIUM_STRENGTH1, "supremium_sword_strength1");
 	public static ItemSwordStrength supremium_sword_strength2 = new ItemSwordStrength(ModToolMaterials.SUPREMIUM_STRENGTH2, "supremium_sword_strength2");
 	
-	public static ItemInferiumHelmet inferium_helmet = new ItemInferiumHelmet("inferium_helmet", ModToolMaterials.INFERIUM_ARMOR, 0, EntityEquipmentSlot.HEAD);
-	public static ItemInferiumChestplate inferium_chestplate = new ItemInferiumChestplate("inferium_chestplate", ModToolMaterials.INFERIUM_ARMOR, 0, EntityEquipmentSlot.CHEST);
-	public static ItemInferiumLeggings inferium_leggings = new ItemInferiumLeggings("inferium_leggings", ModToolMaterials.INFERIUM_ARMOR, 0, EntityEquipmentSlot.LEGS);
-	public static ItemInferiumBoots inferium_boots = new ItemInferiumBoots("inferium_boots", ModToolMaterials.INFERIUM_ARMOR, 0, EntityEquipmentSlot.FEET);
+	public static ItemInferiumArmor inferium_helmet = new ItemInferiumArmor("inferium_helmet", ModToolMaterials.INFERIUM_ARMOR, 0, EntityEquipmentSlot.HEAD);
+	public static ItemInferiumArmor inferium_chestplate = new ItemInferiumArmor("inferium_chestplate", ModToolMaterials.INFERIUM_ARMOR, 0, EntityEquipmentSlot.CHEST);
+	public static ItemInferiumArmor inferium_leggings = new ItemInferiumArmor("inferium_leggings", ModToolMaterials.INFERIUM_ARMOR, 0, EntityEquipmentSlot.LEGS);
+	public static ItemInferiumArmor inferium_boots = new ItemInferiumArmor("inferium_boots", ModToolMaterials.INFERIUM_ARMOR, 0, EntityEquipmentSlot.FEET);
 	
-	public static ItemPrudentiumHelmet prudentium_helmet = new ItemPrudentiumHelmet("prudentium_helmet", ModToolMaterials.PRUDENTIUM_ARMOR, 0, EntityEquipmentSlot.HEAD);
-	public static ItemPrudentiumChestplate prudentium_chestplate = new ItemPrudentiumChestplate("prudentium_chestplate", ModToolMaterials.PRUDENTIUM_ARMOR, 0, EntityEquipmentSlot.CHEST);
-	public static ItemPrudentiumLeggings prudentium_leggings = new ItemPrudentiumLeggings("prudentium_leggings", ModToolMaterials.PRUDENTIUM_ARMOR, 0, EntityEquipmentSlot.LEGS);
-	public static ItemPrudentiumBoots prudentium_boots = new ItemPrudentiumBoots("prudentium_boots", ModToolMaterials.PRUDENTIUM_ARMOR, 0, EntityEquipmentSlot.FEET);
+	public static ItemPrudentiumArmor prudentium_helmet = new ItemPrudentiumArmor("prudentium_helmet", ModToolMaterials.PRUDENTIUM_ARMOR, 0, EntityEquipmentSlot.HEAD);
+	public static ItemPrudentiumArmor prudentium_chestplate = new ItemPrudentiumArmor("prudentium_chestplate", ModToolMaterials.PRUDENTIUM_ARMOR, 0, EntityEquipmentSlot.CHEST);
+	public static ItemPrudentiumArmor prudentium_leggings = new ItemPrudentiumArmor("prudentium_leggings", ModToolMaterials.PRUDENTIUM_ARMOR, 0, EntityEquipmentSlot.LEGS);
+	public static ItemPrudentiumArmor prudentium_boots = new ItemPrudentiumArmor("prudentium_boots", ModToolMaterials.PRUDENTIUM_ARMOR, 0, EntityEquipmentSlot.FEET);
 	
-	public static ItemIntermediumHelmet intermedium_helmet = new ItemIntermediumHelmet("intermedium_helmet", ModToolMaterials.INTERMEDIUM_ARMOR, 0, EntityEquipmentSlot.HEAD);
-	public static ItemIntermediumChestplate intermedium_chestplate = new ItemIntermediumChestplate("intermedium_chestplate", ModToolMaterials.INTERMEDIUM_ARMOR, 0, EntityEquipmentSlot.CHEST);
-	public static ItemIntermediumLeggings intermedium_leggings = new ItemIntermediumLeggings("intermedium_leggings", ModToolMaterials.INTERMEDIUM_ARMOR, 0, EntityEquipmentSlot.LEGS);
-	public static ItemIntermediumBoots intermedium_boots = new ItemIntermediumBoots("intermedium_boots", ModToolMaterials.INTERMEDIUM_ARMOR, 0, EntityEquipmentSlot.FEET);
+	public static ItemIntermediumArmor intermedium_helmet = new ItemIntermediumArmor("intermedium_helmet", ModToolMaterials.INTERMEDIUM_ARMOR, 0, EntityEquipmentSlot.HEAD);
+	public static ItemIntermediumArmor intermedium_chestplate = new ItemIntermediumArmor("intermedium_chestplate", ModToolMaterials.INTERMEDIUM_ARMOR, 0, EntityEquipmentSlot.CHEST);
+	public static ItemIntermediumArmor intermedium_leggings = new ItemIntermediumArmor("intermedium_leggings", ModToolMaterials.INTERMEDIUM_ARMOR, 0, EntityEquipmentSlot.LEGS);
+	public static ItemIntermediumArmor intermedium_boots = new ItemIntermediumArmor("intermedium_boots", ModToolMaterials.INTERMEDIUM_ARMOR, 0, EntityEquipmentSlot.FEET);
 	
-	public static ItemSuperiumHelmet superium_helmet = new ItemSuperiumHelmet("superium_helmet", ModToolMaterials.SUPERIUM_ARMOR, 0, EntityEquipmentSlot.HEAD);
-	public static ItemSuperiumChestplate superium_chestplate = new ItemSuperiumChestplate("superium_chestplate", ModToolMaterials.SUPERIUM_ARMOR, 0, EntityEquipmentSlot.CHEST);
-	public static ItemSuperiumLeggings superium_leggings = new ItemSuperiumLeggings("superium_leggings", ModToolMaterials.SUPERIUM_ARMOR, 0, EntityEquipmentSlot.LEGS);
-	public static ItemSuperiumBoots superium_boots = new ItemSuperiumBoots("superium_boots", ModToolMaterials.SUPERIUM_ARMOR, 0, EntityEquipmentSlot.FEET);
+	public static ItemSuperiumArmor superium_helmet = new ItemSuperiumArmor("superium_helmet", ModToolMaterials.SUPERIUM_ARMOR, 0, EntityEquipmentSlot.HEAD);
+	public static ItemSuperiumArmor superium_chestplate = new ItemSuperiumArmor("superium_chestplate", ModToolMaterials.SUPERIUM_ARMOR, 0, EntityEquipmentSlot.CHEST);
+	public static ItemSuperiumArmor superium_leggings = new ItemSuperiumArmor("superium_leggings", ModToolMaterials.SUPERIUM_ARMOR, 0, EntityEquipmentSlot.LEGS);
+	public static ItemSuperiumArmor superium_boots = new ItemSuperiumArmor("superium_boots", ModToolMaterials.SUPERIUM_ARMOR, 0, EntityEquipmentSlot.FEET);
 	
-	public static ItemSupremiumHelmet supremium_helmet = new ItemSupremiumHelmet("supremium_helmet", ModToolMaterials.SUPREMIUM_ARMOR, 0, EntityEquipmentSlot.HEAD);
-	public static ItemSupremiumChestplate supremium_chestplate = new ItemSupremiumChestplate("supremium_chestplate", ModToolMaterials.SUPREMIUM_ARMOR, 0, EntityEquipmentSlot.CHEST);
-	public static ItemSupremiumLeggings supremium_leggings = new ItemSupremiumLeggings("supremium_leggings", ModToolMaterials.SUPREMIUM_ARMOR, 0, EntityEquipmentSlot.LEGS);
-	public static ItemSupremiumBoots supremium_boots = new ItemSupremiumBoots("supremium_boots", ModToolMaterials.SUPREMIUM_ARMOR, 0, EntityEquipmentSlot.FEET);
+	public static ItemSupremiumArmor supremium_helmet = new ItemSupremiumArmor("supremium_helmet", ModToolMaterials.SUPREMIUM_ARMOR, 0, EntityEquipmentSlot.HEAD);
+	public static ItemSupremiumArmor supremium_chestplate = new ItemSupremiumArmor("supremium_chestplate", ModToolMaterials.SUPREMIUM_ARMOR, 0, EntityEquipmentSlot.CHEST);
+	public static ItemSupremiumArmor supremium_leggings = new ItemSupremiumArmor("supremium_leggings", ModToolMaterials.SUPREMIUM_ARMOR, 0, EntityEquipmentSlot.LEGS);
+	public static ItemSupremiumArmor supremium_boots = new ItemSupremiumArmor("supremium_boots", ModToolMaterials.SUPREMIUM_ARMOR, 0, EntityEquipmentSlot.FEET);
 	
-	public static ItemHelmetNightvision supremium_helmet_nightvision = new ItemHelmetNightvision("supremium_helmet_nightvision", ModToolMaterials.SUPREMIUM_ARMOR, 0, EntityEquipmentSlot.HEAD);
-	public static ItemHelmetAbsorption supremium_helmet_absorption = new ItemHelmetAbsorption("supremium_helmet_absorption", ModToolMaterials.SUPREMIUM_ARMOR, 0, EntityEquipmentSlot.HEAD);
-	public static ItemHelmetWither supremium_helmet_wither = new ItemHelmetWither("supremium_helmet_wither", ModToolMaterials.SUPREMIUM_ARMOR, 0, EntityEquipmentSlot.HEAD);
-	public static ItemHelmetAntivenom supremium_helmet_antivenom = new ItemHelmetAntivenom("supremium_helmet_antivenom", ModToolMaterials.SUPREMIUM_ARMOR, 0, EntityEquipmentSlot.HEAD);
-	public static ItemHelmetFire supremium_helmet_fire = new ItemHelmetFire("supremium_helmet_fire", ModToolMaterials.SUPREMIUM_ARMOR, 0, EntityEquipmentSlot.HEAD);	
-	public static ItemHelmetResistance supremium_helmet_resistance = new ItemHelmetResistance("supremium_helmet_resistance", ModToolMaterials.SUPREMIUM_ARMOR, 0, EntityEquipmentSlot.HEAD);
+	public static ItemUpgradedNightvision supremium_helmet_nightvision = new ItemUpgradedNightvision("supremium_helmet_nightvision", ModToolMaterials.SUPREMIUM_ARMOR, 0, EntityEquipmentSlot.HEAD);
+	public static ItemUpgradedAbsorption supremium_helmet_absorption = new ItemUpgradedAbsorption("supremium_helmet_absorption", ModToolMaterials.SUPREMIUM_ARMOR, 0, EntityEquipmentSlot.HEAD);
+	public static ItemUpgradedWither supremium_helmet_wither = new ItemUpgradedWither("supremium_helmet_wither", ModToolMaterials.SUPREMIUM_ARMOR, 0, EntityEquipmentSlot.HEAD);
+	public static ItemUpgradedAntivenom supremium_helmet_antivenom = new ItemUpgradedAntivenom("supremium_helmet_antivenom", ModToolMaterials.SUPREMIUM_ARMOR, 0, EntityEquipmentSlot.HEAD);
+	public static ItemUpgradedFire supremium_helmet_fire = new ItemUpgradedFire("supremium_helmet_fire", ModToolMaterials.SUPREMIUM_ARMOR, 0, EntityEquipmentSlot.HEAD);	
+	public static ItemUpgradedResistance supremium_helmet_resistance = new ItemUpgradedResistance("supremium_helmet_resistance", ModToolMaterials.SUPREMIUM_ARMOR, 0, EntityEquipmentSlot.HEAD);
 	
-	public static ItemChestplateStrength supremium_chestplate_strength = new ItemChestplateStrength("supremium_chestplate_strength", ModToolMaterials.SUPREMIUM_ARMOR, 0, EntityEquipmentSlot.CHEST);
-	public static ItemChestplateAbsorption supremium_chestplate_absorption = new ItemChestplateAbsorption("supremium_chestplate_absorption", ModToolMaterials.SUPREMIUM_ARMOR, 0, EntityEquipmentSlot.CHEST);
-	public static ItemChestplateWither supremium_chestplate_wither = new ItemChestplateWither("supremium_chestplate_wither", ModToolMaterials.SUPREMIUM_ARMOR, 0, EntityEquipmentSlot.CHEST);
-	public static ItemChestplateAntivenom supremium_chestplate_antivenom = new ItemChestplateAntivenom("supremium_chestplate_antivenom", ModToolMaterials.SUPREMIUM_ARMOR, 0, EntityEquipmentSlot.CHEST);
-	public static ItemChestplateFire supremium_chestplate_fire = new ItemChestplateFire("supremium_chestplate_fire", ModToolMaterials.SUPREMIUM_ARMOR, 0, EntityEquipmentSlot.CHEST);
-	public static ItemChestplateResistance supremium_chestplate_resistance = new ItemChestplateResistance("supremium_chestplate_resistance", ModToolMaterials.SUPREMIUM_ARMOR, 0, EntityEquipmentSlot.CHEST);
+	public static ItemUpgradedStrength supremium_chestplate_strength = new ItemUpgradedStrength("supremium_chestplate_strength", ModToolMaterials.SUPREMIUM_ARMOR, 0, EntityEquipmentSlot.CHEST);
+	public static ItemUpgradedAbsorption supremium_chestplate_absorption = new ItemUpgradedAbsorption("supremium_chestplate_absorption", ModToolMaterials.SUPREMIUM_ARMOR, 0, EntityEquipmentSlot.CHEST);
+	public static ItemUpgradedWither supremium_chestplate_wither = new ItemUpgradedWither("supremium_chestplate_wither", ModToolMaterials.SUPREMIUM_ARMOR, 0, EntityEquipmentSlot.CHEST);
+	public static ItemUpgradedAntivenom supremium_chestplate_antivenom = new ItemUpgradedAntivenom("supremium_chestplate_antivenom", ModToolMaterials.SUPREMIUM_ARMOR, 0, EntityEquipmentSlot.CHEST);
+	public static ItemUpgradedFire supremium_chestplate_fire = new ItemUpgradedFire("supremium_chestplate_fire", ModToolMaterials.SUPREMIUM_ARMOR, 0, EntityEquipmentSlot.CHEST);
+	public static ItemUpgradedResistance supremium_chestplate_resistance = new ItemUpgradedResistance("supremium_chestplate_resistance", ModToolMaterials.SUPREMIUM_ARMOR, 0, EntityEquipmentSlot.CHEST);
 	
-	public static ItemLeggingsSpeed supremium_leggings_speed = new ItemLeggingsSpeed("supremium_leggings_speed", ModToolMaterials.SUPREMIUM_ARMOR, 0, EntityEquipmentSlot.LEGS);
-	public static ItemLeggingsAbsorption supremium_leggings_absorption = new ItemLeggingsAbsorption("supremium_leggings_absorption", ModToolMaterials.SUPREMIUM_ARMOR, 0, EntityEquipmentSlot.LEGS);
-	public static ItemLeggingsWither supremium_leggings_wither = new ItemLeggingsWither("supremium_leggings_wither", ModToolMaterials.SUPREMIUM_ARMOR, 0, EntityEquipmentSlot.LEGS);
-	public static ItemLeggingsAntivenom supremium_leggings_antivenom = new ItemLeggingsAntivenom("supremium_leggings_antivenom", ModToolMaterials.SUPREMIUM_ARMOR, 0, EntityEquipmentSlot.LEGS);
-	public static ItemLeggingsFire supremium_leggings_fire = new ItemLeggingsFire("supremium_leggings_fire", ModToolMaterials.SUPREMIUM_ARMOR, 0, EntityEquipmentSlot.LEGS);	
-	public static ItemLeggingsResistance supremium_leggings_resistance = new ItemLeggingsResistance("supremium_leggings_resistance", ModToolMaterials.SUPREMIUM_ARMOR, 0, EntityEquipmentSlot.LEGS);
+	public static ItemUpgradedSpeed supremium_leggings_speed = new ItemUpgradedSpeed("supremium_leggings_speed", ModToolMaterials.SUPREMIUM_ARMOR, 0, EntityEquipmentSlot.LEGS);
+	public static ItemUpgradedAbsorption supremium_leggings_absorption = new ItemUpgradedAbsorption("supremium_leggings_absorption", ModToolMaterials.SUPREMIUM_ARMOR, 0, EntityEquipmentSlot.LEGS);
+	public static ItemUpgradedWither supremium_leggings_wither = new ItemUpgradedWither("supremium_leggings_wither", ModToolMaterials.SUPREMIUM_ARMOR, 0, EntityEquipmentSlot.LEGS);
+	public static ItemUpgradedAntivenom supremium_leggings_antivenom = new ItemUpgradedAntivenom("supremium_leggings_antivenom", ModToolMaterials.SUPREMIUM_ARMOR, 0, EntityEquipmentSlot.LEGS);
+	public static ItemUpgradedFire supremium_leggings_fire = new ItemUpgradedFire("supremium_leggings_fire", ModToolMaterials.SUPREMIUM_ARMOR, 0, EntityEquipmentSlot.LEGS);	
+	public static ItemUpgradedResistance supremium_leggings_resistance = new ItemUpgradedResistance("supremium_leggings_resistance", ModToolMaterials.SUPREMIUM_ARMOR, 0, EntityEquipmentSlot.LEGS);
 	
-	public static ItemBootsJump supremium_boots_jump = new ItemBootsJump("supremium_boots_jump", ModToolMaterials.SUPREMIUM_ARMOR, 0, EntityEquipmentSlot.FEET);
-	public static ItemBootsAbsorption supremium_boots_absorption = new ItemBootsAbsorption("supremium_boots_absorption", ModToolMaterials.SUPREMIUM_ARMOR, 0, EntityEquipmentSlot.FEET);
-	public static ItemBootsWither supremium_boots_wither = new ItemBootsWither("supremium_boots_wither", ModToolMaterials.SUPREMIUM_ARMOR, 0, EntityEquipmentSlot.FEET);
-	public static ItemBootsAntivenom supremium_boots_antivenom = new ItemBootsAntivenom("supremium_boots_antivenom", ModToolMaterials.SUPREMIUM_ARMOR, 0, EntityEquipmentSlot.FEET);
-	public static ItemBootsFire supremium_boots_fire = new ItemBootsFire("supremium_boots_fire", ModToolMaterials.SUPREMIUM_ARMOR, 0, EntityEquipmentSlot.FEET);
-	public static ItemBootsResistance supremium_boots_resistance = new ItemBootsResistance("supremium_boots_resistance", ModToolMaterials.SUPREMIUM_ARMOR, 0, EntityEquipmentSlot.FEET);
+	public static ItemUpgradedJump supremium_boots_jump = new ItemUpgradedJump("supremium_boots_jump", ModToolMaterials.SUPREMIUM_ARMOR, 0, EntityEquipmentSlot.FEET);
+	public static ItemUpgradedAbsorption supremium_boots_absorption = new ItemUpgradedAbsorption("supremium_boots_absorption", ModToolMaterials.SUPREMIUM_ARMOR, 0, EntityEquipmentSlot.FEET);
+	public static ItemUpgradedWither supremium_boots_wither = new ItemUpgradedWither("supremium_boots_wither", ModToolMaterials.SUPREMIUM_ARMOR, 0, EntityEquipmentSlot.FEET);
+	public static ItemUpgradedAntivenom supremium_boots_antivenom = new ItemUpgradedAntivenom("supremium_boots_antivenom", ModToolMaterials.SUPREMIUM_ARMOR, 0, EntityEquipmentSlot.FEET);
+	public static ItemUpgradedFire supremium_boots_fire = new ItemUpgradedFire("supremium_boots_fire", ModToolMaterials.SUPREMIUM_ARMOR, 0, EntityEquipmentSlot.FEET);
+	public static ItemUpgradedResistance supremium_boots_resistance = new ItemUpgradedResistance("supremium_boots_resistance", ModToolMaterials.SUPREMIUM_ARMOR, 0, EntityEquipmentSlot.FEET);
 	
 	public static void initItems(){
 
@@ -537,6 +518,7 @@ public class ModItems {
 		if(ModConfig.nature_seeds){ ITEMS2.add(nature_essence); }
 		if(ModConfig.wood_seeds){ ITEMS2.add(wood_essence); }
 		if(ModConfig.water_seeds){ ITEMS2.add(water_essence); }
+		if(ModConfig.ice_seeds){ ITEMS2.add(ice_essence); }
 		if(ModConfig.fire_seeds){ ITEMS2.add(fire_essence); }
 		if(ModConfig.dye_seeds){ ITEMS2.add(dye_essence); }
 		if(ModConfig.nether_seeds){ ITEMS2.add(nether_essence); }
@@ -568,6 +550,7 @@ public class ModItems {
 		if(ModConfig.enderman_seeds){ ITEMS2.add(enderman_essence); }
 		if(ModConfig.wither_skeleton_seeds){ ITEMS2.add(wither_skeleton_essence); }
 		
+		if(ModConfig.rubber_seeds && OreDictionary.getOres("itemRubber").size() > 0){ ITEMS2.add(rubber_essence); }
 		if(ModConfig.aluminum_seeds && OreDictionary.getOres("ingotAluminum").size() > 0){ ITEMS2.add(aluminum_essence); }
 		if(ModConfig.copper_seeds && OreDictionary.getOres("ingotCopper").size() > 0){ ITEMS2.add(copper_essence); }
 		if(ModConfig.tin_seeds && OreDictionary.getOres("ingotTin").size() > 0){ ITEMS2.add(tin_essence); }
@@ -575,6 +558,8 @@ public class ModItems {
 		if(ModConfig.silver_seeds && OreDictionary.getOres("ingotSilver").size() > 0){ ITEMS2.add(silver_essence); }
 		if(ModConfig.lead_seeds && OreDictionary.getOres("ingotLead").size() > 0){ ITEMS2.add(lead_essence); }
 		if(ModConfig.steel_seeds && OreDictionary.getOres("ingotSteel").size() > 0){ ITEMS2.add(steel_essence); }
+		if(ModConfig.nickel_seeds && OreDictionary.getOres("ingotNickel").size() > 0){ ITEMS2.add(nickel_essence); }
+		if(ModConfig.electrum_seeds && OreDictionary.getOres("ingotElectrum").size() > 0){ ITEMS2.add(electrum_essence); }
 		
 		if(ModConfig.ruby_seeds && OreDictionary.getOres("gemRuby").size() > 0){ ITEMS2.add(ruby_essence); }
 		if(ModConfig.sapphire_seeds && OreDictionary.getOres("gemSapphire").size() > 0){ ITEMS2.add(sapphire_essence); }
@@ -611,17 +596,20 @@ public class ModItems {
 		
 		if(ModConfig.quartz_enriched_iron_seeds && Loader.isModLoaded("refinedstorage")){ ITEMS2.add(quartz_enriched_iron_essence); }
 		
+		if(ModConfig.constantan_seeds && OreDictionary.getOres("ingotConstantan").size() > 0){ ITEMS2.add(constantan_essence); }
+
 		ITEMS2.add(tier1_inferium_seeds);
 		ITEMS2.add(tier2_inferium_seeds);
 		ITEMS2.add(tier3_inferium_seeds);
 		ITEMS2.add(tier4_inferium_seeds);
-		ITEMS2.add(tier5_inferium_seeds);
+		ITEMS2.add(tier5_inferium_seeds); 
 		
 		if(ModConfig.stone_seeds){ ITEMS2.add(stone_seeds); }
 		if(ModConfig.dirt_seeds){ ITEMS2.add(dirt_seeds); }
 		if(ModConfig.nature_seeds){ ITEMS2.add(nature_seeds); }
 		if(ModConfig.wood_seeds){ ITEMS2.add(wood_seeds); }
 		if(ModConfig.water_seeds){ ITEMS2.add(water_seeds); }
+		if(ModConfig.ice_seeds){ ITEMS2.add(ice_seeds); }
 		if(ModConfig.fire_seeds){ ITEMS2.add(fire_seeds); }
 		if(ModConfig.dye_seeds){ ITEMS2.add(dye_seeds); }
 		if(ModConfig.nether_seeds){ ITEMS2.add(nether_seeds); }
@@ -653,6 +641,7 @@ public class ModItems {
 		if(ModConfig.enderman_seeds){ ITEMS2.add(enderman_seeds); }
 		if(ModConfig.wither_skeleton_seeds){ ITEMS2.add(wither_skeleton_seeds); }
 
+		if(ModConfig.rubber_seeds && OreDictionary.getOres("itemRubber").size() > 0){ ITEMS2.add(rubber_seeds); }
 		if(ModConfig.aluminum_seeds && OreDictionary.getOres("ingotAluminum").size() > 0){ ITEMS2.add(aluminum_seeds); }
 		if(ModConfig.copper_seeds && OreDictionary.getOres("ingotCopper").size() > 0){ ITEMS2.add(copper_seeds); }
 		if(ModConfig.tin_seeds && OreDictionary.getOres("ingotTin").size() > 0){ ITEMS2.add(tin_seeds); }
@@ -660,6 +649,8 @@ public class ModItems {
 		if(ModConfig.silver_seeds && OreDictionary.getOres("ingotSilver").size() > 0){ ITEMS2.add(silver_seeds); }
 		if(ModConfig.lead_seeds && OreDictionary.getOres("ingotLead").size() > 0){ ITEMS2.add(lead_seeds); }
 		if(ModConfig.steel_seeds && OreDictionary.getOres("ingotSteel").size() > 0){ ITEMS2.add(steel_seeds); }
+		if(ModConfig.nickel_seeds && OreDictionary.getOres("ingotNickel").size() > 0){ ITEMS2.add(nickel_seeds); }
+		if(ModConfig.electrum_seeds && OreDictionary.getOres("ingotElectrum").size() > 0){ ITEMS2.add(electrum_seeds); }
 		
 		if(ModConfig.ruby_seeds && OreDictionary.getOres("gemRuby").size() > 0){ ITEMS2.add(ruby_seeds); }
 		if(ModConfig.sapphire_seeds && OreDictionary.getOres("gemSapphire").size() > 0){ ITEMS2.add(sapphire_seeds); }
@@ -696,6 +687,8 @@ public class ModItems {
 		
 		if(ModConfig.quartz_enriched_iron_seeds && Loader.isModLoaded("refinedstorage")){ ITEMS2.add(quartz_enriched_iron_seeds); }
 		
+		if(ModConfig.constantan_seeds && OreDictionary.getOres("ingotConstantan").size() > 0){ ITEMS2.add(constantan_seeds); }
+
 		for(Item item : ITEMS2){
 			GameRegistry.register(item);
 		}
@@ -842,8 +835,32 @@ public class ModItems {
 			.getUnlocalizedName().substring(8), "inventory")); 
 		}
 	}
+	
+	@SideOnly(Side.CLIENT)
+	public static void setItemColor(Item item, int color){
+		Minecraft.getMinecraft().getItemColors().registerItemColorHandler(new ItemColorHandler(color), item);
+	}
+	
+	@SideOnly(Side.CLIENT)
+	public static void initItemColors(){
+//		setItemColor(inferium_apple, 0xA2BF00);
+//		setItemColor(prudentium_apple, 0x00B527);
+//		setItemColor(intermedium_apple, 0xD84B00);
+//		setItemColor(superium_apple, 0x007FDB);
+//		setItemColor(supremium_apple, 0xE20000);
+		setItemColor(nickel_essence, 0xBCC2AF);
+		setItemColor(nickel_seeds, 0xBCC2AF);
+		setItemColor(electrum_essence, 0xF1E454);
+		setItemColor(electrum_seeds, 0xF1E454);
+		
+		setItemColor(quartz_enriched_iron_essence, 0xD3CEC9);
+		setItemColor(quartz_enriched_iron_seeds, 0xD3CEC9);
+		
+		setItemColor(constantan_essence, 0xFF9A7B);
+		setItemColor(constantan_seeds, 0xFF9A7B);
+	}
 
-	public static void initOreDictRegistry(){
+	public static void initOreDict(){
 
 	}
 }

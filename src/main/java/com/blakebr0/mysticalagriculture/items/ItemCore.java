@@ -23,6 +23,5 @@ public class ItemCore extends Item {
 	@SideOnly(Side.CLIENT)
 	public void addInformation(ItemStack stack, EntityPlayer player, List tooltip, boolean advanced){
 		tooltip.add("Can be re-claimed using a \u00A7cCore Remover\u00A77.");
-		super.addInformation(stack, player, tooltip, advanced);
 	}
 }

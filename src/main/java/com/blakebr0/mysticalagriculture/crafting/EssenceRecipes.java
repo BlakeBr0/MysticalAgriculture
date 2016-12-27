@@ -59,6 +59,10 @@ public class EssenceRecipes {
 	    GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(Items.WATER_BUCKET, 1, 0), "XEX", "EBE", "XEX", 'E', new ItemStack(ModItems.water_essence, 1, 0), 'B', new ItemStack(Items.BUCKET, 1, 0)));
 	    GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(Items.CLAY_BALL, EssenceConfig.clay, 0), "EFX", "FEX", "XXX", 'E', new ItemStack(ModItems.water_essence, 1, 0), 'F', new ItemStack(ModItems.dirt_essence, 1, 0)));
 
+	    GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(Blocks.SNOW, EssenceConfig.snow, 0), "EEE", "XXX", "XXX", 'E', new ItemStack(ModItems.ice_essence, 1, 0)));
+	    GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(Blocks.ICE, EssenceConfig.ice, 0), "EXE", "XEX", "EXE", 'E', new ItemStack(ModItems.ice_essence, 1, 0)));
+	    GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(Blocks.PACKED_ICE, EssenceConfig.packed_ice, 0), "EEX", "EEX", "XXX", 'E', new ItemStack(ModItems.ice_essence, 1, 0)));
+	    
 	    GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(Items.LAVA_BUCKET, 1, 0), "XEX", "EBE", "XEX", 'E', new ItemStack(ModItems.fire_essence, 1, 0), 'B', new ItemStack(Items.BUCKET, 1, 0)));
 	    GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(Blocks.SAND, EssenceConfig.sand, 0), "EFX", "FEX", "XXX", 'E', new ItemStack(ModItems.fire_essence, 1, 0), 'F', new ItemStack(ModItems.dirt_essence, 1, 0)));
 	    
@@ -93,7 +97,7 @@ public class EssenceRecipes {
 
 	    GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(Items.GOLD_INGOT, EssenceConfig.gold, 0), "EEE", "EXE", "EEE", 'E', new ItemStack(ModItems.gold_essence, 1, 0)));
 
-	    GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(Items.DYE, 12, 4), "EEE", "EXE", "EEE", 'E', new ItemStack(ModItems.lapis_lazuli_essence, 1, 0)));
+	    GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(Items.DYE, EssenceConfig.lapis, 4), "EEE", "EXE", "EEE", 'E', new ItemStack(ModItems.lapis_lazuli_essence, 1, 0)));
 
 	    GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(Items.EXPERIENCE_BOTTLE, EssenceConfig.experience_bottle, 0), "EEE", "EXE", "EEE", 'E', new ItemStack(ModItems.experience_essence, 1, 0)));
 
@@ -111,7 +115,8 @@ public class EssenceRecipes {
 
 	    GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(Items.BEEF, EssenceConfig.beef, 0), "EEE", "XXX", "XXX", 'E', new ItemStack(ModItems.cow_essence, 1, 0)));
 	    GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(Items.LEATHER, EssenceConfig.leather, 0), "EEX", "EEX", "XXX", 'E', new ItemStack(ModItems.cow_essence, 1, 0)));
-
+	    GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(Items.MILK_BUCKET, 1, 0), "XEX", "EBE", "XEX", 'E', new ItemStack(ModItems.cow_essence, 1, 0), 'B', new ItemStack(Items.BUCKET, 1, 0)));
+	    
 	    GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(Items.MUTTON, EssenceConfig.mutton, 0), "EEE", "XXX", "XXX", 'E', new ItemStack(ModItems.sheep_essence, 1, 0)));
 	    GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(Blocks.WOOL, EssenceConfig.wool, 0), "EEE", "EEE", "EEE", 'E', new ItemStack(ModItems.sheep_essence, 1, 0)));
 
@@ -142,6 +147,8 @@ public class EssenceRecipes {
 
 	    GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(Items.SKULL, EssenceConfig.wither_skeleton_skull, 1), "EEE", "EEE", "EEE", 'E', new ItemStack(ModItems.wither_skeleton_essence, 1, 0)));
 
+	    if(ModConfig.rubber_seeds && OreDictionary.getOres("itemRubber").size() > 0){ GameRegistry.addRecipe(OreDictResources.getItem("itemRubber", EssenceConfig.rubber), "EEE", "XXX", "XXX", 'E', new ItemStack(ModItems.rubber_essence, 1, 0)); }
+
 	    if(ModConfig.aluminum_seeds && OreDictionary.getOres("ingotAluminum").size() > 0){ GameRegistry.addRecipe(OreDictResources.getItem("ingotAluminum", EssenceConfig.aluminum), "EEE", "EXE", "EEE", 'E', new ItemStack(ModItems.aluminum_essence, 1, 0)); }
     
 	    if(ModConfig.copper_seeds && OreDictionary.getOres("ingotCopper").size() > 0){ GameRegistry.addRecipe(OreDictResources.getItem("ingotCopper", EssenceConfig.copper), "EEE", "EXE", "EEE", 'E', new ItemStack(ModItems.copper_essence, 1, 0)); }
@@ -155,6 +162,10 @@ public class EssenceRecipes {
 	    if(ModConfig.lead_seeds && OreDictionary.getOres("ingotLead").size() > 0){ GameRegistry.addRecipe(OreDictResources.getItem("ingotLead", EssenceConfig.lead), "EEE", "EXE", "EEE", 'E', new ItemStack(ModItems.lead_essence, 1, 0)); }
 
 	    if(ModConfig.steel_seeds && OreDictionary.getOres("ingotSteel").size() > 0){ GameRegistry.addRecipe(OreDictResources.getItem("ingotSteel", EssenceConfig.steel), "EEE", "EXE", "EEE", 'E', new ItemStack(ModItems.steel_essence, 1, 0)); }
+
+	    if(ModConfig.nickel_seeds && OreDictionary.getOres("ingotNickel").size() > 0 || Loader.isModLoaded("immersiveengineering")){ GameRegistry.addRecipe(OreDictResources.getItem("ingotNickel", EssenceConfig.nickel), "EEE", "EXE", "EEE", 'E', new ItemStack(ModItems.nickel_essence, 1, 0)); }
+
+	    if(ModConfig.electrum_seeds && OreDictionary.getOres("ingotElectrum").size() > 0){ GameRegistry.addRecipe(OreDictResources.getItem("ingotElectrum", EssenceConfig.electrum), "EEE", "EXE", "EEE", 'E', new ItemStack(ModItems.electrum_essence, 1, 0)); }
 
 	    if(ModConfig.ruby_seeds && OreDictionary.getOres("gemRuby").size() > 0){ GameRegistry.addRecipe(OreDictResources.getItem("gemRuby", EssenceConfig.ruby), "EEE", "EXE", "EEE", 'E', new ItemStack(ModItems.ruby_essence, 1, 0)); }
 	    
@@ -230,5 +241,7 @@ public class EssenceRecipes {
 	    if(ModConfig.fluix_seeds && Loader.isModLoaded("appliedenergistics2")){ GameRegistry.addRecipe(OreDictResources.getItem("crystalFluix", EssenceConfig.fluix), "EEE", "EXE", "EEE", 'E', new ItemStack(ModItems.fluix_essence, 1, 0)); }
 
 	    if(ModConfig.quartz_enriched_iron_seeds && Loader.isModLoaded("refinedstorage")){ GameRegistry.addRecipe(new ItemStack(Parts.rs_ingot, EssenceConfig.quartz_enriched_iron, 0), "EEE", "EXE", "EEE", 'E', new ItemStack(ModItems.quartz_enriched_iron_essence, 1, 0)); }
+
+	    if(ModConfig.constantan_seeds && OreDictionary.getOres("ingotConstantan").size() > 0){ GameRegistry.addRecipe(OreDictResources.getItem("ingotConstantan", EssenceConfig.constantan), "EEE", "EXE", "EEE", 'E', new ItemStack(ModItems.constantan_essence, 1, 0)); }
 	}
 }

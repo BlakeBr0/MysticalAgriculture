@@ -8,7 +8,6 @@ import com.blakebr0.mysticalagriculture.blocks.ModBlocks;
 import com.blakebr0.mysticalagriculture.items.ModItems;
 import com.blakebr0.mysticalagriculture.lib.ModToolMaterials;
 
-import javafx.animation.RotateTransition;
 import net.minecraft.util.math.MathHelper;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.common.config.Property;
@@ -39,6 +38,9 @@ public class EssenceConfig {
 	public static int mossy_stonebrick;
 	public static int wood;
 	public static int sapling;
+	public static int snow;
+	public static int ice;
+	public static int packed_ice;
 	public static int clay;
 	public static int sand;
 	public static int dye;
@@ -54,6 +56,7 @@ public class EssenceConfig {
 	public static int redstone;
 	public static int obsidian;
 	public static int gold;
+	public static int lapis;
 	public static int experience_bottle;
 	public static int diamond;
 	public static int emerald;
@@ -84,6 +87,7 @@ public class EssenceConfig {
 	public static int ender_pearl;
 	public static int wither_skeleton_skull;
 	
+	public static int rubber;
 	public static int aluminum;
 	public static int copper;
 	public static int tin;
@@ -91,6 +95,8 @@ public class EssenceConfig {
 	public static int silver;
 	public static int lead;
 	public static int steel;
+	public static int nickel;
+	public static int electrum;
 	
 	public static int ruby;
 	public static int sapphire;
@@ -127,6 +133,8 @@ public class EssenceConfig {
 	public static int press;
 	
 	public static int quartz_enriched_iron;
+	
+	public static int constantan;
 	
 	@SubscribeEvent
     public void onConfigChanged(ConfigChangedEvent.OnConfigChangedEvent eventArgs){
@@ -165,6 +173,9 @@ public class EssenceConfig {
 		mossy_stonebrick = config.get(category, "mossy_stonebrick", 16).getInt(mossy_stonebrick);
 		wood = config.get(category, "wood", 16).getInt(wood);
 		sapling = config.get(category, "sapling", 4).getInt(sapling);
+		snow = config.get(category, "snow", 12).getInt(snow);
+		ice = config.get(category, "ice", 8).getInt(ice);
+		packed_ice = config.get(category, "packed_ice", 12).getInt(packed_ice);
 		clay = config.get(category, "clay", 24).getInt(clay);
 		sand = config.get(category, "sand", 16).getInt(sand);
 		dye = config.get(category, "dye", 6).getInt(dye);
@@ -181,6 +192,7 @@ public class EssenceConfig {
 		redstone = config.get(category, "redstone", 16).getInt(redstone);
 		obsidian = config.get(category, "obsidian", 12).getInt(obsidian);
 		gold = config.get(category, "gold", 4).getInt(gold);
+		lapis = config.get(category, "lapis", 12).getInt(lapis);
 		experience_bottle = config.get(category, "experience_bottle", 12).getInt(experience_bottle);
 		diamond = config.get(category, "diamond", 1).getInt(diamond);
 		emerald = config.get(category, "emerald", 1).getInt(emerald);
@@ -213,6 +225,7 @@ public class EssenceConfig {
 		wither_skeleton_skull = config.get(category, "wither_skeleton_skull", 1).getInt(wither_skeleton_skull);
 		
 		category = "OreDict Resources";
+		rubber = config.get(category, "rubber", 8).getInt(rubber);
 		aluminum = config.get(category, "aluminum", 8).getInt(aluminum);
 		copper = config.get(category, "copper", 6).getInt(copper);
 		tin = config.get(category, "tin", 4).getInt(tin);
@@ -220,6 +233,8 @@ public class EssenceConfig {
 		silver = config.get(category, "silver", 4).getInt(silver);
 		lead = config.get(category, "lead", 4).getInt(lead);
 		steel = config.get(category, "steel", 3).getInt(steel);
+		nickel = config.get(category, "nickel", 4).getInt(nickel);
+		electrum = config.get(category, "electrum", 4).getInt(electrum);
 		
 		category = "Gems";
 		ruby = config.get(category, "ruby", 6).getInt(ruby);
@@ -265,6 +280,9 @@ public class EssenceConfig {
 		
 		category = "Refined Storage";
 		quartz_enriched_iron = config.get(category, "quartz_enriched_iron", 8).getInt(quartz_enriched_iron);
+		
+		category = "Immersive Engineering";
+		constantan = config.get(category, "constantan", 4).getInt(constantan);
 		
 		config.save();	
 	}

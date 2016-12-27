@@ -38,6 +38,7 @@ public class ModConfig {
 	public static boolean nature_seeds;
 	public static boolean wood_seeds;
 	public static boolean water_seeds;
+	public static boolean ice_seeds;
 	public static boolean fire_seeds;
 	public static boolean dye_seeds;
 	public static boolean nether_seeds;
@@ -69,6 +70,7 @@ public class ModConfig {
 	public static boolean enderman_seeds;
 	public static boolean wither_skeleton_seeds;
 	
+	public static boolean rubber_seeds;
 	public static boolean aluminum_seeds;
 	public static boolean copper_seeds;
 	public static boolean tin_seeds;
@@ -76,6 +78,8 @@ public class ModConfig {
 	public static boolean silver_seeds;
 	public static boolean lead_seeds;
 	public static boolean steel_seeds;
+	public static boolean nickel_seeds;
+	public static boolean electrum_seeds;
 	
 	public static boolean ruby_seeds;
 	public static boolean sapphire_seeds;
@@ -112,11 +116,14 @@ public class ModConfig {
 	
 	public static boolean quartz_enriched_iron_seeds;
 	
+	public static boolean constantan_seeds;
+	
 	public static int stone_tier;
 	public static int dirt_tier;
 	public static int nature_tier;
 	public static int wood_tier;
 	public static int water_tier;
+	public static int ice_tier;
 	public static int fire_tier;
 	public static int dye_tier;
 	public static int nether_tier;
@@ -148,6 +155,7 @@ public class ModConfig {
 	public static int enderman_tier;
 	public static int wither_skeleton_tier;
 	
+	public static int rubber_tier;
 	public static int aluminum_tier;
 	public static int copper_tier;
 	public static int tin_tier;
@@ -155,6 +163,8 @@ public class ModConfig {
 	public static int silver_tier;
 	public static int lead_tier;
 	public static int steel_tier;
+	public static int nickel_tier;
+	public static int electrum_tier;
 	
 	public static int ruby_tier;
 	public static int sapphire_tier;
@@ -190,6 +200,8 @@ public class ModConfig {
 	public static int fluix_tier;
 	
 	public static int quartz_enriched_iron_tier;
+	
+	public static int constantan_tier;
 	
 	public static boolean $gear_module_override;
 	public static boolean supremium_flight;
@@ -255,7 +267,7 @@ public class ModConfig {
 		essence_chance = config.getInt("essence_chance", category, 5, 0, 100, "Percentage chance of a second essence dropping.");
 		crystal_durability = config.getInt("crystal_durability", category, 1000, 1, 25000, "The durability of the basic Infusion Crystal.");
 		hostile_drop_chance = config.getInt("hostile_drop_chance", category, 20, 0, 100, "Percentage chance for a hostile mob when killed to drop an Inferium Essence.");
-		passive_drop_chance = config.getInt("passive_drop_chance", category, 25, 0, 100, "Percentage chance for a passive mob when killed to drop an Inferium Essence.");
+		passive_drop_chance = config.getInt("passive_drop_chance", category, 20, 0, 100, "Percentage chance for a passive mob when killed to drop an Inferium Essence.");
 		growth_accelerator = config.getBoolean("growth_accelerator", category, true, "Enable Growth Accelerators?");
 //		growth_accelerator_speed = config.getInt("growth_accelerator_speed", category, 15, 1, 3600, "Amount of seconds between each growth tick attempt.");
 		craftable_chunks = config.getBoolean("craftable_chunks", category, true, "Should you be able to craft mob chunks?");
@@ -273,6 +285,7 @@ public class ModConfig {
 		nature_seeds = config.get(category, "nature_seeds", true).getBoolean(nature_seeds);
 		wood_seeds = config.get(category, "wood_seeds", true).getBoolean(wood_seeds);
 		water_seeds = config.get(category, "water_seeds", true).getBoolean(water_seeds);
+		ice_seeds = config.get(category, "ice_seeds", true).getBoolean(ice_seeds);
 		fire_seeds = config.get(category, "fire_seeds", true).getBoolean(fire_seeds);
 		dye_seeds = config.get(category, "dye_seeds", true).getBoolean(dye_seeds);
 		nether_seeds = config.get(category, "nether_seeds", true).getBoolean(nether_seeds);
@@ -306,6 +319,7 @@ public class ModConfig {
 			
 		category = "Mod Support Seeds";
 		config.addCustomCategoryComment(category, "Enable/Disable Mod Support seeds individually.");
+		rubber_seeds = config.get(category, "rubber_seeds", true).getBoolean(rubber_seeds);
 		aluminum_seeds = config.get(category, "aluminum_seeds", true).getBoolean(aluminum_seeds);
 		copper_seeds = config.get(category, "copper_seeds", true).getBoolean(copper_seeds);
 		tin_seeds = config.get(category, "tin_seeds", true).getBoolean(tin_seeds);
@@ -313,6 +327,8 @@ public class ModConfig {
 		silver_seeds = config.get(category, "silver_seeds", true).getBoolean(silver_seeds);
 		lead_seeds = config.get(category, "lead_seeds", true).getBoolean(lead_seeds);
 		steel_seeds = config.get(category, "steel_seeds", true).getBoolean(steel_seeds);
+		nickel_seeds = config.get(category, "nickel_seeds", true).getBoolean(nickel_seeds);
+		electrum_seeds = config.get(category, "electrum_seeds", true).getBoolean(electrum_seeds);
 
 		aluminum_brass_seeds = config.get(category, "aluminum_brass_seeds", true).getBoolean(aluminum_brass_seeds);
 		knightslime_seeds = config.get(category, "knightslime_seeds", true).getBoolean(knightslime_seeds);
@@ -348,6 +364,8 @@ public class ModConfig {
 		fluix_seeds = config.get(category, "fluix_seeds", true).getBoolean(fluix_seeds);
 		
 		quartz_enriched_iron_seeds = config.get(category, "quartz_enriched_iron_seeds", true).getBoolean(quartz_enriched_iron_seeds);
+		
+		constantan_seeds = config.get(category, "constantan_seeds", true).getBoolean(constantan_seeds);
 
 		category = "Seed Tiers";
 		config.addCustomCategoryComment(category, "Set the tiers of each seed. The tier affects the recipe and the tooltip."
@@ -361,6 +379,7 @@ public class ModConfig {
 		nature_tier = config.get(category, "nature_tier", 1).getInt(nature_tier);
 		wood_tier = config.get(category, "wood_tier", 1).getInt(wood_tier);
 		water_tier = config.get(category, "water_tier", 1).getInt(water_tier);
+		ice_tier = config.get(category, "ice_tier", 1).getInt(ice_tier);
 		fire_tier = config.get(category, "fire_tier", 2).getInt(fire_tier);
 		dye_tier = config.get(category, "dye_tier", 2).getInt(dye_tier);
 		nether_tier = config.get(category, "nether_tier", 2).getInt(nether_tier);
@@ -399,6 +418,7 @@ public class ModConfig {
 				+ "\nTier 3: Intermedium"
 				+ "\nTier 4: Superium"
 				+ "\nTier 5: Supremium");
+		rubber_tier = config.get(category, "rubber_tier", 2).getInt(rubber_tier);
 		aluminum_tier = config.get(category, "aluminum_tier", 2).getInt(aluminum_tier);
 		copper_tier = config.get(category, "copper_tier", 2).getInt(copper_tier);
 		tin_tier = config.get(category, "tin_tier", 3).getInt(tin_tier);
@@ -406,6 +426,8 @@ public class ModConfig {
 		silver_tier = config.get(category, "silver_tier", 3).getInt(silver_tier);
 		lead_tier = config.get(category, "lead_tier", 3).getInt(lead_tier);
 		steel_tier = config.get(category, "steels_tier", 4).getInt(steel_tier);
+		nickel_tier = config.get(category, "nickel_tier", 4).getInt(nickel_tier);
+		electrum_tier = config.get(category, "electrum_tier", 4).getInt(electrum_tier);
 		
 		ruby_tier = config.get(category, "ruby_tier", 4).getInt(ruby_tier);
 		sapphire_tier = config.get(category, "sapphire", 4).getInt(sapphire_tier);
@@ -441,6 +463,8 @@ public class ModConfig {
 		fluix_tier = config.get(category, "fluix_tier", 4).getInt(fluix_tier);
 		
 		quartz_enriched_iron_tier = config.get(category, "quartz_enriched_iron_tier", 3).getInt(quartz_enriched_iron_tier);
+		
+		constantan_tier = config.get(category, "constantan_tier", 4).getInt(constantan_tier);
 		
 		category = "Gear";
 		config.addCustomCategoryComment(category, "Settings for the Mystical Agriculture: Gear module.");

@@ -53,6 +53,5 @@ public class ItemChunk extends Item {
 		if(ModConfig.craftable_chunks && stack.getItem() != ModItems.experience_chunk){
 			tooltip.add("\u00A7oCraftable");
 		}
-	    super.addInformation(stack, player, tooltip, advanced);
 	}
 }

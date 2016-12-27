@@ -35,7 +35,6 @@ public class ItemInferiumAxe extends ItemAxe {
 	public void addInformation(ItemStack stack, EntityPlayer player, List tooltip, boolean advanced){
 		int damage = stack.getMaxDamage() - stack.getItemDamage();
 		tooltip.add("Durability: \u00A7e" + damage);
-		super.addInformation(stack, player, tooltip, advanced);
 	}
 	
     public boolean getIsRepairable(ItemStack toRepair, ItemStack repair){

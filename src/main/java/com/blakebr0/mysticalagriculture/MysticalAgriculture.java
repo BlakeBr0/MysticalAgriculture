@@ -23,7 +23,7 @@ import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
-@Mod(modid = "mysticalagriculture", name = "Mystical Agriculture", version = "1.3.5")
+@Mod(modid = "mysticalagriculture", name = "Mystical Agriculture", version = "1.3.8")
 public class MysticalAgriculture {
 	
 	public static final String MODID = "mysticalagriculture";
