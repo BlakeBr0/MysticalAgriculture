@@ -20,8 +20,14 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.common.EnumPlantType;
+import net.minecraftforge.fml.common.Optional;
 
-public class BlockTier1InferiumCrop extends BlockCrops {
+import vazkii.botania.api.item.IHornHarvestable;
+
+@Optional.InterfaceList(value = {
+        @Optional.Interface(modid = "Botania", iface = "vazkii.botania.api.item.IHornHarvestable")
+})
+public class BlockTier1InferiumCrop extends BlockCrops implements IHornHarvestable {
 	
     private static final AxisAlignedBB CROPS_AABB = new AxisAlignedBB(0.0D, 0.0D, 0.0D, 1.0D, 0.25D, 1.0D);
 	
@@ -108,5 +114,39 @@ public class BlockTier1InferiumCrop extends BlockCrops {
         drops.add(new ItemStack(this.getSeed(), seeds, 0));
         if(essence > 0){ drops.add(new ItemStack(this.getCrop(), essence, 0)); }
         return drops;
+    }
+
+    @Override
+    public boolean canHornHarvest(World world, BlockPos blockPos, ItemStack stack, EnumHornType hornType) {
+        return hornType.ordinal()==0 && isMaxAge(world.getBlockState(blockPos));
+    }
+
+    @Override
+    public boolean hasSpecialHornHarvest(World world, BlockPos blockPos, ItemStack stack, EnumHornType hornType) {
+        return hornType.ordinal()==0;
+    }
+
+    @Override
+    public void harvestByHorn(World world, BlockPos blockPos, ItemStack stack, EnumHornType hornType) {
+        if(hornType.ordinal()!=0) {
+            return;
+        }
+
+        IBlockState state = world.getBlockState(blockPos);
+        if(state.getValue(AGE) == 7) {
+            List<ItemStack> drops = getDrops(world, blockPos, state, 0);
+            for (ItemStack drop : drops) {
+                if (drop != null && drop.getItem() != null) {
+                    if (drop.getItem() == this.getSeed()) {
+                        // getDrops simulates breaking the crop, we're just harvesting so drop one less seed
+                        drop.stackSize -= 1;
+                    }
+                    if (drop.stackSize > 0) {
+                        this.spawnAsEntity(world, blockPos, drop);
+                    }
+                }
+            }
+            world.setBlockState(blockPos, state.withProperty(AGE, 0), 2);
+        }
     }
 }

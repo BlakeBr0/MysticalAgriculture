@@ -43,6 +43,11 @@ repositories {
         name "Mobius Repo"
         url "http://mobiusstrip.eu/maven"
     }
+    // Botania
+    maven {
+        name "RX14"
+        url "http://mvn.rx14.co.uk/repo/"
+    }
 	
 //	maven {
 //			url "http://dvs1.progwml6.com/files/maven"
@@ -51,6 +56,7 @@ repositories {
 
 dependencies {
     deobfCompile "mcp.mobius.waila:Waila:1.7.0-B3_1.9.4"
+    deobfCompile "vazkii.botania:Botania:r1.9-341.866"
 //	deobfCompile "mezz.jei:jei_1.10.2:3.9.3.252:api"
 //	runtime "mezz.jei:jei_1.10.2:3.9.3.252"
 }
