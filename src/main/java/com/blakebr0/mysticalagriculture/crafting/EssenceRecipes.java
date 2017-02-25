@@ -6,7 +6,6 @@ import com.blakebr0.mysticalagriculture.items.ModItems;
 import com.blakebr0.mysticalagriculture.lib.OreDictResources;
 import com.blakebr0.mysticalagriculture.lib.Parts;
 import com.blakebr0.mysticalagriculture.lib.Parts.ItemNotFoundException;
-import com.blakebr0.mysticalagriculture.util.ModChecker;
 
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
@@ -19,13 +18,7 @@ import net.minecraftforge.oredict.ShapedOreRecipe;
 
 public class EssenceRecipes {
 	
-	public static void addEssenceRecipe(ItemStack output, Object... input){
-		if(output.stackSize > 0){
-			GameRegistry.addRecipe(new ShapedOreRecipe(output, input));
-		}
-	}
-	
-	public static void init(){
+	public static void initEssenceRecipes(){
 
 	    GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(Blocks.COBBLESTONE, EssenceConfig.cobblestone, 0), "EEE", "EXE", "EEE", 'E', new ItemStack(ModItems.stone_essence, 1, 0)));
 	    GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(Blocks.STONE, EssenceConfig.stone, 0), "EEE", "EEE", "EEE", 'E', new ItemStack(ModItems.stone_essence, 1, 0)));
@@ -204,7 +197,7 @@ public class EssenceRecipes {
 
 	    if(ModConfig.energetic_alloy_seeds && Loader.isModLoaded("EnderIO")){ GameRegistry.addRecipe(new ItemStack(Parts.eio_alloys, EssenceConfig.energetic_alloy, 1), "EEE", "EXE", "EEE", 'E', new ItemStack(ModItems.energetic_alloy_essence, 1, 0)); }
 
-	    if(ModConfig.vibrant_alloy_seeds && Loader.isModLoaded("EnderIO")){ GameRegistry.addRecipe(new ItemStack(Parts.eio_alloys, EssenceConfig.vibrant_alloy, 2), "EEE", "EXE", "EEE", 'E', new ItemStack(ModItems.vibrant_alloy_essence, 1, 0)); }
+	    if(ModConfig.vibrant_alloy_seeds && Loader.isModLoaded("EnderIO")){ GameRegistry.addRecipe(new ItemStack(Parts.eio_alloys, 3, 2), "EEE", "EXE", "EEE", 'E', new ItemStack(ModItems.vibrant_alloy_essence, 1, 0)); }
 
 	    if(ModConfig.mystical_flower_seeds && Loader.isModLoaded("Botania")){ 
 	    	GameRegistry.addRecipe(new ItemStack(Parts.botania_flowers, EssenceConfig.mystical_flower, 0), "XEX", "EPE", "XEX", 'E', new ItemStack(ModItems.mystical_flower_essence, 1, 0), 'P', Parts.white_petal); 
@@ -232,11 +225,7 @@ public class EssenceRecipes {
 	    if(ModConfig.osmium_seeds && Loader.isModLoaded("Mekanism")){ GameRegistry.addRecipe(OreDictResources.getItem("ingotOsmium", EssenceConfig.osmium), "EEE", "EXE", "EEE", 'E', new ItemStack(ModItems.osmium_essence, 1, 0)); }
 
 	    if(ModConfig.refined_obsidian_seeds && Loader.isModLoaded("Mekanism")){ GameRegistry.addRecipe(OreDictResources.getItem("ingotRefinedObsidian", EssenceConfig.refined_obsidian), "EEE", "EXE", "EEE", 'E', new ItemStack(ModItems.refined_obsidian_essence, 1, 0)); }
-
-	    if(ModConfig.marble_seeds && ModChecker.CHISEL){ GameRegistry.addRecipe(new ItemStack(Parts.MARBLE, EssenceConfig.marble, 7), "EEE", "EXE", "EEE", 'E', new ItemStack(ModItems.marble_essence, 1, 0)); }
-	    if(ModConfig.limestone_seeds && ModChecker.CHISEL){ GameRegistry.addRecipe(new ItemStack(Parts.LIMESTONE, EssenceConfig.limestone, 7), "EEE", "EXE", "EEE", 'E', new ItemStack(ModItems.limestone_essence, 1, 0)); }
-	    if(ModConfig.basalt_seeds && ModChecker.CHISEL){ GameRegistry.addRecipe(new ItemStack(Parts.BASALT, EssenceConfig.basalt, 7), "EEE", "EXE", "EEE", 'E', new ItemStack(ModItems.basalt_essence, 1, 0)); }
-
+	
 	    if(ModConfig.draconium_seeds && Loader.isModLoaded("draconicevolution")){ GameRegistry.addRecipe(OreDictResources.getItem("ingotDraconium", EssenceConfig.draconium), "EEE", "EXE", "EEE", 'E', new ItemStack(ModItems.draconium_essence, 1, 0)); }
 
 	    if(ModConfig.yellorium_seeds && Loader.isModLoaded("bigreactors")){ GameRegistry.addRecipe(OreDictResources.getItem("ingotYellorium", EssenceConfig.yellorium), "EEE", "EXE", "EEE", 'E', new ItemStack(ModItems.yellorium_essence, 1, 0)); }

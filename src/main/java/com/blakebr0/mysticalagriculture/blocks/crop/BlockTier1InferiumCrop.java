@@ -5,7 +5,6 @@ import java.util.List;
 import java.util.Random;
 
 import com.blakebr0.mysticalagriculture.config.ModConfig;
-import com.blakebr0.mysticalagriculture.crafting.ReprocessorManager;
 import com.blakebr0.mysticalagriculture.items.ModItems;
 
 import net.minecraft.block.Block;
@@ -21,15 +20,8 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.common.EnumPlantType;
-import net.minecraftforge.fml.common.Optional;
 
-import vazkii.botania.api.item.IHornHarvestable;
-import vazkii.botania.api.item.IHornHarvestable.EnumHornType;
-
-@Optional.InterfaceList(value = {
-        @Optional.Interface(modid = "Botania", iface = "vazkii.botania.api.item.IHornHarvestable")
-})
-public class BlockTier1InferiumCrop extends BlockCrops implements IHornHarvestable {
+public class BlockTier1InferiumCrop extends BlockCrops {
 	
     private static final AxisAlignedBB CROPS_AABB = new AxisAlignedBB(0.0D, 0.0D, 0.0D, 1.0D, 0.25D, 1.0D);
 	
@@ -47,14 +39,13 @@ public class BlockTier1InferiumCrop extends BlockCrops implements IHornHarvestab
     public void updateTick(World worldIn, BlockPos pos, IBlockState state, Random rand){
     	this.checkAndDropBlock(worldIn, pos, state);
     	int i = this.getAge(state);
-        if(worldIn.getLightFromNeighbors(pos.up()) >= 9){
-	    	if(i < this.getMaxAge()){
-	    		float f = getGrowthChance(this, worldIn, pos);
-	    		if (rand.nextInt((int)(35.0F / f) + 1) == 0) {
-	    			worldIn.setBlockState(pos, this.withAge(i + 1), 2);
-	    		}
-	    	}
-        }
+    	
+    	if(i < this.getMaxAge()) {
+    		float f = getGrowthChance(this, worldIn, pos);
+    		if (rand.nextInt((int)(35.0F / f) + 1) == 0) {
+    			worldIn.setBlockState(pos, this.withAge(i + 1), 2);
+    		}
+    	}
     }
     
 	protected boolean canSustainBush(IBlockState state) {
@@ -72,12 +63,6 @@ public class BlockTier1InferiumCrop extends BlockCrops implements IHornHarvestab
     
     public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos){
         return CROPS_AABB;
-    }
-    
-    @Override
-    public boolean canBlockStay(World worldIn, BlockPos pos, IBlockState state) {
-        IBlockState soil = worldIn.getBlockState(pos.down());
-        return (worldIn.getLight(pos) >= 0 && soil.getBlock().canSustainPlant(soil, worldIn, pos.down(), net.minecraft.util.EnumFacing.UP, this));
     }
     
     @Override
@@ -123,39 +108,5 @@ public class BlockTier1InferiumCrop extends BlockCrops implements IHornHarvestab
         drops.add(new ItemStack(this.getSeed(), seeds, 0));
         if(essence > 0){ drops.add(new ItemStack(this.getCrop(), essence, 0)); }
         return drops;
-    }
-    
-    @Override
-    public boolean canHornHarvest(World world, BlockPos blockPos, ItemStack stack, EnumHornType hornType) {
-        return hornType.ordinal()==0 && isMaxAge(world.getBlockState(blockPos));
-    }
-
-    @Override
-    public boolean hasSpecialHornHarvest(World world, BlockPos blockPos, ItemStack stack, EnumHornType hornType) {
-        return hornType.ordinal()==0 && ModConfig.botania_horn_harvesting;
-    }
-
-    @Override
-    public void harvestByHorn(World world, BlockPos blockPos, ItemStack stack, EnumHornType hornType) {
-        if(hornType.ordinal()!=0) {
-            return;
-        }
-
-        IBlockState state = world.getBlockState(blockPos);
-        if(state.getValue(AGE) == 7) {
-            List<ItemStack> drops = getDrops(world, blockPos, state, 0);
-            for (ItemStack drop : drops) {
-                if (drop != null && drop.getItem() != null) {
-                    if (drop.getItem() == this.getSeed()) {
-                        // getDrops simulates breaking the crop, we're just harvesting so drop one less seed
-                        drop.stackSize -= 1;
-                    }
-                    if (drop.stackSize > 0) {
-                        this.spawnAsEntity(world, blockPos, drop);
-                    }
-                }
-            }
-            world.setBlockState(blockPos, state.withProperty(AGE, 0), 2);
-        }
     }
 }

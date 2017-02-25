@@ -17,8 +17,6 @@ public class ModToolMaterials {
     public static ToolMaterial INTERMEDIUM = EnumHelper.addToolMaterial("INTERMEDIUM", 3, 2000, 14.0F, 7.0F, 30);
     public static ToolMaterial SUPERIUM = EnumHelper.addToolMaterial("SUPERIUM", 4, 4000, 19.0F, 11.0F, 35);
     public static ToolMaterial SUPREMIUM = EnumHelper.addToolMaterial("SUPREMIUM", 5, -1, 25.0F, 17.0F, 0);
-
-    public static ToolMaterial SUPREMIUM_AOE = EnumHelper.addToolMaterial("SUPREMIUM_AOE", 5, -1, 15.0F, 13.0F, 0);
     
     public static ToolMaterial SUPREMIUM_STRENGTH1 = EnumHelper.addToolMaterial("SUPREMIUM_STRENGTH1", 5, -1, 25.0F, 27.0F, 0);
     public static ToolMaterial SUPREMIUM_STRENGTH2 = EnumHelper.addToolMaterial("SUPREMIUM_STRENGTH2", 5, -1, 25.0F, 37.0F, 0);
