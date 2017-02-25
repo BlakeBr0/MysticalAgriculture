@@ -32,6 +32,7 @@ public class ModConfig {
 	public static boolean fertilized_essence;
 	public static int fertilized_essence_chance;
 	public static boolean mystical_fertilizer;
+	public static boolean seed_reprocessor;
 	
 	public static boolean stone_seeds;
 	public static boolean dirt_seeds;
@@ -106,6 +107,10 @@ public class ModConfig {
 	
 	public static boolean osmium_seeds;
 	public static boolean refined_obsidian_seeds;
+	
+	public static boolean marble_seeds;
+	public static boolean limestone_seeds;
+	public static boolean basalt_seeds;
 	
 	public static boolean draconium_seeds;
 	
@@ -192,6 +197,10 @@ public class ModConfig {
 	public static int osmium_tier;
 	public static int refined_obsidian_tier;
 	
+	public static int marble_tier;
+	public static int limestone_tier;
+	public static int basalt_tier;
+	
 	public static int draconium_tier;
 	
 	public static int yellorium_tier;
@@ -209,11 +218,18 @@ public class ModConfig {
 	public static int remover_durability;
 	public static boolean harder_ingots;
 	public static boolean charm_return;
+	public static boolean sneak_hoe_aoe;
+	public static boolean aoe_charms;
 	
 	public static boolean essence_apples;
 	public static int apple_buff_duration;
 	public static boolean essence_furnaces;
 	public static boolean ultimate_furnace;
+	public static boolean botania_horn_harvesting;
+	
+	public static boolean generate_regular;
+	public static boolean generate_nether;
+	public static boolean generate_end;
 	
 	public static int inferium_veincount;
 	public static int inferium_veinsize;
@@ -269,7 +285,7 @@ public class ModConfig {
 		hostile_drop_chance = config.getInt("hostile_drop_chance", category, 20, 0, 100, "Percentage chance for a hostile mob when killed to drop an Inferium Essence.");
 		passive_drop_chance = config.getInt("passive_drop_chance", category, 20, 0, 100, "Percentage chance for a passive mob when killed to drop an Inferium Essence.");
 		growth_accelerator = config.getBoolean("growth_accelerator", category, true, "Enable Growth Accelerators?");
-//		growth_accelerator_speed = config.getInt("growth_accelerator_speed", category, 15, 1, 3600, "Amount of seconds between each growth tick attempt.");
+		growth_accelerator_speed = config.getInt("growth_accelerator_speed", category, 10, 1, 3600, "Amount of seconds between each growth tick attempt.");
 		craftable_chunks = config.getBoolean("craftable_chunks", category, true, "Should you be able to craft mob chunks?");
 		witherproof_blocks = config.getBoolean("witherproof_blocks", category, true, "Enable the Witherproof Block and Glass?");
 		wither_supremium = config.getInt("wither_supremium", category, 2, 0, 64, "Amount of Supremium Essence the Wither should drop when killed.");
@@ -277,6 +293,7 @@ public class ModConfig {
 		fertilized_essence = config.getBoolean("fertilized_essence", category, true, "Enable Fertilized Essence?");
 		fertilized_essence_chance = config.getInt("fertilized_essence_chance", category, 5, 0, 100, "Percentage chance that a Resource Crop will drop a Fertilized Essence when harvested.");
 		mystical_fertilizer = config.getBoolean("mystical_fertilizer", category, true, "Enable Mystical Fertilizer?");
+		seed_reprocessor = config.getBoolean("seed_reprocessor", category, true, "Should the Seed Reprocessor be enabled?");
 
 		category = "Seeds";
 		config.addCustomCategoryComment(category, "Enable/Disable seeds individually.");
@@ -355,6 +372,10 @@ public class ModConfig {
 		
 		osmium_seeds = config.get(category, "osmium_seeds", true).getBoolean(osmium_seeds);
 		refined_obsidian_seeds = config.get(category, "refined_obsidian_seeds", true).getBoolean(refined_obsidian_seeds);
+		
+		marble_seeds = config.get(category, "marble_seeds", true).getBoolean(marble_seeds);
+		limestone_seeds = config.get(category, "limestone_seeds", true).getBoolean(limestone_seeds);
+		basalt_seeds = config.get(category, "basalt_seeds", true).getBoolean(basalt_seeds);
 	
 		draconium_seeds = config.get(category, "draconium_seeds", true).getBoolean(draconium_seeds);
 		
@@ -455,6 +476,10 @@ public class ModConfig {
 		osmium_tier = config.get(category, "osmium_tier", 4).getInt(osmium_tier);
 		refined_obsidian_tier = config.get(category, "refined_obsidian_tier", 5).getInt(refined_obsidian_tier);
 		
+		marble_tier = config.get(category, "marble_tier", 2).getInt(marble_tier);
+		limestone_tier = config.get(category, "limestone_tier", 2).getInt(limestone_tier);
+		basalt_tier = config.get(category, "basalt_tier", 2).getInt(basalt_tier);
+		
 		draconium_tier = config.get(category, "draconium_tier", 5).getInt(draconium_tier);
 		
 		yellorium_tier = config.get(category, "yellorium_tier", 5).getInt(yellorium_tier);
@@ -474,6 +499,8 @@ public class ModConfig {
 		remover_durability = config.getInt("remover_durability", category, 4, 1, 25000, "The durability of the Core Remover.");
 		harder_ingots = config.getBoolean("harder_ingots", category, false, "Makes the Essence Ingots require 4 essence each instead of 2.");
 		charm_return = config.getBoolean("charm_return", category, true, "Should uncrafting an upgraded armor/tool give back the charm?");
+		sneak_hoe_aoe = config.getBoolean("sneak_hoe_aoe", category, true, "Should the Supremium Hoe till a 3x3 while sneaking?");
+		aoe_charms = config.getBoolean("aoe_charms", category, true, "Should the 3x3 mining upgraded Supremium Tools be enabled?");
 		
 		category = "Fun Stuff";
 		config.addCustomCategoryComment(category, "Fun things made with essences.");
@@ -481,9 +508,14 @@ public class ModConfig {
 		apple_buff_duration = config.getInt("apple_buff_duration", category, 2, 1, 100, "Essence Apple buff durations in minutes.");
 		essence_furnaces = config.getBoolean("essence_furnaces", category, true, "Essence Furnaces enabled?");
 		ultimate_furnace = config.getBoolean("ultimate_furnace", category, true, "Ultimate Furnace enabled? Requires Essence Furnaces be enabled.");
+		botania_horn_harvesting = config.getBoolean("botania_horn_harvesting", category, true, "Should the Horn of the Wild auto-replant crops?");
 		
 		category = "World";
 		config.addCustomCategoryComment(category, "Settings for any World Generation in Mystical Agriculture.");
+		generate_regular = config.getBoolean("generate_regular", category, true, "Should the regular ores generate in the world?");
+		generate_nether = config.getBoolean("generate_nether", category, true, "Should the nether ores generate in the world?");
+		generate_end = config.getBoolean("generate_end", category, true, "Should the end ores generate in the world?");
+		
 		inferium_veincount = config.getInt("inferium_veincount", category, 16, 0, 1000, "Amount of Inferium Ore veins to spawn. Higher = more.");
 		inferium_veinsize = config.getInt("inferium_veinsize", category, 6, 0, 100, "Size of the Inferium Ore veins.");
 		inferium_miny = config.getInt("inferium_miny", category, 16, 1, 255, "Minimum Y level Inferium Ore should spawn.");
@@ -514,7 +546,9 @@ public class ModConfig {
 		end_prosperity_miny = config.getInt("end_prosperity_miny", category, 10, 1, 127, "Minimum Y level End Prosperity Ore should spawn.");
 		end_prosperity_maxy = config.getInt("end_prosperity_maxy", category, 100, 1, 127, "Maximum Y level End Prosperity Ore should spawn.");
 		
-		config.save();	
+		if(config.hasChanged()){
+			config.save();
+		}
 	}
 	 
 	public static ModConfig INFERIUM;

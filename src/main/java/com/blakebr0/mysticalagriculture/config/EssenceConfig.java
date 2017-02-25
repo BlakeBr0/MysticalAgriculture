@@ -124,6 +124,10 @@ public class EssenceConfig {
 	public static int osmium;
 	public static int refined_obsidian;
 	
+	public static int marble;
+	public static int limestone;
+	public static int basalt;
+	
 	public static int draconium;
 	
 	public static int yellorium;
@@ -217,8 +221,8 @@ public class EssenceConfig {
 		rabbit_foot = config.get(category, "rabbit_foot", 3).getInt(rabbit_foot);
 		rabbit_hide = config.get(category, "rabbit_hide", 8).getInt(rabbit_hide);
 		fish = config.get(category, "fish", 4).getInt(fish);
-		prismarine_shard = config.get(category, "prismarine_shard", 16).getInt(prismarine_shard);
-		prismarine_crystal = config.get(category, "prismarine_crystal", 8).getInt(prismarine_crystal);
+		prismarine_shard = config.get(category, "prismarine_shard", 12).getInt(prismarine_shard);
+		prismarine_crystal = config.get(category, "prismarine_crystal", 16).getInt(prismarine_crystal);
 		blaze_rod = config.get(category, "blaze_rod", 3).getInt(blaze_rod);
 		ghast_tear = config.get(category, "ghast_tear", 2).getInt(ghast_tear);
 		ender_pearl = config.get(category, "ender_pearl", 4).getInt(ender_pearl);
@@ -266,6 +270,11 @@ public class EssenceConfig {
 		category = "Mekanism";
 		osmium = config.get(category, "osmium", 4).getInt(osmium);
 		refined_obsidian = config.get(category, "refined_obsidian", 2).getInt(refined_obsidian);
+		
+		category = "Chisel";
+		marble = config.get(category, "marble", 24).getInt(marble);
+		limestone = config.get(category, "limestone", 24).getInt(limestone);
+		basalt = config.get(category, "basalt", 16).getInt(basalt);
 	
 		category = "Draconic Evolution";
 		draconium = config.get(category, "draconium", 1).getInt(draconium);
@@ -284,6 +293,8 @@ public class EssenceConfig {
 		category = "Immersive Engineering";
 		constantan = config.get(category, "constantan", 4).getInt(constantan);
 		
-		config.save();	
+		if(config.hasChanged()){
+			config.save();	
+		}
 	}
 }

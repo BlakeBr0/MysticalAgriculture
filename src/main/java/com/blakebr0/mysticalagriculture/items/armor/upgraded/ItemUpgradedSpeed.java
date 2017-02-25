@@ -7,9 +7,13 @@ import com.blakebr0.mysticalagriculture.MysticalAgriculture;
 import com.blakebr0.mysticalagriculture.config.ModConfig;
 import com.blakebr0.mysticalagriculture.items.ModItems;
 import com.blakebr0.mysticalagriculture.items.armor.ItemSupremiumArmor;
+import com.google.common.collect.Multimap;
 
+import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.SharedMonsterAttributes;
+import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.MobEffects;
 import net.minecraft.inventory.EntityEquipmentSlot;
@@ -73,10 +77,10 @@ public class ItemUpgradedSpeed extends ItemSupremiumArmor {
     	public static List<String> playersWithSpeed = new ArrayList<String>();
     	
     	public static String playerKey(EntityPlayer player) {
-    		return player.getGameProfile().getName() + ":" + player.worldObj.isRemote;
+    		return player.getGameProfile().getName() +":"+ player.worldObj.isRemote;
     	}
     	
-    	public static boolean playerHasSpeed(EntityPlayer entity) {
+    	public static boolean playerHasSet(EntityPlayer entity) {
     		ItemStack legs = entity.getItemStackFromSlot(EntityEquipmentSlot.LEGS);
     		
     		return legs != null && legs.getItem() instanceof ItemUpgradedSpeed;
@@ -88,17 +92,43 @@ public class ItemUpgradedSpeed extends ItemSupremiumArmor {
     			EntityPlayer player = (EntityPlayer)event.getEntityLiving();
     			String key = playerKey(player);
 
-    			Boolean hasSpeed = playerHasSpeed(player);
+    			Boolean hasSet = playerHasSet(player);
     			if(playersWithSpeed.contains(key) && ModConfig.set_bonuses){
-    				if(hasSpeed){
-    					player.capabilities.setPlayerWalkSpeed(0.24F);
-    					player.capabilities.setFlySpeed(0.1F);
+    				if(hasSet){
+    					player.stepHeight = 1.0F;
+    					if(ModConfig.supremium_flight){
+    						player.capabilities.allowFlying = true;
+    					}
+						boolean flying = player.capabilities.isFlying;
+						boolean swimming = player.isInsideOfMaterial(Material.WATER) || player.isInWater();
+						if(player.onGround || flying || swimming) {
+							boolean sneaking = player.isSneaking();
+							boolean sprinting = player.isSprinting();
+							
+							float speed = 0.1f 
+								* (flying ? 0.6f : 1.0f)
+								* (sneaking ? 0.1f : 1.0f)
+								* (!sprinting ? 0.6F : 1.2F);
+							
+							if (player.moveForward > 0f) {
+								player.moveRelative(0f, 1f, speed);
+							} else if (player.moveForward < 0f) {
+								player.moveRelative(0f, 1f, -speed * 0.3f);
+							}
+							
+							if (player.moveStrafing != 0f) {
+								player.moveRelative(1f, 0f, speed * 0.5f * Math.signum(player.moveStrafing));
+							}
+						}
     				} else {
-    					player.capabilities.setPlayerWalkSpeed(0.1F);
-    					player.capabilities.setFlySpeed(0.05F);
+    					player.stepHeight = 0.5F;
+    					if(!player.capabilities.isCreativeMode && !player.isSpectator()){
+    						player.capabilities.allowFlying = false;
+        					player.capabilities.isFlying = false;
+    					}
     					playersWithSpeed.remove(key);
     				}
-    			} else if(hasSpeed) {
+    			} else if(hasSet) {
     				playersWithSpeed.add(key);
     			}
     		}

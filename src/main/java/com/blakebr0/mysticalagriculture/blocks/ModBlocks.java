@@ -20,7 +20,10 @@ import com.blakebr0.mysticalagriculture.blocks.furnace.BlockUltimateFurnace;
 import com.blakebr0.mysticalagriculture.blocks.ore.BlockInferiumOre;
 import com.blakebr0.mysticalagriculture.blocks.ore.BlockProsperityOre;
 import com.blakebr0.mysticalagriculture.config.ModConfig;
+import com.blakebr0.mysticalagriculture.crafting.ReprocessorManager;
 import com.blakebr0.mysticalagriculture.items.ModItems;
+import com.blakebr0.mysticalagriculture.jei.CompatJEI;
+import com.blakebr0.mysticalagriculture.util.ModChecker;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
@@ -30,6 +33,7 @@ import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
+import net.minecraft.item.ItemStack;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.ObfuscationReflectionHelper;
@@ -42,7 +46,7 @@ public class ModBlocks {
 	
 	public static List<Block> BLOCKS = new ArrayList<Block>();
 	public static List<Block> BLOCKS2 = new ArrayList<Block>();
-	
+		
 	public static BaseBlock inferium_block = new BaseBlock("inferium_block", Material.ROCK, SoundType.STONE, 4.0F, 6.0F, "pickaxe", 0);
 	public static BaseBlock prudentium_block = new BaseBlock("prudentium_block", Material.ROCK, SoundType.STONE, 4.0F, 6.0F, "pickaxe", 0);
 	public static BaseBlock intermedium_block = new BaseBlock("intermedium_block", Material.ROCK, SoundType.STONE, 4.0F, 6.0F, "pickaxe", 0);
@@ -51,20 +55,29 @@ public class ModBlocks {
 	
 	public static BaseBlock prosperity_block = new BaseBlock("prosperity_block", Material.ROCK, SoundType.STONE, 4.0F, 6.0F, "pickaxe", 0);
 	
-	public static BaseBlock soulstone = new BaseBlock("soulstone", Material.ROCK, SoundType.STONE, 4.0F, 10.0F, "pickaxe", 0);
+	public static BaseBlock base_essence_ingot_block = new BaseBlock("base_essence_ingot_block", Material.IRON, SoundType.METAL, 5.0F, 8.0F, "pickaxe", 0);
+	public static BaseBlock inferium_ingot_block = new BaseBlock("inferium_ingot_block", Material.IRON, SoundType.METAL, 5.0F, 8.0F, "pickaxe", 0);
+	public static BaseBlock prudentium_ingot_block = new BaseBlock("prudentium_ingot_block", Material.IRON, SoundType.METAL, 5.0F, 8.0F, "pickaxe", 0);
+	public static BaseBlock intermedium_ingot_block = new BaseBlock("intermedium_ingot_block", Material.IRON, SoundType.METAL, 5.0F, 8.0F, "pickaxe", 0);
+	public static BaseBlock superium_ingot_block = new BaseBlock("superium_ingot_block", Material.IRON, SoundType.METAL, 5.0F, 8.0F, "pickaxe", 0);
+	public static BaseBlock supremium_ingot_block = new BaseBlock("supremium_ingot_block", Material.IRON, SoundType.METAL, 5.0F, 8.0F, "pickaxe", 0);
 	
-	public static BlockInferiumFurnace inferium_furnace = new BlockInferiumFurnace(false, "inferium_furnace", 5.0F, 8.0F, "pickaxe", 0);
-	public static BlockInferiumFurnace inferium_furnace_active = new BlockInferiumFurnace(true, "inferium_furnace_active", 5.0F, 8.0F, "pickaxe", 0);
-	public static BlockPrudentiumFurnace prudentium_furnace = new BlockPrudentiumFurnace(false, "prudentium_furnace", 5.0F, 8.0F, "pickaxe", 0);
+	public static BaseBlock soulium_ingot_block = new BaseBlock("soulium_ingot_block", Material.IRON, SoundType.METAL, 5.0F, 8.0F, "pickaxe", 0);
+	
+	public static BaseBlock soulstone = new BaseBlock("soulstone", Material.ROCK, SoundType.STONE, 4.0F, 10.0F, "pickaxe", 0);
+		
+	public static BlockInferiumFurnace inferium_furnace = new BlockInferiumFurnace(false, "inferium_furnace", 5.0F, 10.0F, "pickaxe", 0);
+	public static BlockInferiumFurnace inferium_furnace_active = new BlockInferiumFurnace(true, "inferium_furnace_active", 5.0F, 10.0F, "pickaxe", 0);
+	public static BlockPrudentiumFurnace prudentium_furnace = new BlockPrudentiumFurnace(false, "prudentium_furnace", 5.0F, 10.0F, "pickaxe", 0);
 	public static BlockPrudentiumFurnace prudentium_furnace_active = new BlockPrudentiumFurnace(true, "prudentium_furnace_active", 5.0F, 8.0F, "pickaxe", 0);
 	public static BlockIntermediumFurnace intermedium_furnace = new BlockIntermediumFurnace(false, "intermedium_furnace", 5.0F, 8.0F, "pickaxe", 0);
-	public static BlockIntermediumFurnace intermedium_furnace_active = new BlockIntermediumFurnace(true, "intermedium_furnace_active", 5.0F, 8.0F, "pickaxe", 0);
-	public static BlockSuperiumFurnace superium_furnace = new BlockSuperiumFurnace(false, "superium_furnace", 5.0F, 8.0F, "pickaxe", 0);
-	public static BlockSuperiumFurnace superium_furnace_active = new BlockSuperiumFurnace(true, "superium_furnace_active", 5.0F, 8.0F, "pickaxe", 0);
-	public static BlockSupremiumFurnace supremium_furnace = new BlockSupremiumFurnace(false, "supremium_furnace", 5.0F, 8.0F, "pickaxe", 0);
-	public static BlockSupremiumFurnace supremium_furnace_active = new BlockSupremiumFurnace(true, "supremium_furnace_active", 5.0F, 8.0F, "pickaxe", 0);
-	public static BlockUltimateFurnace ultimate_furnace = new BlockUltimateFurnace(false, "ultimate_furnace", 5.0F, 8.0F, "pickaxe", 0);
-	public static BlockUltimateFurnace ultimate_furnace_active = new BlockUltimateFurnace(true, "ultimate_furnace_active", 5.0F, 8.0F, "pickaxe", 0);
+	public static BlockIntermediumFurnace intermedium_furnace_active = new BlockIntermediumFurnace(true, "intermedium_furnace_active", 5.0F, 10.0F, "pickaxe", 0);
+	public static BlockSuperiumFurnace superium_furnace = new BlockSuperiumFurnace(false, "superium_furnace", 5.0F, 10.0F, "pickaxe", 0);
+	public static BlockSuperiumFurnace superium_furnace_active = new BlockSuperiumFurnace(true, "superium_furnace_active", 5.0F, 10.0F, "pickaxe", 0);
+	public static BlockSupremiumFurnace supremium_furnace = new BlockSupremiumFurnace(false, "supremium_furnace", 5.0F, 10.0F, "pickaxe", 0);
+	public static BlockSupremiumFurnace supremium_furnace_active = new BlockSupremiumFurnace(true, "supremium_furnace_active", 5.0F, 10.0F, "pickaxe", 0);
+	public static BlockUltimateFurnace ultimate_furnace = new BlockUltimateFurnace(false, "ultimate_furnace", 5.0F, 10.0F, "pickaxe", 0);
+	public static BlockUltimateFurnace ultimate_furnace_active = new BlockUltimateFurnace(true, "ultimate_furnace_active", 5.0F, 10.0F, "pickaxe", 0);
 	
 	public static BlockProsperityOre prosperity_ore = new BlockProsperityOre("prosperity_ore", Material.ROCK, SoundType.STONE, 3.0F, 5.0F, "pickaxe", 1);
 	public static BlockProsperityOre nether_prosperity_ore = new BlockProsperityOre("nether_prosperity_ore", Material.ROCK, SoundType.STONE, 3.0F, 5.0F, "pickaxe", 1);
@@ -75,9 +88,14 @@ public class ModBlocks {
 	
 	public static BlockAccelerator growth_accelerator = new BlockAccelerator("growth_accelerator", Material.ROCK, SoundType.STONE, 5.0F, 8.0F, "pickaxe", 1);
 	
-	public static BlockWitherproofBlock witherproof_block = new BlockWitherproofBlock("witherproof_block", Material.ROCK, SoundType.STONE, 30.0F, 2000.0F, "pickaxe", 1);
-	public static BlockWitherproofGlass witherproof_glass = new BlockWitherproofGlass("witherproof_glass", Material.GLASS, SoundType.GLASS, 24.0F, 1800.0F, "pickaxe", 1);
+	public static BlockMachineFrame mystical_machine_frame = new BlockMachineFrame("mystical_machine_frame", Material.ROCK, SoundType.STONE, 4.0F, 6.0F, "pickaxe", 0);
+	public static BlockMachineFrame glowstone_lamp = (BlockMachineFrame)new BlockMachineFrame("glowstone_lamp", Material.ROCK, SoundType.GLASS, 4.0F, 6.0F, "pickaxe", 0).setLightLevel(1.0F);
 	
+	public static BlockSeedReprocessor seed_reprocessor = new BlockSeedReprocessor();
+	
+	public static BlockWitherproofBlock witherproof_block = new BlockWitherproofBlock("witherproof_block", Material.ROCK, SoundType.STONE, 24.0F, 2000.0F, "pickaxe", 1);
+	public static BlockWitherproofGlass witherproof_glass = new BlockWitherproofGlass("witherproof_glass", Material.GLASS, SoundType.GLASS, 20.0F, 1800.0F, "pickaxe", 1);
+		
 	public static BlockTier1InferiumCrop tier1_inferium_crop = new BlockTier1InferiumCrop("tier1_inferium_crop");
 	public static BlockTier2InferiumCrop tier2_inferium_crop = new BlockTier2InferiumCrop("tier2_inferium_crop");
 	public static BlockTier3InferiumCrop tier3_inferium_crop = new BlockTier3InferiumCrop("tier3_inferium_crop");
@@ -158,6 +176,10 @@ public class ModBlocks {
 	public static BlockMysticalCrop osmium_crop = new BlockMysticalCrop("osmium_crop");
 	public static BlockMysticalCrop refined_obsidian_crop = new BlockMysticalCrop("refined_obsidian_crop");
 	
+	public static BlockMysticalCrop marble_crop = new BlockMysticalCrop("marble_crop");
+	public static BlockMysticalCrop limestone_crop = new BlockMysticalCrop("limestone_crop");
+	public static BlockMysticalCrop basalt_crop = new BlockMysticalCrop("basalt_crop");
+	
 	public static BlockMysticalCrop draconium_crop = new BlockMysticalCrop("draconium_crop");
 	
 	public static BlockMysticalCrop yellorium_crop = new BlockMysticalCrop("yellorium_crop");
@@ -170,7 +192,7 @@ public class ModBlocks {
 	public static BlockMysticalCrop constantan_crop = new BlockMysticalCrop("constantan_crop");
 	
 	public static void initBlocks(){
-		
+						
 		BLOCKS.add(inferium_block);
 		BLOCKS.add(prudentium_block);
 		BLOCKS.add(intermedium_block);
@@ -178,6 +200,15 @@ public class ModBlocks {
 		BLOCKS.add(supremium_block);
 		
 		BLOCKS.add(prosperity_block);
+		
+		BLOCKS.add(base_essence_ingot_block);
+		BLOCKS.add(inferium_ingot_block);
+		BLOCKS.add(prudentium_ingot_block);
+		BLOCKS.add(intermedium_ingot_block);
+		BLOCKS.add(superium_ingot_block);
+		BLOCKS.add(supremium_ingot_block);
+		
+		BLOCKS.add(soulium_ingot_block);
 		
 		BLOCKS.add(soulstone);
 		
@@ -207,11 +238,18 @@ public class ModBlocks {
 		
 		if(ModConfig.growth_accelerator){ BLOCKS.add(growth_accelerator); }
 		
+		BLOCKS.add(mystical_machine_frame);
+		BLOCKS.add(glowstone_lamp);
+
+		if(ModConfig.seed_reprocessor){
+			BLOCKS.add(seed_reprocessor);
+		}
+		
 		if(ModConfig.witherproof_blocks){
 			BLOCKS.add(witherproof_block);
 			BLOCKS.add(witherproof_glass);
 		}
-		
+
 		for(Block block : BLOCKS){
 			GameRegistry.register(block);
 			GameRegistry.register(new ItemBlock(block).setRegistryName(block.getRegistryName()));
@@ -263,54 +301,58 @@ public class ModBlocks {
 		if(ModConfig.enderman_seeds){ BLOCKS2.add(enderman_crop); }
 		if(ModConfig.wither_skeleton_seeds){ BLOCKS2.add(wither_skeleton_crop); }
 		
-		if(ModConfig.rubber_seeds && OreDictionary.getOres("itemRubber").size() > 0){ BLOCKS2.add(rubber_crop); }
-		if(ModConfig.aluminum_seeds && OreDictionary.getOres("ingotAluminum").size() > 0){ BLOCKS2.add(aluminum_crop); }
-		if(ModConfig.copper_seeds && OreDictionary.getOres("ingotCopper").size() > 0){ BLOCKS2.add(copper_crop); }
-		if(ModConfig.tin_seeds && OreDictionary.getOres("ingotTin").size() > 0){ BLOCKS2.add(tin_crop); }
-		if(ModConfig.bronze_seeds && OreDictionary.getOres("ingotBronze").size() > 0){ BLOCKS2.add(bronze_crop); }
-		if(ModConfig.silver_seeds && OreDictionary.getOres("ingotSilver").size() > 0){ BLOCKS2.add(silver_crop); }
-		if(ModConfig.lead_seeds && OreDictionary.getOres("ingotLead").size() > 0){ BLOCKS2.add(lead_crop); }
-		if(ModConfig.steel_seeds && OreDictionary.getOres("ingotSteel").size() > 0){ BLOCKS2.add(steel_crop); }
-		if(ModConfig.nickel_seeds && OreDictionary.getOres("ingotNickel").size() > 0){ BLOCKS2.add(nickel_crop); } 
-		if(ModConfig.electrum_seeds && OreDictionary.getOres("ingotElectrum").size() > 0){ BLOCKS2.add(electrum_crop); } 
+		if(ModConfig.rubber_seeds && ModChecker.RUBBER){ BLOCKS2.add(rubber_crop); }
+		if(ModConfig.aluminum_seeds && ModChecker.ALUMINUM){ BLOCKS2.add(aluminum_crop); }
+		if(ModConfig.copper_seeds && ModChecker.COPPER){ BLOCKS2.add(copper_crop); }
+		if(ModConfig.tin_seeds && ModChecker.TIN){ BLOCKS2.add(tin_crop); }
+		if(ModConfig.bronze_seeds && ModChecker.BRONZE){ BLOCKS2.add(bronze_crop); }
+		if(ModConfig.silver_seeds && ModChecker.SILVER){ BLOCKS2.add(silver_crop); }
+		if(ModConfig.lead_seeds && ModChecker.LEAD){ BLOCKS2.add(lead_crop); }
+		if(ModConfig.steel_seeds && ModChecker.STEEL){ BLOCKS2.add(steel_crop); }
+		if(ModConfig.nickel_seeds && ModChecker.NICKEL){ BLOCKS2.add(nickel_crop); } 
+		if(ModConfig.electrum_seeds && ModChecker.ELECTRUM){ BLOCKS2.add(electrum_crop); } 
 		
-		if(ModConfig.ruby_seeds && OreDictionary.getOres("gemRuby").size() > 0){ BLOCKS2.add(ruby_crop); }
-		if(ModConfig.sapphire_seeds && OreDictionary.getOres("gemSapphire").size() > 0){ BLOCKS2.add(sapphire_crop); }
-		if(ModConfig.peridot_seeds && OreDictionary.getOres("gemPeridot").size() > 0){ BLOCKS2.add(peridot_crop); }
+		if(ModConfig.ruby_seeds && ModChecker.RUBY){ BLOCKS2.add(ruby_crop); }
+		if(ModConfig.sapphire_seeds && ModChecker.SAPPHIRE){ BLOCKS2.add(sapphire_crop); }
+		if(ModConfig.peridot_seeds && ModChecker.PERIDOT){ BLOCKS2.add(peridot_crop); }
 		
-		if(ModConfig.aluminum_brass_seeds && Loader.isModLoaded("tconstruct")){ BLOCKS2.add(aluminum_brass_crop); }
-		if(ModConfig.knightslime_seeds && Loader.isModLoaded("tconstruct")){ BLOCKS2.add(knightslime_crop); }
-		if(ModConfig.ardite_seeds && Loader.isModLoaded("tconstruct")){ BLOCKS2.add(ardite_crop); }
-		if(ModConfig.cobalt_seeds && Loader.isModLoaded("tconstruct")){ BLOCKS2.add(cobalt_crop); }
-		if(ModConfig.manyullyn_seeds && Loader.isModLoaded("tconstruct")){ BLOCKS2.add(manyullyn_crop); }
+		if(ModConfig.aluminum_brass_seeds && ModChecker.TINKERS){ BLOCKS2.add(aluminum_brass_crop); }
+		if(ModConfig.knightslime_seeds && ModChecker.TINKERS){ BLOCKS2.add(knightslime_crop); }
+		if(ModConfig.ardite_seeds && ModChecker.TINKERS){ BLOCKS2.add(ardite_crop); }
+		if(ModConfig.cobalt_seeds && ModChecker.TINKERS){ BLOCKS2.add(cobalt_crop); }
+		if(ModConfig.manyullyn_seeds && ModChecker.TINKERS){ BLOCKS2.add(manyullyn_crop); }
 		
-		if(ModConfig.electrical_steel_seeds && Loader.isModLoaded("EnderIO")){ BLOCKS2.add(electrical_steel_crop); }
-		if(ModConfig.redstone_alloy_seeds && Loader.isModLoaded("EnderIO")){ BLOCKS2.add(redstone_alloy_crop); }
-		if(ModConfig.conductive_iron_seeds && Loader.isModLoaded("EnderIO")){ BLOCKS2.add(conductive_iron_crop); }
-		if(ModConfig.soularium_seeds && Loader.isModLoaded("EnderIO")){ BLOCKS2.add(soularium_crop); }
-		if(ModConfig.dark_steel_seeds && Loader.isModLoaded("EnderIO")){ BLOCKS2.add(dark_steel_crop); }
-		if(ModConfig.pulsating_iron_seeds && Loader.isModLoaded("EnderIO")){ BLOCKS2.add(pulsating_iron_crop); }
-		if(ModConfig.energetic_alloy_seeds && Loader.isModLoaded("EnderIO")){ BLOCKS2.add(energetic_alloy_crop); }
-		if(ModConfig.vibrant_alloy_seeds && Loader.isModLoaded("EnderIO")){ BLOCKS2.add(vibrant_alloy_crop); }
+		if(ModConfig.electrical_steel_seeds && ModChecker.ENDERIO){ BLOCKS2.add(electrical_steel_crop); }
+		if(ModConfig.redstone_alloy_seeds && ModChecker.ENDERIO){ BLOCKS2.add(redstone_alloy_crop); }
+		if(ModConfig.conductive_iron_seeds && ModChecker.ENDERIO){ BLOCKS2.add(conductive_iron_crop); }
+		if(ModConfig.soularium_seeds && ModChecker.ENDERIO){ BLOCKS2.add(soularium_crop); }
+		if(ModConfig.dark_steel_seeds && ModChecker.ENDERIO){ BLOCKS2.add(dark_steel_crop); }
+		if(ModConfig.pulsating_iron_seeds && ModChecker.ENDERIO){ BLOCKS2.add(pulsating_iron_crop); }
+		if(ModConfig.energetic_alloy_seeds && ModChecker.ENDERIO){ BLOCKS2.add(energetic_alloy_crop); }
+		if(ModConfig.vibrant_alloy_seeds && ModChecker.ENDERIO){ BLOCKS2.add(vibrant_alloy_crop); }
 		
-		if(ModConfig.mystical_flower_seeds && Loader.isModLoaded("Botania")){ BLOCKS2.add(mystical_flower_crop); }
-		if(ModConfig.manasteel_seeds && Loader.isModLoaded("Botania")){ BLOCKS2.add(manasteel_crop); }
-		if(ModConfig.terrasteel_seeds && Loader.isModLoaded("Botania")){ BLOCKS2.add(terrasteel_crop); }
+		if(ModConfig.mystical_flower_seeds && ModChecker.BOTANIA){ BLOCKS2.add(mystical_flower_crop); }
+		if(ModConfig.manasteel_seeds && ModChecker.BOTANIA){ BLOCKS2.add(manasteel_crop); }
+		if(ModConfig.terrasteel_seeds && ModChecker.BOTANIA){ BLOCKS2.add(terrasteel_crop); }
 		
-		if(ModConfig.osmium_seeds && Loader.isModLoaded("Mekanism")){ BLOCKS2.add(osmium_crop); }
-		if(ModConfig.refined_obsidian_seeds && Loader.isModLoaded("Mekanism")){ BLOCKS2.add(refined_obsidian_crop); }
+		if(ModConfig.osmium_seeds && ModChecker.MEKANISM){ BLOCKS2.add(osmium_crop); }
+		if(ModConfig.refined_obsidian_seeds && ModChecker.MEKANISM){ BLOCKS2.add(refined_obsidian_crop); }
 		
-		if(ModConfig.draconium_seeds && Loader.isModLoaded("draconicevolution")){ BLOCKS2.add(draconium_crop); }
+		if(ModConfig.marble_seeds && ModChecker.CHISEL){ BLOCKS2.add(marble_crop); }
+		if(ModConfig.limestone_seeds && ModChecker.CHISEL){ BLOCKS2.add(limestone_crop); }
+		if(ModConfig.basalt_seeds && ModChecker.CHISEL){ BLOCKS2.add(basalt_crop); }
 		
-		if(ModConfig.yellorium_seeds && Loader.isModLoaded("bigreactors")){ BLOCKS2.add(yellorium_crop); }
+		if(ModConfig.draconium_seeds && ModChecker.DRACONIC){ BLOCKS2.add(draconium_crop); }
 		
-		if(ModConfig.certus_quartz_seeds && Loader.isModLoaded("appliedenergistics2")){ BLOCKS2.add(certus_quartz_crop); }
-		if(ModConfig.fluix_seeds && Loader.isModLoaded("appliedenergistics2")){ BLOCKS2.add(fluix_crop); }
+		if(ModConfig.yellorium_seeds && ModChecker.BIGREACTORS){ BLOCKS2.add(yellorium_crop); }
 		
-		if(ModConfig.quartz_enriched_iron_seeds && Loader.isModLoaded("refinedstorage")){ BLOCKS2.add(quartz_enriched_iron_crop); }
+		if(ModConfig.certus_quartz_seeds && ModChecker.AE2){ BLOCKS2.add(certus_quartz_crop); }
+		if(ModConfig.fluix_seeds && ModChecker.AE2){ BLOCKS2.add(fluix_crop); }
 		
-		if(ModConfig.constantan_seeds && OreDictionary.getOres("ingotConstantan").size() > 0){ BLOCKS2.add(constantan_crop); }
+		if(ModConfig.quartz_enriched_iron_seeds && ModChecker.RS){ BLOCKS2.add(quartz_enriched_iron_crop); }
 		
+		if(ModConfig.constantan_seeds && ModChecker.IE){ BLOCKS2.add(constantan_crop); }
+			
 		for(Block block : BLOCKS2){
 			GameRegistry.register(block);
 			GameRegistry.register(new ItemBlock(block).setRegistryName(block.getRegistryName()));
@@ -320,6 +362,11 @@ public class ModBlocks {
 	public static void setCropDrops(BlockMysticalCrop plant, Item crop, Item seed){
 		plant.setCrop(crop);
 		plant.setSeed(seed);
+		if(ModConfig.seed_reprocessor){
+			if(ModItems.ITEMS2.contains(crop) && ModItems.ITEMS2.contains(seed)){
+				ReprocessorManager.addRecipe(new ItemStack(crop, 2, 0), new ItemStack(seed, 1, 0));
+			}
+		}
 	}
 	
 	public static void initCropDrops(){
@@ -397,6 +444,10 @@ public class ModBlocks {
 		setCropDrops(osmium_crop, ModItems.osmium_essence, ModItems.osmium_seeds);
 		setCropDrops(refined_obsidian_crop, ModItems.refined_obsidian_essence, ModItems.refined_obsidian_seeds);
 		
+		setCropDrops(marble_crop, ModItems.marble_essence, ModItems.marble_seeds);
+		setCropDrops(limestone_crop, ModItems.limestone_essence, ModItems.limestone_seeds);
+		setCropDrops(basalt_crop, ModItems.basalt_essence, ModItems.basalt_seeds); 
+		
 		setCropDrops(draconium_crop, ModItems.draconium_essence, ModItems.draconium_seeds);
 		
 		setCropDrops(yellorium_crop, ModItems.yellorium_essence, ModItems.yellorium_seeds);
@@ -416,6 +467,17 @@ public class ModBlocks {
 		OreDictionary.registerOre("oreInferium", inferium_ore);
 		OreDictionary.registerOre("oreNetherInferium", nether_inferium_ore);
 		OreDictionary.registerOre("oreEndInferium", end_inferium_ore);
+	}
+	
+	public static void initJEIDescriptions(){
+		addJEIDescription(glowstone_lamp);
+		if(ModConfig.seed_reprocessor){
+			addJEIDescription(seed_reprocessor);
+		}
+	}
+	
+	public static void addJEIDescription(Block block){
+		CompatJEI.blocks.add(block);
 	}
 	
 	@SideOnly(Side.CLIENT)
