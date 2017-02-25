@@ -23,7 +23,7 @@ import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
-@Mod(modid = "mysticalagriculture", name = "Mystical Agriculture", version = "1.4.2", guiFactory = "com.blakebr0.mysticalagriculture.config.GuiFactory")
+@Mod(modid = "mysticalagriculture", name = "Mystical Agriculture", version = "1.3.8")
 public class MysticalAgriculture {
 	
 	public static final String MODID = "mysticalagriculture";
@@ -37,12 +37,9 @@ public class MysticalAgriculture {
 	
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent e) {
-		File old_config = new File(e.getModConfigurationDirectory(), "mysticalagriculture.cfg");
-		File old_essence_config = new File(e.getModConfigurationDirectory(), "mysticalagriculture_recipes.cfg");
-		ModConfig.init(old_config);
-		EssenceConfig.init(old_essence_config);
-		MinecraftForge.EVENT_BUS.register(new ModConfig());
-		MinecraftForge.EVENT_BUS.register(new EssenceConfig());
+		ModConfig.init(e.getSuggestedConfigurationFile());
+		File essence_config = new File(e.getModConfigurationDirectory(), "mysticalagriculture_recipes.cfg");
+		EssenceConfig.init(essence_config);
 		proxy.preInit(e);
 		FMLInterModComms.sendMessage("Waila", "register", "com.blakebr0.mysticalagriculture.util.WailaDataProvider.callbackRegister");
 	}

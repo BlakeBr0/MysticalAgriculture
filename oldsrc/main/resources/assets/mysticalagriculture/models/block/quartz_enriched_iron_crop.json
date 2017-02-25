@@ -1,6 +1,0 @@
-{
-    "parent": "block/cross",
-    "textures": {
-        "cross": "mysticalagriculture:blocks/quartz_enriched_iron_crop"
-    }
-}

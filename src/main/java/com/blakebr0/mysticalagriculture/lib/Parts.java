@@ -1,7 +1,5 @@
 package com.blakebr0.mysticalagriculture.lib;
 
-import com.blakebr0.mysticalagriculture.util.ModChecker;
-
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -81,26 +79,16 @@ public class Parts {
 	@ItemStackHolder(value="botania:manaResource", meta= 4)
 	public static final ItemStack terrasteel = null;
 	
-//	@ItemStackHolder(value = "chisel:marbleextra", meta = 7)
-//	public static final ItemStack MARBLE = null;
-//	@ItemStackHolder(value = "chisel:limestoneextra", meta = 7)
-//	public static final ItemStack LIMESTONE = null;
-//	@ItemStackHolder(value = "chisel:basaltextra", meta = 7)
-//	public static final ItemStack BASALT = null;
-	
 	@ItemStackHolder(value="appliedenergistics2:material", meta= 10)
 	public static final ItemStack pure_certus_quartz = null;
 	
 	@ItemStackHolder(value="refinedstorage:quartz_enriched_iron", meta= 0)
 	public static final ItemStack quartz_enriched_iron = null;
-		
+
 	public static Item tcon_ingots;
 	public static Item eio_alloys;
 	public static Item botania_flowers;
 	public static Item botania_resources;
-	public static Item MARBLE;
-	public static Item LIMESTONE;
-	public static Item BASALT;
 	public static Item rs_ingot;
 	public static Item ae_material;
 	
@@ -139,29 +127,6 @@ public class Parts {
 	            Parts.botania_resources = botania_resources;
 	        }
 	        catch (Throwable e){
-	            e.printStackTrace();
-	        }
-	    }
-	    
-	    if(ModChecker.CHISEL){
-	        try {
-	            Item marble = getItem("chisel:marbleextra");
-	            MARBLE = marble;
-	        } catch (Throwable e){
-	            e.printStackTrace();
-	        }
-	        
-	        try {
-	            Item limestone = getItem("chisel:limestoneextra");
-	            LIMESTONE = limestone;
-	        } catch (Throwable e){
-	            e.printStackTrace();
-	        }
-	        
-	        try {
-	            Item limestone = getItem("chisel:basaltextra");
-	            BASALT = limestone;
-	        } catch (Throwable e){
 	            e.printStackTrace();
 	        }
 	    }

@@ -7,10 +7,6 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 public class ModTileEntities {
 	
 	public static void initTileEntities(){
-		if(ModConfig.seed_reprocessor){
-			GameRegistry.registerTileEntity(TileEntitySeedReprocessor.class, "MA_Seed_Reprocessor");
-		}
-		
 		if(ModConfig.essence_furnaces){
 			GameRegistry.registerTileEntity(TileEntityInferiumFurnace.class, "MA_Inferium_Furnace");
 			GameRegistry.registerTileEntity(TileEntityPrudentiumFurnace.class, "MA_Prudentium_Furnace");

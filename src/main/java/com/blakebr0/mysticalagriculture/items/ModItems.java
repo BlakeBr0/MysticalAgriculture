@@ -23,10 +23,8 @@ import com.blakebr0.mysticalagriculture.items.armor.upgraded.ItemUpgradedStrengt
 import com.blakebr0.mysticalagriculture.items.armor.upgraded.ItemUpgradedAbsorption;
 import com.blakebr0.mysticalagriculture.items.charms.ItemCharmAbsorption;
 import com.blakebr0.mysticalagriculture.items.charms.ItemCharmAntivenom;
-import com.blakebr0.mysticalagriculture.items.charms.ItemCharmAttackAOE;
 import com.blakebr0.mysticalagriculture.items.charms.ItemCharmFire;
 import com.blakebr0.mysticalagriculture.items.charms.ItemCharmJump;
-import com.blakebr0.mysticalagriculture.items.charms.ItemCharmMiningAOE;
 import com.blakebr0.mysticalagriculture.items.charms.ItemCharmNightvision;
 import com.blakebr0.mysticalagriculture.items.charms.ItemCharmResistance;
 import com.blakebr0.mysticalagriculture.items.charms.ItemCharmSpeed;
@@ -57,22 +55,15 @@ import com.blakebr0.mysticalagriculture.items.tools.supremium.ItemSupremiumHoe;
 import com.blakebr0.mysticalagriculture.items.tools.supremium.ItemSupremiumPickaxe;
 import com.blakebr0.mysticalagriculture.items.tools.supremium.ItemSupremiumShovel;
 import com.blakebr0.mysticalagriculture.items.tools.supremium.ItemSupremiumSword;
-import com.blakebr0.mysticalagriculture.items.tools.supremium.upgraded.ItemAxeAOE;
-import com.blakebr0.mysticalagriculture.items.tools.supremium.upgraded.ItemPickaxeAOE;
-import com.blakebr0.mysticalagriculture.items.tools.supremium.upgraded.ItemShovelAOE;
-import com.blakebr0.mysticalagriculture.items.tools.supremium.upgraded.ItemSwordAOE;
 import com.blakebr0.mysticalagriculture.items.tools.supremium.upgraded.ItemSwordStrength;
 import com.blakebr0.mysticalagriculture.lib.ModToolMaterials;
-import com.blakebr0.mysticalagriculture.util.ModChecker;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.init.Blocks;
-import net.minecraft.init.Items;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemSword;
-import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.registry.GameRegistry;
@@ -223,10 +214,6 @@ public class ModItems {
 	public static BaseItem osmium_essence = new BaseItem("osmium_essence");
 	public static BaseItem refined_obsidian_essence = new BaseItem("refined_obsidian_essence");
 	
-	public static BaseItem marble_essence = new BaseItem("marble_essence");
-	public static BaseItem limestone_essence = new BaseItem("limestone_essence");
-	public static BaseItem basalt_essence = new BaseItem("basalt_essence");
-	
 	public static BaseItem draconium_essence = new BaseItem("draconium_essence");
 	
 	public static BaseItem yellorium_essence = new BaseItem("yellorium_essence");
@@ -317,10 +304,6 @@ public class ModItems {
 	
 	public static ItemSeed osmium_seeds = new ItemSeed("osmium_seeds", ModBlocks.osmium_crop, ModConfig.osmium_tier);
 	public static ItemSeed refined_obsidian_seeds = new ItemSeed("refined_obsidian_seeds", ModBlocks.refined_obsidian_crop, ModConfig.refined_obsidian_tier);
-	
-	public static ItemSeed marble_seeds = new ItemSeed("marble_seeds", ModBlocks.marble_crop, ModConfig.marble_tier);
-	public static ItemSeed limestone_seeds = new ItemSeed("limestone_seeds", ModBlocks.limestone_crop, ModConfig.limestone_tier);
-	public static ItemSeed basalt_seeds = new ItemSeed("basalt_seeds", ModBlocks.basalt_crop, ModConfig.basalt_tier);
 
 	public static ItemSeed draconium_seeds = new ItemSeed("draconium_seeds", ModBlocks.draconium_crop, ModConfig.draconium_tier);
 	
@@ -363,8 +346,6 @@ public class ModItems {
 	public static ItemCharmStrength charm_strength2 = new ItemCharmStrength("charm_strength2");
 	public static ItemCharmSpeed charm_speed = new ItemCharmSpeed("charm_speed");
 	public static ItemCharmJump charm_jump = new ItemCharmJump("charm_jump");
-	public static ItemCharmMiningAOE charm_mining_aoe = new ItemCharmMiningAOE("charm_mining_aoe");
-	public static ItemCharmAttackAOE charm_attack_aoe = new ItemCharmAttackAOE("charm_attack_aoe");
 	
 	public static ItemInferiumSword inferium_sword = new ItemInferiumSword(ModToolMaterials.INFERIUM, "inferium_sword");
 	public static ItemInferiumPickaxe inferium_pickaxe = new ItemInferiumPickaxe(ModToolMaterials.INFERIUM, "inferium_pickaxe");
@@ -398,11 +379,6 @@ public class ModItems {
 	
 	public static ItemSwordStrength supremium_sword_strength1 = new ItemSwordStrength(ModToolMaterials.SUPREMIUM_STRENGTH1, "supremium_sword_strength1");
 	public static ItemSwordStrength supremium_sword_strength2 = new ItemSwordStrength(ModToolMaterials.SUPREMIUM_STRENGTH2, "supremium_sword_strength2");
-	
-	public static ItemSwordAOE supremium_sword_aoe = new ItemSwordAOE(ModToolMaterials.SUPREMIUM_AOE, "supremium_sword_aoe");
-	public static ItemPickaxeAOE supremium_pickaxe_aoe = new ItemPickaxeAOE(ModToolMaterials.SUPREMIUM_AOE, "supremium_pickaxe_aoe");
-	public static ItemShovelAOE supremium_shovel_aoe = new ItemShovelAOE(ModToolMaterials.SUPREMIUM_AOE, "supremium_shovel_aoe");
-	public static ItemAxeAOE supremium_axe_aoe = new ItemAxeAOE(Item.ToolMaterial.DIAMOND, "supremium_axe_aoe");
 	
 	public static ItemInferiumArmor inferium_helmet = new ItemInferiumArmor("inferium_helmet", ModToolMaterials.INFERIUM_ARMOR, 0, EntityEquipmentSlot.HEAD);
 	public static ItemInferiumArmor inferium_chestplate = new ItemInferiumArmor("inferium_chestplate", ModToolMaterials.INFERIUM_ARMOR, 0, EntityEquipmentSlot.CHEST);
@@ -476,7 +452,7 @@ public class ModItems {
 		if(ModConfig.nature_seeds){ ITEMS.add(nature_cluster); }
 		if(ModConfig.dye_seeds){ ITEMS.add(dye_cluster); }
 		if(ModConfig.nether_seeds){ ITEMS.add(nether_cluster); }
-		if(ModConfig.mystical_flower_seeds && ModChecker.BOTANIA){ ITEMS.add(mystical_flower_cluster); }
+		if(ModConfig.mystical_flower_seeds && Loader.isModLoaded("Botania")){ ITEMS.add(mystical_flower_cluster); }
 		
 		if(ModConfig.essence_apples){
 			ITEMS.add(inferium_apple);
@@ -574,57 +550,53 @@ public class ModItems {
 		if(ModConfig.enderman_seeds){ ITEMS2.add(enderman_essence); }
 		if(ModConfig.wither_skeleton_seeds){ ITEMS2.add(wither_skeleton_essence); }
 		
-		if(ModConfig.rubber_seeds && ModChecker.RUBBER){ ITEMS2.add(rubber_essence); }
-		if(ModConfig.aluminum_seeds && ModChecker.ALUMINUM){ ITEMS2.add(aluminum_essence); }
-		if(ModConfig.copper_seeds && ModChecker.COPPER){ ITEMS2.add(copper_essence); }
-		if(ModConfig.tin_seeds && ModChecker.TIN){ ITEMS2.add(tin_essence); }
-		if(ModConfig.bronze_seeds && ModChecker.BRONZE){ ITEMS2.add(bronze_essence); }
-		if(ModConfig.silver_seeds && ModChecker.SILVER){ ITEMS2.add(silver_essence); }
-		if(ModConfig.lead_seeds && ModChecker.LEAD){ ITEMS2.add(lead_essence); }
-		if(ModConfig.steel_seeds && ModChecker.STEEL){ ITEMS2.add(steel_essence); }
-		if(ModConfig.nickel_seeds && ModChecker.NICKEL){ ITEMS2.add(nickel_essence); }
-		if(ModConfig.electrum_seeds && ModChecker.ELECTRUM){ ITEMS2.add(electrum_essence); }
+		if(ModConfig.rubber_seeds && OreDictionary.getOres("itemRubber").size() > 0){ ITEMS2.add(rubber_essence); }
+		if(ModConfig.aluminum_seeds && OreDictionary.getOres("ingotAluminum").size() > 0){ ITEMS2.add(aluminum_essence); }
+		if(ModConfig.copper_seeds && OreDictionary.getOres("ingotCopper").size() > 0){ ITEMS2.add(copper_essence); }
+		if(ModConfig.tin_seeds && OreDictionary.getOres("ingotTin").size() > 0){ ITEMS2.add(tin_essence); }
+		if(ModConfig.bronze_seeds && OreDictionary.getOres("ingotBronze").size() > 0){ ITEMS2.add(bronze_essence); }
+		if(ModConfig.silver_seeds && OreDictionary.getOres("ingotSilver").size() > 0){ ITEMS2.add(silver_essence); }
+		if(ModConfig.lead_seeds && OreDictionary.getOres("ingotLead").size() > 0){ ITEMS2.add(lead_essence); }
+		if(ModConfig.steel_seeds && OreDictionary.getOres("ingotSteel").size() > 0){ ITEMS2.add(steel_essence); }
+		if(ModConfig.nickel_seeds && OreDictionary.getOres("ingotNickel").size() > 0){ ITEMS2.add(nickel_essence); }
+		if(ModConfig.electrum_seeds && OreDictionary.getOres("ingotElectrum").size() > 0){ ITEMS2.add(electrum_essence); }
 		
-		if(ModConfig.ruby_seeds && ModChecker.RUBY){ ITEMS2.add(ruby_essence); }
-		if(ModConfig.sapphire_seeds && ModChecker.SAPPHIRE){ ITEMS2.add(sapphire_essence); }
-		if(ModConfig.peridot_seeds && ModChecker.PERIDOT){ ITEMS2.add(peridot_essence); }
+		if(ModConfig.ruby_seeds && OreDictionary.getOres("gemRuby").size() > 0){ ITEMS2.add(ruby_essence); }
+		if(ModConfig.sapphire_seeds && OreDictionary.getOres("gemSapphire").size() > 0){ ITEMS2.add(sapphire_essence); }
+		if(ModConfig.peridot_seeds && OreDictionary.getOres("gemPeridot").size() > 0){ ITEMS2.add(peridot_essence); }
 		
-		if(ModConfig.aluminum_brass_seeds && ModChecker.TINKERS){ ITEMS2.add(aluminum_brass_essence); }
-		if(ModConfig.knightslime_seeds && ModChecker.TINKERS){ ITEMS2.add(knightslime_essence); }
-		if(ModConfig.ardite_seeds && ModChecker.TINKERS){ ITEMS2.add(ardite_essence); }
-		if(ModConfig.cobalt_seeds && ModChecker.TINKERS){ ITEMS2.add(cobalt_essence); }
-		if(ModConfig.manyullyn_seeds && ModChecker.TINKERS){ ITEMS2.add(manyullyn_essence); }
+		if(ModConfig.aluminum_brass_seeds && Loader.isModLoaded("tconstruct")){ ITEMS2.add(aluminum_brass_essence); }
+		if(ModConfig.knightslime_seeds && Loader.isModLoaded("tconstruct")){ ITEMS2.add(knightslime_essence); }
+		if(ModConfig.ardite_seeds && Loader.isModLoaded("tconstruct")){ ITEMS2.add(ardite_essence); }
+		if(ModConfig.cobalt_seeds && Loader.isModLoaded("tconstruct")){ ITEMS2.add(cobalt_essence); }
+		if(ModConfig.manyullyn_seeds && Loader.isModLoaded("tconstruct")){ ITEMS2.add(manyullyn_essence); }
 
-		if(ModConfig.electrical_steel_seeds && ModChecker.ENDERIO){ ITEMS2.add(electrical_steel_essence); }
-		if(ModConfig.redstone_alloy_seeds && ModChecker.ENDERIO){ ITEMS2.add(redstone_alloy_essence); }
-		if(ModConfig.conductive_iron_seeds && ModChecker.ENDERIO){ ITEMS2.add(conductive_iron_essence); }
-		if(ModConfig.soularium_seeds && ModChecker.ENDERIO){ ITEMS2.add(soularium_essence); }
-		if(ModConfig.dark_steel_seeds && ModChecker.ENDERIO){ ITEMS2.add(dark_steel_essence); }
-		if(ModConfig.pulsating_iron_seeds && ModChecker.ENDERIO){ ITEMS2.add(pulsating_iron_essence); }
-		if(ModConfig.energetic_alloy_seeds && ModChecker.ENDERIO){ ITEMS2.add(energetic_alloy_essence); }
-		if(ModConfig.vibrant_alloy_seeds && ModChecker.ENDERIO){ ITEMS2.add(vibrant_alloy_essence); }
+		if(ModConfig.electrical_steel_seeds && Loader.isModLoaded("EnderIO")){ ITEMS2.add(electrical_steel_essence); }
+		if(ModConfig.redstone_alloy_seeds && Loader.isModLoaded("EnderIO")){ ITEMS2.add(redstone_alloy_essence); }
+		if(ModConfig.conductive_iron_seeds && Loader.isModLoaded("EnderIO")){ ITEMS2.add(conductive_iron_essence); }
+		if(ModConfig.soularium_seeds && Loader.isModLoaded("EnderIO")){ ITEMS2.add(soularium_essence); }
+		if(ModConfig.dark_steel_seeds && Loader.isModLoaded("EnderIO")){ ITEMS2.add(dark_steel_essence); }
+		if(ModConfig.pulsating_iron_seeds && Loader.isModLoaded("EnderIO")){ ITEMS2.add(pulsating_iron_essence); }
+		if(ModConfig.energetic_alloy_seeds && Loader.isModLoaded("EnderIO")){ ITEMS2.add(energetic_alloy_essence); }
+		if(ModConfig.vibrant_alloy_seeds && Loader.isModLoaded("EnderIO")){ ITEMS2.add(vibrant_alloy_essence); }
 
-		if(ModConfig.mystical_flower_seeds && ModChecker.BOTANIA){ ITEMS2.add(mystical_flower_essence); }
-		if(ModConfig.manasteel_seeds && ModChecker.BOTANIA){ ITEMS2.add(manasteel_essence); }
-		if(ModConfig.terrasteel_seeds && ModChecker.BOTANIA){ ITEMS2.add(terrasteel_essence); }
+		if(ModConfig.mystical_flower_seeds && Loader.isModLoaded("Botania")){ ITEMS2.add(mystical_flower_essence); }
+		if(ModConfig.manasteel_seeds && Loader.isModLoaded("Botania")){ ITEMS2.add(manasteel_essence); }
+		if(ModConfig.terrasteel_seeds && Loader.isModLoaded("Botania")){ ITEMS2.add(terrasteel_essence); }
 		
-		if(ModConfig.osmium_seeds && ModChecker.MEKANISM){ ITEMS2.add(osmium_essence); }
-		if(ModConfig.refined_obsidian_seeds && ModChecker.MEKANISM){ ITEMS2.add(refined_obsidian_essence); }
+		if(ModConfig.osmium_seeds && Loader.isModLoaded("Mekanism")){ ITEMS2.add(osmium_essence); }
+		if(ModConfig.refined_obsidian_seeds && Loader.isModLoaded("Mekanism")){ ITEMS2.add(refined_obsidian_essence); }
 		
-		if(ModConfig.marble_seeds && ModChecker.CHISEL){ ITEMS2.add(marble_essence); }
-		if(ModConfig.limestone_seeds && ModChecker.CHISEL){ ITEMS2.add(limestone_essence); }
-		if(ModConfig.basalt_seeds && ModChecker.CHISEL){ ITEMS2.add(basalt_essence); }
+		if(ModConfig.draconium_seeds && Loader.isModLoaded("draconicevolution")){ ITEMS2.add(draconium_essence); }
 		
-		if(ModConfig.draconium_seeds && ModChecker.DRACONIC){ ITEMS2.add(draconium_essence); }
+		if(ModConfig.yellorium_seeds && Loader.isModLoaded("bigreactors")){ ITEMS2.add(yellorium_essence); }
 		
-		if(ModConfig.yellorium_seeds && ModChecker.BIGREACTORS){ ITEMS2.add(yellorium_essence); }
+		if(ModConfig.certus_quartz_seeds && Loader.isModLoaded("appliedenergistics2")){ ITEMS2.add(certus_quartz_essence); }
+		if(ModConfig.fluix_seeds && Loader.isModLoaded("appliedenergistics2")){ ITEMS2.add(fluix_essence); }
 		
-		if(ModConfig.certus_quartz_seeds && ModChecker.AE2){ ITEMS2.add(certus_quartz_essence); }
-		if(ModConfig.fluix_seeds && ModChecker.AE2){ ITEMS2.add(fluix_essence); }
+		if(ModConfig.quartz_enriched_iron_seeds && Loader.isModLoaded("refinedstorage")){ ITEMS2.add(quartz_enriched_iron_essence); }
 		
-		if(ModConfig.quartz_enriched_iron_seeds && ModChecker.RS){ ITEMS2.add(quartz_enriched_iron_essence); }
-		
-		if(ModConfig.constantan_seeds && ModChecker.IE){ ITEMS2.add(constantan_essence); }
+		if(ModConfig.constantan_seeds && OreDictionary.getOres("ingotConstantan").size() > 0){ ITEMS2.add(constantan_essence); }
 
 		ITEMS2.add(tier1_inferium_seeds);
 		ITEMS2.add(tier2_inferium_seeds);
@@ -669,57 +641,53 @@ public class ModItems {
 		if(ModConfig.enderman_seeds){ ITEMS2.add(enderman_seeds); }
 		if(ModConfig.wither_skeleton_seeds){ ITEMS2.add(wither_skeleton_seeds); }
 
-		if(ModConfig.rubber_seeds && ModChecker.RUBBER){ ITEMS2.add(rubber_seeds); }
-		if(ModConfig.aluminum_seeds && ModChecker.ALUMINUM){ ITEMS2.add(aluminum_seeds); }
-		if(ModConfig.copper_seeds && ModChecker.COPPER){ ITEMS2.add(copper_seeds); }
-		if(ModConfig.tin_seeds && ModChecker.TIN){ ITEMS2.add(tin_seeds); }
-		if(ModConfig.bronze_seeds && ModChecker.BRONZE){ ITEMS2.add(bronze_seeds); }
-		if(ModConfig.silver_seeds && ModChecker.SILVER){ ITEMS2.add(silver_seeds); }
-		if(ModConfig.lead_seeds && ModChecker.LEAD){ ITEMS2.add(lead_seeds); }
-		if(ModConfig.steel_seeds && ModChecker.STEEL){ ITEMS2.add(steel_seeds); }
-		if(ModConfig.nickel_seeds && ModChecker.NICKEL){ ITEMS2.add(nickel_seeds); }
-		if(ModConfig.electrum_seeds && ModChecker.ELECTRUM){ ITEMS2.add(electrum_seeds); }
+		if(ModConfig.rubber_seeds && OreDictionary.getOres("itemRubber").size() > 0){ ITEMS2.add(rubber_seeds); }
+		if(ModConfig.aluminum_seeds && OreDictionary.getOres("ingotAluminum").size() > 0){ ITEMS2.add(aluminum_seeds); }
+		if(ModConfig.copper_seeds && OreDictionary.getOres("ingotCopper").size() > 0){ ITEMS2.add(copper_seeds); }
+		if(ModConfig.tin_seeds && OreDictionary.getOres("ingotTin").size() > 0){ ITEMS2.add(tin_seeds); }
+		if(ModConfig.bronze_seeds && OreDictionary.getOres("ingotBronze").size() > 0){ ITEMS2.add(bronze_seeds); }
+		if(ModConfig.silver_seeds && OreDictionary.getOres("ingotSilver").size() > 0){ ITEMS2.add(silver_seeds); }
+		if(ModConfig.lead_seeds && OreDictionary.getOres("ingotLead").size() > 0){ ITEMS2.add(lead_seeds); }
+		if(ModConfig.steel_seeds && OreDictionary.getOres("ingotSteel").size() > 0){ ITEMS2.add(steel_seeds); }
+		if(ModConfig.nickel_seeds && OreDictionary.getOres("ingotNickel").size() > 0){ ITEMS2.add(nickel_seeds); }
+		if(ModConfig.electrum_seeds && OreDictionary.getOres("ingotElectrum").size() > 0){ ITEMS2.add(electrum_seeds); }
 		
-		if(ModConfig.ruby_seeds && ModChecker.RUBY){ ITEMS2.add(ruby_seeds); }
-		if(ModConfig.sapphire_seeds && ModChecker.SAPPHIRE){ ITEMS2.add(sapphire_seeds); }
-		if(ModConfig.peridot_seeds && ModChecker.PERIDOT){ ITEMS2.add(peridot_seeds); }
+		if(ModConfig.ruby_seeds && OreDictionary.getOres("gemRuby").size() > 0){ ITEMS2.add(ruby_seeds); }
+		if(ModConfig.sapphire_seeds && OreDictionary.getOres("gemSapphire").size() > 0){ ITEMS2.add(sapphire_seeds); }
+		if(ModConfig.peridot_seeds && OreDictionary.getOres("gemPeridot").size() > 0){ ITEMS2.add(peridot_seeds); }
 		
-		if(ModConfig.aluminum_brass_seeds && ModChecker.TINKERS){ ITEMS2.add(aluminum_brass_seeds); }
-		if(ModConfig.knightslime_seeds && ModChecker.TINKERS){ ITEMS2.add(knightslime_seeds); }
-		if(ModConfig.ardite_seeds && ModChecker.TINKERS){ ITEMS2.add(ardite_seeds); }
-		if(ModConfig.cobalt_seeds && ModChecker.TINKERS){ ITEMS2.add(cobalt_seeds); }
-		if(ModConfig.manyullyn_seeds && ModChecker.TINKERS){ ITEMS2.add(manyullyn_seeds); }
+		if(ModConfig.aluminum_brass_seeds && Loader.isModLoaded("tconstruct")){ ITEMS2.add(aluminum_brass_seeds); }
+		if(ModConfig.knightslime_seeds && Loader.isModLoaded("tconstruct")){ ITEMS2.add(knightslime_seeds); }
+		if(ModConfig.ardite_seeds && Loader.isModLoaded("tconstruct")){ ITEMS2.add(ardite_seeds); }
+		if(ModConfig.cobalt_seeds && Loader.isModLoaded("tconstruct")){ ITEMS2.add(cobalt_seeds); }
+		if(ModConfig.manyullyn_seeds && Loader.isModLoaded("tconstruct")){ ITEMS2.add(manyullyn_seeds); }
 
-		if(ModConfig.electrical_steel_seeds && ModChecker.ENDERIO){ ITEMS2.add(electrical_steel_seeds); }
-		if(ModConfig.redstone_alloy_seeds && ModChecker.ENDERIO){ ITEMS2.add(redstone_alloy_seeds); }
-		if(ModConfig.conductive_iron_seeds && ModChecker.ENDERIO){ ITEMS2.add(conductive_iron_seeds); }
-		if(ModConfig.soularium_seeds && ModChecker.ENDERIO){ ITEMS2.add(soularium_seeds); }
-		if(ModConfig.dark_steel_seeds && ModChecker.ENDERIO){ ITEMS2.add(dark_steel_seeds); }
-		if(ModConfig.pulsating_iron_seeds && ModChecker.ENDERIO){ ITEMS2.add(pulsating_iron_seeds); }
-		if(ModConfig.energetic_alloy_seeds && ModChecker.ENDERIO){ ITEMS2.add(energetic_alloy_seeds); }
-		if(ModConfig.vibrant_alloy_seeds && ModChecker.ENDERIO){ ITEMS2.add(vibrant_alloy_seeds); }
+		if(ModConfig.electrical_steel_seeds && Loader.isModLoaded("EnderIO")){ ITEMS2.add(electrical_steel_seeds); }
+		if(ModConfig.redstone_alloy_seeds && Loader.isModLoaded("EnderIO")){ ITEMS2.add(redstone_alloy_seeds); }
+		if(ModConfig.conductive_iron_seeds && Loader.isModLoaded("EnderIO")){ ITEMS2.add(conductive_iron_seeds); }
+		if(ModConfig.soularium_seeds && Loader.isModLoaded("EnderIO")){ ITEMS2.add(soularium_seeds); }
+		if(ModConfig.dark_steel_seeds && Loader.isModLoaded("EnderIO")){ ITEMS2.add(dark_steel_seeds); }
+		if(ModConfig.pulsating_iron_seeds && Loader.isModLoaded("EnderIO")){ ITEMS2.add(pulsating_iron_seeds); }
+		if(ModConfig.energetic_alloy_seeds && Loader.isModLoaded("EnderIO")){ ITEMS2.add(energetic_alloy_seeds); }
+		if(ModConfig.vibrant_alloy_seeds && Loader.isModLoaded("EnderIO")){ ITEMS2.add(vibrant_alloy_seeds); }
 
-		if(ModConfig.mystical_flower_seeds && ModChecker.BOTANIA){ ITEMS2.add(mystical_flower_seeds); }
-		if(ModConfig.manasteel_seeds && ModChecker.BOTANIA){ ITEMS2.add(manasteel_seeds); }
-		if(ModConfig.terrasteel_seeds && ModChecker.BOTANIA){ ITEMS2.add(terrasteel_seeds); }
+		if(ModConfig.mystical_flower_seeds && Loader.isModLoaded("Botania")){ ITEMS2.add(mystical_flower_seeds); }
+		if(ModConfig.manasteel_seeds && Loader.isModLoaded("Botania")){ ITEMS2.add(manasteel_seeds); }
+		if(ModConfig.terrasteel_seeds && Loader.isModLoaded("Botania")){ ITEMS2.add(terrasteel_seeds); }
 		
-		if(ModConfig.osmium_seeds && ModChecker.MEKANISM){ ITEMS2.add(osmium_seeds); }
-		if(ModConfig.refined_obsidian_seeds && ModChecker.MEKANISM){ ITEMS2.add(refined_obsidian_seeds); }
+		if(ModConfig.osmium_seeds && Loader.isModLoaded("Mekanism")){ ITEMS2.add(osmium_seeds); }
+		if(ModConfig.refined_obsidian_seeds && Loader.isModLoaded("Mekanism")){ ITEMS2.add(refined_obsidian_seeds); }
 		
-		if(ModConfig.marble_seeds && ModChecker.CHISEL){ ITEMS2.add(marble_seeds); }
-		if(ModConfig.limestone_seeds && ModChecker.CHISEL){ ITEMS2.add(limestone_seeds); }
-		if(ModConfig.basalt_seeds && ModChecker.CHISEL){ ITEMS2.add(basalt_seeds); }
+		if(ModConfig.draconium_seeds && Loader.isModLoaded("draconicevolution")){ ITEMS2.add(draconium_seeds); }
 		
-		if(ModConfig.draconium_seeds && ModChecker.DRACONIC){ ITEMS2.add(draconium_seeds); }
-		
-		if(ModConfig.yellorium_seeds && ModChecker.BIGREACTORS){ ITEMS2.add(yellorium_seeds); }
+		if(ModConfig.yellorium_seeds && Loader.isModLoaded("bigreactors")){ ITEMS2.add(yellorium_seeds); }
 	
-		if(ModConfig.certus_quartz_seeds && ModChecker.AE2){ ITEMS2.add(certus_quartz_seeds); }
-		if(ModConfig.fluix_seeds && ModChecker.AE2){ ITEMS2.add(fluix_seeds); }
+		if(ModConfig.certus_quartz_seeds && Loader.isModLoaded("appliedenergistics2")){ ITEMS2.add(certus_quartz_seeds); }
+		if(ModConfig.fluix_seeds && Loader.isModLoaded("appliedenergistics2")){ ITEMS2.add(fluix_seeds); }
 		
-		if(ModConfig.quartz_enriched_iron_seeds && ModChecker.RS){ ITEMS2.add(quartz_enriched_iron_seeds); }
+		if(ModConfig.quartz_enriched_iron_seeds && Loader.isModLoaded("refinedstorage")){ ITEMS2.add(quartz_enriched_iron_seeds); }
 		
-		if(ModConfig.constantan_seeds && ModChecker.IE){ ITEMS2.add(constantan_seeds); }
+		if(ModConfig.constantan_seeds && OreDictionary.getOres("ingotConstantan").size() > 0){ ITEMS2.add(constantan_seeds); }
 
 		for(Item item : ITEMS2){
 			GameRegistry.register(item);
@@ -754,8 +722,6 @@ public class ModItems {
 			ITEMS3.add(charm_strength2);
 			ITEMS3.add(charm_speed);
 			ITEMS3.add(charm_jump);
-			ITEMS3.add(charm_mining_aoe);
-			ITEMS3.add(charm_attack_aoe);
 			
 			ITEMS3.add(inferium_sword);
 			ITEMS3.add(inferium_pickaxe);
@@ -789,13 +755,6 @@ public class ModItems {
 			
 			ITEMS3.add(supremium_sword_strength1);
 			ITEMS3.add(supremium_sword_strength2);
-			
-			if(ModConfig.aoe_charms){ 
-				ITEMS3.add(supremium_sword_aoe);
-				ITEMS3.add(supremium_pickaxe_aoe); 
-				ITEMS3.add(supremium_shovel_aoe);
-				ITEMS3.add(supremium_axe_aoe);
-			}
 			
 	        ITEMS3.add(inferium_helmet);
 	        ITEMS3.add(inferium_chestplate);

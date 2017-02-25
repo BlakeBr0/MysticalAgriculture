@@ -23,27 +23,19 @@ public class OreGeneration implements IWorldGenerator {
 	  public void generate(Random random, int chunkX, int chunkZ, World world,
 	      IChunkGenerator chunkGenerator, IChunkProvider chunkProvider) {
 
-		  switch (world.provider.getDimension()){
-		  case 0:
-			  if(ModConfig.generate_regular){
-				  generateSurface(world, random, chunkX * 16, chunkZ * 16);
-			  }
-			  break;
-		  case -1:
-			  if(ModConfig.generate_nether){
-				  generateNether(world, random, chunkX * 16, chunkZ * 16);
-			  }
-			  break;
-		  case 1:
-			  if(ModConfig.generate_end){
-				  generateEnd(world, random, chunkX * 16, chunkZ * 16);
-			  }
-			  break;
-		  default:
-			  if(ModConfig.generate_regular){
-				  generateSurface(world, random, chunkX * 16, chunkZ * 16);
-			  }
-		  }
+	    switch (world.provider.getDimension()) {
+	      case 0:
+	    	  generateSurface(world, random, chunkX * 16, chunkZ * 16);
+	        break;
+	      case -1:
+	    	  generateNether(world, random, chunkX * 16, chunkZ * 16);
+	        break;
+	      case 1:
+	    	  generateEnd(world, random, chunkX * 16, chunkZ * 16);
+	    	break;
+	      default:
+	    	  generateSurface(world, random, chunkX * 16, chunkZ * 16);
+	    }
 	  }
 
 	  private void generateSurface(World world, Random random, int posX, int posZ) {
