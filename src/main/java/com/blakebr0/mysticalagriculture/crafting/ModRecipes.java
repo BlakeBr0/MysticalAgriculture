@@ -5,6 +5,7 @@ import com.blakebr0.mysticalagriculture.config.ModConfig;
 import com.blakebr0.mysticalagriculture.items.ItemSeed;
 import com.blakebr0.mysticalagriculture.items.ModItems;
 import com.blakebr0.mysticalagriculture.lib.Parts;
+import com.blakebr0.mysticalagriculture.util.ModChecker;
 
 import net.minecraft.block.Block;
 import net.minecraft.enchantment.Enchantment;
@@ -114,6 +115,15 @@ public class ModRecipes {
 	    addShapedRecipe(new ItemStack(ModBlocks.supremium_block, 1, 0), "EEE", "EEE", "EEE", 'E', new ItemStack(ModItems.supremium_essence, 1, 0));
 		
 	    addShapedRecipe(new ItemStack(ModBlocks.prosperity_block, 1, 0), "EEE", "EEE", "EEE", 'E', new ItemStack(ModItems.prosperity_shard, 1, 0));
+	
+	    addShapedRecipe(new ItemStack(ModBlocks.base_essence_ingot_block, 1, 0), "EEE", "EEE", "EEE", 'E', new ItemStack(ModItems.base_essence_ingot, 1, 0));
+	    addShapedRecipe(new ItemStack(ModBlocks.inferium_ingot_block, 1, 0), "EEE", "EEE", "EEE", 'E', new ItemStack(ModItems.inferium_ingot, 1, 0));
+	    addShapedRecipe(new ItemStack(ModBlocks.prudentium_ingot_block, 1, 0), "EEE", "EEE", "EEE", 'E', new ItemStack(ModItems.prudentium_ingot, 1, 0));
+	    addShapedRecipe(new ItemStack(ModBlocks.intermedium_ingot_block, 1, 0), "EEE", "EEE", "EEE", 'E', new ItemStack(ModItems.intermedium_ingot, 1, 0));
+	    addShapedRecipe(new ItemStack(ModBlocks.superium_ingot_block, 1, 0), "EEE", "EEE", "EEE", 'E', new ItemStack(ModItems.superium_ingot, 1, 0));
+	    addShapedRecipe(new ItemStack(ModBlocks.supremium_ingot_block, 1, 0), "EEE", "EEE", "EEE", 'E', new ItemStack(ModItems.supremium_ingot, 1, 0));
+	
+	    addShapedRecipe(new ItemStack(ModBlocks.soulium_ingot_block, 1, 0), "EEE", "EEE", "EEE", 'E', new ItemStack(ModItems.soulium_ingot, 1, 0));
 	    
 	    if(ModConfig.essence_furnaces){
 	    	addShapedRecipe(new ItemStack(ModBlocks.inferium_furnace, 1, 0), "SES", "EDE", "SBS", 'E', new ItemStack(ModItems.inferium_essence, 1, 0), 'D', new ItemStack(Blocks.FURNACE, 1, 0), 'B', new ItemStack(ModBlocks.inferium_block, 1, 0));
@@ -128,6 +138,11 @@ public class ModRecipes {
 	    
 	    if(ModConfig.growth_accelerator){ addShapedRecipe(new ItemStack(ModBlocks.growth_accelerator, 1, 0), "SES", "EDE", "SES", 'E', new ItemStack(ModBlocks.inferium_block, 1, 0), 'S', "stone", 'D', "gemDiamond"); }
 	    
+	    addShapedRecipe(new ItemStack(ModBlocks.mystical_machine_frame, 4, 0), "SIS", "IXI", "SIS", 'S', "stone", 'I', new ItemStack(ModItems.base_essence_ingot, 1, 0));
+	    if(ModConfig.seed_reprocessor){
+	    	addShapedRecipe(new ItemStack(ModBlocks.seed_reprocessor), "ISI", "IMI", "IBI", 'I', "ingotIron", 'S', new ItemStack(ModItems.tier2_inferium_seeds, 1, 0), 'M', new ItemStack(ModBlocks.mystical_machine_frame, 1, 0), 'B', new ItemStack(ModBlocks.soulium_ingot_block, 1, 0));
+	    }
+	    
 	    if(ModConfig.witherproof_blocks){
 	    	addShapedRecipe(new ItemStack(ModBlocks.witherproof_block, 1, 0), "SES", "EDE", "SES", 'E', new ItemStack(ModItems.wither_skeleton_essence, 1, 0), 'D', "stone");
 	    	addShapedRecipe(new ItemStack(ModBlocks.witherproof_glass, 1, 0), "SES", "EDE", "SES", 'E', new ItemStack(ModItems.wither_skeleton_essence, 1, 0), 'D', "blockGlass");
@@ -140,6 +155,15 @@ public class ModRecipes {
 		addShapelessRecipe(new ItemStack(ModItems.supremium_essence, 9, 0), new ItemStack(ModBlocks.supremium_block, 1, 0)); 
 	
 		addShapelessRecipe(new ItemStack(ModItems.prosperity_shard, 9, 0), new ItemStack(ModBlocks.prosperity_block, 1, 0)); 
+
+		addShapelessRecipe(new ItemStack(ModItems.base_essence_ingot, 9, 0), new ItemStack(ModBlocks.base_essence_ingot_block, 1, 0)); 
+		addShapelessRecipe(new ItemStack(ModItems.inferium_ingot, 9, 0), new ItemStack(ModBlocks.inferium_ingot_block, 1, 0)); 
+		addShapelessRecipe(new ItemStack(ModItems.prudentium_ingot, 9, 0), new ItemStack(ModBlocks.prudentium_ingot_block, 1, 0)); 
+		addShapelessRecipe(new ItemStack(ModItems.intermedium_ingot, 9, 0), new ItemStack(ModBlocks.intermedium_ingot_block, 1, 0)); 
+		addShapelessRecipe(new ItemStack(ModItems.superium_ingot, 9, 0), new ItemStack(ModBlocks.superium_ingot_block, 1, 0)); 
+		addShapelessRecipe(new ItemStack(ModItems.supremium_ingot, 9, 0), new ItemStack(ModBlocks.supremium_ingot_block, 1, 0)); 
+
+		addShapelessRecipe(new ItemStack(ModItems.soulium_ingot, 9, 0), new ItemStack(ModBlocks.soulium_ingot_block, 1, 0)); 
 		
 		addShapedRecipe(new ItemStack(ModItems.prudentium_essence, 1, 0), "XEX", "ECE", "XEX", 'E', new ItemStack(ModItems.inferium_essence, 1, 0), 'C', new ItemStack(ModItems.infusion_crystal, 1, OreDictionary.WILDCARD_VALUE));
 		addShapedRecipe(new ItemStack(ModItems.intermedium_essence, 1, 0), "XEX", "ECE", "XEX", 'E', new ItemStack(ModItems.prudentium_essence, 1, 0), 'C', new ItemStack(ModItems.infusion_crystal, 1, OreDictionary.WILDCARD_VALUE));
@@ -155,7 +179,7 @@ public class ModRecipes {
 		addShapelessRecipe(new ItemStack(ModItems.prudentium_essence, 4, 0), new ItemStack(ModItems.intermedium_essence, 1, 0));
 		addShapelessRecipe(new ItemStack(ModItems.intermedium_essence, 4, 0), new ItemStack(ModItems.superium_essence, 1, 0));
 		addShapelessRecipe(new ItemStack(ModItems.superium_essence, 4, 0), new ItemStack(ModItems.supremium_essence, 1, 0));
-		
+				
 		addShapedRecipe(new ItemStack(ModItems.infusion_crystal, 1, 0), "SES", "EDE", "SES", 'E', new ItemStack(ModItems.inferium_essence, 1, 0), 'D', "gemDiamond", 'S', new ItemStack(ModItems.prosperity_shard, 1, 0));
 		addShapedRecipe(new ItemStack(ModItems.master_infusion_crystal, 1, 0), "SES", "EDE", "SES", 'E', new ItemStack(ModItems.supremium_essence, 1, 0), 'D', "gemDiamond", 'S', new ItemStack(ModItems.prosperity_shard, 1, 0));
   
@@ -346,6 +370,10 @@ public class ModRecipes {
 	    if(ModConfig.osmium_seeds && Loader.isModLoaded("Mekanism")){ addShapedRecipe(new ItemStack(ModItems.osmium_seeds, 1, 0), "MEM", "ESE", "MEM", 'E', getEssence(ModConfig.osmium_tier), 'S', getCraftingSeed(ModConfig.osmium_tier), 'M', "ingotOsmium"); }
 	    if(ModConfig.refined_obsidian_seeds && Loader.isModLoaded("Mekanism")){ addShapedRecipe(new ItemStack(ModItems.refined_obsidian_seeds, 1, 0), "MEM", "ESE", "MEM", 'E', getEssence(ModConfig.refined_obsidian_tier), 'S', getCraftingSeed(ModConfig.refined_obsidian_tier), 'M', "ingotRefinedObsidian"); }
 
+	    if(ModConfig.marble_seeds && ModChecker.CHISEL){ addShapedRecipe(new ItemStack(ModItems.marble_seeds, 1, 0), "MEM", "ESE", "MEM", 'E', getEssence(ModConfig.marble_tier), 'S', getCraftingSeed(ModConfig.marble_tier), 'M', new ItemStack(Parts.MARBLE, 1, 7)); }
+	    if(ModConfig.limestone_seeds && ModChecker.CHISEL){ addShapedRecipe(new ItemStack(ModItems.limestone_seeds, 1, 0), "MEM", "ESE", "MEM", 'E', getEssence(ModConfig.limestone_tier), 'S', getCraftingSeed(ModConfig.limestone_tier), 'M', new ItemStack(Parts.LIMESTONE, 1, 7)); }
+	    if(ModConfig.basalt_seeds && ModChecker.CHISEL){ addShapedRecipe(new ItemStack(ModItems.basalt_seeds, 1, 0), "MEM", "ESE", "MEM", 'E', getEssence(ModConfig.basalt_tier), 'S', getCraftingSeed(ModConfig.basalt_tier), 'M', new ItemStack(Parts.BASALT, 1, 7)); }
+	    
 	    if(ModConfig.draconium_seeds && Loader.isModLoaded("draconicevolution")){ addShapedRecipe(new ItemStack(ModItems.draconium_seeds, 1, 0), "MEM", "ESE", "MEM", 'E', getEssence(ModConfig.draconium_tier), 'S', getCraftingSeed(ModConfig.draconium_tier), 'M', "ingotDraconium"); }
 	    
 	    if(ModConfig.yellorium_seeds && Loader.isModLoaded("bigreactors")){ addShapedRecipe(new ItemStack(ModItems.yellorium_seeds, 1, 0), "MEM", "ESE", "MEM", 'E', getEssence(ModConfig.yellorium_tier), 'S', getCraftingSeed(ModConfig.yellorium_tier), 'M', "ingotYellorium"); }
@@ -456,6 +484,8 @@ public class ModRecipes {
 			addShapedRecipe(new ItemStack(ModItems.charm_strength, 1, 0), "MEM", "EBE", "MEM", 'E', new ItemStack(ModItems.supremium_essence, 1, 0), 'B', new ItemStack(ModItems.charm_blank, 1, 0), 'M', new ItemStack(ModItems.supremium_apple, 1, 0));
 			addShapedRecipe(new ItemStack(ModItems.charm_speed, 1, 0), "MEM", "EBE", "MEM", 'E', new ItemStack(ModItems.supremium_essence, 1, 0), 'B', new ItemStack(ModItems.charm_blank, 1, 0), 'M', new ItemStack(Items.SUGAR, 1, 0));
 			addShapedRecipe(new ItemStack(ModItems.charm_jump, 1, 0), "MEM", "EBE", "MEM", 'E', new ItemStack(ModItems.supremium_essence, 1, 0), 'B', new ItemStack(ModItems.charm_blank, 1, 0), 'M', new ItemStack(Items.RABBIT_FOOT, 1, 0));
+			addShapedRecipe(new ItemStack(ModItems.charm_mining_aoe, 1, 0), "MED", "EBE", "DEM", 'E', new ItemStack(ModItems.supremium_essence, 1, 0), 'B', new ItemStack(ModItems.charm_blank, 1, 0), 'M', new ItemStack(ModItems.supremium_pickaxe, 1, 0), 'D', new ItemStack(ModItems.supremium_ingot, 1, 0));
+			addShapedRecipe(new ItemStack(ModItems.charm_attack_aoe, 1, 0), "MED", "EBE", "DEM", 'E', new ItemStack(ModItems.supremium_essence, 1, 0), 'B', new ItemStack(ModItems.charm_blank, 1, 0), 'M', new ItemStack(ModItems.supremium_sword, 1, 0), 'D', new ItemStack(ModItems.supremium_ingot, 1, 0));
 			
 			addShapedRecipe(new ItemStack(ModItems.inferium_helmet, 1, 0), "ICI", "IXI", "XXX", 'I', new ItemStack(ModItems.inferium_ingot, 1, 0), 'C', new ItemStack(ModItems.inferium_armor_core, 1, 0));
 			addShapedRecipe(new ItemStack(ModItems.inferium_chestplate, 1, 0), "IXI", "ICI", "III", 'I', new ItemStack(ModItems.inferium_ingot, 1, 0), 'C', new ItemStack(ModItems.inferium_armor_core, 1, 0));
@@ -509,6 +539,11 @@ public class ModRecipes {
 
 			addCharmRecipe(new ItemStack(ModItems.supremium_sword_strength1), new ItemStack(ModItems.supremium_sword, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(ModItems.charm_strength, 1, 0));
 
+			addCharmRecipe(new ItemStack(ModItems.supremium_sword_aoe), new ItemStack(ModItems.supremium_sword, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(ModItems.charm_attack_aoe, 1, 0));
+			addCharmRecipe(new ItemStack(ModItems.supremium_pickaxe_aoe), new ItemStack(ModItems.supremium_pickaxe, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(ModItems.charm_mining_aoe, 1, 0));
+			addCharmRecipe(new ItemStack(ModItems.supremium_shovel_aoe), new ItemStack(ModItems.supremium_shovel, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(ModItems.charm_mining_aoe, 1, 0));
+			addCharmRecipe(new ItemStack(ModItems.supremium_axe_aoe), new ItemStack(ModItems.supremium_axe, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(ModItems.charm_mining_aoe, 1, 0));
+
 			addCharmRecipe(new ItemStack(ModItems.supremium_helmet_nightvision), new ItemStack(ModItems.supremium_helmet, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(ModItems.charm_nightvision, 1, 0));
 			addCharmRecipe(new ItemStack(ModItems.supremium_helmet_absorption), new ItemStack(ModItems.supremium_helmet, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(ModItems.charm_absorption, 1, 0));
 			addCharmRecipe(new ItemStack(ModItems.supremium_helmet_wither), new ItemStack(ModItems.supremium_helmet, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(ModItems.charm_wither, 1, 0));
@@ -536,6 +571,13 @@ public class ModRecipes {
 			addCharmRecipe(new ItemStack(ModItems.supremium_boots_antivenom), new ItemStack(ModItems.supremium_boots, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(ModItems.charm_antivenom, 1, 0));
 			addCharmRecipe(new ItemStack(ModItems.supremium_boots_fire), new ItemStack(ModItems.supremium_boots, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(ModItems.charm_fire, 1, 0));
 			addCharmRecipe(new ItemStack(ModItems.supremium_boots_resistance), new ItemStack(ModItems.supremium_boots, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(ModItems.charm_resistance, 1, 0));
+		
+			addCharmRecipe(new ItemStack(ModItems.supremium_sword), new ItemStack(ModItems.supremium_sword_strength1, 1, OreDictionary.WILDCARD_VALUE));
+
+			addCharmRecipe(new ItemStack(ModItems.supremium_sword), new ItemStack(ModItems.supremium_sword_aoe, 1, OreDictionary.WILDCARD_VALUE));
+			addCharmRecipe(new ItemStack(ModItems.supremium_pickaxe), new ItemStack(ModItems.supremium_pickaxe_aoe, 1, OreDictionary.WILDCARD_VALUE));
+			addCharmRecipe(new ItemStack(ModItems.supremium_shovel), new ItemStack(ModItems.supremium_shovel_aoe, 1, OreDictionary.WILDCARD_VALUE));
+			addCharmRecipe(new ItemStack(ModItems.supremium_axe), new ItemStack(ModItems.supremium_axe_aoe, 1, OreDictionary.WILDCARD_VALUE));
 			
 			addCharmRecipe(new ItemStack(ModItems.supremium_helmet), new ItemStack(ModItems.supremium_helmet_nightvision, 1, OreDictionary.WILDCARD_VALUE));
 			addCharmRecipe(new ItemStack(ModItems.supremium_helmet), new ItemStack(ModItems.supremium_helmet_absorption, 1, OreDictionary.WILDCARD_VALUE));

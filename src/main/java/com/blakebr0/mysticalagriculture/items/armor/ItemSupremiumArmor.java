@@ -7,6 +7,7 @@ import com.blakebr0.mysticalagriculture.MysticalAgriculture;
 import com.blakebr0.mysticalagriculture.config.ModConfig;
 import com.blakebr0.mysticalagriculture.items.ModItems;
 
+import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -89,12 +90,32 @@ public class ItemSupremiumArmor extends ItemArmor {
     			String key = playerKey(player);
 
     			Boolean hasSet = playerHasSet(player);
-    			if(playersWithSet.contains(key) && ModConfig.set_bonuses){
+    			if(playersWithSet.contains(key)){
     				if(hasSet){
-    					player.stepHeight = 1.0F;
     					if(ModConfig.supremium_flight){
     						player.capabilities.allowFlying = true;
     					}
+    					if(ModConfig.set_bonuses){
+        					player.stepHeight = 1.0F;
+    						boolean flying = player.capabilities.isFlying;
+    						if(flying){ 
+    							boolean sneaking = player.isSneaking();
+    							
+    							float speed = 0.08f 
+    								* (flying ? 0.6f : 1.0f)
+    								* (sneaking ? 0.1f : 1.0f); 
+    							
+    							if (player.moveForward > 0f) {
+    								player.moveRelative(0f, 1f, speed);
+    							} else if (player.moveForward < 0f) {
+    								player.moveRelative(0f, 1f, -speed * 0.3f);
+    							}
+    							
+    							if (player.moveStrafing != 0f) {
+    								player.moveRelative(1f, 0f, speed * 0.5f * Math.signum(player.moveStrafing));
+    							}
+    						}
+						}
     				} else {
     					player.stepHeight = 0.5F;
     					if(!player.capabilities.isCreativeMode && !player.isSpectator()){
