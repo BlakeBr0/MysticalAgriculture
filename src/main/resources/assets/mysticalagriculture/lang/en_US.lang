@@ -1,13 +1,6 @@
 # CREATIVE TAB
 itemGroup.tabMysticalAgriculture=Mystical Agriculture
 
-# SOILS
-tile.ma.inferium_soil.name=§eInferium Soil
-tile.ma.prudentium_soil.name=§aPrudentium Soil
-tile.ma.intermedium_soil.name=§6Intermedium Soil
-tile.ma.superium_soil.name=§bSuperium Soil
-tile.ma.supremium_soil.name=§cSupremium Soil
-
 # STORAGE BLOCKS
 tile.ma.inferium_block.name=§eInferium Block
 tile.ma.prudentium_block.name=§aPrudentium Block
@@ -17,8 +10,18 @@ tile.ma.supremium_block.name=§cSupremium Block
 
 tile.ma.prosperity_block.name=Prosperity Block
 
+tile.ma.base_essence_ingot_block.name=Base Essence Ingot Block
+tile.ma.inferium_ingot_block.name=§eInferium Ingot Block
+tile.ma.prudentium_ingot_block.name=§aPrudentium Ingot Block
+tile.ma.intermedium_ingot_block.name=§6Intermedium Ingot Block
+tile.ma.superium_ingot_block.name=§bSuperium Ingot Block
+tile.ma.supremium_ingot_block.name=§cSupremium Ingot Block
+
+tile.ma.soulium_ingot_block.name=§dSoulium Ingot Block
+
 tile.ma.soulstone.name=Soulstone
 
+# FURNACES
 tile.ma.inferium_furnace.name=§eInferium Furnace
 tile.ma.inferium_furnace_active.name=§eInferium Furnace
 container.ma.inferium_furnace.name=Inferium Furnace
@@ -43,6 +46,16 @@ tile.ma.ultimate_furnace.name=§8Ultimate Furnace
 tile.ma.ultimate_furnace_active.name=§8Ultimate Furnace
 container.ma.ultimate_furnace.name=Ultimate Furnace
 
+tile.ma.mystical_machine_frame.name=Mystical Machine Frame
+tile.ma.glowstone_lamp.name=Glowstone Lamp
+desc.tile.ma.glowstone_lamp=An industrial looking Glowstone Lamp... in a magic themed mod... what is this??? \n\nTo make one, simply right-click on a §8Mystical Machine Frame §0with a block of Glowstone. \n\nYou can take out the Glowstone at any time by shift right-clicking the block with an empty hand.
+
+# MACHINE
+tile.ma.seed_reprocessor.name=Seed Reprocessor
+container.ma.seed_reprocessor.name=Seed Reprocessor
+jei.ma.seed_reprocessor=Seed Reprocessor
+desc.tile.ma.seed_reprocessor=Converts seeds into their respective crop output. It runs on the power of theoretical energy, which means you don't need to give it any power.
+
 # ORES
 tile.ma.prosperity_ore.name=Prosperity Ore
 tile.ma.nether_prosperity_ore.name=Nether Prosperity Ore
@@ -57,11 +70,11 @@ tile.ma.witherproof_block.name=Witherproof Block
 tile.ma.witherproof_glass.name=Witherproof Glass
 
 # CROPS
-tile.ma.tier1_inferium_crop.name=Inferior Inferium Crop
-tile.ma.tier2_inferium_crop.name=Prudent Inferium Crop
-tile.ma.tier3_inferium_crop.name=Intermediate Inferium Crop
-tile.ma.tier4_inferium_crop.name=Superior Inferium Crop
-tile.ma.tier5_inferium_crop.name=Supreme Inferium Crop
+tile.ma.tier1_inferium_crop.name=Tier 1 Inferium Crop
+tile.ma.tier2_inferium_crop.name=Tier 2 Inferium Crop
+tile.ma.tier3_inferium_crop.name=Tier 3 Inferium Crop
+tile.ma.tier4_inferium_crop.name=Tier 4 Inferium Crop
+tile.ma.tier5_inferium_crop.name=Tier 5 Inferium Crop
 
 tile.ma.stone_crop.name=Stone Crop
 tile.ma.dirt_crop.name=Dirt Crop
@@ -136,6 +149,10 @@ tile.ma.terrasteel_crop.name=Terrasteel Crop
 
 tile.ma.osmium_crop.name=Osmium Crop
 tile.ma.refined_obsidian_crop.name=Refined Obsidian Crop
+
+tile.ma.marble_crop.name=Marble Crop
+tile.ma.limestone_crop.name=Limestone Crop
+tile.ma.basalt_crop.name=Basalt Crop
 
 tile.ma.draconium_crop.name=Draconium Crop
 
@@ -292,6 +309,10 @@ item.ma.terrasteel_essence.name=Terrasteel Essence
 item.ma.osmium_essence.name=Osmium Essence
 item.ma.refined_obsidian_essence.name=Refined Obsidian Essence
 
+item.ma.marble_essence.name=Marble Essence
+item.ma.limestone_essence.name=Limestone Essence
+item.ma.basalt_essence.name=Basalt Essence
+
 item.ma.draconium_essence.name=Draconium Essence
 
 item.ma.yellorium_essence.name=Yellorium Essence
@@ -304,11 +325,11 @@ item.ma.quartz_enriched_iron_essence.name=Quartz Enriched Iron Essence
 item.ma.constantan_essence.name=Constantan Essence
 
 # SEEDS
-item.ma.tier1_inferium_seeds.name=Inferior Inferium Seeds
-item.ma.tier2_inferium_seeds.name=Prudent Inferium Seeds
-item.ma.tier3_inferium_seeds.name=Intermediate Inferium Seeds
-item.ma.tier4_inferium_seeds.name=Superior Inferium Seeds
-item.ma.tier5_inferium_seeds.name=Supreme Inferium Seeds
+item.ma.tier1_inferium_seeds.name=Inferium Seeds
+item.ma.tier2_inferium_seeds.name=Inferium Seeds
+item.ma.tier3_inferium_seeds.name=Inferium Seeds
+item.ma.tier4_inferium_seeds.name=Inferium Seeds
+item.ma.tier5_inferium_seeds.name=Inferium Seeds
 
 item.ma.stone_seeds.name=Stone Seeds
 item.ma.dirt_seeds.name=Dirt Seeds
@@ -384,6 +405,10 @@ item.ma.terrasteel_seeds.name=Terrasteel Seeds
 item.ma.osmium_seeds.name=Osmium Seeds
 item.ma.refined_obsidian_seeds.name=Refined Obsidian Seeds
 
+item.ma.marble_seeds.name=Marble Seeds
+item.ma.limestone_seeds.name=Limestone Seeds
+item.ma.basalt_seeds.name=Basalt Seeds
+
 item.ma.draconium_seeds.name=Draconium Seeds
 
 item.ma.yellorium_seeds.name=Yellorium Seeds
@@ -427,6 +452,8 @@ item.ma.charm_strength1.name=Charm: Strength
 item.ma.charm_strength2.name=Charm: Strength 2
 item.ma.charm_speed.name=Charm: Speed
 item.ma.charm_jump.name=Charm: Jump Boost
+item.ma.charm_mining_aoe.name=Charm: Mining AOE
+item.ma.charm_attack_aoe.name=Charm: Attack AOE
 
 # TOOLS
 item.ma.inferium_sword.name=§eInferium Sword
@@ -461,6 +488,8 @@ item.ma.supremium_hoe.name=§cSupremium Hoe
 
 item.ma.supremium_sword_strength1.name=§cSupremium Sword
 item.ma.supremium_sword_strength2.name=§cSupremium Sword
+
+item.ma.supremium_sword_aoe.name=§cSupremium Sword
 
 # ARMOR
 item.ma.inferium_helmet.name=§eInferium Helmet

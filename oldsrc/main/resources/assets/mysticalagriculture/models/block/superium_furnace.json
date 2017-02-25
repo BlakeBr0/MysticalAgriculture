@@ -1,0 +1,8 @@
+{
+    "parent": "block/orientable",
+    "textures": {
+        "top": "mysticalagriculture:blocks/superium_furnace_side",
+        "front": "mysticalagriculture:blocks/superium_furnace_front",
+        "side": "mysticalagriculture:blocks/superium_furnace_side"
+    }
+}

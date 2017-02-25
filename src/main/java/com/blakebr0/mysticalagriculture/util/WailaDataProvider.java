@@ -10,12 +10,14 @@ import net.minecraft.world.World;
 
 import java.util.List;
 
+import com.blakebr0.mysticalagriculture.blocks.BlockSeedReprocessor;
 import com.blakebr0.mysticalagriculture.blocks.crop.BlockMysticalCrop;
 import com.blakebr0.mysticalagriculture.blocks.crop.BlockTier1InferiumCrop;
 import com.blakebr0.mysticalagriculture.blocks.crop.BlockTier2InferiumCrop;
 import com.blakebr0.mysticalagriculture.blocks.crop.BlockTier3InferiumCrop;
 import com.blakebr0.mysticalagriculture.blocks.crop.BlockTier4InferiumCrop;
 import com.blakebr0.mysticalagriculture.blocks.crop.BlockTier5InferiumCrop;
+import com.blakebr0.mysticalagriculture.tileentity.TileEntitySeedReprocessor;
 
 import mcp.mobius.waila.api.IWailaConfigHandler;
 import mcp.mobius.waila.api.IWailaDataAccessor;
