@@ -484,13 +484,13 @@ public class ModBlocks {
 	public static void initBlockModels(){
 		for(Block block : BLOCKS){
 			Minecraft.getMinecraft().getRenderItem().getItemModelMesher()
-			.register(Item.getItemFromBlock(block), 0, new ModelResourceLocation(MysticalAgriculture.MODID + ":" + block
+			.register(Item.getItemFromBlock(block), 0, new ModelResourceLocation(MysticalAgriculture.MOD_ID + ":" + block
 			.getUnlocalizedName().substring(8), "inventory"));
 		}
 		
 		for(Block block : BLOCKS2){
 			Minecraft.getMinecraft().getRenderItem().getItemModelMesher()
-			.register(Item.getItemFromBlock(block), 0, new ModelResourceLocation(MysticalAgriculture.MODID + ":" + block
+			.register(Item.getItemFromBlock(block), 0, new ModelResourceLocation(MysticalAgriculture.MOD_ID + ":" + block
 			.getUnlocalizedName().substring(8), "inventory"));
 		}
 	}

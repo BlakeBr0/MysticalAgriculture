@@ -860,19 +860,19 @@ public class ModItems {
 	public static void initItemModels(){
 		for(Item item : ITEMS){
 			Minecraft.getMinecraft().getRenderItem().getItemModelMesher()
-			.register(item, 0, new ModelResourceLocation(MysticalAgriculture.MODID + ":" + item
+			.register(item, 0, new ModelResourceLocation(MysticalAgriculture.MOD_ID + ":" + item
 			.getUnlocalizedName().substring(8), "inventory")); 
 		}
 		
 		for(Item item : ITEMS2){
 			Minecraft.getMinecraft().getRenderItem().getItemModelMesher()
-			.register(item, 0, new ModelResourceLocation(MysticalAgriculture.MODID + ":" + item
+			.register(item, 0, new ModelResourceLocation(MysticalAgriculture.MOD_ID + ":" + item
 			.getUnlocalizedName().substring(8), "inventory")); 
 		}
 		
 		for(Item item : ITEMS3){
 			Minecraft.getMinecraft().getRenderItem().getItemModelMesher()
-			.register(item, 0, new ModelResourceLocation(MysticalAgriculture.MODID + ":" + item
+			.register(item, 0, new ModelResourceLocation(MysticalAgriculture.MOD_ID + ":" + item
 			.getUnlocalizedName().substring(8), "inventory")); 
 		}
 	}

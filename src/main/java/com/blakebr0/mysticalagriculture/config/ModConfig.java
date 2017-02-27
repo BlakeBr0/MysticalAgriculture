@@ -263,7 +263,7 @@ public class ModConfig {
 	
 	@SubscribeEvent
     public void onConfigChanged(ConfigChangedEvent.OnConfigChangedEvent eventArgs) {
-        if (eventArgs.getModID().equals(MysticalAgriculture.MODID)) {
+        if (eventArgs.getModID().equals(MysticalAgriculture.MOD_ID)) {
             ModConfig.syncConfig();
         }
     }

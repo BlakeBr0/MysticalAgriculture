@@ -60,7 +60,7 @@ public class BlockSeedReprocessor extends BlockContainer {
         	TileEntity tileentity = world.getTileEntity(pos);
         	
             if(tileentity instanceof TileEntitySeedReprocessor){
-                player.openGui(MysticalAgriculture.instance, 0, world, pos.getX(), pos.getY(), pos.getZ());
+                player.openGui(MysticalAgriculture.INSTANCE, 0, world, pos.getX(), pos.getY(), pos.getZ());
             }
             return true;
         }

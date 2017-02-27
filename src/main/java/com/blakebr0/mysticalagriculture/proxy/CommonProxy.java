@@ -60,7 +60,7 @@ public class CommonProxy {
 		
 		ModBlocks.initCropDrops();
 		
-		NetworkRegistry.INSTANCE.registerGuiHandler(MysticalAgriculture.instance, new GuiHandler());
+		NetworkRegistry.INSTANCE.registerGuiHandler(MysticalAgriculture.INSTANCE, new GuiHandler());
 		
 		if(Loader.isModLoaded("JEI")){
 			ModBlocks.initJEIDescriptions();

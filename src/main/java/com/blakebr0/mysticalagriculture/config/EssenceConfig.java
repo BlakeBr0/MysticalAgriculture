@@ -142,7 +142,7 @@ public class EssenceConfig {
 	
 	@SubscribeEvent
     public void onConfigChanged(ConfigChangedEvent.OnConfigChangedEvent eventArgs){
-        if(eventArgs.getModID().equals(MysticalAgriculture.MODID)){
+        if(eventArgs.getModID().equals(MysticalAgriculture.MOD_ID)){
             EssenceConfig.syncConfig();
         }
     }

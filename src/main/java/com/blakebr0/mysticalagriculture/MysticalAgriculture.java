@@ -23,18 +23,22 @@ import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
-@Mod(modid = "mysticalagriculture", name = "Mystical Agriculture", version = "1.4.2", guiFactory = "com.blakebr0.mysticalagriculture.config.GuiFactory")
+@Mod(modid = MysticalAgriculture.MOD_ID, name = MysticalAgriculture.NAME, version = MysticalAgriculture.VERSION, guiFactory = MysticalAgriculture.GUI_FACTORY)
 public class MysticalAgriculture {
 	
-	public static final String MODID = "mysticalagriculture";
+	public static final String MOD_ID = "mysticalagriculture";
+	public static final String NAME = "Mystical Agriculture";
+	public static final String VERSION = "1.4.2";
+	public static final String GUI_FACTORY = "com.blakebr0.mysticalagriculture.config.GuiFactory";
+		
+	@Mod.Instance(MysticalAgriculture.MOD_ID)
+	public static MysticalAgriculture INSTANCE;
+	
 	@SidedProxy(clientSide="com.blakebr0.mysticalagriculture.proxy.ClientProxy",
 				serverSide="com.blakebr0.mysticalagriculture.proxy.ServerProxy")
 	
 	public static CommonProxy proxy;
-	
-	@Mod.Instance(MysticalAgriculture.MODID)
-	public static MysticalAgriculture instance;
-	
+		
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent e) {
 		File old_config = new File(e.getModConfigurationDirectory(), "mysticalagriculture.cfg");

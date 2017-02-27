@@ -23,14 +23,14 @@ public class ModToolMaterials {
     public static ToolMaterial SUPREMIUM_STRENGTH1 = EnumHelper.addToolMaterial("SUPREMIUM_STRENGTH1", 5, -1, 25.0F, 27.0F, 0);
     public static ToolMaterial SUPREMIUM_STRENGTH2 = EnumHelper.addToolMaterial("SUPREMIUM_STRENGTH2", 5, -1, 25.0F, 37.0F, 0);
     
-    public static ItemArmor.ArmorMaterial INFERIUM_ARMOR = EnumHelper.addArmorMaterial("INFERIUMARMOR", MysticalAgriculture.MODID + ":" + "inferium_armor", 20, 
+    public static ItemArmor.ArmorMaterial INFERIUM_ARMOR = EnumHelper.addArmorMaterial("INFERIUMARMOR", MysticalAgriculture.MOD_ID + ":" + "inferium_armor", 20, 
     		new int[]{2, 4, 5, 2}, 15, SoundEvents.ITEM_ARMOR_EQUIP_GOLD, 0.5F);
-    public static ItemArmor.ArmorMaterial PRUDENTIUM_ARMOR = EnumHelper.addArmorMaterial("PRUDENTIUMARMOR", MysticalAgriculture.MODID + ":" + "prudentium_armor", 40,
+    public static ItemArmor.ArmorMaterial PRUDENTIUM_ARMOR = EnumHelper.addArmorMaterial("PRUDENTIUMARMOR", MysticalAgriculture.MOD_ID + ":" + "prudentium_armor", 40,
     		new int[]{2, 4, 6, 3}, 20, SoundEvents.ITEM_ARMOR_EQUIP_GOLD, 0.75F);
-    public static ItemArmor.ArmorMaterial INTERMEDIUM_ARMOR = EnumHelper.addArmorMaterial("INTERMEDIUMARMOR", MysticalAgriculture.MODID + ":" + "intermedium_armor", 80,
+    public static ItemArmor.ArmorMaterial INTERMEDIUM_ARMOR = EnumHelper.addArmorMaterial("INTERMEDIUMARMOR", MysticalAgriculture.MOD_ID + ":" + "intermedium_armor", 80,
     		new int[]{3, 6, 7, 3}, 25, SoundEvents.ITEM_ARMOR_EQUIP_GOLD, 1.0F);
-    public static ItemArmor.ArmorMaterial SUPERIUM_ARMOR = EnumHelper.addArmorMaterial("SUPERIUMARMOR", MysticalAgriculture.MODID + ":" + "superium_armor", 160,
+    public static ItemArmor.ArmorMaterial SUPERIUM_ARMOR = EnumHelper.addArmorMaterial("SUPERIUMARMOR", MysticalAgriculture.MOD_ID + ":" + "superium_armor", 160,
     		new int[]{4, 7, 8, 4}, 35, SoundEvents.ITEM_ARMOR_EQUIP_GOLD, 1.25F);
-    public static ItemArmor.ArmorMaterial SUPREMIUM_ARMOR = EnumHelper.addArmorMaterial("SUPREMIUMARMOR", MysticalAgriculture.MODID + ":" + "supremium_armor", 280,
+    public static ItemArmor.ArmorMaterial SUPREMIUM_ARMOR = EnumHelper.addArmorMaterial("SUPREMIUMARMOR", MysticalAgriculture.MOD_ID + ":" + "supremium_armor", 280,
     		new int[]{4, 8, 9, 5}, 0, SoundEvents.ITEM_ARMOR_EQUIP_GOLD, 1.5F);
 }
