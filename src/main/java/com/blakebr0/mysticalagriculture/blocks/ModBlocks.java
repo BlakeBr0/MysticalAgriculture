@@ -23,6 +23,7 @@ import com.blakebr0.mysticalagriculture.config.ModConfig;
 import com.blakebr0.mysticalagriculture.crafting.ReprocessorManager;
 import com.blakebr0.mysticalagriculture.items.ModItems;
 import com.blakebr0.mysticalagriculture.jei.CompatJEI;
+import com.blakebr0.mysticalagriculture.lib.CropType;
 import com.blakebr0.mysticalagriculture.util.ModChecker;
 
 import net.minecraft.block.Block;
@@ -102,97 +103,8 @@ public class ModBlocks {
 	public static BlockTier4InferiumCrop tier4_inferium_crop = new BlockTier4InferiumCrop("tier4_inferium_crop");
 	public static BlockTier5InferiumCrop tier5_inferium_crop = new BlockTier5InferiumCrop("tier5_inferium_crop");
 	
-	public static BlockMysticalCrop stone_crop = new BlockMysticalCrop("stone_crop");
-	public static BlockMysticalCrop dirt_crop = new BlockMysticalCrop("dirt_crop");
-	public static BlockMysticalCrop nature_crop = new BlockMysticalCrop("nature_crop");
-	public static BlockMysticalCrop wood_crop = new BlockMysticalCrop("wood_crop");
-	public static BlockMysticalCrop water_crop = new BlockMysticalCrop("water_crop");
-	public static BlockMysticalCrop ice_crop = new BlockMysticalCrop("ice_crop");
-	public static BlockMysticalCrop fire_crop = new BlockMysticalCrop("fire_crop");
-	public static BlockMysticalCrop dye_crop = new BlockMysticalCrop("dye_crop");
-	public static BlockMysticalCrop nether_crop = new BlockMysticalCrop("nether_crop");
-	public static BlockMysticalCrop coal_crop = new BlockMysticalCrop("coal_crop");
-	public static BlockMysticalCrop iron_crop = new BlockMysticalCrop("iron_crop");
-	public static BlockMysticalCrop nether_quartz_crop = new BlockMysticalCrop("nether_quartz_crop");
-	public static BlockMysticalCrop glowstone_crop = new BlockMysticalCrop("glowstone_crop");
-	public static BlockMysticalCrop redstone_crop = new BlockMysticalCrop("redstone_crop");
-	public static BlockMysticalCrop obsidian_crop = new BlockMysticalCrop("obsidian_crop");
-	public static BlockMysticalCrop gold_crop = new BlockMysticalCrop("gold_crop");
-	public static BlockMysticalCrop lapis_lazuli_crop = new BlockMysticalCrop("lapis_lazuli_crop");
-	public static BlockMysticalCrop experience_crop = new BlockMysticalCrop("experience_crop");
-	public static BlockMysticalCrop diamond_crop = new BlockMysticalCrop("diamond_crop");
-	public static BlockMysticalCrop emerald_crop = new BlockMysticalCrop("emerald_crop");
-	
-	public static BlockMysticalCrop zombie_crop = new BlockMysticalCrop("zombie_crop");
-	public static BlockMysticalCrop pig_crop = new BlockMysticalCrop("pig_crop");
-	public static BlockMysticalCrop chicken_crop = new BlockMysticalCrop("chicken_crop");
-	public static BlockMysticalCrop cow_crop = new BlockMysticalCrop("cow_crop");
-	public static BlockMysticalCrop sheep_crop = new BlockMysticalCrop("sheep_crop");
-	public static BlockMysticalCrop slime_crop = new BlockMysticalCrop("slime_crop");
-	public static BlockMysticalCrop skeleton_crop = new BlockMysticalCrop("skeleton_crop");
-	public static BlockMysticalCrop creeper_crop = new BlockMysticalCrop("creeper_crop");
-	public static BlockMysticalCrop spider_crop = new BlockMysticalCrop("spider_crop");
-	public static BlockMysticalCrop rabbit_crop = new BlockMysticalCrop("rabbit_crop");
-	public static BlockMysticalCrop guardian_crop = new BlockMysticalCrop("guardian_crop");
-	public static BlockMysticalCrop blaze_crop = new BlockMysticalCrop("blaze_crop");
-	public static BlockMysticalCrop ghast_crop = new BlockMysticalCrop("ghast_crop");
-	public static BlockMysticalCrop enderman_crop = new BlockMysticalCrop("enderman_crop");
-	public static BlockMysticalCrop wither_skeleton_crop = new BlockMysticalCrop("wither_skeleton_crop");
-	
-	public static BlockMysticalCrop rubber_crop = new BlockMysticalCrop("rubber_crop");
-	public static BlockMysticalCrop aluminum_crop = new BlockMysticalCrop("aluminum_crop");
-	public static BlockMysticalCrop copper_crop = new BlockMysticalCrop("copper_crop");
-	public static BlockMysticalCrop tin_crop = new BlockMysticalCrop("tin_crop");
-	public static BlockMysticalCrop bronze_crop = new BlockMysticalCrop("bronze_crop");
-	public static BlockMysticalCrop silver_crop = new BlockMysticalCrop("silver_crop");
-	public static BlockMysticalCrop lead_crop = new BlockMysticalCrop("lead_crop");
-	public static BlockMysticalCrop steel_crop = new BlockMysticalCrop("steel_crop");
-	public static BlockMysticalCrop nickel_crop = new BlockMysticalCrop("nickel_crop");
-	public static BlockMysticalCrop electrum_crop = new BlockMysticalCrop("electrum_crop");
-	
-	public static BlockMysticalCrop ruby_crop = new BlockMysticalCrop("ruby_crop");
-	public static BlockMysticalCrop sapphire_crop = new BlockMysticalCrop("sapphire_crop");
-	public static BlockMysticalCrop peridot_crop = new BlockMysticalCrop("peridot_crop");
-	
-	public static BlockMysticalCrop aluminum_brass_crop = new BlockMysticalCrop("aluminum_brass_crop");
-	public static BlockMysticalCrop knightslime_crop = new BlockMysticalCrop("knightslime_crop");
-	public static BlockMysticalCrop ardite_crop = new BlockMysticalCrop("ardite_crop");
-	public static BlockMysticalCrop cobalt_crop = new BlockMysticalCrop("cobalt_crop");
-	public static BlockMysticalCrop manyullyn_crop = new BlockMysticalCrop("manyullyn_crop");
-	
-	public static BlockMysticalCrop electrical_steel_crop = new BlockMysticalCrop("electrical_steel_crop");
-	public static BlockMysticalCrop redstone_alloy_crop = new BlockMysticalCrop("redstone_alloy_crop");
-	public static BlockMysticalCrop conductive_iron_crop = new BlockMysticalCrop("conductive_iron_crop");
-	public static BlockMysticalCrop soularium_crop = new BlockMysticalCrop("soularium_crop");
-	public static BlockMysticalCrop dark_steel_crop = new BlockMysticalCrop("dark_steel_crop");
-	public static BlockMysticalCrop pulsating_iron_crop = new BlockMysticalCrop("pulsating_iron_crop");
-	public static BlockMysticalCrop energetic_alloy_crop = new BlockMysticalCrop("energetic_alloy_crop");
-	public static BlockMysticalCrop vibrant_alloy_crop = new BlockMysticalCrop("vibrant_alloy_crop");
-	
-	public static BlockMysticalCrop mystical_flower_crop = new BlockMysticalCrop("mystical_flower_crop");
-	public static BlockMysticalCrop manasteel_crop = new BlockMysticalCrop("manasteel_crop");
-	public static BlockMysticalCrop terrasteel_crop = new BlockMysticalCrop("terrasteel_crop");
-	
-	public static BlockMysticalCrop osmium_crop = new BlockMysticalCrop("osmium_crop");
-	public static BlockMysticalCrop refined_obsidian_crop = new BlockMysticalCrop("refined_obsidian_crop");
-	
-	public static BlockMysticalCrop marble_crop = new BlockMysticalCrop("marble_crop");
-	public static BlockMysticalCrop limestone_crop = new BlockMysticalCrop("limestone_crop");
-	public static BlockMysticalCrop basalt_crop = new BlockMysticalCrop("basalt_crop");
-	
-	public static BlockMysticalCrop draconium_crop = new BlockMysticalCrop("draconium_crop");
-	
-	public static BlockMysticalCrop yellorium_crop = new BlockMysticalCrop("yellorium_crop");
-	
-	public static BlockMysticalCrop certus_quartz_crop = new BlockMysticalCrop("certus_quartz_crop");
-	public static BlockMysticalCrop fluix_crop = new BlockMysticalCrop("fluix_crop");
-	
-	public static BlockMysticalCrop quartz_enriched_iron_crop = new BlockMysticalCrop("quartz_enriched_iron_crop");
-	
-	public static BlockMysticalCrop constantan_crop = new BlockMysticalCrop("constantan_crop");
-	
 	public static void initBlocks(){
-						
+								
 		BLOCKS.add(inferium_block);
 		BLOCKS.add(prudentium_block);
 		BLOCKS.add(intermedium_block);
@@ -264,200 +176,16 @@ public class ModBlocks {
 		BLOCKS2.add(tier4_inferium_crop);
 		BLOCKS2.add(tier5_inferium_crop);
 		
-		if(ModConfig.stone_seeds){ BLOCKS2.add(stone_crop); }
-		if(ModConfig.dirt_seeds){ BLOCKS2.add(dirt_crop); }
-		if(ModConfig.nature_seeds){ BLOCKS2.add(nature_crop); }
-		if(ModConfig.wood_seeds){ BLOCKS2.add(wood_crop); }
-		if(ModConfig.water_seeds){ BLOCKS2.add(water_crop); }
-		if(ModConfig.water_seeds){ BLOCKS2.add(ice_crop); }
-		if(ModConfig.fire_seeds){ BLOCKS2.add(fire_crop); }
-		if(ModConfig.dye_seeds){ BLOCKS2.add(dye_crop); }
-		if(ModConfig.nether_seeds){ BLOCKS2.add(nether_crop); }
-		if(ModConfig.coal_seeds){ BLOCKS2.add(coal_crop); }
-		if(ModConfig.iron_seeds){ BLOCKS2.add(iron_crop); }
-		if(ModConfig.nether_quartz_seeds){ BLOCKS2.add(nether_quartz_crop); }
-		if(ModConfig.glowstone_seeds){ BLOCKS2.add(glowstone_crop); }
-		if(ModConfig.redstone_seeds){ BLOCKS2.add(redstone_crop); }
-		if(ModConfig.obsidian_seeds){ BLOCKS2.add(obsidian_crop); }
-		if(ModConfig.gold_seeds){ BLOCKS2.add(gold_crop); }
-		if(ModConfig.lapis_lazuli_seeds){ BLOCKS2.add(lapis_lazuli_crop); }
-		if(ModConfig.experience_seeds){ BLOCKS2.add(experience_crop); }
-		if(ModConfig.diamond_seeds){ BLOCKS2.add(diamond_crop); }
-		if(ModConfig.emerald_seeds){ BLOCKS2.add(emerald_crop); }
-		
-		if(ModConfig.zombie_seeds){ BLOCKS2.add(zombie_crop); }
-		if(ModConfig.pig_seeds){ BLOCKS2.add(pig_crop); }
-		if(ModConfig.chicken_seeds){ BLOCKS2.add(chicken_crop); }
-		if(ModConfig.cow_seeds){ BLOCKS2.add(cow_crop); }
-		if(ModConfig.sheep_seeds){ BLOCKS2.add(sheep_crop); }
-		if(ModConfig.slime_seeds){ BLOCKS2.add(slime_crop); }
-		if(ModConfig.skeleton_seeds){ BLOCKS2.add(skeleton_crop); }
-		if(ModConfig.creeper_seeds){ BLOCKS2.add(creeper_crop); }
-		if(ModConfig.spider_seeds){ BLOCKS2.add(spider_crop); }
-		if(ModConfig.rabbit_seeds){ BLOCKS2.add(rabbit_crop); }
-		if(ModConfig.guardian_seeds){ BLOCKS2.add(guardian_crop); }
-		if(ModConfig.blaze_seeds){ BLOCKS2.add(blaze_crop); }
-		if(ModConfig.ghast_seeds){ BLOCKS2.add(ghast_crop); }
-		if(ModConfig.enderman_seeds){ BLOCKS2.add(enderman_crop); }
-		if(ModConfig.wither_skeleton_seeds){ BLOCKS2.add(wither_skeleton_crop); }
-		
-		if(ModConfig.rubber_seeds && ModChecker.RUBBER){ BLOCKS2.add(rubber_crop); }
-		if(ModConfig.aluminum_seeds && ModChecker.ALUMINUM){ BLOCKS2.add(aluminum_crop); }
-		if(ModConfig.copper_seeds && ModChecker.COPPER){ BLOCKS2.add(copper_crop); }
-		if(ModConfig.tin_seeds && ModChecker.TIN){ BLOCKS2.add(tin_crop); }
-		if(ModConfig.bronze_seeds && ModChecker.BRONZE){ BLOCKS2.add(bronze_crop); }
-		if(ModConfig.silver_seeds && ModChecker.SILVER){ BLOCKS2.add(silver_crop); }
-		if(ModConfig.lead_seeds && ModChecker.LEAD){ BLOCKS2.add(lead_crop); }
-		if(ModConfig.steel_seeds && ModChecker.STEEL){ BLOCKS2.add(steel_crop); }
-		if(ModConfig.nickel_seeds && ModChecker.NICKEL){ BLOCKS2.add(nickel_crop); } 
-		if(ModConfig.electrum_seeds && ModChecker.ELECTRUM){ BLOCKS2.add(electrum_crop); } 
-		
-		if(ModConfig.ruby_seeds && ModChecker.RUBY){ BLOCKS2.add(ruby_crop); }
-		if(ModConfig.sapphire_seeds && ModChecker.SAPPHIRE){ BLOCKS2.add(sapphire_crop); }
-		if(ModConfig.peridot_seeds && ModChecker.PERIDOT){ BLOCKS2.add(peridot_crop); }
-		
-		if(ModConfig.aluminum_brass_seeds && ModChecker.TINKERS){ BLOCKS2.add(aluminum_brass_crop); }
-		if(ModConfig.knightslime_seeds && ModChecker.TINKERS){ BLOCKS2.add(knightslime_crop); }
-		if(ModConfig.ardite_seeds && ModChecker.TINKERS){ BLOCKS2.add(ardite_crop); }
-		if(ModConfig.cobalt_seeds && ModChecker.TINKERS){ BLOCKS2.add(cobalt_crop); }
-		if(ModConfig.manyullyn_seeds && ModChecker.TINKERS){ BLOCKS2.add(manyullyn_crop); }
-		
-		if(ModConfig.electrical_steel_seeds && ModChecker.ENDERIO){ BLOCKS2.add(electrical_steel_crop); }
-		if(ModConfig.redstone_alloy_seeds && ModChecker.ENDERIO){ BLOCKS2.add(redstone_alloy_crop); }
-		if(ModConfig.conductive_iron_seeds && ModChecker.ENDERIO){ BLOCKS2.add(conductive_iron_crop); }
-		if(ModConfig.soularium_seeds && ModChecker.ENDERIO){ BLOCKS2.add(soularium_crop); }
-		if(ModConfig.dark_steel_seeds && ModChecker.ENDERIO){ BLOCKS2.add(dark_steel_crop); }
-		if(ModConfig.pulsating_iron_seeds && ModChecker.ENDERIO){ BLOCKS2.add(pulsating_iron_crop); }
-		if(ModConfig.energetic_alloy_seeds && ModChecker.ENDERIO){ BLOCKS2.add(energetic_alloy_crop); }
-		if(ModConfig.vibrant_alloy_seeds && ModChecker.ENDERIO){ BLOCKS2.add(vibrant_alloy_crop); }
-		
-		if(ModConfig.mystical_flower_seeds && ModChecker.BOTANIA){ BLOCKS2.add(mystical_flower_crop); }
-		if(ModConfig.manasteel_seeds && ModChecker.BOTANIA){ BLOCKS2.add(manasteel_crop); }
-		if(ModConfig.terrasteel_seeds && ModChecker.BOTANIA){ BLOCKS2.add(terrasteel_crop); }
-		
-		if(ModConfig.osmium_seeds && ModChecker.MEKANISM){ BLOCKS2.add(osmium_crop); }
-		if(ModConfig.refined_obsidian_seeds && ModChecker.MEKANISM){ BLOCKS2.add(refined_obsidian_crop); }
-		
-		if(ModConfig.marble_seeds && ModChecker.CHISEL){ BLOCKS2.add(marble_crop); }
-		if(ModConfig.limestone_seeds && ModChecker.CHISEL){ BLOCKS2.add(limestone_crop); }
-		if(ModConfig.basalt_seeds && ModChecker.CHISEL){ BLOCKS2.add(basalt_crop); }
-		
-		if(ModConfig.draconium_seeds && ModChecker.DRACONIC){ BLOCKS2.add(draconium_crop); }
-		
-		if(ModConfig.yellorium_seeds && ModChecker.BIGREACTORS){ BLOCKS2.add(yellorium_crop); }
-		
-		if(ModConfig.certus_quartz_seeds && ModChecker.AE2){ BLOCKS2.add(certus_quartz_crop); }
-		if(ModConfig.fluix_seeds && ModChecker.AE2){ BLOCKS2.add(fluix_crop); }
-		
-		if(ModConfig.quartz_enriched_iron_seeds && ModChecker.RS){ BLOCKS2.add(quartz_enriched_iron_crop); }
-		
-		if(ModConfig.constantan_seeds && ModChecker.IE){ BLOCKS2.add(constantan_crop); }
+		for(CropType.Type type : CropType.Type.values()){
+			if(type.isEnabled()){
+				BLOCKS2.add(type.getPlant());
+			}
+		}
 			
 		for(Block block : BLOCKS2){
 			GameRegistry.register(block);
 			GameRegistry.register(new ItemBlock(block).setRegistryName(block.getRegistryName()));
 		}
-	}
-
-	public static void setCropDrops(BlockMysticalCrop plant, Item crop, Item seed){
-		plant.setCrop(crop);
-		plant.setSeed(seed);
-		if(ModConfig.seed_reprocessor){
-			if(ModItems.ITEMS2.contains(crop) && ModItems.ITEMS2.contains(seed)){
-				ReprocessorManager.addRecipe(new ItemStack(crop, 2, 0), new ItemStack(seed, 1, 0));
-			}
-		}
-	}
-	
-	public static void initCropDrops(){
-		setCropDrops(stone_crop, ModItems.stone_essence, ModItems.stone_seeds);
-		setCropDrops(dirt_crop, ModItems.dirt_essence, ModItems.dirt_seeds);
-		setCropDrops(nature_crop, ModItems.nature_essence, ModItems.nature_seeds);
-		setCropDrops(wood_crop, ModItems.wood_essence, ModItems.wood_seeds);
-		setCropDrops(water_crop, ModItems.water_essence, ModItems.water_seeds);
-		setCropDrops(ice_crop, ModItems.ice_essence, ModItems.ice_seeds);
-		setCropDrops(fire_crop, ModItems.fire_essence, ModItems.fire_seeds);
-		setCropDrops(dye_crop, ModItems.dye_essence, ModItems.dye_seeds);
-		setCropDrops(nether_crop, ModItems.nether_essence, ModItems.nether_seeds);
-		setCropDrops(coal_crop, ModItems.coal_essence, ModItems.coal_seeds);
-		setCropDrops(iron_crop, ModItems.iron_essence, ModItems.iron_seeds);
-		setCropDrops(nether_quartz_crop, ModItems.nether_quartz_essence, ModItems.nether_quartz_seeds);
-		setCropDrops(glowstone_crop, ModItems.glowstone_essence, ModItems.glowstone_seeds);
-		setCropDrops(redstone_crop, ModItems.redstone_essence, ModItems.redstone_seeds);
-		setCropDrops(obsidian_crop, ModItems.obsidian_essence, ModItems.obsidian_seeds);
-		setCropDrops(gold_crop, ModItems.gold_essence, ModItems.gold_seeds);
-		setCropDrops(lapis_lazuli_crop, ModItems.lapis_lazuli_essence, ModItems.lapis_lazuli_seeds);
-		setCropDrops(experience_crop, ModItems.experience_essence, ModItems.experience_seeds);
-		setCropDrops(diamond_crop, ModItems.diamond_essence, ModItems.diamond_seeds);
-		setCropDrops(emerald_crop, ModItems.emerald_essence, ModItems.emerald_seeds);
-		
-		setCropDrops(zombie_crop, ModItems.zombie_essence, ModItems.zombie_seeds);
-		setCropDrops(pig_crop, ModItems.pig_essence, ModItems.pig_seeds);
-		setCropDrops(chicken_crop, ModItems.chicken_essence, ModItems.chicken_seeds);
-		setCropDrops(cow_crop, ModItems.cow_essence, ModItems.cow_seeds);
-		setCropDrops(sheep_crop, ModItems.sheep_essence, ModItems.sheep_seeds);
-		setCropDrops(slime_crop, ModItems.slime_essence, ModItems.slime_seeds);
-		setCropDrops(skeleton_crop, ModItems.skeleton_essence, ModItems.skeleton_seeds);
-		setCropDrops(creeper_crop, ModItems.creeper_essence, ModItems.creeper_seeds);
-		setCropDrops(spider_crop, ModItems.spider_essence, ModItems.spider_seeds);
-		setCropDrops(rabbit_crop, ModItems.rabbit_essence, ModItems.rabbit_seeds);
-		setCropDrops(guardian_crop, ModItems.guardian_essence, ModItems.guardian_seeds);
-		setCropDrops(blaze_crop, ModItems.blaze_essence, ModItems.blaze_seeds);
-		setCropDrops(ghast_crop, ModItems.ghast_essence, ModItems.ghast_seeds);
-		setCropDrops(enderman_crop, ModItems.enderman_essence, ModItems.enderman_seeds);
-		setCropDrops(wither_skeleton_crop, ModItems.wither_skeleton_essence, ModItems.wither_skeleton_seeds);
-		
-		setCropDrops(rubber_crop, ModItems.rubber_essence, ModItems.rubber_seeds);
-		setCropDrops(aluminum_crop, ModItems.aluminum_essence, ModItems.aluminum_seeds);
-		setCropDrops(copper_crop, ModItems.copper_essence, ModItems.copper_seeds);
-		setCropDrops(tin_crop, ModItems.tin_essence, ModItems.tin_seeds);
-		setCropDrops(bronze_crop, ModItems.bronze_essence, ModItems.bronze_seeds);
-		setCropDrops(silver_crop, ModItems.silver_essence, ModItems.silver_seeds);
-		setCropDrops(lead_crop, ModItems.lead_essence, ModItems.lead_seeds);
-		setCropDrops(steel_crop, ModItems.steel_essence, ModItems.steel_seeds);
-		setCropDrops(nickel_crop, ModItems.nickel_essence, ModItems.nickel_seeds);
-		setCropDrops(electrum_crop, ModItems.electrum_essence, ModItems.electrum_seeds);
-		
-		setCropDrops(ruby_crop, ModItems.ruby_essence, ModItems.ruby_seeds);
-		setCropDrops(sapphire_crop, ModItems.sapphire_essence, ModItems.sapphire_seeds);
-		setCropDrops(peridot_crop, ModItems.peridot_essence, ModItems.peridot_seeds);
-		
-		setCropDrops(aluminum_brass_crop, ModItems.aluminum_brass_essence, ModItems.aluminum_brass_seeds);
-		setCropDrops(knightslime_crop, ModItems.knightslime_essence, ModItems.knightslime_seeds);
-		setCropDrops(ardite_crop, ModItems.ardite_essence, ModItems.ardite_seeds);
-		setCropDrops(cobalt_crop, ModItems.cobalt_essence, ModItems.cobalt_seeds);
-		setCropDrops(manyullyn_crop, ModItems.manyullyn_essence, ModItems.manyullyn_seeds);
-		
-		setCropDrops(electrical_steel_crop, ModItems.electrical_steel_essence, ModItems.electrical_steel_seeds);
-		setCropDrops(redstone_alloy_crop, ModItems.redstone_alloy_essence, ModItems.redstone_alloy_seeds);
-		setCropDrops(conductive_iron_crop, ModItems.conductive_iron_essence, ModItems.conductive_iron_seeds);
-		setCropDrops(soularium_crop, ModItems.soularium_essence, ModItems.soularium_seeds);
-		setCropDrops(dark_steel_crop, ModItems.dark_steel_essence, ModItems.dark_steel_seeds);
-		setCropDrops(pulsating_iron_crop, ModItems.pulsating_iron_essence, ModItems.pulsating_iron_seeds);
-		setCropDrops(energetic_alloy_crop, ModItems.energetic_alloy_essence, ModItems.energetic_alloy_seeds);
-		setCropDrops(vibrant_alloy_crop, ModItems.vibrant_alloy_essence, ModItems.vibrant_alloy_seeds);
-		
-		setCropDrops(mystical_flower_crop, ModItems.mystical_flower_essence, ModItems.mystical_flower_seeds);
-		setCropDrops(manasteel_crop, ModItems.manasteel_essence, ModItems.manasteel_seeds);
-		setCropDrops(terrasteel_crop, ModItems.terrasteel_essence, ModItems.terrasteel_seeds);
-		
-		setCropDrops(osmium_crop, ModItems.osmium_essence, ModItems.osmium_seeds);
-		setCropDrops(refined_obsidian_crop, ModItems.refined_obsidian_essence, ModItems.refined_obsidian_seeds);
-		
-		setCropDrops(marble_crop, ModItems.marble_essence, ModItems.marble_seeds);
-		setCropDrops(limestone_crop, ModItems.limestone_essence, ModItems.limestone_seeds);
-		setCropDrops(basalt_crop, ModItems.basalt_essence, ModItems.basalt_seeds); 
-		
-		setCropDrops(draconium_crop, ModItems.draconium_essence, ModItems.draconium_seeds);
-		
-		setCropDrops(yellorium_crop, ModItems.yellorium_essence, ModItems.yellorium_seeds);
-		
-		setCropDrops(certus_quartz_crop, ModItems.certus_quartz_essence, ModItems.certus_quartz_seeds);
-		setCropDrops(fluix_crop, ModItems.fluix_essence, ModItems.fluix_seeds);
-		
-		setCropDrops(quartz_enriched_iron_crop, ModItems.quartz_enriched_iron_essence, ModItems.quartz_enriched_iron_seeds);
-		
-		setCropDrops(constantan_crop, ModItems.constantan_essence, ModItems.constantan_seeds);
 	}
 	
 	public static void initOreDict(){

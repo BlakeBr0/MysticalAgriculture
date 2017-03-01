@@ -14,8 +14,10 @@ import com.blakebr0.mysticalagriculture.items.armor.ItemIntermediumArmor;
 import com.blakebr0.mysticalagriculture.items.armor.ItemSuperiumArmor;
 import com.blakebr0.mysticalagriculture.items.armor.ItemSupremiumArmor;
 import com.blakebr0.mysticalagriculture.items.armor.upgraded.ItemUpgradedSpeed;
+import com.blakebr0.mysticalagriculture.lib.CropType;
 import com.blakebr0.mysticalagriculture.lib.Parts;
 import com.blakebr0.mysticalagriculture.tileentity.ModTileEntities;
+import com.blakebr0.mysticalagriculture.util.ModChecker;
 import com.blakebr0.mysticalagriculture.world.OreGeneration;
 
 import net.minecraft.init.Blocks;
@@ -49,7 +51,7 @@ public class CommonProxy {
 	
 	public void init(FMLInitializationEvent e){
 		ModTileEntities.initTileEntities();
-		
+				
 		if(ModConfig.seed_reprocessor){
 			ReprocessorManager.addRecipe(new ItemStack(ModItems.inferium_essence, 1, 0), new ItemStack(ModItems.tier1_inferium_seeds, 1, 0));
 			ReprocessorManager.addRecipe(new ItemStack(ModItems.inferium_essence, 2, 0), new ItemStack(ModItems.tier2_inferium_seeds, 1, 0));
@@ -58,11 +60,15 @@ public class CommonProxy {
 			ReprocessorManager.addRecipe(new ItemStack(ModItems.inferium_essence, 5, 0), new ItemStack(ModItems.tier5_inferium_seeds, 1, 0));	
 		}
 		
-		ModBlocks.initCropDrops();
+		for(CropType.Type type : CropType.Type.values()){
+			if(type.isEnabled()){
+				ReprocessorManager.addRecipe(new ItemStack(type.getCrop(), 2, 0), new ItemStack(type.getSeed(), 1, 0));
+			}
+		}
 		
 		NetworkRegistry.INSTANCE.registerGuiHandler(MysticalAgriculture.INSTANCE, new GuiHandler());
 		
-		if(Loader.isModLoaded("JEI")){
+		if(ModChecker.JEI){
 			ModBlocks.initJEIDescriptions();
 		}
 	

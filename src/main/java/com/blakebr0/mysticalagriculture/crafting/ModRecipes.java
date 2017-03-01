@@ -4,6 +4,7 @@ import com.blakebr0.mysticalagriculture.blocks.ModBlocks;
 import com.blakebr0.mysticalagriculture.config.ModConfig;
 import com.blakebr0.mysticalagriculture.items.ItemSeed;
 import com.blakebr0.mysticalagriculture.items.ModItems;
+import com.blakebr0.mysticalagriculture.lib.CropType;
 import com.blakebr0.mysticalagriculture.lib.Parts;
 import com.blakebr0.mysticalagriculture.util.ModChecker;
 
@@ -47,47 +48,47 @@ public class ModRecipes {
 	}
 	
 	public static ItemStack getCraftingSeed(int tier){
-		ItemStack crafting_seed = null;
+		ItemStack craftingSeed = null;
 		switch(tier - 1){
 		case 0:
-			crafting_seed = new ItemStack(ModItems.tier1_crafting_seed, 1, 0);
+			craftingSeed = new ItemStack(ModItems.tier1_crafting_seed, 1, 0);
 			break;
 		case 1:
-			crafting_seed = new ItemStack(ModItems.tier2_crafting_seed, 1, 0);
+			craftingSeed = new ItemStack(ModItems.tier2_crafting_seed, 1, 0);
 			break;
 		case 2:
-			crafting_seed = new ItemStack(ModItems.tier3_crafting_seed, 1, 0);
+			craftingSeed = new ItemStack(ModItems.tier3_crafting_seed, 1, 0);
 			break;
 		case 3:
-			crafting_seed = new ItemStack(ModItems.tier4_crafting_seed, 1, 0);
+			craftingSeed = new ItemStack(ModItems.tier4_crafting_seed, 1, 0);
 			break;
 		case 4:
-			crafting_seed = new ItemStack(ModItems.tier5_crafting_seed, 1, 0);
+			craftingSeed = new ItemStack(ModItems.tier5_crafting_seed, 1, 0);
 			break;
 		}
-		return crafting_seed;
+		return craftingSeed;
 	}
 	
 	public static ItemStack getMobChunk(int tier){
-		ItemStack mob_chunk = null;
+		ItemStack mobChunk = null;
 		switch(tier - 1){
 		case 0:
-			mob_chunk = new ItemStack(ModItems.tier1_mob_chunk, 1, 0);
+			mobChunk = new ItemStack(ModItems.tier1_mob_chunk, 1, 0);
 			break;
 		case 1:
-			mob_chunk = new ItemStack(ModItems.tier2_mob_chunk, 1, 0);
+			mobChunk = new ItemStack(ModItems.tier2_mob_chunk, 1, 0);
 			break;
 		case 2:
-			mob_chunk = new ItemStack(ModItems.tier3_mob_chunk, 1, 0);
+			mobChunk = new ItemStack(ModItems.tier3_mob_chunk, 1, 0);
 			break;
 		case 3:
-			mob_chunk = new ItemStack(ModItems.tier4_mob_chunk, 1, 0);
+			mobChunk = new ItemStack(ModItems.tier4_mob_chunk, 1, 0);
 			break;
 		case 4:
-			mob_chunk = new ItemStack(ModItems.tier5_mob_chunk, 1, 0);
+			mobChunk = new ItemStack(ModItems.tier5_mob_chunk, 1, 0);
 			break;
 		}
-		return mob_chunk;
+		return mobChunk;
 	}
 	
 	public static void addShapedRecipe(ItemStack output, Object... input){
@@ -96,6 +97,18 @@ public class ModRecipes {
 	
 	public static void addShapelessRecipe(ItemStack output, Object... input){
 		GameRegistry.addRecipe(new ShapelessOreRecipe(output, input));
+	}
+	
+	public static void addSeedRecipe(CropType.Type type, Object input){
+		if(type.isEnabled()){
+			addShapedRecipe(new ItemStack(type.getSeed(), 1, 0), 
+					"MEM", 
+					"ESE", 
+					"MEM", 
+					'E', getEssence(type.getTier()), 
+					'S', getCraftingSeed(type.getTier()), 
+					'M', input);
+		}
 	}
 	
 	public static void addCharmRecipe(ItemStack output, Object... input){
@@ -107,6 +120,8 @@ public class ModRecipes {
 	}
 	
 	public static void initRecipes(){
+		
+		CropType.Type type = null;
 
 	    addShapedRecipe(new ItemStack(ModBlocks.inferium_block, 1, 0), "EEE", "EEE", "EEE", 'E', new ItemStack(ModItems.inferium_essence, 1, 0));
 	    addShapedRecipe(new ItemStack(ModBlocks.prudentium_block, 1, 0), "EEE", "EEE", "EEE", 'E', new ItemStack(ModItems.prudentium_essence, 1, 0));
@@ -144,8 +159,8 @@ public class ModRecipes {
 	    }
 	    
 	    if(ModConfig.witherproof_blocks){
-	    	addShapedRecipe(new ItemStack(ModBlocks.witherproof_block, 1, 0), "SES", "EDE", "SES", 'E', new ItemStack(ModItems.wither_skeleton_essence, 1, 0), 'D', "stone");
-	    	addShapedRecipe(new ItemStack(ModBlocks.witherproof_glass, 1, 0), "SES", "EDE", "SES", 'E', new ItemStack(ModItems.wither_skeleton_essence, 1, 0), 'D', "blockGlass");
+	    	addShapedRecipe(new ItemStack(ModBlocks.witherproof_block, 1, 0), "SES", "EDE", "SES", 'E', new ItemStack(type.WITHER_SKELETON.getCrop(), 1, 0), 'D', "stone");
+	    	addShapedRecipe(new ItemStack(ModBlocks.witherproof_glass, 1, 0), "SES", "EDE", "SES", 'E', new ItemStack(type.WITHER_SKELETON.getCrop(), 1, 0), 'D', "blockGlass");
 	    }
 	    
 		addShapelessRecipe(new ItemStack(ModItems.inferium_essence, 9, 0), new ItemStack(ModBlocks.inferium_block, 1, 0)); 
@@ -296,94 +311,95 @@ public class ModRecipes {
 	    addShapedRecipe(new ItemStack(ModItems.tier3_inferium_seeds, 1, 0), "EEE", "ESE", "EEE", 'E', new ItemStack(ModItems.intermedium_essence, 1, 0), 'S', new ItemStack(ModItems.tier2_inferium_seeds, 1, 0));
 	    addShapedRecipe(new ItemStack(ModItems.tier4_inferium_seeds, 1, 0), "EEE", "ESE", "EEE", 'E', new ItemStack(ModItems.superium_essence, 1, 0), 'S', new ItemStack(ModItems.tier3_inferium_seeds, 1, 0));
 	    addShapedRecipe(new ItemStack(ModItems.tier5_inferium_seeds, 1, 0), "EEE", "ESE", "EEE", 'E', new ItemStack(ModItems.supremium_essence, 1, 0), 'S', new ItemStack(ModItems.tier4_inferium_seeds, 1, 0)); 
-	    if(ModConfig.stone_seeds){ addShapedRecipe(new ItemStack(ModItems.stone_seeds, 1, 0), "MEM", "ESE", "MEM", 'E', getEssence(ModConfig.stone_tier), 'S', getCraftingSeed(ModConfig.stone_tier), 'M', new ItemStack(Blocks.STONE)); }
-	    if(ModConfig.dirt_seeds){ addShapedRecipe(new ItemStack(ModItems.dirt_seeds, 1, 0), "MEM", "ESE", "MEM", 'E', getEssence(ModConfig.dirt_tier), 'S', getCraftingSeed(ModConfig.dirt_tier), 'M', new ItemStack(Blocks.DIRT)); }
-	    if(ModConfig.nature_seeds){ addShapedRecipe(new ItemStack(ModItems.nature_seeds, 1, 0), "MEM", "ESE", "MEM", 'E', getEssence(ModConfig.nature_tier), 'S', getCraftingSeed(ModConfig.nature_tier), 'M', new ItemStack(ModItems.nature_cluster)); }
-	    if(ModConfig.wood_seeds){ addShapedRecipe(new ItemStack(ModItems.wood_seeds, 1, 0), "MEM", "ESE", "MEM", 'E', getEssence(ModConfig.wood_tier), 'S', getCraftingSeed(ModConfig.wood_tier), 'M', "logWood"); }
-	    if(ModConfig.water_seeds){ addShapedRecipe(new ItemStack(ModItems.water_seeds, 1, 0), "MEM", "ESE", "MEM", 'E', getEssence(ModConfig.water_tier), 'S', getCraftingSeed(ModConfig.water_tier), 'M', new ItemStack(Items.WATER_BUCKET)); }
-	    if(ModConfig.ice_seeds){ addShapedRecipe(new ItemStack(ModItems.ice_seeds, 1, 0), "MEM", "ESE", "MEM", 'E', getEssence(ModConfig.ice_tier), 'S', getCraftingSeed(ModConfig.ice_tier), 'M', new ItemStack(Blocks.ICE, 1, 0)); } 
-	    if(ModConfig.fire_seeds){ addShapedRecipe(new ItemStack(ModItems.fire_seeds, 1, 0), "MEM", "ESE", "MEM", 'E', getEssence(ModConfig.fire_tier), 'S', getCraftingSeed(ModConfig.fire_tier), 'M', new ItemStack(Items.LAVA_BUCKET)); }
-	    if(ModConfig.dye_seeds){ addShapedRecipe(new ItemStack(ModItems.dye_seeds, 1, 0), "MEM", "ESE", "MEM", 'E', getEssence(ModConfig.dye_tier), 'S', getCraftingSeed(ModConfig.dye_tier), 'M', new ItemStack(ModItems.dye_cluster)); }
-	    if(ModConfig.nether_seeds){ addShapedRecipe(new ItemStack(ModItems.nether_seeds, 1, 0), "MEM", "ESE", "MEM", 'E', getEssence(ModConfig.nether_tier), 'S', getCraftingSeed(ModConfig.nether_tier), 'M', new ItemStack(ModItems.nether_cluster)); }
-	    if(ModConfig.coal_seeds){ addShapedRecipe(new ItemStack(ModItems.coal_seeds, 1, 0), "MEM", "ESE", "MEM", 'E', getEssence(ModConfig.coal_tier), 'S', getCraftingSeed(ModConfig.coal_tier), 'M', new ItemStack(Items.COAL)); }
-	    if(ModConfig.iron_seeds){ addShapedRecipe(new ItemStack(ModItems.iron_seeds, 1, 0), "MEM", "ESE", "MEM", 'E', getEssence(ModConfig.iron_tier), 'S', getCraftingSeed(ModConfig.iron_tier), 'M', "ingotIron"); }
-	    if(ModConfig.nether_quartz_seeds){ addShapedRecipe(new ItemStack(ModItems.nether_quartz_seeds, 1, 0), "MEM", "ESE", "MEM", 'E', getEssence(ModConfig.nether_quartz_tier), 'S', getCraftingSeed(ModConfig.nether_quartz_tier), 'M', new ItemStack(Items.QUARTZ)); }
-	    if(ModConfig.glowstone_seeds){ addShapedRecipe(new ItemStack(ModItems.glowstone_seeds, 1, 0), "MEM", "ESE", "MEM", 'E', getEssence(ModConfig.glowstone_tier), 'S', getCraftingSeed(ModConfig.glowstone_tier), 'M', new ItemStack(Blocks.GLOWSTONE)); }
-	    if(ModConfig.redstone_seeds){ addShapedRecipe(new ItemStack(ModItems.redstone_seeds, 1, 0), "MEM", "ESE", "MEM", 'E', getEssence(ModConfig.redstone_tier), 'S', getCraftingSeed(ModConfig.redstone_tier), 'M', new ItemStack(Items.REDSTONE)); }
-	    if(ModConfig.obsidian_seeds){ addShapedRecipe(new ItemStack(ModItems.obsidian_seeds, 1, 0), "MEM", "ESE", "MEM", 'E', getEssence(ModConfig.obsidian_tier), 'S', getCraftingSeed(ModConfig.obsidian_tier), 'M', new ItemStack(Blocks.OBSIDIAN)); }
-	    if(ModConfig.gold_seeds){ addShapedRecipe(new ItemStack(ModItems.gold_seeds, 1, 0), "MEM", "ESE", "MEM", 'E', getEssence(ModConfig.gold_tier), 'S', getCraftingSeed(ModConfig.gold_tier), 'M', "ingotGold"); }
-	    if(ModConfig.lapis_lazuli_seeds){ addShapedRecipe(new ItemStack(ModItems.lapis_lazuli_seeds, 1, 0), "MEM", "ESE", "MEM", 'E', getEssence(ModConfig.lapis_lazuli_tier), 'S', getCraftingSeed(ModConfig.lapis_lazuli_tier), 'M', new ItemStack(Items.DYE, 1, 4)); }
-	    if(ModConfig.experience_seeds){ addShapedRecipe(new ItemStack(ModItems.experience_seeds, 1, 0), "MEM", "ESE", "MEM", 'E', getEssence(ModConfig.experience_tier), 'S', getCraftingSeed(ModConfig.experience_tier), 'M', new ItemStack(ModItems.experience_chunk, 1, 0)); }
-	    if(ModConfig.diamond_seeds){ addShapedRecipe(new ItemStack(ModItems.diamond_seeds, 1, 0), "MEM", "ESE", "MEM", 'E', getEssence(ModConfig.diamond_tier), 'S', getCraftingSeed(ModConfig.diamond_tier), 'M', new ItemStack(Items.DIAMOND, 1, 0)); }
-	    if(ModConfig.emerald_seeds){ addShapedRecipe(new ItemStack(ModItems.emerald_seeds, 1, 0), "MEM", "ESE", "MEM", 'E', getEssence(ModConfig.emerald_tier), 'S', getCraftingSeed(ModConfig.emerald_tier), 'M', new ItemStack(Items.EMERALD, 1, 0)); }
+	    
+	    addSeedRecipe(type.STONE, new ItemStack(Blocks.STONE, 1, 0));
+	    addSeedRecipe(type.DIRT, new ItemStack(Blocks.DIRT, 1, 0));
+	    addSeedRecipe(type.NATURE, new ItemStack(ModItems.nature_cluster, 1, 0));
+	    addSeedRecipe(type.WOOD, "logWood");
+	    addSeedRecipe(type.WATER, new ItemStack(Items.WATER_BUCKET, 1, 0));
+	    addSeedRecipe(type.ICE, new ItemStack(Blocks.ICE, 1, 0));
+	    addSeedRecipe(type.FIRE, new ItemStack(Items.LAVA_BUCKET, 1, 0));
+	    addSeedRecipe(type.DYE, new ItemStack(ModItems.dye_cluster, 1, 0));
+	    addSeedRecipe(type.NETHER, new ItemStack(ModItems.nether_cluster, 1, 0));
+	    addSeedRecipe(type.COAL, new ItemStack(Items.COAL, 1, 0));
+	    addSeedRecipe(type.IRON, "ingotIron");
+	    addSeedRecipe(type.NETHER_QUARTZ, new ItemStack(Items.QUARTZ, 1, 0));
+	    addSeedRecipe(type.GLOWSTONE, new ItemStack(Blocks.GLOWSTONE, 1, 0));
+	    addSeedRecipe(type.REDSTONE, new ItemStack(Items.REDSTONE, 1, 0));
+	    addSeedRecipe(type.OBSIDIAN, new ItemStack(Blocks.OBSIDIAN, 1, 0));
+	    addSeedRecipe(type.GOLD, "ingotGold");
+	    addSeedRecipe(type.LAPIS_LAZULI, new ItemStack(Items.DYE, 1, 4));
+	    addSeedRecipe(type.EXPERIENCE, new ItemStack(ModItems.experience_chunk, 1, 0));
+	    addSeedRecipe(type.DIAMOND, new ItemStack(Items.DIAMOND, 1, 0));
+	    addSeedRecipe(type.EMERALD, new ItemStack(Items.EMERALD, 1, 0));
+
+	    addSeedRecipe(type.ZOMBIE, new ItemStack(ModItems.zombie_chunk, 1, 0));
+	    addSeedRecipe(type.PIG, new ItemStack(ModItems.pig_chunk, 1, 0));
+	    addSeedRecipe(type.CHICKEN, new ItemStack(ModItems.chicken_chunk, 1, 0));
+	    addSeedRecipe(type.COW, new ItemStack(ModItems.cow_chunk, 1, 0));
+	    addSeedRecipe(type.SHEEP, new ItemStack(ModItems.sheep_chunk, 1, 0));
+	    addSeedRecipe(type.SLIME, new ItemStack(ModItems.slime_chunk, 1, 0));
+	    addSeedRecipe(type.SKELETON, new ItemStack(ModItems.skeleton_chunk, 1, 0));
+	    addSeedRecipe(type.CREEPER, new ItemStack(ModItems.creeper_chunk, 1, 0));
+	    addSeedRecipe(type.SPIDER, new ItemStack(ModItems.spider_chunk, 1, 0));
+	    addSeedRecipe(type.RABBIT, new ItemStack(ModItems.rabbit_chunk, 1, 0));
+	    addSeedRecipe(type.GUARDIAN, new ItemStack(ModItems.guardian_chunk, 1, 0));
+	    addSeedRecipe(type.BLAZE, new ItemStack(ModItems.blaze_chunk, 1, 0));
+	    addSeedRecipe(type.GHAST, new ItemStack(ModItems.ghast_chunk, 1, 0));
+	    addSeedRecipe(type.ENDERMAN, new ItemStack(ModItems.enderman_chunk, 1, 0));
+	    addSeedRecipe(type.WITHER_SKELETON, new ItemStack(ModItems.wither_skeleton_chunk, 1, 0));
+
+	    addSeedRecipe(type.RUBBER, "itemRubber");
+	    addSeedRecipe(type.ALUMINUM, "ingotAluminum");
+	    addSeedRecipe(type.COPPER, "ingotCopper");
+	    addSeedRecipe(type.TIN, "ingotTin");
+	    addSeedRecipe(type.BRONZE, "ingotBronze");
+	    addSeedRecipe(type.SILVER, "ingotSilver");
+	    addSeedRecipe(type.LEAD, "ingotLead");
+	    addSeedRecipe(type.STEEL, "ingotSteel");
+	    addSeedRecipe(type.NICKEL, "ingotNickel");
+	    addSeedRecipe(type.ELECTRUM, "ingotElectrum");
+
+	    addSeedRecipe(type.RUBY, "gemRuby");
+	    addSeedRecipe(type.SAPPHIRE, "gemSapphire");
+	    addSeedRecipe(type.PERIDOT, "gemPeridot");
+
+	    addSeedRecipe(type.ALUMINUM_BRASS, Parts.aluminum_brass);
+	    addSeedRecipe(type.KNIGHTSLIME, Parts.knightslime);
+	    addSeedRecipe(type.ARDITE, Parts.ardite);
+	    addSeedRecipe(type.COBALT, Parts.cobalt);
+	    addSeedRecipe(type.MANYULLYN, Parts.manyullyn);
+
+	    addSeedRecipe(type.ELECTRICAL_STEEL, Parts.electrical_steel);
+	    addSeedRecipe(type.REDSTONE_ALLOY, Parts.redstone_alloy);
+	    addSeedRecipe(type.CONDUCTIVE_IRON, Parts.conductive_iron);
+	    addSeedRecipe(type.SOULARIUM, Parts.soularium);
+	    addSeedRecipe(type.DARK_STEEL, Parts.dark_steel);
+	    addSeedRecipe(type.PULSATING_IRON, Parts.pulsating_iron);
+	    addSeedRecipe(type.ENERGETIC_ALLOY, Parts.energetic_alloy);
+	    addSeedRecipe(type.VIBRANT_ALLOY, Parts.vibrant_alloy);
+
+	    addSeedRecipe(type.MYSTICAL_FLOWER, new ItemStack(ModItems.mystical_flower_cluster, 1, 0));
+	    addSeedRecipe(type.MANASTEEL, Parts.manasteel);
+	    addSeedRecipe(type.TERRASTEEL, Parts.terrasteel);
 	
-	    if(ModConfig.zombie_seeds){ addShapedRecipe(new ItemStack(ModItems.zombie_seeds, 1, 0), "MEM", "ESE", "MEM", 'E', getEssence(ModConfig.zombie_tier), 'S', getCraftingSeed(ModConfig.zombie_tier), 'M', new ItemStack(ModItems.zombie_chunk)); }
-	    if(ModConfig.pig_seeds){ addShapedRecipe(new ItemStack(ModItems.pig_seeds, 1, 0), "MEM", "ESE", "MEM", 'E', getEssence(ModConfig.pig_tier), 'S', getCraftingSeed(ModConfig.pig_tier), 'M', new ItemStack(ModItems.pig_chunk)); }
-	    if(ModConfig.chicken_seeds){ addShapedRecipe(new ItemStack(ModItems.chicken_seeds, 1, 0), "MEM", "ESE", "MEM", 'E', getEssence(ModConfig.chicken_tier), 'S', getCraftingSeed(ModConfig.chicken_tier), 'M', new ItemStack(ModItems.chicken_chunk)); }
-	    if(ModConfig.cow_seeds){ addShapedRecipe(new ItemStack(ModItems.cow_seeds, 1, 0), "MEM", "ESE", "MEM", 'E', getEssence(ModConfig.cow_tier), 'S', getCraftingSeed(ModConfig.cow_tier), 'M', new ItemStack(ModItems.cow_chunk)); }
-	    if(ModConfig.sheep_seeds){ addShapedRecipe(new ItemStack(ModItems.sheep_seeds, 1, 0), "MEM", "ESE", "MEM", 'E', getEssence(ModConfig.sheep_tier), 'S', getCraftingSeed(ModConfig.sheep_tier), 'M', new ItemStack(ModItems.sheep_chunk)); }
-	    if(ModConfig.slime_seeds){ addShapedRecipe(new ItemStack(ModItems.slime_seeds, 1, 0), "MEM", "ESE", "MEM", 'E', getEssence(ModConfig.slime_tier), 'S', getCraftingSeed(ModConfig.slime_tier), 'M', new ItemStack(ModItems.slime_chunk)); }
-	    if(ModConfig.skeleton_seeds){ addShapedRecipe(new ItemStack(ModItems.skeleton_seeds, 1, 0), "MEM", "ESE", "MEM", 'E', getEssence(ModConfig.skeleton_tier), 'S', getCraftingSeed(ModConfig.skeleton_tier), 'M', new ItemStack(ModItems.skeleton_chunk)); }
-	    if(ModConfig.creeper_seeds){ addShapedRecipe(new ItemStack(ModItems.creeper_seeds, 1, 0), "MEM", "ESE", "MEM", 'E', getEssence(ModConfig.creeper_tier), 'S', getCraftingSeed(ModConfig.creeper_tier), 'M', new ItemStack(ModItems.creeper_chunk)); }
-	    if(ModConfig.spider_seeds){ addShapedRecipe(new ItemStack(ModItems.spider_seeds, 1, 0), "MEM", "ESE", "MEM", 'E', getEssence(ModConfig.spider_tier), 'S', getCraftingSeed(ModConfig.spider_tier), 'M', new ItemStack(ModItems.spider_chunk)); }
-	    if(ModConfig.rabbit_seeds){ addShapedRecipe(new ItemStack(ModItems.rabbit_seeds, 1, 0), "MEM", "ESE", "MEM", 'E', getEssence(ModConfig.rabbit_tier), 'S', getCraftingSeed(ModConfig.rabbit_tier), 'M', new ItemStack(ModItems.rabbit_chunk)); }
-	    if(ModConfig.guardian_seeds){ addShapedRecipe(new ItemStack(ModItems.guardian_seeds, 1, 0), "MEM", "ESE", "MEM", 'E', getEssence(ModConfig.guardian_tier), 'S', getCraftingSeed(ModConfig.guardian_tier), 'M', new ItemStack(ModItems.guardian_chunk)); }
-	    if(ModConfig.blaze_seeds){ addShapedRecipe(new ItemStack(ModItems.blaze_seeds, 1, 0), "MEM", "ESE", "MEM", 'E', getEssence(ModConfig.blaze_tier), 'S', getCraftingSeed(ModConfig.blaze_tier), 'M', new ItemStack(ModItems.blaze_chunk, 1, 0)); }
-	    if(ModConfig.ghast_seeds){ addShapedRecipe(new ItemStack(ModItems.ghast_seeds, 1, 0), "MEM", "ESE", "MEM", 'E', getEssence(ModConfig.ghast_tier), 'S', getCraftingSeed(ModConfig.ghast_tier), 'M', new ItemStack(ModItems.ghast_chunk, 1, 0)); }
-	    if(ModConfig.enderman_seeds){ addShapedRecipe(new ItemStack(ModItems.enderman_seeds, 1, 0), "MEM", "ESE", "MEM", 'E', getEssence(ModConfig.enderman_tier), 'S', getCraftingSeed(ModConfig.enderman_tier), 'M', new ItemStack(ModItems.enderman_chunk, 1, 0)); }
-	    if(ModConfig.wither_skeleton_seeds){ addShapedRecipe(new ItemStack(ModItems.wither_skeleton_seeds, 1, 0), "MEM", "ESE", "MEM", 'E', getEssence(ModConfig.wither_skeleton_tier), 'S', getCraftingSeed(ModConfig.wither_skeleton_tier), 'M', new ItemStack(ModItems.wither_skeleton_chunk, 1, 0)); }
+	    addSeedRecipe(type.OSMIUM, "ingotOsmium");
+	    addSeedRecipe(type.REFINED_OBSIDIAN, "ingotRefinedObsidian");
 
-	    if(ModConfig.rubber_seeds && OreDictionary.getOres("itemRubber").size() > 0){ addShapedRecipe(new ItemStack(ModItems.rubber_seeds, 1, 0), "MEM", "ESE", "MEM", 'E', getEssence(ModConfig.rubber_tier), 'S', getCraftingSeed(ModConfig.rubber_tier), 'M', "itemRubber"); }
-	    if(ModConfig.aluminum_seeds && OreDictionary.getOres("ingotAluminum").size() > 0){ addShapedRecipe(new ItemStack(ModItems.aluminum_seeds, 1, 0), "MEM", "ESE", "MEM", 'E', getEssence(ModConfig.aluminum_tier), 'S', getCraftingSeed(ModConfig.aluminum_tier), 'M', "ingotAluminum"); }
-	    if(ModConfig.copper_seeds && OreDictionary.getOres("ingotCopper").size() > 0){ addShapedRecipe(new ItemStack(ModItems.copper_seeds, 1, 0), "MEM", "ESE", "MEM", 'E', getEssence(ModConfig.copper_tier), 'S', getCraftingSeed(ModConfig.copper_tier), 'M', "ingotCopper"); }
-	    if(ModConfig.tin_seeds && OreDictionary.getOres("ingotTin").size() > 0){ addShapedRecipe(new ItemStack(ModItems.tin_seeds, 1, 0), "MEM", "ESE", "MEM", 'E', getEssence(ModConfig.tin_tier), 'S', getCraftingSeed(ModConfig.tin_tier), 'M', "ingotTin"); }
-	    if(ModConfig.bronze_seeds && OreDictionary.getOres("ingotBronze").size() > 0){ addShapedRecipe(new ItemStack(ModItems.bronze_seeds, 1, 0), "MEM", "ESE", "MEM", 'E', getEssence(ModConfig.bronze_tier), 'S', getCraftingSeed(ModConfig.bronze_tier), 'M', "ingotBronze"); }
-	    if(ModConfig.silver_seeds && OreDictionary.getOres("ingotSilver").size() > 0){ addShapedRecipe(new ItemStack(ModItems.silver_seeds, 1, 0), "MEM", "ESE", "MEM", 'E', getEssence(ModConfig.silver_tier), 'S', getCraftingSeed(ModConfig.silver_tier), 'M', "ingotSilver"); }
-	    if(ModConfig.lead_seeds && OreDictionary.getOres("ingotLead").size() > 0){ addShapedRecipe(new ItemStack(ModItems.lead_seeds, 1, 0), "MEM", "ESE", "MEM", 'E', getEssence(ModConfig.lead_tier), 'S', getCraftingSeed(ModConfig.lead_tier), 'M', "ingotLead"); }
-	    if(ModConfig.steel_seeds && OreDictionary.getOres("ingotSteel").size() > 0){ addShapedRecipe(new ItemStack(ModItems.steel_seeds, 1, 0), "MEM", "ESE", "MEM", 'E', getEssence(ModConfig.steel_tier), 'S', getCraftingSeed(ModConfig.steel_tier), 'M', "ingotSteel"); }
-	    if(ModConfig.nickel_seeds && OreDictionary.getOres("ingotNickel").size() > 0){ addShapedRecipe(new ItemStack(ModItems.nickel_seeds, 1, 0), "MEM", "ESE", "MEM", 'E', getEssence(ModConfig.nickel_tier), 'S', getCraftingSeed(ModConfig.nickel_tier), 'M', "ingotNickel"); }
-	    if(ModConfig.electrum_seeds && OreDictionary.getOres("ingotElectrum").size() > 0){ addShapedRecipe(new ItemStack(ModItems.electrum_seeds, 1, 0), "MEM", "ESE", "MEM", 'E', getEssence(ModConfig.electrum_tier), 'S', getCraftingSeed(ModConfig.electrum_tier), 'M', "ingotElectrum"); }
+	    addSeedRecipe(type.MARBLE, new ItemStack(Parts.MARBLE, 1, 7));
+	    addSeedRecipe(type.LIMESTONE, new ItemStack(Parts.LIMESTONE, 1, 7));
+	    addSeedRecipe(type.BASALT, new ItemStack(Parts.BASALT, 1, 7));
 
-	    if(ModConfig.ruby_seeds && OreDictionary.getOres("gemRuby").size() > 0){ addShapedRecipe(new ItemStack(ModItems.ruby_seeds, 1, 0), "MEM", "ESE", "MEM", 'E', getEssence(ModConfig.ruby_tier), 'S', getCraftingSeed(ModConfig.ruby_tier), 'M', "gemRuby"); }
-	    if(ModConfig.sapphire_seeds && OreDictionary.getOres("gemSapphire").size() > 0){ addShapedRecipe(new ItemStack(ModItems.sapphire_seeds, 1, 0), "MEM", "ESE", "MEM", 'E', getEssence(ModConfig.sapphire_tier), 'S', getCraftingSeed(ModConfig.sapphire_tier), 'M', "gemSapphire"); }
-	    if(ModConfig.peridot_seeds && OreDictionary.getOres("gemPeridot").size() > 0){ addShapedRecipe(new ItemStack(ModItems.peridot_seeds, 1, 0), "MEM", "ESE", "MEM", 'E', getEssence(ModConfig.peridot_tier), 'S', getCraftingSeed(ModConfig.peridot_tier), 'M', "gemPeridot"); }
+	    addSeedRecipe(type.DRACONIUM, "ingotDraconium");
+
+	    addSeedRecipe(type.YELLORIUM, "ingotYellorium");
+
+	    addSeedRecipe(type.CERTUS_QUARTZ, "crystalCertusQuartz");
+	    addSeedRecipe(type.FLUIX, "crystalFluix");
 	    
-	    if(ModConfig.aluminum_brass_seeds && Loader.isModLoaded("tconstruct")){ addShapedRecipe(new ItemStack(ModItems.aluminum_brass_seeds, 1, 0), "MEM", "ESE", "MEM", 'E', getEssence(ModConfig.aluminum_brass_tier), 'S', getCraftingSeed(ModConfig.aluminum_brass_tier), 'M', Parts.aluminum_brass); }
-	    if(ModConfig.knightslime_seeds && Loader.isModLoaded("tconstruct")){ addShapedRecipe(new ItemStack(ModItems.knightslime_seeds, 1, 0), "MEM", "ESE", "MEM", 'E', getEssence(ModConfig.knightslime_tier), 'S', getCraftingSeed(ModConfig.knightslime_tier), 'M', Parts.knightslime); }
-	    if(ModConfig.ardite_seeds && Loader.isModLoaded("tconstruct")){ addShapedRecipe(new ItemStack(ModItems.ardite_seeds, 1, 0), "MEM", "ESE", "MEM", 'E', getEssence(ModConfig.ardite_tier), 'S', getCraftingSeed(ModConfig.ardite_tier), 'M', Parts.ardite); }
-	    if(ModConfig.cobalt_seeds && Loader.isModLoaded("tconstruct")){ addShapedRecipe(new ItemStack(ModItems.cobalt_seeds, 1, 0), "MEM", "ESE", "MEM", 'E', getEssence(ModConfig.cobalt_tier), 'S', getCraftingSeed(ModConfig.cobalt_tier), 'M', Parts.cobalt); }
-	    if(ModConfig.manyullyn_seeds && Loader.isModLoaded("tconstruct")){ addShapedRecipe(new ItemStack(ModItems.manyullyn_seeds, 1, 0), "MEM", "ESE", "MEM", 'E', getEssence(ModConfig.manyullyn_tier), 'S', getCraftingSeed(ModConfig.manyullyn_tier), 'M', Parts.manyullyn); }
+	    addSeedRecipe(type.QUARTZ_ENRICHED_IRON, Parts.quartz_enriched_iron);
 
-	    if(ModConfig.electrical_steel_seeds && Loader.isModLoaded("EnderIO")){ addShapedRecipe(new ItemStack(ModItems.electrical_steel_seeds, 1, 0), "MEM", "ESE", "MEM", 'E', getEssence(ModConfig.electrical_steel_tier), 'S', getCraftingSeed(ModConfig.electrical_steel_tier), 'M', Parts.electrical_steel); }
-	    if(ModConfig.redstone_alloy_seeds && Loader.isModLoaded("EnderIO")){ addShapedRecipe(new ItemStack(ModItems.redstone_alloy_seeds, 1, 0), "MEM", "ESE", "MEM", 'E', getEssence(ModConfig.redstone_alloy_tier), 'S', getCraftingSeed(ModConfig.redstone_alloy_tier), 'M', Parts.redstone_alloy); }
-	    if(ModConfig.conductive_iron_seeds && Loader.isModLoaded("EnderIO")){ addShapedRecipe(new ItemStack(ModItems.conductive_iron_seeds, 1, 0), "MEM", "ESE", "MEM", 'E', getEssence(ModConfig.conductive_iron_tier), 'S', getCraftingSeed(ModConfig.conductive_iron_tier), 'M', Parts.conductive_iron); }
-	    if(ModConfig.soularium_seeds && Loader.isModLoaded("EnderIO")){ addShapedRecipe(new ItemStack(ModItems.soularium_seeds, 1, 0), "MEM", "ESE", "MEM", 'E', getEssence(ModConfig.soularium_tier), 'S', getCraftingSeed(ModConfig.soularium_tier), 'M', Parts.soularium); }
-	    if(ModConfig.dark_steel_seeds && Loader.isModLoaded("EnderIO")){ addShapedRecipe(new ItemStack(ModItems.dark_steel_seeds, 1, 0), "MEM", "ESE", "MEM", 'E', getEssence(ModConfig.dark_steel_tier), 'S', getCraftingSeed(ModConfig.dark_steel_tier), 'M', Parts.dark_steel); }
-	    if(ModConfig.pulsating_iron_seeds && Loader.isModLoaded("EnderIO")){ addShapedRecipe(new ItemStack(ModItems.pulsating_iron_seeds, 1, 0), "MEM", "ESE", "MEM", 'E', getEssence(ModConfig.pulsating_iron_tier), 'S', getCraftingSeed(ModConfig.pulsating_iron_tier), 'M', Parts.pulsating_iron); }
-	    if(ModConfig.energetic_alloy_seeds && Loader.isModLoaded("EnderIO")){ addShapedRecipe(new ItemStack(ModItems.energetic_alloy_seeds, 1, 0), "MEM", "ESE", "MEM", 'E', getEssence(ModConfig.energetic_alloy_tier), 'S', getCraftingSeed(ModConfig.energetic_alloy_tier), 'M', Parts.energetic_alloy); }
-	    if(ModConfig.vibrant_alloy_seeds && Loader.isModLoaded("EnderIO")){ addShapedRecipe(new ItemStack(ModItems.vibrant_alloy_seeds, 1, 0), "MEM", "ESE", "MEM", 'E', getEssence(ModConfig.vibrant_alloy_tier), 'S', getCraftingSeed(ModConfig.vibrant_alloy_tier), 'M', Parts.vibrant_alloy); }
-
-	    if(ModConfig.mystical_flower_seeds && Loader.isModLoaded("Botania")){ addShapedRecipe(new ItemStack(ModItems.mystical_flower_seeds, 1, 0), "MEM", "ESE", "MEM", 'E', getEssence(ModConfig.mystical_flower_tier), 'S', getCraftingSeed(ModConfig.mystical_flower_tier), 'M', ModItems.mystical_flower_cluster); }
-	    if(ModConfig.manasteel_seeds && Loader.isModLoaded("Botania")){ addShapedRecipe(new ItemStack(ModItems.manasteel_seeds, 1, 0), "MEM", "ESE", "MEM", 'E', getEssence(ModConfig.manasteel_tier), 'S', getCraftingSeed(ModConfig.manasteel_tier), 'M', Parts.manasteel); }
-	    if(ModConfig.terrasteel_seeds && Loader.isModLoaded("Botania")){ addShapedRecipe(new ItemStack(ModItems.terrasteel_seeds, 1, 0), "MEM", "ESE", "MEM", 'E', getEssence(ModConfig.terrasteel_tier), 'S', getCraftingSeed(ModConfig.terrasteel_tier), 'M', Parts.terrasteel); }
-	  
-	    if(ModConfig.osmium_seeds && Loader.isModLoaded("Mekanism")){ addShapedRecipe(new ItemStack(ModItems.osmium_seeds, 1, 0), "MEM", "ESE", "MEM", 'E', getEssence(ModConfig.osmium_tier), 'S', getCraftingSeed(ModConfig.osmium_tier), 'M', "ingotOsmium"); }
-	    if(ModConfig.refined_obsidian_seeds && Loader.isModLoaded("Mekanism")){ addShapedRecipe(new ItemStack(ModItems.refined_obsidian_seeds, 1, 0), "MEM", "ESE", "MEM", 'E', getEssence(ModConfig.refined_obsidian_tier), 'S', getCraftingSeed(ModConfig.refined_obsidian_tier), 'M', "ingotRefinedObsidian"); }
-
-	    if(ModConfig.marble_seeds && ModChecker.CHISEL){ addShapedRecipe(new ItemStack(ModItems.marble_seeds, 1, 0), "MEM", "ESE", "MEM", 'E', getEssence(ModConfig.marble_tier), 'S', getCraftingSeed(ModConfig.marble_tier), 'M', new ItemStack(Parts.MARBLE, 1, 7)); }
-	    if(ModConfig.limestone_seeds && ModChecker.CHISEL){ addShapedRecipe(new ItemStack(ModItems.limestone_seeds, 1, 0), "MEM", "ESE", "MEM", 'E', getEssence(ModConfig.limestone_tier), 'S', getCraftingSeed(ModConfig.limestone_tier), 'M', new ItemStack(Parts.LIMESTONE, 1, 7)); }
-	    if(ModConfig.basalt_seeds && ModChecker.CHISEL){ addShapedRecipe(new ItemStack(ModItems.basalt_seeds, 1, 0), "MEM", "ESE", "MEM", 'E', getEssence(ModConfig.basalt_tier), 'S', getCraftingSeed(ModConfig.basalt_tier), 'M', new ItemStack(Parts.BASALT, 1, 7)); }
-	    
-	    if(ModConfig.draconium_seeds && Loader.isModLoaded("draconicevolution")){ addShapedRecipe(new ItemStack(ModItems.draconium_seeds, 1, 0), "MEM", "ESE", "MEM", 'E', getEssence(ModConfig.draconium_tier), 'S', getCraftingSeed(ModConfig.draconium_tier), 'M', "ingotDraconium"); }
-	    
-	    if(ModConfig.yellorium_seeds && Loader.isModLoaded("bigreactors")){ addShapedRecipe(new ItemStack(ModItems.yellorium_seeds, 1, 0), "MEM", "ESE", "MEM", 'E', getEssence(ModConfig.yellorium_tier), 'S', getCraftingSeed(ModConfig.yellorium_tier), 'M', "ingotYellorium"); }
-
-	    if(ModConfig.certus_quartz_seeds && Loader.isModLoaded("appliedenergistics2")){ addShapedRecipe(new ItemStack(ModItems.certus_quartz_seeds, 1, 0), "MEM", "ESE", "MEM", 'E', getEssence(ModConfig.certus_quartz_tier), 'S', getCraftingSeed(ModConfig.certus_quartz_tier), 'M', "crystalCertusQuartz"); }
-	    if(ModConfig.fluix_seeds && Loader.isModLoaded("appliedenergistics2")){ addShapedRecipe(new ItemStack(ModItems.fluix_seeds, 1, 0), "MEM", "ESE", "MEM", 'E', getEssence(ModConfig.fluix_tier), 'S', getCraftingSeed(ModConfig.fluix_tier), 'M', "crystalFluix"); }
-	    
-	    if(ModConfig.quartz_enriched_iron_seeds && Loader.isModLoaded("refinedstorage")){ addShapedRecipe(new ItemStack(ModItems.quartz_enriched_iron_seeds, 1, 0), "MEM", "ESE", "MEM", 'E', getEssence(ModConfig.quartz_enriched_iron_tier), 'S', getCraftingSeed(ModConfig.quartz_enriched_iron_tier), 'M', Parts.quartz_enriched_iron); }
-	
-	    if(ModConfig.constantan_seeds && OreDictionary.getOres("ingotConstantan").size() > 0){ addShapedRecipe(new ItemStack(ModItems.constantan_seeds, 1, 0), "MEM", "ESE", "MEM", 'E', getEssence(ModConfig.constantan_tier), 'S', getCraftingSeed(ModConfig.constantan_tier), 'M', "ingotConstantan"); }
+	    addSeedRecipe(type.CONSTANTAN, "ingotConstantan");
 	    
 	    if(ModConfig.$gear_module_override){
 	    	if(ModConfig.harder_ingots){
