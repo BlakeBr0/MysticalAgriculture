@@ -30,11 +30,11 @@ public class EssenceRecipes {
 		
 		CropType.Type type = null;
 
-	    addEssenceRecipe(new ItemStack(Blocks.COBBLESTONE, EssenceConfig.cobblestone, 0), "EEE", "EXE", "EEE", 'E', new ItemStack(type.STONE.getCrop(), 1, 0));
-	    addEssenceRecipe(new ItemStack(Blocks.STONE, EssenceConfig.stone, 0), "EEE", "EEE", "EEE", 'E', new ItemStack(type.STONE.getCrop(), 1, 0));
-	    addEssenceRecipe(new ItemStack(Blocks.STONEBRICK, EssenceConfig.cracked_stonebrick, 2), "XEX", "ESE", "XEX", 'E', new ItemStack(type.STONE.getCrop(), 1, 0), 'S', "stone");
-	    addEssenceRecipe(new ItemStack(Blocks.STONEBRICK, EssenceConfig.chiseled_stonebrick, 3), "EXE", "XSX", "EXE", 'E', new ItemStack(type.STONE.getCrop(), 1, 0), 'S', "stone");
-	    
+		addEssenceRecipe(new ItemStack(Blocks.COBBLESTONE, EssenceConfig.cobblestone, 0), "EEE", "EXE", "EEE", 'E', new ItemStack(type.STONE.getCrop(), 1, 0));
+		addEssenceRecipe(new ItemStack(Blocks.STONE, EssenceConfig.stone, 0), "EEE", "EEE", "EEE", 'E', new ItemStack(type.STONE.getCrop(), 1, 0));
+		addEssenceRecipe(new ItemStack(Blocks.STONEBRICK, EssenceConfig.cracked_stonebrick, 2), "XEX", "ESE", "XEX", 'E', new ItemStack(type.STONE.getCrop(), 1, 0), 'S', "stone");
+		addEssenceRecipe(new ItemStack(Blocks.STONEBRICK, EssenceConfig.chiseled_stonebrick, 3), "EXE", "XSX", "EXE", 'E', new ItemStack(type.STONE.getCrop(), 1, 0), 'S', "stone");
+
 	    addEssenceRecipe(new ItemStack(Blocks.DIRT, EssenceConfig.dirt, 0), "EEE", "EXE", "EEE", 'E', new ItemStack(type.DIRT.getCrop(), 1, 0));
 	    addEssenceRecipe(new ItemStack(Blocks.GRASS, EssenceConfig.grass, 0), "XEX", "EFE", "XEX", 'E', new ItemStack(type.DIRT.getCrop(), 1, 0), 'F', new ItemStack(type.NATURE.getCrop(), 1, 0));
 	    addEssenceRecipe(new ItemStack(Blocks.DIRT, EssenceConfig.coarse_dirt, 1), "XEX", "XEX", "XEX", 'E', new ItemStack(type.DIRT.getCrop(), 1, 0));
@@ -157,37 +157,37 @@ public class EssenceRecipes {
 
 	    addEssenceRecipe(new ItemStack(Items.SKULL, EssenceConfig.wither_skeleton_skull, 1), "EEE", "EEE", "EEE", 'E', new ItemStack(type.WITHER_SKELETON.getCrop(), 1, 0));
 
-	    if(ModConfig.rubber_seeds && ModChecker.RUBBER){ addEssenceRecipe(OreDictResources.getItem("itemRubber", EssenceConfig.rubber), "EEE", "XXX", "XXX", 'E', new ItemStack(type.RUBBER.getCrop(), 1, 0)); }
-	    if(ModConfig.aluminum_seeds && ModChecker.ALUMINUM){ addEssenceRecipe(OreDictResources.getItem("ingotAluminum", EssenceConfig.aluminum), "EEE", "EXE", "EEE", 'E', new ItemStack(type.ALUMINUM.getCrop(), 1, 0)); }  
-	    if(ModConfig.copper_seeds && ModChecker.COPPER){ addEssenceRecipe(OreDictResources.getItem("ingotCopper", EssenceConfig.copper), "EEE", "EXE", "EEE", 'E', new ItemStack(type.COPPER.getCrop(), 1, 0)); }
-	    if(ModConfig.tin_seeds && ModChecker.TIN){ addEssenceRecipe(OreDictResources.getItem("ingotTin", EssenceConfig.tin), "EEE", "EXE", "EEE", 'E', new ItemStack(type.TIN.getCrop(), 1, 0)); }
-	    if(ModConfig.bronze_seeds && ModChecker.BRONZE){ addEssenceRecipe(OreDictResources.getItem("ingotBronze", EssenceConfig.bronze), "EEE", "EXE", "EEE", 'E', new ItemStack(type.BRONZE.getCrop(), 1, 0)); }
-	    if(ModConfig.silver_seeds && ModChecker.SILVER){ addEssenceRecipe(OreDictResources.getItem("ingotSilver", EssenceConfig.silver), "EEE", "EXE", "EEE", 'E', new ItemStack(type.SILVER.getCrop(), 1, 0)); }
-	    if(ModConfig.lead_seeds && ModChecker.LEAD){ addEssenceRecipe(OreDictResources.getItem("ingotLead", EssenceConfig.lead), "EEE", "EXE", "EEE", 'E', new ItemStack(type.LEAD.getCrop(), 1, 0)); }
-	    if(ModConfig.steel_seeds && ModChecker.STEEL){ addEssenceRecipe(OreDictResources.getItem("ingotSteel", EssenceConfig.steel), "EEE", "EXE", "EEE", 'E', new ItemStack(type.STEEL.getCrop(), 1, 0)); }
-	    if(ModConfig.nickel_seeds && ModChecker.NICKEL){ addEssenceRecipe(OreDictResources.getItem("ingotNickel", EssenceConfig.nickel), "EEE", "EXE", "EEE", 'E', new ItemStack(type.NICKEL.getCrop(), 1, 0)); }
-	    if(ModConfig.electrum_seeds && ModChecker.ELECTRUM){ addEssenceRecipe(OreDictResources.getItem("ingotElectrum", EssenceConfig.electrum), "EEE", "EXE", "EEE", 'E', new ItemStack(type.ELECTRUM.getCrop(), 1, 0)); }
+	    if(type.RUBBER.isEnabled()){ addEssenceRecipe(OreDictResources.getItem("itemRubber", EssenceConfig.rubber), "EEE", "XXX", "XXX", 'E', new ItemStack(type.RUBBER.getCrop(), 1, 0)); }
+	    if(type.ALUMINUM.isEnabled()){ addEssenceRecipe(OreDictResources.getItem("ingotAluminum", EssenceConfig.aluminum), "EEE", "EXE", "EEE", 'E', new ItemStack(type.ALUMINUM.getCrop(), 1, 0)); }  
+	    if(type.COPPER.isEnabled()){ addEssenceRecipe(OreDictResources.getItem("ingotCopper", EssenceConfig.copper), "EEE", "EXE", "EEE", 'E', new ItemStack(type.COPPER.getCrop(), 1, 0)); }
+	    if(type.TIN.isEnabled()){ addEssenceRecipe(OreDictResources.getItem("ingotTin", EssenceConfig.tin), "EEE", "EXE", "EEE", 'E', new ItemStack(type.TIN.getCrop(), 1, 0)); }
+	    if(type.BRONZE.isEnabled()){ addEssenceRecipe(OreDictResources.getItem("ingotBronze", EssenceConfig.bronze), "EEE", "EXE", "EEE", 'E', new ItemStack(type.BRONZE.getCrop(), 1, 0)); }
+	    if(type.SILVER.isEnabled()){ addEssenceRecipe(OreDictResources.getItem("ingotSilver", EssenceConfig.silver), "EEE", "EXE", "EEE", 'E', new ItemStack(type.SILVER.getCrop(), 1, 0)); }
+	    if(type.LEAD.isEnabled()){ addEssenceRecipe(OreDictResources.getItem("ingotLead", EssenceConfig.lead), "EEE", "EXE", "EEE", 'E', new ItemStack(type.LEAD.getCrop(), 1, 0)); }
+	    if(type.STEEL.isEnabled()){ addEssenceRecipe(OreDictResources.getItem("ingotSteel", EssenceConfig.steel), "EEE", "EXE", "EEE", 'E', new ItemStack(type.STEEL.getCrop(), 1, 0)); }
+	    if(type.NICKEL.isEnabled()){ addEssenceRecipe(OreDictResources.getItem("ingotNickel", EssenceConfig.nickel), "EEE", "EXE", "EEE", 'E', new ItemStack(type.NICKEL.getCrop(), 1, 0)); }
+	    if(type.ELECTRUM.isEnabled()){ addEssenceRecipe(OreDictResources.getItem("ingotElectrum", EssenceConfig.electrum), "EEE", "EXE", "EEE", 'E', new ItemStack(type.ELECTRUM.getCrop(), 1, 0)); }
 
-	    if(ModConfig.ruby_seeds && ModChecker.RUBY){ addEssenceRecipe(OreDictResources.getItem("gemRuby", EssenceConfig.ruby), "EEE", "EXE", "EEE", 'E', new ItemStack(type.RUBY.getCrop(), 1, 0)); }
-	    if(ModConfig.sapphire_seeds && ModChecker.SAPPHIRE){ addEssenceRecipe(OreDictResources.getItem("gemSapphire", EssenceConfig.sapphire), "EEE", "EXE", "EEE", 'E', new ItemStack(type.SAPPHIRE.getCrop(), 1, 0)); }
-	    if(ModConfig.peridot_seeds && ModChecker.PERIDOT){ addEssenceRecipe(OreDictResources.getItem("gemPeridot", EssenceConfig.peridot), "EEE", "EXE", "EEE", 'E', new ItemStack(type.PERIDOT.getCrop(), 1, 0)); }
+	    if(type.RUBY.isEnabled()){ addEssenceRecipe(OreDictResources.getItem("gemRuby", EssenceConfig.ruby), "EEE", "EXE", "EEE", 'E', new ItemStack(type.RUBY.getCrop(), 1, 0)); }
+	    if(type.SAPPHIRE.isEnabled()){ addEssenceRecipe(OreDictResources.getItem("gemSapphire", EssenceConfig.sapphire), "EEE", "EXE", "EEE", 'E', new ItemStack(type.SAPPHIRE.getCrop(), 1, 0)); }
+	    if(type.PERIDOT.isEnabled()){ addEssenceRecipe(OreDictResources.getItem("gemPeridot", EssenceConfig.peridot), "EEE", "EXE", "EEE", 'E', new ItemStack(type.PERIDOT.getCrop(), 1, 0)); }
 	    
-	    if(ModConfig.aluminum_brass_seeds && ModChecker.TINKERS){ addEssenceRecipe(new ItemStack(Parts.tcon_ingots, EssenceConfig.aluminum_brass, 5), "EEE", "EXE", "EEE", 'E', new ItemStack(type.ALUMINUM_BRASS.getCrop(), 1, 0)); }
-	    if(ModConfig.knightslime_seeds && ModChecker.TINKERS){ addEssenceRecipe(new ItemStack(Parts.tcon_ingots, EssenceConfig.knightslime, 3), "EEE", "EXE", "EEE", 'E', new ItemStack(type.KNIGHTSLIME.getCrop(), 1, 0)); }
-	    if(ModConfig.ardite_seeds && ModChecker.TINKERS){ addEssenceRecipe(new ItemStack(Parts.tcon_ingots, EssenceConfig.ardite, 1), "EEE", "EXE", "EEE", 'E', new ItemStack(type.ARDITE.getCrop(), 1, 0)); }
-	    if(ModConfig.cobalt_seeds && ModChecker.TINKERS){ addEssenceRecipe(new ItemStack(Parts.tcon_ingots, EssenceConfig.cobalt, 0), "EEE", "EXE", "EEE", 'E', new ItemStack(type.COBALT.getCrop(), 1, 0)); }
-	    if(ModConfig.manyullyn_seeds && ModChecker.TINKERS){ addEssenceRecipe(new ItemStack(Parts.tcon_ingots, EssenceConfig.manyullyn, 2), "EEE", "EXE", "EEE", 'E', new ItemStack(type.MANYULLYN.getCrop(), 1, 0)); }
+	    if(type.ALUMINUM_BRASS.isEnabled()){ addEssenceRecipe(new ItemStack(Parts.tcon_ingots, EssenceConfig.aluminum_brass, 5), "EEE", "EXE", "EEE", 'E', new ItemStack(type.ALUMINUM_BRASS.getCrop(), 1, 0)); }
+	    if(type.KNIGHTSLIME.isEnabled()){ addEssenceRecipe(new ItemStack(Parts.tcon_ingots, EssenceConfig.knightslime, 3), "EEE", "EXE", "EEE", 'E', new ItemStack(type.KNIGHTSLIME.getCrop(), 1, 0)); }
+	    if(type.ARDITE.isEnabled()){ addEssenceRecipe(new ItemStack(Parts.tcon_ingots, EssenceConfig.ardite, 1), "EEE", "EXE", "EEE", 'E', new ItemStack(type.ARDITE.getCrop(), 1, 0)); }
+	    if(type.COBALT.isEnabled()){ addEssenceRecipe(new ItemStack(Parts.tcon_ingots, EssenceConfig.cobalt, 0), "EEE", "EXE", "EEE", 'E', new ItemStack(type.COBALT.getCrop(), 1, 0)); }
+	    if(type.MANYULLYN.isEnabled()){ addEssenceRecipe(new ItemStack(Parts.tcon_ingots, EssenceConfig.manyullyn, 2), "EEE", "EXE", "EEE", 'E', new ItemStack(type.MANYULLYN.getCrop(), 1, 0)); }
 
-	    if(ModConfig.electrical_steel_seeds && ModChecker.ENDERIO){ addEssenceRecipe(new ItemStack(Parts.eio_alloys, EssenceConfig.electrical_steel, 0), "EEE", "EXE", "EEE", 'E', new ItemStack(type.ELECTRICAL_STEEL.getCrop(), 1, 0)); }
-	    if(ModConfig.redstone_alloy_seeds && ModChecker.ENDERIO){ addEssenceRecipe(new ItemStack(Parts.eio_alloys, EssenceConfig.redstone_alloy, 3), "EEE", "EXE", "EEE", 'E', new ItemStack(type.REDSTONE_ALLOY.getCrop(), 1, 0)); }
-	    if(ModConfig.conductive_iron_seeds && ModChecker.ENDERIO){ addEssenceRecipe(new ItemStack(Parts.eio_alloys, EssenceConfig.conductive_iron, 4), "EEE", "EXE", "EEE", 'E', new ItemStack(type.CONDUCTIVE_IRON.getCrop(), 1, 0)); }
-	    if(ModConfig.soularium_seeds && ModChecker.ENDERIO){ addEssenceRecipe(new ItemStack(Parts.eio_alloys, EssenceConfig.soularium, 7), "EEE", "EXE", "EEE", 'E', new ItemStack(type.SOULARIUM.getCrop(), 1, 0)); }
-	    if(ModConfig.dark_steel_seeds && ModChecker.ENDERIO){ addEssenceRecipe(new ItemStack(Parts.eio_alloys, EssenceConfig.dark_steel, 6), "EEE", "EXE", "EEE", 'E', new ItemStack(type.DARK_STEEL.getCrop(), 1, 0)); }
-	    if(ModConfig.pulsating_iron_seeds && ModChecker.ENDERIO){ addEssenceRecipe(new ItemStack(Parts.eio_alloys, EssenceConfig.pulsating_iron, 5), "EEE", "EXE", "EEE", 'E', new ItemStack(type.PULSATING_IRON.getCrop(), 1, 0)); }
-	    if(ModConfig.energetic_alloy_seeds && ModChecker.ENDERIO){ addEssenceRecipe(new ItemStack(Parts.eio_alloys, EssenceConfig.energetic_alloy, 1), "EEE", "EXE", "EEE", 'E', new ItemStack(type.ENERGETIC_ALLOY.getCrop(), 1, 0)); }
-	    if(ModConfig.vibrant_alloy_seeds && ModChecker.ENDERIO){ addEssenceRecipe(new ItemStack(Parts.eio_alloys, EssenceConfig.vibrant_alloy, 2), "EEE", "EXE", "EEE", 'E', new ItemStack(type.VIBRANT_ALLOY.getCrop(), 1, 0)); }
+	    if(type.ELECTRICAL_STEEL.isEnabled()){ addEssenceRecipe(new ItemStack(Parts.eio_alloys, EssenceConfig.electrical_steel, 0), "EEE", "EXE", "EEE", 'E', new ItemStack(type.ELECTRICAL_STEEL.getCrop(), 1, 0)); }
+	    if(type.REDSTONE_ALLOY.isEnabled()){ addEssenceRecipe(new ItemStack(Parts.eio_alloys, EssenceConfig.redstone_alloy, 3), "EEE", "EXE", "EEE", 'E', new ItemStack(type.REDSTONE_ALLOY.getCrop(), 1, 0)); }
+	    if(type.CONDUCTIVE_IRON.isEnabled()){ addEssenceRecipe(new ItemStack(Parts.eio_alloys, EssenceConfig.conductive_iron, 4), "EEE", "EXE", "EEE", 'E', new ItemStack(type.CONDUCTIVE_IRON.getCrop(), 1, 0)); }
+	    if(type.SOULARIUM.isEnabled()){ addEssenceRecipe(new ItemStack(Parts.eio_alloys, EssenceConfig.soularium, 7), "EEE", "EXE", "EEE", 'E', new ItemStack(type.SOULARIUM.getCrop(), 1, 0)); }
+	    if(type.DARK_STEEL.isEnabled()){ addEssenceRecipe(new ItemStack(Parts.eio_alloys, EssenceConfig.dark_steel, 6), "EEE", "EXE", "EEE", 'E', new ItemStack(type.DARK_STEEL.getCrop(), 1, 0)); }
+	    if(type.PULSATING_IRON.isEnabled()){ addEssenceRecipe(new ItemStack(Parts.eio_alloys, EssenceConfig.pulsating_iron, 5), "EEE", "EXE", "EEE", 'E', new ItemStack(type.PULSATING_IRON.getCrop(), 1, 0)); }
+	    if(type.ENERGETIC_ALLOY.isEnabled()){ addEssenceRecipe(new ItemStack(Parts.eio_alloys, EssenceConfig.energetic_alloy, 1), "EEE", "EXE", "EEE", 'E', new ItemStack(type.ENERGETIC_ALLOY.getCrop(), 1, 0)); }
+	    if(type.VIBRANT_ALLOY.isEnabled()){ addEssenceRecipe(new ItemStack(Parts.eio_alloys, EssenceConfig.vibrant_alloy, 2), "EEE", "EXE", "EEE", 'E', new ItemStack(type.VIBRANT_ALLOY.getCrop(), 1, 0)); }
 
-	    if(ModConfig.mystical_flower_seeds && ModChecker.BOTANIA){ 
+	    if(type.MYSTICAL_FLOWER.isEnabled()){ 
 	    	addEssenceRecipe(new ItemStack(Parts.botania_flowers, EssenceConfig.mystical_flower, 0), "XEX", "EPE", "XEX", 'E', new ItemStack(type.MYSTICAL_FLOWER.getCrop(), 1, 0), 'P', Parts.white_petal); 
 	    	addEssenceRecipe(new ItemStack(Parts.botania_flowers, EssenceConfig.mystical_flower, 1), "XEX", "EPE", "XEX", 'E', new ItemStack(type.MYSTICAL_FLOWER.getCrop(), 1, 0), 'P', Parts.orange_petal); 
 	    	addEssenceRecipe(new ItemStack(Parts.botania_flowers, EssenceConfig.mystical_flower, 2), "XEX", "EPE", "XEX", 'E', new ItemStack(type.MYSTICAL_FLOWER.getCrop(), 1, 0), 'P', Parts.magenta_petal); 
@@ -205,31 +205,31 @@ public class EssenceRecipes {
 	    	addEssenceRecipe(new ItemStack(Parts.botania_flowers, EssenceConfig.mystical_flower, 14), "XEX", "EPE", "XEX", 'E', new ItemStack(type.MYSTICAL_FLOWER.getCrop(), 1, 0), 'P', Parts.red_petal); 
 	    	addEssenceRecipe(new ItemStack(Parts.botania_flowers, EssenceConfig.mystical_flower, 15), "XEX", "EPE", "XEX", 'E', new ItemStack(type.MYSTICAL_FLOWER.getCrop(), 1, 0), 'P', Parts.black_petal); 
 	    }
-	    if(ModConfig.manasteel_seeds && ModChecker.BOTANIA){ addEssenceRecipe(new ItemStack(Parts.botania_resources, EssenceConfig.manasteel, 0), "EEE", "EXE", "EEE", 'E', new ItemStack(type.MANASTEEL.getCrop(), 1, 0)); }
-	    if(ModConfig.terrasteel_seeds && ModChecker.BOTANIA){ addEssenceRecipe(new ItemStack(Parts.botania_resources, EssenceConfig.terrasteel, 4), "EEE", "EXE", "EEE", 'E', new ItemStack(type.TERRASTEEL.getCrop(), 1, 0)); }
+	    if(type.MANASTEEL.isEnabled()){ addEssenceRecipe(new ItemStack(Parts.botania_resources, EssenceConfig.manasteel, 0), "EEE", "EXE", "EEE", 'E', new ItemStack(type.MANASTEEL.getCrop(), 1, 0)); }
+	    if(type.TERRASTEEL.isEnabled()){ addEssenceRecipe(new ItemStack(Parts.botania_resources, EssenceConfig.terrasteel, 4), "EEE", "EXE", "EEE", 'E', new ItemStack(type.TERRASTEEL.getCrop(), 1, 0)); }
    
-	    if(ModConfig.osmium_seeds && ModChecker.MEKANISM){ addEssenceRecipe(OreDictResources.getItem("ingotOsmium", EssenceConfig.osmium), "EEE", "EXE", "EEE", 'E', new ItemStack(type.OSMIUM.getCrop(), 1, 0)); }
-	    if(ModConfig.refined_obsidian_seeds && ModChecker.MEKANISM){ addEssenceRecipe(OreDictResources.getItem("ingotRefinedObsidian", EssenceConfig.refined_obsidian), "EEE", "EXE", "EEE", 'E', new ItemStack(type.REFINED_OBSIDIAN.getCrop(), 1, 0)); }
+	    if(type.OSMIUM.isEnabled()){ addEssenceRecipe(OreDictResources.getItem("ingotOsmium", EssenceConfig.osmium), "EEE", "EXE", "EEE", 'E', new ItemStack(type.OSMIUM.getCrop(), 1, 0)); }
+	    if(type.REFINED_OBSIDIAN.isEnabled()){ addEssenceRecipe(OreDictResources.getItem("ingotRefinedObsidian", EssenceConfig.refined_obsidian), "EEE", "EXE", "EEE", 'E', new ItemStack(type.REFINED_OBSIDIAN.getCrop(), 1, 0)); }
 
-	    if(ModConfig.marble_seeds && ModChecker.CHISEL){ addEssenceRecipe(new ItemStack(Parts.MARBLE, EssenceConfig.marble, 7), "EEE", "EXE", "EEE", 'E', new ItemStack(type.MARBLE.getCrop(), 1, 0)); }
-	    if(ModConfig.limestone_seeds && ModChecker.CHISEL){ addEssenceRecipe(new ItemStack(Parts.LIMESTONE, EssenceConfig.limestone, 7), "EEE", "EXE", "EEE", 'E', new ItemStack(type.LIMESTONE.getCrop(), 1, 0)); }
-	    if(ModConfig.basalt_seeds && ModChecker.CHISEL){ addEssenceRecipe(new ItemStack(Parts.BASALT, EssenceConfig.basalt, 7), "EEE", "EXE", "EEE", 'E', new ItemStack(type.BASALT.getCrop(), 1, 0)); }
+	    if(type.MARBLE.isEnabled()){ addEssenceRecipe(new ItemStack(Parts.MARBLE, EssenceConfig.marble, 7), "EEE", "EXE", "EEE", 'E', new ItemStack(type.MARBLE.getCrop(), 1, 0)); }
+	    if(type.LIMESTONE.isEnabled()){ addEssenceRecipe(new ItemStack(Parts.LIMESTONE, EssenceConfig.limestone, 7), "EEE", "EXE", "EEE", 'E', new ItemStack(type.LIMESTONE.getCrop(), 1, 0)); }
+	    if(type.BASALT.isEnabled()){ addEssenceRecipe(new ItemStack(Parts.BASALT, EssenceConfig.basalt, 7), "EEE", "EXE", "EEE", 'E', new ItemStack(type.BASALT.getCrop(), 1, 0)); }
 
-	    if(ModConfig.draconium_seeds && ModChecker.DRACONIC){ addEssenceRecipe(OreDictResources.getItem("ingotDraconium", EssenceConfig.draconium), "EEE", "EXE", "EEE", 'E', new ItemStack(type.DRACONIUM.getCrop(), 1, 0)); }
+	    if(type.DRACONIUM.isEnabled()){ addEssenceRecipe(OreDictResources.getItem("ingotDraconium", EssenceConfig.draconium), "EEE", "EXE", "EEE", 'E', new ItemStack(type.DRACONIUM.getCrop(), 1, 0)); }
 
-	    if(ModConfig.yellorium_seeds && ModChecker.BIGREACTORS){ addEssenceRecipe(OreDictResources.getItem("ingotYellorium", EssenceConfig.yellorium), "EEE", "EXE", "EEE", 'E', new ItemStack(type.YELLORIUM.getCrop(), 1, 0)); }
+	    if(type.YELLORIUM.isEnabled()){ addEssenceRecipe(OreDictResources.getItem("ingotYellorium", EssenceConfig.yellorium), "EEE", "EXE", "EEE", 'E', new ItemStack(type.YELLORIUM.getCrop(), 1, 0)); }
 
-	    if(ModConfig.certus_quartz_seeds && ModChecker.AE2){ 
+	    if(type.CERTUS_QUARTZ.isEnabled()){ 
 	    	addEssenceRecipe(OreDictResources.getItem("crystalCertusQuartz", EssenceConfig.certus_quartz), "EEE", "EXE", "EEE", 'E', new ItemStack(type.CERTUS_QUARTZ.getCrop(), 1, 0)); 
 	    	addEssenceRecipe(new ItemStack(Parts.ae_material, EssenceConfig.press, 13), "EEE", "EXE", "EEE", 'X', Parts.pure_certus_quartz, 'E', new ItemStack(type.CERTUS_QUARTZ.getCrop(), 1, 0));
 	    	addEssenceRecipe(new ItemStack(Parts.ae_material, EssenceConfig.press, 14), "EEE", "EXE", "EEE", 'X', "gemDiamond", 'E', new ItemStack(type.CERTUS_QUARTZ.getCrop(), 1, 0));
 	    	addEssenceRecipe(new ItemStack(Parts.ae_material, EssenceConfig.press, 15), "EEE", "EXE", "EEE", 'X', "ingotGold", 'E', new ItemStack(type.CERTUS_QUARTZ.getCrop(), 1, 0));
 	    	addEssenceRecipe(new ItemStack(Parts.ae_material, EssenceConfig.press, 19), "EEE", "EXE", "EEE", 'X', "itemSilicon", 'E', new ItemStack(type.CERTUS_QUARTZ.getCrop(), 1, 0));
 	    }
-	    if(ModConfig.fluix_seeds && ModChecker.AE2){ addEssenceRecipe(OreDictResources.getItem("crystalFluix", EssenceConfig.fluix), "EEE", "EXE", "EEE", 'E', new ItemStack(type.FLUIX.getCrop(), 1, 0)); }
+	    if(type.FLUIX.isEnabled()){ addEssenceRecipe(OreDictResources.getItem("crystalFluix", EssenceConfig.fluix), "EEE", "EXE", "EEE", 'E', new ItemStack(type.FLUIX.getCrop(), 1, 0)); }
 
-	    if(ModConfig.quartz_enriched_iron_seeds && ModChecker.RS){ addEssenceRecipe(new ItemStack(Parts.rs_ingot, EssenceConfig.quartz_enriched_iron, 0), "EEE", "EXE", "EEE", 'E', new ItemStack(type.QUARTZ_ENRICHED_IRON.getCrop(), 1, 0)); }
+	    if(type.QUARTZ_ENRICHED_IRON.isEnabled()){ addEssenceRecipe(new ItemStack(Parts.rs_ingot, EssenceConfig.quartz_enriched_iron, 0), "EEE", "EXE", "EEE", 'E', new ItemStack(type.QUARTZ_ENRICHED_IRON.getCrop(), 1, 0)); }
 
-	    if(ModConfig.constantan_seeds && ModChecker.IE){ addEssenceRecipe(OreDictResources.getItem("ingotConstantan", EssenceConfig.constantan), "EEE", "EXE", "EEE", 'E', new ItemStack(type.CONSTANTAN.getCrop(), 1, 0)); }
+	    if(type.CONSTANTAN.isEnabled()){ addEssenceRecipe(OreDictResources.getItem("ingotConstantan", EssenceConfig.constantan), "EEE", "EXE", "EEE", 'E', new ItemStack(type.CONSTANTAN.getCrop(), 1, 0)); }
 	}
 }

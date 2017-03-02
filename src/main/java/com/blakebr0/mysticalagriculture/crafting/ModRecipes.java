@@ -206,10 +206,10 @@ public class ModRecipes {
 	    	}
 	    }
 	    
-		if(ModConfig.nature_seeds){ addShapelessRecipe(new ItemStack(ModItems.nature_cluster, 1, 0), new ItemStack(Blocks.CACTUS, 1, 0), new ItemStack(Blocks.PUMPKIN, 1, 0), new ItemStack(Items.REEDS, 1, 0), new ItemStack(Items.WHEAT, 1, 0)); }
-		if(ModConfig.dye_seeds){ addShapelessRecipe(new ItemStack(ModItems.dye_cluster, 1, 0), new ItemStack(Items.DYE, 1, 0), new ItemStack(Items.DYE, 1, 14), new ItemStack(Items.DYE, 1, 6), new ItemStack(Items.DYE, 1, 13)); }
-		if(ModConfig.nether_seeds){ addShapelessRecipe(new ItemStack(ModItems.nether_cluster, 1, 0), new ItemStack(Blocks.SOUL_SAND, 1, 0), new ItemStack(Blocks.NETHERRACK, 1, 0), new ItemStack(Blocks.NETHERRACK, 1, 0), new ItemStack(Blocks.SOUL_SAND, 1, 0)); }
-		if(ModConfig.mystical_flower_seeds && Loader.isModLoaded("Botania")){ addShapelessRecipe(new ItemStack(ModItems.mystical_flower_cluster, 1, 0), Parts.botania_flower, Parts.botania_flower, Parts.botania_flower, Parts.botania_flower); }
+		if(type.NATURE.isEnabled()){ addShapelessRecipe(new ItemStack(ModItems.nature_cluster, 1, 0), new ItemStack(Blocks.CACTUS, 1, 0), new ItemStack(Blocks.PUMPKIN, 1, 0), new ItemStack(Items.REEDS, 1, 0), new ItemStack(Items.WHEAT, 1, 0)); }
+		if(type.DYE.isEnabled()){ addShapelessRecipe(new ItemStack(ModItems.dye_cluster, 1, 0), new ItemStack(Items.DYE, 1, 0), new ItemStack(Items.DYE, 1, 14), new ItemStack(Items.DYE, 1, 6), new ItemStack(Items.DYE, 1, 13)); }
+		if(type.NETHER.isEnabled()){ addShapelessRecipe(new ItemStack(ModItems.nether_cluster, 1, 0), new ItemStack(Blocks.SOUL_SAND, 1, 0), new ItemStack(Blocks.NETHERRACK, 1, 0), new ItemStack(Blocks.NETHERRACK, 1, 0), new ItemStack(Blocks.SOUL_SAND, 1, 0)); }
+		if(type.MYSTICAL_FLOWER.isEnabled()){ addShapelessRecipe(new ItemStack(ModItems.mystical_flower_cluster, 1, 0), Parts.botania_flower, Parts.botania_flower, Parts.botania_flower, Parts.botania_flower); }
    
 		if(ModConfig.essence_apples){ 
 			addShapedRecipe(new ItemStack(ModItems.inferium_apple, 1, 0), "XSX", "SWS", "XSX", 'S', new ItemStack(ModItems.inferium_essence, 1, 0), 'W', new ItemStack(Items.APPLE, 1, 0)); 
@@ -244,65 +244,65 @@ public class ModRecipes {
 		addShapelessRecipe(new ItemStack(ModItems.tier5_mob_chunk, 1, 0), new ItemStack(ModItems.tier4_mob_chunk, 1, 0), new ItemStack(ModItems.supremium_essence, 1, 0), new ItemStack(ModItems.supremium_essence, 1, 0));		
 		
 		if(ModConfig.craftable_chunks){
-			if(ModConfig.zombie_seeds){ 
-				addShapedRecipe(new ItemStack(ModItems.zombie_chunk, 1, 0), "MMM", "MXM", "MMM", 'M', new ItemStack(Items.ROTTEN_FLESH, 1, 0), 'X', getMobChunk(ModConfig.zombie_tier)); 
-			    addSmeltingRecipe(new ItemStack(ModItems.zombie_chunk, 1, 0), getMobChunk(ModConfig.zombie_tier), 0.3F);
+			if(type.ZOMBIE.isEnabled()){ 
+				addShapedRecipe(new ItemStack(ModItems.zombie_chunk, 1, 0), "MMM", "MXM", "MMM", 'M', new ItemStack(Items.ROTTEN_FLESH, 1, 0), 'X', getMobChunk(type.ZOMBIE.getTier())); 
+			    addSmeltingRecipe(new ItemStack(ModItems.zombie_chunk, 1, 0), getMobChunk(type.ZOMBIE.getTier()), 0.3F);
 			}
-			if(ModConfig.pig_seeds){ 
-				addShapedRecipe(new ItemStack(ModItems.pig_chunk, 1, 0), "DMD", "MXM", "DMD", 'M', new ItemStack(Items.PORKCHOP, 1, 0), 'X', getMobChunk(ModConfig.pig_tier)); 
-			    addSmeltingRecipe(new ItemStack(ModItems.pig_chunk, 1, 0), getMobChunk(ModConfig.pig_tier), 0.3F);
+			if(type.PIG.isEnabled()){ 
+				addShapedRecipe(new ItemStack(ModItems.pig_chunk, 1, 0), "DMD", "MXM", "DMD", 'M', new ItemStack(Items.PORKCHOP, 1, 0), 'X', getMobChunk(type.PIG.getTier())); 
+			    addSmeltingRecipe(new ItemStack(ModItems.pig_chunk, 1, 0), getMobChunk(type.PIG.getTier()), 0.3F);
 			}
-			if(ModConfig.chicken_seeds){ 
-				addShapedRecipe(new ItemStack(ModItems.chicken_chunk, 1, 0), "DMD", "NXN", "DMD", 'M', new ItemStack(Items.EGG, 1, 0), 'N', new ItemStack(Items.FEATHER, 1, 0), 'X', getMobChunk(ModConfig.chicken_tier)); 
-			    addSmeltingRecipe(new ItemStack(ModItems.chicken_chunk, 1, 0), getMobChunk(ModConfig.chicken_tier), 0.3F);
+			if(type.CHICKEN.isEnabled()){ 
+				addShapedRecipe(new ItemStack(ModItems.chicken_chunk, 1, 0), "DMD", "NXN", "DMD", 'M', new ItemStack(Items.EGG, 1, 0), 'N', new ItemStack(Items.FEATHER, 1, 0), 'X', getMobChunk(type.CHICKEN.getTier())); 
+			    addSmeltingRecipe(new ItemStack(ModItems.chicken_chunk, 1, 0), getMobChunk(type.CHICKEN.getTier()), 0.3F);
 			}
-			if(ModConfig.cow_seeds){ 
-				addShapedRecipe(new ItemStack(ModItems.cow_chunk, 1, 0), "DMD", "NXN", "DMD", 'M', new ItemStack(Items.LEATHER, 1, 0), 'N', new ItemStack(Items.BEEF, 1, 0), 'X', getMobChunk(ModConfig.cow_tier)); 
-			    addSmeltingRecipe(new ItemStack(ModItems.cow_chunk, 1, 0), getMobChunk(ModConfig.cow_tier), 0.3F);
+			if(type.COW.isEnabled()){ 
+				addShapedRecipe(new ItemStack(ModItems.cow_chunk, 1, 0), "DMD", "NXN", "DMD", 'M', new ItemStack(Items.LEATHER, 1, 0), 'N', new ItemStack(Items.BEEF, 1, 0), 'X', getMobChunk(type.COW.getTier())); 
+			    addSmeltingRecipe(new ItemStack(ModItems.cow_chunk, 1, 0), getMobChunk(type.COW.getTier()), 0.3F);
 			}
-			if(ModConfig.sheep_seeds){ 
-				addShapedRecipe(new ItemStack(ModItems.sheep_chunk, 1, 0), "DMD", "MXM", "DMD", 'M', new ItemStack(Blocks.WOOL, 1, OreDictionary.WILDCARD_VALUE), 'X', getMobChunk(ModConfig.sheep_tier)); 
-			    addSmeltingRecipe(new ItemStack(ModItems.sheep_chunk, 1, 0), getMobChunk(ModConfig.sheep_tier), 0.3F);
+			if(type.SHEEP.isEnabled()){ 
+				addShapedRecipe(new ItemStack(ModItems.sheep_chunk, 1, 0), "DMD", "MXM", "DMD", 'M', new ItemStack(Blocks.WOOL, 1, OreDictionary.WILDCARD_VALUE), 'X', getMobChunk(type.SHEEP.getTier())); 
+			    addSmeltingRecipe(new ItemStack(ModItems.sheep_chunk, 1, 0), getMobChunk(type.SHEEP.getTier()), 0.3F);
 			}
-			if(ModConfig.slime_seeds){ 
-				addShapedRecipe(new ItemStack(ModItems.slime_chunk, 1, 0), "DMD", "MXM", "DMD", 'M', new ItemStack(Items.SLIME_BALL, 1, 0), 'X', getMobChunk(ModConfig.slime_tier)); 
-			    addSmeltingRecipe(new ItemStack(ModItems.slime_chunk, 1, 0), getMobChunk(ModConfig.slime_tier), 0.3F);
+			if(type.SLIME.isEnabled()){ 
+				addShapedRecipe(new ItemStack(ModItems.slime_chunk, 1, 0), "DMD", "MXM", "DMD", 'M', new ItemStack(Items.SLIME_BALL, 1, 0), 'X', getMobChunk(type.SLIME.getTier())); 
+			    addSmeltingRecipe(new ItemStack(ModItems.slime_chunk, 1, 0), getMobChunk(type.SLIME.getTier()), 0.3F);
 			}
-			if(ModConfig.skeleton_seeds){ 
-				addShapedRecipe(new ItemStack(ModItems.skeleton_chunk, 1, 0), "DMD", "NXN", "DMD", 'M', new ItemStack(Items.BONE, 1, 0), 'N', new ItemStack(Items.ARROW, 1, 0), 'X', getMobChunk(ModConfig.skeleton_tier)); 
-			    addSmeltingRecipe(new ItemStack(ModItems.skeleton_chunk, 1, 0), getMobChunk(ModConfig.skeleton_tier), 0.3F);
+			if(type.SKELETON.isEnabled()){ 
+				addShapedRecipe(new ItemStack(ModItems.skeleton_chunk, 1, 0), "DMD", "NXN", "DMD", 'M', new ItemStack(Items.BONE, 1, 0), 'N', new ItemStack(Items.ARROW, 1, 0), 'X', getMobChunk(type.SKELETON.getTier())); 
+			    addSmeltingRecipe(new ItemStack(ModItems.skeleton_chunk, 1, 0), getMobChunk(type.SKELETON.getTier()), 0.3F);
 			}
-			if(ModConfig.creeper_seeds){ 
-				addShapedRecipe(new ItemStack(ModItems.creeper_chunk, 1, 0), "DMD", "MXM", "DMD", 'M', new ItemStack(Items.GUNPOWDER, 1, 0), 'X', getMobChunk(ModConfig.creeper_tier)); 
-			    addSmeltingRecipe(new ItemStack(ModItems.creeper_chunk, 1, 0), getMobChunk(ModConfig.creeper_tier), 0.3F);
+			if(type.CREEPER.isEnabled()){ 
+				addShapedRecipe(new ItemStack(ModItems.creeper_chunk, 1, 0), "DMD", "MXM", "DMD", 'M', new ItemStack(Items.GUNPOWDER, 1, 0), 'X', getMobChunk(type.CREEPER.getTier())); 
+			    addSmeltingRecipe(new ItemStack(ModItems.creeper_chunk, 1, 0), getMobChunk(type.CREEPER.getTier()), 0.3F);
 			}
-			if(ModConfig.spider_seeds){ 
-				addShapedRecipe(new ItemStack(ModItems.spider_chunk, 1, 0), "DMD", "NXN", "DMD", 'M', new ItemStack(Items.STRING, 1, 0), 'N', new ItemStack(Items.SPIDER_EYE, 1, 0), 'X', getMobChunk(ModConfig.spider_tier)); 
-			    addSmeltingRecipe(new ItemStack(ModItems.spider_chunk, 1, 0), getMobChunk(ModConfig.spider_tier), 0.3F);
+			if(type.SPIDER.isEnabled()){ 
+				addShapedRecipe(new ItemStack(ModItems.spider_chunk, 1, 0), "DMD", "NXN", "DMD", 'M', new ItemStack(Items.STRING, 1, 0), 'N', new ItemStack(Items.SPIDER_EYE, 1, 0), 'X', getMobChunk(type.SPIDER.getTier())); 
+			    addSmeltingRecipe(new ItemStack(ModItems.spider_chunk, 1, 0), getMobChunk(type.SPIDER.getTier()), 0.3F);
 			}
-			if(ModConfig.rabbit_seeds){ 
-				addShapedRecipe(new ItemStack(ModItems.rabbit_chunk, 1, 0), "DMD", "NXN", "DMD", 'M', new ItemStack(Items.RABBIT_HIDE, 1, 0), 'N', new ItemStack(Items.RABBIT, 1, 0), 'X', getMobChunk(ModConfig.rabbit_tier)); 
-			    addSmeltingRecipe(new ItemStack(ModItems.rabbit_chunk, 1, 0), getMobChunk(ModConfig.rabbit_tier), 0.3F);
+			if(type.RABBIT.isEnabled()){ 
+				addShapedRecipe(new ItemStack(ModItems.rabbit_chunk, 1, 0), "DMD", "NXN", "DMD", 'M', new ItemStack(Items.RABBIT_HIDE, 1, 0), 'N', new ItemStack(Items.RABBIT, 1, 0), 'X', getMobChunk(type.RABBIT.getTier())); 
+			    addSmeltingRecipe(new ItemStack(ModItems.rabbit_chunk, 1, 0), getMobChunk(type.RABBIT.getTier()), 0.3F);
 			}
-			if(ModConfig.guardian_seeds){ 
-				addShapedRecipe(new ItemStack(ModItems.guardian_chunk, 1, 0), "DMD", "NXN", "DMD", 'M', new ItemStack(Items.FISH, 1, 0), 'N', new ItemStack(Items.PRISMARINE_SHARD, 1, 0), 'X', getMobChunk(ModConfig.guardian_tier)); 
-			    addSmeltingRecipe(new ItemStack(ModItems.guardian_chunk, 1, 0), getMobChunk(ModConfig.guardian_tier), 0.3F);
+			if(type.GUARDIAN.isEnabled()){ 
+				addShapedRecipe(new ItemStack(ModItems.guardian_chunk, 1, 0), "DMD", "NXN", "DMD", 'M', new ItemStack(Items.FISH, 1, 0), 'N', new ItemStack(Items.PRISMARINE_SHARD, 1, 0), 'X', getMobChunk(type.GUARDIAN.getTier())); 
+			    addSmeltingRecipe(new ItemStack(ModItems.guardian_chunk, 1, 0), getMobChunk(type.GUARDIAN.getTier()), 0.3F);
 			}
-			if(ModConfig.blaze_seeds){ 
-				addShapedRecipe(new ItemStack(ModItems.blaze_chunk, 1, 0), "DMD", "MXM", "DMD", 'M', new ItemStack(Items.BLAZE_ROD, 1, 0), 'X', getMobChunk(ModConfig.blaze_tier)); 
-			    addSmeltingRecipe(new ItemStack(ModItems.blaze_chunk, 1, 0), getMobChunk(ModConfig.blaze_tier), 0.3F);
+			if(type.BLAZE.isEnabled()){ 
+				addShapedRecipe(new ItemStack(ModItems.blaze_chunk, 1, 0), "DMD", "MXM", "DMD", 'M', new ItemStack(Items.BLAZE_ROD, 1, 0), 'X', getMobChunk(type.BLAZE.getTier())); 
+			    addSmeltingRecipe(new ItemStack(ModItems.blaze_chunk, 1, 0), getMobChunk(type.BLAZE.getTier()), 0.3F);
 			}
-			if(ModConfig.ghast_seeds){ 
-				addShapedRecipe(new ItemStack(ModItems.ghast_chunk, 1, 0), "DDD", "MXM", "DDD", 'M', new ItemStack(Items.GHAST_TEAR, 1, 0), 'X', getMobChunk(ModConfig.ghast_tier)); 
-			    addSmeltingRecipe(new ItemStack(ModItems.ghast_chunk, 1, 0), getMobChunk(ModConfig.ghast_tier), 0.3F);	
+			if(type.GHAST.isEnabled()){ 
+				addShapedRecipe(new ItemStack(ModItems.ghast_chunk, 1, 0), "DDD", "MXM", "DDD", 'M', new ItemStack(Items.GHAST_TEAR, 1, 0), 'X', getMobChunk(type.GHAST.getTier())); 
+			    addSmeltingRecipe(new ItemStack(ModItems.ghast_chunk, 1, 0), getMobChunk(type.GHAST.getTier()), 0.3F);	
 			}
-			if(ModConfig.enderman_seeds){ 
-				addShapedRecipe(new ItemStack(ModItems.enderman_chunk, 1, 0), "DDD", "MXM", "DDD", 'M', new ItemStack(Items.ENDER_PEARL, 1, 0), 'X', getMobChunk(ModConfig.enderman_tier)); 
-			    addSmeltingRecipe(new ItemStack(ModItems.enderman_chunk, 1, 0), getMobChunk(ModConfig.enderman_tier), 0.3F);
+			if(type.ENDERMAN.isEnabled()){ 
+				addShapedRecipe(new ItemStack(ModItems.enderman_chunk, 1, 0), "DDD", "MXM", "DDD", 'M', new ItemStack(Items.ENDER_PEARL, 1, 0), 'X', getMobChunk(type.ENDERMAN.getTier())); 
+			    addSmeltingRecipe(new ItemStack(ModItems.enderman_chunk, 1, 0), getMobChunk(type.ENDERMAN.getTier()), 0.3F);
 			}
-			if(ModConfig.wither_skeleton_seeds){ 
-				addShapedRecipe(new ItemStack(ModItems.wither_skeleton_chunk, 1, 0), "DDD", "MXM", "DDD", 'M', new ItemStack(Items.SKULL, 1, 1), 'X', getMobChunk(ModConfig.wither_skeleton_tier)); 
-			    addSmeltingRecipe(new ItemStack(ModItems.wither_skeleton_chunk, 1, 0), getMobChunk(ModConfig.wither_skeleton_tier), 0.3F);
+			if(type.WITHER_SKELETON.isEnabled()){ 
+				addShapedRecipe(new ItemStack(ModItems.wither_skeleton_chunk, 1, 0), "DDD", "MXM", "DDD", 'M', new ItemStack(Items.SKULL, 1, 1), 'X', getMobChunk(type.WITHER_SKELETON.getTier())); 
+			    addSmeltingRecipe(new ItemStack(ModItems.wither_skeleton_chunk, 1, 0), getMobChunk(type.WITHER_SKELETON.getTier()), 0.3F);
 			}
 		}
 
