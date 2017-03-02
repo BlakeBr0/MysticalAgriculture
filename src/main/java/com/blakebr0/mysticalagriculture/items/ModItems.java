@@ -296,10 +296,10 @@ public class ModItems {
 		if(ModConfig.fertilized_essence){ ITEMS.add(fertilized_essence); }
 		if(ModConfig.mystical_fertilizer){ ITEMS.add(mystical_fertilizer); }
 		
-		if(ModConfig.nature_seeds){ ITEMS.add(nature_cluster); }
-		if(ModConfig.dye_seeds){ ITEMS.add(dye_cluster); }
-		if(ModConfig.nether_seeds){ ITEMS.add(nether_cluster); }
-		if(ModConfig.mystical_flower_seeds && ModChecker.BOTANIA){ ITEMS.add(mystical_flower_cluster); }
+		if(CropType.Type.NATURE.isEnabled()){ ITEMS.add(nature_cluster); }
+		if(CropType.Type.DYE.isEnabled()){ ITEMS.add(dye_cluster); }
+		if(CropType.Type.NETHER.isEnabled()){ ITEMS.add(nether_cluster); }
+		if(CropType.Type.MYSTICAL_FLOWER.isEnabled()){ ITEMS.add(mystical_flower_cluster); }
 		
 		if(ModConfig.essence_apples){
 			ITEMS.add(inferium_apple);
@@ -353,162 +353,148 @@ public class ModItems {
 		if(ModConfig.enderman_seeds){ ITEMS.add(enderman_chunk); }
 		if(ModConfig.wither_skeleton_seeds){ ITEMS.add(wither_skeleton_chunk); }
 		
-		for(Item item : ITEMS){
-			GameRegistry.register(item);
-		}
-	}
-	
-	public static void initSeeds(){
-		
 		for(CropType.Type type : CropType.Type.values()){
 			if(type.isEnabled()){
-				ITEMS2.add(type.getCrop());
+				ITEMS.add(type.getCrop());
 			}
 		}
 
-		ITEMS2.add(tier1_inferium_seeds);
-		ITEMS2.add(tier2_inferium_seeds);
-		ITEMS2.add(tier3_inferium_seeds);
-		ITEMS2.add(tier4_inferium_seeds);
-		ITEMS2.add(tier5_inferium_seeds); 
+		ITEMS.add(tier1_inferium_seeds);
+		ITEMS.add(tier2_inferium_seeds);
+		ITEMS.add(tier3_inferium_seeds);
+		ITEMS.add(tier4_inferium_seeds);
+		ITEMS.add(tier5_inferium_seeds); 
 		
 		for(CropType.Type type : CropType.Type.values()){
 			if(type.isEnabled()){
-				ITEMS2.add(type.getSeed());	
+				ITEMS.add(type.getSeed());	
 			}
 		}
-
-		for(Item item : ITEMS2){
-			GameRegistry.register(item);
-		}
-	}
-	
-	public static void initGear(){
 		
 		if(ModConfig.$gear_module_override){
-			ITEMS3.add(core_remover);
+			ITEMS.add(core_remover);
 
-			ITEMS3.add(inferium_tool_core);
-			ITEMS3.add(prudentium_tool_core);
-			ITEMS3.add(intermedium_tool_core);
-			ITEMS3.add(superium_tool_core);
-			ITEMS3.add(supremium_tool_core);
+			ITEMS.add(inferium_tool_core);
+			ITEMS.add(prudentium_tool_core);
+			ITEMS.add(intermedium_tool_core);
+			ITEMS.add(superium_tool_core);
+			ITEMS.add(supremium_tool_core);
 			
-			ITEMS3.add(inferium_armor_core);
-			ITEMS3.add(prudentium_armor_core);
-			ITEMS3.add(intermedium_armor_core);
-			ITEMS3.add(superium_armor_core);
-			ITEMS3.add(supremium_armor_core);
+			ITEMS.add(inferium_armor_core);
+			ITEMS.add(prudentium_armor_core);
+			ITEMS.add(intermedium_armor_core);
+			ITEMS.add(superium_armor_core);
+			ITEMS.add(supremium_armor_core);
 			
-			ITEMS3.add(charm_blank);
-			ITEMS3.add(charm_nightvision);
-			ITEMS3.add(charm_absorption);
-			ITEMS3.add(charm_wither);
-			ITEMS3.add(charm_antivenom);
-			ITEMS3.add(charm_fire);
-			ITEMS3.add(charm_resistance);
-			ITEMS3.add(charm_strength);
-			ITEMS3.add(charm_strength2);
-			ITEMS3.add(charm_speed);
-			ITEMS3.add(charm_jump);
-			ITEMS3.add(charm_mining_aoe);
-			ITEMS3.add(charm_attack_aoe);
+			ITEMS.add(charm_blank);
+			ITEMS.add(charm_nightvision);
+			ITEMS.add(charm_absorption);
+			ITEMS.add(charm_wither);
+			ITEMS.add(charm_antivenom);
+			ITEMS.add(charm_fire);
+			ITEMS.add(charm_resistance);
+			ITEMS.add(charm_strength);
+			ITEMS.add(charm_strength2);
+			ITEMS.add(charm_speed);
+			ITEMS.add(charm_jump);
+			ITEMS.add(charm_mining_aoe);
+			ITEMS.add(charm_attack_aoe);
 			
-			ITEMS3.add(inferium_sword);
-			ITEMS3.add(inferium_pickaxe);
-			ITEMS3.add(inferium_shovel);
-			ITEMS3.add(inferium_axe);
-			ITEMS3.add(inferium_hoe);
+			ITEMS.add(inferium_sword);
+			ITEMS.add(inferium_pickaxe);
+			ITEMS.add(inferium_shovel);
+			ITEMS.add(inferium_axe);
+			ITEMS.add(inferium_hoe);
 			
-			ITEMS3.add(prudentium_sword);
-			ITEMS3.add(prudentium_pickaxe);
-			ITEMS3.add(prudentium_shovel);
-			ITEMS3.add(prudentium_axe);
-			ITEMS3.add(prudentium_hoe);
+			ITEMS.add(prudentium_sword);
+			ITEMS.add(prudentium_pickaxe);
+			ITEMS.add(prudentium_shovel);
+			ITEMS.add(prudentium_axe);
+			ITEMS.add(prudentium_hoe);
 			
-			ITEMS3.add(intermedium_sword);
-			ITEMS3.add(intermedium_pickaxe);
-			ITEMS3.add(intermedium_shovel);
-			ITEMS3.add(intermedium_axe);
-			ITEMS3.add(intermedium_hoe);
+			ITEMS.add(intermedium_sword);
+			ITEMS.add(intermedium_pickaxe);
+			ITEMS.add(intermedium_shovel);
+			ITEMS.add(intermedium_axe);
+			ITEMS.add(intermedium_hoe);
 			
-			ITEMS3.add(superium_sword);
-			ITEMS3.add(superium_pickaxe);
-			ITEMS3.add(superium_shovel);
-			ITEMS3.add(superium_axe);
-			ITEMS3.add(superium_hoe);
+			ITEMS.add(superium_sword);
+			ITEMS.add(superium_pickaxe);
+			ITEMS.add(superium_shovel);
+			ITEMS.add(superium_axe);
+			ITEMS.add(superium_hoe);
 			
-			ITEMS3.add(supremium_sword);
-			ITEMS3.add(supremium_pickaxe);
-			ITEMS3.add(supremium_shovel);
-			ITEMS3.add(supremium_axe);
-			ITEMS3.add(supremium_hoe);
+			ITEMS.add(supremium_sword);
+			ITEMS.add(supremium_pickaxe);
+			ITEMS.add(supremium_shovel);
+			ITEMS.add(supremium_axe);
+			ITEMS.add(supremium_hoe);
 			
-			ITEMS3.add(supremium_sword_strength1);
-			ITEMS3.add(supremium_sword_strength2);
+			ITEMS.add(supremium_sword_strength1);
+			ITEMS.add(supremium_sword_strength2);
 			
 			if(ModConfig.aoe_charms){ 
-				ITEMS3.add(supremium_sword_aoe);
-				ITEMS3.add(supremium_pickaxe_aoe); 
-				ITEMS3.add(supremium_shovel_aoe);
-				ITEMS3.add(supremium_axe_aoe);
+				ITEMS.add(supremium_sword_aoe);
+				ITEMS.add(supremium_pickaxe_aoe); 
+				ITEMS.add(supremium_shovel_aoe);
+				ITEMS.add(supremium_axe_aoe);
 			}
 			
-	        ITEMS3.add(inferium_helmet);
-	        ITEMS3.add(inferium_chestplate);
-	        ITEMS3.add(inferium_leggings);
-	        ITEMS3.add(inferium_boots);
+	        ITEMS.add(inferium_helmet);
+	        ITEMS.add(inferium_chestplate);
+	        ITEMS.add(inferium_leggings);
+	        ITEMS.add(inferium_boots);
 	        
-	        ITEMS3.add(prudentium_helmet);
-	        ITEMS3.add(prudentium_chestplate);
-	        ITEMS3.add(prudentium_leggings);
-	        ITEMS3.add(prudentium_boots);
+	        ITEMS.add(prudentium_helmet);
+	        ITEMS.add(prudentium_chestplate);
+	        ITEMS.add(prudentium_leggings);
+	        ITEMS.add(prudentium_boots);
 	        
-	        ITEMS3.add(intermedium_helmet);
-	    	ITEMS3.add(intermedium_chestplate); 
-	    	ITEMS3.add(intermedium_leggings);
-	    	ITEMS3.add(intermedium_boots);
+	        ITEMS.add(intermedium_helmet);
+	    	ITEMS.add(intermedium_chestplate); 
+	    	ITEMS.add(intermedium_leggings);
+	    	ITEMS.add(intermedium_boots);
 	    	
-	        ITEMS3.add(superium_helmet);
-	        ITEMS3.add(superium_chestplate);
-	        ITEMS3.add(superium_leggings);
-	        ITEMS3.add(superium_boots);
+	        ITEMS.add(superium_helmet);
+	        ITEMS.add(superium_chestplate);
+	        ITEMS.add(superium_leggings);
+	        ITEMS.add(superium_boots);
 	        
-	        ITEMS3.add(supremium_helmet);
-	        ITEMS3.add(supremium_chestplate);
-	        ITEMS3.add(supremium_leggings);
-	        ITEMS3.add(supremium_boots);
+	        ITEMS.add(supremium_helmet);
+	        ITEMS.add(supremium_chestplate);
+	        ITEMS.add(supremium_leggings);
+	        ITEMS.add(supremium_boots);
 	        
-	        ITEMS3.add(supremium_helmet_nightvision);
-	        ITEMS3.add(supremium_helmet_absorption);
-	        ITEMS3.add(supremium_helmet_wither);
-	        ITEMS3.add(supremium_helmet_antivenom);
-	        ITEMS3.add(supremium_helmet_fire);
-	        ITEMS3.add(supremium_helmet_resistance);
+	        ITEMS.add(supremium_helmet_nightvision);
+	        ITEMS.add(supremium_helmet_absorption);
+	        ITEMS.add(supremium_helmet_wither);
+	        ITEMS.add(supremium_helmet_antivenom);
+	        ITEMS.add(supremium_helmet_fire);
+	        ITEMS.add(supremium_helmet_resistance);
 	        
-	        ITEMS3.add(supremium_chestplate_strength);
-	        ITEMS3.add(supremium_chestplate_absorption);
-	        ITEMS3.add(supremium_chestplate_wither);
-	        ITEMS3.add(supremium_chestplate_antivenom);
-	        ITEMS3.add(supremium_chestplate_fire);
-	        ITEMS3.add(supremium_chestplate_resistance);
+	        ITEMS.add(supremium_chestplate_strength);
+	        ITEMS.add(supremium_chestplate_absorption);
+	        ITEMS.add(supremium_chestplate_wither);
+	        ITEMS.add(supremium_chestplate_antivenom);
+	        ITEMS.add(supremium_chestplate_fire);
+	        ITEMS.add(supremium_chestplate_resistance);
 	        
-	        ITEMS3.add(supremium_leggings_speed);
-	        ITEMS3.add(supremium_leggings_absorption);
-	        ITEMS3.add(supremium_leggings_wither);
-	        ITEMS3.add(supremium_leggings_antivenom);
-	        ITEMS3.add(supremium_leggings_fire);
-	        ITEMS3.add(supremium_leggings_resistance);
+	        ITEMS.add(supremium_leggings_speed);
+	        ITEMS.add(supremium_leggings_absorption);
+	        ITEMS.add(supremium_leggings_wither);
+	        ITEMS.add(supremium_leggings_antivenom);
+	        ITEMS.add(supremium_leggings_fire);
+	        ITEMS.add(supremium_leggings_resistance);
 	        
-	        ITEMS3.add(supremium_boots_jump);
-	        ITEMS3.add(supremium_boots_absorption);
-	        ITEMS3.add(supremium_boots_wither);
-	        ITEMS3.add(supremium_boots_antivenom);
-	        ITEMS3.add(supremium_boots_fire);
-	        ITEMS3.add(supremium_boots_resistance);
+	        ITEMS.add(supremium_boots_jump);
+	        ITEMS.add(supremium_boots_absorption);
+	        ITEMS.add(supremium_boots_wither);
+	        ITEMS.add(supremium_boots_antivenom);
+	        ITEMS.add(supremium_boots_fire);
+	        ITEMS.add(supremium_boots_resistance);
 		}
-				
-		for(Item item : ITEMS3){
+		
+		for(Item item : ITEMS){
 			GameRegistry.register(item);
 		}
 	}
@@ -516,18 +502,6 @@ public class ModItems {
 	@SideOnly(Side.CLIENT)
 	public static void initItemModels(){
 		for(Item item : ITEMS){
-			Minecraft.getMinecraft().getRenderItem().getItemModelMesher()
-			.register(item, 0, new ModelResourceLocation(MysticalAgriculture.MOD_ID + ":" + item
-			.getUnlocalizedName().substring(8), "inventory")); 
-		}
-		
-		for(Item item : ITEMS2){
-			Minecraft.getMinecraft().getRenderItem().getItemModelMesher()
-			.register(item, 0, new ModelResourceLocation(MysticalAgriculture.MOD_ID + ":" + item
-			.getUnlocalizedName().substring(8), "inventory")); 
-		}
-		
-		for(Item item : ITEMS3){
 			Minecraft.getMinecraft().getRenderItem().getItemModelMesher()
 			.register(item, 0, new ModelResourceLocation(MysticalAgriculture.MOD_ID + ":" + item
 			.getUnlocalizedName().substring(8), "inventory")); 

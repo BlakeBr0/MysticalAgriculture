@@ -38,10 +38,7 @@ public class CommonProxy {
 	
 	public void preInit(FMLPreInitializationEvent e){      
 		ModBlocks.initBlocks();
-		ModBlocks.initCrops();
 	    ModItems.initItems();
-		ModItems.initSeeds();
-	    ModItems.initGear();
 
 	    MinecraftForge.EVENT_BUS.register(new ItemIntermediumArmor.abilityHandler());
 	    MinecraftForge.EVENT_BUS.register(new ItemSuperiumArmor.abilityHandler());

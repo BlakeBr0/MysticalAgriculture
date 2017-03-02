@@ -162,27 +162,19 @@ public class ModBlocks {
 			BLOCKS.add(witherproof_glass);
 		}
 
-		for(Block block : BLOCKS){
-			GameRegistry.register(block);
-			GameRegistry.register(new ItemBlock(block).setRegistryName(block.getRegistryName()));
-		}
-	}
-	
-	public static void initCrops(){
-		
-		BLOCKS2.add(tier1_inferium_crop);
-		BLOCKS2.add(tier2_inferium_crop);
-		BLOCKS2.add(tier3_inferium_crop);
-		BLOCKS2.add(tier4_inferium_crop);
-		BLOCKS2.add(tier5_inferium_crop);
+		BLOCKS.add(tier1_inferium_crop);
+		BLOCKS.add(tier2_inferium_crop);
+		BLOCKS.add(tier3_inferium_crop);
+		BLOCKS.add(tier4_inferium_crop);
+		BLOCKS.add(tier5_inferium_crop);
 		
 		for(CropType.Type type : CropType.Type.values()){
 			if(type.isEnabled()){
-				BLOCKS2.add(type.getPlant());
+				BLOCKS.add(type.getPlant());
 			}
 		}
-			
-		for(Block block : BLOCKS2){
+		
+		for(Block block : BLOCKS){
 			GameRegistry.register(block);
 			GameRegistry.register(new ItemBlock(block).setRegistryName(block.getRegistryName()));
 		}
@@ -211,12 +203,6 @@ public class ModBlocks {
 	@SideOnly(Side.CLIENT)
 	public static void initBlockModels(){
 		for(Block block : BLOCKS){
-			Minecraft.getMinecraft().getRenderItem().getItemModelMesher()
-			.register(Item.getItemFromBlock(block), 0, new ModelResourceLocation(MysticalAgriculture.MOD_ID + ":" + block
-			.getUnlocalizedName().substring(8), "inventory"));
-		}
-		
-		for(Block block : BLOCKS2){
 			Minecraft.getMinecraft().getRenderItem().getItemModelMesher()
 			.register(Item.getItemFromBlock(block), 0, new ModelResourceLocation(MysticalAgriculture.MOD_ID + ":" + block
 			.getUnlocalizedName().substring(8), "inventory"));
