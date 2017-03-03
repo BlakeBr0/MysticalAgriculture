@@ -505,30 +505,6 @@ public class ModItems {
 			.getUnlocalizedName().substring(8), "inventory")); 
 		}
 	}
-	
-	@SideOnly(Side.CLIENT)
-	public static void setItemColor(Item item, int color){
-		Minecraft.getMinecraft().getItemColors().registerItemColorHandler(new ItemColorHandler(color), item);
-	}
-	
-	@SideOnly(Side.CLIENT)
-	public static void initItemColors(){
-//		setItemColor(inferium_apple, 0xA2BF00);
-//		setItemColor(prudentium_apple, 0x00B527);
-//		setItemColor(intermedium_apple, 0xD84B00);
-//		setItemColor(superium_apple, 0x007FDB);
-//		setItemColor(supremium_apple, 0xE20000);
-		setItemColor(CropType.Type.NICKEL.getCrop(), 0xBCC2AF);
-		setItemColor(CropType.Type.NICKEL.getSeed(), 0xBCC2AF);
-		setItemColor(CropType.Type.ELECTRUM.getCrop(), 0xF1E454);
-		setItemColor(CropType.Type.ELECTRUM.getSeed(), 0xF1E454);
-		
-		setItemColor(CropType.Type.QUARTZ_ENRICHED_IRON.getCrop(), 0xD3CEC9);
-		setItemColor(CropType.Type.QUARTZ_ENRICHED_IRON.getSeed(), 0xD3CEC9);
-		
-		setItemColor(CropType.Type.CONSTANTAN.getCrop(), 0xFF9A7B);
-		setItemColor(CropType.Type.CONSTANTAN.getSeed(), 0xFF9A7B);
-	}
 
 	public static void initOreDict(){
 

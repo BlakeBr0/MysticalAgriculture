@@ -1,6 +1,6 @@
 {
   "parent":"item/generated",
   "textures": {
-    "layer0":"mysticalagriculture:items/seeds"
+    "layer0":"mysticalagriculture:items/nickel_seeds"
   }
 }

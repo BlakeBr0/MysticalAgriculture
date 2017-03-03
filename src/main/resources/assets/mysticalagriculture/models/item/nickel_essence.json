@@ -1,6 +1,6 @@
 {
   "parent":"item/generated",
   "textures": {
-    "layer0":"mysticalagriculture:items/ingot_essence"
+    "layer0":"mysticalagriculture:items/nickel_essence"
   }
 }

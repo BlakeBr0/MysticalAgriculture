@@ -17,7 +17,6 @@ public class ClientProxy extends CommonProxy {
 	@Override
 	public void preInit(FMLPreInitializationEvent e) {
 		super.preInit(e);
-//	    MinecraftForge.EVENT_BUS.register(new ItemUpgradedSpeed.abilityHandler());
 	}
 
 	@Override
@@ -25,7 +24,6 @@ public class ClientProxy extends CommonProxy {
 		super.init(e);
 		ModBlocks.initBlockModels();
 		ModItems.initItemModels();
-		ModItems.initItemColors();
 	}
 
 	@Override
