@@ -10,6 +10,7 @@ public class ModChecker {
 	public static boolean ENDERIO = Loader.isModLoaded("EnderIO") || Loader.isModLoaded("enderio");
 	public static boolean BOTANIA = Loader.isModLoaded("Botania") || Loader.isModLoaded("botania");
 	public static boolean MEKANISM = Loader.isModLoaded("Mekanism") || Loader.isModLoaded("mekanism");
+	public static boolean THERMAL = Loader.isModLoaded("thermalfoundation");
 	public static boolean CHISEL = Loader.isModLoaded("chisel");
 	public static boolean DRACONIC = Loader.isModLoaded("draconicevolution");
 	public static boolean BIGREACTORS = Loader.isModLoaded("bigreactors");
@@ -24,18 +25,24 @@ public class ModChecker {
 	public static boolean BASEMETALS = Loader.isModLoaded("basemetals");
 	
 	public static boolean RUBBER = OreDictionary.getOres("itemRubber").size() > 0 || IC2 || TECHREBORN;
-	public static boolean ALUMINUM = OreDictionary.getOres("ingotAluminum").size() > 0 || OreDictionary.getOres("ingotAluminium").size() > 0 || IE || TECHREBORN || SUBSTRATUM || BASEMETALS;
-	public static boolean COPPER = OreDictionary.getOres("ingotCopper").size() > 0 || IC2 || IE || FORESTRY || TECHREBORN || MEKANISM || SUBSTRATUM || BASEMETALS;
-	public static boolean TIN = OreDictionary.getOres("ingotTin").size() > 0 || IC2 || FORESTRY || TECHREBORN || MEKANISM || SUBSTRATUM || BASEMETALS;
-	public static boolean BRONZE = OreDictionary.getOres("ingotBronze").size() > 0 || IC2 || FORESTRY || TECHREBORN || SUBSTRATUM || BASEMETALS;
-	public static boolean SILVER = OreDictionary.getOres("ingotSilver").size() > 0 || IC2 || IE || FORESTRY || TECHREBORN || SUBSTRATUM || BASEMETALS;
-	public static boolean LEAD = OreDictionary.getOres("ingotLead").size() > 0 || IC2 || IE || TECHREBORN || SUBSTRATUM || BASEMETALS;
-	public static boolean STEEL = OreDictionary.getOres("ingotSteel").size() > 0 || IC2 || IE || TECHREBORN || MEKANISM || SUBSTRATUM || BASEMETALS || BIGREACTORS;
-	public static boolean NICKEL = OreDictionary.getOres("ingotNickel").size() > 0 || IE || TECHREBORN || SUBSTRATUM;
-	public static boolean CONSTANTAN = OreDictionary.getOres("ingotConstantan").size() > 0 || IE;
-	public static boolean ELECTRUM = OreDictionary.getOres("ingotElectrum").size() > 0 || IE || TECHREBORN || SUBSTRATUM;
-	
+	public static boolean ALUMINUM = OreDictionary.getOres("ingotAluminum").size() > 0 || OreDictionary.getOres("ingotAluminium").size() > 0 || THERMAL || IE || TECHREBORN || SUBSTRATUM || BASEMETALS;
+	public static boolean COPPER = OreDictionary.getOres("ingotCopper").size() > 0 || THERMAL || IC2 || IE || FORESTRY || TECHREBORN || MEKANISM || SUBSTRATUM || BASEMETALS;
+	public static boolean TIN = OreDictionary.getOres("ingotTin").size() > 0 || THERMAL || IC2 || FORESTRY || TECHREBORN || MEKANISM || SUBSTRATUM || BASEMETALS;
+	public static boolean BRONZE = OreDictionary.getOres("ingotBronze").size() > 0 || THERMAL || IC2 || FORESTRY || TECHREBORN || SUBSTRATUM || BASEMETALS;
+	public static boolean SILVER = OreDictionary.getOres("ingotSilver").size() > 0 || THERMAL || IC2 || IE || FORESTRY || TECHREBORN || SUBSTRATUM || BASEMETALS;
+	public static boolean LEAD = OreDictionary.getOres("ingotLead").size() > 0 || THERMAL || IC2 || IE || TECHREBORN || SUBSTRATUM || BASEMETALS;
+	public static boolean STEEL = OreDictionary.getOres("ingotSteel").size() > 0 || THERMAL || IC2 || IE || TECHREBORN || MEKANISM || SUBSTRATUM || BASEMETALS || BIGREACTORS;
+	public static boolean NICKEL = OreDictionary.getOres("ingotNickel").size() > 0 || THERMAL || IE || TECHREBORN || SUBSTRATUM;
+	public static boolean CONSTANTAN = OreDictionary.getOres("ingotConstantan").size() > 0 || THERMAL || IE || SUBSTRATUM || BASEMETALS;
+	public static boolean ELECTRUM = OreDictionary.getOres("ingotElectrum").size() > 0 || THERMAL || IE || TECHREBORN || SUBSTRATUM || BASEMETALS;
+	public static boolean INVAR = OreDictionary.getOres("ingotInvar").size() > 0 || THERMAL || SUBSTRATUM || BASEMETALS;
+	public static boolean PLATINUM = OreDictionary.getOres("ingotPlatinum").size() > 0 || THERMAL || SUBSTRATUM || BASEMETALS;
+
 	public static boolean RUBY = OreDictionary.getOres("gemRuby").size() > 0 || BOP || TECHREBORN;
 	public static boolean SAPPHIRE = OreDictionary.getOres("gemSapphire").size() > 0 || BOP || TECHREBORN;
 	public static boolean PERIDOT = OreDictionary.getOres("gemPeridot").size() > 0 || BOP || TECHREBORN;
+	
+	public static boolean SIGNALUM = OreDictionary.getOres("ingotSignalum").size() > 0 || THERMAL || SUBSTRATUM;
+	public static boolean LUMIUM = OreDictionary.getOres("ingotLumium").size() > 0 || THERMAL || SUBSTRATUM;
+	public static boolean ENDERIUM = OreDictionary.getOres("ingotEnderium").size() > 0 || THERMAL || SUBSTRATUM;
 }
