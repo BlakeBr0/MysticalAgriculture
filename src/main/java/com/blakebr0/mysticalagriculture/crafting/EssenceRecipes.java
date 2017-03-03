@@ -21,7 +21,7 @@ import net.minecraftforge.oredict.ShapedOreRecipe;
 public class EssenceRecipes {
 	
 	public static void addEssenceRecipe(ItemStack output, Object... input){
-		if(output.stackSize > 0){
+		if(output != null && output.stackSize > 0){
 			GameRegistry.addRecipe(new ShapedOreRecipe(output, input));
 		}
 	}
@@ -168,10 +168,16 @@ public class EssenceRecipes {
 	    if(type.NICKEL.isEnabled()){ addEssenceRecipe(OreDictResources.getItem("ingotNickel", EssenceConfig.nickel), "EEE", "EXE", "EEE", 'E', new ItemStack(type.NICKEL.getCrop(), 1, 0)); }
 	    if(type.CONSTANTAN.isEnabled()){ addEssenceRecipe(OreDictResources.getItem("ingotConstantan", EssenceConfig.constantan), "EEE", "EXE", "EEE", 'E', new ItemStack(type.CONSTANTAN.getCrop(), 1, 0)); }
 	    if(type.ELECTRUM.isEnabled()){ addEssenceRecipe(OreDictResources.getItem("ingotElectrum", EssenceConfig.electrum), "EEE", "EXE", "EEE", 'E', new ItemStack(type.ELECTRUM.getCrop(), 1, 0)); }
+	    if(type.INVAR.isEnabled()){ addEssenceRecipe(OreDictResources.getItem("ingotInvar", EssenceConfig.invar), "EEE", "EXE", "EEE", 'E', new ItemStack(type.INVAR.getCrop(), 1, 0)); }
+	    if(type.PLATINUM.isEnabled()){ addEssenceRecipe(OreDictResources.getItem("ingotPlatinum", EssenceConfig.platinum), "EEE", "EXE", "EEE", 'E', new ItemStack(type.PLATINUM.getCrop(), 1, 0)); }
 
 	    if(type.RUBY.isEnabled()){ addEssenceRecipe(OreDictResources.getItem("gemRuby", EssenceConfig.ruby), "EEE", "EXE", "EEE", 'E', new ItemStack(type.RUBY.getCrop(), 1, 0)); }
 	    if(type.SAPPHIRE.isEnabled()){ addEssenceRecipe(OreDictResources.getItem("gemSapphire", EssenceConfig.sapphire), "EEE", "EXE", "EEE", 'E', new ItemStack(type.SAPPHIRE.getCrop(), 1, 0)); }
 	    if(type.PERIDOT.isEnabled()){ addEssenceRecipe(OreDictResources.getItem("gemPeridot", EssenceConfig.peridot), "EEE", "EXE", "EEE", 'E', new ItemStack(type.PERIDOT.getCrop(), 1, 0)); }
+	
+	    if(type.SIGNALUM.isEnabled()){ addEssenceRecipe(OreDictResources.getItem("ingotSignalum", EssenceConfig.signalum), "EEE", "EXE", "EEE", 'E', new ItemStack(type.SIGNALUM.getCrop(), 1, 0)); }
+	    if(type.LUMIUM.isEnabled()){ addEssenceRecipe(OreDictResources.getItem("ingotLumium", EssenceConfig.lumium), "EEE", "EXE", "EEE", 'E', new ItemStack(type.LUMIUM.getCrop(), 1, 0)); }
+	    if(type.ENDERIUM.isEnabled()){ addEssenceRecipe(OreDictResources.getItem("ingotEnderium", EssenceConfig.enderium), "EEE", "EXE", "EEE", 'E', new ItemStack(type.ENDERIUM.getCrop(), 1, 0)); }
 	    
 	    if(type.ALUMINUM_BRASS.isEnabled()){ addEssenceRecipe(new ItemStack(Parts.tcon_ingots, EssenceConfig.aluminum_brass, 5), "EEE", "EXE", "EEE", 'E', new ItemStack(type.ALUMINUM_BRASS.getCrop(), 1, 0)); }
 	    if(type.KNIGHTSLIME.isEnabled()){ addEssenceRecipe(new ItemStack(Parts.tcon_ingots, EssenceConfig.knightslime, 3), "EEE", "EXE", "EEE", 'E', new ItemStack(type.KNIGHTSLIME.getCrop(), 1, 0)); }

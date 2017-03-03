@@ -360,10 +360,16 @@ public class ModRecipes {
 	    addSeedRecipe(type.NICKEL, "ingotNickel");
 	    addSeedRecipe(type.CONSTANTAN, "ingotConstantan");
 	    addSeedRecipe(type.ELECTRUM, "ingotElectrum");
+	    addSeedRecipe(type.INVAR, "ingotInvar");
+	    addSeedRecipe(type.PLATINUM, "ingotPlatinum");
 
 	    addSeedRecipe(type.RUBY, "gemRuby");
 	    addSeedRecipe(type.SAPPHIRE, "gemSapphire");
 	    addSeedRecipe(type.PERIDOT, "gemPeridot");
+	    
+	    addSeedRecipe(type.SIGNALUM, "ingotSignalum");
+	    addSeedRecipe(type.LUMIUM, "ingotLumium");
+	    addSeedRecipe(type.ENDERIUM, "ingotEnderium");
 
 	    addSeedRecipe(type.ALUMINUM_BRASS, Parts.aluminum_brass);
 	    addSeedRecipe(type.KNIGHTSLIME, Parts.knightslime);

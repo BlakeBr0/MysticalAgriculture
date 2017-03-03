@@ -97,10 +97,16 @@ public class EssenceConfig {
 	public static int steel;
 	public static int nickel;
 	public static int electrum;
+	public static int invar;
+	public static int platinum;
 	
 	public static int ruby;
 	public static int sapphire;
 	public static int peridot;
+	
+	public static int signalum;
+	public static int lumium;
+	public static int enderium;
 	
 	public static int aluminum_brass;
 	public static int knightslime;
@@ -240,11 +246,18 @@ public class EssenceConfig {
 		nickel = config.get(category, "nickel", 4).getInt(nickel);
 		constantan = config.get(category, "constantan", 4).getInt(constantan);
 		electrum = config.get(category, "electrum", 4).getInt(electrum);
+		invar = config.get(category, "invar", 4).getInt();
+		platinum = config.get(category, "platinum", 2).getInt();
 		
 		category = "Gems";
 		ruby = config.get(category, "ruby", 6).getInt(ruby);
 		sapphire = config.get(category, "sapphire", 6).getInt(sapphire);
 		peridot = config.get(category, "peridot", 6).getInt(peridot);
+		
+		category = "Thermal Foundation";
+		signalum = config.get(category, "signalum", 4).getInt();
+		lumium = config.get(category, "lumium", 4).getInt();
+		enderium = config.get(category, "enderium", 2).getInt();
 		
 		category = "Tinkers Construct";
 		aluminum_brass = config.get(category, "aluminum_brass", 6).getInt(aluminum_brass);
