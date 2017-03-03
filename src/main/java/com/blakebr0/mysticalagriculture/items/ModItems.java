@@ -84,8 +84,6 @@ import net.minecraftforge.oredict.OreDictionary;
 public class ModItems {
 	
 	public static List<Item> ITEMS = new ArrayList<Item>();
-	public static List<Item> ITEMS2 = new ArrayList<Item>();
-	public static List<Item> ITEMS3 = new ArrayList<Item>();
 	
 	public static BaseItem inferium_essence = new BaseItem("inferium_essence");
 	public static BaseItem prudentium_essence = new BaseItem("prudentium_essence");

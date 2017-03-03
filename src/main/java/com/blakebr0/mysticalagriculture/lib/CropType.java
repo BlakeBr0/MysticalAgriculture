@@ -59,10 +59,16 @@ public class CropType {
 		STEEL("steel", ModConfig.steel_tier, ModConfig.steel_seeds && ModChecker.STEEL),
 		NICKEL("nickel", ModConfig.nickel_tier, ModConfig.nickel_seeds && ModChecker.NICKEL),
 		ELECTRUM("electrum", ModConfig.electrum_tier, ModConfig.electrum_seeds && ModChecker.ELECTRUM),
+		INVAR("invar", ModConfig.invar_tier, ModConfig.invar_seeds),
+		PLATINUM("platinum", ModConfig.platinum_tier, ModConfig.platinum_seeds),
 		
 		RUBY("ruby", ModConfig.ruby_tier, ModConfig.ruby_seeds && ModChecker.RUBY),
 		SAPPHIRE("sapphire", ModConfig.sapphire_tier, ModConfig.sapphire_seeds && ModChecker.SAPPHIRE),
 		PERIDOT("peridot", ModConfig.peridot_tier, ModConfig.peridot_seeds && ModChecker.PERIDOT),
+		
+		SIGNALUM("signalum", ModConfig.signalum_tier, ModConfig.signalum_seeds),
+		LUMIUM("lumium", ModConfig.lumium_tier, ModConfig.lumium_seeds),
+		ENDERIUM("enderium", ModConfig.enderium_tier, ModConfig.enderium_seeds),
 		
 		ALUMINUM_BRASS("aluminum_brass", ModConfig.aluminum_brass_tier, ModConfig.aluminum_brass_seeds && ModChecker.TINKERS),
 		KNIGHTSLIME("knightslime", ModConfig.knightslime_tier, ModConfig.knightslime_seeds && ModChecker.TINKERS),

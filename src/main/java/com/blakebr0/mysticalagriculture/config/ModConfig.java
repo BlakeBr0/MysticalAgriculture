@@ -81,10 +81,16 @@ public class ModConfig {
 	public static boolean steel_seeds;
 	public static boolean nickel_seeds;
 	public static boolean electrum_seeds;
+	public static boolean invar_seeds;
+	public static boolean platinum_seeds;
 	
 	public static boolean ruby_seeds;
 	public static boolean sapphire_seeds;
 	public static boolean peridot_seeds;
+	
+	public static boolean signalum_seeds;
+	public static boolean lumium_seeds;
+	public static boolean enderium_seeds;
 	
 	public static boolean aluminum_brass_seeds;
 	public static boolean knightslime_seeds;
@@ -170,10 +176,16 @@ public class ModConfig {
 	public static int steel_tier;
 	public static int nickel_tier;
 	public static int electrum_tier;
+	public static int invar_tier;
+	public static int platinum_tier;
 	
 	public static int ruby_tier;
 	public static int sapphire_tier;
 	public static int peridot_tier;
+	
+	public static int signalum_tier;
+	public static int lumium_tier;
+	public static int enderium_tier;
 	
 	public static int aluminum_brass_tier;
 	public static int knightslime_tier;
@@ -260,7 +272,7 @@ public class ModConfig {
 	public static int end_prosperity_veinsize;
 	public static int end_prosperity_miny;
 	public static int end_prosperity_maxy;
-	
+		
 	@SubscribeEvent
     public void onConfigChanged(ConfigChangedEvent.OnConfigChangedEvent eventArgs) {
         if (eventArgs.getModID().equals(MysticalAgriculture.MOD_ID)) {
@@ -346,16 +358,22 @@ public class ModConfig {
 		steel_seeds = config.get(category, "steel_seeds", true).getBoolean(steel_seeds);
 		nickel_seeds = config.get(category, "nickel_seeds", true).getBoolean(nickel_seeds);
 		electrum_seeds = config.get(category, "electrum_seeds", true).getBoolean(electrum_seeds);
-
+		invar_seeds = config.get(category, "invar_seeds", true).getBoolean();
+		platinum_seeds = config.get(category, "platinum_seeds", true).getBoolean();
+		
+		ruby_seeds = config.get(category, "ruby_seeds", true).getBoolean(ruby_seeds);
+		sapphire_seeds = config.get(category, "sapphire_seeds", true).getBoolean(sapphire_seeds);
+		peridot_seeds = config.get(category, "peridot_seeds", true).getBoolean(peridot_seeds);
+		
+		signalum_seeds = config.get(category, "signalum_seeds", true).getBoolean();
+		lumium_seeds = config.get(category, "lumium_seeds", true).getBoolean();
+		enderium_seeds = config.get(category, "enderium_seeds", true).getBoolean();
+		
 		aluminum_brass_seeds = config.get(category, "aluminum_brass_seeds", true).getBoolean(aluminum_brass_seeds);
 		knightslime_seeds = config.get(category, "knightslime_seeds", true).getBoolean(knightslime_seeds);
 		ardite_seeds = config.get(category, "ardite_seeds", true).getBoolean(ardite_seeds);
 		cobalt_seeds = config.get(category, "cobalt_seeds", true).getBoolean(cobalt_seeds);
 		manyullyn_seeds = config.get(category, "manyullyn_seeds", true).getBoolean(manyullyn_seeds);
-		
-		ruby_seeds = config.get(category, "ruby_seeds", true).getBoolean(ruby_seeds);
-		sapphire_seeds = config.get(category, "sapphire_seeds", true).getBoolean(sapphire_seeds);
-		peridot_seeds = config.get(category, "peridot_seeds", true).getBoolean(peridot_seeds);
 		
 		electrical_steel_seeds = config.get(category, "electrical_steel_seeds", true).getBoolean(electrical_steel_seeds);
 		redstone_alloy_seeds = config.get(category, "redstone_alloy_seeds", true).getBoolean(redstone_alloy_seeds);
@@ -449,10 +467,16 @@ public class ModConfig {
 		steel_tier = config.get(category, "steels_tier", 4).getInt(steel_tier);
 		nickel_tier = config.get(category, "nickel_tier", 4).getInt(nickel_tier);
 		electrum_tier = config.get(category, "electrum_tier", 4).getInt(electrum_tier);
+		invar_tier = config.get(category, "invar_tier", 4).getInt();
+		platinum_tier = config.get(category, "platinum_tier", 5).getInt();
 		
 		ruby_tier = config.get(category, "ruby_tier", 4).getInt(ruby_tier);
 		sapphire_tier = config.get(category, "sapphire", 4).getInt(sapphire_tier);
 		peridot_tier = config.get(category, "peridot_tier", 4).getInt(peridot_tier);
+		
+		signalum_tier = config.get(category, "signalum_tier", 4).getInt();
+		lumium_tier = config.get(category, "lumium_tier", 4).getInt();
+		enderium_tier = config.get(category, "enderium_tier", 5).getInt();
 		
 		aluminum_brass_tier = config.get(category, "aluminum_brass_tier", 2).getInt(aluminum_brass_tier);
 		knightslime_tier = config.get(category, "knightslime_tier", 3).getInt(knightslime_tier);

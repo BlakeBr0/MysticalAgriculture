@@ -46,7 +46,6 @@ import net.minecraftforge.oredict.OreDictionary;
 public class ModBlocks {
 	
 	public static List<Block> BLOCKS = new ArrayList<Block>();
-	public static List<Block> BLOCKS2 = new ArrayList<Block>();
 		
 	public static BaseBlock inferium_block = new BaseBlock("inferium_block", Material.ROCK, SoundType.STONE, 4.0F, 6.0F, "pickaxe", 0);
 	public static BaseBlock prudentium_block = new BaseBlock("prudentium_block", Material.ROCK, SoundType.STONE, 4.0F, 6.0F, "pickaxe", 0);

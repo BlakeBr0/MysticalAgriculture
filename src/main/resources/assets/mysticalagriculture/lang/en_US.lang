@@ -123,10 +123,16 @@ tile.ma.lead_crop.name=Lead Crop
 tile.ma.steel_crop.name=Steel Crop
 tile.ma.nickel_crop.name=Nickel Crop
 tile.ma.electrum_crop.name=Electrum Crop
+tile.ma.invar_crop.name=Invar Crop
+tile.ma.platinum_crop.name=Platinum Crop
 
 tile.ma.ruby_crop.name=Ruby Crop
 tile.ma.sapphire_crop.name=Sapphire Crop
 tile.ma.peridot_crop.name=Peridot Crop
+
+tile.ma.signalum_crop.name=Signalum Crop
+tile.ma.lumium_crop.name=Lumium Crop
+tile.ma.enderium_crop.name=Enderium Crop
 
 tile.ma.aluminum_brass_crop.name=Aluminum Brass Crop
 tile.ma.knightslime_crop.name=Knightslime Crop
@@ -282,10 +288,16 @@ item.ma.lead_essence.name=Lead Essence
 item.ma.steel_essence.name=Steel Essence
 item.ma.nickel_essence.name=Nickel Essence
 item.ma.electrum_essence.name=Electrum Essence
+item.ma.invar_essence.name=Invar Essence
+item.ma.platinum_essence.name=Platinum Essence
 
 item.ma.ruby_essence.name=Ruby Essence
 item.ma.sapphire_essence.name=Sapphire Essence
 item.ma.peridot_essence.name=Peridot Essence
+
+item.ma.signalum_essence.name=Signalum Essence
+item.ma.lumium_essence.name=Lumium Essence
+item.ma.enderium_essence.name=Enderium Essence
 
 item.ma.aluminum_brass_essence.name=Aluminum Brass Essence
 item.ma.knightslime_essence.name=Knightslime Essence
@@ -378,10 +390,16 @@ item.ma.lead_seeds.name=Lead Seeds
 item.ma.steel_seeds.name=Steel Seeds
 item.ma.nickel_seeds.name=Nickel Seeds
 item.ma.electrum_seeds.name=Electrum Seeds
+item.ma.invar_seeds.name=Invar Seeds
+item.ma.platinum_seeds.name=Platinum Seeds
 
 item.ma.ruby_seeds.name=Ruby Seeds
 item.ma.sapphire_seeds.name=Sapphire Seeds
 item.ma.peridot_seeds.name=Peridot Seeds
+
+item.ma.signalum_seeds.name=Signalum Seeds
+item.ma.lumium_seeds.name=Lumium Seeds
+item.ma.enderium_seeds.name=Enderium Seeds
 
 item.ma.aluminum_brass_seeds.name=Aluminum Brass Seeds
 item.ma.knightslime_seeds.name=Knightslime Seeds
