@@ -33,7 +33,7 @@ public class ModChecker {
 	public static boolean LEAD = OreDictionary.getOres("ingotLead").size() > 0 || THERMAL || IC2 || IE || TECHREBORN || SUBSTRATUM || BASEMETALS;
 	public static boolean STEEL = OreDictionary.getOres("ingotSteel").size() > 0 || THERMAL || IC2 || IE || TECHREBORN || MEKANISM || SUBSTRATUM || BASEMETALS || BIGREACTORS;
 	public static boolean NICKEL = OreDictionary.getOres("ingotNickel").size() > 0 || THERMAL || IE || TECHREBORN || SUBSTRATUM;
-	public static boolean CONSTANTAN = OreDictionary.getOres("ingotConstantan").size() > 0 || THERMAL || IE || SUBSTRATUM || BASEMETALS;
+	public static boolean CONSTANTAN = OreDictionary.getOres("ingotConstantan").size() > 0 || THERMAL || IE || SUBSTRATUM;
 	public static boolean ELECTRUM = OreDictionary.getOres("ingotElectrum").size() > 0 || THERMAL || IE || TECHREBORN || SUBSTRATUM || BASEMETALS;
 	public static boolean INVAR = OreDictionary.getOres("ingotInvar").size() > 0 || THERMAL || SUBSTRATUM || BASEMETALS;
 	public static boolean PLATINUM = OreDictionary.getOres("ingotPlatinum").size() > 0 || THERMAL || SUBSTRATUM || BASEMETALS;
