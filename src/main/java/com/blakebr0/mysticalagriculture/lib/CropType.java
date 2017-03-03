@@ -58,6 +58,7 @@ public class CropType {
 		LEAD("lead", ModConfig.lead_tier, ModConfig.lead_seeds && ModChecker.LEAD),
 		STEEL("steel", ModConfig.steel_tier, ModConfig.steel_seeds && ModChecker.STEEL),
 		NICKEL("nickel", ModConfig.nickel_tier, ModConfig.nickel_seeds && ModChecker.NICKEL),
+		CONSTANTAN("constantan", ModConfig.constantan_tier, ModConfig.constantan_seeds && ModChecker.CONSTANTAN),
 		ELECTRUM("electrum", ModConfig.electrum_tier, ModConfig.electrum_seeds && ModChecker.ELECTRUM),
 		INVAR("invar", ModConfig.invar_tier, ModConfig.invar_seeds),
 		PLATINUM("platinum", ModConfig.platinum_tier, ModConfig.platinum_seeds),
@@ -103,10 +104,8 @@ public class CropType {
 		CERTUS_QUARTZ("certus_quartz", ModConfig.certus_quartz_tier, ModConfig.certus_quartz_seeds && ModChecker.AE2),
 		FLUIX("fluix", ModConfig.fluix_tier, ModConfig.fluix_seeds && ModChecker.AE2),
 		
-		QUARTZ_ENRICHED_IRON("quartz_enriched_iron", ModConfig.quartz_enriched_iron_tier, ModConfig.quartz_enriched_iron_seeds && ModChecker.RS),
-		
-		CONSTANTAN("constantan", ModConfig.constantan_tier, ModConfig.constantan_seeds && ModChecker.IE);
-		
+		QUARTZ_ENRICHED_IRON("quartz_enriched_iron", ModConfig.quartz_enriched_iron_tier, ModConfig.quartz_enriched_iron_seeds && ModChecker.RS);
+				
 		private final String name;
 		private final int tier;
 		private final boolean enabled;

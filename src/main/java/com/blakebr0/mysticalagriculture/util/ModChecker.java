@@ -32,6 +32,7 @@ public class ModChecker {
 	public static boolean LEAD = OreDictionary.getOres("ingotLead").size() > 0 || IC2 || IE || TECHREBORN || SUBSTRATUM || BASEMETALS;
 	public static boolean STEEL = OreDictionary.getOres("ingotSteel").size() > 0 || IC2 || IE || TECHREBORN || MEKANISM || SUBSTRATUM || BASEMETALS || BIGREACTORS;
 	public static boolean NICKEL = OreDictionary.getOres("ingotNickel").size() > 0 || IE || TECHREBORN || SUBSTRATUM;
+	public static boolean CONSTANTAN = OreDictionary.getOres("ingotConstantan").size() > 0 || IE;
 	public static boolean ELECTRUM = OreDictionary.getOres("ingotElectrum").size() > 0 || IE || TECHREBORN || SUBSTRATUM;
 	
 	public static boolean RUBY = OreDictionary.getOres("gemRuby").size() > 0 || BOP || TECHREBORN;

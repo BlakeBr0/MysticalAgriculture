@@ -166,6 +166,7 @@ public class EssenceRecipes {
 	    if(type.LEAD.isEnabled()){ addEssenceRecipe(OreDictResources.getItem("ingotLead", EssenceConfig.lead), "EEE", "EXE", "EEE", 'E', new ItemStack(type.LEAD.getCrop(), 1, 0)); }
 	    if(type.STEEL.isEnabled()){ addEssenceRecipe(OreDictResources.getItem("ingotSteel", EssenceConfig.steel), "EEE", "EXE", "EEE", 'E', new ItemStack(type.STEEL.getCrop(), 1, 0)); }
 	    if(type.NICKEL.isEnabled()){ addEssenceRecipe(OreDictResources.getItem("ingotNickel", EssenceConfig.nickel), "EEE", "EXE", "EEE", 'E', new ItemStack(type.NICKEL.getCrop(), 1, 0)); }
+	    if(type.CONSTANTAN.isEnabled()){ addEssenceRecipe(OreDictResources.getItem("ingotConstantan", EssenceConfig.constantan), "EEE", "EXE", "EEE", 'E', new ItemStack(type.CONSTANTAN.getCrop(), 1, 0)); }
 	    if(type.ELECTRUM.isEnabled()){ addEssenceRecipe(OreDictResources.getItem("ingotElectrum", EssenceConfig.electrum), "EEE", "EXE", "EEE", 'E', new ItemStack(type.ELECTRUM.getCrop(), 1, 0)); }
 
 	    if(type.RUBY.isEnabled()){ addEssenceRecipe(OreDictResources.getItem("gemRuby", EssenceConfig.ruby), "EEE", "EXE", "EEE", 'E', new ItemStack(type.RUBY.getCrop(), 1, 0)); }
@@ -229,7 +230,5 @@ public class EssenceRecipes {
 	    if(type.FLUIX.isEnabled()){ addEssenceRecipe(OreDictResources.getItem("crystalFluix", EssenceConfig.fluix), "EEE", "EXE", "EEE", 'E', new ItemStack(type.FLUIX.getCrop(), 1, 0)); }
 
 	    if(type.QUARTZ_ENRICHED_IRON.isEnabled()){ addEssenceRecipe(new ItemStack(Parts.rs_ingot, EssenceConfig.quartz_enriched_iron, 0), "EEE", "EXE", "EEE", 'E', new ItemStack(type.QUARTZ_ENRICHED_IRON.getCrop(), 1, 0)); }
-
-	    if(type.CONSTANTAN.isEnabled()){ addEssenceRecipe(OreDictResources.getItem("ingotConstantan", EssenceConfig.constantan), "EEE", "EXE", "EEE", 'E', new ItemStack(type.CONSTANTAN.getCrop(), 1, 0)); }
 	}
 }

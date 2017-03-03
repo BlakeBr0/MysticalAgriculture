@@ -238,6 +238,7 @@ public class EssenceConfig {
 		lead = config.get(category, "lead", 4).getInt(lead);
 		steel = config.get(category, "steel", 3).getInt(steel);
 		nickel = config.get(category, "nickel", 4).getInt(nickel);
+		constantan = config.get(category, "constantan", 4).getInt(constantan);
 		electrum = config.get(category, "electrum", 4).getInt(electrum);
 		
 		category = "Gems";
@@ -289,9 +290,6 @@ public class EssenceConfig {
 		
 		category = "Refined Storage";
 		quartz_enriched_iron = config.get(category, "quartz_enriched_iron", 8).getInt(quartz_enriched_iron);
-		
-		category = "Immersive Engineering";
-		constantan = config.get(category, "constantan", 4).getInt(constantan);
 		
 		if(config.hasChanged()){
 			config.save();	

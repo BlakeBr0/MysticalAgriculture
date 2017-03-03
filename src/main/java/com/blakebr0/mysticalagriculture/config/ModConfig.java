@@ -357,6 +357,7 @@ public class ModConfig {
 		lead_seeds = config.get(category, "lead_seeds", true).getBoolean(lead_seeds);
 		steel_seeds = config.get(category, "steel_seeds", true).getBoolean(steel_seeds);
 		nickel_seeds = config.get(category, "nickel_seeds", true).getBoolean(nickel_seeds);
+		constantan_seeds = config.get(category, "constantan_seeds", true).getBoolean(constantan_seeds);
 		electrum_seeds = config.get(category, "electrum_seeds", true).getBoolean(electrum_seeds);
 		invar_seeds = config.get(category, "invar_seeds", true).getBoolean();
 		platinum_seeds = config.get(category, "platinum_seeds", true).getBoolean();
@@ -404,8 +405,6 @@ public class ModConfig {
 		
 		quartz_enriched_iron_seeds = config.get(category, "quartz_enriched_iron_seeds", true).getBoolean(quartz_enriched_iron_seeds);
 		
-		constantan_seeds = config.get(category, "constantan_seeds", true).getBoolean(constantan_seeds);
-
 		category = "Seed Tiers";
 		config.addCustomCategoryComment(category, "Set the tiers of each seed. The tier affects the recipe and the tooltip."
 				+ "\nTier 1: Inferium"
@@ -466,6 +465,7 @@ public class ModConfig {
 		lead_tier = config.get(category, "lead_tier", 3).getInt(lead_tier);
 		steel_tier = config.get(category, "steels_tier", 4).getInt(steel_tier);
 		nickel_tier = config.get(category, "nickel_tier", 4).getInt(nickel_tier);
+		constantan_tier = config.get(category, "constantan_tier", 4).getInt(constantan_tier);
 		electrum_tier = config.get(category, "electrum_tier", 4).getInt(electrum_tier);
 		invar_tier = config.get(category, "invar_tier", 4).getInt();
 		platinum_tier = config.get(category, "platinum_tier", 5).getInt();
@@ -512,9 +512,7 @@ public class ModConfig {
 		fluix_tier = config.get(category, "fluix_tier", 4).getInt(fluix_tier);
 		
 		quartz_enriched_iron_tier = config.get(category, "quartz_enriched_iron_tier", 3).getInt(quartz_enriched_iron_tier);
-		
-		constantan_tier = config.get(category, "constantan_tier", 4).getInt(constantan_tier);
-		
+				
 		category = "Gear";
 		config.addCustomCategoryComment(category, "Settings for the Mystical Agriculture: Gear module.");
 		$gear_module_override = config.getBoolean("$gear_module_override", category, true, "Gear Module enabled?");

@@ -358,6 +358,7 @@ public class ModRecipes {
 	    addSeedRecipe(type.LEAD, "ingotLead");
 	    addSeedRecipe(type.STEEL, "ingotSteel");
 	    addSeedRecipe(type.NICKEL, "ingotNickel");
+	    addSeedRecipe(type.CONSTANTAN, "ingotConstantan");
 	    addSeedRecipe(type.ELECTRUM, "ingotElectrum");
 
 	    addSeedRecipe(type.RUBY, "gemRuby");
@@ -398,8 +399,6 @@ public class ModRecipes {
 	    addSeedRecipe(type.FLUIX, "crystalFluix");
 	    
 	    addSeedRecipe(type.QUARTZ_ENRICHED_IRON, Parts.quartz_enriched_iron);
-
-	    addSeedRecipe(type.CONSTANTAN, "ingotConstantan");
 	    
 	    if(ModConfig.$gear_module_override){
 	    	if(ModConfig.harder_ingots){
