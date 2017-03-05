@@ -136,7 +136,7 @@ public class EssenceRecipes {
 	    addEssenceRecipe(new ItemStack(Items.BONE, EssenceConfig.bone, 0), "XEX", "EEE", "XEX", 'E', new ItemStack(type.SKELETON.getCrop(), 1, 0));
     
 	    addEssenceRecipe(new ItemStack(Items.GUNPOWDER, EssenceConfig.gunpowder, 0), "EEE", "XXX", "XXX", 'E', new ItemStack(type.CREEPER.getCrop(), 1, 0));
-
+	    
 	    addEssenceRecipe(new ItemStack(Items.STRING, EssenceConfig.string, 0), "EEE", "XXX", "XXX", 'E', new ItemStack(type.SPIDER.getCrop(), 1, 0));
 	    addEssenceRecipe(new ItemStack(Items.SPIDER_EYE, EssenceConfig.spider_eye, 0), "XEX", "EEE", "XEX", 'E', new ItemStack(type.SPIDER.getCrop(), 1, 0));
 

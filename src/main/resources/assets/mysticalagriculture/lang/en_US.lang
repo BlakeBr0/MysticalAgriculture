@@ -193,6 +193,8 @@ item.ma.dye_cluster.name=Dye Cluster
 item.ma.nether_cluster.name=Nether Cluster
 item.ma.mystical_flower_cluster.name=Mystical Flower Cluster
 
+item.ma.blank_record.name=Blank Record
+
 # ESSENCE APPLES
 item.ma.inferium_apple.name=§eInferium Apple
 item.ma.prudentium_apple.name=§aPrudentium Apple

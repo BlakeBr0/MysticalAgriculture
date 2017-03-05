@@ -104,6 +104,8 @@ public class ModItems {
 	public static BaseItem nether_cluster = new BaseItem("nether_cluster");
 	public static BaseItem mystical_flower_cluster = new BaseItem("mystical_flower_cluster");
 	
+	public static BaseItem blank_record = new BaseItem("blank_record");
+	
 	public static ItemInferiumApple inferium_apple = new ItemInferiumApple("inferium_apple");
 	public static ItemPrudentiumApple prudentium_apple = new ItemPrudentiumApple("prudentium_apple");
 	public static ItemIntermediumApple intermedium_apple = new ItemIntermediumApple("intermedium_apple");
@@ -298,6 +300,8 @@ public class ModItems {
 		if(CropType.Type.DYE.isEnabled()){ ITEMS.add(dye_cluster); }
 		if(CropType.Type.NETHER.isEnabled()){ ITEMS.add(nether_cluster); }
 		if(CropType.Type.MYSTICAL_FLOWER.isEnabled()){ ITEMS.add(mystical_flower_cluster); }
+		
+		if(CropType.Type.SKELETON.isEnabled() && CropType.Type.CREEPER.isEnabled()){ ITEMS.add(blank_record); }
 		
 		if(ModConfig.essence_apples){
 			ITEMS.add(inferium_apple);

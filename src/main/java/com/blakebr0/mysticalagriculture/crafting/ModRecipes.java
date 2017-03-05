@@ -211,6 +211,22 @@ public class ModRecipes {
 		if(type.NETHER.isEnabled()){ addShapelessRecipe(new ItemStack(ModItems.nether_cluster, 1, 0), new ItemStack(Blocks.SOUL_SAND, 1, 0), new ItemStack(Blocks.NETHERRACK, 1, 0), new ItemStack(Blocks.NETHERRACK, 1, 0), new ItemStack(Blocks.SOUL_SAND, 1, 0)); }
 		if(type.MYSTICAL_FLOWER.isEnabled()){ addShapelessRecipe(new ItemStack(ModItems.mystical_flower_cluster, 1, 0), Parts.botania_flower, Parts.botania_flower, Parts.botania_flower, Parts.botania_flower); }
    
+		if(type.SKELETON.isEnabled() && type.CREEPER.isEnabled()){ 
+			addShapedRecipe(new ItemStack(ModItems.blank_record, 1, 0), "CSC", "SIS", "CSC", 'I', "ingotIron", 'C', new ItemStack(type.CREEPER.getCrop(), 1, 0), 'S', new ItemStack(type.SKELETON.getCrop(), 1, 0)); 
+			addShapelessRecipe(new ItemStack(Items.RECORD_13, 1, 0), new ItemStack(ModItems.blank_record, 1, 0), "dyeYellow", new ItemStack(type.SKELETON.getCrop(), 1, 0), new ItemStack(type.CREEPER.getCrop(), 1, 0));
+			addShapelessRecipe(new ItemStack(Items.RECORD_CAT, 1, 0), new ItemStack(ModItems.blank_record, 1, 0), "dyeLime", new ItemStack(type.SKELETON.getCrop(), 1, 0), new ItemStack(type.CREEPER.getCrop(), 1, 0));
+			addShapelessRecipe(new ItemStack(Items.RECORD_BLOCKS, 1, 0), new ItemStack(ModItems.blank_record, 1, 0), "dyeOrange", new ItemStack(type.SKELETON.getCrop(), 1, 0), new ItemStack(type.CREEPER.getCrop(), 1, 0));
+			addShapelessRecipe(new ItemStack(Items.RECORD_CHIRP, 1, 0), new ItemStack(ModItems.blank_record, 1, 0), "dyeRed", new ItemStack(type.SKELETON.getCrop(), 1, 0), new ItemStack(type.CREEPER.getCrop(), 1, 0));
+			addShapelessRecipe(new ItemStack(Items.RECORD_FAR, 1, 0), new ItemStack(ModItems.blank_record, 1, 0), "dyeCyan", new ItemStack(type.SKELETON.getCrop(), 1, 0), new ItemStack(type.CREEPER.getCrop(), 1, 0));
+			addShapelessRecipe(new ItemStack(Items.RECORD_MALL, 1, 0), new ItemStack(ModItems.blank_record, 1, 0), "dyePurple", new ItemStack(type.SKELETON.getCrop(), 1, 0), new ItemStack(type.CREEPER.getCrop(), 1, 0));
+			addShapelessRecipe(new ItemStack(Items.RECORD_MELLOHI, 1, 0), new ItemStack(ModItems.blank_record, 1, 0), "dyeMagenta", new ItemStack(type.SKELETON.getCrop(), 1, 0), new ItemStack(type.CREEPER.getCrop(), 1, 0));
+			addShapelessRecipe(new ItemStack(Items.RECORD_STAL, 1, 0), new ItemStack(ModItems.blank_record, 1, 0), "dyeBlack", new ItemStack(type.SKELETON.getCrop(), 1, 0), new ItemStack(type.CREEPER.getCrop(), 1, 0));
+			addShapelessRecipe(new ItemStack(Items.RECORD_STRAD, 1, 0), new ItemStack(ModItems.blank_record, 1, 0), "dyeWhite", new ItemStack(type.SKELETON.getCrop(), 1, 0), new ItemStack(type.CREEPER.getCrop(), 1, 0));
+			addShapelessRecipe(new ItemStack(Items.RECORD_WARD, 1, 0), new ItemStack(ModItems.blank_record, 1, 0), "dyeGreen", new ItemStack(type.SKELETON.getCrop(), 1, 0), new ItemStack(type.CREEPER.getCrop(), 1, 0));
+			addShapelessRecipe(new ItemStack(Items.RECORD_11, 1, 0), new ItemStack(ModItems.blank_record, 1, 0), "dyeGray", new ItemStack(type.SKELETON.getCrop(), 1, 0), new ItemStack(type.CREEPER.getCrop(), 1, 0));
+			addShapelessRecipe(new ItemStack(Items.RECORD_WAIT, 1, 0), new ItemStack(ModItems.blank_record, 1, 0), "dyeLightBlue", new ItemStack(type.SKELETON.getCrop(), 1, 0), new ItemStack(type.CREEPER.getCrop(), 1, 0));
+		}
+		
 		if(ModConfig.essence_apples){ 
 			addShapedRecipe(new ItemStack(ModItems.inferium_apple, 1, 0), "XSX", "SWS", "XSX", 'S', new ItemStack(ModItems.inferium_essence, 1, 0), 'W', new ItemStack(Items.APPLE, 1, 0)); 
 			addShapedRecipe(new ItemStack(ModItems.prudentium_apple, 1, 0), "XSX", "SWS", "XSX", 'S', new ItemStack(ModItems.prudentium_essence, 1, 0), 'W', new ItemStack(ModItems.inferium_apple, 1, 0)); 
