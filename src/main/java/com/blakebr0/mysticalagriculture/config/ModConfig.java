@@ -309,101 +309,101 @@ public class ModConfig {
 
 		category = "Seeds";
 		config.addCustomCategoryComment(category, "Enable/Disable seeds individually.");
-		stone_seeds = config.get(category, "stone_seeds", true).getBoolean(stone_seeds);
-		dirt_seeds = config.get(category, "dirt_seeds", true).getBoolean(dirt_seeds);
-		nature_seeds = config.get(category, "nature_seeds", true).getBoolean(nature_seeds);
-		wood_seeds = config.get(category, "wood_seeds", true).getBoolean(wood_seeds);
-		water_seeds = config.get(category, "water_seeds", true).getBoolean(water_seeds);
-		ice_seeds = config.get(category, "ice_seeds", true).getBoolean(ice_seeds);
-		fire_seeds = config.get(category, "fire_seeds", true).getBoolean(fire_seeds);
-		dye_seeds = config.get(category, "dye_seeds", true).getBoolean(dye_seeds);
-		nether_seeds = config.get(category, "nether_seeds", true).getBoolean(nether_seeds);
-		coal_seeds = config.get(category, "coal_seeds", true).getBoolean(coal_seeds);
-		iron_seeds = config.get(category, "iron_seeds", true).getBoolean(iron_seeds);
-		nether_quartz_seeds = config.get(category, "nether_quartz_seeds", true).getBoolean(nether_quartz_seeds);
-		glowstone_seeds = config.get(category, "glowstone_seeds", true).getBoolean(glowstone_seeds);
-		obsidian_seeds = config.get(category, "obsidian_seeds", true).getBoolean(obsidian_seeds);
-		redstone_seeds = config.get(category, "redstone_seeds", true).getBoolean(redstone_seeds);
-		gold_seeds = config.get(category, "gold_seeds", true).getBoolean(gold_seeds);
-		lapis_lazuli_seeds = config.get(category, "lapis_lazuli_seeds", true).getBoolean(lapis_lazuli_seeds);
-		experience_seeds = config.get(category, "experience_seeds", true).getBoolean(experience_seeds);
-		diamond_seeds = config.get(category, "diamond_seeds", true).getBoolean(diamond_seeds);
-		emerald_seeds = config.get(category, "emerald_seeds", true).getBoolean(emerald_seeds);
+		stone_seeds = config.get(category, "stone_seeds", true).getBoolean();
+		dirt_seeds = config.get(category, "dirt_seeds", true).getBoolean();
+		nature_seeds = config.get(category, "nature_seeds", true).getBoolean();
+		wood_seeds = config.get(category, "wood_seeds", true).getBoolean();
+		water_seeds = config.get(category, "water_seeds", true).getBoolean();
+		ice_seeds = config.get(category, "ice_seeds", true).getBoolean();
+		fire_seeds = config.get(category, "fire_seeds", true).getBoolean();
+		dye_seeds = config.get(category, "dye_seeds", true).getBoolean();
+		nether_seeds = config.get(category, "nether_seeds", true).getBoolean();
+		coal_seeds = config.get(category, "coal_seeds", true).getBoolean();
+		iron_seeds = config.get(category, "iron_seeds", true).getBoolean();
+		nether_quartz_seeds = config.get(category, "nether_quartz_seeds", true).getBoolean();
+		glowstone_seeds = config.get(category, "glowstone_seeds", true).getBoolean();
+		obsidian_seeds = config.get(category, "obsidian_seeds", true).getBoolean();
+		redstone_seeds = config.get(category, "redstone_seeds", true).getBoolean();
+		gold_seeds = config.get(category, "gold_seeds", true).getBoolean();
+		lapis_lazuli_seeds = config.get(category, "lapis_lazuli_seeds", true).getBoolean();
+		experience_seeds = config.get(category, "experience_seeds", true).getBoolean();
+		diamond_seeds = config.get(category, "diamond_seeds", true).getBoolean();
+		emerald_seeds = config.get(category, "emerald_seeds", true).getBoolean();
 		
-		zombie_seeds = config.get(category, "zombie_seeds", true).getBoolean(zombie_seeds);
-		pig_seeds = config.get(category, "pig_seeds", true).getBoolean(pig_seeds);
-		chicken_seeds = config.get(category, "chicken_seeds", true).getBoolean(chicken_seeds);
-		cow_seeds = config.get(category, "cow_seeds", true).getBoolean(cow_seeds);
-		sheep_seeds = config.get(category, "sheep_seeds", true).getBoolean(sheep_seeds);
-		slime_seeds = config.get(category, "slime_seeds", true).getBoolean(slime_seeds);
-		skeleton_seeds = config.get(category, "skeleton_seeds", true).getBoolean(skeleton_seeds);
-		creeper_seeds = config.get(category, "creeper_seeds", true).getBoolean(creeper_seeds);
-		spider_seeds = config.get(category, "spider_seeds", true).getBoolean(spider_seeds);
-		rabbit_seeds = config.get(category, "rabbit_seeds", true).getBoolean(rabbit_seeds);
-		guardian_seeds = config.get(category, "guardian_seeds", true).getBoolean(guardian_seeds);
-		blaze_seeds = config.get(category, "blaze_seeds", true).getBoolean(blaze_seeds);
-		ghast_seeds = config.get(category, "ghast_seeds", true).getBoolean(ghast_seeds);
-		enderman_seeds = config.get(category, "enderman_seeds", true).getBoolean(enderman_seeds);
-		wither_skeleton_seeds = config.get(category, "wither_skeleton_seeds", true).getBoolean(wither_skeleton_seeds);
+		zombie_seeds = config.get(category, "zombie_seeds", true).getBoolean();
+		pig_seeds = config.get(category, "pig_seeds", true).getBoolean();
+		chicken_seeds = config.get(category, "chicken_seeds", true).getBoolean();
+		cow_seeds = config.get(category, "cow_seeds", true).getBoolean();
+		sheep_seeds = config.get(category, "sheep_seeds", true).getBoolean();
+		slime_seeds = config.get(category, "slime_seeds", true).getBoolean();
+		skeleton_seeds = config.get(category, "skeleton_seeds", true).getBoolean();
+		creeper_seeds = config.get(category, "creeper_seeds", true).getBoolean();
+		spider_seeds = config.get(category, "spider_seeds", true).getBoolean();
+		rabbit_seeds = config.get(category, "rabbit_seeds", true).getBoolean();
+		guardian_seeds = config.get(category, "guardian_seeds", true).getBoolean();
+		blaze_seeds = config.get(category, "blaze_seeds", true).getBoolean();
+		ghast_seeds = config.get(category, "ghast_seeds", true).getBoolean();
+		enderman_seeds = config.get(category, "enderman_seeds", true).getBoolean();
+		wither_skeleton_seeds = config.get(category, "wither_skeleton_seeds", true).getBoolean();
 			
 		category = "Mod Support Seeds";
 		config.addCustomCategoryComment(category, "Enable/Disable Mod Support seeds individually.");
-		rubber_seeds = config.get(category, "rubber_seeds", true).getBoolean(rubber_seeds);
-		aluminum_seeds = config.get(category, "aluminum_seeds", true).getBoolean(aluminum_seeds);
-		copper_seeds = config.get(category, "copper_seeds", true).getBoolean(copper_seeds);
-		tin_seeds = config.get(category, "tin_seeds", true).getBoolean(tin_seeds);
-		bronze_seeds = config.get(category, "bronze_seeds", true).getBoolean(bronze_seeds);
-		silver_seeds = config.get(category, "silver_seeds", true).getBoolean(silver_seeds);
-		lead_seeds = config.get(category, "lead_seeds", true).getBoolean(lead_seeds);
-		steel_seeds = config.get(category, "steel_seeds", true).getBoolean(steel_seeds);
-		nickel_seeds = config.get(category, "nickel_seeds", true).getBoolean(nickel_seeds);
-		constantan_seeds = config.get(category, "constantan_seeds", true).getBoolean(constantan_seeds);
-		electrum_seeds = config.get(category, "electrum_seeds", true).getBoolean(electrum_seeds);
+		rubber_seeds = config.get(category, "rubber_seeds", true).getBoolean();
+		aluminum_seeds = config.get(category, "aluminum_seeds", true).getBoolean();
+		copper_seeds = config.get(category, "copper_seeds", true).getBoolean();
+		tin_seeds = config.get(category, "tin_seeds", true).getBoolean();
+		bronze_seeds = config.get(category, "bronze_seeds", true).getBoolean();
+		silver_seeds = config.get(category, "silver_seeds", true).getBoolean();
+		lead_seeds = config.get(category, "lead_seeds", true).getBoolean();
+		steel_seeds = config.get(category, "steel_seeds", true).getBoolean();
+		nickel_seeds = config.get(category, "nickel_seeds", true).getBoolean();
+		constantan_seeds = config.get(category, "constantan_seeds", true).getBoolean();
+		electrum_seeds = config.get(category, "electrum_seeds", true).getBoolean();
 		invar_seeds = config.get(category, "invar_seeds", true).getBoolean();
 		platinum_seeds = config.get(category, "platinum_seeds", true).getBoolean();
 		
-		ruby_seeds = config.get(category, "ruby_seeds", true).getBoolean(ruby_seeds);
-		sapphire_seeds = config.get(category, "sapphire_seeds", true).getBoolean(sapphire_seeds);
-		peridot_seeds = config.get(category, "peridot_seeds", true).getBoolean(peridot_seeds);
+		ruby_seeds = config.get(category, "ruby_seeds", true).getBoolean();
+		sapphire_seeds = config.get(category, "sapphire_seeds", true).getBoolean();
+		peridot_seeds = config.get(category, "peridot_seeds", true).getBoolean();
 		
 		signalum_seeds = config.get(category, "signalum_seeds", true).getBoolean();
 		lumium_seeds = config.get(category, "lumium_seeds", true).getBoolean();
 		enderium_seeds = config.get(category, "enderium_seeds", true).getBoolean();
 		
-		aluminum_brass_seeds = config.get(category, "aluminum_brass_seeds", true).getBoolean(aluminum_brass_seeds);
-		knightslime_seeds = config.get(category, "knightslime_seeds", true).getBoolean(knightslime_seeds);
-		ardite_seeds = config.get(category, "ardite_seeds", true).getBoolean(ardite_seeds);
-		cobalt_seeds = config.get(category, "cobalt_seeds", true).getBoolean(cobalt_seeds);
-		manyullyn_seeds = config.get(category, "manyullyn_seeds", true).getBoolean(manyullyn_seeds);
+		aluminum_brass_seeds = config.get(category, "aluminum_brass_seeds", true).getBoolean();
+		knightslime_seeds = config.get(category, "knightslime_seeds", true).getBoolean();
+		ardite_seeds = config.get(category, "ardite_seeds", true).getBoolean();
+		cobalt_seeds = config.get(category, "cobalt_seeds", true).getBoolean();
+		manyullyn_seeds = config.get(category, "manyullyn_seeds", true).getBoolean();
 		
-		electrical_steel_seeds = config.get(category, "electrical_steel_seeds", true).getBoolean(electrical_steel_seeds);
-		redstone_alloy_seeds = config.get(category, "redstone_alloy_seeds", true).getBoolean(redstone_alloy_seeds);
-		conductive_iron_seeds = config.get(category, "conductive_iron_seeds", true).getBoolean(conductive_iron_seeds);
-		soularium_seeds = config.get(category, "soularium_seeds", true).getBoolean(soularium_seeds);
-		dark_steel_seeds = config.get(category, "dark_steel_seeds", true).getBoolean(dark_steel_seeds);
-		pulsating_iron_seeds = config.get(category, "pulsating_iron_seeds", true).getBoolean(pulsating_iron_seeds);
-		energetic_alloy_seeds = config.get(category, "energetic_alloy_seeds", true).getBoolean(energetic_alloy_seeds);
-		vibrant_alloy_seeds = config.get(category, "vibrant_alloy_seeds", true).getBoolean(vibrant_alloy_seeds);
+		electrical_steel_seeds = config.get(category, "electrical_steel_seeds", true).getBoolean();
+		redstone_alloy_seeds = config.get(category, "redstone_alloy_seeds", true).getBoolean();
+		conductive_iron_seeds = config.get(category, "conductive_iron_seeds", true).getBoolean();
+		soularium_seeds = config.get(category, "soularium_seeds", true).getBoolean();
+		dark_steel_seeds = config.get(category, "dark_steel_seeds", true).getBoolean();
+		pulsating_iron_seeds = config.get(category, "pulsating_iron_seeds", true).getBoolean();
+		energetic_alloy_seeds = config.get(category, "energetic_alloy_seeds", true).getBoolean();
+		vibrant_alloy_seeds = config.get(category, "vibrant_alloy_seeds", true).getBoolean();
 
-		mystical_flower_seeds = config.get(category, "mystical_flower_seeds", true).getBoolean(mystical_flower_seeds);
-		manasteel_seeds = config.get(category, "manasteel_seeds", true).getBoolean(manasteel_seeds);
-		terrasteel_seeds = config.get(category, "terrasteel_seeds", true).getBoolean(terrasteel_seeds);
+		mystical_flower_seeds = config.get(category, "mystical_flower_seeds", true).getBoolean();
+		manasteel_seeds = config.get(category, "manasteel_seeds", true).getBoolean();
+		terrasteel_seeds = config.get(category, "terrasteel_seeds", true).getBoolean();
 		
-		osmium_seeds = config.get(category, "osmium_seeds", true).getBoolean(osmium_seeds);
-		refined_obsidian_seeds = config.get(category, "refined_obsidian_seeds", true).getBoolean(refined_obsidian_seeds);
+		osmium_seeds = config.get(category, "osmium_seeds", true).getBoolean();
+		refined_obsidian_seeds = config.get(category, "refined_obsidian_seeds", true).getBoolean();
 		
-		marble_seeds = config.get(category, "marble_seeds", true).getBoolean(marble_seeds);
-		limestone_seeds = config.get(category, "limestone_seeds", true).getBoolean(limestone_seeds);
-		basalt_seeds = config.get(category, "basalt_seeds", true).getBoolean(basalt_seeds);
+		marble_seeds = config.get(category, "marble_seeds", true).getBoolean();
+		limestone_seeds = config.get(category, "limestone_seeds", true).getBoolean();
+		basalt_seeds = config.get(category, "basalt_seeds", true).getBoolean();
 	
-		draconium_seeds = config.get(category, "draconium_seeds", true).getBoolean(draconium_seeds);
+		draconium_seeds = config.get(category, "draconium_seeds", true).getBoolean();
 		
-		yellorium_seeds = config.get(category, "yellorium_seeds", true).getBoolean(yellorium_seeds);
+		yellorium_seeds = config.get(category, "yellorium_seeds", true).getBoolean();
 		
-		certus_quartz_seeds = config.get(category, "certus_quartz_seeds", true).getBoolean(certus_quartz_seeds);
-		fluix_seeds = config.get(category, "fluix_seeds", true).getBoolean(fluix_seeds);
+		certus_quartz_seeds = config.get(category, "certus_quartz_seeds", true).getBoolean();
+		fluix_seeds = config.get(category, "fluix_seeds", true).getBoolean();
 		
-		quartz_enriched_iron_seeds = config.get(category, "quartz_enriched_iron_seeds", true).getBoolean(quartz_enriched_iron_seeds);
+		quartz_enriched_iron_seeds = config.get(category, "quartz_enriched_iron_seeds", true).getBoolean();
 		
 		category = "Seed Tiers";
 		config.addCustomCategoryComment(category, "Set the tiers of each seed. The tier affects the recipe and the tooltip."
@@ -412,42 +412,42 @@ public class ModConfig {
 				+ "\nTier 3: Intermedium"
 				+ "\nTier 4: Superium"
 				+ "\nTier 5: Supremium");
-		stone_tier = config.get(category, "stone_tier", 1).getInt(stone_tier);
-		dirt_tier = config.get(category, "dirt_tier", 1).getInt(dirt_tier);
-		nature_tier = config.get(category, "nature_tier", 1).getInt(nature_tier);
-		wood_tier = config.get(category, "wood_tier", 1).getInt(wood_tier);
-		water_tier = config.get(category, "water_tier", 1).getInt(water_tier);
-		ice_tier = config.get(category, "ice_tier", 1).getInt(ice_tier);
-		fire_tier = config.get(category, "fire_tier", 2).getInt(fire_tier);
-		dye_tier = config.get(category, "dye_tier", 2).getInt(dye_tier);
-		nether_tier = config.get(category, "nether_tier", 2).getInt(nether_tier);
-		coal_tier = config.get(category, "coal_tier", 2).getInt(coal_tier);
-		iron_tier = config.get(category, "iron_tier", 3).getInt(iron_tier);
-		nether_quartz_tier = config.get(category, "nether_quartz_tier", 3).getInt(nether_quartz_tier);
-		glowstone_tier = config.get(category, "glowstone_tier", 3).getInt(glowstone_tier);
-		redstone_tier = config.get(category, "redstone_tier", 3).getInt(redstone_tier);
-		obsidian_tier = config.get(category, "obsidian_tier", 3).getInt(obsidian_tier);
-		gold_tier = config.get(category, "gold_tier", 4).getInt(gold_tier);
-		lapis_lazuli_tier = config.get(category, "lapis_lazuli_tier", 4).getInt(lapis_lazuli_tier);
-		experience_tier = config.get(category, "experience_tier", 4).getInt(experience_tier);
-		diamond_tier = config.get(category, "diamond_tier", 5).getInt(diamond_tier);
-		emerald_tier = config.get(category, "emerald_tier", 5).getInt(emerald_tier);
+		stone_tier = config.get(category, "stone_tier", 1).getInt();
+		dirt_tier = config.get(category, "dirt_tier", 1).getInt();
+		nature_tier = config.get(category, "nature_tier", 1).getInt();
+		wood_tier = config.get(category, "wood_tier", 1).getInt();
+		water_tier = config.get(category, "water_tier", 1).getInt();
+		ice_tier = config.get(category, "ice_tier", 1).getInt();
+		fire_tier = config.get(category, "fire_tier", 2).getInt();
+		dye_tier = config.get(category, "dye_tier", 2).getInt();
+		nether_tier = config.get(category, "nether_tier", 2).getInt();
+		coal_tier = config.get(category, "coal_tier", 2).getInt();
+		iron_tier = config.get(category, "iron_tier", 3).getInt();
+		nether_quartz_tier = config.get(category, "nether_quartz_tier", 3).getInt();
+		glowstone_tier = config.get(category, "glowstone_tier", 3).getInt();
+		redstone_tier = config.get(category, "redstone_tier", 3).getInt();
+		obsidian_tier = config.get(category, "obsidian_tier", 3).getInt();
+		gold_tier = config.get(category, "gold_tier", 4).getInt();
+		lapis_lazuli_tier = config.get(category, "lapis_lazuli_tier", 4).getInt();
+		experience_tier = config.get(category, "experience_tier", 4).getInt();
+		diamond_tier = config.get(category, "diamond_tier", 5).getInt();
+		emerald_tier = config.get(category, "emerald_tier", 5).getInt();
 
-		zombie_tier = config.get(category, "zombie_tier", 1).getInt(zombie_tier);
-		pig_tier = config.get(category, "pig_tier", 2).getInt(pig_tier);
-		chicken_tier = config.get(category, "chicken_tier", 2).getInt(chicken_tier);
-		cow_tier = config.get(category, "cow_tier", 2).getInt(cow_tier);
-		sheep_tier = config.get(category, "sheep_tier", 2).getInt(sheep_tier);
-		slime_tier = config.get(category, "slime_tier", 2).getInt(slime_tier);
-		skeleton_tier = config.get(category, "skeleton_tier", 3).getInt(skeleton_tier);
-		creeper_tier = config.get(category, "creeper_tier", 3).getInt(creeper_tier);
-		spider_tier = config.get(category, "spider_tier", 3).getInt(spider_tier);
-		rabbit_tier = config.get(category, "rabbit_tier", 3).getInt(rabbit_tier);
-		guardian_tier = config.get(category, "guardian_tier", 3).getInt(guardian_tier);
-		blaze_tier = config.get(category, "blaze_tier", 4).getInt(blaze_tier);
-		ghast_tier = config.get(category, "ghast_tier", 4).getInt(ghast_tier);
-		enderman_tier = config.get(category, "enderman_tier", 4).getInt(enderman_tier);
-		wither_skeleton_tier = config.get(category, "wither_skeleton_tier", 5).getInt(wither_skeleton_tier);
+		zombie_tier = config.get(category, "zombie_tier", 1).getInt();
+		pig_tier = config.get(category, "pig_tier", 2).getInt();
+		chicken_tier = config.get(category, "chicken_tier", 2).getInt();
+		cow_tier = config.get(category, "cow_tier", 2).getInt();
+		sheep_tier = config.get(category, "sheep_tier", 2).getInt();
+		slime_tier = config.get(category, "slime_tier", 2).getInt();
+		skeleton_tier = config.get(category, "skeleton_tier", 3).getInt();
+		creeper_tier = config.get(category, "creeper_tier", 3).getInt();
+		spider_tier = config.get(category, "spider_tier", 3).getInt();
+		rabbit_tier = config.get(category, "rabbit_tier", 3).getInt();
+		guardian_tier = config.get(category, "guardian_tier", 3).getInt();
+		blaze_tier = config.get(category, "blaze_tier", 4).getInt();
+		ghast_tier = config.get(category, "ghast_tier", 4).getInt();
+		enderman_tier = config.get(category, "enderman_tier", 4).getInt();
+		wither_skeleton_tier = config.get(category, "wither_skeleton_tier", 5).getInt();
 
 		category = "Mod Support Seed Tiers";
 		config.addCustomCategoryComment(category, "Set the tiers of each seed. The tier affects the recipe and the tooltip."
@@ -456,62 +456,62 @@ public class ModConfig {
 				+ "\nTier 3: Intermedium"
 				+ "\nTier 4: Superium"
 				+ "\nTier 5: Supremium");
-		rubber_tier = config.get(category, "rubber_tier", 2).getInt(rubber_tier);
-		aluminum_tier = config.get(category, "aluminum_tier", 2).getInt(aluminum_tier);
-		copper_tier = config.get(category, "copper_tier", 2).getInt(copper_tier);
-		tin_tier = config.get(category, "tin_tier", 3).getInt(tin_tier);
-		bronze_tier = config.get(category, "bronze_tier", 3).getInt(bronze_tier);
-		silver_tier = config.get(category, "silver_tier", 3).getInt(silver_tier);
-		lead_tier = config.get(category, "lead_tier", 3).getInt(lead_tier);
-		steel_tier = config.get(category, "steels_tier", 4).getInt(steel_tier);
-		nickel_tier = config.get(category, "nickel_tier", 4).getInt(nickel_tier);
-		constantan_tier = config.get(category, "constantan_tier", 4).getInt(constantan_tier);
-		electrum_tier = config.get(category, "electrum_tier", 4).getInt(electrum_tier);
+		rubber_tier = config.get(category, "rubber_tier", 2).getInt();
+		aluminum_tier = config.get(category, "aluminum_tier", 2).getInt();
+		copper_tier = config.get(category, "copper_tier", 2).getInt();
+		tin_tier = config.get(category, "tin_tier", 3).getInt();
+		bronze_tier = config.get(category, "bronze_tier", 3).getInt();
+		silver_tier = config.get(category, "silver_tier", 3).getInt();
+		lead_tier = config.get(category, "lead_tier", 3).getInt();
+		steel_tier = config.get(category, "steels_tier", 4).getInt();
+		nickel_tier = config.get(category, "nickel_tier", 4).getInt();
+		constantan_tier = config.get(category, "constantan_tier", 4).getInt();
+		electrum_tier = config.get(category, "electrum_tier", 4).getInt();
 		invar_tier = config.get(category, "invar_tier", 4).getInt();
 		platinum_tier = config.get(category, "platinum_tier", 5).getInt();
 		
-		ruby_tier = config.get(category, "ruby_tier", 4).getInt(ruby_tier);
-		sapphire_tier = config.get(category, "sapphire", 4).getInt(sapphire_tier);
-		peridot_tier = config.get(category, "peridot_tier", 4).getInt(peridot_tier);
+		ruby_tier = config.get(category, "ruby_tier", 4).getInt();
+		sapphire_tier = config.get(category, "sapphire", 4).getInt();
+		peridot_tier = config.get(category, "peridot_tier", 4).getInt();
 		
 		signalum_tier = config.get(category, "signalum_tier", 4).getInt();
 		lumium_tier = config.get(category, "lumium_tier", 4).getInt();
 		enderium_tier = config.get(category, "enderium_tier", 5).getInt();
 		
-		aluminum_brass_tier = config.get(category, "aluminum_brass_tier", 2).getInt(aluminum_brass_tier);
-		knightslime_tier = config.get(category, "knightslime_tier", 3).getInt(knightslime_tier);
-		ardite_tier = config.get(category, "ardite_tier", 3).getInt(ardite_tier);
-		cobalt_tier = config.get(category, "cobalt_tier", 4).getInt(cobalt_tier);
-		manyullyn_tier = config.get(category, "manyullyn_tier", 5).getInt(manyullyn_tier);
+		aluminum_brass_tier = config.get(category, "aluminum_brass_tier", 2).getInt();
+		knightslime_tier = config.get(category, "knightslime_tier", 3).getInt();
+		ardite_tier = config.get(category, "ardite_tier", 3).getInt();
+		cobalt_tier = config.get(category, "cobalt_tier", 4).getInt();
+		manyullyn_tier = config.get(category, "manyullyn_tier", 5).getInt();
 		
-		electrical_steel_tier = config.get(category, "electrical_steel_tier", 3).getInt(electrical_steel_tier);
-		redstone_alloy_tier = config.get(category, "redstone_alloy_tier", 3).getInt(redstone_alloy_tier);
-		conductive_iron_tier = config.get(category, "conductive_iron_tier", 3).getInt(conductive_iron_tier);
-		soularium_tier = config.get(category, "soularium_tier", 4).getInt(soularium_tier);
-		dark_steel_tier = config.get(category, "dark_steel_tier", 4).getInt(dark_steel_tier);
-		pulsating_iron_tier = config.get(category, "pulsating_iron_tier", 4).getInt(pulsating_iron_tier);
-		energetic_alloy_tier = config.get(category, "energetic_alloy_tier", 4).getInt(energetic_alloy_tier);
-		vibrant_alloy_tier = config.get(category, "vibrant_alloy_tier", 5).getInt(vibrant_alloy_tier);
+		electrical_steel_tier = config.get(category, "electrical_steel_tier", 3).getInt();
+		redstone_alloy_tier = config.get(category, "redstone_alloy_tier", 3).getInt();
+		conductive_iron_tier = config.get(category, "conductive_iron_tier", 3).getInt();
+		soularium_tier = config.get(category, "soularium_tier", 4).getInt();
+		dark_steel_tier = config.get(category, "dark_steel_tier", 4).getInt();
+		pulsating_iron_tier = config.get(category, "pulsating_iron_tier", 4).getInt();
+		energetic_alloy_tier = config.get(category, "energetic_alloy_tier", 4).getInt();
+		vibrant_alloy_tier = config.get(category, "vibrant_alloy_tier", 5).getInt();
 
-		mystical_flower_tier = config.get(category, "mystical_flower_tier", 2).getInt(mystical_flower_tier);
-		manasteel_tier = config.get(category, "manasteel_tier", 3).getInt(manasteel_tier);
-		terrasteel_tier = config.get(category, "terrasteel_tier", 5).getInt(terrasteel_tier);
+		mystical_flower_tier = config.get(category, "mystical_flower_tier", 2).getInt();
+		manasteel_tier = config.get(category, "manasteel_tier", 3).getInt();
+		terrasteel_tier = config.get(category, "terrasteel_tier", 5).getInt();
 
-		osmium_tier = config.get(category, "osmium_tier", 4).getInt(osmium_tier);
-		refined_obsidian_tier = config.get(category, "refined_obsidian_tier", 5).getInt(refined_obsidian_tier);
+		osmium_tier = config.get(category, "osmium_tier", 4).getInt();
+		refined_obsidian_tier = config.get(category, "refined_obsidian_tier", 5).getInt();
 		
-		marble_tier = config.get(category, "marble_tier", 2).getInt(marble_tier);
-		limestone_tier = config.get(category, "limestone_tier", 2).getInt(limestone_tier);
-		basalt_tier = config.get(category, "basalt_tier", 2).getInt(basalt_tier);
+		marble_tier = config.get(category, "marble_tier", 2).getInt();
+		limestone_tier = config.get(category, "limestone_tier", 2).getInt();
+		basalt_tier = config.get(category, "basalt_tier", 2).getInt();
 		
-		draconium_tier = config.get(category, "draconium_tier", 5).getInt(draconium_tier);
+		draconium_tier = config.get(category, "draconium_tier", 5).getInt();
 		
-		yellorium_tier = config.get(category, "yellorium_tier", 5).getInt(yellorium_tier);
+		yellorium_tier = config.get(category, "yellorium_tier", 5).getInt();
 		
-		certus_quartz_tier = config.get(category, "certus_quartz_tier", 3).getInt(certus_quartz_tier);
-		fluix_tier = config.get(category, "fluix_tier", 4).getInt(fluix_tier);
+		certus_quartz_tier = config.get(category, "certus_quartz_tier", 3).getInt();
+		fluix_tier = config.get(category, "fluix_tier", 4).getInt();
 		
-		quartz_enriched_iron_tier = config.get(category, "quartz_enriched_iron_tier", 3).getInt(quartz_enriched_iron_tier);
+		quartz_enriched_iron_tier = config.get(category, "quartz_enriched_iron_tier", 3).getInt();
 				
 		category = "Gear";
 		config.addCustomCategoryComment(category, "Settings for the Mystical Agriculture: Gear module.");
