@@ -202,9 +202,7 @@ public class ModBlocks {
 	@SideOnly(Side.CLIENT)
 	public static void initBlockModels(){
 		for(Block block : BLOCKS){
-			Minecraft.getMinecraft().getRenderItem().getItemModelMesher()
-			.register(Item.getItemFromBlock(block), 0, new ModelResourceLocation(MysticalAgriculture.MOD_ID + ":" + block
-			.getUnlocalizedName().substring(8), "inventory"));
+			ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(block), 0, new ModelResourceLocation(MysticalAgriculture.MOD_ID + ":" + block.getUnlocalizedName().substring(8), "inventory"));
 		}
 	}
 }

@@ -504,9 +504,7 @@ public class ModItems {
 	@SideOnly(Side.CLIENT)
 	public static void initItemModels(){
 		for(Item item : ITEMS){
-			Minecraft.getMinecraft().getRenderItem().getItemModelMesher()
-			.register(item, 0, new ModelResourceLocation(MysticalAgriculture.MOD_ID + ":" + item
-			.getUnlocalizedName().substring(8), "inventory")); 
+			ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(MysticalAgriculture.MOD_ID + ":" + item.getUnlocalizedName().substring(8), "inventory")); 
 		}
 	}
 

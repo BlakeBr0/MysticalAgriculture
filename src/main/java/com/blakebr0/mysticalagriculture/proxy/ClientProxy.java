@@ -13,13 +13,13 @@ public class ClientProxy extends CommonProxy {
 	@Override
 	public void preInit(FMLPreInitializationEvent e) {
 		super.preInit(e);
+		ModBlocks.initBlockModels();
+		ModItems.initItemModels();
 	}
 
 	@Override
 	public void init(FMLInitializationEvent e) {
 		super.init(e);
-		ModBlocks.initBlockModels();
-		ModItems.initItemModels();
 	}
 
 	@Override

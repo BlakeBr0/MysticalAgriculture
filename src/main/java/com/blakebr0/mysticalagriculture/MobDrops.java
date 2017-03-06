@@ -114,7 +114,7 @@ public class MobDrops {
             ItemStack held = player.getHeldItemMainhand();
             
             if(held != null && held.getItem() == ModItems.soulium_dagger){
-            	
+
             	if(attacked instanceof EntityZombie && ModConfig.zombie_seeds){            	
             		ItemStack stack = new ItemStack(ModItems.zombie_chunk, dropChance(ModConfig.zombie_tier));
             		if(stack.stackSize > 1){
