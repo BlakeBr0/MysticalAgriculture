@@ -112,6 +112,8 @@ public class ModItems {
 	public static ItemSuperiumApple superium_apple = new ItemSuperiumApple("superium_apple");
 	public static ItemSupremiumApple supremium_apple = new ItemSupremiumApple("supremium_apple");
 	
+	public static ItemEssenceCoal ESSENCE_COAL = new ItemEssenceCoal();
+	
 	public static BaseItem base_crafting_seed = new BaseItem("base_crafting_seed");
 	public static BaseItem tier1_crafting_seed = new BaseItem("tier1_crafting_seed");
 	public static BaseItem tier2_crafting_seed = new BaseItem("tier2_crafting_seed");
@@ -311,6 +313,8 @@ public class ModItems {
 			ITEMS.add(supremium_apple);
 		}
 		
+		GameRegistry.register(ESSENCE_COAL);
+		
 		ITEMS.add(base_crafting_seed);
 		ITEMS.add(tier1_crafting_seed);
 		ITEMS.add(tier2_crafting_seed);
@@ -506,6 +510,8 @@ public class ModItems {
 		for(Item item : ITEMS){
 			ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(MysticalAgriculture.MOD_ID + ":" + item.getUnlocalizedName().substring(8), "inventory")); 
 		}
+		
+		ESSENCE_COAL.initModels();
 	}
 
 	public static void initOreDict(){

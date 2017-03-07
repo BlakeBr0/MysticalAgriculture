@@ -238,6 +238,7 @@ public class ModConfig {
 	public static boolean essence_furnaces;
 	public static boolean ultimate_furnace;
 	public static boolean botania_horn_harvesting;
+	public static boolean essence_coal;
 	
 	public static boolean generate_regular;
 	public static boolean generate_nether;
@@ -525,12 +526,13 @@ public class ModConfig {
 		aoe_charms = config.getBoolean("aoe_charms", category, true, "Should the 3x3 mining upgraded Supremium Tools be enabled?");
 		
 		category = "Fun Stuff";
-		config.addCustomCategoryComment(category, "Fun things made with essences.");
+		config.addCustomCategoryComment(category, "Fun things made with essences. Sometimes.");
 		essence_apples = config.getBoolean("essence_apples", category, true, "Essence Apples enabled?");
 		apple_buff_duration = config.getInt("apple_buff_duration", category, 2, 1, 100, "Essence Apple buff durations in minutes.");
 		essence_furnaces = config.getBoolean("essence_furnaces", category, true, "Essence Furnaces enabled?");
 		ultimate_furnace = config.getBoolean("ultimate_furnace", category, true, "Ultimate Furnace enabled? Requires Essence Furnaces be enabled.");
 		botania_horn_harvesting = config.getBoolean("botania_horn_harvesting", category, true, "Should the Horn of the Wild auto-replant crops?");
+		essence_coal = config.getBoolean("essence_coal", category, true, "Essence Coal enabled?");
 		
 		category = "World";
 		config.addCustomCategoryComment(category, "Settings for any World Generation in Mystical Agriculture.");

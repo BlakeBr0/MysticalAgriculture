@@ -24,4 +24,14 @@ public class BaseBlock extends Block {
 		this.setResistance(resistance);
 		this.setHarvestLevel(tool, level);
 	} 
+	
+	public BaseBlock(String name, Material material, SoundType sound, float hardness, float resistance) {
+		super(material);
+		this.setCreativeTab(MysticalAgriculture.tabMysticalAgriculture);
+		this.setSoundType(sound);
+		this.setUnlocalizedName("ma." + name);
+		this.setRegistryName(name);
+		this.setHardness(hardness);
+		this.setResistance(resistance);
+	} 
 }

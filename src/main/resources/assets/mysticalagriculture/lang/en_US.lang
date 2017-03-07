@@ -19,6 +19,12 @@ tile.ma.supremium_ingot_block.name=§cSupremium Ingot Block
 
 tile.ma.soulium_ingot_block.name=§dSoulium Ingot Block
 
+tile.ma.coal_block_inferium.name=§eInferium Coal Block
+tile.ma.coal_block_prudentium.name=§aPrudentium Coal Block
+tile.ma.coal_block_intermedium.name=§6Intermedium Coal Block
+tile.ma.coal_block_superium.name=§bSuperium Coal Block
+tile.ma.coal_block_supremium.name=§cSupremium Coal Block
+
 tile.ma.soulstone.name=Soulstone
 
 # FURNACES
@@ -201,6 +207,12 @@ item.ma.prudentium_apple.name=§aPrudentium Apple
 item.ma.intermedium_apple.name=§6Intermedium Apple
 item.ma.superium_apple.name=§bSuperium Apple
 item.ma.supremium_apple.name=§cSupremium Apple
+
+item.ma.coal_inferium.name=§eInferium Coal
+item.ma.coal_prudentium.name=§aPrudentium Coal
+item.ma.coal_intermedium.name=§6Intermedium Coal
+item.ma.coal_superium.name=§bSuperium Coal
+item.ma.coal_supremium.name=§cSupremium Coal
 
 # CRAFTING SEEDS
 item.ma.base_crafting_seed.name=Base Crafting Seed

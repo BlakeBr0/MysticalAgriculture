@@ -151,6 +151,24 @@ public class ModRecipes {
 	    	}
 	    }
 	    
+	    if(ModConfig.essence_coal){
+	    	addShapelessRecipe(new ItemStack(ModItems.ESSENCE_COAL, 1, 0), new ItemStack(Items.COAL, 1, 0), new ItemStack(ModItems.inferium_essence, 1, 0), new ItemStack(ModItems.inferium_essence, 1, 0));
+	    	addShapelessRecipe(new ItemStack(ModItems.ESSENCE_COAL, 1, 1), new ItemStack(ModItems.ESSENCE_COAL, 1, 0), new ItemStack(ModItems.prudentium_essence, 1, 0), new ItemStack(ModItems.prudentium_essence, 1, 0));
+	    	addShapelessRecipe(new ItemStack(ModItems.ESSENCE_COAL, 1, 2), new ItemStack(ModItems.ESSENCE_COAL, 1, 1), new ItemStack(ModItems.intermedium_essence, 1, 0), new ItemStack(ModItems.intermedium_essence, 1, 0));
+	    	addShapelessRecipe(new ItemStack(ModItems.ESSENCE_COAL, 1, 3), new ItemStack(ModItems.ESSENCE_COAL, 1, 2), new ItemStack(ModItems.superium_essence, 1, 0), new ItemStack(ModItems.superium_essence, 1, 0));
+	    	addShapelessRecipe(new ItemStack(ModItems.ESSENCE_COAL, 1, 4), new ItemStack(ModItems.ESSENCE_COAL, 1, 3), new ItemStack(ModItems.supremium_essence, 1, 0), new ItemStack(ModItems.supremium_essence, 1, 0));
+	    	addShapedRecipe(new ItemStack(ModBlocks.ESSENCE_COAL_BLOCK, 1, 0), "CCC", "CCC", "CCC", 'C', new ItemStack(ModItems.ESSENCE_COAL, 1, 0));
+	    	addShapedRecipe(new ItemStack(ModBlocks.ESSENCE_COAL_BLOCK, 1, 1), "CCC", "CCC", "CCC", 'C', new ItemStack(ModItems.ESSENCE_COAL, 1, 1));
+	    	addShapedRecipe(new ItemStack(ModBlocks.ESSENCE_COAL_BLOCK, 1, 2), "CCC", "CCC", "CCC", 'C', new ItemStack(ModItems.ESSENCE_COAL, 1, 2));
+	    	addShapedRecipe(new ItemStack(ModBlocks.ESSENCE_COAL_BLOCK, 1, 3), "CCC", "CCC", "CCC", 'C', new ItemStack(ModItems.ESSENCE_COAL, 1, 3));
+	    	addShapedRecipe(new ItemStack(ModBlocks.ESSENCE_COAL_BLOCK, 1, 4), "CCC", "CCC", "CCC", 'C', new ItemStack(ModItems.ESSENCE_COAL, 1, 4));
+	    	addShapelessRecipe(new ItemStack(ModItems.ESSENCE_COAL, 9, 0), new ItemStack(ModBlocks.ESSENCE_COAL_BLOCK, 1, 0));
+	    	addShapelessRecipe(new ItemStack(ModItems.ESSENCE_COAL, 9, 1), new ItemStack(ModBlocks.ESSENCE_COAL_BLOCK, 1, 1));
+	    	addShapelessRecipe(new ItemStack(ModItems.ESSENCE_COAL, 9, 2), new ItemStack(ModBlocks.ESSENCE_COAL_BLOCK, 1, 2));
+	    	addShapelessRecipe(new ItemStack(ModItems.ESSENCE_COAL, 9, 3), new ItemStack(ModBlocks.ESSENCE_COAL_BLOCK, 1, 3));
+	    	addShapelessRecipe(new ItemStack(ModItems.ESSENCE_COAL, 9, 4), new ItemStack(ModBlocks.ESSENCE_COAL_BLOCK, 1, 4));
+	    }
+	    
 	    if(ModConfig.growth_accelerator){ addShapedRecipe(new ItemStack(ModBlocks.growth_accelerator, 1, 0), "SES", "EDE", "SES", 'E', new ItemStack(ModBlocks.inferium_block, 1, 0), 'S', "stone", 'D', "gemDiamond"); }
 	    
 	    addShapedRecipe(new ItemStack(ModBlocks.mystical_machine_frame, 4, 0), "SIS", "IXI", "SIS", 'S', "stone", 'I', new ItemStack(ModItems.base_essence_ingot, 1, 0));

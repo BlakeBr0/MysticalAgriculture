@@ -61,6 +61,8 @@ public class ModBlocks {
 	public static BaseBlock intermedium_ingot_block = new BaseBlock("intermedium_ingot_block", Material.IRON, SoundType.METAL, 5.0F, 8.0F, "pickaxe", 0);
 	public static BaseBlock superium_ingot_block = new BaseBlock("superium_ingot_block", Material.IRON, SoundType.METAL, 5.0F, 8.0F, "pickaxe", 0);
 	public static BaseBlock supremium_ingot_block = new BaseBlock("supremium_ingot_block", Material.IRON, SoundType.METAL, 5.0F, 8.0F, "pickaxe", 0);
+
+	public static BlockEssenceCoal ESSENCE_COAL_BLOCK = new BlockEssenceCoal();
 	
 	public static BaseBlock soulium_ingot_block = new BaseBlock("soulium_ingot_block", Material.IRON, SoundType.METAL, 5.0F, 8.0F, "pickaxe", 0);
 	
@@ -121,6 +123,9 @@ public class ModBlocks {
 		
 		BLOCKS.add(soulium_ingot_block);
 		
+		GameRegistry.register(ESSENCE_COAL_BLOCK);
+		GameRegistry.register(new ItemBlockEssenceCoal(ESSENCE_COAL_BLOCK).setRegistryName(ESSENCE_COAL_BLOCK.getRegistryName()));
+		
 		BLOCKS.add(soulstone);
 		
 		if(ModConfig.essence_furnaces){
@@ -139,7 +144,7 @@ public class ModBlocks {
 				BLOCKS.add(ultimate_furnace_active);
 			}
 		}
-		
+				
 		BLOCKS.add(prosperity_ore);
 		BLOCKS.add(nether_prosperity_ore);
 		BLOCKS.add(end_prosperity_ore);
@@ -204,5 +209,7 @@ public class ModBlocks {
 		for(Block block : BLOCKS){
 			ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(block), 0, new ModelResourceLocation(MysticalAgriculture.MOD_ID + ":" + block.getUnlocalizedName().substring(8), "inventory"));
 		}
+		
+		ESSENCE_COAL_BLOCK.initModels();
 	}
 }
