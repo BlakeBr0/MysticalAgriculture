@@ -225,7 +225,7 @@ public class ModRecipes {
 		if(type.NATURE.isEnabled()){ addShapelessRecipe(new ItemStack(ModItems.nature_cluster, 1, 0), new ItemStack(Blocks.CACTUS, 1, 0), new ItemStack(Blocks.PUMPKIN, 1, 0), new ItemStack(Items.REEDS, 1, 0), new ItemStack(Items.WHEAT, 1, 0)); }
 		if(type.DYE.isEnabled()){ addShapelessRecipe(new ItemStack(ModItems.dye_cluster, 1, 0), new ItemStack(Items.DYE, 1, 0), new ItemStack(Items.DYE, 1, 14), new ItemStack(Items.DYE, 1, 6), new ItemStack(Items.DYE, 1, 13)); }
 		if(type.NETHER.isEnabled()){ addShapelessRecipe(new ItemStack(ModItems.nether_cluster, 1, 0), new ItemStack(Blocks.SOUL_SAND, 1, 0), new ItemStack(Blocks.NETHERRACK, 1, 0), new ItemStack(Blocks.NETHERRACK, 1, 0), new ItemStack(Blocks.SOUL_SAND, 1, 0)); }
-		if(type.MYSTICAL_FLOWER.isEnabled()){ addShapelessRecipe(new ItemStack(ModItems.mystical_flower_cluster, 1, 0), Parts.botania_flower, Parts.botania_flower, Parts.botania_flower, Parts.botania_flower); }
+		if(type.MYSTICAL_FLOWER.isEnabled()){ addShapelessRecipe(new ItemStack(ModItems.mystical_flower_cluster, 1, 0), new ItemStack(Parts.itemBotaniaFlowers, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(Parts.itemBotaniaFlowers, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(Parts.itemBotaniaFlowers, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(Parts.itemBotaniaFlowers, 1, OreDictionary.WILDCARD_VALUE)); }
    
 		if(type.SKELETON.isEnabled() && type.CREEPER.isEnabled()){ 
 			addShapedRecipe(new ItemStack(ModItems.blank_record, 1, 0), "CSC", "SIS", "CSC", 'I', "ingotIron", 'C', new ItemStack(type.CREEPER.getCrop(), 1, 0), 'S', new ItemStack(type.SKELETON.getCrop(), 1, 0)); 
@@ -403,31 +403,31 @@ public class ModRecipes {
 	    addSeedRecipe(type.LUMIUM, "ingotLumium");
 	    addSeedRecipe(type.ENDERIUM, "ingotEnderium");
 
-	    addSeedRecipe(type.ALUMINUM_BRASS, Parts.aluminum_brass);
-	    addSeedRecipe(type.KNIGHTSLIME, Parts.knightslime);
-	    addSeedRecipe(type.ARDITE, Parts.ardite);
-	    addSeedRecipe(type.COBALT, Parts.cobalt);
-	    addSeedRecipe(type.MANYULLYN, Parts.manyullyn);
+	    addSeedRecipe(type.ALUMINUM_BRASS, new ItemStack(Parts.itemTinkersIngots, 1, 5));
+	    addSeedRecipe(type.KNIGHTSLIME, new ItemStack(Parts.itemTinkersIngots, 1, 3));
+	    addSeedRecipe(type.ARDITE, new ItemStack(Parts.itemTinkersIngots, 1, 1));
+	    addSeedRecipe(type.COBALT, new ItemStack(Parts.itemTinkersIngots, 1, 0));
+	    addSeedRecipe(type.MANYULLYN, new ItemStack(Parts.itemTinkersIngots, 1, 2));
 
-	    addSeedRecipe(type.ELECTRICAL_STEEL, Parts.electrical_steel);
-	    addSeedRecipe(type.REDSTONE_ALLOY, Parts.redstone_alloy);
-	    addSeedRecipe(type.CONDUCTIVE_IRON, Parts.conductive_iron);
-	    addSeedRecipe(type.SOULARIUM, Parts.soularium);
-	    addSeedRecipe(type.DARK_STEEL, Parts.dark_steel);
-	    addSeedRecipe(type.PULSATING_IRON, Parts.pulsating_iron);
-	    addSeedRecipe(type.ENERGETIC_ALLOY, Parts.energetic_alloy);
-	    addSeedRecipe(type.VIBRANT_ALLOY, Parts.vibrant_alloy);
+	    addSeedRecipe(type.ELECTRICAL_STEEL, new ItemStack(Parts.itemEnderIOAlloys, 1, 0));
+	    addSeedRecipe(type.REDSTONE_ALLOY, new ItemStack(Parts.itemEnderIOAlloys, 1, 3));
+	    addSeedRecipe(type.CONDUCTIVE_IRON, new ItemStack(Parts.itemEnderIOAlloys, 1, 4));
+	    addSeedRecipe(type.SOULARIUM, new ItemStack(Parts.itemEnderIOAlloys, 1, 7));
+	    addSeedRecipe(type.DARK_STEEL, new ItemStack(Parts.itemEnderIOAlloys, 1, 6));
+	    addSeedRecipe(type.PULSATING_IRON, new ItemStack(Parts.itemEnderIOAlloys, 1, 5));
+	    addSeedRecipe(type.ENERGETIC_ALLOY, new ItemStack(Parts.itemEnderIOAlloys, 1, 1));
+	    addSeedRecipe(type.VIBRANT_ALLOY, new ItemStack(Parts.itemEnderIOAlloys, 1, 2));
 
 	    addSeedRecipe(type.MYSTICAL_FLOWER, new ItemStack(ModItems.mystical_flower_cluster, 1, 0));
-	    addSeedRecipe(type.MANASTEEL, Parts.manasteel);
-	    addSeedRecipe(type.TERRASTEEL, Parts.terrasteel);
+	    addSeedRecipe(type.MANASTEEL, new ItemStack(Parts.itemBotaniaResources, 1, 0));
+	    addSeedRecipe(type.TERRASTEEL, new ItemStack(Parts.itemBotaniaResources, 1, 4));
 	
 	    addSeedRecipe(type.OSMIUM, "ingotOsmium");
 	    addSeedRecipe(type.REFINED_OBSIDIAN, "ingotRefinedObsidian");
 
-	    addSeedRecipe(type.MARBLE, new ItemStack(Parts.MARBLE, 1, 7));
-	    addSeedRecipe(type.LIMESTONE, new ItemStack(Parts.LIMESTONE, 1, 7));
-	    addSeedRecipe(type.BASALT, new ItemStack(Parts.BASALT, 1, 7));
+	    addSeedRecipe(type.MARBLE, new ItemStack(Parts.itemChiselMarble, 1, 7));
+	    addSeedRecipe(type.LIMESTONE, new ItemStack(Parts.itemChiselLimestone, 1, 7));
+	    addSeedRecipe(type.BASALT, new ItemStack(Parts.itemChiselBasalt, 1, 7));
 
 	    addSeedRecipe(type.DRACONIUM, "ingotDraconium");
 
@@ -436,7 +436,7 @@ public class ModRecipes {
 	    addSeedRecipe(type.CERTUS_QUARTZ, "crystalCertusQuartz");
 	    addSeedRecipe(type.FLUIX, "crystalFluix");
 	    
-	    addSeedRecipe(type.QUARTZ_ENRICHED_IRON, Parts.quartz_enriched_iron);
+	    addSeedRecipe(type.QUARTZ_ENRICHED_IRON, new ItemStack(Parts.itemRSIngot, 1, 0));
 	    
 	    if(ModConfig.$gear_module_override){
 	    	if(ModConfig.harder_ingots){

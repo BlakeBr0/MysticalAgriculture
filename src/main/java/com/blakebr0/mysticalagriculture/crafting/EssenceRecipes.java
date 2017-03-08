@@ -179,48 +179,48 @@ public class EssenceRecipes {
 	    if(type.LUMIUM.isEnabled()){ addEssenceRecipe(OreDictResources.getItem("ingotLumium", EssenceConfig.lumium), "EEE", "EXE", "EEE", 'E', new ItemStack(type.LUMIUM.getCrop(), 1, 0)); }
 	    if(type.ENDERIUM.isEnabled()){ addEssenceRecipe(OreDictResources.getItem("ingotEnderium", EssenceConfig.enderium), "EEE", "EXE", "EEE", 'E', new ItemStack(type.ENDERIUM.getCrop(), 1, 0)); }
 	    
-	    if(type.ALUMINUM_BRASS.isEnabled()){ addEssenceRecipe(new ItemStack(Parts.tcon_ingots, EssenceConfig.aluminum_brass, 5), "EEE", "EXE", "EEE", 'E', new ItemStack(type.ALUMINUM_BRASS.getCrop(), 1, 0)); }
-	    if(type.KNIGHTSLIME.isEnabled()){ addEssenceRecipe(new ItemStack(Parts.tcon_ingots, EssenceConfig.knightslime, 3), "EEE", "EXE", "EEE", 'E', new ItemStack(type.KNIGHTSLIME.getCrop(), 1, 0)); }
-	    if(type.ARDITE.isEnabled()){ addEssenceRecipe(new ItemStack(Parts.tcon_ingots, EssenceConfig.ardite, 1), "EEE", "EXE", "EEE", 'E', new ItemStack(type.ARDITE.getCrop(), 1, 0)); }
-	    if(type.COBALT.isEnabled()){ addEssenceRecipe(new ItemStack(Parts.tcon_ingots, EssenceConfig.cobalt, 0), "EEE", "EXE", "EEE", 'E', new ItemStack(type.COBALT.getCrop(), 1, 0)); }
-	    if(type.MANYULLYN.isEnabled()){ addEssenceRecipe(new ItemStack(Parts.tcon_ingots, EssenceConfig.manyullyn, 2), "EEE", "EXE", "EEE", 'E', new ItemStack(type.MANYULLYN.getCrop(), 1, 0)); }
+	    if(type.ALUMINUM_BRASS.isEnabled()){ addEssenceRecipe(new ItemStack(Parts.itemTinkersIngots, EssenceConfig.aluminum_brass, 5), "EEE", "EXE", "EEE", 'E', new ItemStack(type.ALUMINUM_BRASS.getCrop(), 1, 0)); }
+	    if(type.KNIGHTSLIME.isEnabled()){ addEssenceRecipe(new ItemStack(Parts.itemTinkersIngots, EssenceConfig.knightslime, 3), "EEE", "EXE", "EEE", 'E', new ItemStack(type.KNIGHTSLIME.getCrop(), 1, 0)); }
+	    if(type.ARDITE.isEnabled()){ addEssenceRecipe(new ItemStack(Parts.itemTinkersIngots, EssenceConfig.ardite, 1), "EEE", "EXE", "EEE", 'E', new ItemStack(type.ARDITE.getCrop(), 1, 0)); }
+	    if(type.COBALT.isEnabled()){ addEssenceRecipe(new ItemStack(Parts.itemTinkersIngots, EssenceConfig.cobalt, 0), "EEE", "EXE", "EEE", 'E', new ItemStack(type.COBALT.getCrop(), 1, 0)); }
+	    if(type.MANYULLYN.isEnabled()){ addEssenceRecipe(new ItemStack(Parts.itemTinkersIngots, EssenceConfig.manyullyn, 2), "EEE", "EXE", "EEE", 'E', new ItemStack(type.MANYULLYN.getCrop(), 1, 0)); }
 
-	    if(type.ELECTRICAL_STEEL.isEnabled()){ addEssenceRecipe(new ItemStack(Parts.eio_alloys, EssenceConfig.electrical_steel, 0), "EEE", "EXE", "EEE", 'E', new ItemStack(type.ELECTRICAL_STEEL.getCrop(), 1, 0)); }
-	    if(type.REDSTONE_ALLOY.isEnabled()){ addEssenceRecipe(new ItemStack(Parts.eio_alloys, EssenceConfig.redstone_alloy, 3), "EEE", "EXE", "EEE", 'E', new ItemStack(type.REDSTONE_ALLOY.getCrop(), 1, 0)); }
-	    if(type.CONDUCTIVE_IRON.isEnabled()){ addEssenceRecipe(new ItemStack(Parts.eio_alloys, EssenceConfig.conductive_iron, 4), "EEE", "EXE", "EEE", 'E', new ItemStack(type.CONDUCTIVE_IRON.getCrop(), 1, 0)); }
-	    if(type.SOULARIUM.isEnabled()){ addEssenceRecipe(new ItemStack(Parts.eio_alloys, EssenceConfig.soularium, 7), "EEE", "EXE", "EEE", 'E', new ItemStack(type.SOULARIUM.getCrop(), 1, 0)); }
-	    if(type.DARK_STEEL.isEnabled()){ addEssenceRecipe(new ItemStack(Parts.eio_alloys, EssenceConfig.dark_steel, 6), "EEE", "EXE", "EEE", 'E', new ItemStack(type.DARK_STEEL.getCrop(), 1, 0)); }
-	    if(type.PULSATING_IRON.isEnabled()){ addEssenceRecipe(new ItemStack(Parts.eio_alloys, EssenceConfig.pulsating_iron, 5), "EEE", "EXE", "EEE", 'E', new ItemStack(type.PULSATING_IRON.getCrop(), 1, 0)); }
-	    if(type.ENERGETIC_ALLOY.isEnabled()){ addEssenceRecipe(new ItemStack(Parts.eio_alloys, EssenceConfig.energetic_alloy, 1), "EEE", "EXE", "EEE", 'E', new ItemStack(type.ENERGETIC_ALLOY.getCrop(), 1, 0)); }
-	    if(type.VIBRANT_ALLOY.isEnabled()){ addEssenceRecipe(new ItemStack(Parts.eio_alloys, EssenceConfig.vibrant_alloy, 2), "EEE", "EXE", "EEE", 'E', new ItemStack(type.VIBRANT_ALLOY.getCrop(), 1, 0)); }
+	    if(type.ELECTRICAL_STEEL.isEnabled()){ addEssenceRecipe(new ItemStack(Parts.itemEnderIOAlloys, EssenceConfig.electrical_steel, 0), "EEE", "EXE", "EEE", 'E', new ItemStack(type.ELECTRICAL_STEEL.getCrop(), 1, 0)); }
+	    if(type.REDSTONE_ALLOY.isEnabled()){ addEssenceRecipe(new ItemStack(Parts.itemEnderIOAlloys, EssenceConfig.redstone_alloy, 3), "EEE", "EXE", "EEE", 'E', new ItemStack(type.REDSTONE_ALLOY.getCrop(), 1, 0)); }
+	    if(type.CONDUCTIVE_IRON.isEnabled()){ addEssenceRecipe(new ItemStack(Parts.itemEnderIOAlloys, EssenceConfig.conductive_iron, 4), "EEE", "EXE", "EEE", 'E', new ItemStack(type.CONDUCTIVE_IRON.getCrop(), 1, 0)); }
+	    if(type.SOULARIUM.isEnabled()){ addEssenceRecipe(new ItemStack(Parts.itemEnderIOAlloys, EssenceConfig.soularium, 7), "EEE", "EXE", "EEE", 'E', new ItemStack(type.SOULARIUM.getCrop(), 1, 0)); }
+	    if(type.DARK_STEEL.isEnabled()){ addEssenceRecipe(new ItemStack(Parts.itemEnderIOAlloys, EssenceConfig.dark_steel, 6), "EEE", "EXE", "EEE", 'E', new ItemStack(type.DARK_STEEL.getCrop(), 1, 0)); }
+	    if(type.PULSATING_IRON.isEnabled()){ addEssenceRecipe(new ItemStack(Parts.itemEnderIOAlloys, EssenceConfig.pulsating_iron, 5), "EEE", "EXE", "EEE", 'E', new ItemStack(type.PULSATING_IRON.getCrop(), 1, 0)); }
+	    if(type.ENERGETIC_ALLOY.isEnabled()){ addEssenceRecipe(new ItemStack(Parts.itemEnderIOAlloys, EssenceConfig.energetic_alloy, 1), "EEE", "EXE", "EEE", 'E', new ItemStack(type.ENERGETIC_ALLOY.getCrop(), 1, 0)); }
+	    if(type.VIBRANT_ALLOY.isEnabled()){ addEssenceRecipe(new ItemStack(Parts.itemEnderIOAlloys, EssenceConfig.vibrant_alloy, 2), "EEE", "EXE", "EEE", 'E', new ItemStack(type.VIBRANT_ALLOY.getCrop(), 1, 0)); }
 
 	    if(type.MYSTICAL_FLOWER.isEnabled()){ 
-	    	addEssenceRecipe(new ItemStack(Parts.botania_flowers, EssenceConfig.mystical_flower, 0), "XEX", "EPE", "XEX", 'E', new ItemStack(type.MYSTICAL_FLOWER.getCrop(), 1, 0), 'P', Parts.white_petal); 
-	    	addEssenceRecipe(new ItemStack(Parts.botania_flowers, EssenceConfig.mystical_flower, 1), "XEX", "EPE", "XEX", 'E', new ItemStack(type.MYSTICAL_FLOWER.getCrop(), 1, 0), 'P', Parts.orange_petal); 
-	    	addEssenceRecipe(new ItemStack(Parts.botania_flowers, EssenceConfig.mystical_flower, 2), "XEX", "EPE", "XEX", 'E', new ItemStack(type.MYSTICAL_FLOWER.getCrop(), 1, 0), 'P', Parts.magenta_petal); 
-	    	addEssenceRecipe(new ItemStack(Parts.botania_flowers, EssenceConfig.mystical_flower, 3), "XEX", "EPE", "XEX", 'E', new ItemStack(type.MYSTICAL_FLOWER.getCrop(), 1, 0), 'P', Parts.light_blue_petal); 
-	    	addEssenceRecipe(new ItemStack(Parts.botania_flowers, EssenceConfig.mystical_flower, 4), "XEX", "EPE", "XEX", 'E', new ItemStack(type.MYSTICAL_FLOWER.getCrop(), 1, 0), 'P', Parts.yellow_petal); 
-	    	addEssenceRecipe(new ItemStack(Parts.botania_flowers, EssenceConfig.mystical_flower, 5), "XEX", "EPE", "XEX", 'E', new ItemStack(type.MYSTICAL_FLOWER.getCrop(), 1, 0), 'P', Parts.lime_petal); 
-	    	addEssenceRecipe(new ItemStack(Parts.botania_flowers, EssenceConfig.mystical_flower, 6), "XEX", "EPE", "XEX", 'E', new ItemStack(type.MYSTICAL_FLOWER.getCrop(), 1, 0), 'P', Parts.pink_petal); 
-	    	addEssenceRecipe(new ItemStack(Parts.botania_flowers, EssenceConfig.mystical_flower, 7), "XEX", "EPE", "XEX", 'E', new ItemStack(type.MYSTICAL_FLOWER.getCrop(), 1, 0), 'P', Parts.gray_petal); 
-	    	addEssenceRecipe(new ItemStack(Parts.botania_flowers, EssenceConfig.mystical_flower, 8), "XEX", "EPE", "XEX", 'E', new ItemStack(type.MYSTICAL_FLOWER.getCrop(), 1, 0), 'P', Parts.light_gray_petal); 
-	    	addEssenceRecipe(new ItemStack(Parts.botania_flowers, EssenceConfig.mystical_flower, 9), "XEX", "EPE", "XEX", 'E', new ItemStack(type.MYSTICAL_FLOWER.getCrop(), 1, 0), 'P', Parts.cyan_petal); 
-	    	addEssenceRecipe(new ItemStack(Parts.botania_flowers, EssenceConfig.mystical_flower, 10), "XEX", "EPE", "XEX", 'E', new ItemStack(type.MYSTICAL_FLOWER.getCrop(), 1, 0), 'P', Parts.purple_petal); 
-	    	addEssenceRecipe(new ItemStack(Parts.botania_flowers, EssenceConfig.mystical_flower, 11), "XEX", "EPE", "XEX", 'E', new ItemStack(type.MYSTICAL_FLOWER.getCrop(), 1, 0), 'P', Parts.blue_petal); 
-	    	addEssenceRecipe(new ItemStack(Parts.botania_flowers, EssenceConfig.mystical_flower, 12), "XEX", "EPE", "XEX", 'E', new ItemStack(type.MYSTICAL_FLOWER.getCrop(), 1, 0), 'P', Parts.brown_petal); 
-	    	addEssenceRecipe(new ItemStack(Parts.botania_flowers, EssenceConfig.mystical_flower, 13), "XEX", "EPE", "XEX", 'E', new ItemStack(type.MYSTICAL_FLOWER.getCrop(), 1, 0), 'P', Parts.green_petal); 
-	    	addEssenceRecipe(new ItemStack(Parts.botania_flowers, EssenceConfig.mystical_flower, 14), "XEX", "EPE", "XEX", 'E', new ItemStack(type.MYSTICAL_FLOWER.getCrop(), 1, 0), 'P', Parts.red_petal); 
-	    	addEssenceRecipe(new ItemStack(Parts.botania_flowers, EssenceConfig.mystical_flower, 15), "XEX", "EPE", "XEX", 'E', new ItemStack(type.MYSTICAL_FLOWER.getCrop(), 1, 0), 'P', Parts.black_petal); 
+	    	addEssenceRecipe(new ItemStack(Parts.itemBotaniaFlowers, EssenceConfig.mystical_flower, 0), "XEX", "EPE", "XEX", 'E', new ItemStack(type.MYSTICAL_FLOWER.getCrop(), 1, 0), 'P', new ItemStack(Parts.itemBotaniaPetals, 1, 0)); 
+	    	addEssenceRecipe(new ItemStack(Parts.itemBotaniaFlowers, EssenceConfig.mystical_flower, 1), "XEX", "EPE", "XEX", 'E', new ItemStack(type.MYSTICAL_FLOWER.getCrop(), 1, 0), 'P', new ItemStack(Parts.itemBotaniaPetals, 1, 1)); 
+	    	addEssenceRecipe(new ItemStack(Parts.itemBotaniaFlowers, EssenceConfig.mystical_flower, 2), "XEX", "EPE", "XEX", 'E', new ItemStack(type.MYSTICAL_FLOWER.getCrop(), 1, 0), 'P', new ItemStack(Parts.itemBotaniaPetals, 1, 2)); 
+	    	addEssenceRecipe(new ItemStack(Parts.itemBotaniaFlowers, EssenceConfig.mystical_flower, 3), "XEX", "EPE", "XEX", 'E', new ItemStack(type.MYSTICAL_FLOWER.getCrop(), 1, 0), 'P', new ItemStack(Parts.itemBotaniaPetals, 1, 3)); 
+	    	addEssenceRecipe(new ItemStack(Parts.itemBotaniaFlowers, EssenceConfig.mystical_flower, 4), "XEX", "EPE", "XEX", 'E', new ItemStack(type.MYSTICAL_FLOWER.getCrop(), 1, 0), 'P', new ItemStack(Parts.itemBotaniaPetals, 1, 4)); 
+	    	addEssenceRecipe(new ItemStack(Parts.itemBotaniaFlowers, EssenceConfig.mystical_flower, 5), "XEX", "EPE", "XEX", 'E', new ItemStack(type.MYSTICAL_FLOWER.getCrop(), 1, 0), 'P', new ItemStack(Parts.itemBotaniaPetals, 1, 5)); 
+	    	addEssenceRecipe(new ItemStack(Parts.itemBotaniaFlowers, EssenceConfig.mystical_flower, 6), "XEX", "EPE", "XEX", 'E', new ItemStack(type.MYSTICAL_FLOWER.getCrop(), 1, 0), 'P', new ItemStack(Parts.itemBotaniaPetals, 1, 6)); 
+	    	addEssenceRecipe(new ItemStack(Parts.itemBotaniaFlowers, EssenceConfig.mystical_flower, 7), "XEX", "EPE", "XEX", 'E', new ItemStack(type.MYSTICAL_FLOWER.getCrop(), 1, 0), 'P', new ItemStack(Parts.itemBotaniaPetals, 1, 7)); 
+	    	addEssenceRecipe(new ItemStack(Parts.itemBotaniaFlowers, EssenceConfig.mystical_flower, 8), "XEX", "EPE", "XEX", 'E', new ItemStack(type.MYSTICAL_FLOWER.getCrop(), 1, 0), 'P', new ItemStack(Parts.itemBotaniaPetals, 1, 8)); 
+	    	addEssenceRecipe(new ItemStack(Parts.itemBotaniaFlowers, EssenceConfig.mystical_flower, 9), "XEX", "EPE", "XEX", 'E', new ItemStack(type.MYSTICAL_FLOWER.getCrop(), 1, 0), 'P', new ItemStack(Parts.itemBotaniaPetals, 1, 9)); 
+	    	addEssenceRecipe(new ItemStack(Parts.itemBotaniaFlowers, EssenceConfig.mystical_flower, 10), "XEX", "EPE", "XEX", 'E', new ItemStack(type.MYSTICAL_FLOWER.getCrop(), 1, 0), 'P', new ItemStack(Parts.itemBotaniaPetals, 1, 10)); 
+	    	addEssenceRecipe(new ItemStack(Parts.itemBotaniaFlowers, EssenceConfig.mystical_flower, 11), "XEX", "EPE", "XEX", 'E', new ItemStack(type.MYSTICAL_FLOWER.getCrop(), 1, 0), 'P', new ItemStack(Parts.itemBotaniaPetals, 1, 11)); 
+	    	addEssenceRecipe(new ItemStack(Parts.itemBotaniaFlowers, EssenceConfig.mystical_flower, 12), "XEX", "EPE", "XEX", 'E', new ItemStack(type.MYSTICAL_FLOWER.getCrop(), 1, 0), 'P', new ItemStack(Parts.itemBotaniaPetals, 1, 12)); 
+	    	addEssenceRecipe(new ItemStack(Parts.itemBotaniaFlowers, EssenceConfig.mystical_flower, 13), "XEX", "EPE", "XEX", 'E', new ItemStack(type.MYSTICAL_FLOWER.getCrop(), 1, 0), 'P', new ItemStack(Parts.itemBotaniaPetals, 1, 13)); 
+	    	addEssenceRecipe(new ItemStack(Parts.itemBotaniaFlowers, EssenceConfig.mystical_flower, 14), "XEX", "EPE", "XEX", 'E', new ItemStack(type.MYSTICAL_FLOWER.getCrop(), 1, 0), 'P', new ItemStack(Parts.itemBotaniaPetals, 1, 14)); 
+	    	addEssenceRecipe(new ItemStack(Parts.itemBotaniaFlowers, EssenceConfig.mystical_flower, 15), "XEX", "EPE", "XEX", 'E', new ItemStack(type.MYSTICAL_FLOWER.getCrop(), 1, 0), 'P', new ItemStack(Parts.itemBotaniaPetals, 1, 15)); 
 	    }
-	    if(type.MANASTEEL.isEnabled()){ addEssenceRecipe(new ItemStack(Parts.botania_resources, EssenceConfig.manasteel, 0), "EEE", "EXE", "EEE", 'E', new ItemStack(type.MANASTEEL.getCrop(), 1, 0)); }
-	    if(type.TERRASTEEL.isEnabled()){ addEssenceRecipe(new ItemStack(Parts.botania_resources, EssenceConfig.terrasteel, 4), "EEE", "EXE", "EEE", 'E', new ItemStack(type.TERRASTEEL.getCrop(), 1, 0)); }
+	    if(type.MANASTEEL.isEnabled()){ addEssenceRecipe(new ItemStack(Parts.itemBotaniaResources, EssenceConfig.manasteel, 0), "EEE", "EXE", "EEE", 'E', new ItemStack(type.MANASTEEL.getCrop(), 1, 0)); }
+	    if(type.TERRASTEEL.isEnabled()){ addEssenceRecipe(new ItemStack(Parts.itemBotaniaResources, EssenceConfig.terrasteel, 4), "EEE", "EXE", "EEE", 'E', new ItemStack(type.TERRASTEEL.getCrop(), 1, 0)); }
    
 	    if(type.OSMIUM.isEnabled()){ addEssenceRecipe(OreDictResources.getItem("ingotOsmium", EssenceConfig.osmium), "EEE", "EXE", "EEE", 'E', new ItemStack(type.OSMIUM.getCrop(), 1, 0)); }
 	    if(type.REFINED_OBSIDIAN.isEnabled()){ addEssenceRecipe(OreDictResources.getItem("ingotRefinedObsidian", EssenceConfig.refined_obsidian), "EEE", "EXE", "EEE", 'E', new ItemStack(type.REFINED_OBSIDIAN.getCrop(), 1, 0)); }
 
-	    if(type.MARBLE.isEnabled()){ addEssenceRecipe(new ItemStack(Parts.MARBLE, EssenceConfig.marble, 7), "EEE", "EXE", "EEE", 'E', new ItemStack(type.MARBLE.getCrop(), 1, 0)); }
-	    if(type.LIMESTONE.isEnabled()){ addEssenceRecipe(new ItemStack(Parts.LIMESTONE, EssenceConfig.limestone, 7), "EEE", "EXE", "EEE", 'E', new ItemStack(type.LIMESTONE.getCrop(), 1, 0)); }
-	    if(type.BASALT.isEnabled()){ addEssenceRecipe(new ItemStack(Parts.BASALT, EssenceConfig.basalt, 7), "EEE", "EXE", "EEE", 'E', new ItemStack(type.BASALT.getCrop(), 1, 0)); }
+	    if(type.MARBLE.isEnabled()){ addEssenceRecipe(new ItemStack(Parts.itemChiselMarble, EssenceConfig.marble, 7), "EEE", "EXE", "EEE", 'E', new ItemStack(type.MARBLE.getCrop(), 1, 0)); }
+	    if(type.LIMESTONE.isEnabled()){ addEssenceRecipe(new ItemStack(Parts.itemChiselLimestone, EssenceConfig.limestone, 7), "EEE", "EXE", "EEE", 'E', new ItemStack(type.LIMESTONE.getCrop(), 1, 0)); }
+	    if(type.BASALT.isEnabled()){ addEssenceRecipe(new ItemStack(Parts.itemChiselBasalt, EssenceConfig.basalt, 7), "EEE", "EXE", "EEE", 'E', new ItemStack(type.BASALT.getCrop(), 1, 0)); }
 
 	    if(type.DRACONIUM.isEnabled()){ addEssenceRecipe(OreDictResources.getItem("ingotDraconium", EssenceConfig.draconium), "EEE", "EXE", "EEE", 'E', new ItemStack(type.DRACONIUM.getCrop(), 1, 0)); }
 
@@ -228,13 +228,13 @@ public class EssenceRecipes {
 
 	    if(type.CERTUS_QUARTZ.isEnabled()){ 
 	    	addEssenceRecipe(OreDictResources.getItem("crystalCertusQuartz", EssenceConfig.certus_quartz), "EEE", "EXE", "EEE", 'E', new ItemStack(type.CERTUS_QUARTZ.getCrop(), 1, 0)); 
-	    	addEssenceRecipe(new ItemStack(Parts.ae_material, EssenceConfig.press, 13), "EEE", "EXE", "EEE", 'X', Parts.pure_certus_quartz, 'E', new ItemStack(type.CERTUS_QUARTZ.getCrop(), 1, 0));
-	    	addEssenceRecipe(new ItemStack(Parts.ae_material, EssenceConfig.press, 14), "EEE", "EXE", "EEE", 'X', "gemDiamond", 'E', new ItemStack(type.CERTUS_QUARTZ.getCrop(), 1, 0));
-	    	addEssenceRecipe(new ItemStack(Parts.ae_material, EssenceConfig.press, 15), "EEE", "EXE", "EEE", 'X', "ingotGold", 'E', new ItemStack(type.CERTUS_QUARTZ.getCrop(), 1, 0));
-	    	addEssenceRecipe(new ItemStack(Parts.ae_material, EssenceConfig.press, 19), "EEE", "EXE", "EEE", 'X', "itemSilicon", 'E', new ItemStack(type.CERTUS_QUARTZ.getCrop(), 1, 0));
+	    	addEssenceRecipe(new ItemStack(Parts.itemAEMaterial, EssenceConfig.press, 13), "EEE", "EXE", "EEE", 'X', new ItemStack(Parts.itemAEMaterial, 1, 10), 'E', new ItemStack(type.CERTUS_QUARTZ.getCrop(), 1, 0));
+	    	addEssenceRecipe(new ItemStack(Parts.itemAEMaterial, EssenceConfig.press, 14), "EEE", "EXE", "EEE", 'X', "gemDiamond", 'E', new ItemStack(type.CERTUS_QUARTZ.getCrop(), 1, 0));
+	    	addEssenceRecipe(new ItemStack(Parts.itemAEMaterial, EssenceConfig.press, 15), "EEE", "EXE", "EEE", 'X', "ingotGold", 'E', new ItemStack(type.CERTUS_QUARTZ.getCrop(), 1, 0));
+	    	addEssenceRecipe(new ItemStack(Parts.itemAEMaterial, EssenceConfig.press, 19), "EEE", "EXE", "EEE", 'X', "itemSilicon", 'E', new ItemStack(type.CERTUS_QUARTZ.getCrop(), 1, 0));
 	    }
 	    if(type.FLUIX.isEnabled()){ addEssenceRecipe(OreDictResources.getItem("crystalFluix", EssenceConfig.fluix), "EEE", "EXE", "EEE", 'E', new ItemStack(type.FLUIX.getCrop(), 1, 0)); }
 
-	    if(type.QUARTZ_ENRICHED_IRON.isEnabled()){ addEssenceRecipe(new ItemStack(Parts.rs_ingot, EssenceConfig.quartz_enriched_iron, 0), "EEE", "EXE", "EEE", 'E', new ItemStack(type.QUARTZ_ENRICHED_IRON.getCrop(), 1, 0)); }
+	    if(type.QUARTZ_ENRICHED_IRON.isEnabled()){ addEssenceRecipe(new ItemStack(Parts.itemRSIngot, EssenceConfig.quartz_enriched_iron, 0), "EEE", "EXE", "EEE", 'E', new ItemStack(type.QUARTZ_ENRICHED_IRON.getCrop(), 1, 0)); }
 	}
 }
