@@ -55,7 +55,7 @@ public class OreGeneration implements IWorldGenerator {
 	    ModConfig config;
 
 	    config = ModConfig.INFERIUM;
-	    block = ModBlocks.inferium_ore;
+	    block = ModBlocks.blockInferiumOre;
 	    veinCount = config.inferium_veincount;
 	    veinSize = config.inferium_veinsize;
 	    for (i = 0; i < config.inferium_veincount; ++i) {
@@ -68,7 +68,7 @@ public class OreGeneration implements IWorldGenerator {
 	    }
 
 	    config = ModConfig.PROSPERITY;
-	    block = ModBlocks.prosperity_ore;
+	    block = ModBlocks.blockProsperityOre;
 	    veinCount = config.prosperity_veincount;
 	    veinSize = config.prosperity_veinsize;
 	    for (i = 0; i < config.prosperity_veincount; ++i) {
@@ -91,7 +91,7 @@ public class OreGeneration implements IWorldGenerator {
 	    Predicate predicate = BlockMatcher.forBlock(Blocks.NETHERRACK);
 
 	    config = ModConfig.NETHER_INFERIUM;
-	    block = ModBlocks.nether_inferium_ore;
+	    block = ModBlocks.blockInferiumOreNether;
 	    veinCount = config.nether_inferium_veincount;
 	    veinSize = config.nether_inferium_veinsize;
 	    for (i = 0; i < config.nether_inferium_veincount; ++i) {
@@ -104,7 +104,7 @@ public class OreGeneration implements IWorldGenerator {
 	    }
 	    
 	    config = ModConfig.NETHER_PROSPERITY;
-	    block = ModBlocks.nether_prosperity_ore;
+	    block = ModBlocks.blockProsperityOreNether;
 	    veinCount = config.nether_prosperity_veincount;
 	    veinSize = config.nether_prosperity_veinsize;
 	    for (i = 0; i < config.nether_prosperity_veincount; ++i) {
@@ -127,7 +127,7 @@ public class OreGeneration implements IWorldGenerator {
 	    Predicate predicate = BlockMatcher.forBlock(Blocks.END_STONE);
 
 	    config = ModConfig.END_INFERIUM;
-	    block = ModBlocks.end_inferium_ore;
+	    block = ModBlocks.blockInferiumOreEnd;
 	    veinCount = config.end_inferium_veincount;
 	    veinSize = config.end_inferium_veinsize;
 	    for (i = 0; i < config.end_inferium_veincount; ++i) {
@@ -140,7 +140,7 @@ public class OreGeneration implements IWorldGenerator {
 	    }
 	    
 	    config = ModConfig.END_PROSPERITY;
-	    block = ModBlocks.end_prosperity_ore;
+	    block = ModBlocks.blockInferiumOreEnd;
 	    veinCount = config.end_prosperity_veincount;
 	    veinSize = config.end_prosperity_veinsize;
 	    for (i = 0; i < config.end_prosperity_veincount; ++i) {

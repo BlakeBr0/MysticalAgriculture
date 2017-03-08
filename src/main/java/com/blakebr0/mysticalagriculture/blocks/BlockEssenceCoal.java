@@ -26,7 +26,7 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class BlockEssenceCoal extends BaseBlock {
+public class BlockEssenceCoal extends BlockBase {
 	
     public static final PropertyEnum<EssenceType.Type> VARIANT = PropertyEnum.<EssenceType.Type>create("variant", EssenceType.Type.class);
 

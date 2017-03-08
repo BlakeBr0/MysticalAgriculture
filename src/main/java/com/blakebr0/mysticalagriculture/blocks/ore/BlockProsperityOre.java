@@ -41,13 +41,13 @@ public class BlockProsperityOre extends Block {
 
     public int quantityDropped(Random random){
     	int amount = 0;
-    	if(this == ModBlocks.prosperity_ore){
+    	if(this == ModBlocks.blockProsperityOre){
     		amount = 2 + random.nextInt(2);
     	}
-    	if(this == ModBlocks.nether_prosperity_ore){
+    	if(this == ModBlocks.blockProsperityOreNether){
     		amount = 3 + random.nextInt(2);
     	}
-    	if(this == ModBlocks.end_prosperity_ore){
+    	if(this == ModBlocks.blockProsperityOreEnd){
     		amount = 4 + random.nextInt(2);
     	}
         return amount; 
@@ -76,13 +76,13 @@ public class BlockProsperityOre extends Block {
         if(this.getItemDropped(state, rand, fortune) != Item.getItemFromBlock(this)){
             int i = 0;
 
-            if(this == ModBlocks.prosperity_ore){
+            if(this == ModBlocks.blockProsperityOre){
                 i = MathHelper.getRandomIntegerInRange(rand, 1, 3);
             }
-            if(this == ModBlocks.nether_prosperity_ore){
+            if(this == ModBlocks.blockProsperityOreNether){
                 i = MathHelper.getRandomIntegerInRange(rand, 1, 4);
             }
-            if(this == ModBlocks.end_prosperity_ore){
+            if(this == ModBlocks.blockProsperityOreEnd){
                 i = MathHelper.getRandomIntegerInRange(rand, 1, 5);
             }
             return i;

@@ -18,7 +18,7 @@ import net.minecraft.util.text.translation.I18n;
 
 public class ReprocessorCategory extends BlankRecipeCategory<ReprocessorWrapper> {
 	
-    public static final String uid = "mysticalagriculture:reprocessor_jei";
+    public static final String UID = "mysticalagriculture:reprocessor_jei";
 
     private IDrawable background;
 	protected final IDrawableAnimated arrow;
@@ -31,7 +31,7 @@ public class ReprocessorCategory extends BlankRecipeCategory<ReprocessorWrapper>
 
     @Override
     public String getUid() {
-        return uid;
+        return UID;
     }
 
     @Override

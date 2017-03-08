@@ -15,13 +15,13 @@ public class ReprocessorHandler implements IRecipeHandler<ReprocessorWrapper> {
     @Override
     @Nonnull
     public String getRecipeCategoryUid() {
-        return ReprocessorCategory.uid;
+        return ReprocessorCategory.UID;
     }
 
     @Override
     @Nonnull
     public String getRecipeCategoryUid(@Nonnull ReprocessorWrapper recipe) {
-        return ReprocessorCategory.uid;
+        return ReprocessorCategory.UID;
     }
 
     @Override

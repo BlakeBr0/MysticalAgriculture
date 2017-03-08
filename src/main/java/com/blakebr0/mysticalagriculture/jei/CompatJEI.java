@@ -40,8 +40,8 @@ public class CompatJEI extends BlankModPlugin {
 	        registry.addRecipeCategories(new ReprocessorCategory(registry.getJeiHelpers().getGuiHelper()));
 	        registry.addRecipeHandlers(new ReprocessorHandler());
 	        registry.addRecipes(ReprocessorRecipeMaker.getRecipes());
-	        registry.addRecipeClickArea(GuiSeedReprocessor.class, 79, 26, 24, 17, ReprocessorCategory.uid);
-	        registry.addRecipeCategoryCraftingItem(new ItemStack(ModBlocks.seed_reprocessor), ReprocessorCategory.uid);
+	        registry.addRecipeClickArea(GuiSeedReprocessor.class, 79, 26, 24, 17, ReprocessorCategory.UID);
+	        registry.addRecipeCategoryCraftingItem(new ItemStack(ModBlocks.blockSeedReprocessor), ReprocessorCategory.UID);
         }
     }
 

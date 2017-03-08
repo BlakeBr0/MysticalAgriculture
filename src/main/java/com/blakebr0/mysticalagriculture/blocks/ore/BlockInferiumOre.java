@@ -41,13 +41,13 @@ public class BlockInferiumOre extends Block {
 
     public int quantityDropped(Random random){
     	int amount = 0;
-    	if(this == ModBlocks.inferium_ore){
+    	if(this == ModBlocks.blockInferiumOre){
     		amount = 2 + random.nextInt(2);
     	}
-    	if(this == ModBlocks.nether_inferium_ore){
+    	if(this == ModBlocks.blockInferiumOreNether){
     		amount = 3 + random.nextInt(2);
     	}
-    	if(this == ModBlocks.end_inferium_ore){
+    	if(this == ModBlocks.blockInferiumOreEnd){
     		amount = 4 + random.nextInt(2);
     	}
         return amount; 
@@ -76,13 +76,13 @@ public class BlockInferiumOre extends Block {
         if(this.getItemDropped(state, rand, fortune) != Item.getItemFromBlock(this)){
             int i = 0;
 
-            if(this == ModBlocks.inferium_ore){
+            if(this == ModBlocks.blockInferiumOre){
                 i = MathHelper.getRandomIntegerInRange(rand, 1, 3);
             }
-            if(this == ModBlocks.nether_inferium_ore){
+            if(this == ModBlocks.blockInferiumOreNether){
                 i = MathHelper.getRandomIntegerInRange(rand, 1, 4);
             }
-            if(this == ModBlocks.end_inferium_ore){
+            if(this == ModBlocks.blockInferiumOreEnd){
                 i = MathHelper.getRandomIntegerInRange(rand, 1, 5);
             }
             return i;

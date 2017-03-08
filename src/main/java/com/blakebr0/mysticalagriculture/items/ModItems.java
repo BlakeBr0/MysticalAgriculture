@@ -152,11 +152,11 @@ public class ModItems {
 	public static ItemChunk enderman_chunk = new ItemChunk("enderman_chunk", ModConfig.enderman_tier);
 	public static ItemChunk wither_skeleton_chunk = new ItemChunk("wither_skeleton_chunk", ModConfig.wither_skeleton_tier);
 		
-	public static ItemSeed tier1_inferium_seeds = new ItemSeed("tier1_inferium_seeds", ModBlocks.tier1_inferium_crop, 1);
-	public static ItemSeed tier2_inferium_seeds = new ItemSeed("tier2_inferium_seeds", ModBlocks.tier2_inferium_crop, 2);
-	public static ItemSeed tier3_inferium_seeds = new ItemSeed("tier3_inferium_seeds", ModBlocks.tier3_inferium_crop, 3);
-	public static ItemSeed tier4_inferium_seeds = new ItemSeed("tier4_inferium_seeds", ModBlocks.tier4_inferium_crop, 4);
-	public static ItemSeed tier5_inferium_seeds = new ItemSeed("tier5_inferium_seeds", ModBlocks.tier5_inferium_crop, 5); 
+	public static ItemSeed tier1_inferium_seeds = new ItemSeed("tier1_inferium_seeds", ModBlocks.blockTier1InferiumCrop, 1);
+	public static ItemSeed tier2_inferium_seeds = new ItemSeed("tier2_inferium_seeds", ModBlocks.blockTier2InferiumCrop, 2);
+	public static ItemSeed tier3_inferium_seeds = new ItemSeed("tier3_inferium_seeds", ModBlocks.blockTier3InferiumCrop, 3);
+	public static ItemSeed tier4_inferium_seeds = new ItemSeed("tier4_inferium_seeds", ModBlocks.blockTier4InferiumCrop, 4);
+	public static ItemSeed tier5_inferium_seeds = new ItemSeed("tier5_inferium_seeds", ModBlocks.blockTier5InferiumCrop, 5); 
 		
 	public static BaseItem inferium_ingot = new BaseItem("inferium_ingot");
 	public static BaseItem prudentium_ingot = new BaseItem("prudentium_ingot");

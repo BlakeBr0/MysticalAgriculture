@@ -37,179 +37,248 @@ import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fml.common.Loader;
-import net.minecraftforge.fml.common.ObfuscationReflectionHelper;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraftforge.oredict.OreDictionary;
 
 public class ModBlocks {
-	
-	public static List<Block> BLOCKS = new ArrayList<Block>();
 		
-	public static BaseBlock inferium_block = new BaseBlock("inferium_block", Material.ROCK, SoundType.STONE, 4.0F, 6.0F, "pickaxe", 0);
-	public static BaseBlock prudentium_block = new BaseBlock("prudentium_block", Material.ROCK, SoundType.STONE, 4.0F, 6.0F, "pickaxe", 0);
-	public static BaseBlock intermedium_block = new BaseBlock("intermedium_block", Material.ROCK, SoundType.STONE, 4.0F, 6.0F, "pickaxe", 0);
-	public static BaseBlock superium_block = new BaseBlock("superium_block", Material.ROCK, SoundType.STONE, 4.0F, 6.0F, "pickaxe", 0);
-	public static BaseBlock supremium_block = new BaseBlock("supremium_block", Material.ROCK, SoundType.STONE, 4.0F, 6.0F, "pickaxe", 0);
+	public static BlockBase blockInferium = new BlockBase("inferium_block", Material.ROCK, SoundType.STONE, 4.0F, 6.0F);
+	public static BlockBase blockPrudentium = new BlockBase("prudentium_block", Material.ROCK, SoundType.STONE, 4.0F, 6.0F);
+	public static BlockBase blockIntermedium = new BlockBase("intermedium_block", Material.ROCK, SoundType.STONE, 4.0F, 6.0F);
+	public static BlockBase blockSuperium = new BlockBase("superium_block", Material.ROCK, SoundType.STONE, 4.0F, 6.0F);
+	public static BlockBase blockSupremium = new BlockBase("supremium_block", Material.ROCK, SoundType.STONE, 4.0F, 6.0F);
 	
-	public static BaseBlock prosperity_block = new BaseBlock("prosperity_block", Material.ROCK, SoundType.STONE, 4.0F, 6.0F, "pickaxe", 0);
+	public static BlockBase blockProsperity = new BlockBase("prosperity_block", Material.ROCK, SoundType.STONE, 4.0F, 6.0F);
 	
-	public static BaseBlock base_essence_ingot_block = new BaseBlock("base_essence_ingot_block", Material.IRON, SoundType.METAL, 5.0F, 8.0F, "pickaxe", 0);
-	public static BaseBlock inferium_ingot_block = new BaseBlock("inferium_ingot_block", Material.IRON, SoundType.METAL, 5.0F, 8.0F, "pickaxe", 0);
-	public static BaseBlock prudentium_ingot_block = new BaseBlock("prudentium_ingot_block", Material.IRON, SoundType.METAL, 5.0F, 8.0F, "pickaxe", 0);
-	public static BaseBlock intermedium_ingot_block = new BaseBlock("intermedium_ingot_block", Material.IRON, SoundType.METAL, 5.0F, 8.0F, "pickaxe", 0);
-	public static BaseBlock superium_ingot_block = new BaseBlock("superium_ingot_block", Material.IRON, SoundType.METAL, 5.0F, 8.0F, "pickaxe", 0);
-	public static BaseBlock supremium_ingot_block = new BaseBlock("supremium_ingot_block", Material.IRON, SoundType.METAL, 5.0F, 8.0F, "pickaxe", 0);
-
-	public static BlockEssenceCoal ESSENCE_COAL_BLOCK = new BlockEssenceCoal();
+	public static BlockBase blockBaseEssenceIngot = new BlockBase("base_essence_ingot_block", Material.IRON, SoundType.METAL, 5.0F, 8.0F);
+	public static BlockBase blockInferiumIngot = new BlockBase("inferium_ingot_block", Material.IRON, SoundType.METAL, 5.0F, 8.0F);
+	public static BlockBase blockPrudentiumIngot = new BlockBase("prudentium_ingot_block", Material.IRON, SoundType.METAL, 5.0F, 8.0F);
+	public static BlockBase blockIntermediumIngot = new BlockBase("intermedium_ingot_block", Material.IRON, SoundType.METAL, 5.0F, 8.0F);
+	public static BlockBase blockSuperiumIngot = new BlockBase("superium_ingot_block", Material.IRON, SoundType.METAL, 5.0F, 8.0F);
+	public static BlockBase blockSupremiumIngot = new BlockBase("supremium_ingot_block", Material.IRON, SoundType.METAL, 5.0F, 8.0F);
+	public static BlockBase blockSouliumIngot = new BlockBase("soulium_ingot_block", Material.IRON, SoundType.METAL, 5.0F, 8.0F);
 	
-	public static BaseBlock soulium_ingot_block = new BaseBlock("soulium_ingot_block", Material.IRON, SoundType.METAL, 5.0F, 8.0F, "pickaxe", 0);
+	public static BlockEssenceCoal blockEssenceCoal = new BlockEssenceCoal();
 	
-	public static BaseBlock soulstone = new BaseBlock("soulstone", Material.ROCK, SoundType.STONE, 4.0F, 10.0F, "pickaxe", 0);
+	public static BlockBase blockSoulstone = new BlockBase("soulstone", Material.ROCK, SoundType.STONE, 4.0F, 10.0F);
 		
-	public static BlockInferiumFurnace inferium_furnace = new BlockInferiumFurnace(false, "inferium_furnace", 5.0F, 10.0F, "pickaxe", 0);
-	public static BlockInferiumFurnace inferium_furnace_active = new BlockInferiumFurnace(true, "inferium_furnace_active", 5.0F, 10.0F, "pickaxe", 0);
-	public static BlockPrudentiumFurnace prudentium_furnace = new BlockPrudentiumFurnace(false, "prudentium_furnace", 5.0F, 10.0F, "pickaxe", 0);
-	public static BlockPrudentiumFurnace prudentium_furnace_active = new BlockPrudentiumFurnace(true, "prudentium_furnace_active", 5.0F, 8.0F, "pickaxe", 0);
-	public static BlockIntermediumFurnace intermedium_furnace = new BlockIntermediumFurnace(false, "intermedium_furnace", 5.0F, 8.0F, "pickaxe", 0);
-	public static BlockIntermediumFurnace intermedium_furnace_active = new BlockIntermediumFurnace(true, "intermedium_furnace_active", 5.0F, 10.0F, "pickaxe", 0);
-	public static BlockSuperiumFurnace superium_furnace = new BlockSuperiumFurnace(false, "superium_furnace", 5.0F, 10.0F, "pickaxe", 0);
-	public static BlockSuperiumFurnace superium_furnace_active = new BlockSuperiumFurnace(true, "superium_furnace_active", 5.0F, 10.0F, "pickaxe", 0);
-	public static BlockSupremiumFurnace supremium_furnace = new BlockSupremiumFurnace(false, "supremium_furnace", 5.0F, 10.0F, "pickaxe", 0);
-	public static BlockSupremiumFurnace supremium_furnace_active = new BlockSupremiumFurnace(true, "supremium_furnace_active", 5.0F, 10.0F, "pickaxe", 0);
-	public static BlockUltimateFurnace ultimate_furnace = new BlockUltimateFurnace(false, "ultimate_furnace", 5.0F, 10.0F, "pickaxe", 0);
-	public static BlockUltimateFurnace ultimate_furnace_active = new BlockUltimateFurnace(true, "ultimate_furnace_active", 5.0F, 10.0F, "pickaxe", 0);
+	public static BlockInferiumFurnace blockInferiumFurnace = new BlockInferiumFurnace(false, "inferium_furnace", 5.0F, 10.0F);
+	public static BlockInferiumFurnace blockInferiumFurnaceActive = new BlockInferiumFurnace(true, "inferium_furnace_active", 5.0F, 10.0F);
+	public static BlockPrudentiumFurnace blockPrudentiumFurnace = new BlockPrudentiumFurnace(false, "prudentium_furnace", 5.0F, 10.0F);
+	public static BlockPrudentiumFurnace blockPrudentiumFurnaceActive = new BlockPrudentiumFurnace(true, "prudentium_furnace_active", 5.0F, 10.0F);
+	public static BlockIntermediumFurnace blockIntermediumFurnace = new BlockIntermediumFurnace(false, "intermedium_furnace", 5.0F, 10.0F);
+	public static BlockIntermediumFurnace blockIntermediumFurnaceActive = new BlockIntermediumFurnace(true, "intermedium_furnace_active", 5.0F, 10.0F);
+	public static BlockSuperiumFurnace blockSuperiumFurnace = new BlockSuperiumFurnace(false, "superium_furnace", 5.0F, 10.0F);
+	public static BlockSuperiumFurnace blockSuperiumFurnaceActive = new BlockSuperiumFurnace(true, "superium_furnace_active", 5.0F, 10.0F);
+	public static BlockSupremiumFurnace blockSupremiumFurnace = new BlockSupremiumFurnace(false, "supremium_furnace", 5.0F, 10.0F);
+	public static BlockSupremiumFurnace blockSupremiumFurnaceActive = new BlockSupremiumFurnace(true, "supremium_furnace_active", 5.0F, 10.0F);
+	public static BlockUltimateFurnace blockUltimateFurnace = new BlockUltimateFurnace(false, "ultimate_furnace", 5.0F, 10.0F);
+	public static BlockUltimateFurnace blockUltimateFurnaceActive = new BlockUltimateFurnace(true, "ultimate_furnace_active", 5.0F, 10.0F);
 	
-	public static BlockProsperityOre prosperity_ore = new BlockProsperityOre("prosperity_ore", Material.ROCK, SoundType.STONE, 3.0F, 5.0F, "pickaxe", 1);
-	public static BlockProsperityOre nether_prosperity_ore = new BlockProsperityOre("nether_prosperity_ore", Material.ROCK, SoundType.STONE, 3.0F, 5.0F, "pickaxe", 1);
-	public static BlockProsperityOre end_prosperity_ore = new BlockProsperityOre("end_prosperity_ore", Material.ROCK, SoundType.STONE, 3.0F, 5.0F, "pickaxe", 1);
-	public static BlockInferiumOre inferium_ore = new BlockInferiumOre("inferium_ore", Material.ROCK, SoundType.STONE, 3.0F, 5.0F, "pickaxe", 1);
-	public static BlockInferiumOre nether_inferium_ore = new BlockInferiumOre("nether_inferium_ore", Material.ROCK, SoundType.STONE, 3.0F, 5.0F, "pickaxe", 1);
-	public static BlockInferiumOre end_inferium_ore = new BlockInferiumOre("end_inferium_ore", Material.ROCK, SoundType.STONE, 3.0F, 5.0F, "pickaxe", 1);
+	public static BlockProsperityOre blockProsperityOre = new BlockProsperityOre("prosperity_ore", Material.ROCK, SoundType.STONE, 3.0F, 5.0F, "pickaxe", 1);
+	public static BlockProsperityOre blockProsperityOreNether = new BlockProsperityOre("nether_prosperity_ore", Material.ROCK, SoundType.STONE, 3.0F, 5.0F, "pickaxe", 1);
+	public static BlockProsperityOre blockProsperityOreEnd = new BlockProsperityOre("end_prosperity_ore", Material.ROCK, SoundType.STONE, 3.0F, 5.0F, "pickaxe", 1);
+	public static BlockInferiumOre blockInferiumOre = new BlockInferiumOre("inferium_ore", Material.ROCK, SoundType.STONE, 3.0F, 5.0F, "pickaxe", 1);
+	public static BlockInferiumOre blockInferiumOreNether = new BlockInferiumOre("nether_inferium_ore", Material.ROCK, SoundType.STONE, 3.0F, 5.0F, "pickaxe", 1);
+	public static BlockInferiumOre blockInferiumOreEnd = new BlockInferiumOre("end_inferium_ore", Material.ROCK, SoundType.STONE, 3.0F, 5.0F, "pickaxe", 1);
 	
-	public static BlockAccelerator growth_accelerator = new BlockAccelerator("growth_accelerator", Material.ROCK, SoundType.STONE, 5.0F, 8.0F, "pickaxe", 1);
+	public static BlockAccelerator blockGrowthAccelerator = new BlockAccelerator("growth_accelerator", Material.ROCK, SoundType.STONE, 5.0F, 8.0F, "pickaxe", 1);
 	
-	public static BlockMachineFrame mystical_machine_frame = new BlockMachineFrame("mystical_machine_frame", Material.ROCK, SoundType.STONE, 4.0F, 6.0F, "pickaxe", 0);
-	public static BlockMachineFrame glowstone_lamp = (BlockMachineFrame)new BlockMachineFrame("glowstone_lamp", Material.ROCK, SoundType.GLASS, 4.0F, 6.0F, "pickaxe", 0).setLightLevel(1.0F);
+	public static BlockMachineFrame blockMysticalMachineFrame = new BlockMachineFrame("mystical_machine_frame", Material.IRON, SoundType.STONE, 4.0F, 6.0F);
+	public static BlockMachineFrame blockGlowstoneLamp = (BlockMachineFrame)new BlockMachineFrame("glowstone_lamp", Material.IRON, SoundType.GLASS, 4.0F, 6.0F).setLightLevel(1.0F);
 	
-	public static BlockSeedReprocessor seed_reprocessor = new BlockSeedReprocessor();
+	public static BlockSeedReprocessor blockSeedReprocessor = new BlockSeedReprocessor();
 	
-	public static BlockWitherproofBlock witherproof_block = new BlockWitherproofBlock("witherproof_block", Material.ROCK, SoundType.STONE, 24.0F, 2000.0F, "pickaxe", 1);
-	public static BlockWitherproofGlass witherproof_glass = new BlockWitherproofGlass("witherproof_glass", Material.GLASS, SoundType.GLASS, 20.0F, 1800.0F, "pickaxe", 1);
+	public static BlockWitherproofBlock blockWitherproofBlock = new BlockWitherproofBlock("witherproof_block", Material.ROCK, SoundType.STONE, 24.0F, 2000.0F, "pickaxe", 1);
+	public static BlockWitherproofGlass blockWitherproofGlass = new BlockWitherproofGlass("witherproof_glass", Material.GLASS, SoundType.GLASS, 20.0F, 1800.0F, "pickaxe", 1);
 		
-	public static BlockTier1InferiumCrop tier1_inferium_crop = new BlockTier1InferiumCrop("tier1_inferium_crop");
-	public static BlockTier2InferiumCrop tier2_inferium_crop = new BlockTier2InferiumCrop("tier2_inferium_crop");
-	public static BlockTier3InferiumCrop tier3_inferium_crop = new BlockTier3InferiumCrop("tier3_inferium_crop");
-	public static BlockTier4InferiumCrop tier4_inferium_crop = new BlockTier4InferiumCrop("tier4_inferium_crop");
-	public static BlockTier5InferiumCrop tier5_inferium_crop = new BlockTier5InferiumCrop("tier5_inferium_crop");
+	public static BlockTier1InferiumCrop blockTier1InferiumCrop = new BlockTier1InferiumCrop("tier1_inferium_crop");
+	public static BlockTier2InferiumCrop blockTier2InferiumCrop = new BlockTier2InferiumCrop("tier2_inferium_crop");
+	public static BlockTier3InferiumCrop blockTier3InferiumCrop = new BlockTier3InferiumCrop("tier3_inferium_crop");
+	public static BlockTier4InferiumCrop blockTier4InferiumCrop = new BlockTier4InferiumCrop("tier4_inferium_crop");
+	public static BlockTier5InferiumCrop blockTier5InferiumCrop = new BlockTier5InferiumCrop("tier5_inferium_crop");
 	
 	public static void initBlocks(){
 								
-		BLOCKS.add(inferium_block);
-		BLOCKS.add(prudentium_block);
-		BLOCKS.add(intermedium_block);
-		BLOCKS.add(superium_block);
-		BLOCKS.add(supremium_block);
+		registerBlock(blockInferium);
+		registerBlock(blockPrudentium);
+		registerBlock(blockIntermedium);
+		registerBlock(blockSuperium);
+		registerBlock(blockSupremium);
 		
-		BLOCKS.add(prosperity_block);
+		registerBlock(blockProsperity);
 		
-		BLOCKS.add(base_essence_ingot_block);
-		BLOCKS.add(inferium_ingot_block);
-		BLOCKS.add(prudentium_ingot_block);
-		BLOCKS.add(intermedium_ingot_block);
-		BLOCKS.add(superium_ingot_block);
-		BLOCKS.add(supremium_ingot_block);
+		registerBlock(blockBaseEssenceIngot);
+		registerBlock(blockInferiumIngot);
+		registerBlock(blockPrudentiumIngot);
+		registerBlock(blockIntermediumIngot);
+		registerBlock(blockSuperiumIngot);
+		registerBlock(blockSupremiumIngot);
+		registerBlock(blockSouliumIngot);
 		
-		BLOCKS.add(soulium_ingot_block);
+		registerBlock(blockEssenceCoal, new ItemBlockEssenceCoal(blockEssenceCoal));
 		
-		GameRegistry.register(ESSENCE_COAL_BLOCK);
-		GameRegistry.register(new ItemBlockEssenceCoal(ESSENCE_COAL_BLOCK).setRegistryName(ESSENCE_COAL_BLOCK.getRegistryName()));
-		
-		BLOCKS.add(soulstone);
+		registerBlock(blockSoulstone);
 		
 		if(ModConfig.essence_furnaces){
-			BLOCKS.add(inferium_furnace);
-			BLOCKS.add(inferium_furnace_active);
-			BLOCKS.add(prudentium_furnace);
-			BLOCKS.add(prudentium_furnace_active);
-			BLOCKS.add(intermedium_furnace);
-			BLOCKS.add(intermedium_furnace_active);
-			BLOCKS.add(superium_furnace);
-			BLOCKS.add(superium_furnace_active);
-			BLOCKS.add(supremium_furnace);
-			BLOCKS.add(supremium_furnace_active);
+			registerBlock(blockInferiumFurnace);
+			registerBlock(blockInferiumFurnaceActive);
+			registerBlock(blockPrudentiumFurnace);
+			registerBlock(blockPrudentiumFurnaceActive);
+			registerBlock(blockIntermediumFurnace);
+			registerBlock(blockIntermediumFurnaceActive);
+			registerBlock(blockSuperiumFurnace);
+			registerBlock(blockSuperiumFurnaceActive);
+			registerBlock(blockSupremiumFurnace);
+			registerBlock(blockSupremiumFurnaceActive);
 			if(ModConfig.ultimate_furnace){
-				BLOCKS.add(ultimate_furnace);
-				BLOCKS.add(ultimate_furnace_active);
+				registerBlock(blockUltimateFurnace);
+				registerBlock(blockUltimateFurnaceActive);
 			}
 		}
 				
-		BLOCKS.add(prosperity_ore);
-		BLOCKS.add(nether_prosperity_ore);
-		BLOCKS.add(end_prosperity_ore);
-		BLOCKS.add(inferium_ore);
-		BLOCKS.add(nether_inferium_ore);
-		BLOCKS.add(end_inferium_ore);
+		registerBlock(blockProsperityOre);
+		registerBlock(blockProsperityOreNether);
+		registerBlock(blockProsperityOreEnd);
+		registerBlock(blockInferiumOre);
+		registerBlock(blockInferiumOreNether);
+		registerBlock(blockInferiumOreEnd);
 		
-		if(ModConfig.growth_accelerator){ BLOCKS.add(growth_accelerator); }
+		if(ModConfig.growth_accelerator){ registerBlock(blockGrowthAccelerator); }
 		
-		BLOCKS.add(mystical_machine_frame);
-		BLOCKS.add(glowstone_lamp);
+		registerBlock(blockMysticalMachineFrame);
+		registerBlock(blockGlowstoneLamp);
 
 		if(ModConfig.seed_reprocessor){
-			BLOCKS.add(seed_reprocessor);
+			registerBlock(blockSeedReprocessor);
 		}
 		
 		if(ModConfig.witherproof_blocks){
-			BLOCKS.add(witherproof_block);
-			BLOCKS.add(witherproof_glass);
+			registerBlock(blockWitherproofBlock);
+			registerBlock(blockWitherproofGlass);
 		}
 
-		BLOCKS.add(tier1_inferium_crop);
-		BLOCKS.add(tier2_inferium_crop);
-		BLOCKS.add(tier3_inferium_crop);
-		BLOCKS.add(tier4_inferium_crop);
-		BLOCKS.add(tier5_inferium_crop);
+		registerBlock(blockTier1InferiumCrop);
+		registerBlock(blockTier2InferiumCrop);
+		registerBlock(blockTier3InferiumCrop);
+		registerBlock(blockTier4InferiumCrop);
+		registerBlock(blockTier5InferiumCrop);
 		
 		for(CropType.Type type : CropType.Type.values()){
 			if(type.isEnabled()){
-				BLOCKS.add(type.getPlant());
+				registerBlock(type.getPlant());
 			}
 		}
+	}
+	
+	@SideOnly(Side.CLIENT)
+	public static void initModels(){
 		
-		for(Block block : BLOCKS){
-			GameRegistry.register(block);
-			GameRegistry.register(new ItemBlock(block).setRegistryName(block.getRegistryName()));
+		registerModel(blockInferium);
+		registerModel(blockPrudentium);
+		registerModel(blockIntermedium);
+		registerModel(blockSuperium);
+		registerModel(blockSupremium);
+		
+		registerModel(blockProsperity);
+		
+		registerModel(blockBaseEssenceIngot);
+		registerModel(blockInferiumIngot);
+		registerModel(blockPrudentiumIngot);
+		registerModel(blockIntermediumIngot);
+		registerModel(blockSuperiumIngot);
+		registerModel(blockSupremiumIngot);
+		registerModel(blockSouliumIngot);
+		
+		blockEssenceCoal.initModels();
+		
+		registerModel(blockSoulstone);
+		
+		if(ModConfig.essence_furnaces){
+			registerModel(blockInferiumFurnace);
+			registerModel(blockInferiumFurnaceActive);
+			registerModel(blockPrudentiumFurnace);
+			registerModel(blockPrudentiumFurnaceActive);
+			registerModel(blockIntermediumFurnace);
+			registerModel(blockIntermediumFurnaceActive);
+			registerModel(blockSuperiumFurnace);
+			registerModel(blockSuperiumFurnaceActive);
+			registerModel(blockSupremiumFurnace);
+			registerModel(blockSupremiumFurnaceActive);
+			if(ModConfig.ultimate_furnace){
+				registerModel(blockUltimateFurnace);
+				registerModel(blockUltimateFurnaceActive);
+			}
 		}
+					
+		registerModel(blockProsperityOre);
+		registerModel(blockProsperityOreNether);
+		registerModel(blockProsperityOreEnd);
+		registerModel(blockInferiumOre);
+		registerModel(blockInferiumOreNether);
+		registerModel(blockInferiumOreEnd);
+		
+		if(ModConfig.growth_accelerator){ registerModel(blockGrowthAccelerator); }
+		
+		registerModel(blockMysticalMachineFrame);
+		registerModel(blockGlowstoneLamp);
+
+		if(ModConfig.seed_reprocessor){
+			registerModel(blockSeedReprocessor);
+		}
+		
+		if(ModConfig.witherproof_blocks){
+			registerModel(blockWitherproofBlock);
+			registerModel(blockWitherproofGlass);
+		}
+
+		registerModel(blockTier1InferiumCrop);
+		registerModel(blockTier2InferiumCrop);
+		registerModel(blockTier3InferiumCrop);
+		registerModel(blockTier4InferiumCrop);
+		registerModel(blockTier5InferiumCrop);
+		
+		for(CropType.Type type : CropType.Type.values()){
+			if(type.isEnabled()){
+				registerModel(type.getPlant());
+			}
+		}
+	}
+	
+	public static void registerBlock(Block block){
+		GameRegistry.register(block);
+		GameRegistry.register(new ItemBlock(block).setRegistryName(block.getRegistryName()));
+	}
+	
+	public static void registerBlock(Block block, ItemBlock itemBlock){
+		GameRegistry.register(block);
+		GameRegistry.register(itemBlock.setRegistryName(block.getRegistryName()));
+	}
+	
+	@SideOnly(Side.CLIENT)
+	public static void registerModel(Block block){
+		ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(block), 0, new ModelResourceLocation(MysticalAgriculture.MOD_ID + ":" + block.getUnlocalizedName().substring(8), "inventory"));
 	}
 	
 	public static void initOreDict(){
-		OreDictionary.registerOre("oreProsperity", prosperity_ore);
-		OreDictionary.registerOre("oreNetherProsperity", nether_prosperity_ore);
-		OreDictionary.registerOre("oreEndProsperity", end_prosperity_ore);
-		OreDictionary.registerOre("oreInferium", inferium_ore);
-		OreDictionary.registerOre("oreNetherInferium", nether_inferium_ore);
-		OreDictionary.registerOre("oreEndInferium", end_inferium_ore);
+		OreDictionary.registerOre("oreProsperity", blockProsperityOre);
+		OreDictionary.registerOre("oreNetherProsperity", blockProsperityOreNether);
+		OreDictionary.registerOre("oreEndProsperity", blockProsperityOreEnd);
+		OreDictionary.registerOre("oreInferium", blockInferiumOre);
+		OreDictionary.registerOre("oreNetherInferium", blockInferiumOreNether);
+		OreDictionary.registerOre("oreEndInferium", blockInferiumOreEnd);
 	}
 	
 	public static void initJEIDescriptions(){
-		addJEIDescription(glowstone_lamp);
+		addJEIDescription(blockGlowstoneLamp);
 		if(ModConfig.seed_reprocessor){
-			addJEIDescription(seed_reprocessor);
+			addJEIDescription(blockSeedReprocessor);
 		}
 	}
 	
 	public static void addJEIDescription(Block block){
 		CompatJEI.blocks.add(block);
-	}
-	
-	@SideOnly(Side.CLIENT)
-	public static void initBlockModels(){
-		for(Block block : BLOCKS){
-			ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(block), 0, new ModelResourceLocation(MysticalAgriculture.MOD_ID + ":" + block.getUnlocalizedName().substring(8), "inventory"));
-		}
-		
-		ESSENCE_COAL_BLOCK.initModels();
 	}
 }

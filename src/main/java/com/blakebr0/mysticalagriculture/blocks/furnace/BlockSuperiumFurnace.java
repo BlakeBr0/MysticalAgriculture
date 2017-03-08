@@ -43,7 +43,7 @@ public class BlockSuperiumFurnace extends BlockContainer {
     private final boolean isBurning;
     private static boolean keepInventory;
 
-    public BlockSuperiumFurnace(boolean isBurning, String name, float hardness, float resistance, String tool, int level){
+    public BlockSuperiumFurnace(boolean isBurning, String name, float hardness, float resistance){
         super(Material.ROCK);
         this.setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH));
         this.isBurning = isBurning;
@@ -52,7 +52,6 @@ public class BlockSuperiumFurnace extends BlockContainer {
         this.setCreativeTab(MysticalAgriculture.tabMysticalAgriculture);
 		this.setHardness(hardness);
 		this.setResistance(resistance);
-		this.setHarvestLevel(tool, level);
     }
     
 	@Override
@@ -64,7 +63,7 @@ public class BlockSuperiumFurnace extends BlockContainer {
 
     @Nullable
     public Item getItemDropped(IBlockState state, Random rand, int fortune){
-        return Item.getItemFromBlock(ModBlocks.superium_furnace);
+        return Item.getItemFromBlock(ModBlocks.blockSuperiumFurnace);
     }
 
     public void onBlockAdded(World worldIn, BlockPos pos, IBlockState state){
@@ -151,11 +150,11 @@ public class BlockSuperiumFurnace extends BlockContainer {
         keepInventory = true;
 
         if(active){
-            worldIn.setBlockState(pos, ModBlocks.superium_furnace_active.getDefaultState().withProperty(FACING, iblockstate.getValue(FACING)), 3);
-            worldIn.setBlockState(pos, ModBlocks.superium_furnace_active.getDefaultState().withProperty(FACING, iblockstate.getValue(FACING)), 3);
+            worldIn.setBlockState(pos, ModBlocks.blockSuperiumFurnaceActive.getDefaultState().withProperty(FACING, iblockstate.getValue(FACING)), 3);
+            worldIn.setBlockState(pos, ModBlocks.blockSuperiumFurnaceActive.getDefaultState().withProperty(FACING, iblockstate.getValue(FACING)), 3);
         } else {
-            worldIn.setBlockState(pos, ModBlocks.superium_furnace.getDefaultState().withProperty(FACING, iblockstate.getValue(FACING)), 3);
-            worldIn.setBlockState(pos, ModBlocks.superium_furnace.getDefaultState().withProperty(FACING, iblockstate.getValue(FACING)), 3);
+            worldIn.setBlockState(pos, ModBlocks.blockSuperiumFurnace.getDefaultState().withProperty(FACING, iblockstate.getValue(FACING)), 3);
+            worldIn.setBlockState(pos, ModBlocks.blockSuperiumFurnace.getDefaultState().withProperty(FACING, iblockstate.getValue(FACING)), 3);
         }
 
         keepInventory = false;
@@ -207,7 +206,7 @@ public class BlockSuperiumFurnace extends BlockContainer {
     }
 
     public ItemStack getItem(World worldIn, BlockPos pos, IBlockState state){
-        return new ItemStack(ModBlocks.superium_furnace);
+        return new ItemStack(ModBlocks.blockSuperiumFurnace);
     }
 
     public EnumBlockRenderType getRenderType(IBlockState state){
