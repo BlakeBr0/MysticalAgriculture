@@ -44,13 +44,13 @@ public class ItemChunk extends Item {
         	tooltip.add("Drop Chance: \u00A7b15%");
             break;
         case 4:
-        	if(stack.getItem() != ModItems.experience_chunk){
+        	if(stack.getItem() != ModItems.itemExperienceChunk){
         		tooltip.add("Tier: \u00A7c5");
         	}
         	tooltip.add("Drop Chance: \u00A7c10%");
             break;
 		}
-		if(ModConfig.craftable_chunks && stack.getItem() != ModItems.experience_chunk){
+		if(ModConfig.craftable_chunks && stack.getItem() != ModItems.itemExperienceChunk){
 			tooltip.add("\u00A7oCraftable");
 		}
 	}

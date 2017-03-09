@@ -26,7 +26,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class ItemMysticalFertilizer extends BaseItem {
+public class ItemMysticalFertilizer extends ItemBase {
 
 	public ItemMysticalFertilizer(String name){
 		super(name);

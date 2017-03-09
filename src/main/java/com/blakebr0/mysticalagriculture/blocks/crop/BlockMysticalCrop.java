@@ -146,7 +146,7 @@ public class BlockMysticalCrop extends BlockCrops implements IHornHarvestable {
 
         drops.add(new ItemStack(this.getSeed(), seeds, 0));
         if(essence > 0){ drops.add(new ItemStack(this.getCrop(), essence, 0)); }
-        if(fertilizer > 0){ drops.add(new ItemStack(ModItems.fertilized_essence, fertilizer, 0)); }
+        if(fertilizer > 0){ drops.add(new ItemStack(ModItems.itemFertilizedEssence, fertilizer, 0)); }
         return drops;
     }
     

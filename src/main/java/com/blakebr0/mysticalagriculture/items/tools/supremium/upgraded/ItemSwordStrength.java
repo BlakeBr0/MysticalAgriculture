@@ -25,7 +25,7 @@ public class ItemSwordStrength extends ItemSword {
 	
 	@Override
     public ItemStack getContainerItem(ItemStack itemstack){
-        return new ItemStack(ModItems.charm_strength, 1, 0);
+        return new ItemStack(ModItems.itemCharmStrength, 1, 0);
     }
 
     @Override
@@ -37,12 +37,11 @@ public class ItemSwordStrength extends ItemSword {
 	@SideOnly(Side.CLIENT)
 	public void addInformation(ItemStack stack, EntityPlayer player, List tooltip, boolean advanced){
 		tooltip.add("Durability: \u00A7cUnlimited");
-		if(stack.getItem() == ModItems.supremium_sword_strength1){
+		if(stack.getItem() == ModItems.itemSupremiumSwordStrength){
 			tooltip.add("Charm Slot: \u00A7cStrength");
 		}
-		if(stack.getItem() == ModItems.supremium_sword_strength2){
+		if(stack.getItem() == ModItems.itemSupremiumSwordStrength2){
 			tooltip.add("Charm Slot: \u00A7cStrength 2");
 		}
-		super.addInformation(stack, player, tooltip, advanced);
 	}
 }

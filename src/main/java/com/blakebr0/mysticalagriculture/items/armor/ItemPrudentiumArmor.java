@@ -48,6 +48,6 @@ public class ItemPrudentiumArmor extends ItemArmor {
 	}
 	
     public boolean getIsRepairable(ItemStack toRepair, ItemStack repair){
-        return repair.getItem() == ModItems.prudentium_ingot;
+        return repair.getItem() == ModItems.itemPrudentiumIngot;
     }
 }

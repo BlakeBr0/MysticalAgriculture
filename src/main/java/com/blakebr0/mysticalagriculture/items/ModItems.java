@@ -83,435 +83,650 @@ import net.minecraftforge.oredict.OreDictionary;
 
 public class ModItems {
 	
-	public static List<Item> ITEMS = new ArrayList<Item>();
+	public static ItemBase itemInferiumEssence = new ItemBase("inferium_essence");
+	public static ItemBase itemPrudentiumEssence = new ItemBase("prudentium_essence");
+	public static ItemBase itemIntermediumEssence = new ItemBase("intermedium_essence");
+	public static ItemBase itemSuperiumEssence = new ItemBase("superium_essence");
+	public static ItemBase itemSupremiumEssence = new ItemBase("supremium_essence");
 	
-	public static BaseItem inferium_essence = new BaseItem("inferium_essence");
-	public static BaseItem prudentium_essence = new BaseItem("prudentium_essence");
-	public static BaseItem intermedium_essence = new BaseItem("intermedium_essence");
-	public static BaseItem superium_essence = new BaseItem("superium_essence");
-	public static BaseItem supremium_essence = new BaseItem("supremium_essence");
+	public static ItemInfusionCrystal itemInfusionCrystal = new ItemInfusionCrystal("infusion_crystal");
+	public static ItemMasterInfusionCrystal itemInfusionCrystalMaster = new ItemMasterInfusionCrystal("master_infusion_crystal");
 	
-	public static ItemInfusionCrystal infusion_crystal = new ItemInfusionCrystal("infusion_crystal");
-	public static ItemMasterInfusionCrystal master_infusion_crystal = new ItemMasterInfusionCrystal("master_infusion_crystal");
+	public static ItemBase itemProsperityShard = new ItemBase("prosperity_shard");
 	
-	public static BaseItem prosperity_shard = new BaseItem("prosperity_shard");
+	public static ItemFertilizedEssence itemFertilizedEssence = new ItemFertilizedEssence("fertilized_essence");
+	public static ItemMysticalFertilizer itemMysticalFertilizer = new ItemMysticalFertilizer("mystical_fertilizer");
 	
-	public static ItemFertilizedEssence fertilized_essence = new ItemFertilizedEssence("fertilized_essence");
-	public static ItemMysticalFertilizer mystical_fertilizer = new ItemMysticalFertilizer("mystical_fertilizer");
+	public static ItemBase itemNatureCluster = new ItemBase("nature_cluster");
+	public static ItemBase itemDyeCluster = new ItemBase("dye_cluster");
+	public static ItemBase itemNetherCluster = new ItemBase("nether_cluster");
+	public static ItemBase itemMysticalFlowerCluster = new ItemBase("mystical_flower_cluster");
 	
-	public static BaseItem nature_cluster = new BaseItem("nature_cluster");
-	public static BaseItem dye_cluster = new BaseItem("dye_cluster");
-	public static BaseItem nether_cluster = new BaseItem("nether_cluster");
-	public static BaseItem mystical_flower_cluster = new BaseItem("mystical_flower_cluster");
+	public static ItemBase itemBlankRecord = new ItemBase("blank_record");
 	
-	public static BaseItem blank_record = new BaseItem("blank_record");
+	public static ItemInferiumApple itemInferiumApple = new ItemInferiumApple("inferium_apple");
+	public static ItemPrudentiumApple itemPrudentiumApple = new ItemPrudentiumApple("prudentium_apple");
+	public static ItemIntermediumApple itemIntermediumApple = new ItemIntermediumApple("intermedium_apple");
+	public static ItemSuperiumApple itemSuperiumApple = new ItemSuperiumApple("superium_apple");
+	public static ItemSupremiumApple itemSupremiumApple = new ItemSupremiumApple("supremium_apple");
 	
-	public static ItemInferiumApple inferium_apple = new ItemInferiumApple("inferium_apple");
-	public static ItemPrudentiumApple prudentium_apple = new ItemPrudentiumApple("prudentium_apple");
-	public static ItemIntermediumApple intermedium_apple = new ItemIntermediumApple("intermedium_apple");
-	public static ItemSuperiumApple superium_apple = new ItemSuperiumApple("superium_apple");
-	public static ItemSupremiumApple supremium_apple = new ItemSupremiumApple("supremium_apple");
+	public static ItemEssenceCoal itemEssenceCoal = new ItemEssenceCoal();
 	
-	public static ItemEssenceCoal ESSENCE_COAL = new ItemEssenceCoal();
+	public static ItemBase itemBaseCraftingSeed = new ItemBase("base_crafting_seed");
+	public static ItemBase itemTier1CraftingSeed = new ItemBase("tier1_crafting_seed");
+	public static ItemBase itemTier2CraftingSeed = new ItemBase("tier2_crafting_seed");
+	public static ItemBase itemTier3CraftingSeed = new ItemBase("tier3_crafting_seed");
+	public static ItemBase itemTier4CraftingSeed = new ItemBase("tier4_crafting_seed");
+	public static ItemBase itemTier5CraftingSeed = new ItemBase("tier5_crafting_seed");
 	
-	public static BaseItem base_crafting_seed = new BaseItem("base_crafting_seed");
-	public static BaseItem tier1_crafting_seed = new BaseItem("tier1_crafting_seed");
-	public static BaseItem tier2_crafting_seed = new BaseItem("tier2_crafting_seed");
-	public static BaseItem tier3_crafting_seed = new BaseItem("tier3_crafting_seed");
-	public static BaseItem tier4_crafting_seed = new BaseItem("tier4_crafting_seed");
-	public static BaseItem tier5_crafting_seed = new BaseItem("tier5_crafting_seed");
+	public static ItemBase itemMysticalToolRod = new ItemBase("mystical_tool_rod");
+	public static ItemBase itemBaseEssenceIngot = new ItemBase("base_essence_ingot");
 	
-	public static BaseItem mystical_tool_rod = new BaseItem("mystical_tool_rod");
-	public static BaseItem base_essence_ingot = new BaseItem("base_essence_ingot");
+	public static ItemBase itemSoulDust = new ItemBase("soul_dust");
+	public static ItemBase itemSouliumDust = new ItemBase("soulium_dust");
+	public static ItemBase itemSouliumIngot = new ItemBase("soulium_ingot");
+	public static ItemSouliumDagger itemSouliumDagger = new ItemSouliumDagger("soulium_dagger", ModToolMaterials.SOULIUM);
 	
-	public static BaseItem soul_dust = new BaseItem("soul_dust");
-	public static BaseItem soulium_dust = new BaseItem("soulium_dust");
-	public static BaseItem soulium_ingot = new BaseItem("soulium_ingot");
-	public static ItemSouliumDagger soulium_dagger = new ItemSouliumDagger("soulium_dagger", ModToolMaterials.SOULIUM);
+	public static ItemBase itemTier1MobChunk = new ItemBase("tier1_mob_chunk");
+	public static ItemBase itemTier2MobChunk = new ItemBase("tier2_mob_chunk");
+	public static ItemBase itemTier3MobChunk = new ItemBase("tier3_mob_chunk");
+	public static ItemBase itemTier4MobChunk = new ItemBase("tier4_mob_chunk");
+	public static ItemBase itemTier5MobChunk = new ItemBase("tier5_mob_chunk");
 	
-	public static BaseItem tier1_mob_chunk = new BaseItem("tier1_mob_chunk");
-	public static BaseItem tier2_mob_chunk = new BaseItem("tier2_mob_chunk");
-	public static BaseItem tier3_mob_chunk = new BaseItem("tier3_mob_chunk");
-	public static BaseItem tier4_mob_chunk = new BaseItem("tier4_mob_chunk");
-	public static BaseItem tier5_mob_chunk = new BaseItem("tier5_mob_chunk");
-	
-	public static ItemChunk experience_chunk = new ItemChunk("experience_chunk", 5);
-	public static ItemChunk zombie_chunk = new ItemChunk("zombie_chunk", ModConfig.zombie_tier);
-	public static ItemChunk pig_chunk = new ItemChunk("pig_chunk", ModConfig.pig_tier);
-	public static ItemChunk chicken_chunk = new ItemChunk("chicken_chunk", ModConfig.chicken_tier);
-	public static ItemChunk cow_chunk = new ItemChunk("cow_chunk", ModConfig.cow_tier);
-	public static ItemChunk sheep_chunk = new ItemChunk("sheep_chunk", ModConfig.sheep_tier);
-	public static ItemChunk slime_chunk = new ItemChunk("slime_chunk", ModConfig.slime_tier);
-	public static ItemChunk skeleton_chunk = new ItemChunk("skeleton_chunk", ModConfig.skeleton_tier);
-	public static ItemChunk creeper_chunk = new ItemChunk("creeper_chunk", ModConfig.creeper_tier);
-	public static ItemChunk spider_chunk = new ItemChunk("spider_chunk", ModConfig.spider_tier);
-	public static ItemChunk rabbit_chunk = new ItemChunk("rabbit_chunk", ModConfig.rabbit_tier);
-	public static ItemChunk guardian_chunk = new ItemChunk("guardian_chunk", ModConfig.guardian_tier);
-	public static ItemChunk blaze_chunk = new ItemChunk("blaze_chunk", ModConfig.blaze_tier);
-	public static ItemChunk ghast_chunk = new ItemChunk("ghast_chunk", ModConfig.ghast_tier);
-	public static ItemChunk enderman_chunk = new ItemChunk("enderman_chunk", ModConfig.enderman_tier);
-	public static ItemChunk wither_skeleton_chunk = new ItemChunk("wither_skeleton_chunk", ModConfig.wither_skeleton_tier);
+	public static ItemChunk itemExperienceChunk = new ItemChunk("experience_chunk", 5);
+	public static ItemChunk itemZombieChunk = new ItemChunk("zombie_chunk", ModConfig.zombie_tier);
+	public static ItemChunk itemPigChunk = new ItemChunk("pig_chunk", ModConfig.pig_tier);
+	public static ItemChunk itemChickenChunk = new ItemChunk("chicken_chunk", ModConfig.chicken_tier);
+	public static ItemChunk itemCowChunk = new ItemChunk("cow_chunk", ModConfig.cow_tier);
+	public static ItemChunk itemSheepChunk = new ItemChunk("sheep_chunk", ModConfig.sheep_tier);
+	public static ItemChunk itemSlimeChunk = new ItemChunk("slime_chunk", ModConfig.slime_tier);
+	public static ItemChunk itemSkeletonChunk = new ItemChunk("skeleton_chunk", ModConfig.skeleton_tier);
+	public static ItemChunk itemCreeperChunk = new ItemChunk("creeper_chunk", ModConfig.creeper_tier);
+	public static ItemChunk itemSpiderChunk = new ItemChunk("spider_chunk", ModConfig.spider_tier);
+	public static ItemChunk itemRabbitChunk = new ItemChunk("rabbit_chunk", ModConfig.rabbit_tier);
+	public static ItemChunk itemGuardianChunk = new ItemChunk("guardian_chunk", ModConfig.guardian_tier);
+	public static ItemChunk itemBlazeChunk = new ItemChunk("blaze_chunk", ModConfig.blaze_tier);
+	public static ItemChunk itemGhastChunk = new ItemChunk("ghast_chunk", ModConfig.ghast_tier);
+	public static ItemChunk itemEndermanChunk = new ItemChunk("enderman_chunk", ModConfig.enderman_tier);
+	public static ItemChunk itemWitherSkeletonChunk = new ItemChunk("wither_skeleton_chunk", ModConfig.wither_skeleton_tier);
 		
-	public static ItemSeed tier1_inferium_seeds = new ItemSeed("tier1_inferium_seeds", ModBlocks.blockTier1InferiumCrop, 1);
-	public static ItemSeed tier2_inferium_seeds = new ItemSeed("tier2_inferium_seeds", ModBlocks.blockTier2InferiumCrop, 2);
-	public static ItemSeed tier3_inferium_seeds = new ItemSeed("tier3_inferium_seeds", ModBlocks.blockTier3InferiumCrop, 3);
-	public static ItemSeed tier4_inferium_seeds = new ItemSeed("tier4_inferium_seeds", ModBlocks.blockTier4InferiumCrop, 4);
-	public static ItemSeed tier5_inferium_seeds = new ItemSeed("tier5_inferium_seeds", ModBlocks.blockTier5InferiumCrop, 5); 
+	public static ItemSeed itemTier1InferiumSeeds = new ItemSeed("tier1_inferium_seeds", ModBlocks.blockTier1InferiumCrop, 1);
+	public static ItemSeed itemTier2InferiumSeeds = new ItemSeed("tier2_inferium_seeds", ModBlocks.blockTier2InferiumCrop, 2);
+	public static ItemSeed itemTier3InferiumSeeds = new ItemSeed("tier3_inferium_seeds", ModBlocks.blockTier3InferiumCrop, 3);
+	public static ItemSeed itemTier4InferiumSeeds = new ItemSeed("tier4_inferium_seeds", ModBlocks.blockTier4InferiumCrop, 4);
+	public static ItemSeed itemTier5InferiumSeeds = new ItemSeed("tier5_inferium_seeds", ModBlocks.blockTier5InferiumCrop, 5); 
 		
-	public static BaseItem inferium_ingot = new BaseItem("inferium_ingot");
-	public static BaseItem prudentium_ingot = new BaseItem("prudentium_ingot");
-	public static BaseItem intermedium_ingot = new BaseItem("intermedium_ingot");
-	public static BaseItem superium_ingot = new BaseItem("superium_ingot");
-	public static BaseItem supremium_ingot = new BaseItem("supremium_ingot");
-	public static ItemCoreRemover core_remover = new ItemCoreRemover("core_remover");
+	public static ItemBase itemInferiumIngot = new ItemBase("inferium_ingot");
+	public static ItemBase itemPrudentiumIngot = new ItemBase("prudentium_ingot");
+	public static ItemBase itemIntermediumIngot = new ItemBase("intermedium_ingot");
+	public static ItemBase itemSuperiumIngot = new ItemBase("superium_ingot");
+	public static ItemBase itemSupremiumIngot = new ItemBase("supremium_ingot");
 	
-	public static ItemCore inferium_tool_core = new ItemCore("inferium_tool_core");
-	public static ItemCore prudentium_tool_core = new ItemCore("prudentium_tool_core");
-	public static ItemCore intermedium_tool_core = new ItemCore("intermedium_tool_core");
-	public static ItemCore superium_tool_core = new ItemCore("superium_tool_core");
-	public static ItemCore supremium_tool_core = new ItemCore("supremium_tool_core");
+	public static ItemCoreRemover itemCoreRemover = new ItemCoreRemover("core_remover");
 	
-	public static ItemCore inferium_armor_core = new ItemCore("inferium_armor_core");
-	public static ItemCore prudentium_armor_core = new ItemCore("prudentium_armor_core");
-	public static ItemCore intermedium_armor_core = new ItemCore("intermedium_armor_core");
-	public static ItemCore superium_armor_core = new ItemCore("superium_armor_core");
-	public static ItemCore supremium_armor_core = new ItemCore("supremium_armor_core");
+	public static ItemCore itemInferiumToolCore = new ItemCore("inferium_tool_core");
+	public static ItemCore itemPrudentiumToolCore = new ItemCore("prudentium_tool_core");
+	public static ItemCore itemIntermediumToolCore = new ItemCore("intermedium_tool_core");
+	public static ItemCore itemSuperiumToolCore = new ItemCore("superium_tool_core");
+	public static ItemCore itemSupremiumToolCore = new ItemCore("supremium_tool_core");
+	
+	public static ItemCore itemInferiumArmorCore = new ItemCore("inferium_armor_core");
+	public static ItemCore itemPrudentiumArmorCore = new ItemCore("prudentium_armor_core");
+	public static ItemCore itemIntermediumArmorCore = new ItemCore("intermedium_armor_core");
+	public static ItemCore itemSuperiumArmorCore = new ItemCore("superium_armor_core");
+	public static ItemCore itemSupremiumArmorCore = new ItemCore("supremium_armor_core");
 
-	public static BaseItem charm_blank = new BaseItem("charm_blank");
-	public static ItemCharmNightvision charm_nightvision = new ItemCharmNightvision("charm_nightvision");
-	public static ItemCharmAbsorption charm_absorption = new ItemCharmAbsorption("charm_absorption");
-	public static ItemCharmWither charm_wither = new ItemCharmWither("charm_wither");
-	public static ItemCharmAntivenom charm_antivenom = new ItemCharmAntivenom("charm_antivenom");
-	public static ItemCharmFire charm_fire = new ItemCharmFire("charm_fire");
-	public static ItemCharmResistance charm_resistance = new ItemCharmResistance("charm_resistance");
-	public static ItemCharmStrength charm_strength = new ItemCharmStrength("charm_strength1");
-	public static ItemCharmStrength charm_strength2 = new ItemCharmStrength("charm_strength2");
-	public static ItemCharmSpeed charm_speed = new ItemCharmSpeed("charm_speed");
-	public static ItemCharmJump charm_jump = new ItemCharmJump("charm_jump");
-	public static ItemCharmMiningAOE charm_mining_aoe = new ItemCharmMiningAOE("charm_mining_aoe");
-	public static ItemCharmAttackAOE charm_attack_aoe = new ItemCharmAttackAOE("charm_attack_aoe");
+	public static ItemBase itemCharmBlank = new ItemBase("charm_blank");
+	public static ItemCharmNightvision itemCharmNightvision = new ItemCharmNightvision("charm_nightvision");
+	public static ItemCharmAbsorption itemCharmAbsorption = new ItemCharmAbsorption("charm_absorption");
+	public static ItemCharmWither itemCharmWither = new ItemCharmWither("charm_wither");
+	public static ItemCharmAntivenom itemCharmAntivenom = new ItemCharmAntivenom("charm_antivenom");
+	public static ItemCharmFire itemCharmFire = new ItemCharmFire("charm_fire");
+	public static ItemCharmResistance itemCharmResistance = new ItemCharmResistance("charm_resistance");
+	public static ItemCharmStrength itemCharmStrength = new ItemCharmStrength("charm_strength1");
+	public static ItemCharmStrength itemCharmStrength2 = new ItemCharmStrength("charm_strength2");
+	public static ItemCharmSpeed itemCharmSpeed = new ItemCharmSpeed("charm_speed");
+	public static ItemCharmJump itemCharmJump = new ItemCharmJump("charm_jump");
+	public static ItemCharmMiningAOE itemCharmMiningAOE = new ItemCharmMiningAOE("charm_mining_aoe");
+	public static ItemCharmAttackAOE itemCharmAttackAOE = new ItemCharmAttackAOE("charm_attack_aoe");
 	
-	public static ItemInferiumSword inferium_sword = new ItemInferiumSword(ModToolMaterials.INFERIUM, "inferium_sword");
-	public static ItemInferiumPickaxe inferium_pickaxe = new ItemInferiumPickaxe(ModToolMaterials.INFERIUM, "inferium_pickaxe");
-	public static ItemInferiumShovel inferium_shovel = new ItemInferiumShovel(ModToolMaterials.INFERIUM, "inferium_shovel");
-	public static ItemInferiumAxe inferium_axe = new ItemInferiumAxe(Item.ToolMaterial.IRON, "inferium_axe");
-	public static ItemInferiumHoe inferium_hoe = new ItemInferiumHoe(ModToolMaterials.INFERIUM, "inferium_hoe");
+	public static ItemInferiumSword itemInferiumSword = new ItemInferiumSword(ModToolMaterials.INFERIUM, "inferium_sword");
+	public static ItemInferiumPickaxe itemInferiumPickaxe = new ItemInferiumPickaxe(ModToolMaterials.INFERIUM, "inferium_pickaxe");
+	public static ItemInferiumShovel itemInferiumShovel = new ItemInferiumShovel(ModToolMaterials.INFERIUM, "inferium_shovel");
+	public static ItemInferiumAxe itemInferiumAxe = new ItemInferiumAxe(Item.ToolMaterial.IRON, "inferium_axe");
+	public static ItemInferiumHoe itemInferiumHoe = new ItemInferiumHoe(ModToolMaterials.INFERIUM, "inferium_hoe");
 	
-	public static ItemPrudentiumSword prudentium_sword = new ItemPrudentiumSword(ModToolMaterials.PRUDENTIUM, "prudentium_sword");
-	public static ItemPrudentiumPickaxe prudentium_pickaxe = new ItemPrudentiumPickaxe(ModToolMaterials.PRUDENTIUM, "prudentium_pickaxe");
-	public static ItemPrudentiumShovel prudentium_shovel = new ItemPrudentiumShovel(ModToolMaterials.PRUDENTIUM, "prudentium_shovel");
-	public static ItemPrudentiumAxe prudentium_axe = new ItemPrudentiumAxe(Item.ToolMaterial.DIAMOND, "prudentium_axe");
-	public static ItemPrudentiumHoe prudentium_hoe = new ItemPrudentiumHoe(ModToolMaterials.PRUDENTIUM, "prudentium_hoe");
+	public static ItemPrudentiumSword itemPrudentiumSword = new ItemPrudentiumSword(ModToolMaterials.PRUDENTIUM, "prudentium_sword");
+	public static ItemPrudentiumPickaxe itemPrudentiumPickaxe = new ItemPrudentiumPickaxe(ModToolMaterials.PRUDENTIUM, "prudentium_pickaxe");
+	public static ItemPrudentiumShovel itemPrudentiumShovel = new ItemPrudentiumShovel(ModToolMaterials.PRUDENTIUM, "prudentium_shovel");
+	public static ItemPrudentiumAxe itemPrudentiumAxe = new ItemPrudentiumAxe(Item.ToolMaterial.DIAMOND, "prudentium_axe");
+	public static ItemPrudentiumHoe itemPrudentiumHoe = new ItemPrudentiumHoe(ModToolMaterials.PRUDENTIUM, "prudentium_hoe");
 	
-	public static ItemIntermediumSword intermedium_sword = new ItemIntermediumSword(ModToolMaterials.INTERMEDIUM, "intermedium_sword");
-	public static ItemIntermediumPickaxe intermedium_pickaxe = new ItemIntermediumPickaxe(ModToolMaterials.INTERMEDIUM, "intermedium_pickaxe");
-	public static ItemIntermediumShovel intermedium_shovel = new ItemIntermediumShovel(ModToolMaterials.INTERMEDIUM, "intermedium_shovel");
-	public static ItemIntermediumAxe intermedium_axe = new ItemIntermediumAxe(Item.ToolMaterial.DIAMOND, "intermedium_axe");
-	public static ItemIntermediumHoe intermedium_hoe = new ItemIntermediumHoe(ModToolMaterials.INTERMEDIUM, "intermedium_hoe");
+	public static ItemIntermediumSword itemIntermediumSword = new ItemIntermediumSword(ModToolMaterials.INTERMEDIUM, "intermedium_sword");
+	public static ItemIntermediumPickaxe itemIntermediumPickaxe = new ItemIntermediumPickaxe(ModToolMaterials.INTERMEDIUM, "intermedium_pickaxe");
+	public static ItemIntermediumShovel itemIntermediumShovel = new ItemIntermediumShovel(ModToolMaterials.INTERMEDIUM, "intermedium_shovel");
+	public static ItemIntermediumAxe itemIntermediumAxe = new ItemIntermediumAxe(Item.ToolMaterial.DIAMOND, "intermedium_axe");
+	public static ItemIntermediumHoe itemIntermediumHoe = new ItemIntermediumHoe(ModToolMaterials.INTERMEDIUM, "intermedium_hoe");
 	
-	public static ItemSuperiumSword superium_sword = new ItemSuperiumSword(ModToolMaterials.SUPERIUM, "superium_sword");
-	public static ItemSuperiumPickaxe superium_pickaxe = new ItemSuperiumPickaxe(ModToolMaterials.SUPERIUM, "superium_pickaxe");
-	public static ItemSuperiumShovel superium_shovel = new ItemSuperiumShovel(ModToolMaterials.SUPERIUM, "superium_shovel");
-	public static ItemSuperiumAxe superium_axe = new ItemSuperiumAxe(Item.ToolMaterial.DIAMOND, "superium_axe");
-	public static ItemSuperiumHoe superium_hoe = new ItemSuperiumHoe(ModToolMaterials.SUPERIUM, "superium_hoe");
+	public static ItemSuperiumSword itemSuperiumSword = new ItemSuperiumSword(ModToolMaterials.SUPERIUM, "superium_sword");
+	public static ItemSuperiumPickaxe itemSuperiumPickaxe = new ItemSuperiumPickaxe(ModToolMaterials.SUPERIUM, "superium_pickaxe");
+	public static ItemSuperiumShovel itemSuperiumShovel = new ItemSuperiumShovel(ModToolMaterials.SUPERIUM, "superium_shovel");
+	public static ItemSuperiumAxe itemSuperiumAxe = new ItemSuperiumAxe(Item.ToolMaterial.DIAMOND, "superium_axe");
+	public static ItemSuperiumHoe itemSuperiumHoe = new ItemSuperiumHoe(ModToolMaterials.SUPERIUM, "superium_hoe");
 	
-	public static ItemSupremiumSword supremium_sword = new ItemSupremiumSword(ModToolMaterials.SUPREMIUM, "supremium_sword");
-	public static ItemSupremiumPickaxe supremium_pickaxe = new ItemSupremiumPickaxe(ModToolMaterials.SUPREMIUM, "supremium_pickaxe");
-	public static ItemSupremiumShovel supremium_shovel = new ItemSupremiumShovel(ModToolMaterials.SUPREMIUM, "supremium_shovel");
-	public static ItemSupremiumAxe supremium_axe = new ItemSupremiumAxe(Item.ToolMaterial.DIAMOND, "supremium_axe");
-	public static ItemSupremiumHoe supremium_hoe = new ItemSupremiumHoe(ModToolMaterials.SUPREMIUM, "supremium_hoe");
+	public static ItemSupremiumSword itemSupremiumSword = new ItemSupremiumSword(ModToolMaterials.SUPREMIUM, "supremium_sword");
+	public static ItemSupremiumPickaxe itemSupremiumPickaxe = new ItemSupremiumPickaxe(ModToolMaterials.SUPREMIUM, "supremium_pickaxe");
+	public static ItemSupremiumShovel itemSupremiumShovel = new ItemSupremiumShovel(ModToolMaterials.SUPREMIUM, "supremium_shovel");
+	public static ItemSupremiumAxe itemSupremiumAxe = new ItemSupremiumAxe(Item.ToolMaterial.DIAMOND, "supremium_axe");
+	public static ItemSupremiumHoe itemSupremiumHoe = new ItemSupremiumHoe(ModToolMaterials.SUPREMIUM, "supremium_hoe");
 	
-	public static ItemSwordStrength supremium_sword_strength1 = new ItemSwordStrength(ModToolMaterials.SUPREMIUM_STRENGTH1, "supremium_sword_strength1");
-	public static ItemSwordStrength supremium_sword_strength2 = new ItemSwordStrength(ModToolMaterials.SUPREMIUM_STRENGTH2, "supremium_sword_strength2");
+	public static ItemSwordStrength itemSupremiumSwordStrength = new ItemSwordStrength(ModToolMaterials.SUPREMIUM_STRENGTH1, "supremium_sword_strength1");
+	public static ItemSwordStrength itemSupremiumSwordStrength2 = new ItemSwordStrength(ModToolMaterials.SUPREMIUM_STRENGTH2, "supremium_sword_strength2");
 	
-	public static ItemSwordAOE supremium_sword_aoe = new ItemSwordAOE(ModToolMaterials.SUPREMIUM_AOE, "supremium_sword_aoe");
-	public static ItemPickaxeAOE supremium_pickaxe_aoe = new ItemPickaxeAOE(ModToolMaterials.SUPREMIUM_AOE, "supremium_pickaxe_aoe");
-	public static ItemShovelAOE supremium_shovel_aoe = new ItemShovelAOE(ModToolMaterials.SUPREMIUM_AOE, "supremium_shovel_aoe");
-	public static ItemAxeAOE supremium_axe_aoe = new ItemAxeAOE(Item.ToolMaterial.DIAMOND, "supremium_axe_aoe");
+	public static ItemSwordAOE itemSupremiumSwordAOE = new ItemSwordAOE(ModToolMaterials.SUPREMIUM_AOE, "supremium_sword_aoe");
+	public static ItemPickaxeAOE itemSupremiumPickaxeAOE = new ItemPickaxeAOE(ModToolMaterials.SUPREMIUM_AOE, "supremium_pickaxe_aoe");
+	public static ItemShovelAOE itemSupremiumShovelAOE = new ItemShovelAOE(ModToolMaterials.SUPREMIUM_AOE, "supremium_shovel_aoe");
+	public static ItemAxeAOE itemSupremiumAxeAOE = new ItemAxeAOE(Item.ToolMaterial.DIAMOND, "supremium_axe_aoe");
 	
-	public static ItemInferiumArmor inferium_helmet = new ItemInferiumArmor("inferium_helmet", ModToolMaterials.INFERIUM_ARMOR, 0, EntityEquipmentSlot.HEAD);
-	public static ItemInferiumArmor inferium_chestplate = new ItemInferiumArmor("inferium_chestplate", ModToolMaterials.INFERIUM_ARMOR, 0, EntityEquipmentSlot.CHEST);
-	public static ItemInferiumArmor inferium_leggings = new ItemInferiumArmor("inferium_leggings", ModToolMaterials.INFERIUM_ARMOR, 0, EntityEquipmentSlot.LEGS);
-	public static ItemInferiumArmor inferium_boots = new ItemInferiumArmor("inferium_boots", ModToolMaterials.INFERIUM_ARMOR, 0, EntityEquipmentSlot.FEET);
+	public static ItemInferiumArmor itemInferiumHelmet = new ItemInferiumArmor("inferium_helmet", ModToolMaterials.INFERIUM_ARMOR, 0, EntityEquipmentSlot.HEAD);
+	public static ItemInferiumArmor itemInferiumChestplate = new ItemInferiumArmor("inferium_chestplate", ModToolMaterials.INFERIUM_ARMOR, 0, EntityEquipmentSlot.CHEST);
+	public static ItemInferiumArmor itemInferiumLeggings = new ItemInferiumArmor("inferium_leggings", ModToolMaterials.INFERIUM_ARMOR, 0, EntityEquipmentSlot.LEGS);
+	public static ItemInferiumArmor itemInferiumBoots = new ItemInferiumArmor("inferium_boots", ModToolMaterials.INFERIUM_ARMOR, 0, EntityEquipmentSlot.FEET);
 	
-	public static ItemPrudentiumArmor prudentium_helmet = new ItemPrudentiumArmor("prudentium_helmet", ModToolMaterials.PRUDENTIUM_ARMOR, 0, EntityEquipmentSlot.HEAD);
-	public static ItemPrudentiumArmor prudentium_chestplate = new ItemPrudentiumArmor("prudentium_chestplate", ModToolMaterials.PRUDENTIUM_ARMOR, 0, EntityEquipmentSlot.CHEST);
-	public static ItemPrudentiumArmor prudentium_leggings = new ItemPrudentiumArmor("prudentium_leggings", ModToolMaterials.PRUDENTIUM_ARMOR, 0, EntityEquipmentSlot.LEGS);
-	public static ItemPrudentiumArmor prudentium_boots = new ItemPrudentiumArmor("prudentium_boots", ModToolMaterials.PRUDENTIUM_ARMOR, 0, EntityEquipmentSlot.FEET);
+	public static ItemPrudentiumArmor itemPrudentiumHelmet = new ItemPrudentiumArmor("prudentium_helmet", ModToolMaterials.PRUDENTIUM_ARMOR, 0, EntityEquipmentSlot.HEAD);
+	public static ItemPrudentiumArmor itemPrudentiumChestplate = new ItemPrudentiumArmor("prudentium_chestplate", ModToolMaterials.PRUDENTIUM_ARMOR, 0, EntityEquipmentSlot.CHEST);
+	public static ItemPrudentiumArmor itemPrudentiumLeggings = new ItemPrudentiumArmor("prudentium_leggings", ModToolMaterials.PRUDENTIUM_ARMOR, 0, EntityEquipmentSlot.LEGS);
+	public static ItemPrudentiumArmor itemPrudentiumBoots = new ItemPrudentiumArmor("prudentium_boots", ModToolMaterials.PRUDENTIUM_ARMOR, 0, EntityEquipmentSlot.FEET);
 	
-	public static ItemIntermediumArmor intermedium_helmet = new ItemIntermediumArmor("intermedium_helmet", ModToolMaterials.INTERMEDIUM_ARMOR, 0, EntityEquipmentSlot.HEAD);
-	public static ItemIntermediumArmor intermedium_chestplate = new ItemIntermediumArmor("intermedium_chestplate", ModToolMaterials.INTERMEDIUM_ARMOR, 0, EntityEquipmentSlot.CHEST);
-	public static ItemIntermediumArmor intermedium_leggings = new ItemIntermediumArmor("intermedium_leggings", ModToolMaterials.INTERMEDIUM_ARMOR, 0, EntityEquipmentSlot.LEGS);
-	public static ItemIntermediumArmor intermedium_boots = new ItemIntermediumArmor("intermedium_boots", ModToolMaterials.INTERMEDIUM_ARMOR, 0, EntityEquipmentSlot.FEET);
+	public static ItemIntermediumArmor itemIntermediumHelmet = new ItemIntermediumArmor("intermedium_helmet", ModToolMaterials.INTERMEDIUM_ARMOR, 0, EntityEquipmentSlot.HEAD);
+	public static ItemIntermediumArmor itemIntermediumChestplate = new ItemIntermediumArmor("intermedium_chestplate", ModToolMaterials.INTERMEDIUM_ARMOR, 0, EntityEquipmentSlot.CHEST);
+	public static ItemIntermediumArmor itemIntermediumLeggings = new ItemIntermediumArmor("intermedium_leggings", ModToolMaterials.INTERMEDIUM_ARMOR, 0, EntityEquipmentSlot.LEGS);
+	public static ItemIntermediumArmor itemIntermediumBoots = new ItemIntermediumArmor("intermedium_boots", ModToolMaterials.INTERMEDIUM_ARMOR, 0, EntityEquipmentSlot.FEET);
 	
-	public static ItemSuperiumArmor superium_helmet = new ItemSuperiumArmor("superium_helmet", ModToolMaterials.SUPERIUM_ARMOR, 0, EntityEquipmentSlot.HEAD);
-	public static ItemSuperiumArmor superium_chestplate = new ItemSuperiumArmor("superium_chestplate", ModToolMaterials.SUPERIUM_ARMOR, 0, EntityEquipmentSlot.CHEST);
-	public static ItemSuperiumArmor superium_leggings = new ItemSuperiumArmor("superium_leggings", ModToolMaterials.SUPERIUM_ARMOR, 0, EntityEquipmentSlot.LEGS);
-	public static ItemSuperiumArmor superium_boots = new ItemSuperiumArmor("superium_boots", ModToolMaterials.SUPERIUM_ARMOR, 0, EntityEquipmentSlot.FEET);
+	public static ItemSuperiumArmor itemSuperiumHelmet = new ItemSuperiumArmor("superium_helmet", ModToolMaterials.SUPERIUM_ARMOR, 0, EntityEquipmentSlot.HEAD);
+	public static ItemSuperiumArmor itemSuperiumChestplate = new ItemSuperiumArmor("superium_chestplate", ModToolMaterials.SUPERIUM_ARMOR, 0, EntityEquipmentSlot.CHEST);
+	public static ItemSuperiumArmor itemSuperiumLeggings = new ItemSuperiumArmor("superium_leggings", ModToolMaterials.SUPERIUM_ARMOR, 0, EntityEquipmentSlot.LEGS);
+	public static ItemSuperiumArmor itemSuperiumBoots = new ItemSuperiumArmor("superium_boots", ModToolMaterials.SUPERIUM_ARMOR, 0, EntityEquipmentSlot.FEET);
 	
-	public static ItemSupremiumArmor supremium_helmet = new ItemSupremiumArmor("supremium_helmet", ModToolMaterials.SUPREMIUM_ARMOR, 0, EntityEquipmentSlot.HEAD);
-	public static ItemSupremiumArmor supremium_chestplate = new ItemSupremiumArmor("supremium_chestplate", ModToolMaterials.SUPREMIUM_ARMOR, 0, EntityEquipmentSlot.CHEST);
-	public static ItemSupremiumArmor supremium_leggings = new ItemSupremiumArmor("supremium_leggings", ModToolMaterials.SUPREMIUM_ARMOR, 0, EntityEquipmentSlot.LEGS);
-	public static ItemSupremiumArmor supremium_boots = new ItemSupremiumArmor("supremium_boots", ModToolMaterials.SUPREMIUM_ARMOR, 0, EntityEquipmentSlot.FEET);
+	public static ItemSupremiumArmor itemSupremiumHelmet = new ItemSupremiumArmor("supremium_helmet", ModToolMaterials.SUPREMIUM_ARMOR, 0, EntityEquipmentSlot.HEAD);
+	public static ItemSupremiumArmor itemSupremiumChestplate = new ItemSupremiumArmor("supremium_chestplate", ModToolMaterials.SUPREMIUM_ARMOR, 0, EntityEquipmentSlot.CHEST);
+	public static ItemSupremiumArmor itemSupremiumLeggings = new ItemSupremiumArmor("supremium_leggings", ModToolMaterials.SUPREMIUM_ARMOR, 0, EntityEquipmentSlot.LEGS);
+	public static ItemSupremiumArmor itemSupremiumBoots = new ItemSupremiumArmor("supremium_boots", ModToolMaterials.SUPREMIUM_ARMOR, 0, EntityEquipmentSlot.FEET);
 	
-	public static ItemUpgradedNightvision supremium_helmet_nightvision = new ItemUpgradedNightvision("supremium_helmet_nightvision", ModToolMaterials.SUPREMIUM_ARMOR, 0, EntityEquipmentSlot.HEAD);
-	public static ItemUpgradedAbsorption supremium_helmet_absorption = new ItemUpgradedAbsorption("supremium_helmet_absorption", ModToolMaterials.SUPREMIUM_ARMOR, 0, EntityEquipmentSlot.HEAD);
-	public static ItemUpgradedWither supremium_helmet_wither = new ItemUpgradedWither("supremium_helmet_wither", ModToolMaterials.SUPREMIUM_ARMOR, 0, EntityEquipmentSlot.HEAD);
-	public static ItemUpgradedAntivenom supremium_helmet_antivenom = new ItemUpgradedAntivenom("supremium_helmet_antivenom", ModToolMaterials.SUPREMIUM_ARMOR, 0, EntityEquipmentSlot.HEAD);
-	public static ItemUpgradedFire supremium_helmet_fire = new ItemUpgradedFire("supremium_helmet_fire", ModToolMaterials.SUPREMIUM_ARMOR, 0, EntityEquipmentSlot.HEAD);	
-	public static ItemUpgradedResistance supremium_helmet_resistance = new ItemUpgradedResistance("supremium_helmet_resistance", ModToolMaterials.SUPREMIUM_ARMOR, 0, EntityEquipmentSlot.HEAD);
+	public static ItemUpgradedNightvision itemSupremiumHelmetNightvision = new ItemUpgradedNightvision("supremium_helmet_nightvision", ModToolMaterials.SUPREMIUM_ARMOR, 0, EntityEquipmentSlot.HEAD);
+	public static ItemUpgradedAbsorption itemSupremiumHelmetAbsorption = new ItemUpgradedAbsorption("supremium_helmet_absorption", ModToolMaterials.SUPREMIUM_ARMOR, 0, EntityEquipmentSlot.HEAD);
+	public static ItemUpgradedWither itemSupremiumHelmetWither = new ItemUpgradedWither("supremium_helmet_wither", ModToolMaterials.SUPREMIUM_ARMOR, 0, EntityEquipmentSlot.HEAD);
+	public static ItemUpgradedAntivenom itemSupremiumHelmetAntivenom = new ItemUpgradedAntivenom("supremium_helmet_antivenom", ModToolMaterials.SUPREMIUM_ARMOR, 0, EntityEquipmentSlot.HEAD);
+	public static ItemUpgradedFire itemSupremiumHelmetFire = new ItemUpgradedFire("supremium_helmet_fire", ModToolMaterials.SUPREMIUM_ARMOR, 0, EntityEquipmentSlot.HEAD);	
+	public static ItemUpgradedResistance itemSupremiumHelmetResistance = new ItemUpgradedResistance("supremium_helmet_resistance", ModToolMaterials.SUPREMIUM_ARMOR, 0, EntityEquipmentSlot.HEAD);
 	
-	public static ItemUpgradedStrength supremium_chestplate_strength = new ItemUpgradedStrength("supremium_chestplate_strength", ModToolMaterials.SUPREMIUM_ARMOR, 0, EntityEquipmentSlot.CHEST);
-	public static ItemUpgradedAbsorption supremium_chestplate_absorption = new ItemUpgradedAbsorption("supremium_chestplate_absorption", ModToolMaterials.SUPREMIUM_ARMOR, 0, EntityEquipmentSlot.CHEST);
-	public static ItemUpgradedWither supremium_chestplate_wither = new ItemUpgradedWither("supremium_chestplate_wither", ModToolMaterials.SUPREMIUM_ARMOR, 0, EntityEquipmentSlot.CHEST);
-	public static ItemUpgradedAntivenom supremium_chestplate_antivenom = new ItemUpgradedAntivenom("supremium_chestplate_antivenom", ModToolMaterials.SUPREMIUM_ARMOR, 0, EntityEquipmentSlot.CHEST);
-	public static ItemUpgradedFire supremium_chestplate_fire = new ItemUpgradedFire("supremium_chestplate_fire", ModToolMaterials.SUPREMIUM_ARMOR, 0, EntityEquipmentSlot.CHEST);
-	public static ItemUpgradedResistance supremium_chestplate_resistance = new ItemUpgradedResistance("supremium_chestplate_resistance", ModToolMaterials.SUPREMIUM_ARMOR, 0, EntityEquipmentSlot.CHEST);
+	public static ItemUpgradedStrength itemSupremiumChestplateStrength = new ItemUpgradedStrength("supremium_chestplate_strength", ModToolMaterials.SUPREMIUM_ARMOR, 0, EntityEquipmentSlot.CHEST);
+	public static ItemUpgradedAbsorption itemSupremiumChestplateAbsorption = new ItemUpgradedAbsorption("supremium_chestplate_absorption", ModToolMaterials.SUPREMIUM_ARMOR, 0, EntityEquipmentSlot.CHEST);
+	public static ItemUpgradedWither itemSupremiumChestplateWither = new ItemUpgradedWither("supremium_chestplate_wither", ModToolMaterials.SUPREMIUM_ARMOR, 0, EntityEquipmentSlot.CHEST);
+	public static ItemUpgradedAntivenom itemSupremiumChestplateAntivenom = new ItemUpgradedAntivenom("supremium_chestplate_antivenom", ModToolMaterials.SUPREMIUM_ARMOR, 0, EntityEquipmentSlot.CHEST);
+	public static ItemUpgradedFire itemSupremiumChestplateFire = new ItemUpgradedFire("supremium_chestplate_fire", ModToolMaterials.SUPREMIUM_ARMOR, 0, EntityEquipmentSlot.CHEST);
+	public static ItemUpgradedResistance itemSupremiumChestplateResistance = new ItemUpgradedResistance("supremium_chestplate_resistance", ModToolMaterials.SUPREMIUM_ARMOR, 0, EntityEquipmentSlot.CHEST);
 	
-	public static ItemUpgradedSpeed supremium_leggings_speed = new ItemUpgradedSpeed("supremium_leggings_speed", ModToolMaterials.SUPREMIUM_ARMOR, 0, EntityEquipmentSlot.LEGS);
-	public static ItemUpgradedAbsorption supremium_leggings_absorption = new ItemUpgradedAbsorption("supremium_leggings_absorption", ModToolMaterials.SUPREMIUM_ARMOR, 0, EntityEquipmentSlot.LEGS);
-	public static ItemUpgradedWither supremium_leggings_wither = new ItemUpgradedWither("supremium_leggings_wither", ModToolMaterials.SUPREMIUM_ARMOR, 0, EntityEquipmentSlot.LEGS);
-	public static ItemUpgradedAntivenom supremium_leggings_antivenom = new ItemUpgradedAntivenom("supremium_leggings_antivenom", ModToolMaterials.SUPREMIUM_ARMOR, 0, EntityEquipmentSlot.LEGS);
-	public static ItemUpgradedFire supremium_leggings_fire = new ItemUpgradedFire("supremium_leggings_fire", ModToolMaterials.SUPREMIUM_ARMOR, 0, EntityEquipmentSlot.LEGS);	
-	public static ItemUpgradedResistance supremium_leggings_resistance = new ItemUpgradedResistance("supremium_leggings_resistance", ModToolMaterials.SUPREMIUM_ARMOR, 0, EntityEquipmentSlot.LEGS);
+	public static ItemUpgradedSpeed itemSupremiumLeggingsSpeed = new ItemUpgradedSpeed("supremium_leggings_speed", ModToolMaterials.SUPREMIUM_ARMOR, 0, EntityEquipmentSlot.LEGS);
+	public static ItemUpgradedAbsorption itemSupremiumLeggingsAbsorption = new ItemUpgradedAbsorption("supremium_leggings_absorption", ModToolMaterials.SUPREMIUM_ARMOR, 0, EntityEquipmentSlot.LEGS);
+	public static ItemUpgradedWither itemSupremiumLeggingsWither = new ItemUpgradedWither("supremium_leggings_wither", ModToolMaterials.SUPREMIUM_ARMOR, 0, EntityEquipmentSlot.LEGS);
+	public static ItemUpgradedAntivenom itemSupremiumLeggingsAntivenom = new ItemUpgradedAntivenom("supremium_leggings_antivenom", ModToolMaterials.SUPREMIUM_ARMOR, 0, EntityEquipmentSlot.LEGS);
+	public static ItemUpgradedFire itemSupremiumLeggingsFire = new ItemUpgradedFire("supremium_leggings_fire", ModToolMaterials.SUPREMIUM_ARMOR, 0, EntityEquipmentSlot.LEGS);	
+	public static ItemUpgradedResistance itemSupremiumLeggingsResistance = new ItemUpgradedResistance("supremium_leggings_resistance", ModToolMaterials.SUPREMIUM_ARMOR, 0, EntityEquipmentSlot.LEGS);
 	
-	public static ItemUpgradedJump supremium_boots_jump = new ItemUpgradedJump("supremium_boots_jump", ModToolMaterials.SUPREMIUM_ARMOR, 0, EntityEquipmentSlot.FEET);
-	public static ItemUpgradedAbsorption supremium_boots_absorption = new ItemUpgradedAbsorption("supremium_boots_absorption", ModToolMaterials.SUPREMIUM_ARMOR, 0, EntityEquipmentSlot.FEET);
-	public static ItemUpgradedWither supremium_boots_wither = new ItemUpgradedWither("supremium_boots_wither", ModToolMaterials.SUPREMIUM_ARMOR, 0, EntityEquipmentSlot.FEET);
-	public static ItemUpgradedAntivenom supremium_boots_antivenom = new ItemUpgradedAntivenom("supremium_boots_antivenom", ModToolMaterials.SUPREMIUM_ARMOR, 0, EntityEquipmentSlot.FEET);
-	public static ItemUpgradedFire supremium_boots_fire = new ItemUpgradedFire("supremium_boots_fire", ModToolMaterials.SUPREMIUM_ARMOR, 0, EntityEquipmentSlot.FEET);
-	public static ItemUpgradedResistance supremium_boots_resistance = new ItemUpgradedResistance("supremium_boots_resistance", ModToolMaterials.SUPREMIUM_ARMOR, 0, EntityEquipmentSlot.FEET);
+	public static ItemUpgradedJump itemSupremiumBootsJump = new ItemUpgradedJump("supremium_boots_jump", ModToolMaterials.SUPREMIUM_ARMOR, 0, EntityEquipmentSlot.FEET);
+	public static ItemUpgradedAbsorption itemSupremiumBootsAbsorption = new ItemUpgradedAbsorption("supremium_boots_absorption", ModToolMaterials.SUPREMIUM_ARMOR, 0, EntityEquipmentSlot.FEET);
+	public static ItemUpgradedWither itemSupremiumBootsWither = new ItemUpgradedWither("supremium_boots_wither", ModToolMaterials.SUPREMIUM_ARMOR, 0, EntityEquipmentSlot.FEET);
+	public static ItemUpgradedAntivenom itemSupremiumBootsAntivenom = new ItemUpgradedAntivenom("supremium_boots_antivenom", ModToolMaterials.SUPREMIUM_ARMOR, 0, EntityEquipmentSlot.FEET);
+	public static ItemUpgradedFire itemSupremiumBootsFire = new ItemUpgradedFire("supremium_boots_fire", ModToolMaterials.SUPREMIUM_ARMOR, 0, EntityEquipmentSlot.FEET);
+	public static ItemUpgradedResistance itemSupremiumBootsResistance = new ItemUpgradedResistance("supremium_boots_resistance", ModToolMaterials.SUPREMIUM_ARMOR, 0, EntityEquipmentSlot.FEET);
 	
 	public static void initItems(){
 
-		ITEMS.add(inferium_essence);
-		ITEMS.add(prudentium_essence);
-		ITEMS.add(intermedium_essence);
-		ITEMS.add(superium_essence);
-		ITEMS.add(supremium_essence);
+		registerItem(itemInferiumEssence);
+		registerItem(itemPrudentiumEssence);
+		registerItem(itemIntermediumEssence);
+		registerItem(itemSuperiumEssence);
+		registerItem(itemSupremiumEssence);
 		
-		ITEMS.add(infusion_crystal);
-		ITEMS.add(master_infusion_crystal);
+		registerItem(itemInfusionCrystal);
+		registerItem(itemInfusionCrystalMaster);
 		
-		ITEMS.add(prosperity_shard);
+		registerItem(itemProsperityShard);
 		
-		if(ModConfig.fertilized_essence){ ITEMS.add(fertilized_essence); }
-		if(ModConfig.mystical_fertilizer){ ITEMS.add(mystical_fertilizer); }
+		if(ModConfig.fertilized_essence){ registerItem(itemFertilizedEssence); }
+		if(ModConfig.mystical_fertilizer){ registerItem(itemMysticalFertilizer); }
 		
-		if(CropType.Type.NATURE.isEnabled()){ ITEMS.add(nature_cluster); }
-		if(CropType.Type.DYE.isEnabled()){ ITEMS.add(dye_cluster); }
-		if(CropType.Type.NETHER.isEnabled()){ ITEMS.add(nether_cluster); }
-		if(CropType.Type.MYSTICAL_FLOWER.isEnabled()){ ITEMS.add(mystical_flower_cluster); }
+		if(CropType.Type.NATURE.isEnabled()){ registerItem(itemNatureCluster); }
+		if(CropType.Type.DYE.isEnabled()){ registerItem(itemDyeCluster); }
+		if(CropType.Type.NETHER.isEnabled()){ registerItem(itemNetherCluster); }
+		if(CropType.Type.MYSTICAL_FLOWER.isEnabled()){ registerItem(itemMysticalFlowerCluster); }
 		
-		if(CropType.Type.SKELETON.isEnabled() && CropType.Type.CREEPER.isEnabled()){ ITEMS.add(blank_record); }
+		if(CropType.Type.SKELETON.isEnabled() && CropType.Type.CREEPER.isEnabled()){ registerItem(itemBlankRecord); }
 		
 		if(ModConfig.essence_apples){
-			ITEMS.add(inferium_apple);
-			ITEMS.add(prudentium_apple);
-			ITEMS.add(intermedium_apple);
-			ITEMS.add(superium_apple);
-			ITEMS.add(supremium_apple);
+			registerItem(itemInferiumApple);
+			registerItem(itemPrudentiumApple);
+			registerItem(itemIntermediumApple);
+			registerItem(itemSuperiumApple);
+			registerItem(itemSupremiumApple);
 		}
 		
-		GameRegistry.register(ESSENCE_COAL);
+		registerItem(itemEssenceCoal);
 		
-		ITEMS.add(base_crafting_seed);
-		ITEMS.add(tier1_crafting_seed);
-		ITEMS.add(tier2_crafting_seed);
-		ITEMS.add(tier3_crafting_seed);
-		ITEMS.add(tier4_crafting_seed);
-		ITEMS.add(tier5_crafting_seed);
+		registerItem(itemBaseCraftingSeed);
+		registerItem(itemTier1CraftingSeed);
+		registerItem(itemTier2CraftingSeed);
+		registerItem(itemTier3CraftingSeed);
+		registerItem(itemTier4CraftingSeed);
+		registerItem(itemTier5CraftingSeed);
 		
-		ITEMS.add(mystical_tool_rod);
+		registerItem(itemMysticalToolRod);
 		
-		ITEMS.add(base_essence_ingot);
-		ITEMS.add(inferium_ingot);
-		ITEMS.add(prudentium_ingot);
-		ITEMS.add(intermedium_ingot);
-		ITEMS.add(superium_ingot);
-		ITEMS.add(supremium_ingot);
+		registerItem(itemBaseEssenceIngot);
+		registerItem(itemInferiumIngot);
+		registerItem(itemPrudentiumIngot);
+		registerItem(itemIntermediumIngot);
+		registerItem(itemSuperiumIngot);
+		registerItem(itemSupremiumIngot);
 		
-		ITEMS.add(soul_dust);
-		ITEMS.add(soulium_dust);
-		ITEMS.add(soulium_ingot);
-		ITEMS.add(soulium_dagger);
+		registerItem(itemSoulDust);
+		registerItem(itemSouliumDust);
+		registerItem(itemSouliumIngot);
+		registerItem(itemSouliumDagger);
 		
-		ITEMS.add(tier1_mob_chunk);
-		ITEMS.add(tier2_mob_chunk);
-		ITEMS.add(tier3_mob_chunk);
-		ITEMS.add(tier4_mob_chunk);
-		ITEMS.add(tier5_mob_chunk);
+		registerItem(itemTier1MobChunk);
+		registerItem(itemTier2MobChunk);
+		registerItem(itemTier3MobChunk);
+		registerItem(itemTier4MobChunk);
+		registerItem(itemTier5MobChunk);
 		
-		ITEMS.add(experience_chunk);
-		if(ModConfig.zombie_seeds){ ITEMS.add(zombie_chunk); }
-		if(ModConfig.pig_seeds){ ITEMS.add(pig_chunk); }
-		if(ModConfig.chicken_seeds){ ITEMS.add(chicken_chunk); }
-		if(ModConfig.cow_seeds){ ITEMS.add(cow_chunk); }
-		if(ModConfig.sheep_seeds){ ITEMS.add(sheep_chunk); }
-		if(ModConfig.slime_seeds){ ITEMS.add(slime_chunk); }
-		if(ModConfig.skeleton_seeds){ ITEMS.add(skeleton_chunk); }
-		if(ModConfig.creeper_seeds){ ITEMS.add(creeper_chunk); }
-		if(ModConfig.spider_seeds){ ITEMS.add(spider_chunk); } 
-		if(ModConfig.rabbit_seeds){ ITEMS.add(rabbit_chunk); }
-		if(ModConfig.guardian_seeds){ ITEMS.add(guardian_chunk); }
-		if(ModConfig.blaze_seeds){ ITEMS.add(blaze_chunk); }
-		if(ModConfig.ghast_seeds){ ITEMS.add(ghast_chunk); }
-		if(ModConfig.enderman_seeds){ ITEMS.add(enderman_chunk); }
-		if(ModConfig.wither_skeleton_seeds){ ITEMS.add(wither_skeleton_chunk); }
+		registerItem(itemExperienceChunk);
+		if(ModConfig.zombie_seeds){ registerItem(itemZombieChunk); }
+		if(ModConfig.pig_seeds){ registerItem(itemPigChunk); }
+		if(ModConfig.chicken_seeds){ registerItem(itemChickenChunk); }
+		if(ModConfig.cow_seeds){ registerItem(itemCowChunk); }
+		if(ModConfig.sheep_seeds){ registerItem(itemSheepChunk); }
+		if(ModConfig.slime_seeds){ registerItem(itemSlimeChunk); }
+		if(ModConfig.skeleton_seeds){ registerItem(itemSkeletonChunk); }
+		if(ModConfig.creeper_seeds){ registerItem(itemCreeperChunk); }
+		if(ModConfig.spider_seeds){ registerItem(itemSpiderChunk); } 
+		if(ModConfig.rabbit_seeds){ registerItem(itemRabbitChunk); }
+		if(ModConfig.guardian_seeds){ registerItem(itemGuardianChunk); }
+		if(ModConfig.blaze_seeds){ registerItem(itemBlazeChunk); }
+		if(ModConfig.ghast_seeds){ registerItem(itemGhastChunk); }
+		if(ModConfig.enderman_seeds){ registerItem(itemEndermanChunk); }
+		if(ModConfig.wither_skeleton_seeds){ registerItem(itemWitherSkeletonChunk); }
 		
 		for(CropType.Type type : CropType.Type.values()){
 			if(type.isEnabled()){
-				ITEMS.add(type.getCrop());
+				registerItem(type.getCrop());
 			}
 		}
 
-		ITEMS.add(tier1_inferium_seeds);
-		ITEMS.add(tier2_inferium_seeds);
-		ITEMS.add(tier3_inferium_seeds);
-		ITEMS.add(tier4_inferium_seeds);
-		ITEMS.add(tier5_inferium_seeds); 
+		registerItem(itemTier1InferiumSeeds);
+		registerItem(itemTier2InferiumSeeds);
+		registerItem(itemTier3InferiumSeeds);
+		registerItem(itemTier4InferiumSeeds);
+		registerItem(itemTier5InferiumSeeds); 
 		
 		for(CropType.Type type : CropType.Type.values()){
 			if(type.isEnabled()){
-				ITEMS.add(type.getSeed());	
+				registerItem(type.getSeed());	
 			}
 		}
 		
 		if(ModConfig.$gear_module_override){
-			ITEMS.add(core_remover);
+			registerItem(itemCoreRemover);
 
-			ITEMS.add(inferium_tool_core);
-			ITEMS.add(prudentium_tool_core);
-			ITEMS.add(intermedium_tool_core);
-			ITEMS.add(superium_tool_core);
-			ITEMS.add(supremium_tool_core);
+			registerItem(itemInferiumToolCore);
+			registerItem(itemPrudentiumToolCore);
+			registerItem(itemIntermediumToolCore);
+			registerItem(itemSuperiumToolCore);
+			registerItem(itemSupremiumToolCore);
 			
-			ITEMS.add(inferium_armor_core);
-			ITEMS.add(prudentium_armor_core);
-			ITEMS.add(intermedium_armor_core);
-			ITEMS.add(superium_armor_core);
-			ITEMS.add(supremium_armor_core);
+			registerItem(itemInferiumArmorCore);
+			registerItem(itemPrudentiumArmorCore);
+			registerItem(itemIntermediumArmorCore);
+			registerItem(itemSuperiumArmorCore);
+			registerItem(itemSupremiumArmorCore);
 			
-			ITEMS.add(charm_blank);
-			ITEMS.add(charm_nightvision);
-			ITEMS.add(charm_absorption);
-			ITEMS.add(charm_wither);
-			ITEMS.add(charm_antivenom);
-			ITEMS.add(charm_fire);
-			ITEMS.add(charm_resistance);
-			ITEMS.add(charm_strength);
-			ITEMS.add(charm_strength2);
-			ITEMS.add(charm_speed);
-			ITEMS.add(charm_jump);
-			ITEMS.add(charm_mining_aoe);
-			ITEMS.add(charm_attack_aoe);
+			registerItem(itemCharmBlank);
+			registerItem(itemCharmNightvision);
+			registerItem(itemCharmAbsorption);
+			registerItem(itemCharmWither);
+			registerItem(itemCharmAntivenom);
+			registerItem(itemCharmFire);
+			registerItem(itemCharmResistance);
+			registerItem(itemCharmStrength);
+			registerItem(itemCharmStrength2);
+			registerItem(itemCharmSpeed);
+			registerItem(itemCharmJump);
+			registerItem(itemCharmMiningAOE);
+			registerItem(itemCharmAttackAOE);
 			
-			ITEMS.add(inferium_sword);
-			ITEMS.add(inferium_pickaxe);
-			ITEMS.add(inferium_shovel);
-			ITEMS.add(inferium_axe);
-			ITEMS.add(inferium_hoe);
+			registerItem(itemInferiumSword);
+			registerItem(itemInferiumPickaxe);
+			registerItem(itemInferiumShovel);
+			registerItem(itemInferiumAxe);
+			registerItem(itemInferiumHoe);
 			
-			ITEMS.add(prudentium_sword);
-			ITEMS.add(prudentium_pickaxe);
-			ITEMS.add(prudentium_shovel);
-			ITEMS.add(prudentium_axe);
-			ITEMS.add(prudentium_hoe);
+			registerItem(itemPrudentiumSword);
+			registerItem(itemPrudentiumPickaxe);
+			registerItem(itemPrudentiumShovel);
+			registerItem(itemPrudentiumAxe);
+			registerItem(itemPrudentiumHoe);
 			
-			ITEMS.add(intermedium_sword);
-			ITEMS.add(intermedium_pickaxe);
-			ITEMS.add(intermedium_shovel);
-			ITEMS.add(intermedium_axe);
-			ITEMS.add(intermedium_hoe);
+			registerItem(itemIntermediumSword);
+			registerItem(itemIntermediumPickaxe);
+			registerItem(itemIntermediumShovel);
+			registerItem(itemIntermediumAxe);
+			registerItem(itemIntermediumHoe);
 			
-			ITEMS.add(superium_sword);
-			ITEMS.add(superium_pickaxe);
-			ITEMS.add(superium_shovel);
-			ITEMS.add(superium_axe);
-			ITEMS.add(superium_hoe);
+			registerItem(itemSuperiumSword);
+			registerItem(itemSuperiumPickaxe);
+			registerItem(itemSuperiumShovel);
+			registerItem(itemSuperiumAxe);
+			registerItem(itemSuperiumHoe);
 			
-			ITEMS.add(supremium_sword);
-			ITEMS.add(supremium_pickaxe);
-			ITEMS.add(supremium_shovel);
-			ITEMS.add(supremium_axe);
-			ITEMS.add(supremium_hoe);
+			registerItem(itemSupremiumSword);
+			registerItem(itemSupremiumPickaxe);
+			registerItem(itemSupremiumShovel);
+			registerItem(itemSupremiumAxe);
+			registerItem(itemSupremiumHoe);
 			
-			ITEMS.add(supremium_sword_strength1);
-			ITEMS.add(supremium_sword_strength2);
+			registerItem(itemSupremiumSwordStrength);
+			registerItem(itemSupremiumSwordStrength2);
 			
 			if(ModConfig.aoe_charms){ 
-				ITEMS.add(supremium_sword_aoe);
-				ITEMS.add(supremium_pickaxe_aoe); 
-				ITEMS.add(supremium_shovel_aoe);
-				ITEMS.add(supremium_axe_aoe);
+				registerItem(itemSupremiumSwordAOE);
+				registerItem(itemSupremiumPickaxeAOE); 
+				registerItem(itemSupremiumShovelAOE);
+				registerItem(itemSupremiumAxeAOE);
 			}
 			
-	        ITEMS.add(inferium_helmet);
-	        ITEMS.add(inferium_chestplate);
-	        ITEMS.add(inferium_leggings);
-	        ITEMS.add(inferium_boots);
+	        registerItem(itemInferiumHelmet);
+	        registerItem(itemInferiumChestplate);
+	        registerItem(itemInferiumLeggings);
+	        registerItem(itemInferiumBoots);
 	        
-	        ITEMS.add(prudentium_helmet);
-	        ITEMS.add(prudentium_chestplate);
-	        ITEMS.add(prudentium_leggings);
-	        ITEMS.add(prudentium_boots);
+	        registerItem(itemPrudentiumHelmet);
+	        registerItem(itemPrudentiumChestplate);
+	        registerItem(itemPrudentiumLeggings);
+	        registerItem(itemPrudentiumBoots);
 	        
-	        ITEMS.add(intermedium_helmet);
-	    	ITEMS.add(intermedium_chestplate); 
-	    	ITEMS.add(intermedium_leggings);
-	    	ITEMS.add(intermedium_boots);
+	        registerItem(itemIntermediumHelmet);
+	    	registerItem(itemIntermediumChestplate); 
+	    	registerItem(itemIntermediumLeggings);
+	    	registerItem(itemIntermediumBoots);
 	    	
-	        ITEMS.add(superium_helmet);
-	        ITEMS.add(superium_chestplate);
-	        ITEMS.add(superium_leggings);
-	        ITEMS.add(superium_boots);
+	        registerItem(itemSuperiumHelmet);
+	        registerItem(itemSuperiumChestplate);
+	        registerItem(itemSuperiumLeggings);
+	        registerItem(itemSuperiumBoots);
 	        
-	        ITEMS.add(supremium_helmet);
-	        ITEMS.add(supremium_chestplate);
-	        ITEMS.add(supremium_leggings);
-	        ITEMS.add(supremium_boots);
+	        registerItem(itemSupremiumHelmet);
+	        registerItem(itemSupremiumChestplate);
+	        registerItem(itemSupremiumLeggings);
+	        registerItem(itemSupremiumBoots);
 	        
-	        ITEMS.add(supremium_helmet_nightvision);
-	        ITEMS.add(supremium_helmet_absorption);
-	        ITEMS.add(supremium_helmet_wither);
-	        ITEMS.add(supremium_helmet_antivenom);
-	        ITEMS.add(supremium_helmet_fire);
-	        ITEMS.add(supremium_helmet_resistance);
+	        registerItem(itemSupremiumHelmetNightvision);
+	        registerItem(itemSupremiumHelmetAbsorption);
+	        registerItem(itemSupremiumHelmetWither);
+	        registerItem(itemSupremiumHelmetAntivenom);
+	        registerItem(itemSupremiumHelmetFire);
+	        registerItem(itemSupremiumHelmetResistance);
 	        
-	        ITEMS.add(supremium_chestplate_strength);
-	        ITEMS.add(supremium_chestplate_absorption);
-	        ITEMS.add(supremium_chestplate_wither);
-	        ITEMS.add(supremium_chestplate_antivenom);
-	        ITEMS.add(supremium_chestplate_fire);
-	        ITEMS.add(supremium_chestplate_resistance);
+	        registerItem(itemSupremiumChestplateStrength);
+	        registerItem(itemSupremiumChestplateAbsorption);
+	        registerItem(itemSupremiumChestplateWither);
+	        registerItem(itemSupremiumChestplateAntivenom);
+	        registerItem(itemSupremiumChestplateFire);
+	        registerItem(itemSupremiumChestplateResistance);
 	        
-	        ITEMS.add(supremium_leggings_speed);
-	        ITEMS.add(supremium_leggings_absorption);
-	        ITEMS.add(supremium_leggings_wither);
-	        ITEMS.add(supremium_leggings_antivenom);
-	        ITEMS.add(supremium_leggings_fire);
-	        ITEMS.add(supremium_leggings_resistance);
+	        registerItem(itemSupremiumLeggingsSpeed);
+	        registerItem(itemSupremiumLeggingsAbsorption);
+	        registerItem(itemSupremiumLeggingsWither);
+	        registerItem(itemSupremiumLeggingsAntivenom);
+	        registerItem(itemSupremiumLeggingsFire);
+	        registerItem(itemSupremiumLeggingsResistance);
 	        
-	        ITEMS.add(supremium_boots_jump);
-	        ITEMS.add(supremium_boots_absorption);
-	        ITEMS.add(supremium_boots_wither);
-	        ITEMS.add(supremium_boots_antivenom);
-	        ITEMS.add(supremium_boots_fire);
-	        ITEMS.add(supremium_boots_resistance);
+	        registerItem(itemSupremiumBootsJump);
+	        registerItem(itemSupremiumBootsAbsorption);
+	        registerItem(itemSupremiumBootsWither);
+	        registerItem(itemSupremiumBootsAntivenom);
+	        registerItem(itemSupremiumBootsFire);
+	        registerItem(itemSupremiumBootsResistance);
+		}
+	}
+	
+	@SideOnly(Side.CLIENT)
+	public static void initItemModels(){
+
+		registerModel(itemInferiumEssence);
+		registerModel(itemPrudentiumEssence);
+		registerModel(itemIntermediumEssence);
+		registerModel(itemSuperiumEssence);
+		registerModel(itemSupremiumEssence);
+		
+		registerModel(itemInfusionCrystal);
+		registerModel(itemInfusionCrystalMaster);
+		
+		registerModel(itemProsperityShard);
+		
+		if(ModConfig.fertilized_essence){ registerModel(itemFertilizedEssence); }
+		if(ModConfig.mystical_fertilizer){ registerModel(itemMysticalFertilizer); }
+		
+		if(CropType.Type.NATURE.isEnabled()){ registerModel(itemNatureCluster); }
+		if(CropType.Type.DYE.isEnabled()){ registerModel(itemDyeCluster); }
+		if(CropType.Type.NETHER.isEnabled()){ registerModel(itemNetherCluster); }
+		if(CropType.Type.MYSTICAL_FLOWER.isEnabled()){ registerModel(itemMysticalFlowerCluster); }
+		
+		if(CropType.Type.SKELETON.isEnabled() && CropType.Type.CREEPER.isEnabled()){ registerModel(itemBlankRecord); }
+		
+		if(ModConfig.essence_apples){
+			registerModel(itemInferiumApple);
+			registerModel(itemPrudentiumApple);
+			registerModel(itemIntermediumApple);
+			registerModel(itemSuperiumApple);
+			registerModel(itemSupremiumApple);
 		}
 		
-		for(Item item : ITEMS){
-			GameRegistry.register(item);
+		itemEssenceCoal.initModels();
+		
+		registerModel(itemBaseCraftingSeed);
+		registerModel(itemTier1CraftingSeed);
+		registerModel(itemTier2CraftingSeed);
+		registerModel(itemTier3CraftingSeed);
+		registerModel(itemTier4CraftingSeed);
+		registerModel(itemTier5CraftingSeed);
+		
+		registerModel(itemMysticalToolRod);
+		
+		registerModel(itemBaseEssenceIngot);
+		registerModel(itemInferiumIngot);
+		registerModel(itemPrudentiumIngot);
+		registerModel(itemIntermediumIngot);
+		registerModel(itemSuperiumIngot);
+		registerModel(itemSupremiumIngot);
+		
+		registerModel(itemSoulDust);
+		registerModel(itemSouliumDust);
+		registerModel(itemSouliumIngot);
+		registerModel(itemSouliumDagger);
+		
+		registerModel(itemTier1MobChunk);
+		registerModel(itemTier2MobChunk);
+		registerModel(itemTier3MobChunk);
+		registerModel(itemTier4MobChunk);
+		registerModel(itemTier5MobChunk);
+		
+		registerModel(itemExperienceChunk);
+		if(ModConfig.zombie_seeds){ registerModel(itemZombieChunk); }
+		if(ModConfig.pig_seeds){ registerModel(itemPigChunk); }
+		if(ModConfig.chicken_seeds){ registerModel(itemChickenChunk); }
+		if(ModConfig.cow_seeds){ registerModel(itemCowChunk); }
+		if(ModConfig.sheep_seeds){ registerModel(itemSheepChunk); }
+		if(ModConfig.slime_seeds){ registerModel(itemSlimeChunk); }
+		if(ModConfig.skeleton_seeds){ registerModel(itemSkeletonChunk); }
+		if(ModConfig.creeper_seeds){ registerModel(itemCreeperChunk); }
+		if(ModConfig.spider_seeds){ registerModel(itemSpiderChunk); } 
+		if(ModConfig.rabbit_seeds){ registerModel(itemRabbitChunk); }
+		if(ModConfig.guardian_seeds){ registerModel(itemGuardianChunk); }
+		if(ModConfig.blaze_seeds){ registerModel(itemBlazeChunk); }
+		if(ModConfig.ghast_seeds){ registerModel(itemGhastChunk); }
+		if(ModConfig.enderman_seeds){ registerModel(itemEndermanChunk); }
+		if(ModConfig.wither_skeleton_seeds){ registerModel(itemWitherSkeletonChunk); }
+		
+		for(CropType.Type type : CropType.Type.values()){
+			if(type.isEnabled()){
+				registerModel(type.getCrop());
+			}
+		}
+
+		registerModel(itemTier1InferiumSeeds);
+		registerModel(itemTier2InferiumSeeds);
+		registerModel(itemTier3InferiumSeeds);
+		registerModel(itemTier4InferiumSeeds);
+		registerModel(itemTier5InferiumSeeds); 
+		
+		for(CropType.Type type : CropType.Type.values()){
+			if(type.isEnabled()){
+				registerModel(type.getSeed());	
+			}
+		}
+		
+		if(ModConfig.$gear_module_override){
+			registerModel(itemCoreRemover);
+
+			registerModel(itemInferiumToolCore);
+			registerModel(itemPrudentiumToolCore);
+			registerModel(itemIntermediumToolCore);
+			registerModel(itemSuperiumToolCore);
+			registerModel(itemSupremiumToolCore);
+			
+			registerModel(itemInferiumArmorCore);
+			registerModel(itemPrudentiumArmorCore);
+			registerModel(itemIntermediumArmorCore);
+			registerModel(itemSuperiumArmorCore);
+			registerModel(itemSupremiumArmorCore);
+			
+			registerModel(itemCharmBlank);
+			registerModel(itemCharmNightvision);
+			registerModel(itemCharmAbsorption);
+			registerModel(itemCharmWither);
+			registerModel(itemCharmAntivenom);
+			registerModel(itemCharmFire);
+			registerModel(itemCharmResistance);
+			registerModel(itemCharmStrength);
+			registerModel(itemCharmStrength2);
+			registerModel(itemCharmSpeed);
+			registerModel(itemCharmJump);
+			registerModel(itemCharmMiningAOE);
+			registerModel(itemCharmAttackAOE);
+			
+			registerModel(itemInferiumSword);
+			registerModel(itemInferiumPickaxe);
+			registerModel(itemInferiumShovel);
+			registerModel(itemInferiumAxe);
+			registerModel(itemInferiumHoe);
+			
+			registerModel(itemPrudentiumSword);
+			registerModel(itemPrudentiumPickaxe);
+			registerModel(itemPrudentiumShovel);
+			registerModel(itemPrudentiumAxe);
+			registerModel(itemPrudentiumHoe);
+			
+			registerModel(itemIntermediumSword);
+			registerModel(itemIntermediumPickaxe);
+			registerModel(itemIntermediumShovel);
+			registerModel(itemIntermediumAxe);
+			registerModel(itemIntermediumHoe);
+			
+			registerModel(itemSuperiumSword);
+			registerModel(itemSuperiumPickaxe);
+			registerModel(itemSuperiumShovel);
+			registerModel(itemSuperiumAxe);
+			registerModel(itemSuperiumHoe);
+			
+			registerModel(itemSupremiumSword);
+			registerModel(itemSupremiumPickaxe);
+			registerModel(itemSupremiumShovel);
+			registerModel(itemSupremiumAxe);
+			registerModel(itemSupremiumHoe);
+			
+			registerModel(itemSupremiumSwordStrength);
+			registerModel(itemSupremiumSwordStrength2);
+			
+			if(ModConfig.aoe_charms){ 
+				registerModel(itemSupremiumSwordAOE);
+				registerModel(itemSupremiumPickaxeAOE); 
+				registerModel(itemSupremiumShovelAOE);
+				registerModel(itemSupremiumAxeAOE);
+			}
+			
+	        registerModel(itemInferiumHelmet);
+	        registerModel(itemInferiumChestplate);
+	        registerModel(itemInferiumLeggings);
+	        registerModel(itemInferiumBoots);
+	        
+	        registerModel(itemPrudentiumHelmet);
+	        registerModel(itemPrudentiumChestplate);
+	        registerModel(itemPrudentiumLeggings);
+	        registerModel(itemPrudentiumBoots);
+	        
+	        registerModel(itemIntermediumHelmet);
+	    	registerModel(itemIntermediumChestplate); 
+	    	registerModel(itemIntermediumLeggings);
+	    	registerModel(itemIntermediumBoots);
+	    	
+	        registerModel(itemSuperiumHelmet);
+	        registerModel(itemSuperiumChestplate);
+	        registerModel(itemSuperiumLeggings);
+	        registerModel(itemSuperiumBoots);
+	        
+	        registerModel(itemSupremiumHelmet);
+	        registerModel(itemSupremiumChestplate);
+	        registerModel(itemSupremiumLeggings);
+	        registerModel(itemSupremiumBoots);
+	        
+	        registerModel(itemSupremiumHelmetNightvision);
+	        registerModel(itemSupremiumHelmetAbsorption);
+	        registerModel(itemSupremiumHelmetWither);
+	        registerModel(itemSupremiumHelmetAntivenom);
+	        registerModel(itemSupremiumHelmetFire);
+	        registerModel(itemSupremiumHelmetResistance);
+	        
+	        registerModel(itemSupremiumChestplateStrength);
+	        registerModel(itemSupremiumChestplateAbsorption);
+	        registerModel(itemSupremiumChestplateWither);
+	        registerModel(itemSupremiumChestplateAntivenom);
+	        registerModel(itemSupremiumChestplateFire);
+	        registerModel(itemSupremiumChestplateResistance);
+	        
+	        registerModel(itemSupremiumLeggingsSpeed);
+	        registerModel(itemSupremiumLeggingsAbsorption);
+	        registerModel(itemSupremiumLeggingsWither);
+	        registerModel(itemSupremiumLeggingsAntivenom);
+	        registerModel(itemSupremiumLeggingsFire);
+	        registerModel(itemSupremiumLeggingsResistance);
+	        
+	        registerModel(itemSupremiumBootsJump);
+	        registerModel(itemSupremiumBootsAbsorption);
+	        registerModel(itemSupremiumBootsWither);
+	        registerModel(itemSupremiumBootsAntivenom);
+	        registerModel(itemSupremiumBootsFire);
+	        registerModel(itemSupremiumBootsResistance);		
 		}
 	}
 		
+	public static void registerItem(Item item){
+		GameRegistry.register(item);
+	}
+	
 	@SideOnly(Side.CLIENT)
-	public static void initItemModels(){
-		for(Item item : ITEMS){
-			ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(MysticalAgriculture.MOD_ID + ":" + item.getUnlocalizedName().substring(8), "inventory")); 
-		}
-		
-		ESSENCE_COAL.initModels();
+	public static void registerModel(Item item){
+		ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(MysticalAgriculture.MOD_ID + ":" + item.getUnlocalizedName().substring(8), "inventory")); 
 	}
 
 	public static void initOreDict(){

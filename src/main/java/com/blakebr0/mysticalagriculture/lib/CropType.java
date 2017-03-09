@@ -2,7 +2,7 @@ package com.blakebr0.mysticalagriculture.lib;
 
 import com.blakebr0.mysticalagriculture.blocks.crop.BlockMysticalCrop;
 import com.blakebr0.mysticalagriculture.config.ModConfig;
-import com.blakebr0.mysticalagriculture.items.BaseItem;
+import com.blakebr0.mysticalagriculture.items.ItemBase;
 import com.blakebr0.mysticalagriculture.items.ItemSeed;
 import com.blakebr0.mysticalagriculture.util.ModChecker;
 
@@ -110,7 +110,7 @@ public class CropType {
 		private final int tier;
 		private final boolean enabled;
 		private final BlockMysticalCrop plant;
-		private final BaseItem crop;
+		private final ItemBase crop;
 		private final ItemSeed seed;
 		
 		Type(String name, int tier, boolean enabled){
@@ -118,7 +118,7 @@ public class CropType {
 			this.tier = tier;
 			this.enabled = enabled;
 			this.plant = new BlockMysticalCrop(getName() + "_crop");
-			this.crop = new BaseItem(getName() + "_essence");
+			this.crop = new ItemBase(getName() + "_essence");
 			this.seed = new ItemSeed(getName() + "_seeds", getPlant(), getTier());
 			getPlant().setCrop(getCrop());
 			getPlant().setSeed(getSeed());
@@ -141,7 +141,7 @@ public class CropType {
 			return this.plant;
 		}
 		
-		public BaseItem getCrop(){
+		public ItemBase getCrop(){
 			return this.crop;
 		}
 		

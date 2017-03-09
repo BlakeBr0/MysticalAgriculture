@@ -38,7 +38,7 @@ public class ItemUpgradedJump extends ItemSupremiumArmor {
 	
 	@Override
     public ItemStack getContainerItem(ItemStack itemstack){
-        return new ItemStack(ModItems.charm_jump, 1, 0);
+        return new ItemStack(ModItems.itemCharmJump, 1, 0);
     }
 
     @Override
@@ -65,6 +65,6 @@ public class ItemUpgradedJump extends ItemSupremiumArmor {
 	}
 
     public boolean getIsRepairable(ItemStack toRepair, ItemStack repair){
-        return repair.getItem() == ModItems.supremium_ingot;
+        return repair.getItem() == ModItems.itemSupremiumIngot;
     }
 }

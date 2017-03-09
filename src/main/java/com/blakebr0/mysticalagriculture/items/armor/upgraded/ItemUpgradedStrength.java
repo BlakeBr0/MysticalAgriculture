@@ -38,7 +38,7 @@ public class ItemUpgradedStrength extends ItemSupremiumArmor {
 	
 	@Override
     public ItemStack getContainerItem(ItemStack itemstack){
-        return new ItemStack(ModItems.charm_strength, 1, 0);
+        return new ItemStack(ModItems.itemCharmStrength, 1, 0);
     }
 
     @Override
@@ -65,6 +65,6 @@ public class ItemUpgradedStrength extends ItemSupremiumArmor {
 	}
 
     public boolean getIsRepairable(ItemStack toRepair, ItemStack repair){
-        return repair.getItem() == ModItems.supremium_ingot;
+        return repair.getItem() == ModItems.itemSupremiumIngot;
     }
 }

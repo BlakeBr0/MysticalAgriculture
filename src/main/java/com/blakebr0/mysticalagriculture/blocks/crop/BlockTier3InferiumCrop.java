@@ -75,12 +75,12 @@ public class BlockTier3InferiumCrop extends BlockCrops implements IHornHarvestab
     
     @Override
     protected Item getSeed(){
-    	return ModItems.tier3_inferium_seeds;
+    	return ModItems.itemTier3InferiumSeeds;
     }
     
     @Override
     protected Item getCrop(){
-    	return ModItems.inferium_essence;
+    	return ModItems.itemInferiumEssence;
     }
     
     @Override

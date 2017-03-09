@@ -38,7 +38,7 @@ public class ItemUpgradedWither extends ItemSupremiumArmor {
 	
 	@Override
     public ItemStack getContainerItem(ItemStack itemstack){
-        return new ItemStack(ModItems.charm_wither, 1, 0);
+        return new ItemStack(ModItems.itemCharmWither, 1, 0);
     }
 
     @Override
@@ -65,6 +65,6 @@ public class ItemUpgradedWither extends ItemSupremiumArmor {
 	}
 
     public boolean getIsRepairable(ItemStack toRepair, ItemStack repair){
-        return repair.getItem() == ModItems.supremium_ingot;
+        return repair.getItem() == ModItems.itemSupremiumIngot;
     }
 }

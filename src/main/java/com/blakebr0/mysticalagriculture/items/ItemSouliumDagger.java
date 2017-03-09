@@ -49,6 +49,6 @@ public class ItemSouliumDagger extends ItemSword {
 	}
 	
     public boolean getIsRepairable(ItemStack toRepair, ItemStack repair){
-        return repair.getItem() == ModItems.soulium_ingot;
+        return repair.getItem() == ModItems.itemSouliumIngot;
     }
 }

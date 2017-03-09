@@ -30,6 +30,6 @@ public class ItemInferiumPickaxe extends ItemPickaxe {
 	}
 	
     public boolean getIsRepairable(ItemStack toRepair, ItemStack repair){
-        return repair.getItem() == ModItems.inferium_ingot;
+        return repair.getItem() == ModItems.itemInferiumIngot;
     }
 }

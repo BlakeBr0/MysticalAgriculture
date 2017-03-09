@@ -36,7 +36,7 @@ public class BlockInferiumOre extends Block {
 
     @Nullable
     public Item getItemDropped(IBlockState state, Random rand, int fortune){
-        return ModItems.inferium_essence;
+        return ModItems.itemInferiumEssence;
     }
 
     public int quantityDropped(Random random){

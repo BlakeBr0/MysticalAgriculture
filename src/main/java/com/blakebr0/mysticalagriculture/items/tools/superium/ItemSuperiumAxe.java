@@ -39,6 +39,6 @@ public class ItemSuperiumAxe extends ItemAxe {
 	}
 	
     public boolean getIsRepairable(ItemStack toRepair, ItemStack repair){
-        return repair.getItem() == ModItems.superium_ingot;
+        return repair.getItem() == ModItems.itemSupremiumIngot;
     }
 }

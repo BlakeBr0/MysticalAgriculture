@@ -10,9 +10,9 @@ import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class BaseItem extends Item {
+public class ItemBase extends Item {
 	
-	public BaseItem(String name){
+	public ItemBase(String name){
 		super();
 		this.setUnlocalizedName("ma." + name);
 		this.setRegistryName(name);

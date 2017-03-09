@@ -2,7 +2,7 @@ package com.blakebr0.mysticalagriculture.items.charms;
 
 import java.util.List;
 
-import com.blakebr0.mysticalagriculture.items.BaseItem;
+import com.blakebr0.mysticalagriculture.items.ItemBase;
 import com.blakebr0.mysticalagriculture.util.ShiftChecker;
 
 import net.minecraft.entity.player.EntityPlayer;
@@ -10,7 +10,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class ItemCharmAntivenom extends BaseItem {
+public class ItemCharmAntivenom extends ItemBase {
 
 	public ItemCharmAntivenom(String name) {
 		super(name);

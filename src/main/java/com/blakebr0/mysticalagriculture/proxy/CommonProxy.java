@@ -50,11 +50,11 @@ public class CommonProxy {
 		ModTileEntities.initTileEntities();
 				
 		if(ModConfig.seed_reprocessor){
-			ReprocessorManager.addRecipe(new ItemStack(ModItems.inferium_essence, 1, 0), new ItemStack(ModItems.tier1_inferium_seeds, 1, 0));
-			ReprocessorManager.addRecipe(new ItemStack(ModItems.inferium_essence, 2, 0), new ItemStack(ModItems.tier2_inferium_seeds, 1, 0));
-			ReprocessorManager.addRecipe(new ItemStack(ModItems.inferium_essence, 3, 0), new ItemStack(ModItems.tier3_inferium_seeds, 1, 0));
-			ReprocessorManager.addRecipe(new ItemStack(ModItems.inferium_essence, 4, 0), new ItemStack(ModItems.tier4_inferium_seeds, 1, 0));
-			ReprocessorManager.addRecipe(new ItemStack(ModItems.inferium_essence, 5, 0), new ItemStack(ModItems.tier5_inferium_seeds, 1, 0));	
+			ReprocessorManager.addRecipe(new ItemStack(ModItems.itemInferiumEssence, 1, 0), new ItemStack(ModItems.itemTier1InferiumSeeds, 1, 0));
+			ReprocessorManager.addRecipe(new ItemStack(ModItems.itemInferiumEssence, 2, 0), new ItemStack(ModItems.itemTier2InferiumSeeds, 1, 0));
+			ReprocessorManager.addRecipe(new ItemStack(ModItems.itemInferiumEssence, 3, 0), new ItemStack(ModItems.itemTier3InferiumSeeds, 1, 0));
+			ReprocessorManager.addRecipe(new ItemStack(ModItems.itemInferiumEssence, 4, 0), new ItemStack(ModItems.itemTier4InferiumSeeds, 1, 0));
+			ReprocessorManager.addRecipe(new ItemStack(ModItems.itemInferiumEssence, 5, 0), new ItemStack(ModItems.itemTier5InferiumSeeds, 1, 0));	
 		}
 		
 		for(CropType.Type type : CropType.Type.values()){

@@ -75,12 +75,12 @@ public class BlockTier5InferiumCrop extends BlockCrops implements IHornHarvestab
     
     @Override
     protected Item getSeed(){
-    	return ModItems.tier5_inferium_seeds;
+    	return ModItems.itemTier5InferiumSeeds;
     }
     
     @Override
     protected Item getCrop(){
-    	return ModItems.inferium_essence;
+    	return ModItems.itemInferiumEssence;
     }
     
     @Override
@@ -113,8 +113,8 @@ public class BlockTier5InferiumCrop extends BlockCrops implements IHornHarvestab
         	else essence = 5;
         }
 
-        drops.add(new ItemStack(ModItems.tier5_inferium_seeds, seeds, 0));
-        if(essence > 0){ drops.add(new ItemStack(ModItems.inferium_essence, essence, 0)); }
+        drops.add(new ItemStack(this.getSeed(), seeds, 0));
+        if(essence > 0){ drops.add(new ItemStack(this.getCrop(), essence, 0)); }
         return drops;
     }
     

@@ -66,7 +66,7 @@ public class MysticalAgriculture {
 	public static CreativeTabs tabMysticalAgriculture = new CreativeTabs("tabMysticalAgriculture"){
 		@Override
 		public Item getTabIconItem(){
-			return new ItemStack(ModItems.supremium_essence).getItem();
+			return new ItemStack(ModItems.itemSupremiumEssence, 1, 0).getItem();
 		}
 	};
 }

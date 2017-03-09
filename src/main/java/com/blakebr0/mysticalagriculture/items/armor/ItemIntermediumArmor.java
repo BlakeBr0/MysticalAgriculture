@@ -52,7 +52,7 @@ public class ItemIntermediumArmor extends ItemArmor {
 	}
 	
     public boolean getIsRepairable(ItemStack toRepair, ItemStack repair){
-        return repair.getItem() == ModItems.intermedium_ingot;
+        return repair.getItem() == ModItems.itemIntermediumIngot;
     }
     
     public static class abilityHandler {

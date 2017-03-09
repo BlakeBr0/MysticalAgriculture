@@ -63,7 +63,7 @@ public class ItemSupremiumArmor extends ItemArmor {
 	}
 
     public boolean getIsRepairable(ItemStack toRepair, ItemStack repair){
-        return repair.getItem() == ModItems.supremium_ingot;
+        return repair.getItem() == ModItems.itemSupremiumIngot;
     }
     
     public static class abilityHandler {

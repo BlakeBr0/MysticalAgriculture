@@ -16,7 +16,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraftforge.fml.common.IFuelHandler;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
-public class ItemEssenceCoal extends BaseItem {
+public class ItemEssenceCoal extends ItemBase {
 
 	public ItemEssenceCoal(){
 		super("coal");

@@ -31,6 +31,6 @@ public class ItemSuperiumSword extends ItemSword {
 	}
 	
     public boolean getIsRepairable(ItemStack toRepair, ItemStack repair){
-        return repair.getItem() == ModItems.superium_ingot;
+        return repair.getItem() == ModItems.itemSupremiumIngot;
     }
 }

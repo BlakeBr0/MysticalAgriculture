@@ -25,7 +25,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class ItemFertilizedEssence extends BaseItem {
+public class ItemFertilizedEssence extends ItemBase {
 
 	public ItemFertilizedEssence(String name){
 		super(name);
