@@ -1,4 +1,4 @@
-package com.blakebr0.mysticalagriculture.items.tools.supremium.upgraded;
+package com.blakebr0.mysticalagriculture.items.tools.upgraded;
 
 import java.util.List;
 
