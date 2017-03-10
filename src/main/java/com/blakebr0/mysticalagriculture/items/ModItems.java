@@ -21,17 +21,6 @@ import com.blakebr0.mysticalagriculture.items.armor.upgraded.ItemUpgradedResista
 import com.blakebr0.mysticalagriculture.items.armor.upgraded.ItemUpgradedSpeed;
 import com.blakebr0.mysticalagriculture.items.armor.upgraded.ItemUpgradedStrength;
 import com.blakebr0.mysticalagriculture.items.armor.upgraded.ItemUpgradedAbsorption;
-import com.blakebr0.mysticalagriculture.items.charms.ItemCharmAbsorption;
-import com.blakebr0.mysticalagriculture.items.charms.ItemCharmAntivenom;
-import com.blakebr0.mysticalagriculture.items.charms.ItemCharmAttackAOE;
-import com.blakebr0.mysticalagriculture.items.charms.ItemCharmFire;
-import com.blakebr0.mysticalagriculture.items.charms.ItemCharmJump;
-import com.blakebr0.mysticalagriculture.items.charms.ItemCharmMiningAOE;
-import com.blakebr0.mysticalagriculture.items.charms.ItemCharmNightvision;
-import com.blakebr0.mysticalagriculture.items.charms.ItemCharmResistance;
-import com.blakebr0.mysticalagriculture.items.charms.ItemCharmSpeed;
-import com.blakebr0.mysticalagriculture.items.charms.ItemCharmStrength;
-import com.blakebr0.mysticalagriculture.items.charms.ItemCharmWither;
 import com.blakebr0.mysticalagriculture.items.tools.inferium.ItemInferiumAxe;
 import com.blakebr0.mysticalagriculture.items.tools.inferium.ItemInferiumHoe;
 import com.blakebr0.mysticalagriculture.items.tools.inferium.ItemInferiumPickaxe;
@@ -177,18 +166,18 @@ public class ModItems {
 	public static ItemCore itemSupremiumArmorCore = new ItemCore("supremium_armor_core");
 
 	public static ItemBase itemCharmBlank = new ItemBase("charm_blank");
-	public static ItemCharmNightvision itemCharmNightvision = new ItemCharmNightvision("charm_nightvision");
-	public static ItemCharmAbsorption itemCharmAbsorption = new ItemCharmAbsorption("charm_absorption");
-	public static ItemCharmWither itemCharmWither = new ItemCharmWither("charm_wither");
-	public static ItemCharmAntivenom itemCharmAntivenom = new ItemCharmAntivenom("charm_antivenom");
-	public static ItemCharmFire itemCharmFire = new ItemCharmFire("charm_fire");
-	public static ItemCharmResistance itemCharmResistance = new ItemCharmResistance("charm_resistance");
-	public static ItemCharmStrength itemCharmStrength = new ItemCharmStrength("charm_strength1");
-	public static ItemCharmStrength itemCharmStrength2 = new ItemCharmStrength("charm_strength2");
-	public static ItemCharmSpeed itemCharmSpeed = new ItemCharmSpeed("charm_speed");
-	public static ItemCharmJump itemCharmJump = new ItemCharmJump("charm_jump");
-	public static ItemCharmMiningAOE itemCharmMiningAOE = new ItemCharmMiningAOE("charm_mining_aoe");
-	public static ItemCharmAttackAOE itemCharmAttackAOE = new ItemCharmAttackAOE("charm_attack_aoe");
+	public static ItemCharm itemCharmNightvision = new ItemCharm("charm_nightvision", "desc.ma.charm_nightvision", new boolean[]{ true, false, false, false, false, false, false, false, false });
+	public static ItemCharm itemCharmAbsorption = new ItemCharm("charm_absorption", "desc.ma.charm_absorption", new boolean[]{ true, true, true, true, false, false, false, false, false });
+	public static ItemCharm itemCharmWither = new ItemCharm("charm_wither", "desc.ma.charm_wither", new boolean[]{ true, true, true, true, false, false, false, false, false });
+	public static ItemCharm itemCharmAntivenom = new ItemCharm("charm_antivenom", "desc.ma.charm_antivenom", new boolean[]{ true, true, true, true, false, false, false, false, false });
+	public static ItemCharm itemCharmFire = new ItemCharm("charm_fire", "desc.ma.charm_fire", new boolean[]{ true, true, true, true, false, false, false, false, false });
+	public static ItemCharm itemCharmResistance = new ItemCharm("charm_resistance", "desc.ma.charm_resistance", new boolean[]{ true, true, true, true, false, false, false, false, false });
+	public static ItemCharm itemCharmStrength = new ItemCharm("charm_strength1", "desc.ma.charm_strength", new boolean[]{ false, true, false, false, true, false, false, false, false });
+	public static ItemCharm itemCharmStrength2 = new ItemCharm("charm_strength2", "desc.ma.charm_strength", new boolean[]{ false, false, false, false, true, false, false, false, false });
+	public static ItemCharm itemCharmSpeed = new ItemCharm("charm_speed", "desc.ma.charm_speed", new boolean[]{ false, false, true, false, false, false, false, false, false });
+	public static ItemCharm itemCharmJump = new ItemCharm("charm_jump", "desc.ma.charm_jump", new boolean[]{ false, false, false, true, false, false, false, false, false });
+	public static ItemCharm itemCharmMiningAOE = new ItemCharm("charm_mining_aoe", "desc.ma.charm_mining_aoe", new boolean[]{ false, false, false, false, false, true, true, true, false });
+	public static ItemCharm itemCharmAttackAOE = new ItemCharm("charm_attack_aoe", "desc.ma.charm_attack_aoe", new boolean[]{ false, false, false, false, true, false, false, false, false });
 	
 	public static ItemInferiumSword itemInferiumSword = new ItemInferiumSword(ModToolMaterials.INFERIUM, "inferium_sword");
 	public static ItemInferiumPickaxe itemInferiumPickaxe = new ItemInferiumPickaxe(ModToolMaterials.INFERIUM, "inferium_pickaxe");
