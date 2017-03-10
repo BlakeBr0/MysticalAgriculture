@@ -28,7 +28,7 @@ public class ModChecker {
 	public static boolean ALUMINUM = OreDictionary.getOres("ingotAluminum").size() > 0 || OreDictionary.getOres("ingotAluminium").size() > 0 || THERMAL || IE || TECHREBORN || SUBSTRATUM || BASEMETALS;
 	public static boolean COPPER = OreDictionary.getOres("ingotCopper").size() > 0 || THERMAL || IC2 || IE || FORESTRY || TECHREBORN || MEKANISM || SUBSTRATUM || BASEMETALS;
 	public static boolean TIN = OreDictionary.getOres("ingotTin").size() > 0 || THERMAL || IC2 || FORESTRY || TECHREBORN || MEKANISM || SUBSTRATUM || BASEMETALS;
-	public static boolean BRONZE = OreDictionary.getOres("ingotBronze").size() > 0 || THERMAL || IC2 || FORESTRY || TECHREBORN || SUBSTRATUM || BASEMETALS;
+	public static boolean BRONZE = OreDictionary.getOres("ingotBronze").size() > 0 || THERMAL || IC2 || FORESTRY || TECHREBORN || MEKANISM || SUBSTRATUM || BASEMETALS;
 	public static boolean SILVER = OreDictionary.getOres("ingotSilver").size() > 0 || THERMAL || IC2 || IE || FORESTRY || TECHREBORN || SUBSTRATUM || BASEMETALS;
 	public static boolean LEAD = OreDictionary.getOres("ingotLead").size() > 0 || THERMAL || IC2 || IE || TECHREBORN || SUBSTRATUM || BASEMETALS;
 	public static boolean STEEL = OreDictionary.getOres("ingotSteel").size() > 0 || THERMAL || IC2 || IE || TECHREBORN || MEKANISM || SUBSTRATUM || BASEMETALS || BIGREACTORS;
