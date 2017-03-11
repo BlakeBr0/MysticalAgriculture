@@ -331,11 +331,11 @@ public class ModItems {
 		if(ModConfig.ghast_seeds){ registerItem(itemGhastChunk); }
 		if(ModConfig.enderman_seeds){ registerItem(itemEndermanChunk); }
 		if(ModConfig.wither_skeleton_seeds){ registerItem(itemWitherSkeletonChunk); }
-//		if(ModChecker.THERMAL){
+		if(ModChecker.THERMAL){
 			if(type.BLIZZ.isEnabled()){ registerItem(itemBlizzChunk); }
 			if(type.BLITZ.isEnabled()){ registerItem(itemBlitzChunk); }
 			if(type.BASALZ.isEnabled()){ registerItem(itemBasalzChunk); }
-//		}
+		}
 		
 		for(CropType.Type type : CropType.Type.values()){
 			if(type.isEnabled()){
@@ -556,11 +556,11 @@ public class ModItems {
 		if(ModConfig.ghast_seeds){ registerModel(itemGhastChunk); }
 		if(ModConfig.enderman_seeds){ registerModel(itemEndermanChunk); }
 		if(ModConfig.wither_skeleton_seeds){ registerModel(itemWitherSkeletonChunk); }
-//		if(ModChecker.THERMAL){
+		if(ModChecker.THERMAL){
 			if(type.BLIZZ.isEnabled()){ registerModel(itemBlizzChunk); }
 			if(type.BLITZ.isEnabled()){ registerModel(itemBlitzChunk); }
 			if(type.BASALZ.isEnabled()){ registerModel(itemBasalzChunk); }
-//		}
+		}
 		
 		for(CropType.Type type : CropType.Type.values()){
 			if(type.isEnabled()){

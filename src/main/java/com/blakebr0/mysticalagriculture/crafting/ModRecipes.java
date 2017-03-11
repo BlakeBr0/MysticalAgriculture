@@ -216,10 +216,9 @@ public class ModRecipes {
 		addShapedRecipe(new ItemStack(ModItems.itemInfusionCrystalMaster, 1, 0), "SES", "EDE", "SES", 'E', new ItemStack(ModItems.itemSuperiumEssence, 1, 0), 'D', "gemDiamond", 'S', new ItemStack(ModItems.itemProsperityShard, 1, 0));
   
 	    if(ModConfig.mystical_fertilizer){
+	    	addShapedRecipe(new ItemStack(ModItems.itemMysticalFertilizer, 3, 0), "SES", "EDE", "SES", 'E', new ItemStack(ModItems.itemInferiumEssence, 1, 0), 'D', "gemDiamond", 'S', new ItemStack(Items.DYE, 1, 15));	
 	    	if(ModConfig.fertilized_essence){
-	    		addShapedRecipe(new ItemStack(ModItems.itemMysticalFertilizer, 4, 0), "SES", "EDE", "SES", 'E', new ItemStack(ModItems.itemInferiumEssence, 1, 0), 'D', "gemDiamond", 'S', new ItemStack(ModItems.itemFertilizedEssence, 1, 0));	
-	    	} else {
-	    		addShapedRecipe(new ItemStack(ModItems.itemMysticalFertilizer, 4, 0), "SES", "EDE", "SES", 'E', new ItemStack(ModItems.itemInferiumEssence, 1, 0), 'D', "gemDiamond", 'S', new ItemStack(Items.DYE, 1, 15));	
+	    		addShapedRecipe(new ItemStack(ModItems.itemMysticalFertilizer, 6, 0), "SES", "EDE", "SES", 'E', new ItemStack(ModItems.itemInferiumEssence, 1, 0), 'D', "gemDiamond", 'S', new ItemStack(ModItems.itemFertilizedEssence, 1, 0));	
 	    	}
 	    }
 	    
