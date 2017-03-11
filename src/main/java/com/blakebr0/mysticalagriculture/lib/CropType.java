@@ -67,6 +67,9 @@ public class CropType {
 		SAPPHIRE("sapphire", ModConfig.sapphire_tier, ModConfig.sapphire_seeds && ModChecker.SAPPHIRE),
 		PERIDOT("peridot", ModConfig.peridot_tier, ModConfig.peridot_seeds && ModChecker.PERIDOT),
 		
+		BLIZZ("blizz", ModConfig.blizz_tier, ModConfig.blizz_seeds && ModChecker.THERMAL),
+		BLITZ("blitz", ModConfig.blitz_tier, ModConfig.blitz_seeds && ModChecker.THERMAL),
+		BASALZ("basalz", ModConfig.basalz_tier, ModConfig.basalz_seeds && ModChecker.THERMAL),
 		SIGNALUM("signalum", ModConfig.signalum_tier, ModConfig.signalum_seeds && ModChecker.SIGNALUM),
 		LUMIUM("lumium", ModConfig.lumium_tier, ModConfig.lumium_seeds && ModChecker.LUMIUM),
 		ENDERIUM("enderium", ModConfig.enderium_tier, ModConfig.enderium_seeds && ModChecker.ENDERIUM),

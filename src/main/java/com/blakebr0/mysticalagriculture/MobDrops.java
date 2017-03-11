@@ -5,8 +5,10 @@ import java.util.Random;
 import com.blakebr0.mysticalagriculture.config.ModConfig;
 import com.blakebr0.mysticalagriculture.items.ItemSouliumDagger;
 import com.blakebr0.mysticalagriculture.items.ModItems;
+import com.blakebr0.mysticalagriculture.lib.CropType;
 
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityList;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.boss.EntityDragon;
 import net.minecraft.entity.boss.EntityWither;
@@ -35,11 +37,18 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumHandSide;
 import net.minecraftforge.event.entity.living.LivingDropsEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.common.registry.EntityRegistry;
 
 public class MobDrops {
 	
     public static Random r = new Random();
     public static int chance = 0;
+    
+    private static CropType.Type type;
+    
+    private static final String BLIZZ_CLASS = "cofh.thermalfoundation.entity.monster.EntityBlizz";
+    private static final String BLITZ_CLASS = "cofh.thermalfoundation.entity.monster.EntityBlitz";
+    private static final String BASALZ_CLASS = "cofh.thermalfoundation.entity.monster.EntityBasalz";
     
     public static int dropChance(int type){
     	switch(type - 1){
@@ -252,6 +261,30 @@ public class MobDrops {
             	
             	if(attacked instanceof EntityMob){            	
             		ItemStack stack = new ItemStack(ModItems.itemExperienceChunk, dropChance(ModConfig.wither_skeleton_tier));
+            		if(stack.stackSize > 1){
+            			stack.stackSize = 1;
+            		}
+            		EntityItem drop = new EntityItem(attacked.worldObj, attacked.posX, attacked.posY, attacked.posZ, stack);
+            		event.getDrops().add(drop);
+            	}
+            	if(attacked.getClass().getName() == BLIZZ_CLASS && type.BLIZZ.isEnabled()){
+            		ItemStack stack = new ItemStack(ModItems.itemBlizzChunk, dropChance(type.BLIZZ.getTier()));
+            		if(stack.stackSize > 1){
+            			stack.stackSize = 1;
+            		}
+            		EntityItem drop = new EntityItem(attacked.worldObj, attacked.posX, attacked.posY, attacked.posZ, stack);
+            		event.getDrops().add(drop);
+            	}
+            	if(attacked.getClass().getName() == BLITZ_CLASS && type.BLITZ.isEnabled()){
+            		ItemStack stack = new ItemStack(ModItems.itemBlitzChunk, dropChance(type.BLITZ.getTier()));
+            		if(stack.stackSize > 1){
+            			stack.stackSize = 1;
+            		}
+            		EntityItem drop = new EntityItem(attacked.worldObj, attacked.posX, attacked.posY, attacked.posZ, stack);
+            		event.getDrops().add(drop);
+            	}
+            	if(attacked.getClass().getName() == BASALZ_CLASS && type.BASALZ.isEnabled()){
+            		ItemStack stack = new ItemStack(ModItems.itemBasalzChunk, dropChance(type.BASALZ.getTier()));
             		if(stack.stackSize > 1){
             			stack.stackSize = 1;
             		}

@@ -104,6 +104,9 @@ public class EssenceConfig {
 	public static int sapphire;
 	public static int peridot;
 	
+	public static int blizz;
+	public static int blitz;
+	public static int basalz;
 	public static int signalum;
 	public static int lumium;
 	public static int enderium;
@@ -255,6 +258,9 @@ public class EssenceConfig {
 		peridot = config.get(category, "peridot", 6).getInt();
 		
 		category = "Thermal Foundation";
+		blizz = config.get(category, "blizz", 3).getInt();
+		blitz = config.get(category, "blitz", 3).getInt();
+		basalz = config.get(category, "basalz", 3).getInt();
 		signalum = config.get(category, "signalum", 4).getInt();
 		lumium = config.get(category, "lumium", 4).getInt();
 		enderium = config.get(category, "enderium", 2).getInt();

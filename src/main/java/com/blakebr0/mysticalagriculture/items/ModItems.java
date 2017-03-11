@@ -118,6 +118,9 @@ public class ModItems {
 	public static ItemChunk itemGhastChunk = new ItemChunk("ghast_chunk", ModConfig.ghast_tier);
 	public static ItemChunk itemEndermanChunk = new ItemChunk("enderman_chunk", ModConfig.enderman_tier);
 	public static ItemChunk itemWitherSkeletonChunk = new ItemChunk("wither_skeleton_chunk", ModConfig.wither_skeleton_tier);
+	public static ItemChunk itemBlizzChunk = new ItemChunk("blizz_chunk", ModConfig.blizz_tier);
+	public static ItemChunk itemBlitzChunk = new ItemChunk("blitz_chunk", ModConfig.blitz_tier);
+	public static ItemChunk itemBasalzChunk = new ItemChunk("basalz_chunk", ModConfig.basalz_tier);
 		
 	public static ItemSeed itemTier1InferiumSeeds = new ItemSeed("tier1_inferium_seeds", ModBlocks.blockTier1InferiumCrop, 1);
 	public static ItemSeed itemTier2InferiumSeeds = new ItemSeed("tier2_inferium_seeds", ModBlocks.blockTier2InferiumCrop, 2);
@@ -250,6 +253,8 @@ public class ModItems {
 	public static ItemUpgradedFire itemSupremiumBootsFire = new ItemUpgradedFire("supremium_boots_fire", ModToolMaterials.SUPREMIUM_ARMOR, 0, EntityEquipmentSlot.FEET);
 	public static ItemUpgradedResistance itemSupremiumBootsResistance = new ItemUpgradedResistance("supremium_boots_resistance", ModToolMaterials.SUPREMIUM_ARMOR, 0, EntityEquipmentSlot.FEET);
 	
+	private static CropType.Type type;
+	
 	public static void initItems(){
 
 		registerItem(itemInferiumEssence);
@@ -266,12 +271,12 @@ public class ModItems {
 		if(ModConfig.fertilized_essence){ registerItem(itemFertilizedEssence); }
 		if(ModConfig.mystical_fertilizer){ registerItem(itemMysticalFertilizer); }
 		
-		if(CropType.Type.NATURE.isEnabled()){ registerItem(itemNatureCluster); }
-		if(CropType.Type.DYE.isEnabled()){ registerItem(itemDyeCluster); }
-		if(CropType.Type.NETHER.isEnabled()){ registerItem(itemNetherCluster); }
-		if(CropType.Type.MYSTICAL_FLOWER.isEnabled()){ registerItem(itemMysticalFlowerCluster); }
+		if(type.NATURE.isEnabled()){ registerItem(itemNatureCluster); }
+		if(type.DYE.isEnabled()){ registerItem(itemDyeCluster); }
+		if(type.NETHER.isEnabled()){ registerItem(itemNetherCluster); }
+		if(type.MYSTICAL_FLOWER.isEnabled()){ registerItem(itemMysticalFlowerCluster); }
 		
-		if(CropType.Type.SKELETON.isEnabled() && CropType.Type.CREEPER.isEnabled()){ registerItem(itemBlankRecord); }
+		if(type.SKELETON.isEnabled() && type.CREEPER.isEnabled()){ registerItem(itemBlankRecord); }
 		
 		if(ModConfig.essence_apples){
 			registerItem(itemInferiumApple);
@@ -326,6 +331,11 @@ public class ModItems {
 		if(ModConfig.ghast_seeds){ registerItem(itemGhastChunk); }
 		if(ModConfig.enderman_seeds){ registerItem(itemEndermanChunk); }
 		if(ModConfig.wither_skeleton_seeds){ registerItem(itemWitherSkeletonChunk); }
+//		if(ModChecker.THERMAL){
+			if(type.BLIZZ.isEnabled()){ registerItem(itemBlizzChunk); }
+			if(type.BLITZ.isEnabled()){ registerItem(itemBlitzChunk); }
+			if(type.BASALZ.isEnabled()){ registerItem(itemBasalzChunk); }
+//		}
 		
 		for(CropType.Type type : CropType.Type.values()){
 			if(type.isEnabled()){
@@ -546,6 +556,11 @@ public class ModItems {
 		if(ModConfig.ghast_seeds){ registerModel(itemGhastChunk); }
 		if(ModConfig.enderman_seeds){ registerModel(itemEndermanChunk); }
 		if(ModConfig.wither_skeleton_seeds){ registerModel(itemWitherSkeletonChunk); }
+//		if(ModChecker.THERMAL){
+			if(type.BLIZZ.isEnabled()){ registerModel(itemBlizzChunk); }
+			if(type.BLITZ.isEnabled()){ registerModel(itemBlitzChunk); }
+			if(type.BASALZ.isEnabled()){ registerModel(itemBasalzChunk); }
+//		}
 		
 		for(CropType.Type type : CropType.Type.values()){
 			if(type.isEnabled()){

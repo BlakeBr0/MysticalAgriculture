@@ -136,6 +136,9 @@ tile.ma.ruby_crop.name=Ruby Crop
 tile.ma.sapphire_crop.name=Sapphire Crop
 tile.ma.peridot_crop.name=Peridot Crop
 
+tile.ma.blizz_crop.name=Blizz Crop
+tile.ma.blitz_crop.name=Blitz Crop
+tile.ma.basalz_crop.name=Basalz Crop
 tile.ma.signalum_crop.name=Signalum Crop
 tile.ma.lumium_crop.name=Lumium Crop
 tile.ma.enderium_crop.name=Enderium Crop
@@ -253,6 +256,9 @@ item.ma.blaze_chunk.name=Blaze Chunk
 item.ma.ghast_chunk.name=Ghast Chunk
 item.ma.enderman_chunk.name=Enderman Chunk
 item.ma.wither_skeleton_chunk.name=Wither Skeleton Chunk
+item.ma.blizz_chunk.name=Blizz Chunk
+item.ma.blitz_chunk.name=Blitz Chunk
+item.ma.basalz_chunk.name=Basalz Chunk
 
 # RESOURCE ESSENCES
 item.ma.stone_essence.name=Stone Essence
@@ -309,6 +315,9 @@ item.ma.ruby_essence.name=Ruby Essence
 item.ma.sapphire_essence.name=Sapphire Essence
 item.ma.peridot_essence.name=Peridot Essence
 
+item.ma.blizz_essence.name=Blizz Essence
+item.ma.blitz_essence.name=Blitz Essence
+item.ma.basalz_essence.name=Basalz Essence
 item.ma.signalum_essence.name=Signalum Essence
 item.ma.lumium_essence.name=Lumium Essence
 item.ma.enderium_essence.name=Enderium Essence
@@ -411,6 +420,9 @@ item.ma.ruby_seeds.name=Ruby Seeds
 item.ma.sapphire_seeds.name=Sapphire Seeds
 item.ma.peridot_seeds.name=Peridot Seeds
 
+item.ma.blizz_seeds.name=Blizz Seeds
+item.ma.blitz_seeds.name=Blitz Seeds
+item.ma.basalz_seeds.name=Basalz Seeds
 item.ma.signalum_seeds.name=Signalum Seeds
 item.ma.lumium_seeds.name=Lumium Seeds
 item.ma.enderium_seeds.name=Enderium Seeds

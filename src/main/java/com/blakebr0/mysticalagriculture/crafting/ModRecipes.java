@@ -5,6 +5,7 @@ import com.blakebr0.mysticalagriculture.config.ModConfig;
 import com.blakebr0.mysticalagriculture.items.ItemSeed;
 import com.blakebr0.mysticalagriculture.items.ModItems;
 import com.blakebr0.mysticalagriculture.lib.CropType;
+import com.blakebr0.mysticalagriculture.lib.OreDictResources;
 import com.blakebr0.mysticalagriculture.lib.Parts;
 import com.blakebr0.mysticalagriculture.util.ModChecker;
 
@@ -24,6 +25,8 @@ import net.minecraftforge.oredict.ShapedOreRecipe;
 import net.minecraftforge.oredict.ShapelessOreRecipe;
 
 public class ModRecipes {
+	
+	private static CropType.Type type;
 	
 	public static ItemStack getEssence(int tier){
 		ItemStack essence = null;
@@ -121,8 +124,6 @@ public class ModRecipes {
 	
 	public static void initRecipes(){
 		
-		CropType.Type type = null;
-
 	    addShapedRecipe(new ItemStack(ModBlocks.blockInferium, 1, 0), "EEE", "EEE", "EEE", 'E', new ItemStack(ModItems.itemInferiumEssence, 1, 0));
 	    addShapedRecipe(new ItemStack(ModBlocks.blockPrudentium, 1, 0), "EEE", "EEE", "EEE", 'E', new ItemStack(ModItems.itemPrudentiumEssence, 1, 0));
 	    addShapedRecipe(new ItemStack(ModBlocks.blockIntermedium, 1, 0), "EEE", "EEE", "EEE", 'E', new ItemStack(ModItems.itemIntermediumEssence, 1, 0));
@@ -336,6 +337,18 @@ public class ModRecipes {
 				addShapedRecipe(new ItemStack(ModItems.itemWitherSkeletonChunk, 1, 0), "DDD", "MXM", "DDD", 'M', new ItemStack(Items.SKULL, 1, 1), 'X', getMobChunk(type.WITHER_SKELETON.getTier())); 
 			    addSmeltingRecipe(new ItemStack(ModItems.itemWitherSkeletonChunk, 1, 0), getMobChunk(type.WITHER_SKELETON.getTier()), 0.3F);
 			}
+			if(type.BLIZZ.isEnabled()){ 
+				addShapedRecipe(new ItemStack(ModItems.itemBlizzChunk, 1, 0), "DDD", "MXM", "DDD", 'M', "rodBlizz", 'X', getMobChunk(type.BLIZZ.getTier())); 
+			    addSmeltingRecipe(new ItemStack(ModItems.itemBlizzChunk, 1, 0), getMobChunk(type.BLIZZ.getTier()), 0.3F);
+			}
+			if(type.BLITZ.isEnabled()){ 
+				addShapedRecipe(new ItemStack(ModItems.itemBlitzChunk, 1, 0), "DDD", "MXM", "DDD", 'M', "rodBlitz", 'X', getMobChunk(type.BLITZ.getTier())); 
+			    addSmeltingRecipe(new ItemStack(ModItems.itemBlitzChunk, 1, 0), getMobChunk(type.BLITZ.getTier()), 0.3F);
+			}
+			if(type.BASALZ.isEnabled()){ 
+				addShapedRecipe(new ItemStack(ModItems.itemBasalzChunk, 1, 0), "DDD", "MXM", "DDD", 'M', "rodBasalz", 'X', getMobChunk(type.BASALZ.getTier())); 
+			    addSmeltingRecipe(new ItemStack(ModItems.itemBasalzChunk, 1, 0), getMobChunk(type.BASALZ.getTier()), 0.3F);
+			}
 		}
 
 		addShapedRecipe(new ItemStack(ModItems.itemTier1InferiumSeeds, 1, 0), "EEE", "ESE", "EEE", 'E', new ItemStack(ModItems.itemInferiumEssence, 1, 0), 'S', new ItemStack(Items.WHEAT_SEEDS, 1, 0));
@@ -399,6 +412,9 @@ public class ModRecipes {
 	    addSeedRecipe(type.SAPPHIRE, "gemSapphire");
 	    addSeedRecipe(type.PERIDOT, "gemPeridot");
 	    
+	    addSeedRecipe(type.BLIZZ, new ItemStack(ModItems.itemBlizzChunk, 1, 0));
+	    addSeedRecipe(type.BLITZ, new ItemStack(ModItems.itemBlitzChunk, 1, 0));
+	    addSeedRecipe(type.BASALZ, new ItemStack(ModItems.itemBasalzChunk, 1, 0));
 	    addSeedRecipe(type.SIGNALUM, "ingotSignalum");
 	    addSeedRecipe(type.LUMIUM, "ingotLumium");
 	    addSeedRecipe(type.ENDERIUM, "ingotEnderium");

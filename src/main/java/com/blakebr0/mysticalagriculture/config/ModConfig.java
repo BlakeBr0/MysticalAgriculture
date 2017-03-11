@@ -88,6 +88,9 @@ public class ModConfig {
 	public static boolean sapphire_seeds;
 	public static boolean peridot_seeds;
 	
+	public static boolean blizz_seeds;
+	public static boolean blitz_seeds;
+	public static boolean basalz_seeds;
 	public static boolean signalum_seeds;
 	public static boolean lumium_seeds;
 	public static boolean enderium_seeds;
@@ -183,6 +186,9 @@ public class ModConfig {
 	public static int sapphire_tier;
 	public static int peridot_tier;
 	
+	public static int blizz_tier;
+	public static int blitz_tier;
+	public static int basalz_tier;
 	public static int signalum_tier;
 	public static int lumium_tier;
 	public static int enderium_tier;
@@ -276,7 +282,7 @@ public class ModConfig {
 		
 	@SubscribeEvent
     public void onConfigChanged(ConfigChangedEvent.OnConfigChangedEvent eventArgs) {
-        if (eventArgs.getModID().equals(MysticalAgriculture.MOD_ID)) {
+        if(eventArgs.getModID().equals(MysticalAgriculture.MOD_ID)) {
             ModConfig.syncConfig();
         }
     }
@@ -367,6 +373,9 @@ public class ModConfig {
 		sapphire_seeds = config.get(category, "sapphire_seeds", true).getBoolean();
 		peridot_seeds = config.get(category, "peridot_seeds", true).getBoolean();
 		
+		blizz_seeds = config.get(category, "blizz_seeds", true).getBoolean();
+		blitz_seeds = config.get(category, "blitz_seeds", true).getBoolean();
+		basalz_seeds = config.get(category, "basalz_seeds", true).getBoolean();
 		signalum_seeds = config.get(category, "signalum_seeds", true).getBoolean();
 		lumium_seeds = config.get(category, "lumium_seeds", true).getBoolean();
 		enderium_seeds = config.get(category, "enderium_seeds", true).getBoolean();
@@ -475,6 +484,9 @@ public class ModConfig {
 		sapphire_tier = config.get(category, "sapphire", 4).getInt();
 		peridot_tier = config.get(category, "peridot_tier", 4).getInt();
 		
+		blizz_tier = config.get(category, "blizz_tier", 3).getInt();
+		blitz_tier = config.get(category, "blitz_tier", 3).getInt();
+		basalz_tier = config.get(category, "basalz_tier", 3).getInt();
 		signalum_tier = config.get(category, "signalum_tier", 4).getInt();
 		lumium_tier = config.get(category, "lumium_tier", 4).getInt();
 		enderium_tier = config.get(category, "enderium_tier", 5).getInt();
