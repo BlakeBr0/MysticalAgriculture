@@ -1,6 +1,6 @@
 {
   "parent":"item/generated",
   "textures": {
-    "layer0":"mysticalagriculture:items/blank_charm"
+    "layer0":"mysticalagriculture:items/charm_blank"
   }
 }
