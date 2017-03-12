@@ -20,6 +20,9 @@ public class EssenceConfig {
 	
 	public static int cobblestone;
 	public static int stone;
+	public static int andesite;
+	public static int diorite;
+	public static int granite;
 	public static int cracked_stonebrick;
 	public static int chiseled_stonebrick;
 	public static int dirt;
@@ -168,6 +171,9 @@ public class EssenceConfig {
 		category = "Common Resources";
 		cobblestone = config.get(category, "cobblestone", 32).getInt();
 		stone = config.get(category, "stone", 32).getInt();
+		andesite = config.get(category, "andesite", 16).getInt();
+		diorite = config.get(category, "diorite", 16).getInt();
+		granite = config.get(category, "granite", 16).getInt();
 		cracked_stonebrick = config.get(category, "cracked_stonebrick", 12).getInt();
 		chiseled_stonebrick = config.get(category, "chiseled_stonebrick", 12).getInt();
 		dirt = config.get(category, "dirt", 24).getInt();

@@ -20,6 +20,8 @@ import net.minecraftforge.oredict.ShapedOreRecipe;
 
 public class EssenceRecipes {
 	
+	private static CropType.Type type;
+	
 	public static void addEssenceRecipe(ItemStack output, Object... input){
 		if(output != null && output.stackSize > 0){
 			GameRegistry.addRecipe(new ShapedOreRecipe(output, input));
@@ -28,10 +30,11 @@ public class EssenceRecipes {
 	
 	public static void init(){
 		
-		CropType.Type type = null;
-
 		addEssenceRecipe(new ItemStack(Blocks.COBBLESTONE, EssenceConfig.cobblestone, 0), "EEE", "EXE", "EEE", 'E', new ItemStack(type.STONE.getCrop(), 1, 0));
 		addEssenceRecipe(new ItemStack(Blocks.STONE, EssenceConfig.stone, 0), "EEE", "EEE", "EEE", 'E', new ItemStack(type.STONE.getCrop(), 1, 0));
+		addEssenceRecipe(new ItemStack(Blocks.STONE, EssenceConfig.granite, 1), "XEX", "EQE", "XEX", 'E', new ItemStack(type.STONE.getCrop(), 1, 0), 'Q', new ItemStack(type.NETHER_QUARTZ.getCrop(), 1, 0));
+		addEssenceRecipe(new ItemStack(Blocks.STONE, EssenceConfig.diorite, 3), "XQX", "EEE", "XEX", 'E', new ItemStack(type.STONE.getCrop(), 1, 0), 'Q', new ItemStack(type.NETHER_QUARTZ.getCrop(), 1, 0));
+		addEssenceRecipe(new ItemStack(Blocks.STONE, EssenceConfig.andesite, 5), "XEX", "QEE", "XEX", 'E', new ItemStack(type.STONE.getCrop(), 1, 0), 'Q', new ItemStack(type.NETHER_QUARTZ.getCrop(), 1, 0));		
 		addEssenceRecipe(new ItemStack(Blocks.STONEBRICK, EssenceConfig.cracked_stonebrick, 2), "XEX", "ESE", "XEX", 'E', new ItemStack(type.STONE.getCrop(), 1, 0), 'S', "stone");
 		addEssenceRecipe(new ItemStack(Blocks.STONEBRICK, EssenceConfig.chiseled_stonebrick, 3), "EXE", "XSX", "EXE", 'E', new ItemStack(type.STONE.getCrop(), 1, 0), 'S', "stone");
 
@@ -75,6 +78,7 @@ public class EssenceRecipes {
 	    
 	    addEssenceRecipe(new ItemStack(Items.LAVA_BUCKET, 1, 0), "XEX", "EBE", "XEX", 'E', new ItemStack(type.FIRE.getCrop(), 1, 0), 'B', new ItemStack(Items.BUCKET, 1, 0));
 	    addEssenceRecipe(new ItemStack(Blocks.SAND, EssenceConfig.sand, 0), "EFX", "FEX", "XXX", 'E', new ItemStack(type.FIRE.getCrop(), 1, 0), 'F', new ItemStack(type.DIRT.getCrop(), 1, 0));
+	    addEssenceRecipe(new ItemStack(Blocks.SAND, EssenceConfig.sand, 1), "FEX", "EFX", "XXX", 'E', new ItemStack(type.FIRE.getCrop(), 1, 0), 'F', new ItemStack(type.DIRT.getCrop(), 1, 0));
 	    
 	    addEssenceRecipe(new ItemStack(Items.DYE, EssenceConfig.dye, 0), "EME", "XXX", "XXX", 'E', new ItemStack(type.DYE.getCrop(), 1, 0), 'M', new ItemStack(Items.DYE, 1, 0));
 	    addEssenceRecipe(new ItemStack(Items.DYE, EssenceConfig.dye, 1), "EME", "XXX", "XXX", 'E', new ItemStack(type.DYE.getCrop(), 1, 0), 'M', new ItemStack(Items.DYE, 1, 1));

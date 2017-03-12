@@ -142,10 +142,10 @@ public class ModRecipes {
 	    
 	    if(ModConfig.essence_furnaces){
 	    	addShapedRecipe(new ItemStack(ModBlocks.blockInferiumFurnace, 1, 0), "SES", "EDE", "SBS", 'E', new ItemStack(ModItems.itemInferiumEssence, 1, 0), 'D', new ItemStack(Blocks.FURNACE, 1, 0), 'B', new ItemStack(ModBlocks.blockInferium, 1, 0));
-	    	addShapedRecipe(new ItemStack(ModBlocks.blockPrudentiumFurnace, 1, 0), "SES", "EDE", "SBS", 'E', new ItemStack(ModItems.itemPrudentiumEssence, 1, 0), 'D', new ItemStack(ModBlocks.blockInferium, 1, 0), 'B', new ItemStack(ModBlocks.blockPrudentium, 1, 0));
-	    	addShapedRecipe(new ItemStack(ModBlocks.blockIntermediumFurnace, 1, 0), "SES", "EDE", "SBS", 'E', new ItemStack(ModItems.itemIntermediumIngot, 1, 0), 'D', new ItemStack(ModBlocks.blockPrudentium, 1, 0), 'B', new ItemStack(ModBlocks.blockIntermedium, 1, 0));
-	    	addShapedRecipe(new ItemStack(ModBlocks.blockSuperiumFurnace, 1, 0), "SES", "EDE", "SBS", 'E', new ItemStack(ModItems.itemSuperiumIngot, 1, 0), 'D', new ItemStack(ModBlocks.blockIntermedium, 1, 0), 'B', new ItemStack(ModBlocks.blockSuperium, 1, 0));
-	    	addShapedRecipe(new ItemStack(ModBlocks.blockSupremiumFurnace, 1, 0), "SES", "EDE", "SBS", 'E', new ItemStack(ModItems.itemSupremiumEssence, 1, 0), 'D', new ItemStack(ModBlocks.blockSuperium, 1, 0), 'B', new ItemStack(ModBlocks.blockSupremium, 1, 0));
+	    	addShapedRecipe(new ItemStack(ModBlocks.blockPrudentiumFurnace, 1, 0), "SES", "EDE", "SBS", 'E', new ItemStack(ModItems.itemPrudentiumEssence, 1, 0), 'D', new ItemStack(ModBlocks.blockInferiumFurnace, 1, 0), 'B', new ItemStack(ModBlocks.blockPrudentium, 1, 0));
+	    	addShapedRecipe(new ItemStack(ModBlocks.blockIntermediumFurnace, 1, 0), "SES", "EDE", "SBS", 'E', new ItemStack(ModItems.itemIntermediumEssence, 1, 0), 'D', new ItemStack(ModBlocks.blockPrudentiumFurnace, 1, 0), 'B', new ItemStack(ModBlocks.blockIntermedium, 1, 0));
+	    	addShapedRecipe(new ItemStack(ModBlocks.blockSuperiumFurnace, 1, 0), "SES", "EDE", "SBS", 'E', new ItemStack(ModItems.itemSuperiumEssence, 1, 0), 'D', new ItemStack(ModBlocks.blockIntermediumFurnace, 1, 0), 'B', new ItemStack(ModBlocks.blockSuperium, 1, 0));
+	    	addShapedRecipe(new ItemStack(ModBlocks.blockSupremiumFurnace, 1, 0), "SES", "EDE", "SBS", 'E', new ItemStack(ModItems.itemSupremiumEssence, 1, 0), 'D', new ItemStack(ModBlocks.blockSuperiumFurnace, 1, 0), 'B', new ItemStack(ModBlocks.blockSupremium, 1, 0));
 	    	if(ModConfig.ultimate_furnace){
 	    		addShapedRecipe(new ItemStack(ModBlocks.blockUltimateFurnace, 1, 0), "SNS", "EDE", "SES", 'E', new ItemStack(ModBlocks.blockSupremium, 1, 0), 'D', new ItemStack(ModBlocks.blockSupremiumFurnace, 1, 0), 'N', new ItemStack(Items.NETHER_STAR, 1, 0), 'S', new ItemStack(Items.SKULL, 1, 1));
 	    	}
@@ -213,7 +213,7 @@ public class ModRecipes {
 		addShapelessRecipe(new ItemStack(ModItems.itemSuperiumEssence, 4, 0), new ItemStack(ModItems.itemSupremiumEssence, 1, 0));
 				
 		addShapedRecipe(new ItemStack(ModItems.itemInfusionCrystal, 1, 0), "SES", "EDE", "SES", 'E', new ItemStack(ModItems.itemInferiumEssence, 1, 0), 'D', "gemDiamond", 'S', new ItemStack(ModItems.itemProsperityShard, 1, 0));
-		addShapedRecipe(new ItemStack(ModItems.itemInfusionCrystalMaster, 1, 0), "SES", "EDE", "SES", 'E', new ItemStack(ModItems.itemSuperiumEssence, 1, 0), 'D', "gemDiamond", 'S', new ItemStack(ModItems.itemProsperityShard, 1, 0));
+		addShapedRecipe(new ItemStack(ModItems.itemInfusionCrystalMaster, 1, 0), "SES", "EDE", "SES", 'E', new ItemStack(ModItems.itemSupremiumEssence, 1, 0), 'D', "gemDiamond", 'S', new ItemStack(ModItems.itemProsperityShard, 1, 0));
   
 	    if(ModConfig.mystical_fertilizer){
 	    	addShapedRecipe(new ItemStack(ModItems.itemMysticalFertilizer, 3, 0), "SES", "EDE", "SES", 'E', new ItemStack(ModItems.itemInferiumEssence, 1, 0), 'D', "gemDiamond", 'S', new ItemStack(Items.DYE, 1, 15));	
