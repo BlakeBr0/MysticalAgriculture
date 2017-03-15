@@ -114,8 +114,8 @@ public class BlockMysticalCrop extends BlockCrops implements IHornHarvestable {
         int seeds = 1;
 
         if(age == 7){
-        	if(ModConfig.seed_chance > 0){
-        		if(rand.nextInt(100 / ModConfig.seed_chance) > 0)
+        	if(ModConfig.confSeedChance > 0){
+        		if(rand.nextInt(100 / ModConfig.confSeedChance) > 0)
         			seeds = 1;
         		else
         			seeds = 2;
@@ -124,8 +124,8 @@ public class BlockMysticalCrop extends BlockCrops implements IHornHarvestable {
         }
         
         if(age == 7){
-        	if(ModConfig.fertilized_essence_chance > 0){
-        		if(rand.nextInt(100 / ModConfig.fertilized_essence_chance) > 0)
+        	if(ModConfig.confFertilizedEssenceChance > 0){
+        		if(rand.nextInt(100 / ModConfig.confFertilizedEssenceChance) > 0)
         			fertilizer = 0;
         		else {
         			fertilizer = 1;
@@ -135,8 +135,8 @@ public class BlockMysticalCrop extends BlockCrops implements IHornHarvestable {
         }
         
         if(age == 7){
-        	if(ModConfig.essence_chance > 0){
-                if(rand.nextInt(100 / ModConfig.essence_chance) > 0)
+        	if(ModConfig.confEssenceChance > 0){
+                if(rand.nextInt(100 / ModConfig.confEssenceChance) > 0)
                     essence = 1;
                 else
                     essence = 2;        		
@@ -157,7 +157,7 @@ public class BlockMysticalCrop extends BlockCrops implements IHornHarvestable {
 
     @Override
     public boolean hasSpecialHornHarvest(World world, BlockPos blockPos, ItemStack stack, EnumHornType hornType) {
-        return hornType.ordinal()==0 && ModConfig.botania_horn_harvesting;
+        return hornType.ordinal()==0 && ModConfig.confBotaniaHornHarvesting;
     }
 
     @Override

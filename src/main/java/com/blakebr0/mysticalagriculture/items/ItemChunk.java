@@ -50,7 +50,7 @@ public class ItemChunk extends Item {
         	tooltip.add("Drop Chance: \u00A7c10%");
             break;
 		}
-		if(ModConfig.craftable_chunks && stack.getItem() != ModItems.itemExperienceChunk){
+		if(ModConfig.confCraftableChunks && stack.getItem() != ModItems.itemExperienceChunk){
 			tooltip.add("\u00A7oCraftable");
 		}
 	}

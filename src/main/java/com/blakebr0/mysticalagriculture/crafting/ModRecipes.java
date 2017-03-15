@@ -140,18 +140,18 @@ public class ModRecipes {
 	    addShapedRecipe(new ItemStack(ModBlocks.blockSupremiumIngot, 1, 0), "EEE", "EEE", "EEE", 'E', new ItemStack(ModItems.itemSupremiumIngot, 1, 0));
 	    addShapedRecipe(new ItemStack(ModBlocks.blockSouliumIngot, 1, 0), "EEE", "EEE", "EEE", 'E', new ItemStack(ModItems.itemSouliumIngot, 1, 0));
 	    
-	    if(ModConfig.essence_furnaces){
+	    if(ModConfig.confEssenceFurnaces){
 	    	addShapedRecipe(new ItemStack(ModBlocks.blockInferiumFurnace, 1, 0), "SES", "EDE", "SBS", 'E', new ItemStack(ModItems.itemInferiumEssence, 1, 0), 'D', new ItemStack(Blocks.FURNACE, 1, 0), 'B', new ItemStack(ModBlocks.blockInferium, 1, 0));
 	    	addShapedRecipe(new ItemStack(ModBlocks.blockPrudentiumFurnace, 1, 0), "SES", "EDE", "SBS", 'E', new ItemStack(ModItems.itemPrudentiumEssence, 1, 0), 'D', new ItemStack(ModBlocks.blockInferiumFurnace, 1, 0), 'B', new ItemStack(ModBlocks.blockPrudentium, 1, 0));
 	    	addShapedRecipe(new ItemStack(ModBlocks.blockIntermediumFurnace, 1, 0), "SES", "EDE", "SBS", 'E', new ItemStack(ModItems.itemIntermediumEssence, 1, 0), 'D', new ItemStack(ModBlocks.blockPrudentiumFurnace, 1, 0), 'B', new ItemStack(ModBlocks.blockIntermedium, 1, 0));
 	    	addShapedRecipe(new ItemStack(ModBlocks.blockSuperiumFurnace, 1, 0), "SES", "EDE", "SBS", 'E', new ItemStack(ModItems.itemSuperiumEssence, 1, 0), 'D', new ItemStack(ModBlocks.blockIntermediumFurnace, 1, 0), 'B', new ItemStack(ModBlocks.blockSuperium, 1, 0));
 	    	addShapedRecipe(new ItemStack(ModBlocks.blockSupremiumFurnace, 1, 0), "SES", "EDE", "SBS", 'E', new ItemStack(ModItems.itemSupremiumEssence, 1, 0), 'D', new ItemStack(ModBlocks.blockSuperiumFurnace, 1, 0), 'B', new ItemStack(ModBlocks.blockSupremium, 1, 0));
-	    	if(ModConfig.ultimate_furnace){
+	    	if(ModConfig.confUltimateFurnace){
 	    		addShapedRecipe(new ItemStack(ModBlocks.blockUltimateFurnace, 1, 0), "SNS", "EDE", "SES", 'E', new ItemStack(ModBlocks.blockSupremium, 1, 0), 'D', new ItemStack(ModBlocks.blockSupremiumFurnace, 1, 0), 'N', new ItemStack(Items.NETHER_STAR, 1, 0), 'S', new ItemStack(Items.SKULL, 1, 1));
 	    	}
 	    }
 	    
-	    if(ModConfig.essence_coal){
+	    if(ModConfig.confEssenceCoal){
 	    	addShapelessRecipe(new ItemStack(ModItems.itemEssenceCoal, 1, 0), new ItemStack(Items.COAL, 1, 0), new ItemStack(ModItems.itemInferiumEssence, 1, 0), new ItemStack(ModItems.itemInferiumEssence, 1, 0));
 	    	addShapelessRecipe(new ItemStack(ModItems.itemEssenceCoal, 1, 1), new ItemStack(ModItems.itemEssenceCoal, 1, 0), new ItemStack(ModItems.itemPrudentiumEssence, 1, 0), new ItemStack(ModItems.itemPrudentiumEssence, 1, 0));
 	    	addShapelessRecipe(new ItemStack(ModItems.itemEssenceCoal, 1, 2), new ItemStack(ModItems.itemEssenceCoal, 1, 1), new ItemStack(ModItems.itemIntermediumEssence, 1, 0), new ItemStack(ModItems.itemIntermediumEssence, 1, 0));
@@ -169,14 +169,14 @@ public class ModRecipes {
 	    	addShapelessRecipe(new ItemStack(ModItems.itemEssenceCoal, 9, 4), new ItemStack(ModBlocks.blockEssenceCoal, 1, 4));
 	    }
 	    
-	    if(ModConfig.growth_accelerator){ addShapedRecipe(new ItemStack(ModBlocks.blockGrowthAccelerator, 1, 0), "SES", "EDE", "SES", 'E', new ItemStack(ModBlocks.blockInferium, 1, 0), 'S', "stone", 'D', "gemDiamond"); }
+	    if(ModConfig.confGrowthAccelerator){ addShapedRecipe(new ItemStack(ModBlocks.blockGrowthAccelerator, 1, 0), "SES", "EDE", "SES", 'E', new ItemStack(ModBlocks.blockInferium, 1, 0), 'S', "stone", 'D', "gemDiamond"); }
 	    
 	    addShapedRecipe(new ItemStack(ModBlocks.blockMysticalMachineFrame, 4, 0), "SIS", "IXI", "SIS", 'S', "stone", 'I', new ItemStack(ModItems.itemBaseEssenceIngot, 1, 0));
-	    if(ModConfig.seed_reprocessor){
+	    if(ModConfig.confSeedReprocessor){
 	    	addShapedRecipe(new ItemStack(ModBlocks.blockSeedReprocessor), "ISI", "IMI", "IBI", 'I', "ingotIron", 'S', new ItemStack(ModItems.itemTier2InferiumSeeds, 1, 0), 'M', new ItemStack(ModBlocks.blockMysticalMachineFrame, 1, 0), 'B', new ItemStack(ModBlocks.blockSouliumIngot, 1, 0));
 	    }
 	    
-	    if(ModConfig.witherproof_blocks){
+	    if(ModConfig.confWitherproofBlocks){
 	    	addShapedRecipe(new ItemStack(ModBlocks.blockWitherproofBlock, 1, 0), "SES", "EDE", "SES", 'E', new ItemStack(type.WITHER_SKELETON.getCrop(), 1, 0), 'D', "stone");
 	    	addShapedRecipe(new ItemStack(ModBlocks.blockWitherproofGlass, 1, 0), "SES", "EDE", "SES", 'E', new ItemStack(type.WITHER_SKELETON.getCrop(), 1, 0), 'D', "blockGlass");
 	    }
@@ -215,9 +215,9 @@ public class ModRecipes {
 		addShapedRecipe(new ItemStack(ModItems.itemInfusionCrystal, 1, 0), "SES", "EDE", "SES", 'E', new ItemStack(ModItems.itemInferiumEssence, 1, 0), 'D', "gemDiamond", 'S', new ItemStack(ModItems.itemProsperityShard, 1, 0));
 		addShapedRecipe(new ItemStack(ModItems.itemInfusionCrystalMaster, 1, 0), "SES", "EDE", "SES", 'E', new ItemStack(ModItems.itemSupremiumEssence, 1, 0), 'D', "gemDiamond", 'S', new ItemStack(ModItems.itemProsperityShard, 1, 0));
   
-	    if(ModConfig.mystical_fertilizer){
+	    if(ModConfig.confMysticalFertilizer){
 	    	addShapedRecipe(new ItemStack(ModItems.itemMysticalFertilizer, 3, 0), "SES", "EDE", "SES", 'E', new ItemStack(ModItems.itemInferiumEssence, 1, 0), 'D', "gemDiamond", 'S', new ItemStack(Items.DYE, 1, 15));	
-	    	if(ModConfig.fertilized_essence){
+	    	if(ModConfig.confFertilizedEssence){
 	    		addShapedRecipe(new ItemStack(ModItems.itemMysticalFertilizer, 6, 0), "SES", "EDE", "SES", 'E', new ItemStack(ModItems.itemInferiumEssence, 1, 0), 'D', "gemDiamond", 'S', new ItemStack(ModItems.itemFertilizedEssence, 1, 0));	
 	    	}
 	    }
@@ -243,7 +243,7 @@ public class ModRecipes {
 			addShapelessRecipe(new ItemStack(Items.RECORD_WAIT, 1, 0), new ItemStack(ModItems.itemBlankRecord, 1, 0), "dyeLightBlue", new ItemStack(type.SKELETON.getCrop(), 1, 0), new ItemStack(type.CREEPER.getCrop(), 1, 0));
 		}
 		
-		if(ModConfig.essence_apples){ 
+		if(ModConfig.confEssenceApples){ 
 			addShapedRecipe(new ItemStack(ModItems.itemInferiumApple, 1, 0), "XSX", "SWS", "XSX", 'S', new ItemStack(ModItems.itemInferiumEssence, 1, 0), 'W', new ItemStack(Items.APPLE, 1, 0)); 
 			addShapedRecipe(new ItemStack(ModItems.itemPrudentiumApple, 1, 0), "XSX", "SWS", "XSX", 'S', new ItemStack(ModItems.itemPrudentiumEssence, 1, 0), 'W', new ItemStack(ModItems.itemInferiumApple, 1, 0)); 
 			addShapedRecipe(new ItemStack(ModItems.itemIntermediumApple, 1, 0), "XSX", "SWS", "XSX", 'S', new ItemStack(ModItems.itemIntermediumEssence, 1, 0), 'W', new ItemStack(ModItems.itemPrudentiumApple, 1, 0)); 
@@ -264,7 +264,7 @@ public class ModRecipes {
 	    addShapedRecipe(new ItemStack(ModBlocks.blockSoulstone, 8, 0), "XDX", "DXD", "XDX", 'X', "stone", 'D', new ItemStack(Blocks.SOUL_SAND, 1, 0));
 	    
 	    addSmeltingRecipe(new ItemStack(ModBlocks.blockSoulstone, 1, 0), new ItemStack(ModItems.itemSoulDust), 0.3F);
-		addShapedRecipe(new ItemStack(ModItems.itemSouliumDust, 1, 0), "SXS", "XSX", "SXS", 'S', new ItemStack(ModItems.itemSouliumDust, 1, 0), 'X', new ItemStack(ModItems.itemPrudentiumEssence, 1, 0));
+		addShapedRecipe(new ItemStack(ModItems.itemSouliumDust, 1, 0), "SXS", "XSX", "SXS", 'S', new ItemStack(ModItems.itemSoulDust, 1, 0), 'X', new ItemStack(ModItems.itemPrudentiumEssence, 1, 0));
 	    addSmeltingRecipe(new ItemStack(ModItems.itemSouliumDust, 1, 0), new ItemStack(ModItems.itemSouliumIngot), 0.4F);
 	    addShapedRecipe(new ItemStack(ModItems.itemSouliumDagger, 1, 0), "SXX", "SXX", "WXX", 'S', new ItemStack(ModItems.itemSouliumIngot, 1, 0), 'W', new ItemStack(ModItems.itemMysticalToolRod, 1, 0));
     
@@ -275,7 +275,7 @@ public class ModRecipes {
 		addShapelessRecipe(new ItemStack(ModItems.itemTier4MobChunk, 1, 0), new ItemStack(ModItems.itemTier3MobChunk, 1, 0), new ItemStack(ModItems.itemSuperiumEssence, 1, 0), new ItemStack(ModItems.itemSuperiumEssence, 1, 0));		
 		addShapelessRecipe(new ItemStack(ModItems.itemTier5MobChunk, 1, 0), new ItemStack(ModItems.itemTier4MobChunk, 1, 0), new ItemStack(ModItems.itemSupremiumEssence, 1, 0), new ItemStack(ModItems.itemSupremiumEssence, 1, 0));		
 		
-		if(ModConfig.craftable_chunks){
+		if(ModConfig.confCraftableChunks){
 			if(type.ZOMBIE.isEnabled()){ 
 				addShapedRecipe(new ItemStack(ModItems.itemZombieChunk, 1, 0), "MMM", "MXM", "MMM", 'M', new ItemStack(Items.ROTTEN_FLESH, 1, 0), 'X', getMobChunk(type.ZOMBIE.getTier())); 
 			    addSmeltingRecipe(new ItemStack(ModItems.itemZombieChunk, 1, 0), getMobChunk(type.ZOMBIE.getTier()), 0.3F);
@@ -453,8 +453,8 @@ public class ModRecipes {
 	    
 	    addSeedRecipe(type.QUARTZ_ENRICHED_IRON, new ItemStack(Parts.itemRSIngot, 1, 0));
 	    
-	    if(ModConfig.$gear_module_override){
-	    	if(ModConfig.harder_ingots){
+	    if(ModConfig.confGearModuleOverride){
+	    	if(ModConfig.confHarderIngots){
 	    	    addShapedRecipe(new ItemStack(ModItems.itemInferiumIngot, 1, 0), "XEX", "EIE", "XEX", 'E', new ItemStack(ModItems.itemInferiumEssence, 1, 0), 'I', new ItemStack(ModItems.itemBaseEssenceIngot, 1, 0));
 			    addShapedRecipe(new ItemStack(ModItems.itemPrudentiumIngot, 1, 0), "XEX", "EIE", "XEX", 'E', new ItemStack(ModItems.itemPrudentiumEssence, 1, 0), 'I', new ItemStack(ModItems.itemInferiumIngot, 1, 0));
 			    addShapedRecipe(new ItemStack(ModItems.itemIntermediumIngot, 1, 0), "XEX", "EIE", "XEX", 'E', new ItemStack(ModItems.itemIntermediumEssence, 1, 0), 'I', new ItemStack(ModItems.itemPrudentiumIngot, 1, 0));

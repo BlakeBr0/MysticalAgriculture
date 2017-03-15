@@ -39,7 +39,7 @@ public class ItemUpgradedSpeed extends ItemSupremiumArmor {
 	public void addInformation(ItemStack stack, EntityPlayer player, List tooltip, boolean advanced){
 		int damage = stack.getMaxDamage() - stack.getItemDamage();
 		tooltip.add("Durability: \u00A7c" + damage);
-		if(ModConfig.supremium_flight){ tooltip.add("Set Bonus: \u00A7cFlight"); }
+		if(ModConfig.confSupremiumFlight){ tooltip.add("Set Bonus: \u00A7cFlight"); }
 		tooltip.add("Charm Slot: \u00A7cSpeed");
 	}
 	
@@ -50,7 +50,7 @@ public class ItemUpgradedSpeed extends ItemSupremiumArmor {
 
     @Override
     public boolean hasContainerItem(ItemStack stack){
-        return ModConfig.charm_return;
+        return ModConfig.confCharmReturn;
     }
 
 	public void onArmorTick(World world, EntityPlayer entity, ItemStack itemStack){
@@ -59,7 +59,7 @@ public class ItemUpgradedSpeed extends ItemSupremiumArmor {
 		ItemStack legs = entity.getItemStackFromSlot(EntityEquipmentSlot.LEGS);
 		ItemStack feet = entity.getItemStackFromSlot(EntityEquipmentSlot.FEET);
 		if(head != null && head.getItem() instanceof ItemSupremiumArmor && chest != null && chest.getItem() instanceof ItemSupremiumArmor && legs != null && legs.getItem() instanceof ItemSupremiumArmor && feet != null && feet.getItem() instanceof ItemSupremiumArmor || entity.capabilities.isCreativeMode || entity.isSpectator()) {
-			if(ModConfig.set_bonuses){
+			if(ModConfig.confSetBonuses){
 				if(entity.isInWater()){
 					entity.addPotionEffect(new PotionEffect(MobEffects.WATER_BREATHING, 5, 0, true, false));
 				}
@@ -93,10 +93,10 @@ public class ItemUpgradedSpeed extends ItemSupremiumArmor {
     			String key = playerKey(player);
 
     			Boolean hasSet = playerHasSet(player);
-    			if(playersWithSpeed.contains(key) && ModConfig.set_bonuses){
+    			if(playersWithSpeed.contains(key) && ModConfig.confSetBonuses){
     				if(hasSet){
     					player.stepHeight = 1.0F;
-    					if(ModConfig.supremium_flight){
+    					if(ModConfig.confSupremiumFlight){
     						player.capabilities.allowFlying = true;
     					}
 						boolean flying = player.capabilities.isFlying;

@@ -37,7 +37,7 @@ public class ItemSupremiumArmor extends ItemArmor {
 	public void addInformation(ItemStack stack, EntityPlayer player, List tooltip, boolean advanced){
 		int damage = stack.getMaxDamage() - stack.getItemDamage();
 		tooltip.add("Durability: \u00A7c" + damage);
-		if(ModConfig.supremium_flight){ tooltip.add("Set Bonus: \u00A7cFlight"); }
+		if(ModConfig.confSupremiumFlight){ tooltip.add("Set Bonus: \u00A7cFlight"); }
 		tooltip.add("Charm Slot: \u00A7c\u00A7oEmpty");
 	}
 		
@@ -48,7 +48,7 @@ public class ItemSupremiumArmor extends ItemArmor {
 		ItemStack feet = entity.getItemStackFromSlot(EntityEquipmentSlot.FEET);	
 		
 		if(head != null && head.getItem() instanceof ItemSupremiumArmor && chest != null && chest.getItem() instanceof ItemSupremiumArmor && legs != null && legs.getItem() instanceof ItemSupremiumArmor && feet != null && feet.getItem() instanceof ItemSupremiumArmor || entity.capabilities.isCreativeMode || entity.isSpectator()) {
-			if(ModConfig.set_bonuses){
+			if(ModConfig.confSetBonuses){
 				if(entity.isInWater()){
 					entity.addPotionEffect(new PotionEffect(MobEffects.WATER_BREATHING, 5, 0, true, false));
 				}
@@ -92,10 +92,10 @@ public class ItemSupremiumArmor extends ItemArmor {
     			Boolean hasSet = playerHasSet(player);
     			if(playersWithSet.contains(key)){
     				if(hasSet){
-    					if(ModConfig.supremium_flight){
+    					if(ModConfig.confSupremiumFlight){
     						player.capabilities.allowFlying = true;
     					}
-    					if(ModConfig.set_bonuses){
+    					if(ModConfig.confSetBonuses){
         					player.stepHeight = 1.0F;
     						boolean flying = player.capabilities.isFlying;
     						if(flying){ 

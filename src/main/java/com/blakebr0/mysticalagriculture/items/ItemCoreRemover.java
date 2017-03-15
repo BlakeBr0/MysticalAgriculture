@@ -27,7 +27,7 @@ public class ItemCoreRemover extends Item {
 		this.setRegistryName(name);
 		this.setCreativeTab(MysticalAgriculture.tabMysticalAgriculture);
 		this.setMaxStackSize(1);
-		this.setMaxDamage(ModConfig.remover_durability - 1);
+		this.setMaxDamage(ModConfig.confRemoverDurability - 1);
 		this.setNoRepair();
 	}
 

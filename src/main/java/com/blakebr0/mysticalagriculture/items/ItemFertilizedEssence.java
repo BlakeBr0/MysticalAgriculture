@@ -35,7 +35,8 @@ public class ItemFertilizedEssence extends ItemBase {
 	@SideOnly(Side.CLIENT)
 	public void addInformation(ItemStack stack, EntityPlayer player, List tooltip, boolean advanced){
 		tooltip.add("Bonemeal that works on Resource Crops.");
-		if(ModConfig.fertilized_essence_chance > 0){ tooltip.add("Drop Chance: \u00A7d" + ModConfig.fertilized_essence_chance + "%"); }
+		int chance = ModConfig.confFertilizedEssenceChance;
+		if(ModConfig.confFertilizedEssenceChance > 0){ tooltip.add("Drop Chance: \u00A7d" + chance + "%"); }
 	}
 	
     public static boolean applyFertilizer(ItemStack stack, World worldIn, BlockPos target, EntityPlayer player){

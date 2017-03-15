@@ -81,10 +81,10 @@ public class BlockAccelerator extends Block {
 			Block cropBlock = cropState.getBlock();
 
 			if(cropBlock instanceof BlockMysticalCrop || cropBlock instanceof BlockTier1InferiumCrop || cropBlock instanceof BlockTier2InferiumCrop || cropBlock instanceof BlockTier3InferiumCrop || cropBlock instanceof BlockTier4InferiumCrop || cropBlock instanceof BlockTier5InferiumCrop) {
-				world.scheduleBlockUpdate(new BlockPos(x, y, z), cropBlock, (int) (distanceCoefficient * (float) ModConfig.growth_accelerator_speed * 20F), 1);
+				world.scheduleBlockUpdate(new BlockPos(x, y, z), cropBlock, (int) (distanceCoefficient * (float) ModConfig.confGrowthAcceleratorSpeed * 20F), 1);
 				cropBlock.updateTick(world, new BlockPos(x, y, z), cropState, world.rand);
 			}
 		}	
-		world.scheduleBlockUpdate(pos, state.getBlock(), ModConfig.growth_accelerator_speed * 20, 1);
+		world.scheduleBlockUpdate(pos, state.getBlock(), ModConfig.confGrowthAcceleratorSpeed * 20, 1);
 	}
 }

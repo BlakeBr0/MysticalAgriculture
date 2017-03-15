@@ -27,7 +27,7 @@ public class ItemInfusionCrystal extends Item {
 		this.setRegistryName(name);
 		this.setCreativeTab(MysticalAgriculture.tabMysticalAgriculture);
 		this.setMaxStackSize(1);
-		this.setMaxDamage(ModConfig.crystal_durability - 1);
+		this.setMaxDamage(ModConfig.confCrystalDurability - 1);
 		this.setNoRepair();
 	}
 	

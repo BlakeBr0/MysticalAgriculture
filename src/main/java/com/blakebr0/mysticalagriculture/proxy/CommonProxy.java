@@ -49,7 +49,7 @@ public class CommonProxy {
 	public void init(FMLInitializationEvent e){
 		ModTileEntities.initTileEntities();
 				
-		if(ModConfig.seed_reprocessor){
+		if(ModConfig.confSeedReprocessor){
 			ReprocessorManager.addRecipe(new ItemStack(ModItems.itemInferiumEssence, 1, 0), new ItemStack(ModItems.itemTier1InferiumSeeds, 1, 0));
 			ReprocessorManager.addRecipe(new ItemStack(ModItems.itemInferiumEssence, 2, 0), new ItemStack(ModItems.itemTier2InferiumSeeds, 1, 0));
 			ReprocessorManager.addRecipe(new ItemStack(ModItems.itemInferiumEssence, 3, 0), new ItemStack(ModItems.itemTier3InferiumSeeds, 1, 0));

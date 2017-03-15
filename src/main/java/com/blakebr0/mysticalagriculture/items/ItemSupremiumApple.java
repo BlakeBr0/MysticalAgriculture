@@ -32,7 +32,7 @@ public class ItemSupremiumApple extends ItemFood {
         if(!world.isRemote) {
         	int duration = 0;
             PotionEffect potion;
-            int bufflength = ModConfig.apple_buff_duration * 20;
+            int bufflength = ModConfig.confAppleBuffDuration * 20;
             
             potion = player.getActivePotionEffect(MobEffects.ABSORPTION);
             if(potion != null)
@@ -70,10 +70,11 @@ public class ItemSupremiumApple extends ItemFood {
 	@SideOnly(Side.CLIENT)
 	public void addInformation(ItemStack stack, EntityPlayer player, List tooltip, boolean advanced){
 		tooltip.add("Gives Buffs:");
-		tooltip.add("- \u00A7eAbsorption II \u00A77(" + ModConfig.apple_buff_duration + ":00)");
-		tooltip.add("- \u00A7aSpeed II \u00A77(" + ModConfig.apple_buff_duration + ":00)");
-		tooltip.add("- \u00A76Resistance II \u00A77(" + ModConfig.apple_buff_duration + ":00)");
-		tooltip.add("- \u00A7bRegeneration II \u00A77(" + ModConfig.apple_buff_duration + ":00)");
-		tooltip.add("- \u00A7cStrength II \u00A77(" + ModConfig.apple_buff_duration + ":00)");
+		int duration = ModConfig.confAppleBuffDuration;
+		tooltip.add("- \u00A7eAbsorption II \u00A77(" + duration + ":00)");
+		tooltip.add("- \u00A7aSpeed II \u00A77(" + duration + ":00)");
+		tooltip.add("- \u00A76Resistance II \u00A77(" + duration + ":00)");
+		tooltip.add("- \u00A7bRegeneration II \u00A77(" + duration + ":00)");
+		tooltip.add("- \u00A7cStrength II \u00A77(" + duration + ":00)");
 	}
 }

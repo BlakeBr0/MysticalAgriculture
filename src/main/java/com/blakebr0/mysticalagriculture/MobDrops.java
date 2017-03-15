@@ -86,8 +86,8 @@ public class MobDrops {
     		}
     		break;
     	case 5:
-    		if(ModConfig.hostile_drop_chance > 0){
-        		if(r.nextInt(100 / ModConfig.hostile_drop_chance) == 1){
+    		if(ModConfig.confHostileDropChance > 0){
+        		if(r.nextInt(100 / ModConfig.confHostileDropChance) == 1){
         			chance++;
         		} else {
         			chance = 0;
@@ -95,8 +95,8 @@ public class MobDrops {
     		}
     		break;
     	case 6:
-    		if(ModConfig.passive_drop_chance > 0){
-        		if(r.nextInt(100 / ModConfig.passive_drop_chance) == 1){
+    		if(ModConfig.confPassiveDropChance > 0){
+        		if(r.nextInt(100 / ModConfig.confPassiveDropChance) == 1){
         			chance++;
         		} else {
         			chance = 0;
@@ -122,8 +122,8 @@ public class MobDrops {
             
             if(held != null && held.getItem() == ModItems.itemSouliumDagger){
 
-            	if(attacked instanceof EntityZombie && ModConfig.zombie_seeds){            	
-            		ItemStack stack = new ItemStack(ModItems.itemZombieChunk, dropChance(ModConfig.zombie_tier));
+            	if(attacked instanceof EntityZombie && type.ZOMBIE.isEnabled()){            	
+            		ItemStack stack = new ItemStack(ModItems.itemZombieChunk, dropChance(type.ZOMBIE.getTier()));
             		if(stack.stackSize > 1){
             			stack.stackSize = 1;
             		}
@@ -131,8 +131,8 @@ public class MobDrops {
             		event.getDrops().add(drop);
             	}
             	
-            	if(attacked instanceof EntityPig && ModConfig.pig_seeds){            	
-            		ItemStack stack = new ItemStack(ModItems.itemPigChunk, dropChance(ModConfig.pig_tier));
+            	if(attacked instanceof EntityPig && type.PIG.isEnabled()){            	
+            		ItemStack stack = new ItemStack(ModItems.itemPigChunk, dropChance(type.PIG.getTier()));
             		if(stack.stackSize > 1){
             			stack.stackSize = 1;
             		}
@@ -140,8 +140,8 @@ public class MobDrops {
             		event.getDrops().add(drop);
             	}
             	
-            	if(attacked instanceof EntityChicken && ModConfig.chicken_seeds){            	
-            		ItemStack stack = new ItemStack(ModItems.itemChickenChunk, dropChance(ModConfig.chicken_tier));
+            	if(attacked instanceof EntityChicken && type.CHICKEN.isEnabled()){            	
+            		ItemStack stack = new ItemStack(ModItems.itemChickenChunk, dropChance(type.CHICKEN.getTier()));
             		if(stack.stackSize > 1){
             			stack.stackSize = 1;
             		}
@@ -149,8 +149,8 @@ public class MobDrops {
             		event.getDrops().add(drop);
             	}
             	
-            	if(attacked instanceof EntityCow && ModConfig.cow_seeds){            	
-            		ItemStack stack = new ItemStack(ModItems.itemCowChunk, dropChance(ModConfig.cow_tier));
+            	if(attacked instanceof EntityCow && type.COW.isEnabled()){            	
+            		ItemStack stack = new ItemStack(ModItems.itemCowChunk, dropChance(type.COW.getTier()));
             		if(stack.stackSize > 1){
             			stack.stackSize = 1;
             		}
@@ -158,8 +158,8 @@ public class MobDrops {
             		event.getDrops().add(drop);
             	}
             	
-            	if(attacked instanceof EntitySheep && ModConfig.sheep_seeds){            	
-            		ItemStack stack = new ItemStack(ModItems.itemSheepChunk, dropChance(ModConfig.sheep_tier));
+            	if(attacked instanceof EntitySheep && type.SHEEP.isEnabled()){            	
+            		ItemStack stack = new ItemStack(ModItems.itemSheepChunk, dropChance(type.SHEEP.getTier()));
             		if(stack.stackSize > 1){
             			stack.stackSize = 1;
             		}
@@ -167,8 +167,8 @@ public class MobDrops {
             		event.getDrops().add(drop);
             	}
             	
-            	if(attacked instanceof EntitySlime && ModConfig.slime_seeds){            	
-            		ItemStack stack = new ItemStack(ModItems.itemSlimeChunk, dropChance(ModConfig.slime_tier));
+            	if(attacked instanceof EntitySlime && type.SLIME.isEnabled()){            	
+            		ItemStack stack = new ItemStack(ModItems.itemSlimeChunk, dropChance(type.SLIME.getTier()));
             		if(stack.stackSize > 1){
             			stack.stackSize = 1;
             		}
@@ -176,8 +176,8 @@ public class MobDrops {
             		event.getDrops().add(drop);
             	}
             	
-            	if(attacked instanceof EntitySkeleton && ((EntitySkeleton) attacked).func_189771_df() != SkeletonType.WITHER && ModConfig.skeleton_seeds){            	
-            		ItemStack stack = new ItemStack(ModItems.itemSkeletonChunk, dropChance(ModConfig.skeleton_tier));
+            	if(attacked instanceof EntitySkeleton && ((EntitySkeleton) attacked).func_189771_df() != SkeletonType.WITHER && type.SKELETON.isEnabled()){            	
+            		ItemStack stack = new ItemStack(ModItems.itemSkeletonChunk, dropChance(type.SKELETON.getTier()));
             		if(stack.stackSize > 1){
             			stack.stackSize = 1;
             		}
@@ -185,8 +185,8 @@ public class MobDrops {
             		event.getDrops().add(drop);
             	}
             	
-            	if(attacked instanceof EntityCreeper && ModConfig.creeper_seeds){            	
-            		ItemStack stack = new ItemStack(ModItems.itemCreeperChunk, dropChance(ModConfig.creeper_tier));
+            	if(attacked instanceof EntityCreeper && type.CREEPER.isEnabled()){            	
+            		ItemStack stack = new ItemStack(ModItems.itemCreeperChunk, dropChance(type.CREEPER.getTier()));
             		if(stack.stackSize > 1){
             			stack.stackSize = 1;
             		}
@@ -194,8 +194,8 @@ public class MobDrops {
             		event.getDrops().add(drop);
             	}
             	
-            	if(attacked instanceof EntitySpider && ModConfig.spider_seeds){            	
-            		ItemStack stack = new ItemStack(ModItems.itemSpiderChunk, dropChance(ModConfig.spider_tier));
+            	if(attacked instanceof EntitySpider && type.SPIDER.isEnabled()){            	
+            		ItemStack stack = new ItemStack(ModItems.itemSpiderChunk, dropChance(type.SPIDER.getTier()));
             		if(stack.stackSize > 1){
             			stack.stackSize = 1;
             		}
@@ -203,8 +203,8 @@ public class MobDrops {
             		event.getDrops().add(drop);
             	}
             	
-            	if(attacked instanceof EntityRabbit && ModConfig.rabbit_seeds){            	
-            		ItemStack stack = new ItemStack(ModItems.itemRabbitChunk, dropChance(ModConfig.rabbit_tier));
+            	if(attacked instanceof EntityRabbit && type.RABBIT.isEnabled()){            	
+            		ItemStack stack = new ItemStack(ModItems.itemRabbitChunk, dropChance(type.RABBIT.getTier()));
             		if(stack.stackSize > 1){
             			stack.stackSize = 1;
             		}
@@ -212,8 +212,8 @@ public class MobDrops {
             		event.getDrops().add(drop);
             	}
             	
-            	if(attacked instanceof EntityGuardian && ModConfig.guardian_seeds){            	
-            		ItemStack stack = new ItemStack(ModItems.itemGuardianChunk, dropChance(ModConfig.guardian_tier));
+            	if(attacked instanceof EntityGuardian && type.GUARDIAN.isEnabled()){            	
+            		ItemStack stack = new ItemStack(ModItems.itemGuardianChunk, dropChance(type.GUARDIAN.getTier()));
             		if(stack.stackSize > 1){
             			stack.stackSize = 1;
             		}
@@ -221,8 +221,8 @@ public class MobDrops {
             		event.getDrops().add(drop);
             	}
             	
-            	if(attacked instanceof EntityBlaze && ModConfig.blaze_seeds){            	
-            		ItemStack stack = new ItemStack(ModItems.itemBlazeChunk, dropChance(ModConfig.blaze_tier));
+            	if(attacked instanceof EntityBlaze && type.BLAZE.isEnabled()){            	
+            		ItemStack stack = new ItemStack(ModItems.itemBlazeChunk, dropChance(type.BLAZE.getTier()));
             		if(stack.stackSize > 1){
             			stack.stackSize = 1;
             		}
@@ -230,8 +230,8 @@ public class MobDrops {
             		event.getDrops().add(drop);
             	}
             	
-            	if(attacked instanceof EntityGhast && ModConfig.ghast_seeds){            	
-            		ItemStack stack = new ItemStack(ModItems.itemGhastChunk, dropChance(ModConfig.ghast_tier));
+            	if(attacked instanceof EntityGhast && type.GHAST.isEnabled()){            	
+            		ItemStack stack = new ItemStack(ModItems.itemGhastChunk, dropChance(type.GHAST.getTier()));
             		if(stack.stackSize > 1){
             			stack.stackSize = 1;
             		}
@@ -239,8 +239,8 @@ public class MobDrops {
             		event.getDrops().add(drop);
             	}
             	
-            	if(attacked instanceof EntityEnderman && ModConfig.enderman_seeds){            	
-            		ItemStack stack = new ItemStack(ModItems.itemEndermanChunk, dropChance(ModConfig.enderman_tier));
+            	if(attacked instanceof EntityEnderman && type.ENDERMAN.isEnabled()){            	
+            		ItemStack stack = new ItemStack(ModItems.itemEndermanChunk, dropChance(type.ENDERMAN.getTier()));
             		if(stack.stackSize > 1){
             			stack.stackSize = 1;
             		}
@@ -248,8 +248,8 @@ public class MobDrops {
             		event.getDrops().add(drop);
             	}
             	
-            	if(attacked instanceof EntitySkeleton && ((EntitySkeleton) attacked).func_189771_df() == SkeletonType.WITHER && ModConfig.wither_skeleton_seeds){            	
-            		ItemStack stack = new ItemStack(ModItems.itemWitherSkeletonChunk, dropChance(ModConfig.enderman_tier));
+            	if(attacked instanceof EntitySkeleton && ((EntitySkeleton) attacked).func_189771_df() == SkeletonType.WITHER && type.WITHER_SKELETON.isEnabled()){            	
+            		ItemStack stack = new ItemStack(ModItems.itemWitherSkeletonChunk, dropChance(type.WITHER_SKELETON.getTier()));
             		if(stack.stackSize > 1){
             			stack.stackSize = 1;
             		}
@@ -258,13 +258,14 @@ public class MobDrops {
             	}
             	
             	if(attacked instanceof EntityMob){            	
-            		ItemStack stack = new ItemStack(ModItems.itemExperienceChunk, dropChance(ModConfig.wither_skeleton_tier));
+            		ItemStack stack = new ItemStack(ModItems.itemExperienceChunk, dropChance(4));
             		if(stack.stackSize > 1){
             			stack.stackSize = 1;
             		}
             		EntityItem drop = new EntityItem(attacked.worldObj, attacked.posX, attacked.posY, attacked.posZ, stack);
             		event.getDrops().add(drop);
             	}
+            	
             	if(attacked.getClass().getName() == BLIZZ_CLASS && type.BLIZZ.isEnabled()){
             		ItemStack stack = new ItemStack(ModItems.itemBlizzChunk, dropChance(type.BLIZZ.getTier()));
             		if(stack.stackSize > 1){
@@ -273,6 +274,7 @@ public class MobDrops {
             		EntityItem drop = new EntityItem(attacked.worldObj, attacked.posX, attacked.posY, attacked.posZ, stack);
             		event.getDrops().add(drop);
             	}
+            	
             	if(attacked.getClass().getName() == BLITZ_CLASS && type.BLITZ.isEnabled()){
             		ItemStack stack = new ItemStack(ModItems.itemBlitzChunk, dropChance(type.BLITZ.getTier()));
             		if(stack.stackSize > 1){
@@ -281,6 +283,7 @@ public class MobDrops {
             		EntityItem drop = new EntityItem(attacked.worldObj, attacked.posX, attacked.posY, attacked.posZ, stack);
             		event.getDrops().add(drop);
             	}
+            	
             	if(attacked.getClass().getName() == BASALZ_CLASS && type.BASALZ.isEnabled()){
             		ItemStack stack = new ItemStack(ModItems.itemBasalzChunk, dropChance(type.BASALZ.getTier()));
             		if(stack.stackSize > 1){
@@ -311,18 +314,18 @@ public class MobDrops {
     	}  
         	
     	if(event.getEntity() instanceof EntityWither){            	
-    		ItemStack stack = new ItemStack(ModItems.itemSupremiumEssence, ModConfig.wither_supremium);
-    		if(stack.stackSize > ModConfig.wither_supremium){
-    			stack.stackSize = ModConfig.wither_supremium;
+    		ItemStack stack = new ItemStack(ModItems.itemSupremiumEssence, ModConfig.confWitherSupremium);
+    		if(stack.stackSize > ModConfig.confWitherSupremium){
+    			stack.stackSize = ModConfig.confWitherSupremium;
     		}
     		EntityItem drop = new EntityItem(event.getEntity().worldObj, event.getEntity().posX, event.getEntity().posY, event.getEntity().posZ, stack);
     		event.getDrops().add(drop);
     	} 
     	
     	if(event.getEntity() instanceof EntityDragon){            	
-    		ItemStack stack = new ItemStack(ModItems.itemSupremiumEssence, ModConfig.dragon_supremium);
-    		if(stack.stackSize > ModConfig.dragon_supremium){
-    			stack.stackSize = ModConfig.dragon_supremium;
+    		ItemStack stack = new ItemStack(ModItems.itemSupremiumEssence, ModConfig.confDragonSupremium);
+    		if(stack.stackSize > ModConfig.confDragonSupremium){
+    			stack.stackSize = ModConfig.confDragonSupremium;
     		}
     		EntityItem drop = new EntityItem(event.getEntity().worldObj, event.getEntity().posX, event.getEntity().posY, event.getEntity().posZ, stack);
     		event.getDrops().add(drop);

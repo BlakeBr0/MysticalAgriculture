@@ -42,7 +42,7 @@ public class ItemSwordAOE extends ItemSword {
 
     @Override
     public boolean hasContainerItem(ItemStack stack){
-        return ModConfig.charm_return;
+        return ModConfig.confCharmReturn;
     }
 	
     @Override

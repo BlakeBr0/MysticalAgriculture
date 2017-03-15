@@ -47,7 +47,7 @@ public class ItemPickaxeAOE extends ItemPickaxe {
 
     @Override
     public boolean hasContainerItem(ItemStack stack){
-        return ModConfig.charm_return;
+        return ModConfig.confCharmReturn;
     }
 	
 	public static void initAcceptedMaterials(){

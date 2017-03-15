@@ -52,6 +52,8 @@ import net.minecraftforge.oredict.OreDictionary;
 
 public class ModItems {
 	
+	private static CropType.Type type;
+
 	public static ItemBase itemInferiumEssence = new ItemBase("inferium_essence");
 	public static ItemBase itemPrudentiumEssence = new ItemBase("prudentium_essence");
 	public static ItemBase itemIntermediumEssence = new ItemBase("intermedium_essence");
@@ -103,24 +105,24 @@ public class ModItems {
 	public static ItemBase itemTier5MobChunk = new ItemBase("tier5_mob_chunk");
 	
 	public static ItemChunk itemExperienceChunk = new ItemChunk("experience_chunk", 5);
-	public static ItemChunk itemZombieChunk = new ItemChunk("zombie_chunk", ModConfig.zombie_tier);
-	public static ItemChunk itemPigChunk = new ItemChunk("pig_chunk", ModConfig.pig_tier);
-	public static ItemChunk itemChickenChunk = new ItemChunk("chicken_chunk", ModConfig.chicken_tier);
-	public static ItemChunk itemCowChunk = new ItemChunk("cow_chunk", ModConfig.cow_tier);
-	public static ItemChunk itemSheepChunk = new ItemChunk("sheep_chunk", ModConfig.sheep_tier);
-	public static ItemChunk itemSlimeChunk = new ItemChunk("slime_chunk", ModConfig.slime_tier);
-	public static ItemChunk itemSkeletonChunk = new ItemChunk("skeleton_chunk", ModConfig.skeleton_tier);
-	public static ItemChunk itemCreeperChunk = new ItemChunk("creeper_chunk", ModConfig.creeper_tier);
-	public static ItemChunk itemSpiderChunk = new ItemChunk("spider_chunk", ModConfig.spider_tier);
-	public static ItemChunk itemRabbitChunk = new ItemChunk("rabbit_chunk", ModConfig.rabbit_tier);
-	public static ItemChunk itemGuardianChunk = new ItemChunk("guardian_chunk", ModConfig.guardian_tier);
-	public static ItemChunk itemBlazeChunk = new ItemChunk("blaze_chunk", ModConfig.blaze_tier);
-	public static ItemChunk itemGhastChunk = new ItemChunk("ghast_chunk", ModConfig.ghast_tier);
-	public static ItemChunk itemEndermanChunk = new ItemChunk("enderman_chunk", ModConfig.enderman_tier);
-	public static ItemChunk itemWitherSkeletonChunk = new ItemChunk("wither_skeleton_chunk", ModConfig.wither_skeleton_tier);
-	public static ItemChunk itemBlizzChunk = new ItemChunk("blizz_chunk", ModConfig.blizz_tier);
-	public static ItemChunk itemBlitzChunk = new ItemChunk("blitz_chunk", ModConfig.blitz_tier);
-	public static ItemChunk itemBasalzChunk = new ItemChunk("basalz_chunk", ModConfig.basalz_tier);
+	public static ItemChunk itemZombieChunk = new ItemChunk("zombie_chunk", type.ZOMBIE.getTier());
+	public static ItemChunk itemPigChunk = new ItemChunk("pig_chunk", type.PIG.getTier());
+	public static ItemChunk itemChickenChunk = new ItemChunk("chicken_chunk", type.CHICKEN.getTier());
+	public static ItemChunk itemCowChunk = new ItemChunk("cow_chunk", type.COW.getTier());
+	public static ItemChunk itemSheepChunk = new ItemChunk("sheep_chunk", type.SHEEP.getTier());
+	public static ItemChunk itemSlimeChunk = new ItemChunk("slime_chunk", type.SLIME.getTier());
+	public static ItemChunk itemSkeletonChunk = new ItemChunk("skeleton_chunk", type.SKELETON.getTier());
+	public static ItemChunk itemCreeperChunk = new ItemChunk("creeper_chunk", type.CREEPER.getTier());
+	public static ItemChunk itemSpiderChunk = new ItemChunk("spider_chunk", type.SPIDER.getTier());
+	public static ItemChunk itemRabbitChunk = new ItemChunk("rabbit_chunk", type.RABBIT.getTier());
+	public static ItemChunk itemGuardianChunk = new ItemChunk("guardian_chunk", type.GUARDIAN.getTier());
+	public static ItemChunk itemBlazeChunk = new ItemChunk("blaze_chunk", type.BLAZE.getTier());
+	public static ItemChunk itemGhastChunk = new ItemChunk("ghast_chunk", type.GHAST.getTier());
+	public static ItemChunk itemEndermanChunk = new ItemChunk("enderman_chunk", type.ENDERMAN.getTier());
+	public static ItemChunk itemWitherSkeletonChunk = new ItemChunk("wither_skeleton_chunk", type.WITHER_SKELETON.getTier());
+	public static ItemChunk itemBlizzChunk = new ItemChunk("blizz_chunk", type.BLIZZ.getTier());
+	public static ItemChunk itemBlitzChunk = new ItemChunk("blitz_chunk", type.BLITZ.getTier());
+	public static ItemChunk itemBasalzChunk = new ItemChunk("basalz_chunk", type.BASALZ.getTier());
 		
 	public static ItemSeed itemTier1InferiumSeeds = new ItemSeed("tier1_inferium_seeds", ModBlocks.blockTier1InferiumCrop, 1);
 	public static ItemSeed itemTier2InferiumSeeds = new ItemSeed("tier2_inferium_seeds", ModBlocks.blockTier2InferiumCrop, 2);
@@ -252,9 +254,7 @@ public class ModItems {
 	public static ItemUpgradedAntivenom itemSupremiumBootsAntivenom = new ItemUpgradedAntivenom("supremium_boots_antivenom", ModToolMaterials.SUPREMIUM_ARMOR, 0, EntityEquipmentSlot.FEET);
 	public static ItemUpgradedFire itemSupremiumBootsFire = new ItemUpgradedFire("supremium_boots_fire", ModToolMaterials.SUPREMIUM_ARMOR, 0, EntityEquipmentSlot.FEET);
 	public static ItemUpgradedResistance itemSupremiumBootsResistance = new ItemUpgradedResistance("supremium_boots_resistance", ModToolMaterials.SUPREMIUM_ARMOR, 0, EntityEquipmentSlot.FEET);
-	
-	private static CropType.Type type;
-	
+		
 	public static void initItems(){
 
 		registerItem(itemInferiumEssence);
@@ -268,8 +268,8 @@ public class ModItems {
 		
 		registerItem(itemProsperityShard);
 		
-		if(ModConfig.fertilized_essence){ registerItem(itemFertilizedEssence); }
-		if(ModConfig.mystical_fertilizer){ registerItem(itemMysticalFertilizer); }
+		if(ModConfig.confFertilizedEssence){ registerItem(itemFertilizedEssence); }
+		if(ModConfig.confMysticalFertilizer){ registerItem(itemMysticalFertilizer); }
 		
 		if(type.NATURE.isEnabled()){ registerItem(itemNatureCluster); }
 		if(type.DYE.isEnabled()){ registerItem(itemDyeCluster); }
@@ -278,7 +278,7 @@ public class ModItems {
 		
 		if(type.SKELETON.isEnabled() && type.CREEPER.isEnabled()){ registerItem(itemBlankRecord); }
 		
-		if(ModConfig.essence_apples){
+		if(ModConfig.confEssenceApples){
 			registerItem(itemInferiumApple);
 			registerItem(itemPrudentiumApple);
 			registerItem(itemIntermediumApple);
@@ -286,7 +286,7 @@ public class ModItems {
 			registerItem(itemSupremiumApple);
 		}
 		
-		registerItem(itemEssenceCoal);
+		if(ModConfig.confEssenceCoal){ registerItem(itemEssenceCoal); }
 		
 		registerItem(itemBaseCraftingSeed);
 		registerItem(itemTier1CraftingSeed);
@@ -316,26 +316,24 @@ public class ModItems {
 		registerItem(itemTier5MobChunk);
 		
 		registerItem(itemExperienceChunk);
-		if(ModConfig.zombie_seeds){ registerItem(itemZombieChunk); }
-		if(ModConfig.pig_seeds){ registerItem(itemPigChunk); }
-		if(ModConfig.chicken_seeds){ registerItem(itemChickenChunk); }
-		if(ModConfig.cow_seeds){ registerItem(itemCowChunk); }
-		if(ModConfig.sheep_seeds){ registerItem(itemSheepChunk); }
-		if(ModConfig.slime_seeds){ registerItem(itemSlimeChunk); }
-		if(ModConfig.skeleton_seeds){ registerItem(itemSkeletonChunk); }
-		if(ModConfig.creeper_seeds){ registerItem(itemCreeperChunk); }
-		if(ModConfig.spider_seeds){ registerItem(itemSpiderChunk); } 
-		if(ModConfig.rabbit_seeds){ registerItem(itemRabbitChunk); }
-		if(ModConfig.guardian_seeds){ registerItem(itemGuardianChunk); }
-		if(ModConfig.blaze_seeds){ registerItem(itemBlazeChunk); }
-		if(ModConfig.ghast_seeds){ registerItem(itemGhastChunk); }
-		if(ModConfig.enderman_seeds){ registerItem(itemEndermanChunk); }
-		if(ModConfig.wither_skeleton_seeds){ registerItem(itemWitherSkeletonChunk); }
-		if(ModChecker.THERMAL){
-			if(type.BLIZZ.isEnabled()){ registerItem(itemBlizzChunk); }
-			if(type.BLITZ.isEnabled()){ registerItem(itemBlitzChunk); }
-			if(type.BASALZ.isEnabled()){ registerItem(itemBasalzChunk); }
-		}
+		if(type.ZOMBIE.isEnabled()){ registerItem(itemZombieChunk); }
+		if(type.PIG.isEnabled()){ registerItem(itemPigChunk); }
+		if(type.CHICKEN.isEnabled()){ registerItem(itemChickenChunk); }
+		if(type.COW.isEnabled()){ registerItem(itemCowChunk); }
+		if(type.SHEEP.isEnabled()){ registerItem(itemSheepChunk); }
+		if(type.SLIME.isEnabled()){ registerItem(itemSlimeChunk); }
+		if(type.SKELETON.isEnabled()){ registerItem(itemSkeletonChunk); }
+		if(type.CREEPER.isEnabled()){ registerItem(itemCreeperChunk); }
+		if(type.SPIDER.isEnabled()){ registerItem(itemSpiderChunk); } 
+		if(type.RABBIT.isEnabled()){ registerItem(itemRabbitChunk); }
+		if(type.GUARDIAN.isEnabled()){ registerItem(itemGuardianChunk); }
+		if(type.BLAZE.isEnabled()){ registerItem(itemBlazeChunk); }
+		if(type.GHAST.isEnabled()){ registerItem(itemGhastChunk); }
+		if(type.ENDERMAN.isEnabled()){ registerItem(itemEndermanChunk); }
+		if(type.WITHER_SKELETON.isEnabled()){ registerItem(itemWitherSkeletonChunk); }
+		if(type.BLIZZ.isEnabled()){ registerItem(itemBlizzChunk); }
+		if(type.BLITZ.isEnabled()){ registerItem(itemBlitzChunk); }
+		if(type.BASALZ.isEnabled()){ registerItem(itemBasalzChunk); }
 		
 		for(CropType.Type type : CropType.Type.values()){
 			if(type.isEnabled()){
@@ -355,7 +353,7 @@ public class ModItems {
 			}
 		}
 		
-		if(ModConfig.$gear_module_override){
+		if(ModConfig.confGearModuleOverride){
 			registerItem(itemCoreRemover);
 
 			registerItem(itemInferiumToolCore);
@@ -417,7 +415,7 @@ public class ModItems {
 			registerItem(itemSupremiumSwordStrength);
 			registerItem(itemSupremiumSwordStrength2);
 			
-			if(ModConfig.aoe_charms){ 
+			if(ModConfig.confAOECharms){ 
 				registerItem(itemSupremiumSwordAOE);
 				registerItem(itemSupremiumPickaxeAOE); 
 				registerItem(itemSupremiumShovelAOE);
@@ -493,8 +491,8 @@ public class ModItems {
 		
 		registerModel(itemProsperityShard);
 		
-		if(ModConfig.fertilized_essence){ registerModel(itemFertilizedEssence); }
-		if(ModConfig.mystical_fertilizer){ registerModel(itemMysticalFertilizer); }
+		if(ModConfig.confFertilizedEssence){ registerModel(itemFertilizedEssence); }
+		if(ModConfig.confMysticalFertilizer){ registerModel(itemMysticalFertilizer); }
 		
 		if(CropType.Type.NATURE.isEnabled()){ registerModel(itemNatureCluster); }
 		if(CropType.Type.DYE.isEnabled()){ registerModel(itemDyeCluster); }
@@ -503,7 +501,7 @@ public class ModItems {
 		
 		if(CropType.Type.SKELETON.isEnabled() && CropType.Type.CREEPER.isEnabled()){ registerModel(itemBlankRecord); }
 		
-		if(ModConfig.essence_apples){
+		if(ModConfig.confEssenceApples){
 			registerModel(itemInferiumApple);
 			registerModel(itemPrudentiumApple);
 			registerModel(itemIntermediumApple);
@@ -511,7 +509,7 @@ public class ModItems {
 			registerModel(itemSupremiumApple);
 		}
 		
-		itemEssenceCoal.initModels();
+		if(ModConfig.confEssenceCoal){ itemEssenceCoal.initModels(); }
 		
 		registerModel(itemBaseCraftingSeed);
 		registerModel(itemTier1CraftingSeed);
@@ -541,26 +539,24 @@ public class ModItems {
 		registerModel(itemTier5MobChunk);
 		
 		registerModel(itemExperienceChunk);
-		if(ModConfig.zombie_seeds){ registerModel(itemZombieChunk); }
-		if(ModConfig.pig_seeds){ registerModel(itemPigChunk); }
-		if(ModConfig.chicken_seeds){ registerModel(itemChickenChunk); }
-		if(ModConfig.cow_seeds){ registerModel(itemCowChunk); }
-		if(ModConfig.sheep_seeds){ registerModel(itemSheepChunk); }
-		if(ModConfig.slime_seeds){ registerModel(itemSlimeChunk); }
-		if(ModConfig.skeleton_seeds){ registerModel(itemSkeletonChunk); }
-		if(ModConfig.creeper_seeds){ registerModel(itemCreeperChunk); }
-		if(ModConfig.spider_seeds){ registerModel(itemSpiderChunk); } 
-		if(ModConfig.rabbit_seeds){ registerModel(itemRabbitChunk); }
-		if(ModConfig.guardian_seeds){ registerModel(itemGuardianChunk); }
-		if(ModConfig.blaze_seeds){ registerModel(itemBlazeChunk); }
-		if(ModConfig.ghast_seeds){ registerModel(itemGhastChunk); }
-		if(ModConfig.enderman_seeds){ registerModel(itemEndermanChunk); }
-		if(ModConfig.wither_skeleton_seeds){ registerModel(itemWitherSkeletonChunk); }
-		if(ModChecker.THERMAL){
-			if(type.BLIZZ.isEnabled()){ registerModel(itemBlizzChunk); }
-			if(type.BLITZ.isEnabled()){ registerModel(itemBlitzChunk); }
-			if(type.BASALZ.isEnabled()){ registerModel(itemBasalzChunk); }
-		}
+		if(type.ZOMBIE.isEnabled()){ registerModel(itemZombieChunk); }
+		if(type.PIG.isEnabled()){ registerModel(itemPigChunk); }
+		if(type.CHICKEN.isEnabled()){ registerModel(itemChickenChunk); }
+		if(type.COW.isEnabled()){ registerModel(itemCowChunk); }
+		if(type.SHEEP.isEnabled()){ registerModel(itemSheepChunk); }
+		if(type.SLIME.isEnabled()){ registerModel(itemSlimeChunk); }
+		if(type.SKELETON.isEnabled()){ registerModel(itemSkeletonChunk); }
+		if(type.CREEPER.isEnabled()){ registerModel(itemCreeperChunk); }
+		if(type.SPIDER.isEnabled()){ registerModel(itemSpiderChunk); } 
+		if(type.RABBIT.isEnabled()){ registerModel(itemRabbitChunk); }
+		if(type.GUARDIAN.isEnabled()){ registerModel(itemGuardianChunk); }
+		if(type.BLAZE.isEnabled()){ registerModel(itemBlazeChunk); }
+		if(type.GHAST.isEnabled()){ registerModel(itemGhastChunk); }
+		if(type.ENDERMAN.isEnabled()){ registerModel(itemEndermanChunk); }
+		if(type.WITHER_SKELETON.isEnabled()){ registerModel(itemWitherSkeletonChunk); }
+		if(type.BLIZZ.isEnabled()){ registerModel(itemBlizzChunk); }
+		if(type.BLITZ.isEnabled()){ registerModel(itemBlitzChunk); }
+		if(type.BASALZ.isEnabled()){ registerModel(itemBasalzChunk); }
 		
 		for(CropType.Type type : CropType.Type.values()){
 			if(type.isEnabled()){
@@ -580,7 +576,7 @@ public class ModItems {
 			}
 		}
 		
-		if(ModConfig.$gear_module_override){
+		if(ModConfig.confGearModuleOverride){
 			registerModel(itemCoreRemover);
 
 			registerModel(itemInferiumToolCore);
@@ -642,7 +638,7 @@ public class ModItems {
 			registerModel(itemSupremiumSwordStrength);
 			registerModel(itemSupremiumSwordStrength2);
 			
-			if(ModConfig.aoe_charms){ 
+			if(ModConfig.confAOECharms){ 
 				registerModel(itemSupremiumSwordAOE);
 				registerModel(itemSupremiumPickaxeAOE); 
 				registerModel(itemSupremiumShovelAOE);

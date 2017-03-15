@@ -23,11 +23,11 @@ public class EssenceConfig {
 	public static int andesite;
 	public static int diorite;
 	public static int granite;
-	public static int cracked_stonebrick;
-	public static int chiseled_stonebrick;
+	public static int crackedStonebrick;
+	public static int chiseledStonebrick;
 	public static int dirt;
 	public static int grass;
-	public static int coarse_dirt;
+	public static int coarseDirt;
 	public static int podzol;
 	public static int gravel;
 	public static int vines;
@@ -37,20 +37,20 @@ public class EssenceConfig {
 	public static int melon;
 	public static int wheat;
 	public static int lilypad;
-	public static int mossy_cobblestone;
-	public static int mossy_stonebrick;
+	public static int mossyCobblestone;
+	public static int mossyStonebrick;
 	public static int wood;
 	public static int sapling;
 	public static int snow;
 	public static int ice;
-	public static int packed_ice;
+	public static int packedIce;
 	public static int clay;
 	public static int sand;
 	public static int dye;
 	public static int netherrack;
-	public static int soul_sand;
-	public static int nether_brick;
-	public static int end_stone;
+	public static int soulSand;
+	public static int netherBrick;
+	public static int endStone;
 	
 	public static int coal;
 	public static int iron;
@@ -60,11 +60,11 @@ public class EssenceConfig {
 	public static int obsidian;
 	public static int gold;
 	public static int lapis;
-	public static int experience_bottle;
+	public static int experienceBottle;
 	public static int diamond;
 	public static int emerald;
 	
-	public static int rotten_flesh;
+	public static int rottenFlesh;
 	public static int pork;
 	public static int chicken;
 	public static int feather;
@@ -73,22 +73,22 @@ public class EssenceConfig {
 	public static int leather;
 	public static int mutton;
 	public static int wool;
-	public static int slime_ball;
+	public static int slimeBall;
 	public static int arrow;
 	public static int bone;
 	public static int gunpowder;
 	public static int string;
-	public static int spider_eye;
+	public static int spiderEye;
 	public static int rabbit;
-	public static int rabbit_foot;
-	public static int rabbit_hide;
+	public static int rabbitFoot;
+	public static int rabbitHide;
 	public static int fish;
-	public static int prismarine_shard;
-	public static int prismarine_crystal;
-	public static int blaze_rod;
-	public static int ghast_tear;
-	public static int ender_pearl;
-	public static int wither_skeleton_skull;
+	public static int prismarineShard;
+	public static int prismarineCrystal;
+	public static int blazeRod;
+	public static int ghastTear;
+	public static int enderPearl;
+	public static int witherSkeletonSkull;
 	
 	public static int rubber;
 	public static int aluminum;
@@ -114,27 +114,27 @@ public class EssenceConfig {
 	public static int lumium;
 	public static int enderium;
 	
-	public static int aluminum_brass;
+	public static int aluminumBrass;
 	public static int knightslime;
 	public static int ardite;
 	public static int cobalt;
 	public static int manyullyn;
 	
-	public static int electrical_steel;
-	public static int redstone_alloy;
-	public static int conductive_iron;
+	public static int electricalSteel;
+	public static int redstoneAlloy;
+	public static int conductiveIron;
 	public static int soularium;
 	public static int dark_steel;
-	public static int pulsating_iron;
-	public static int energetic_alloy;
-	public static int vibrant_alloy;
+	public static int pulsatingIron;
+	public static int energeticAlloy;
+	public static int vibrantAlloy;
 	
-	public static int mystical_flower;
+	public static int mysticalFlower;
 	public static int manasteel;
 	public static int terrasteel;
 	
 	public static int osmium;
-	public static int refined_obsidian;
+	public static int refinedObsidian;
 	
 	public static int marble;
 	public static int limestone;
@@ -144,11 +144,11 @@ public class EssenceConfig {
 	
 	public static int yellorium;
 	
-	public static int certus_quartz;
+	public static int certusQuartz;
 	public static int fluix;
 	public static int press;
 	
-	public static int quartz_enriched_iron;
+	public static int quartzEnrichedIron;
 	
 	public static int constantan;
 	
@@ -174,11 +174,11 @@ public class EssenceConfig {
 		andesite = config.get(category, "andesite", 16).getInt();
 		diorite = config.get(category, "diorite", 16).getInt();
 		granite = config.get(category, "granite", 16).getInt();
-		cracked_stonebrick = config.get(category, "cracked_stonebrick", 12).getInt();
-		chiseled_stonebrick = config.get(category, "chiseled_stonebrick", 12).getInt();
+		crackedStonebrick = config.get(category, "cracked_stonebrick", 12).getInt();
+		chiseledStonebrick = config.get(category, "chiseled_stonebrick", 12).getInt();
 		dirt = config.get(category, "dirt", 24).getInt();
 		grass = config.get(category, "grass", 12).getInt();
-		coarse_dirt = config.get(category, "coarse_dirt", 16).getInt();
+		coarseDirt = config.get(category, "coarse_dirt", 16).getInt();
 		podzol = config.get(category, "podzol", 8).getInt();
 		gravel = config.get(category, "gravel", 16).getInt();
 		vines = config.get(category, "vines", 16).getInt();
@@ -188,20 +188,20 @@ public class EssenceConfig {
 		melon = config.get(category, "melon", 8).getInt();
 		wheat = config.get(category, "wheat", 12).getInt();
 		lilypad = config.get(category, "lilypad", 8).getInt();
-		mossy_cobblestone = config.get(category, "mossy_cobblestone", 16).getInt();
-		mossy_stonebrick = config.get(category, "mossy_stonebrick", 16).getInt();
+		mossyCobblestone = config.get(category, "mossy_cobblestone", 16).getInt();
+		mossyStonebrick = config.get(category, "mossy_stonebrick", 16).getInt();
 		wood = config.get(category, "wood", 16).getInt();
 		sapling = config.get(category, "sapling", 4).getInt();
 		snow = config.get(category, "snow", 12).getInt();
 		ice = config.get(category, "ice", 8).getInt();
-		packed_ice = config.get(category, "packed_ice", 12).getInt();
+		packedIce = config.get(category, "packed_ice", 12).getInt();
 		clay = config.get(category, "clay", 24).getInt();
 		sand = config.get(category, "sand", 16).getInt();
 		dye = config.get(category, "dye", 6).getInt();
 		netherrack = config.get(category, "netherrack", 32).getInt();
-		soul_sand = config.get(category, "soul_sand", 20).getInt();
-		nether_brick = config.get(category, "nether_brick", 24).getInt();
-		end_stone = config.get(category, "end_stone", 16).getInt();
+		soulSand = config.get(category, "soul_sand", 20).getInt();
+		netherBrick = config.get(category, "nether_brick", 24).getInt();
+		endStone = config.get(category, "end_stone", 16).getInt();
 		
 		category = "Rare Resources";
 		coal = config.get(category, "coal", 12).getInt();
@@ -212,12 +212,12 @@ public class EssenceConfig {
 		obsidian = config.get(category, "obsidian", 12).getInt();
 		gold = config.get(category, "gold", 4).getInt();
 		lapis = config.get(category, "lapis", 12).getInt();
-		experience_bottle = config.get(category, "experience_bottle", 12).getInt();
+		experienceBottle = config.get(category, "experience_bottle", 12).getInt();
 		diamond = config.get(category, "diamond", 1).getInt();
 		emerald = config.get(category, "emerald", 1).getInt();
 	
 		category = "Mob Drops";
-		rotten_flesh = config.get(category, "rotten_flesh", 12).getInt();
+		rottenFlesh = config.get(category, "rotten_flesh", 12).getInt();
 		pork = config.get(category, "pork", 4).getInt();
 		chicken = config.get(category, "chicken", 4).getInt();
 		feather = config.get(category, "feather", 8).getInt();
@@ -226,22 +226,22 @@ public class EssenceConfig {
 		leather = config.get(category, "leather", 8).getInt();
 		mutton = config.get(category, "mutton", 4).getInt();
 		wool = config.get(category, "wool", 6).getInt();
-		slime_ball = config.get(category, "slime_ball", 8).getInt();
+		slimeBall = config.get(category, "slime_ball", 8).getInt();
 		arrow = config.get(category, "arrow", 8).getInt();
 		bone = config.get(category, "bone", 8).getInt();
 		gunpowder = config.get(category, "gunpowder", 6).getInt();
 		string = config.get(category, "string", 8).getInt();
-		spider_eye = config.get(category, "spider_eye", 3).getInt();
+		spiderEye = config.get(category, "spider_eye", 3).getInt();
 		rabbit = config.get(category, "rabbit", 4).getInt();
-		rabbit_foot = config.get(category, "rabbit_foot", 3).getInt();
-		rabbit_hide = config.get(category, "rabbit_hide", 8).getInt();
+		rabbitFoot = config.get(category, "rabbit_foot", 3).getInt();
+		rabbitHide = config.get(category, "rabbit_hide", 8).getInt();
 		fish = config.get(category, "fish", 4).getInt(fish);
-		prismarine_shard = config.get(category, "prismarine_shard", 12).getInt();
-		prismarine_crystal = config.get(category, "prismarine_crystal", 16).getInt();
-		blaze_rod = config.get(category, "blaze_rod", 3).getInt();
-		ghast_tear = config.get(category, "ghast_tear", 2).getInt();
-		ender_pearl = config.get(category, "ender_pearl", 4).getInt();
-		wither_skeleton_skull = config.get(category, "wither_skeleton_skull", 1).getInt();
+		prismarineShard = config.get(category, "prismarine_shard", 12).getInt();
+		prismarineCrystal = config.get(category, "prismarine_crystal", 16).getInt();
+		blazeRod = config.get(category, "blaze_rod", 3).getInt();
+		ghastTear = config.get(category, "ghast_tear", 2).getInt();
+		enderPearl = config.get(category, "ender_pearl", 4).getInt();
+		witherSkeletonSkull = config.get(category, "wither_skeleton_skull", 1).getInt();
 		
 		category = "OreDict Resources";
 		rubber = config.get(category, "rubber", 8).getInt();
@@ -272,30 +272,30 @@ public class EssenceConfig {
 		enderium = config.get(category, "enderium", 2).getInt();
 		
 		category = "Tinkers Construct";
-		aluminum_brass = config.get(category, "aluminum_brass", 6).getInt();
+		aluminumBrass = config.get(category, "aluminum_brass", 6).getInt();
 		knightslime = config.get(category, "knightslime", 4).getInt();
 		ardite = config.get(category, "ardite", 3).getInt();
 		cobalt = config.get(category, "cobalt", 3).getInt();
 		manyullyn = config.get(category, "manyullyn", 2).getInt();
 		
 		category = "Ender IO";
-		electrical_steel = config.get(category, "electrical_steel", 5).getInt();
-		redstone_alloy = config.get(category, "redstone_alloy", 5).getInt();
-		conductive_iron = config.get(category, "conductive_iron", 5).getInt();
+		electricalSteel = config.get(category, "electrical_steel", 5).getInt();
+		redstoneAlloy = config.get(category, "redstone_alloy", 5).getInt();
+		conductiveIron = config.get(category, "conductive_iron", 5).getInt();
 		soularium = config.get(category, "soularium", 4).getInt();
 		dark_steel = config.get(category, "dark_steel", 4).getInt();
-		pulsating_iron = config.get(category, "pulsating_iron", 3).getInt();
-		energetic_alloy = config.get(category, "energetic_alloy", 3).getInt();
-		vibrant_alloy = config.get(category, "vibrant_alloy", 3).getInt();
+		pulsatingIron = config.get(category, "pulsating_iron", 3).getInt();
+		energeticAlloy = config.get(category, "energetic_alloy", 3).getInt();
+		vibrantAlloy = config.get(category, "vibrant_alloy", 3).getInt();
 		
 		category = "Botania";
-		mystical_flower = config.get(category, "mystical_flower", 8).getInt();
+		mysticalFlower = config.get(category, "mystical_flower", 8).getInt();
 		manasteel = config.get(category, "manasteel", 5).getInt();
 		terrasteel = config.get(category, "terrasteel", 2).getInt();
 		
 		category = "Mekanism";
 		osmium = config.get(category, "osmium", 4).getInt();
-		refined_obsidian = config.get(category, "refined_obsidian", 2).getInt();
+		refinedObsidian = config.get(category, "refined_obsidian", 2).getInt();
 		
 		category = "Chisel";
 		marble = config.get(category, "marble", 24).getInt();
@@ -309,12 +309,12 @@ public class EssenceConfig {
 		yellorium = config.get(category, "yellorium", 4).getInt();
 		
 		category = "Applied Energistics 2";
-		certus_quartz = config.get(category, "certus_quartz", 6).getInt();
+		certusQuartz = config.get(category, "certus_quartz", 6).getInt();
 		fluix = config.get(category, "fluix", 6).getInt();
 		press = config.get(category, "press", 1).getInt();
 		
 		category = "Refined Storage";
-		quartz_enriched_iron = config.get(category, "quartz_enriched_iron", 8).getInt();
+		quartzEnrichedIron = config.get(category, "quartz_enriched_iron", 8).getInt();
 		
 		if(config.hasChanged()){
 			config.save();	

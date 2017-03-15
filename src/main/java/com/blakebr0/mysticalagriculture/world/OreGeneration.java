@@ -20,27 +20,26 @@ import net.minecraftforge.fml.common.IWorldGenerator;
 public class OreGeneration implements IWorldGenerator {
 
 	  @Override
-	  public void generate(Random random, int chunkX, int chunkZ, World world,
-	      IChunkGenerator chunkGenerator, IChunkProvider chunkProvider) {
+	  public void generate(Random random, int chunkX, int chunkZ, World world, IChunkGenerator chunkGenerator, IChunkProvider chunkProvider) {
 
 		  switch (world.provider.getDimension()){
 		  case 0:
-			  if(ModConfig.generate_regular){
+			  if(ModConfig.confGenerateRegular){
 				  generateSurface(world, random, chunkX * 16, chunkZ * 16);
 			  }
 			  break;
 		  case -1:
-			  if(ModConfig.generate_nether){
+			  if(ModConfig.confGenerateNether){
 				  generateNether(world, random, chunkX * 16, chunkZ * 16);
 			  }
 			  break;
 		  case 1:
-			  if(ModConfig.generate_end){
+			  if(ModConfig.confGenerateEnd){
 				  generateEnd(world, random, chunkX * 16, chunkZ * 16);
 			  }
 			  break;
 		  default:
-			  if(ModConfig.generate_regular){
+			  if(ModConfig.confGenerateRegular){
 				  generateSurface(world, random, chunkX * 16, chunkZ * 16);
 			  }
 		  }
@@ -52,28 +51,26 @@ public class OreGeneration implements IWorldGenerator {
 	    BlockPos pos;
 	    Block block;
 	    IBlockState state;
-	    ModConfig config;
+	    ModConfig config = ModConfig.instance;
 
-	    config = ModConfig.INFERIUM;
 	    block = ModBlocks.blockInferiumOre;
-	    veinCount = config.inferium_veincount;
-	    veinSize = config.inferium_veinsize;
-	    for (i = 0; i < config.inferium_veincount; ++i) {
+	    veinCount = config.confInferiumVeinCount;
+	    veinSize = config.confInferiumVeinSize;
+	    for (i = 0; i < config.confInferiumVeinCount; ++i) {
 	      x = posX + random.nextInt(16);
-	      y = random.nextInt(config.inferium_maxy - config.inferium_miny) + config.inferium_miny;
+	      y = random.nextInt(config.confInferiumMaxY - config.confInferiumMinY) + config.confInferiumMinY;
 	      z = posZ + random.nextInt(16);
 	      pos = new BlockPos(x, y, z);
 	      state = block.getDefaultState();
 	      new WorldGenMinable(state, veinSize).generate(world, random, pos);
 	    }
 
-	    config = ModConfig.PROSPERITY;
 	    block = ModBlocks.blockProsperityOre;
-	    veinCount = config.prosperity_veincount;
-	    veinSize = config.prosperity_veinsize;
-	    for (i = 0; i < config.prosperity_veincount; ++i) {
+	    veinCount = config.confProsperityVeinCount;
+	    veinSize = config.confProsperityVeinSize;
+	    for (i = 0; i < config.confProsperityVeinCount; ++i) {
 	      x = posX + random.nextInt(16);
-	      y = random.nextInt(config.prosperity_maxy - config.prosperity_miny) + config.prosperity_miny;
+	      y = random.nextInt(config.confProsperityMaxY - config.confProsperityMinY) + config.confProsperityMinY;
 	      z = posZ + random.nextInt(16);
 	      pos = new BlockPos(x, y, z);
 	      state = block.getDefaultState();
@@ -87,29 +84,27 @@ public class OreGeneration implements IWorldGenerator {
 	    BlockPos pos;
 	    Block block;
 	    IBlockState state;
-	    ModConfig config;
+	    ModConfig config = ModConfig.instance;
 	    Predicate predicate = BlockMatcher.forBlock(Blocks.NETHERRACK);
 
-	    config = ModConfig.NETHER_INFERIUM;
 	    block = ModBlocks.blockInferiumOreNether;
-	    veinCount = config.nether_inferium_veincount;
-	    veinSize = config.nether_inferium_veinsize;
-	    for (i = 0; i < config.nether_inferium_veincount; ++i) {
+	    veinCount = config.confNetherInferiumVeinCount;
+	    veinSize = config.confNetherInferiumVeinSize;
+	    for (i = 0; i < config.confNetherInferiumVeinCount; ++i) {
 	      x = posX + random.nextInt(16);
-	      y = random.nextInt(config.nether_inferium_maxy - config.nether_inferium_miny) + config.nether_inferium_miny;
+	      y = random.nextInt(config.confNetherInferiumMaxY - config.confNetherInferiumMinY) + config.confNetherInferiumMinY;
 	      z = posZ + random.nextInt(16);
 	      pos = new BlockPos(x, y, z);
 	      state = block.getDefaultState();
 	      new WorldGenMinable(state, veinSize, predicate).generate(world, random, pos);
 	    }
 	    
-	    config = ModConfig.NETHER_PROSPERITY;
 	    block = ModBlocks.blockProsperityOreNether;
-	    veinCount = config.nether_prosperity_veincount;
-	    veinSize = config.nether_prosperity_veinsize;
-	    for (i = 0; i < config.nether_prosperity_veincount; ++i) {
+	    veinCount = config.confNetherProsperityVeinCount;
+	    veinSize = config.confNetherProsperityVeinSize;
+	    for (i = 0; i < config.confNetherProsperityVeinCount; ++i) {
 	      x = posX + random.nextInt(16);
-	      y = random.nextInt(config.nether_prosperity_maxy - config.nether_prosperity_miny) + config.nether_prosperity_miny;
+	      y = random.nextInt(config.confNetherProsperityMaxY - config.confNetherProsperityMinY) + config.confNetherProsperityMinY;
 	      z = posZ + random.nextInt(16);
 	      pos = new BlockPos(x, y, z);
 	      state = block.getDefaultState();
@@ -123,29 +118,27 @@ public class OreGeneration implements IWorldGenerator {
 	    BlockPos pos;
 	    Block block;
 	    IBlockState state;
-	    ModConfig config;
+	    ModConfig config = ModConfig.instance;
 	    Predicate predicate = BlockMatcher.forBlock(Blocks.END_STONE);
 
-	    config = ModConfig.END_INFERIUM;
 	    block = ModBlocks.blockInferiumOreEnd;
-	    veinCount = config.end_inferium_veincount;
-	    veinSize = config.end_inferium_veinsize;
-	    for (i = 0; i < config.end_inferium_veincount; ++i) {
+	    veinCount = config.confEndInferiumVeinCount;
+	    veinSize = config.confEndInferiumVeinSize;
+	    for (i = 0; i < config.confEndInferiumVeinCount; ++i) {
 	      x = posX + random.nextInt(16);
-	      y = random.nextInt(config.end_inferium_maxy - config.end_inferium_miny) + config.end_inferium_miny;
+	      y = random.nextInt(config.confEndInferiumMaxY - config.confEndInferiumMinY) + config.confEndInferiumMinY;
 	      z = posZ + random.nextInt(16);
 	      pos = new BlockPos(x, y, z);
 	      state = block.getDefaultState();
 	      new WorldGenMinable(state, veinSize, predicate).generate(world, random, pos);
 	    }
 	    
-	    config = ModConfig.END_PROSPERITY;
 	    block = ModBlocks.blockInferiumOreEnd;
-	    veinCount = config.end_prosperity_veincount;
-	    veinSize = config.end_prosperity_veinsize;
-	    for (i = 0; i < config.end_prosperity_veincount; ++i) {
+	    veinCount = config.confEndProsperityVeinCount;
+	    veinSize = config.confEndProsperityVeinSize;
+	    for (i = 0; i < config.confEndProsperityVeinCount; ++i) {
 	      x = posX + random.nextInt(16);
-	      y = random.nextInt(config.end_prosperity_maxy - config.end_prosperity_miny) + config.end_prosperity_miny;
+	      y = random.nextInt(config.confEndProsperityMaxY - config.confEndProsperityMinY) + config.confEndProsperityMinY;
 	      z = posZ + random.nextInt(16);
 	      pos = new BlockPos(x, y, z);
 	      state = block.getDefaultState();

@@ -122,7 +122,7 @@ public class ModBlocks {
 		
 		registerBlock(blockSoulstone);
 		
-		if(ModConfig.essence_furnaces){
+		if(ModConfig.confEssenceFurnaces){
 			registerBlock(blockInferiumFurnace);
 			registerBlock(blockInferiumFurnaceActive);
 			registerBlock(blockPrudentiumFurnace);
@@ -133,7 +133,7 @@ public class ModBlocks {
 			registerBlock(blockSuperiumFurnaceActive);
 			registerBlock(blockSupremiumFurnace);
 			registerBlock(blockSupremiumFurnaceActive);
-			if(ModConfig.ultimate_furnace){
+			if(ModConfig.confUltimateFurnace){
 				registerBlock(blockUltimateFurnace);
 				registerBlock(blockUltimateFurnaceActive);
 			}
@@ -146,16 +146,16 @@ public class ModBlocks {
 		registerBlock(blockInferiumOreNether);
 		registerBlock(blockInferiumOreEnd);
 		
-		if(ModConfig.growth_accelerator){ registerBlock(blockGrowthAccelerator); }
+		if(ModConfig.confGrowthAccelerator){ registerBlock(blockGrowthAccelerator); }
 		
 		registerBlock(blockMysticalMachineFrame);
 		registerBlock(blockGlowstoneLamp);
 
-		if(ModConfig.seed_reprocessor){
+		if(ModConfig.confSeedReprocessor){
 			registerBlock(blockSeedReprocessor);
 		}
 		
-		if(ModConfig.witherproof_blocks){
+		if(ModConfig.confWitherproofBlocks){
 			registerBlock(blockWitherproofBlock);
 			registerBlock(blockWitherproofGlass);
 		}
@@ -196,7 +196,7 @@ public class ModBlocks {
 		
 		registerModel(blockSoulstone);
 		
-		if(ModConfig.essence_furnaces){
+		if(ModConfig.confEssenceFurnaces){
 			registerModel(blockInferiumFurnace);
 			registerModel(blockInferiumFurnaceActive);
 			registerModel(blockPrudentiumFurnace);
@@ -207,7 +207,7 @@ public class ModBlocks {
 			registerModel(blockSuperiumFurnaceActive);
 			registerModel(blockSupremiumFurnace);
 			registerModel(blockSupremiumFurnaceActive);
-			if(ModConfig.ultimate_furnace){
+			if(ModConfig.confUltimateFurnace){
 				registerModel(blockUltimateFurnace);
 				registerModel(blockUltimateFurnaceActive);
 			}
@@ -220,16 +220,16 @@ public class ModBlocks {
 		registerModel(blockInferiumOreNether);
 		registerModel(blockInferiumOreEnd);
 		
-		if(ModConfig.growth_accelerator){ registerModel(blockGrowthAccelerator); }
+		if(ModConfig.confGrowthAccelerator){ registerModel(blockGrowthAccelerator); }
 		
 		registerModel(blockMysticalMachineFrame);
 		registerModel(blockGlowstoneLamp);
 
-		if(ModConfig.seed_reprocessor){
+		if(ModConfig.confSeedReprocessor){
 			registerModel(blockSeedReprocessor);
 		}
 		
-		if(ModConfig.witherproof_blocks){
+		if(ModConfig.confWitherproofBlocks){
 			registerModel(blockWitherproofBlock);
 			registerModel(blockWitherproofGlass);
 		}
@@ -273,7 +273,7 @@ public class ModBlocks {
 	
 	public static void initJEIDescriptions(){
 		addJEIDescription(blockGlowstoneLamp);
-		if(ModConfig.seed_reprocessor){
+		if(ModConfig.confSeedReprocessor){
 			addJEIDescription(blockSeedReprocessor);
 		}
 	}

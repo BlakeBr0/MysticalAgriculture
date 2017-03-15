@@ -36,7 +36,7 @@ public class CompatJEI extends BlankModPlugin {
         	registry.addDescription(new ItemStack(item), "desc." + item.getUnlocalizedName());
         }
         
-        if(ModConfig.seed_reprocessor){
+        if(ModConfig.confSeedReprocessor){
 	        registry.addRecipeCategories(new ReprocessorCategory(registry.getJeiHelpers().getGuiHelper()));
 	        registry.addRecipeHandlers(new ReprocessorHandler());
 	        registry.addRecipes(ReprocessorRecipeMaker.getRecipes());

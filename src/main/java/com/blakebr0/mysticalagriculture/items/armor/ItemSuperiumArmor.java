@@ -38,7 +38,7 @@ public class ItemSuperiumArmor extends ItemArmor {
 	public void addInformation(ItemStack stack, EntityPlayer player, List tooltip, boolean advanced){
 		int damage = stack.getMaxDamage() - stack.getItemDamage();
 		tooltip.add("Durability: \u00A7b" + damage);
-		if(ModConfig.set_bonuses){ tooltip.add("Set Bonus:\u00A7b No Fall Damage"); }
+		if(ModConfig.confSetBonuses){ tooltip.add("Set Bonus:\u00A7b No Fall Damage"); }
 	}
 
 	public void onArmorTick(World world, EntityPlayer entity, ItemStack itemStack){
@@ -46,7 +46,7 @@ public class ItemSuperiumArmor extends ItemArmor {
 		ItemStack chest = entity.getItemStackFromSlot(EntityEquipmentSlot.CHEST);
 		ItemStack legs = entity.getItemStackFromSlot(EntityEquipmentSlot.LEGS);
 		ItemStack feet = entity.getItemStackFromSlot(EntityEquipmentSlot.FEET);
-		if(ModConfig.set_bonuses && head != null && head.getItem() instanceof ItemSuperiumArmor && chest != null && chest.getItem() instanceof ItemSuperiumArmor && legs != null && legs.getItem() instanceof ItemSuperiumArmor && feet != null && feet.getItem() instanceof ItemSuperiumArmor){
+		if(ModConfig.confSetBonuses && head != null && head.getItem() instanceof ItemSuperiumArmor && chest != null && chest.getItem() instanceof ItemSuperiumArmor && legs != null && legs.getItem() instanceof ItemSuperiumArmor && feet != null && feet.getItem() instanceof ItemSuperiumArmor){
 			if(entity.isInWater()){
 				entity.addPotionEffect(new PotionEffect(MobEffects.WATER_BREATHING, 5, 0, true, false));
 			}
@@ -82,7 +82,7 @@ public class ItemSuperiumArmor extends ItemArmor {
     			String key = playerKey(player);
 
     			Boolean hasSet = playerHasSet(player);
-    			if(playersWithSet.contains(key) && ModConfig.set_bonuses){
+    			if(playersWithSet.contains(key) && ModConfig.confSetBonuses){
     				if(hasSet){
     					player.stepHeight = 1.0F;
     				} else {
