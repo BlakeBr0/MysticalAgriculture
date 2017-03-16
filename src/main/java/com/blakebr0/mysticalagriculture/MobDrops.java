@@ -47,7 +47,7 @@ public class MobDrops {
     private static final String BLIZZ_CLASS = "cofh.thermalfoundation.entity.monster.EntityBlizz";
     private static final String BLITZ_CLASS = "cofh.thermalfoundation.entity.monster.EntityBlitz";
     private static final String BASALZ_CLASS = "cofh.thermalfoundation.entity.monster.EntityBasalz";
-    
+        
     public static int dropChance(int type){
     	switch(type - 1){
     	case 0:

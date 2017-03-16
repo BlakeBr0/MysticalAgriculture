@@ -589,6 +589,9 @@ item.ma.supremium_boots_antivenom.name=§cSupremium Boots
 item.ma.supremium_boots_fire.name=§cSupremium Boots
 item.ma.supremium_boots_resistance.name=§cSupremium Boots
 
+# TOOLTIPS
+tooltip.ma.mystical_fertilizer=Instantly grows a crop.
+
 desc.ma.charm_nightvision=Allows you to see in the dark.
 desc.ma.charm_absorption=Gives 10 Absorption hearts every 8 minutes.
 desc.ma.charm_wither=Prevents you from getting the Wither effect.
