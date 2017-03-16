@@ -1,16 +1,10 @@
 package com.blakebr0.mysticalagriculture.blocks;
 
-import java.util.List;
-
 import com.blakebr0.mysticalagriculture.MysticalAgriculture;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.ItemStack;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class BlockBase extends Block {
 

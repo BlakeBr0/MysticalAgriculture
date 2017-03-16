@@ -1,11 +1,6 @@
 package com.blakebr0.mysticalagriculture.blocks;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import com.blakebr0.mysticalagriculture.MysticalAgriculture;
-import com.blakebr0.mysticalagriculture.blocks.*;
-import com.blakebr0.mysticalagriculture.blocks.crop.BlockMysticalCrop;
 import com.blakebr0.mysticalagriculture.blocks.crop.BlockTier1InferiumCrop;
 import com.blakebr0.mysticalagriculture.blocks.crop.BlockTier2InferiumCrop;
 import com.blakebr0.mysticalagriculture.blocks.crop.BlockTier3InferiumCrop;
@@ -20,23 +15,16 @@ import com.blakebr0.mysticalagriculture.blocks.furnace.BlockUltimateFurnace;
 import com.blakebr0.mysticalagriculture.blocks.ore.BlockInferiumOre;
 import com.blakebr0.mysticalagriculture.blocks.ore.BlockProsperityOre;
 import com.blakebr0.mysticalagriculture.config.ModConfig;
-import com.blakebr0.mysticalagriculture.crafting.ReprocessorManager;
-import com.blakebr0.mysticalagriculture.items.ModItems;
 import com.blakebr0.mysticalagriculture.jei.CompatJEI;
 import com.blakebr0.mysticalagriculture.lib.CropType;
-import com.blakebr0.mysticalagriculture.util.ModChecker;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
-import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
-import net.minecraft.item.ItemStack;
 import net.minecraftforge.client.model.ModelLoader;
-import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;

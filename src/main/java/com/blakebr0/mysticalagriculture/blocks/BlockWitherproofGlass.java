@@ -6,25 +6,19 @@ import java.util.Random;
 import javax.annotation.Nonnull;
 
 import com.blakebr0.mysticalagriculture.MysticalAgriculture;
-import com.sun.javafx.sg.prism.NodeEffectInput.RenderType;
 
-import net.minecraft.block.Block;
 import net.minecraft.block.BlockGlass;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.boss.EntityWither;
-import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.projectile.EntityWitherSkull;
-import net.minecraft.init.Blocks;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.BlockRenderLayer;
-import net.minecraft.util.EnumFacing;
-import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.world.Explosion;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
@@ -55,7 +49,7 @@ public class BlockWitherproofGlass extends BlockGlass {
 	}
 
 	@Override
-	public boolean canDropFromExplosion(Explosion p_149659_1_){
+	public boolean canDropFromExplosion(Explosion explosion){
 		return false;
 	}
 	  
@@ -83,6 +77,6 @@ public class BlockWitherproofGlass extends BlockGlass {
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void addInformation(ItemStack stack, EntityPlayer player, List tooltip, boolean advanced){
-		tooltip.add("Blast Resistant");
+		tooltip.add(new TextComponentTranslation("tooltip.ma.blast_resistant").getFormattedText());
 	}
 }
