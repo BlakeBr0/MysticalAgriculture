@@ -1,59 +1,34 @@
 package com.blakebr0.mysticalagriculture.blocks;
 
+import java.util.List;
+import java.util.Random;
+
+import com.blakebr0.mysticalagriculture.config.ModConfig;
+
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockBush;
-import net.minecraft.block.BlockLiquid;
 import net.minecraft.block.IGrowable;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.item.EntityBoat;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Blocks;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.EnumParticleTypes;
-import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.IBlockAccess;
+import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.world.World;
-import net.minecraftforge.common.EnumPlantType;
-import net.minecraftforge.common.IPlantable;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
-
-import com.blakebr0.mysticalagriculture.MysticalAgriculture;
-import com.blakebr0.mysticalagriculture.blocks.crop.BlockMysticalCrop;
-import com.blakebr0.mysticalagriculture.blocks.crop.BlockTier1InferiumCrop;
-import com.blakebr0.mysticalagriculture.blocks.crop.BlockTier2InferiumCrop;
-import com.blakebr0.mysticalagriculture.blocks.crop.BlockTier3InferiumCrop;
-import com.blakebr0.mysticalagriculture.blocks.crop.BlockTier4InferiumCrop;
-import com.blakebr0.mysticalagriculture.blocks.crop.BlockTier5InferiumCrop;
-import com.blakebr0.mysticalagriculture.config.ModConfig;
-
-public class BlockAccelerator extends Block {
+public class BlockAccelerator extends BlockBase {
 	
-	public BlockAccelerator(String name, Material material, SoundType sound, float hardness, float resistance, String tool, int level) {
-		super(material);
-		this.setCreativeTab(MysticalAgriculture.tabMysticalAgriculture);
-		this.setSoundType(sound);
-		this.setUnlocalizedName("ma." + name);
-		this.setRegistryName(name);
-		this.setHardness(hardness);
-		this.setResistance(resistance);
-		this.setHarvestLevel(tool, level);
+	public BlockAccelerator(String name, Material material, SoundType sound, float hardness, float resistance) {
+		super(name, material, sound, hardness, resistance);
 		this.setTickRandomly(true);
 	}
 	
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void addInformation(ItemStack stack, EntityPlayer player, List tooltip, boolean advanced){
-		tooltip.add("Grows Resource Crops above it.");
+		tooltip.add(new TextComponentTranslation("tooltip.ma.growth_accelerator").getFormattedText());
 	}
 
 	@Override

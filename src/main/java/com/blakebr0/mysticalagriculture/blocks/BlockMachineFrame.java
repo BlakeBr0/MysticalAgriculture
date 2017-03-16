@@ -22,16 +22,10 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class BlockMachineFrame extends Block {
+public class BlockMachineFrame extends BlockBase {
 	
 	public BlockMachineFrame(String name, Material material, SoundType sound, float hardness, float resistance) {
-		super(material);
-		this.setUnlocalizedName("ma." + name);
-		this.setRegistryName(name);
-		this.setCreativeTab(MysticalAgriculture.tabMysticalAgriculture);
-		this.setSoundType(sound);
-		this.setHardness(hardness);
-		this.setResistance(resistance);
+		super(name, material, sound, hardness, resistance);
 	}
 
 	@Override

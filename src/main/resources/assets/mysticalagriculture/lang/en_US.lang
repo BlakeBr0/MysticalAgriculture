@@ -590,6 +590,8 @@ item.ma.supremium_boots_fire.name=§cSupremium Boots
 item.ma.supremium_boots_resistance.name=§cSupremium Boots
 
 # TOOLTIPS
+tooltip.ma.growth_accelerator=Grows crops above it faster.
+
 tooltip.ma.mystical_fertilizer=Instantly grows a crop.
 
 desc.ma.charm_nightvision=Allows you to see in the dark.
