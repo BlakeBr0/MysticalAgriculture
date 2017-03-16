@@ -57,32 +57,21 @@ public class BlockAccelerator extends Block {
 	}
 
 	@Override
-	public void updateTick(World world, BlockPos pos, IBlockState state, Random par5Random) {
+	public void updateTick(World world, BlockPos pos, IBlockState state, Random rand) {
 		if(!world.isRemote){
 			this.growCropsNearby(world, pos, state);
 		}
 	}
 
 	private void growCropsNearby(World world, BlockPos pos, IBlockState state) {
-		int xO = pos.getX();
-		int yO = pos.getY();
-		int zO = pos.getZ();
-
-		for(int yD = -1; yD <= 64; yD++) {
-			int x = xO;
-			int y = yO + yD;
-			int z = zO;
-
-			double distance = Math.sqrt(Math.pow(y - yO, 2));
-			distance = Math.min(1D, distance);
-			double distanceCoefficient = 1D - (distance / 64);
-
-			IBlockState cropState = world.getBlockState(new BlockPos(x, y, z));
+		Iterable<BlockPos> blocks = BlockPos.getAllInBox(pos.add(0, 0, 0), pos.add(0, 64, 0));
+		for(BlockPos aoePos : blocks) {
+			IBlockState cropState = world.getBlockState(new BlockPos(aoePos));
 			Block cropBlock = cropState.getBlock();
-
-			if(cropBlock instanceof BlockMysticalCrop || cropBlock instanceof BlockTier1InferiumCrop || cropBlock instanceof BlockTier2InferiumCrop || cropBlock instanceof BlockTier3InferiumCrop || cropBlock instanceof BlockTier4InferiumCrop || cropBlock instanceof BlockTier5InferiumCrop) {
-				world.scheduleBlockUpdate(new BlockPos(x, y, z), cropBlock, (int) (distanceCoefficient * (float) ModConfig.confGrowthAcceleratorSpeed * 20F), 1);
-				cropBlock.updateTick(world, new BlockPos(x, y, z), cropState, world.rand);
+			
+			if(cropBlock instanceof IGrowable){
+				world.scheduleBlockUpdate(new BlockPos(aoePos), cropBlock, ModConfig.confGrowthAcceleratorSpeed * 20, 1);
+				cropBlock.updateTick(world, new BlockPos(aoePos), cropState, world.rand);
 			}
 		}	
 		world.scheduleBlockUpdate(pos, state.getBlock(), ModConfig.confGrowthAcceleratorSpeed * 20, 1);

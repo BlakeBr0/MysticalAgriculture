@@ -48,19 +48,19 @@ public class ItemMysticalFertilizer extends ItemBase {
             if(growable.canGrow(world, pos, state, world.isRemote)){
                 if(!world.isRemote){
                 	if(growable.canUseBonemeal(world, world.rand, pos, state) || growable instanceof BlockMysticalCrop || growable instanceof BlockTier1InferiumCrop || growable instanceof BlockTier2InferiumCrop || growable instanceof BlockTier3InferiumCrop || growable instanceof BlockTier4InferiumCrop || growable instanceof BlockTier5InferiumCrop){
-                    	if(growable instanceof BlockCrops){
-                    		BlockCrops crop = (BlockCrops)state.getBlock();
-                    		world.setBlockState(pos, crop.withAge(crop.getMaxAge()), 2);
-                    	} else {
-                    		growable.grow(world, world.rand, pos, state);
-                    	}
+                		if(growable instanceof BlockCrops){
+                			BlockCrops crop = (BlockCrops)state.getBlock();
+                			world.setBlockState(pos, crop.withAge(crop.getMaxAge()), 2);
+                		} else {
+                			growable.grow(world, world.rand, pos, state);
+                		}
                 	}
                 	--stack.stackSize;
                 }
                 return true;
             }
-        }
-        return false;
+    	}
+    	return false;
     }
 	
 	@Override
