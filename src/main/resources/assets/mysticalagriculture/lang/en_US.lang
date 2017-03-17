@@ -590,6 +590,8 @@ item.ma.supremium_boots_fire.name=§cSupremium Boots
 item.ma.supremium_boots_resistance.name=§cSupremium Boots
 
 # TOOLTIPS
+tooltip.ma.blast_resistant=Blast Resistant
+
 tooltip.ma.growth_accelerator=Grows crops above it faster.
 
 tooltip.ma.mystical_fertilizer=Instantly grows a crop.

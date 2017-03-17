@@ -8,7 +8,6 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.math.MathHelper;
-import net.minecraftforge.oredict.ShapedOreRecipe;
 import net.minecraftforge.oredict.ShapelessOreRecipe;
 
 public class CharmRecipe extends ShapelessOreRecipe {
@@ -27,7 +26,7 @@ public class CharmRecipe extends ShapelessOreRecipe {
     public ItemStack getCraftingResult(InventoryCrafting inventoryCrafting){
         NBTTagCompound tags = null;
         
-        ItemStack result = new ItemStack((Item) this.resultItem, 1, this.resultMeta);
+        ItemStack result = new ItemStack((Item)this.resultItem, 1, this.resultMeta);
         
         ItemStack slotStack;
         for(int i = 0; i < inventoryCrafting.getSizeInventory(); i++){

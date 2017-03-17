@@ -1,16 +1,10 @@
 package com.blakebr0.mysticalagriculture.config;
 
 import java.io.File;
-import java.util.Random;
 
 import com.blakebr0.mysticalagriculture.MysticalAgriculture;
-import com.blakebr0.mysticalagriculture.blocks.ModBlocks;
-import com.blakebr0.mysticalagriculture.items.ModItems;
-import com.blakebr0.mysticalagriculture.lib.ModToolMaterials;
 
-import net.minecraft.util.math.MathHelper;
 import net.minecraftforge.common.config.Configuration;
-import net.minecraftforge.common.config.Property;
 import net.minecraftforge.fml.client.event.ConfigChangedEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 

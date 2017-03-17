@@ -7,7 +7,6 @@ import java.util.Random;
 import com.blakebr0.mysticalagriculture.config.ModConfig;
 import com.blakebr0.mysticalagriculture.items.ModItems;
 
-import net.minecraft.block.Block;
 import net.minecraft.block.BlockCrops;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.state.IBlockState;
@@ -23,7 +22,6 @@ import net.minecraftforge.common.EnumPlantType;
 import net.minecraftforge.fml.common.Optional;
 
 import vazkii.botania.api.item.IHornHarvestable;
-import vazkii.botania.api.item.IHornHarvestable.EnumHornType;
 
 @Optional.InterfaceList(value = {
         @Optional.Interface(modid = "Botania", iface = "vazkii.botania.api.item.IHornHarvestable")
@@ -43,14 +41,14 @@ public class BlockTier4InferiumCrop extends BlockCrops implements IHornHarvestab
     }
 
     @Override
-    public void updateTick(World worldIn, BlockPos pos, IBlockState state, Random rand){
-    	this.checkAndDropBlock(worldIn, pos, state);
+    public void updateTick(World world, BlockPos pos, IBlockState state, Random rand){
+    	this.checkAndDropBlock(world, pos, state);
     	int i = this.getAge(state);
-        if(worldIn.getLightFromNeighbors(pos.up()) >= 9){
+        if(world.getLightFromNeighbors(pos.up()) >= 9){
 	    	if(i < this.getMaxAge()){
-	    		float f = getGrowthChance(this, worldIn, pos);
+	    		float f = getGrowthChance(this, world, pos);
 	    		if (rand.nextInt((int)(35.0F / f) + 1) == 0) {
-	    			worldIn.setBlockState(pos, this.withAge(i + 1), 2);
+	    			world.setBlockState(pos, this.withAge(i + 1), 2);
 	    		}
 	    	}
         }
@@ -60,7 +58,7 @@ public class BlockTier4InferiumCrop extends BlockCrops implements IHornHarvestab
 		return state.getBlock() == Blocks.FARMLAND;
 	}
 
-    public boolean canUseBonemeal(World worldIn, Random rand, BlockPos pos, IBlockState state) {
+    public boolean canUseBonemeal(World world, Random rand, BlockPos pos, IBlockState state) {
         return false;
     }
     
@@ -95,22 +93,26 @@ public class BlockTier4InferiumCrop extends BlockCrops implements IHornHarvestab
 
         if(age == 7){
         	if(ModConfig.confSeedChance > 0){
-        		if(rand.nextInt(100 / ModConfig.confSeedChance) > 0)
+        		if(rand.nextInt(100 / ModConfig.confSeedChance) > 0){
         			seeds = 1;
-        		else
+        		} else {
         			seeds = 2;
+        		}
+        	} else {
+        		seeds = 1;
         	}
-        	else seeds = 1;
         }
         
         if(age == 7){
         	if(ModConfig.confEssenceChance > 0){
-                if(rand.nextInt(100 / ModConfig.confEssenceChance) > 0)
-                    essence = 4;
-                else
-                    essence = 5;        		
+                if(rand.nextInt(100 / ModConfig.confEssenceChance) > 0){
+                	essence = 4;
+                } else {
+                	essence = 5;
+                }             		
+        	} else {
+        		essence = 4;
         	}
-        	else essence = 4;
         }
 
         drops.add(new ItemStack(this.getSeed(), seeds, 0));
@@ -119,36 +121,35 @@ public class BlockTier4InferiumCrop extends BlockCrops implements IHornHarvestab
     }
     
     @Override
-    public boolean canHornHarvest(World world, BlockPos blockPos, ItemStack stack, EnumHornType hornType) {
-        return hornType.ordinal()==0 && isMaxAge(world.getBlockState(blockPos));
+    public boolean canHornHarvest(World world, BlockPos pos, ItemStack stack, EnumHornType hornType) {
+        return hornType.ordinal() == 0 && isMaxAge(world.getBlockState(pos));
     }
 
     @Override
-    public boolean hasSpecialHornHarvest(World world, BlockPos blockPos, ItemStack stack, EnumHornType hornType) {
-        return hornType.ordinal()==0 && ModConfig.confBotaniaHornHarvesting;
+    public boolean hasSpecialHornHarvest(World world, BlockPos pos, ItemStack stack, EnumHornType hornType) {
+        return hornType.ordinal() == 0 && ModConfig.confBotaniaHornHarvesting;
     }
 
     @Override
-    public void harvestByHorn(World world, BlockPos blockPos, ItemStack stack, EnumHornType hornType) {
-        if(hornType.ordinal()!=0) {
+    public void harvestByHorn(World world, BlockPos pos, ItemStack stack, EnumHornType hornType){
+        if(hornType.ordinal() != 0){
             return;
         }
 
-        IBlockState state = world.getBlockState(blockPos);
-        if(state.getValue(AGE) == 7) {
-            List<ItemStack> drops = getDrops(world, blockPos, state, 0);
-            for (ItemStack drop : drops) {
-                if (drop != null && drop.getItem() != null) {
-                    if (drop.getItem() == this.getSeed()) {
-                        // getDrops simulates breaking the crop, we're just harvesting so drop one less seed
+        IBlockState state = world.getBlockState(pos);
+        if(state.getValue(AGE) == 7){
+            List<ItemStack> drops = getDrops(world, pos, state, 0);
+            for(ItemStack drop : drops){
+                if(drop != null && drop.getItem() != null){
+                    if(drop.getItem() == this.getSeed()){
                         drop.stackSize -= 1;
                     }
-                    if (drop.stackSize > 0) {
-                        this.spawnAsEntity(world, blockPos, drop);
+                    if(drop.stackSize > 0){
+                        this.spawnAsEntity(world, pos, drop);
                     }
                 }
             }
-            world.setBlockState(blockPos, state.withProperty(AGE, 0), 2);
+            world.setBlockState(pos, state.withProperty(AGE, 0), 2);
         }
     }
 }
