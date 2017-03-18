@@ -30,12 +30,14 @@ public class EssenceRecipes {
 		addEssenceRecipe(new ItemStack(Blocks.STONE, EssenceConfig.andesite, 5), "XEX", "QEE", "XEX", 'E', new ItemStack(type.STONE.getCrop(), 1, 0), 'Q', new ItemStack(type.NETHER_QUARTZ.getCrop(), 1, 0));		
 		addEssenceRecipe(new ItemStack(Blocks.STONEBRICK, EssenceConfig.crackedStonebrick, 2), "XEX", "ESE", "XEX", 'E', new ItemStack(type.STONE.getCrop(), 1, 0), 'S', "stone");
 		addEssenceRecipe(new ItemStack(Blocks.STONEBRICK, EssenceConfig.chiseledStonebrick, 3), "EXE", "XSX", "EXE", 'E', new ItemStack(type.STONE.getCrop(), 1, 0), 'S', "stone");
-
+		addEssenceRecipe(new ItemStack(Items.FLINT, EssenceConfig.flint, 0), "EFX", "FEX", "XXX", 'E', new ItemStack(type.STONE.getCrop(), 1, 0), 'F', new ItemStack(type.FIRE.getCrop(), 1, 0));
+		
 	    addEssenceRecipe(new ItemStack(Blocks.DIRT, EssenceConfig.dirt, 0), "EEE", "EXE", "EEE", 'E', new ItemStack(type.DIRT.getCrop(), 1, 0));
 	    addEssenceRecipe(new ItemStack(Blocks.GRASS, EssenceConfig.grass, 0), "XEX", "EFE", "XEX", 'E', new ItemStack(type.DIRT.getCrop(), 1, 0), 'F', new ItemStack(type.NATURE.getCrop(), 1, 0));
 	    addEssenceRecipe(new ItemStack(Blocks.DIRT, EssenceConfig.coarseDirt, 1), "XEX", "XEX", "XEX", 'E', new ItemStack(type.DIRT.getCrop(), 1, 0));
 	    addEssenceRecipe(new ItemStack(Blocks.DIRT, EssenceConfig.podzol, 2), "EEE", "XXX", "XXX", 'E', new ItemStack(type.DIRT.getCrop(), 1, 0));
 	    addEssenceRecipe(new ItemStack(Blocks.GRAVEL, EssenceConfig.gravel, 0), "EFX", "FEX", "XXX", 'E', new ItemStack(type.DIRT.getCrop(), 1, 0), 'F', new ItemStack(type.STONE.getCrop(), 1, 0));
+	    addEssenceRecipe(new ItemStack(Blocks.MYCELIUM, EssenceConfig.mycelium, 0), "FFF", "EXE", "EEE", 'E', new ItemStack(type.DIRT.getCrop(), 1, 0), 'F', new ItemStack(type.NATURE.getCrop(), 1, 0));
 	    
 	    addEssenceRecipe(new ItemStack(Blocks.VINE, EssenceConfig.vines, 0), "XEX", "XEX", "XEX", 'E', new ItemStack(type.NATURE.getCrop(), 1, 0));
 	    addEssenceRecipe(new ItemStack(Blocks.CACTUS, EssenceConfig.cactus, 0), "EEE", "XEX", "EEE", 'E', new ItemStack(type.NATURE.getCrop(), 1, 0));
@@ -43,8 +45,14 @@ public class EssenceRecipes {
 	    addEssenceRecipe(new ItemStack(Blocks.PUMPKIN, EssenceConfig.pumpkin, 0), "EEE", "EXE", "EEE", 'E', new ItemStack(type.NATURE.getCrop(), 1, 0));
 	    addEssenceRecipe(new ItemStack(Blocks.MELON_BLOCK, EssenceConfig.melon, 0), "EEE", "EEE", "EEE", 'E', new ItemStack(type.NATURE.getCrop(), 1, 0));
 	    addEssenceRecipe(new ItemStack(Items.WHEAT, EssenceConfig.wheat, 0), "EEE", "XXX", "XXX", 'E', new ItemStack(type.NATURE.getCrop(), 1, 0));
+	    addEssenceRecipe(new ItemStack(Items.POTATO, EssenceConfig.potato, 0), "EXE", "XEX", "XXX", 'E', new ItemStack(type.NATURE.getCrop(), 1, 0));
+	    addEssenceRecipe(new ItemStack(Items.POISONOUS_POTATO, EssenceConfig.poisonousPotato, 0), "PEX", "XXX", "XXX", 'E', new ItemStack(type.NATURE.getCrop(), 1, 0), 'P', new ItemStack(Items.POTATO, 1, 0));
+	    addEssenceRecipe(new ItemStack(Items.CARROT, EssenceConfig.carrot, 0), "XXX", "EXE", "XXE", 'E', new ItemStack(type.NATURE.getCrop(), 1, 0));
+	    addEssenceRecipe(new ItemStack(Items.BEETROOT, EssenceConfig.beetroot, 0), "EXX", "XXE", "EXX", 'E', new ItemStack(type.NATURE.getCrop(), 1, 0));
 	    addEssenceRecipe(new ItemStack(Blocks.WATERLILY, EssenceConfig.lilypad, 0), "EEE", "EEE", "XEX", 'E', new ItemStack(type.NATURE.getCrop(), 1, 0));
 	    addEssenceRecipe(new ItemStack(Items.DYE, 8, 3), "XXX", "EEE", "XXX", 'E', new ItemStack(type.NATURE.getCrop(), 1, 0));
+	    addEssenceRecipe(new ItemStack(Blocks.BROWN_MUSHROOM, EssenceConfig.mushroom, 0), "EFE", "XXX", "XXX", 'E', new ItemStack(type.NATURE.getCrop(), 1, 0), 'F', new ItemStack(type.DIRT.getCrop(), 1, 0));
+	    addEssenceRecipe(new ItemStack(Blocks.RED_MUSHROOM, EssenceConfig.mushroom, 0), "XEX", "XFX", "XEX", 'E', new ItemStack(type.NATURE.getCrop(), 1, 0), 'F', new ItemStack(type.DIRT.getCrop(), 1, 0));
 	    addEssenceRecipe(new ItemStack(Blocks.MOSSY_COBBLESTONE, EssenceConfig.mossyCobblestone, 0), "EXE", "XNX", "EXE", 'E', new ItemStack(type.STONE.getCrop(), 1, 0), 'N', new ItemStack(type.NATURE.getCrop(), 1, 0));
 	    addEssenceRecipe(new ItemStack(Blocks.STONEBRICK, EssenceConfig.mossyStonebrick, 1), "XEX", "ENE", "XEX", 'E', new ItemStack(type.STONE.getCrop(), 1, 0), 'N', new ItemStack(type.NATURE.getCrop(), 1, 0));   
 
