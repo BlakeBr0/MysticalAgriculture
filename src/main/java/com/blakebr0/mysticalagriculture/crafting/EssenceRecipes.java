@@ -21,6 +21,13 @@ public class EssenceRecipes {
 		}
 	}
 	
+	public static int fromBoolean(boolean enabled){
+		if(enabled){
+			return 1;
+		}
+		return 0;
+	}
+		
 	public static void init(){
 		
 		addEssenceRecipe(new ItemStack(Blocks.COBBLESTONE, EssenceConfig.cobblestone, 0), "EEE", "EXE", "EEE", 'E', new ItemStack(type.STONE.getCrop(), 1, 0));
@@ -50,7 +57,7 @@ public class EssenceRecipes {
 	    addEssenceRecipe(new ItemStack(Items.CARROT, EssenceConfig.carrot, 0), "XXX", "EXE", "XXE", 'E', new ItemStack(type.NATURE.getCrop(), 1, 0));
 	    addEssenceRecipe(new ItemStack(Items.BEETROOT, EssenceConfig.beetroot, 0), "EXX", "XXE", "EXX", 'E', new ItemStack(type.NATURE.getCrop(), 1, 0));
 	    addEssenceRecipe(new ItemStack(Blocks.WATERLILY, EssenceConfig.lilypad, 0), "EEE", "EEE", "XEX", 'E', new ItemStack(type.NATURE.getCrop(), 1, 0));
-	    addEssenceRecipe(new ItemStack(Items.DYE, 8, 3), "XXX", "EEE", "XXX", 'E', new ItemStack(type.NATURE.getCrop(), 1, 0));
+	    addEssenceRecipe(new ItemStack(Items.DYE, EssenceConfig.cocoaBeans, 3), "XXX", "EEE", "XXX", 'E', new ItemStack(type.NATURE.getCrop(), 1, 0));
 	    addEssenceRecipe(new ItemStack(Blocks.BROWN_MUSHROOM, EssenceConfig.mushroom, 0), "EFE", "XXX", "XXX", 'E', new ItemStack(type.NATURE.getCrop(), 1, 0), 'F', new ItemStack(type.DIRT.getCrop(), 1, 0));
 	    addEssenceRecipe(new ItemStack(Blocks.RED_MUSHROOM, EssenceConfig.mushroom, 0), "XEX", "XFX", "XEX", 'E', new ItemStack(type.NATURE.getCrop(), 1, 0), 'F', new ItemStack(type.DIRT.getCrop(), 1, 0));
 	    addEssenceRecipe(new ItemStack(Blocks.MOSSY_COBBLESTONE, EssenceConfig.mossyCobblestone, 0), "EXE", "XNX", "EXE", 'E', new ItemStack(type.STONE.getCrop(), 1, 0), 'N', new ItemStack(type.NATURE.getCrop(), 1, 0));
@@ -70,14 +77,14 @@ public class EssenceRecipes {
 	    addEssenceRecipe(new ItemStack(Blocks.SAPLING, EssenceConfig.sapling, 4), "XEX", "XFX", "XEX", 'E', new ItemStack(type.WOOD.getCrop(), 1, 0), 'F', new ItemStack(type.NATURE.getCrop(), 1, 0));
 	    addEssenceRecipe(new ItemStack(Blocks.SAPLING, EssenceConfig.sapling, 5), "XEX", "XFX", "EXX", 'E', new ItemStack(type.WOOD.getCrop(), 1, 0), 'F', new ItemStack(type.NATURE.getCrop(), 1, 0));
 	    
-	    addEssenceRecipe(new ItemStack(Items.WATER_BUCKET, 1, 0), "XEX", "EBE", "XEX", 'E', new ItemStack(type.WATER.getCrop(), 1, 0), 'B', new ItemStack(Items.BUCKET, 1, 0));
+	    addEssenceRecipe(new ItemStack(Items.WATER_BUCKET, fromBoolean(EssenceConfig.waterBucket), 0), "XEX", "EBE", "XEX", 'E', new ItemStack(type.WATER.getCrop(), 1, 0), 'B', new ItemStack(Items.BUCKET, 1, 0));
 	    addEssenceRecipe(new ItemStack(Items.CLAY_BALL, EssenceConfig.clay, 0), "EFX", "FEX", "XXX", 'E', new ItemStack(type.WATER.getCrop(), 1, 0), 'F', new ItemStack(type.DIRT.getCrop(), 1, 0));
 
 	    addEssenceRecipe(new ItemStack(Blocks.SNOW, EssenceConfig.snow, 0), "EEE", "XXX", "XXX", 'E', new ItemStack(type.ICE.getCrop(), 1, 0));
 	    addEssenceRecipe(new ItemStack(Blocks.ICE, EssenceConfig.ice, 0), "EXE", "XEX", "EXE", 'E', new ItemStack(type.ICE.getCrop(), 1, 0));
 	    addEssenceRecipe(new ItemStack(Blocks.PACKED_ICE, EssenceConfig.packedIce, 0), "EEX", "EEX", "XXX", 'E', new ItemStack(type.ICE.getCrop(), 1, 0));
 	    
-	    addEssenceRecipe(new ItemStack(Items.LAVA_BUCKET, 1, 0), "XEX", "EBE", "XEX", 'E', new ItemStack(type.FIRE.getCrop(), 1, 0), 'B', new ItemStack(Items.BUCKET, 1, 0));
+	    addEssenceRecipe(new ItemStack(Items.LAVA_BUCKET, fromBoolean(EssenceConfig.lavaBucket), 0), "XEX", "EBE", "XEX", 'E', new ItemStack(type.FIRE.getCrop(), 1, 0), 'B', new ItemStack(Items.BUCKET, 1, 0));
 	    addEssenceRecipe(new ItemStack(Blocks.SAND, EssenceConfig.sand, 0), "EFX", "FEX", "XXX", 'E', new ItemStack(type.FIRE.getCrop(), 1, 0), 'F', new ItemStack(type.DIRT.getCrop(), 1, 0));
 	    addEssenceRecipe(new ItemStack(Blocks.SAND, EssenceConfig.sand, 1), "FEX", "EFX", "XXX", 'E', new ItemStack(type.FIRE.getCrop(), 1, 0), 'F', new ItemStack(type.DIRT.getCrop(), 1, 0));
 	    
@@ -130,7 +137,7 @@ public class EssenceRecipes {
 
 	    addEssenceRecipe(new ItemStack(Items.BEEF, EssenceConfig.beef, 0), "EEE", "XXX", "XXX", 'E', new ItemStack(type.COW.getCrop(), 1, 0));
 	    addEssenceRecipe(new ItemStack(Items.LEATHER, EssenceConfig.leather, 0), "EEX", "EEX", "XXX", 'E', new ItemStack(type.COW.getCrop(), 1, 0));
-	    addEssenceRecipe(new ItemStack(Items.MILK_BUCKET, 1, 0), "XEX", "EBE", "XEX", 'E', new ItemStack(type.COW.getCrop(), 1, 0), 'B', new ItemStack(Items.BUCKET, 1, 0));
+	    addEssenceRecipe(new ItemStack(Items.MILK_BUCKET, fromBoolean(EssenceConfig.milkBucket), 0), "XEX", "EBE", "XEX", 'E', new ItemStack(type.COW.getCrop(), 1, 0), 'B', new ItemStack(Items.BUCKET, 1, 0));
 	    
 	    addEssenceRecipe(new ItemStack(Items.MUTTON, EssenceConfig.mutton, 0), "EEE", "XXX", "XXX", 'E', new ItemStack(type.SHEEP.getCrop(), 1, 0));
 	    addEssenceRecipe(new ItemStack(Blocks.WOOL, EssenceConfig.wool, 0), "EEE", "EEE", "EEE", 'E', new ItemStack(type.SHEEP.getCrop(), 1, 0));

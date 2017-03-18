@@ -1,6 +1,7 @@
 package com.blakebr0.mysticalagriculture.crafting;
 
 import com.blakebr0.mysticalagriculture.blocks.ModBlocks;
+import com.blakebr0.mysticalagriculture.config.EssenceConfig;
 import com.blakebr0.mysticalagriculture.config.ModConfig;
 import com.blakebr0.mysticalagriculture.items.ModItems;
 import com.blakebr0.mysticalagriculture.lib.CropType;
@@ -217,7 +218,7 @@ public class ModRecipes {
 		if(type.NETHER.isEnabled()){ addShapelessRecipe(new ItemStack(ModItems.itemNetherCluster, 1, 0), new ItemStack(Blocks.SOUL_SAND, 1, 0), new ItemStack(Blocks.NETHERRACK, 1, 0), new ItemStack(Blocks.NETHERRACK, 1, 0), new ItemStack(Blocks.SOUL_SAND, 1, 0)); }
 		if(type.MYSTICAL_FLOWER.isEnabled()){ addShapelessRecipe(new ItemStack(ModItems.itemMysticalFlowerCluster, 1, 0), new ItemStack(Parts.itemBotaniaFlowers, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(Parts.itemBotaniaFlowers, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(Parts.itemBotaniaFlowers, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(Parts.itemBotaniaFlowers, 1, OreDictionary.WILDCARD_VALUE)); }
    
-		if(type.SKELETON.isEnabled() && type.CREEPER.isEnabled()){ 
+		if(type.SKELETON.isEnabled() && type.CREEPER.isEnabled() && EssenceConfig.record){ 
 			addShapedRecipe(new ItemStack(ModItems.itemBlankRecord, 1, 0), "CSC", "SIS", "CSC", 'I', "ingotIron", 'C', new ItemStack(type.CREEPER.getCrop(), 1, 0), 'S', new ItemStack(type.SKELETON.getCrop(), 1, 0)); 
 			addShapelessRecipe(new ItemStack(Items.RECORD_13, 1, 0), new ItemStack(ModItems.itemBlankRecord, 1, 0), "dyeYellow", new ItemStack(type.SKELETON.getCrop(), 1, 0), new ItemStack(type.CREEPER.getCrop(), 1, 0));
 			addShapelessRecipe(new ItemStack(Items.RECORD_CAT, 1, 0), new ItemStack(ModItems.itemBlankRecord, 1, 0), "dyeLime", new ItemStack(type.SKELETON.getCrop(), 1, 0), new ItemStack(type.CREEPER.getCrop(), 1, 0));
