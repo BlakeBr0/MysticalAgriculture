@@ -140,6 +140,7 @@ public class EssenceConfig {
 	public static int terrasteel;
 	
 	public static int osmium;
+	public static int glowstoneIngot;
 	public static int refinedObsidian;
 	
 	public static int marble;
@@ -313,6 +314,7 @@ public class EssenceConfig {
 		
 		category = "Mekanism";
 		osmium = config.get(category, "osmium", 4).getInt();
+		glowstoneIngot = config.get(category, "glowstone_ingot", 3).getInt();
 		refinedObsidian = config.get(category, "refined_obsidian", 2).getInt();
 		
 		category = "Chisel";

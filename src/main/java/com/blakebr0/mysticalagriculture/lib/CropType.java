@@ -94,6 +94,7 @@ public class CropType {
 		TERRASTEEL("terrasteel", ModConfig.confTerrasteelTier, ModConfig.confTerrasteelSeeds && ModChecker.BOTANIA),
 		
 		OSMIUM("osmium", ModConfig.confOsmiumTier, ModConfig.confOsmiumSeeds && ModChecker.MEKANISM),
+		GLOWSTONE_INGOT("glowstone_ingot", ModConfig.confGlowstoneIngotTier, ModConfig.confGlowstoneIngotSeeds && ModChecker.MEKANISM),
 		REFINED_OBSIDIAN("refined_obsidian", ModConfig.confRefinedObsidianTier, ModConfig.confRefinedObsidianSeeds && ModChecker.MEKANISM),
 		
 		MARBLE("marble", ModConfig.confMarbleTier, ModConfig.confMarbleSeeds && ModChecker.CHISEL),

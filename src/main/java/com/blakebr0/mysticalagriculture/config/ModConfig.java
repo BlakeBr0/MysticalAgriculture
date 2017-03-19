@@ -111,6 +111,7 @@ public class ModConfig {
 	public static boolean confTerrasteelSeeds;
 	
 	public static boolean confOsmiumSeeds;
+	public static boolean confGlowstoneIngotSeeds;
 	public static boolean confRefinedObsidianSeeds;
 	
 	public static boolean confMarbleSeeds;
@@ -208,6 +209,7 @@ public class ModConfig {
 	public static int confTerrasteelTier;
 	
 	public static int confOsmiumTier;
+	public static int confGlowstoneIngotTier;
 	public static int confRefinedObsidianTier;
 	
 	public static int confMarbleTier;
@@ -393,6 +395,7 @@ public class ModConfig {
 		confTerrasteelSeeds = config.get(category, "terrasteel_seeds", true).getBoolean();
 		
 		confOsmiumSeeds = config.get(category, "osmium_seeds", true).getBoolean();
+		confGlowstoneIngotSeeds = config.get(category, "glowstone_ingot_seeds", true).getBoolean();
 		confRefinedObsidianSeeds = config.get(category, "refined_obsidian_seeds", true).getBoolean();
 		
 		confMarbleSeeds = config.get(category, "marble_seeds", true).getBoolean();
@@ -504,6 +507,7 @@ public class ModConfig {
 		confTerrasteelTier = config.get(category, "terrasteel_tier", 5).getInt();
 
 		confOsmiumTier = config.get(category, "osmium_tier", 4).getInt();
+		confGlowstoneIngotTier = config.get(category, "glowstone_ingot_tier", 4).getInt();
 		confRefinedObsidianTier = config.get(category, "refined_obsidian_tier", 5).getInt();
 		
 		confMarbleTier = config.get(category, "marble_tier", 2).getInt();
