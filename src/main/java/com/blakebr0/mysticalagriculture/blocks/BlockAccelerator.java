@@ -15,6 +15,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.world.World;
+import net.minecraftforge.common.IPlantable;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
@@ -44,7 +45,7 @@ public class BlockAccelerator extends BlockBase {
 			IBlockState cropState = world.getBlockState(new BlockPos(aoePos));
 			Block cropBlock = cropState.getBlock();
 			
-			if(cropBlock instanceof IGrowable){
+			if(cropBlock instanceof IGrowable || cropBlock instanceof IPlantable){
 				world.scheduleBlockUpdate(new BlockPos(aoePos), cropBlock, ModConfig.confGrowthAcceleratorSpeed * 20, 1);
 				cropBlock.updateTick(world, new BlockPos(aoePos), cropState, world.rand);
 			}
