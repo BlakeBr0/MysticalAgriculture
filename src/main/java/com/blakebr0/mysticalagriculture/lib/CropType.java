@@ -66,6 +66,10 @@ public class CropType {
 		RUBY("ruby", ModConfig.confRubyTier, ModConfig.confRubySeeds && ModChecker.RUBY),
 		SAPPHIRE("sapphire", ModConfig.confSapphireTier, ModConfig.confSapphireSeeds && ModChecker.SAPPHIRE),
 		PERIDOT("peridot", ModConfig.confPeridotTier, ModConfig.confPeridotSeeds && ModChecker.PERIDOT),
+		AMBER("amber", ModConfig.confAmberTier, ModConfig.confAmberSeeds && ModChecker.BOP),
+		TOPAZ("topaz", ModConfig.confTopazTier, ModConfig.confTopazSeeds && ModChecker.BOP),
+		MALACHITE("malachite", ModConfig.confMalachiteTier, ModConfig.confMalachiteSeeds && ModChecker.BOP),
+		TANZANITE("tanzanite", ModConfig.confTanzaniteTier, ModConfig.confTanzaniteSeeds && ModChecker.BOP),
 		
 		BLIZZ("blizz", ModConfig.confBlizzTier, ModConfig.confBlizzSeeds && ModChecker.THERMAL),
 		BLITZ("blitz", ModConfig.confBlitzTier, ModConfig.confBlitzSeeds && ModChecker.THERMAL),
