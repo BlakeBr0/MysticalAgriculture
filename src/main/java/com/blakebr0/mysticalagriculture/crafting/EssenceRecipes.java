@@ -242,6 +242,8 @@ public class EssenceRecipes {
 	    if(type.LIMESTONE.isEnabled()){ addEssenceRecipe(new ItemStack(Parts.itemChiselLimestone, EssenceConfig.limestone, 7), "EEE", "EXE", "EEE", 'E', new ItemStack(type.LIMESTONE.getCrop(), 1, 0)); }
 	    if(type.BASALT.isEnabled()){ addEssenceRecipe(new ItemStack(Parts.itemChiselBasalt, EssenceConfig.basalt, 7), "EEE", "EXE", "EEE", 'E', new ItemStack(type.BASALT.getCrop(), 1, 0)); }
 
+	    if(type.ENDER_AMETHYST.isEnabled()){ addEssenceRecipe(new ItemStack(Parts.itemBOPGems, EssenceConfig.enderAmethyst, 0), "EEE", "EXE", "EEE", 'E', new ItemStack(type.ENDER_AMETHYST.getCrop(), 1, 0)); }    
+	    
 	    if(type.DRACONIUM.isEnabled()){ addEssenceRecipe(OreDictResources.getItem("ingotDraconium", EssenceConfig.draconium), "EEE", "EXE", "EEE", 'E', new ItemStack(type.DRACONIUM.getCrop(), 1, 0)); }
 
 	    if(type.YELLORIUM.isEnabled()){ addEssenceRecipe(OreDictResources.getItem("ingotYellorium", EssenceConfig.yellorium), "EEE", "EXE", "EEE", 'E', new ItemStack(type.YELLORIUM.getCrop(), 1, 0)); }

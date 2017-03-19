@@ -20,6 +20,7 @@ public class Parts {
 	public static Item itemChiselMarble;
 	public static Item itemChiselLimestone;
 	public static Item itemChiselBasalt;
+	public static Item itemBOPGems;
 	public static Item itemRSIngot;
 	public static Item itemAEMaterial;
 	
@@ -87,6 +88,15 @@ public class Parts {
 	        } catch(Throwable e){
 	            e.printStackTrace();
 	        }
+	    }
+	    
+	    if(ModChecker.BOP){
+	    	try {
+	    		Item item = getItem("biomesoplenty:gem");
+	    		itemBOPGems = item;
+	    	} catch(Throwable e){
+	    		e.printStackTrace();
+	    	}
 	    }
 	    
 	    if(ModChecker.RS){

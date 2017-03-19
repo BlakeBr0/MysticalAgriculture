@@ -440,6 +440,8 @@ public class ModRecipes {
 	    addSeedRecipe(type.LIMESTONE, new ItemStack(Parts.itemChiselLimestone, 1, 7));
 	    addSeedRecipe(type.BASALT, new ItemStack(Parts.itemChiselBasalt, 1, 7));
 
+	    addSeedRecipe(type.ENDER_AMETHYST, new ItemStack(Parts.itemBOPGems, 1, 0));
+	    
 	    addSeedRecipe(type.DRACONIUM, "ingotDraconium");
 
 	    addSeedRecipe(type.YELLORIUM, "ingotYellorium");

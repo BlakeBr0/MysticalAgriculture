@@ -174,6 +174,8 @@ tile.ma.marble_crop.name=Marble Crop
 tile.ma.limestone_crop.name=Limestone Crop
 tile.ma.basalt_crop.name=Basalt Crop
 
+tile.ma.ender_amethyst_crop.name=Ender Amethyst Crop
+
 tile.ma.draconium_crop.name=Draconium Crop
 
 tile.ma.yellorium_crop.name=Yellorium Crop
@@ -358,6 +360,8 @@ item.ma.marble_essence.name=Marble Essence
 item.ma.limestone_essence.name=Limestone Essence
 item.ma.basalt_essence.name=Basalt Essence
 
+item.ma.ender_amethyst_essence.name=Ender Amethyst Essence
+
 item.ma.draconium_essence.name=Draconium Essence
 
 item.ma.yellorium_essence.name=Yellorium Essence
@@ -467,6 +471,8 @@ item.ma.refined_obsidian_seeds.name=Refined Obsidian Seeds
 item.ma.marble_seeds.name=Marble Seeds
 item.ma.limestone_seeds.name=Limestone Seeds
 item.ma.basalt_seeds.name=Basalt Seeds
+
+item.ma.ender_amethyst_seeds.name=Ender Amethyst Seeds
 
 item.ma.draconium_seeds.name=Draconium Seeds
 
@@ -607,7 +613,7 @@ item.ma.supremium_boots_resistance.name=§cSupremium Boots
 # TOOLTIPS
 tooltip.ma.blast_resistant=Blast Resistant
 
-tooltip.ma.growth_accelerator=Grows crops above it faster.
+tooltip.ma.growth_accelerator=Grows plants above it faster.
 
 tooltip.ma.mystical_fertilizer=Instantly grows a crop.
 

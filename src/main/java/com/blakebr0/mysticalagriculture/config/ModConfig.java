@@ -122,6 +122,8 @@ public class ModConfig {
 	public static boolean confLimestoneSeeds;
 	public static boolean confBasaltSeeds;
 	
+	public static boolean confEnderAmethystSeeds;
+	
 	public static boolean confDraconiumSeeds;
 	
 	public static boolean confYelloriumSeeds;
@@ -223,6 +225,8 @@ public class ModConfig {
 	public static int confMarbleTier;
 	public static int confLimestoneTier;
 	public static int confBasaltTier;
+	
+	public static int confEnderAmethystTier;
 	
 	public static int confDraconiumTier;
 	
@@ -413,6 +417,8 @@ public class ModConfig {
 		confMarbleSeeds = config.get(category, "marble_seeds", true).getBoolean();
 		confLimestoneSeeds = config.get(category, "limestone_seeds", true).getBoolean();
 		confBasaltSeeds = config.get(category, "basalt_seeds", true).getBoolean();
+		
+		confEnderAmethystSeeds = config.get(category, "ender_amethyst_seeds", true).getBoolean();
 	
 		confDraconiumSeeds = config.get(category, "draconium_seeds", true).getBoolean();
 		
@@ -529,6 +535,8 @@ public class ModConfig {
 		confMarbleTier = config.get(category, "marble_tier", 2).getInt();
 		confLimestoneTier = config.get(category, "limestone_tier", 2).getInt();
 		confBasaltTier = config.get(category, "basalt_tier", 2).getInt();
+		
+		confEnderAmethystTier = config.get(category, "ender_amethyst_tier", 5).getInt();
 		
 		confDraconiumTier = config.get(category, "draconium_tier", 5).getInt();
 		

@@ -151,6 +151,8 @@ public class EssenceConfig {
 	public static int limestone;
 	public static int basalt;
 	
+	public static int enderAmethyst;
+	
 	public static int draconium;
 	
 	public static int yellorium;
@@ -330,6 +332,9 @@ public class EssenceConfig {
 		limestone = config.get(category, "limestone", 24).getInt();
 		basalt = config.get(category, "basalt", 16).getInt();
 	
+		category = "Biomes 'O Plenty";
+		enderAmethyst = config.get(category, "ender_amethyst", 3).getInt();
+		
 		category = "Draconic Evolution";
 		draconium = config.get(category, "draconium", 1).getInt();
 	
