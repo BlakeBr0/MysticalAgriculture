@@ -112,6 +112,10 @@ public class EssenceConfig {
 	public static int ruby;
 	public static int sapphire;
 	public static int peridot;
+	public static int amber;
+	public static int topaz;
+	public static int malachite;
+	public static int tanzanite;
 	
 	public static int blizz;
 	public static int blitz;
@@ -281,6 +285,10 @@ public class EssenceConfig {
 		ruby = config.get(category, "ruby", 6).getInt();
 		sapphire = config.get(category, "sapphire", 6).getInt();
 		peridot = config.get(category, "peridot", 6).getInt();
+		amber = config.get(category, "amber", 6).getInt();
+		topaz = config.get(category, "topaz", 6).getInt();
+		malachite = config.get(category, "malachite", 6).getInt();
+		tanzanite = config.get(category, "tanzanite", 6).getInt();
 		
 		category = "Thermal Foundation";
 		blizz = config.get(category, "blizz", 3).getInt();

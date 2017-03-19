@@ -401,6 +401,10 @@ public class ModRecipes {
 	    addSeedRecipe(type.RUBY, "gemRuby");
 	    addSeedRecipe(type.SAPPHIRE, "gemSapphire");
 	    addSeedRecipe(type.PERIDOT, "gemPeridot");
+	    addSeedRecipe(type.AMBER, "gemAmber");
+	    addSeedRecipe(type.TOPAZ, "gemTopaz");
+	    addSeedRecipe(type.MALACHITE, "gemMalachite");
+	    addSeedRecipe(type.TANZANITE, "gemTanzanite");
 	    
 	    addSeedRecipe(type.BLIZZ, new ItemStack(ModItems.itemBlizzChunk, 1, 0));
 	    addSeedRecipe(type.BLITZ, new ItemStack(ModItems.itemBlitzChunk, 1, 0));

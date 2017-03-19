@@ -83,6 +83,10 @@ public class ModConfig {
 	public static boolean confRubySeeds;
 	public static boolean confSapphireSeeds;
 	public static boolean confPeridotSeeds;
+	public static boolean confAmberSeeds;
+	public static boolean confTopazSeeds;
+	public static boolean confMalachiteSeeds;
+	public static boolean confTanzaniteSeeds;
 	
 	public static boolean confBlizzSeeds;
 	public static boolean confBlitzSeeds;
@@ -181,6 +185,10 @@ public class ModConfig {
 	public static int confRubyTier;
 	public static int confSapphireTier;
 	public static int confPeridotTier;
+	public static int confAmberTier;
+	public static int confTopazTier;
+	public static int confMalachiteTier;
+	public static int confTanzaniteTier;
 	
 	public static int confBlizzTier;
 	public static int confBlitzTier;
@@ -367,6 +375,10 @@ public class ModConfig {
 		confRubySeeds = config.get(category, "ruby_seeds", true).getBoolean();
 		confSapphireSeeds = config.get(category, "sapphire_seeds", true).getBoolean();
 		confPeridotSeeds = config.get(category, "peridot_seeds", true).getBoolean();
+		confAmberSeeds = config.get(category, "amber_seeds", true).getBoolean();
+		confTopazSeeds = config.get(category, "topaz_seeds", true).getBoolean();
+		confMalachiteSeeds = config.get(category, "malachite_seeds", true).getBoolean();
+		confTanzaniteSeeds = config.get(category, "tanzanite_seeds", true).getBoolean();
 		
 		confBlizzSeeds = config.get(category, "blizz_seeds", true).getBoolean();
 		confBlitzSeeds = config.get(category, "blitz_seeds", true).getBoolean();
@@ -479,6 +491,10 @@ public class ModConfig {
 		confRubyTier = config.get(category, "ruby_tier", 4).getInt();
 		confSapphireTier = config.get(category, "sapphire", 4).getInt();
 		confPeridotTier = config.get(category, "peridot_tier", 4).getInt();
+		confAmberTier = config.get(category, "amber_tier", 4).getInt();
+		confTopazTier = config.get(category, "topaz_tier", 4).getInt();
+		confMalachiteTier = config.get(category, "malachite_tier", 4).getInt();
+		confTanzaniteTier = config.get(category, "tanzanite_tier", 4).getInt();
 		
 		confBlizzTier = config.get(category, "blizz_tier", 3).getInt();
 		confBlitzTier = config.get(category, "blitz_tier", 3).getInt();

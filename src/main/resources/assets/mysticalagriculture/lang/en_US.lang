@@ -135,6 +135,10 @@ tile.ma.platinum_crop.name=Platinum Crop
 tile.ma.ruby_crop.name=Ruby Crop
 tile.ma.sapphire_crop.name=Sapphire Crop
 tile.ma.peridot_crop.name=Peridot Crop
+tile.ma.amber_crop.name=Amber Crop
+tile.ma.topaz_crop.name=Topaz Crop
+tile.ma.malachite_crop.name=Malachite Crop
+tile.ma.tanzanite_crop.name=Tanzanite Crop
 
 tile.ma.blizz_crop.name=Blizz Crop
 tile.ma.blitz_crop.name=Blitz Crop
@@ -315,6 +319,10 @@ item.ma.platinum_essence.name=Platinum Essence
 item.ma.ruby_essence.name=Ruby Essence
 item.ma.sapphire_essence.name=Sapphire Essence
 item.ma.peridot_essence.name=Peridot Essence
+item.ma.amber_essence.name=Amber Essence
+item.ma.topaz_essence.name=Topaz Essence
+item.ma.malachite_essence.name=Malachite Essence
+item.ma.tanzanite_essence.name=Tanzanite Essence
 
 item.ma.blizz_essence.name=Blizz Essence
 item.ma.blitz_essence.name=Blitz Essence
@@ -421,6 +429,10 @@ item.ma.platinum_seeds.name=Platinum Seeds
 item.ma.ruby_seeds.name=Ruby Seeds
 item.ma.sapphire_seeds.name=Sapphire Seeds
 item.ma.peridot_seeds.name=Peridot Seeds
+item.ma.amber_seeds.name=Amber Seeds
+item.ma.topaz_seeds.name=Topaz Seeds
+item.ma.malachite_seeds.name=Malachite Seeds
+item.ma.tanzanite_seeds.name=Tanzanite Seeds
 
 item.ma.blizz_seeds.name=Blizz Seeds
 item.ma.blitz_seeds.name=Blitz Seeds

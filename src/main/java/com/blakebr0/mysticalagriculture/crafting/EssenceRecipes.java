@@ -186,6 +186,10 @@ public class EssenceRecipes {
 	    if(type.RUBY.isEnabled()){ addEssenceRecipe(OreDictResources.getItem("gemRuby", EssenceConfig.ruby), "EEE", "EXE", "EEE", 'E', new ItemStack(type.RUBY.getCrop(), 1, 0)); }
 	    if(type.SAPPHIRE.isEnabled()){ addEssenceRecipe(OreDictResources.getItem("gemSapphire", EssenceConfig.sapphire), "EEE", "EXE", "EEE", 'E', new ItemStack(type.SAPPHIRE.getCrop(), 1, 0)); }
 	    if(type.PERIDOT.isEnabled()){ addEssenceRecipe(OreDictResources.getItem("gemPeridot", EssenceConfig.peridot), "EEE", "EXE", "EEE", 'E', new ItemStack(type.PERIDOT.getCrop(), 1, 0)); }
+	    if(type.AMBER.isEnabled()){ addEssenceRecipe(OreDictResources.getItem("gemAmber", EssenceConfig.amber), "EEE", "EXE", "EEE", 'E', new ItemStack(type.AMBER.getCrop(), 1, 0)); }
+	    if(type.TOPAZ.isEnabled()){ addEssenceRecipe(OreDictResources.getItem("gemTopaz", EssenceConfig.topaz), "EEE", "EXE", "EEE", 'E', new ItemStack(type.TOPAZ.getCrop(), 1, 0)); }
+	    if(type.MALACHITE.isEnabled()){ addEssenceRecipe(OreDictResources.getItem("gemMalachite", EssenceConfig.malachite), "EEE", "EXE", "EEE", 'E', new ItemStack(type.MALACHITE.getCrop(), 1, 0)); }
+	    if(type.TANZANITE.isEnabled()){ addEssenceRecipe(OreDictResources.getItem("gemTanzanite", EssenceConfig.tanzanite), "EEE", "EXE", "EEE", 'E', new ItemStack(type.TANZANITE.getCrop(), 1, 0)); }
 	
 	    if(type.BLIZZ.isEnabled()){ addEssenceRecipe(OreDictResources.getItem("rodBlizz", EssenceConfig.blizz), "XEX", "EEE", "XEX", 'E', new ItemStack(type.BLIZZ.getCrop(), 1, 0)); }
 	    if(type.BLITZ.isEnabled()){ addEssenceRecipe(OreDictResources.getItem("rodBlitz", EssenceConfig.blitz), "XEX", "EEE", "XEX", 'E', new ItemStack(type.BLITZ.getCrop(), 1, 0)); }
