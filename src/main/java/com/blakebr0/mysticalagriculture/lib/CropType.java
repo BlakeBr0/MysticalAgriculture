@@ -105,7 +105,7 @@ public class CropType {
 		LIMESTONE("limestone", ModConfig.confLimestoneTier, ModConfig.confLimestoneSeeds && ModChecker.CHISEL),
 		BASALT("basalt", ModConfig.confBasaltTier, ModConfig.confBasaltSeeds && ModChecker.CHISEL),
 		
-		ENDER_AMETHYST("ender_amethyst", ModConfig.confEnderAmethystTier, ModConfig.confEnderAmethystSeeds),
+		ENDER_AMETHYST("ender_amethyst", ModConfig.confEnderAmethystTier, ModConfig.confEnderAmethystSeeds && ModChecker.BOP),
 		
 		DRACONIUM("draconium", ModConfig.confDraconiumTier, ModConfig.confDraconiumSeeds && ModChecker.DRACONIC),
 		
