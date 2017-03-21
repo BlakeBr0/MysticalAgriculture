@@ -433,7 +433,7 @@ public class ModRecipes {
 	    addSeedRecipe(type.TERRASTEEL, new ItemStack(Parts.itemBotaniaResources, 1, 4));
 	
 	    addSeedRecipe(type.OSMIUM, "ingotOsmium");
-	    addSeedRecipe(type.GLOWSTONE_INGOT, "ingotRefinedObsidian");
+	    addSeedRecipe(type.GLOWSTONE_INGOT, "ingotRefinedGlowstone");
 	    addSeedRecipe(type.REFINED_OBSIDIAN, "ingotRefinedObsidian");
 
 	    addSeedRecipe(type.MARBLE, new ItemStack(Parts.itemChiselMarble, 1, 7));
