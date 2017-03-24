@@ -451,20 +451,21 @@ public class ModRecipes {
 	    
 	    addSeedRecipe(type.QUARTZ_ENRICHED_IRON, new ItemStack(Parts.itemRSIngot, 1, 0));
 	    
+    	if(ModConfig.confHarderIngots){
+    	    addShapedRecipe(new ItemStack(ModItems.itemInferiumIngot, 1, 0), "XEX", "EIE", "XEX", 'E', new ItemStack(ModItems.itemInferiumEssence, 1, 0), 'I', new ItemStack(ModItems.itemBaseEssenceIngot, 1, 0));
+		    addShapedRecipe(new ItemStack(ModItems.itemPrudentiumIngot, 1, 0), "XEX", "EIE", "XEX", 'E', new ItemStack(ModItems.itemPrudentiumEssence, 1, 0), 'I', new ItemStack(ModItems.itemInferiumIngot, 1, 0));
+		    addShapedRecipe(new ItemStack(ModItems.itemIntermediumIngot, 1, 0), "XEX", "EIE", "XEX", 'E', new ItemStack(ModItems.itemIntermediumEssence, 1, 0), 'I', new ItemStack(ModItems.itemPrudentiumIngot, 1, 0));
+		    addShapedRecipe(new ItemStack(ModItems.itemSuperiumIngot, 1, 0), "XEX", "EIE", "XEX", 'E', new ItemStack(ModItems.itemSuperiumEssence, 1, 0), 'I', new ItemStack(ModItems.itemIntermediumIngot, 1, 0));
+		    addShapedRecipe(new ItemStack(ModItems.itemSupremiumIngot, 1, 0), "XEX", "EIE", "XEX", 'E', new ItemStack(ModItems.itemSupremiumEssence, 1, 0), 'I', new ItemStack(ModItems.itemSuperiumIngot, 1, 0));
+    	} else {
+    		addShapelessRecipe(new ItemStack(ModItems.itemInferiumIngot, 1, 0), new ItemStack(ModItems.itemBaseEssenceIngot, 1, 0), new ItemStack(ModItems.itemInferiumEssence, 1, 0), new ItemStack(ModItems.itemInferiumEssence, 1, 0));
+    		addShapelessRecipe(new ItemStack(ModItems.itemPrudentiumIngot, 1, 0), new ItemStack(ModItems.itemInferiumIngot, 1, 0), new ItemStack(ModItems.itemPrudentiumEssence, 1, 0), new ItemStack(ModItems.itemPrudentiumEssence, 1, 0));
+    		addShapelessRecipe(new ItemStack(ModItems.itemIntermediumIngot, 1, 0), new ItemStack(ModItems.itemPrudentiumIngot, 1, 0), new ItemStack(ModItems.itemIntermediumEssence, 1, 0), new ItemStack(ModItems.itemIntermediumEssence, 1, 0));
+    		addShapelessRecipe(new ItemStack(ModItems.itemSuperiumIngot, 1, 0), new ItemStack(ModItems.itemIntermediumIngot, 1, 0), new ItemStack(ModItems.itemSuperiumEssence, 1, 0), new ItemStack(ModItems.itemSuperiumEssence, 1, 0));
+    		addShapelessRecipe(new ItemStack(ModItems.itemSupremiumIngot, 1, 0), new ItemStack(ModItems.itemSuperiumIngot, 1, 0), new ItemStack(ModItems.itemSupremiumEssence, 1, 0), new ItemStack(ModItems.itemSupremiumEssence, 1, 0));
+    	}
+	    
 	    if(ModConfig.confGearModuleOverride){
-	    	if(ModConfig.confHarderIngots){
-	    	    addShapedRecipe(new ItemStack(ModItems.itemInferiumIngot, 1, 0), "XEX", "EIE", "XEX", 'E', new ItemStack(ModItems.itemInferiumEssence, 1, 0), 'I', new ItemStack(ModItems.itemBaseEssenceIngot, 1, 0));
-			    addShapedRecipe(new ItemStack(ModItems.itemPrudentiumIngot, 1, 0), "XEX", "EIE", "XEX", 'E', new ItemStack(ModItems.itemPrudentiumEssence, 1, 0), 'I', new ItemStack(ModItems.itemInferiumIngot, 1, 0));
-			    addShapedRecipe(new ItemStack(ModItems.itemIntermediumIngot, 1, 0), "XEX", "EIE", "XEX", 'E', new ItemStack(ModItems.itemIntermediumEssence, 1, 0), 'I', new ItemStack(ModItems.itemPrudentiumIngot, 1, 0));
-			    addShapedRecipe(new ItemStack(ModItems.itemSuperiumIngot, 1, 0), "XEX", "EIE", "XEX", 'E', new ItemStack(ModItems.itemSuperiumEssence, 1, 0), 'I', new ItemStack(ModItems.itemIntermediumIngot, 1, 0));
-			    addShapedRecipe(new ItemStack(ModItems.itemSupremiumIngot, 1, 0), "XEX", "EIE", "XEX", 'E', new ItemStack(ModItems.itemSupremiumEssence, 1, 0), 'I', new ItemStack(ModItems.itemSuperiumIngot, 1, 0));
-	    	} else {
-	    		addShapelessRecipe(new ItemStack(ModItems.itemInferiumIngot, 1, 0), new ItemStack(ModItems.itemBaseEssenceIngot, 1, 0), new ItemStack(ModItems.itemInferiumEssence, 1, 0), new ItemStack(ModItems.itemInferiumEssence, 1, 0));
-	    		addShapelessRecipe(new ItemStack(ModItems.itemPrudentiumIngot, 1, 0), new ItemStack(ModItems.itemInferiumIngot, 1, 0), new ItemStack(ModItems.itemPrudentiumEssence, 1, 0), new ItemStack(ModItems.itemPrudentiumEssence, 1, 0));
-	    		addShapelessRecipe(new ItemStack(ModItems.itemIntermediumIngot, 1, 0), new ItemStack(ModItems.itemPrudentiumIngot, 1, 0), new ItemStack(ModItems.itemIntermediumEssence, 1, 0), new ItemStack(ModItems.itemIntermediumEssence, 1, 0));
-	    		addShapelessRecipe(new ItemStack(ModItems.itemSuperiumIngot, 1, 0), new ItemStack(ModItems.itemIntermediumIngot, 1, 0), new ItemStack(ModItems.itemSuperiumEssence, 1, 0), new ItemStack(ModItems.itemSuperiumEssence, 1, 0));
-	    		addShapelessRecipe(new ItemStack(ModItems.itemSupremiumIngot, 1, 0), new ItemStack(ModItems.itemSuperiumIngot, 1, 0), new ItemStack(ModItems.itemSupremiumEssence, 1, 0), new ItemStack(ModItems.itemSupremiumEssence, 1, 0));
-	    	}
 	    	
 		    addShapedRecipe(new ItemStack(ModItems.itemCoreRemover, 1, 0), "IOI", "ODO", "IOI", 'I', "ingotIron", 'O', new ItemStack(Blocks.OBSIDIAN, 1, 0), 'D', new ItemStack(Items.DIAMOND, 1, 0));
 
