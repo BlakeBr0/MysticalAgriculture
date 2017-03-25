@@ -17,7 +17,7 @@ public class EssenceRecipes {
 	
 	public static void addEssenceRecipe(ItemStack output, Object... input){
 		if(output != null && output.stackSize > 0){
-			GameRegistry.addRecipe(new ShapedOreRecipe(output, input));
+			GameRegistry.addRecipe(new ShapedOreRecipe(output, input).setMirrored(false));
 		}
 	}
 	

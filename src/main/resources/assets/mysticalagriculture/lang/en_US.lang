@@ -233,12 +233,26 @@ item.ma.tier4_crafting_seed.name=Tier 4 Crafting Seed
 item.ma.tier5_crafting_seed.name=Tier 5 Crafting Seed
 
 item.ma.mystical_tool_rod.name=Mystical Tool Rod
+
 item.ma.base_essence_ingot.name=Base Essence Ingot
+item.ma.inferium_ingot.name=§eInferium Ingot
+item.ma.prudentium_ingot.name=§aPrudentium Ingot
+item.ma.intermedium_ingot.name=§6Intermedium Ingot
+item.ma.superium_ingot.name=§bSuperium Ingot
+item.ma.supremium_ingot.name=§cSupremium Ingot
 
 item.ma.soul_dust.name=Soul Dust
 item.ma.soulium_dust.name=§dSoulium Dust
 item.ma.soulium_ingot.name=§dSoulium Ingot
 item.ma.soulium_dagger.name=§dSoulium Dagger
+
+item.ma.nugget_base_essence.name=Base Essence Nugget
+item.ma.nugget_inferium.name=§eInferium Nugget
+item.ma.nugget_prudentium.name=§aPrudentium Nugget
+item.ma.nugget_intermedium.name=§6Intermedium Nugget
+item.ma.nugget_superium.name=§bSuperium Nugget
+item.ma.nugget_supremium.name=§cSupremium Nugget
+item.ma.nugget_soulium.name=§dSoulium Nugget
 
 # CHUNKS
 item.ma.tier1_mob_chunk.name=Tier 1 Mob Chunk
@@ -486,11 +500,6 @@ item.ma.quartz_enriched_iron_seeds.name=Quartz Enriched Iron Seeds
 item.ma.constantan_seeds.name=Constantan Seeds
 
 # GEAR ITEMS
-item.ma.inferium_ingot.name=§eInferium Ingot
-item.ma.prudentium_ingot.name=§aPrudentium Ingot
-item.ma.intermedium_ingot.name=§6Intermedium Ingot
-item.ma.superium_ingot.name=§bSuperium Ingot
-item.ma.supremium_ingot.name=§cSupremium Ingot
 item.ma.core_remover.name=§cCore Remover
 
 # CORES

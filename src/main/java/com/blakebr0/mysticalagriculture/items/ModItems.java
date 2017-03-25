@@ -91,12 +91,20 @@ public class ModItems {
 	public static ItemBase itemTier5CraftingSeed = new ItemBase("tier5_crafting_seed");
 	
 	public static ItemBase itemMysticalToolRod = new ItemBase("mystical_tool_rod");
+	
 	public static ItemBase itemBaseEssenceIngot = new ItemBase("base_essence_ingot");
+	public static ItemBase itemInferiumIngot = new ItemBase("inferium_ingot");
+	public static ItemBase itemPrudentiumIngot = new ItemBase("prudentium_ingot");
+	public static ItemBase itemIntermediumIngot = new ItemBase("intermedium_ingot");
+	public static ItemBase itemSuperiumIngot = new ItemBase("superium_ingot");
+	public static ItemBase itemSupremiumIngot = new ItemBase("supremium_ingot");
 	
 	public static ItemBase itemSoulDust = new ItemBase("soul_dust");
 	public static ItemBase itemSouliumDust = new ItemBase("soulium_dust");
 	public static ItemBase itemSouliumIngot = new ItemBase("soulium_ingot");
 	public static ItemSouliumDagger itemSouliumDagger = new ItemSouliumDagger("soulium_dagger", ModToolMaterials.SOULIUM);
+		
+	public static ItemNugget itemNugget = new ItemNugget();
 	
 	public static ItemBase itemTier1MobChunk = new ItemBase("tier1_mob_chunk");
 	public static ItemBase itemTier2MobChunk = new ItemBase("tier2_mob_chunk");
@@ -129,13 +137,7 @@ public class ModItems {
 	public static ItemSeed itemTier3InferiumSeeds = new ItemSeed("tier3_inferium_seeds", ModBlocks.blockTier3InferiumCrop, 3);
 	public static ItemSeed itemTier4InferiumSeeds = new ItemSeed("tier4_inferium_seeds", ModBlocks.blockTier4InferiumCrop, 4);
 	public static ItemSeed itemTier5InferiumSeeds = new ItemSeed("tier5_inferium_seeds", ModBlocks.blockTier5InferiumCrop, 5); 
-		
-	public static ItemBase itemInferiumIngot = new ItemBase("inferium_ingot");
-	public static ItemBase itemPrudentiumIngot = new ItemBase("prudentium_ingot");
-	public static ItemBase itemIntermediumIngot = new ItemBase("intermedium_ingot");
-	public static ItemBase itemSuperiumIngot = new ItemBase("superium_ingot");
-	public static ItemBase itemSupremiumIngot = new ItemBase("supremium_ingot");
-	
+			
 	public static ItemCoreRemover itemCoreRemover = new ItemCoreRemover("core_remover");
 	
 	public static ItemCore itemInferiumToolCore = new ItemCore("inferium_tool_core");
@@ -308,6 +310,8 @@ public class ModItems {
 		registerItem(itemSouliumDust);
 		registerItem(itemSouliumIngot);
 		registerItem(itemSouliumDagger);
+		
+		registerItem(itemNugget);
 		
 		registerItem(itemTier1MobChunk);
 		registerItem(itemTier2MobChunk);
@@ -531,6 +535,8 @@ public class ModItems {
 		registerModel(itemSouliumDust);
 		registerModel(itemSouliumIngot);
 		registerModel(itemSouliumDagger);
+		
+		itemNugget.initModels();
 		
 		registerModel(itemTier1MobChunk);
 		registerModel(itemTier2MobChunk);
