@@ -81,13 +81,15 @@ public class ModBlocks {
 	
 	public static BlockWitherproofBlock blockWitherproofBlock = new BlockWitherproofBlock("witherproof_block", Material.ROCK, SoundType.STONE, 24.0F, 2000.0F, "pickaxe", 1);
 	public static BlockWitherproofGlass blockWitherproofGlass = new BlockWitherproofGlass("witherproof_glass", Material.GLASS, SoundType.GLASS, 20.0F, 1800.0F, "pickaxe", 1);
-		
+	
+	public static BlockTinkeringTable blockTinkeringTable = new BlockTinkeringTable();
+
 	public static BlockTier1InferiumCrop blockTier1InferiumCrop = new BlockTier1InferiumCrop("tier1_inferium_crop");
 	public static BlockTier2InferiumCrop blockTier2InferiumCrop = new BlockTier2InferiumCrop("tier2_inferium_crop");
 	public static BlockTier3InferiumCrop blockTier3InferiumCrop = new BlockTier3InferiumCrop("tier3_inferium_crop");
 	public static BlockTier4InferiumCrop blockTier4InferiumCrop = new BlockTier4InferiumCrop("tier4_inferium_crop");
 	public static BlockTier5InferiumCrop blockTier5InferiumCrop = new BlockTier5InferiumCrop("tier5_inferium_crop");
-	
+		
 	public static void initBlocks(){
 								
 		registerBlock(blockInferium);
@@ -148,6 +150,8 @@ public class ModBlocks {
 			registerBlock(blockWitherproofGlass);
 		}
 
+		registerBlock(blockTinkeringTable);
+		
 		registerBlock(blockTier1InferiumCrop);
 		registerBlock(blockTier2InferiumCrop);
 		registerBlock(blockTier3InferiumCrop);
@@ -221,6 +225,8 @@ public class ModBlocks {
 			registerModel(blockWitherproofBlock);
 			registerModel(blockWitherproofGlass);
 		}
+		
+		registerModel(blockTinkeringTable);
 
 		registerModel(blockTier1InferiumCrop);
 		registerModel(blockTier2InferiumCrop);

@@ -8,6 +8,7 @@ import com.blakebr0.mysticalagriculture.crafting.EssenceRecipes;
 import com.blakebr0.mysticalagriculture.crafting.ModRecipes;
 import com.blakebr0.mysticalagriculture.crafting.ReprocessorManager;
 import com.blakebr0.mysticalagriculture.crafting.ReprocessorRecipe;
+import com.blakebr0.mysticalagriculture.crafting.TinkeringTableManager;
 import com.blakebr0.mysticalagriculture.handler.GuiHandler;
 import com.blakebr0.mysticalagriculture.items.ModItems;
 import com.blakebr0.mysticalagriculture.items.armor.ItemIntermediumArmor;
@@ -49,6 +50,8 @@ public class CommonProxy {
 	public void init(FMLInitializationEvent e){
 		ModTileEntities.initTileEntities();
 				
+		TinkeringTableManager.getInstance().addRecipe(new ItemStack(ModItems.itemSupremiumEssence, 1, 0), "AB ", "   ", "   ", 'A', new ItemStack(ModItems.itemInferiumApple), 'B', new ItemStack(ModItems.itemBaseCraftingSeed));
+		
 		if(ModConfig.confSeedReprocessor){
 			ReprocessorManager.addRecipe(new ItemStack(ModItems.itemInferiumEssence, 1, 0), new ItemStack(ModItems.itemTier1InferiumSeeds, 1, 0));
 			ReprocessorManager.addRecipe(new ItemStack(ModItems.itemInferiumEssence, 2, 0), new ItemStack(ModItems.itemTier2InferiumSeeds, 1, 0));
