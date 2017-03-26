@@ -1,6 +1,10 @@
 {
-    "parent": "block/cube_all",
+  "parent": "mysticalagriculture:block/tinkering_table",
     "textures": {
-        "all": "mysticalagriculture:blocks/tinkering_table_intermedium"
-    }
+        "particle": "mysticalagriculture:blocks/intermedium_ingot_block",
+        "top": "wew",
+        "side": "wew",
+        "bottom": "wew",
+        "leg": "mysticalagriculture:blocks/intermedium_ingot_block"
+	}
 }
