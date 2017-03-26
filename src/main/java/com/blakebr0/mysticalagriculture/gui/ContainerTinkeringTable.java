@@ -99,10 +99,10 @@ public class ContainerTinkeringTable extends Container {
                     return null;
                 }
             } else if (slotNumber >= 37 && slotNumber < 62) {
-                if (!this.mergeItemStack(itemstack1, 26, 37, false)) {
+                if (!this.mergeItemStack(itemstack1, 10, 37, false)) {
                     return null;
                 }
-            } else if(!this.mergeItemStack(itemstack1, 26, 46, false)) {
+            } else if(!this.mergeItemStack(itemstack1, 10, 46, false)) {
                 return null;
             }
 

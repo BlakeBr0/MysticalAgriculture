@@ -64,6 +64,7 @@ desc.tile.ma.seed_reprocessor=Converts seeds into their respective crop output. 
 
 tile.ma.tinkering_table.name=Tinkering Table
 container.ma.tinkering_table.name=Tinkering Table
+jei.ma.tinkering_table=Tinkering Table
 
 # ORES
 tile.ma.prosperity_ore.name=Prosperity Ore
