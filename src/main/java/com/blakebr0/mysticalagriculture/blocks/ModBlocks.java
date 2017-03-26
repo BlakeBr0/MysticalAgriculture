@@ -150,7 +150,7 @@ public class ModBlocks {
 			registerBlock(blockWitherproofGlass);
 		}
 
-		registerBlock(blockTinkeringTable);
+		registerBlock(blockTinkeringTable, new ItemBlockTinkeringTable(blockTinkeringTable));
 		
 		registerBlock(blockTier1InferiumCrop);
 		registerBlock(blockTier2InferiumCrop);
@@ -226,7 +226,7 @@ public class ModBlocks {
 			registerModel(blockWitherproofGlass);
 		}
 		
-		registerModel(blockTinkeringTable);
+		blockTinkeringTable.initModels();
 
 		registerModel(blockTier1InferiumCrop);
 		registerModel(blockTier2InferiumCrop);

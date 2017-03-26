@@ -1,33 +1,44 @@
 package com.blakebr0.mysticalagriculture.blocks;
 
+import java.util.List;
+
 import javax.annotation.Nullable;
 
 import com.blakebr0.mysticalagriculture.MysticalAgriculture;
+import com.blakebr0.mysticalagriculture.lib.EssenceType;
 import com.blakebr0.mysticalagriculture.tileentity.TileEntityTinkeringTable;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.ITileEntityProvider;
+import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
+import net.minecraft.block.properties.IProperty;
+import net.minecraft.block.properties.PropertyEnum;
+import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.client.renderer.block.model.ModelResourceLocation;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fml.common.registry.GameRegistry;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class BlockTinkeringTable extends Block implements ITileEntityProvider {
+public class BlockTinkeringTable extends BlockBase implements ITileEntityProvider {
 
+    public static final PropertyEnum<EssenceType.Type> VARIANT = PropertyEnum.<EssenceType.Type>create("variant", EssenceType.Type.class);
+	
 	public BlockTinkeringTable(){
-		super(Material.IRON);
-		this.setUnlocalizedName("ma.tinkering_table");
-		this.setRegistryName("tinkering_table");
-		this.setCreativeTab(MysticalAgriculture.tabMysticalAgriculture);
-        this.setHardness(8.0F);
-        this.setResistance(12.0F);
+		super("tinkering_table",Material.IRON, SoundType.METAL, 8.0F, 12.0F);
+        this.setDefaultState(this.blockState.getBaseState().withProperty(VARIANT, EssenceType.Type.INFERIUM));
 		GameRegistry.registerTileEntity(TileEntityTinkeringTable.class, "ma.tinkering_table");
 	}
 
@@ -62,5 +73,62 @@ public class BlockTinkeringTable extends Block implements ITileEntityProvider {
             }
         }
         super.breakBlock(world, pos, state);
+    }
+	
+    @Override
+    public int damageDropped(IBlockState state){
+        return ((EssenceType.Type)state.getValue(VARIANT)).getMetadata();
+    }
+
+    @Override
+    @SideOnly(Side.CLIENT)
+    public void getSubBlocks(Item item, CreativeTabs tab, List<ItemStack> stacks){
+        for(EssenceType.Type type : EssenceType.Type.values()){
+            stacks.add(new ItemStack(item, 1, type.getMetadata()));
+        }
+    }
+    
+    @SideOnly(Side.CLIENT)
+    public void initModels(){
+    	for(EssenceType.Type type : EssenceType.Type.values()){
+        	ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(this), type.getMetadata(), new ModelResourceLocation(getRegistryName().toString() + "_" + type.byMetadata(type.getMetadata()).getName()));
+    	}
+    }
+
+    @Override
+    public IBlockState getStateFromMeta(int meta){
+        return this.getDefaultState().withProperty(VARIANT, EssenceType.Type.byMetadata(meta));
+    }
+
+    @Override
+    public int getMetaFromState(IBlockState state){
+        return ((EssenceType.Type)state.getValue(VARIANT)).getMetadata();
+    }
+
+    @Override
+    protected BlockStateContainer createBlockState(){
+        return new BlockStateContainer(this, new IProperty[] { VARIANT });
+    }
+    
+    @Override
+    @SideOnly(Side.CLIENT)
+    public void addInformation(ItemStack stack, EntityPlayer player, List<String> tooltip, boolean advanced) {
+    	switch(stack.getMetadata()){
+		case 0:
+			tooltip.add("Material: \u00A7eInferium");
+			break;
+		case 1:
+			tooltip.add("Material: \u00A7aPrudentium");
+			break;
+		case 2:
+			tooltip.add("Material: \u00A76Intermedium");
+			break;
+		case 3: 
+			tooltip.add("Material: \u00A7bSuperium");
+			break;
+		case 4:
+			tooltip.add("Material: \u00A7cSupremium");
+			break;
+    	}
     }
 }

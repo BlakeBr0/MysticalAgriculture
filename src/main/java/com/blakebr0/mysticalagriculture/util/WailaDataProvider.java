@@ -11,6 +11,7 @@ import net.minecraft.world.World;
 import java.util.List;
 
 import com.blakebr0.mysticalagriculture.blocks.BlockSeedReprocessor;
+import com.blakebr0.mysticalagriculture.blocks.BlockTinkeringTable;
 import com.blakebr0.mysticalagriculture.blocks.crop.BlockMysticalCrop;
 import com.blakebr0.mysticalagriculture.blocks.crop.BlockTier1InferiumCrop;
 import com.blakebr0.mysticalagriculture.blocks.crop.BlockTier2InferiumCrop;
@@ -33,6 +34,7 @@ public class WailaDataProvider implements IWailaDataProvider {
 		registrar.registerStackProvider(new WailaDataProvider(), BlockTier3InferiumCrop.class);
 		registrar.registerStackProvider(new WailaDataProvider(), BlockTier4InferiumCrop.class);
 		registrar.registerStackProvider(new WailaDataProvider(), BlockTier5InferiumCrop.class);
+		registrar.registerStackProvider(new WailaDataProvider(), BlockTinkeringTable.class);
 	}
 
 	@Override
@@ -52,6 +54,9 @@ public class WailaDataProvider implements IWailaDataProvider {
 
 	@Override
 	public ItemStack getWailaStack(IWailaDataAccessor arg0, IWailaConfigHandler arg1) {
+		if(arg0.getBlockState().getBlock() instanceof BlockTinkeringTable){
+			return new ItemStack(arg0.getBlockState().getBlock(), 1, arg0.getMetadata());
+		}
 		return new ItemStack(arg0.getBlockState().getBlock(), 1, 0);
 	}
 
