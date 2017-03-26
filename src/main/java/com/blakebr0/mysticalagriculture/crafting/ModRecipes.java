@@ -179,7 +179,7 @@ public class ModRecipes {
 		addShapelessRecipe(new ItemStack(ModItems.itemSupremiumEssence, 9, 0), new ItemStack(ModBlocks.blockSupremium, 1, 0)); 
 	
 		addShapelessRecipe(new ItemStack(ModItems.itemProsperityShard, 9, 0), new ItemStack(ModBlocks.blockProsperity, 1, 0)); 
-
+		
 		addShapelessRecipe(new ItemStack(ModItems.itemBaseEssenceIngot, 9, 0), new ItemStack(ModBlocks.blockBaseEssenceIngot, 1, 0)); 
 		addShapelessRecipe(new ItemStack(ModItems.itemInferiumIngot, 9, 0), new ItemStack(ModBlocks.blockInferiumIngot, 1, 0)); 
 		addShapelessRecipe(new ItemStack(ModItems.itemPrudentiumIngot, 9, 0), new ItemStack(ModBlocks.blockPrudentiumIngot, 1, 0)); 
@@ -250,8 +250,29 @@ public class ModRecipes {
 		addShapedRecipe(new ItemStack(ModItems.itemTier5CraftingSeed, 1, 0), "XSX", "SWS", "XSX", 'S', new ItemStack(ModItems.itemSupremiumEssence, 1, 0), 'W', new ItemStack(ModItems.itemTier4CraftingSeed, 1, 0));
 	    
 		addShapedRecipe(new ItemStack(ModItems.itemMysticalToolRod, 1, 0), "XPX", "PSP", "XPX", 'P', new ItemStack(ModItems.itemProsperityShard, 1, 0), 'S', new ItemStack(Items.STICK, 1, 0));
-		addShapedRecipe(new ItemStack(ModItems.itemBaseEssenceIngot, 1, 0), "XPX", "PIP", "XPX", 'P', new ItemStack(ModItems.itemProsperityShard, 1, 0), 'I', "ingotIron");
 
+		addShapedRecipe(new ItemStack(ModItems.itemBaseEssenceIngot, 1, 0), "XPX", "PIP", "XPX", 'P', new ItemStack(ModItems.itemProsperityShard, 1, 0), 'I', "ingotIron");
+    	if(ModConfig.confHarderIngots){
+    	    addShapedRecipe(new ItemStack(ModItems.itemInferiumIngot, 1, 0), "XEX", "EIE", "XEX", 'E', new ItemStack(ModItems.itemInferiumEssence, 1, 0), 'I', new ItemStack(ModItems.itemBaseEssenceIngot, 1, 0));
+		    addShapedRecipe(new ItemStack(ModItems.itemPrudentiumIngot, 1, 0), "XEX", "EIE", "XEX", 'E', new ItemStack(ModItems.itemPrudentiumEssence, 1, 0), 'I', new ItemStack(ModItems.itemInferiumIngot, 1, 0));
+		    addShapedRecipe(new ItemStack(ModItems.itemIntermediumIngot, 1, 0), "XEX", "EIE", "XEX", 'E', new ItemStack(ModItems.itemIntermediumEssence, 1, 0), 'I', new ItemStack(ModItems.itemPrudentiumIngot, 1, 0));
+		    addShapedRecipe(new ItemStack(ModItems.itemSuperiumIngot, 1, 0), "XEX", "EIE", "XEX", 'E', new ItemStack(ModItems.itemSuperiumEssence, 1, 0), 'I', new ItemStack(ModItems.itemIntermediumIngot, 1, 0));
+		    addShapedRecipe(new ItemStack(ModItems.itemSupremiumIngot, 1, 0), "XEX", "EIE", "XEX", 'E', new ItemStack(ModItems.itemSupremiumEssence, 1, 0), 'I', new ItemStack(ModItems.itemSuperiumIngot, 1, 0));
+    	} else {
+    		addShapelessRecipe(new ItemStack(ModItems.itemInferiumIngot, 1, 0), new ItemStack(ModItems.itemBaseEssenceIngot, 1, 0), new ItemStack(ModItems.itemInferiumEssence, 1, 0), new ItemStack(ModItems.itemInferiumEssence, 1, 0));
+    		addShapelessRecipe(new ItemStack(ModItems.itemPrudentiumIngot, 1, 0), new ItemStack(ModItems.itemInferiumIngot, 1, 0), new ItemStack(ModItems.itemPrudentiumEssence, 1, 0), new ItemStack(ModItems.itemPrudentiumEssence, 1, 0));
+    		addShapelessRecipe(new ItemStack(ModItems.itemIntermediumIngot, 1, 0), new ItemStack(ModItems.itemPrudentiumIngot, 1, 0), new ItemStack(ModItems.itemIntermediumEssence, 1, 0), new ItemStack(ModItems.itemIntermediumEssence, 1, 0));
+    		addShapelessRecipe(new ItemStack(ModItems.itemSuperiumIngot, 1, 0), new ItemStack(ModItems.itemIntermediumIngot, 1, 0), new ItemStack(ModItems.itemSuperiumEssence, 1, 0), new ItemStack(ModItems.itemSuperiumEssence, 1, 0));
+    		addShapelessRecipe(new ItemStack(ModItems.itemSupremiumIngot, 1, 0), new ItemStack(ModItems.itemSuperiumIngot, 1, 0), new ItemStack(ModItems.itemSupremiumEssence, 1, 0), new ItemStack(ModItems.itemSupremiumEssence, 1, 0));
+    	}
+    	addShapedRecipe(new ItemStack(ModItems.itemBaseEssenceIngot, 1, 0), "NNN", "NNN", "NNN", 'N', new ItemStack(ModItems.itemNugget, 1, 0));
+    	addShapedRecipe(new ItemStack(ModItems.itemInferiumIngot, 1, 0), "NNN", "NNN", "NNN", 'N', new ItemStack(ModItems.itemNugget, 1, 1));
+    	addShapedRecipe(new ItemStack(ModItems.itemPrudentiumIngot, 1, 0), "NNN", "NNN", "NNN", 'N', new ItemStack(ModItems.itemNugget, 1, 2));
+    	addShapedRecipe(new ItemStack(ModItems.itemIntermediumIngot, 1, 0), "NNN", "NNN", "NNN", 'N', new ItemStack(ModItems.itemNugget, 1, 3));
+    	addShapedRecipe(new ItemStack(ModItems.itemSuperiumIngot, 1, 0), "NNN", "NNN", "NNN", 'N', new ItemStack(ModItems.itemNugget, 1, 4));
+    	addShapedRecipe(new ItemStack(ModItems.itemSupremiumIngot, 1, 0), "NNN", "NNN", "NNN", 'N', new ItemStack(ModItems.itemNugget, 1, 5));
+    	addShapedRecipe(new ItemStack(ModItems.itemSouliumIngot, 1, 0), "NNN", "NNN", "NNN", 'N', new ItemStack(ModItems.itemNugget, 1, 6));
+    	
 	    addShapedRecipe(new ItemStack(ModBlocks.blockSoulstone, 8, 0), "XDX", "DXD", "XDX", 'X', "stone", 'D', new ItemStack(Blocks.SOUL_SAND, 1, 0));
 	    
 	    addSmeltingRecipe(new ItemStack(ModBlocks.blockSoulstone, 1, 0), new ItemStack(ModItems.itemSoulDust), 0.3F);
@@ -259,6 +280,14 @@ public class ModRecipes {
 	    addSmeltingRecipe(new ItemStack(ModItems.itemSouliumDust, 1, 0), new ItemStack(ModItems.itemSouliumIngot), 0.4F);
 	    addShapedRecipe(new ItemStack(ModItems.itemSouliumDagger, 1, 0), "SXX", "SXX", "WXX", 'S', new ItemStack(ModItems.itemSouliumIngot, 1, 0), 'W', new ItemStack(ModItems.itemMysticalToolRod, 1, 0));
     
+	    addShapelessRecipe(new ItemStack(ModItems.itemNugget, 9, 0), new ItemStack(ModItems.itemBaseEssenceIngot, 1, 0));
+	    addShapelessRecipe(new ItemStack(ModItems.itemNugget, 9, 1), new ItemStack(ModItems.itemInferiumIngot, 1, 0));
+	    addShapelessRecipe(new ItemStack(ModItems.itemNugget, 9, 2), new ItemStack(ModItems.itemPrudentiumIngot, 1, 0));
+	    addShapelessRecipe(new ItemStack(ModItems.itemNugget, 9, 3), new ItemStack(ModItems.itemIntermediumIngot, 1, 0));
+	    addShapelessRecipe(new ItemStack(ModItems.itemNugget, 9, 4), new ItemStack(ModItems.itemSuperiumIngot, 1, 0));
+	    addShapelessRecipe(new ItemStack(ModItems.itemNugget, 9, 5), new ItemStack(ModItems.itemSupremiumIngot, 1, 0));
+	    addShapelessRecipe(new ItemStack(ModItems.itemNugget, 9, 6), new ItemStack(ModItems.itemSouliumIngot, 1, 0));
+	    
 		addShapelessRecipe(new ItemStack(Items.EXPERIENCE_BOTTLE, 4, 0), new ItemStack(ModItems.itemExperienceChunk, 1, 0), new ItemStack(ModItems.itemExperienceChunk, 1, 0), new ItemStack(ModItems.itemExperienceChunk, 1, 0), new ItemStack(ModItems.itemExperienceChunk, 1, 0));
 	    
 		addShapelessRecipe(new ItemStack(ModItems.itemTier2MobChunk, 1, 0), new ItemStack(ModItems.itemTier1MobChunk, 1, 0), new ItemStack(ModItems.itemPrudentiumEssence, 1, 0), new ItemStack(ModItems.itemPrudentiumEssence, 1, 0));		
@@ -450,21 +479,7 @@ public class ModRecipes {
 	    addSeedRecipe(type.FLUIX, "crystalFluix");
 	    
 	    addSeedRecipe(type.QUARTZ_ENRICHED_IRON, new ItemStack(Parts.itemRSIngot, 1, 0));
-	    
-    	if(ModConfig.confHarderIngots){
-    	    addShapedRecipe(new ItemStack(ModItems.itemInferiumIngot, 1, 0), "XEX", "EIE", "XEX", 'E', new ItemStack(ModItems.itemInferiumEssence, 1, 0), 'I', new ItemStack(ModItems.itemBaseEssenceIngot, 1, 0));
-		    addShapedRecipe(new ItemStack(ModItems.itemPrudentiumIngot, 1, 0), "XEX", "EIE", "XEX", 'E', new ItemStack(ModItems.itemPrudentiumEssence, 1, 0), 'I', new ItemStack(ModItems.itemInferiumIngot, 1, 0));
-		    addShapedRecipe(new ItemStack(ModItems.itemIntermediumIngot, 1, 0), "XEX", "EIE", "XEX", 'E', new ItemStack(ModItems.itemIntermediumEssence, 1, 0), 'I', new ItemStack(ModItems.itemPrudentiumIngot, 1, 0));
-		    addShapedRecipe(new ItemStack(ModItems.itemSuperiumIngot, 1, 0), "XEX", "EIE", "XEX", 'E', new ItemStack(ModItems.itemSuperiumEssence, 1, 0), 'I', new ItemStack(ModItems.itemIntermediumIngot, 1, 0));
-		    addShapedRecipe(new ItemStack(ModItems.itemSupremiumIngot, 1, 0), "XEX", "EIE", "XEX", 'E', new ItemStack(ModItems.itemSupremiumEssence, 1, 0), 'I', new ItemStack(ModItems.itemSuperiumIngot, 1, 0));
-    	} else {
-    		addShapelessRecipe(new ItemStack(ModItems.itemInferiumIngot, 1, 0), new ItemStack(ModItems.itemBaseEssenceIngot, 1, 0), new ItemStack(ModItems.itemInferiumEssence, 1, 0), new ItemStack(ModItems.itemInferiumEssence, 1, 0));
-    		addShapelessRecipe(new ItemStack(ModItems.itemPrudentiumIngot, 1, 0), new ItemStack(ModItems.itemInferiumIngot, 1, 0), new ItemStack(ModItems.itemPrudentiumEssence, 1, 0), new ItemStack(ModItems.itemPrudentiumEssence, 1, 0));
-    		addShapelessRecipe(new ItemStack(ModItems.itemIntermediumIngot, 1, 0), new ItemStack(ModItems.itemPrudentiumIngot, 1, 0), new ItemStack(ModItems.itemIntermediumEssence, 1, 0), new ItemStack(ModItems.itemIntermediumEssence, 1, 0));
-    		addShapelessRecipe(new ItemStack(ModItems.itemSuperiumIngot, 1, 0), new ItemStack(ModItems.itemIntermediumIngot, 1, 0), new ItemStack(ModItems.itemSuperiumEssence, 1, 0), new ItemStack(ModItems.itemSuperiumEssence, 1, 0));
-    		addShapelessRecipe(new ItemStack(ModItems.itemSupremiumIngot, 1, 0), new ItemStack(ModItems.itemSuperiumIngot, 1, 0), new ItemStack(ModItems.itemSupremiumEssence, 1, 0), new ItemStack(ModItems.itemSupremiumEssence, 1, 0));
-    	}
-	    
+	    	    
 	    if(ModConfig.confGearModuleOverride){
 	    	
 		    addShapedRecipe(new ItemStack(ModItems.itemCoreRemover, 1, 0), "IOI", "ODO", "IOI", 'I', "ingotIron", 'O', new ItemStack(Blocks.OBSIDIAN, 1, 0), 'D', new ItemStack(Items.DIAMOND, 1, 0));
