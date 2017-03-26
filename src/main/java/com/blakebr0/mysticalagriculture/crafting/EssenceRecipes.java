@@ -88,18 +88,18 @@ public class EssenceRecipes {
 	    addEssenceRecipe(new ItemStack(Blocks.SAND, EssenceConfig.sand, 0), "EFX", "FEX", "XXX", 'E', new ItemStack(type.FIRE.getCrop(), 1, 0), 'F', new ItemStack(type.DIRT.getCrop(), 1, 0));
 	    addEssenceRecipe(new ItemStack(Blocks.SAND, EssenceConfig.sand, 1), "FEX", "EFX", "XXX", 'E', new ItemStack(type.FIRE.getCrop(), 1, 0), 'F', new ItemStack(type.DIRT.getCrop(), 1, 0));
 	    
-	    addEssenceRecipe(new ItemStack(Items.DYE, EssenceConfig.dye, 0), "EME", "XXX", "XXX", 'E', new ItemStack(type.DYE.getCrop(), 1, 0), 'M', new ItemStack(Items.DYE, 1, 0));
-	    addEssenceRecipe(new ItemStack(Items.DYE, EssenceConfig.dye, 1), "EME", "XXX", "XXX", 'E', new ItemStack(type.DYE.getCrop(), 1, 0), 'M', new ItemStack(Items.DYE, 1, 1));
-	    addEssenceRecipe(new ItemStack(Items.DYE, EssenceConfig.dye, 5), "EME", "XXX", "XXX", 'E', new ItemStack(type.DYE.getCrop(), 1, 0), 'M', new ItemStack(Items.DYE, 1, 5));
-	    addEssenceRecipe(new ItemStack(Items.DYE, EssenceConfig.dye, 6), "EME", "XXX", "XXX", 'E', new ItemStack(type.DYE.getCrop(), 1, 0), 'M', new ItemStack(Items.DYE, 1, 6));
-	    addEssenceRecipe(new ItemStack(Items.DYE, EssenceConfig.dye, 7), "EME", "XXX", "XXX", 'E', new ItemStack(type.DYE.getCrop(), 1, 0), 'M', new ItemStack(Items.DYE, 1, 7));
-	    addEssenceRecipe(new ItemStack(Items.DYE, EssenceConfig.dye, 8), "EME", "XXX", "XXX", 'E', new ItemStack(type.DYE.getCrop(), 1, 0), 'M', new ItemStack(Items.DYE, 1, 8));
-	    addEssenceRecipe(new ItemStack(Items.DYE, EssenceConfig.dye, 9), "EME", "XXX", "XXX", 'E', new ItemStack(type.DYE.getCrop(), 1, 0), 'M', new ItemStack(Items.DYE, 1, 9));
-	    addEssenceRecipe(new ItemStack(Items.DYE, EssenceConfig.dye, 10), "EME", "XXX", "XXX", 'E', new ItemStack(type.DYE.getCrop(), 1, 0), 'M', new ItemStack(Items.DYE, 1, 10));
-	    addEssenceRecipe(new ItemStack(Items.DYE, EssenceConfig.dye, 11), "EME", "XXX", "XXX", 'E', new ItemStack(type.DYE.getCrop(), 1, 0), 'M', new ItemStack(Items.DYE, 1, 11));
-	    addEssenceRecipe(new ItemStack(Items.DYE, EssenceConfig.dye, 12), "EME", "XXX", "XXX", 'E', new ItemStack(type.DYE.getCrop(), 1, 0), 'M', new ItemStack(Items.DYE, 1, 12));
-	    addEssenceRecipe(new ItemStack(Items.DYE, EssenceConfig.dye, 13), "EME", "XXX", "XXX", 'E', new ItemStack(type.DYE.getCrop(), 1, 0), 'M', new ItemStack(Items.DYE, 1, 13));
-	    addEssenceRecipe(new ItemStack(Items.DYE, EssenceConfig.dye, 14), "EME", "XXX", "XXX", 'E', new ItemStack(type.DYE.getCrop(), 1, 0), 'M', new ItemStack(Items.DYE, 1, 14));
+	    addEssenceRecipe(new ItemStack(Items.DYE, EssenceConfig.dye, 0), "EEE", "XXX", "XXX", 'E', new ItemStack(type.DYE.getCrop(), 1, 0));
+	    addEssenceRecipe(new ItemStack(Items.DYE, EssenceConfig.dye, 1), "XXX", "EEE", "XXX", 'E', new ItemStack(type.DYE.getCrop(), 1, 0));
+	    addEssenceRecipe(new ItemStack(Items.DYE, EssenceConfig.dye, 5), "XXX", "XXX", "EEE", 'E', new ItemStack(type.DYE.getCrop(), 1, 0));
+	    addEssenceRecipe(new ItemStack(Items.DYE, EssenceConfig.dye, 6), "EXX", "EXX", "EXX", 'E', new ItemStack(type.DYE.getCrop(), 1, 0));
+	    addEssenceRecipe(new ItemStack(Items.DYE, EssenceConfig.dye, 7), "XEX", "XEX", "XEX", 'E', new ItemStack(type.DYE.getCrop(), 1, 0));
+	    addEssenceRecipe(new ItemStack(Items.DYE, EssenceConfig.dye, 8), "XXE", "XXE", "XXE", 'E', new ItemStack(type.DYE.getCrop(), 1, 0));
+	    addEssenceRecipe(new ItemStack(Items.DYE, EssenceConfig.dye, 9), "EXX", "XEX", "XXE", 'E', new ItemStack(type.DYE.getCrop(), 1, 0));
+	    addEssenceRecipe(new ItemStack(Items.DYE, EssenceConfig.dye, 10), "XXE", "XEX", "EXX", 'E', new ItemStack(type.DYE.getCrop(), 1, 0));
+	    addEssenceRecipe(new ItemStack(Items.DYE, EssenceConfig.dye, 11), "EXE", "XEX", "XXX", 'E', new ItemStack(type.DYE.getCrop(), 1, 0));
+	    addEssenceRecipe(new ItemStack(Items.DYE, EssenceConfig.dye, 12), "XEX", "EXE", "XXX", 'E', new ItemStack(type.DYE.getCrop(), 1, 0));
+	    addEssenceRecipe(new ItemStack(Items.DYE, EssenceConfig.dye, 13), "XXX", "XEX", "EXE", 'E', new ItemStack(type.DYE.getCrop(), 1, 0));
+	    addEssenceRecipe(new ItemStack(Items.DYE, EssenceConfig.dye, 14), "XXX", "EXE", "XEX", 'E', new ItemStack(type.DYE.getCrop(), 1, 0));
 
 	    addEssenceRecipe(new ItemStack(Blocks.NETHERRACK, EssenceConfig.netherrack, 0), "XEX", "EEE", "XEX", 'E', new ItemStack(type.NETHER.getCrop(), 1, 0));
 	    addEssenceRecipe(new ItemStack(Blocks.SOUL_SAND, EssenceConfig.soulSand, 0), "EEE", "EXE", "EEE", 'E', new ItemStack(type.NETHER.getCrop(), 1, 0));
@@ -214,22 +214,22 @@ public class EssenceRecipes {
 	    if(type.VIBRANT_ALLOY.isEnabled()){ addEssenceRecipe(new ItemStack(Parts.itemEnderIOAlloys, EssenceConfig.vibrantAlloy, 2), "EEE", "EXE", "EEE", 'E', new ItemStack(type.VIBRANT_ALLOY.getCrop(), 1, 0)); }
 
 	    if(type.MYSTICAL_FLOWER.isEnabled()){ 
-	    	addEssenceRecipe(new ItemStack(Parts.itemBotaniaFlowers, EssenceConfig.mysticalFlower, 0), "XEX", "EPE", "XEX", 'E', new ItemStack(type.MYSTICAL_FLOWER.getCrop(), 1, 0), 'P', new ItemStack(Parts.itemBotaniaPetals, 1, 0)); 
-	    	addEssenceRecipe(new ItemStack(Parts.itemBotaniaFlowers, EssenceConfig.mysticalFlower, 1), "XEX", "EPE", "XEX", 'E', new ItemStack(type.MYSTICAL_FLOWER.getCrop(), 1, 0), 'P', new ItemStack(Parts.itemBotaniaPetals, 1, 1)); 
-	    	addEssenceRecipe(new ItemStack(Parts.itemBotaniaFlowers, EssenceConfig.mysticalFlower, 2), "XEX", "EPE", "XEX", 'E', new ItemStack(type.MYSTICAL_FLOWER.getCrop(), 1, 0), 'P', new ItemStack(Parts.itemBotaniaPetals, 1, 2)); 
-	    	addEssenceRecipe(new ItemStack(Parts.itemBotaniaFlowers, EssenceConfig.mysticalFlower, 3), "XEX", "EPE", "XEX", 'E', new ItemStack(type.MYSTICAL_FLOWER.getCrop(), 1, 0), 'P', new ItemStack(Parts.itemBotaniaPetals, 1, 3)); 
-	    	addEssenceRecipe(new ItemStack(Parts.itemBotaniaFlowers, EssenceConfig.mysticalFlower, 4), "XEX", "EPE", "XEX", 'E', new ItemStack(type.MYSTICAL_FLOWER.getCrop(), 1, 0), 'P', new ItemStack(Parts.itemBotaniaPetals, 1, 4)); 
-	    	addEssenceRecipe(new ItemStack(Parts.itemBotaniaFlowers, EssenceConfig.mysticalFlower, 5), "XEX", "EPE", "XEX", 'E', new ItemStack(type.MYSTICAL_FLOWER.getCrop(), 1, 0), 'P', new ItemStack(Parts.itemBotaniaPetals, 1, 5)); 
-	    	addEssenceRecipe(new ItemStack(Parts.itemBotaniaFlowers, EssenceConfig.mysticalFlower, 6), "XEX", "EPE", "XEX", 'E', new ItemStack(type.MYSTICAL_FLOWER.getCrop(), 1, 0), 'P', new ItemStack(Parts.itemBotaniaPetals, 1, 6)); 
-	    	addEssenceRecipe(new ItemStack(Parts.itemBotaniaFlowers, EssenceConfig.mysticalFlower, 7), "XEX", "EPE", "XEX", 'E', new ItemStack(type.MYSTICAL_FLOWER.getCrop(), 1, 0), 'P', new ItemStack(Parts.itemBotaniaPetals, 1, 7)); 
-	    	addEssenceRecipe(new ItemStack(Parts.itemBotaniaFlowers, EssenceConfig.mysticalFlower, 8), "XEX", "EPE", "XEX", 'E', new ItemStack(type.MYSTICAL_FLOWER.getCrop(), 1, 0), 'P', new ItemStack(Parts.itemBotaniaPetals, 1, 8)); 
-	    	addEssenceRecipe(new ItemStack(Parts.itemBotaniaFlowers, EssenceConfig.mysticalFlower, 9), "XEX", "EPE", "XEX", 'E', new ItemStack(type.MYSTICAL_FLOWER.getCrop(), 1, 0), 'P', new ItemStack(Parts.itemBotaniaPetals, 1, 9)); 
-	    	addEssenceRecipe(new ItemStack(Parts.itemBotaniaFlowers, EssenceConfig.mysticalFlower, 10), "XEX", "EPE", "XEX", 'E', new ItemStack(type.MYSTICAL_FLOWER.getCrop(), 1, 0), 'P', new ItemStack(Parts.itemBotaniaPetals, 1, 10)); 
-	    	addEssenceRecipe(new ItemStack(Parts.itemBotaniaFlowers, EssenceConfig.mysticalFlower, 11), "XEX", "EPE", "XEX", 'E', new ItemStack(type.MYSTICAL_FLOWER.getCrop(), 1, 0), 'P', new ItemStack(Parts.itemBotaniaPetals, 1, 11)); 
-	    	addEssenceRecipe(new ItemStack(Parts.itemBotaniaFlowers, EssenceConfig.mysticalFlower, 12), "XEX", "EPE", "XEX", 'E', new ItemStack(type.MYSTICAL_FLOWER.getCrop(), 1, 0), 'P', new ItemStack(Parts.itemBotaniaPetals, 1, 12)); 
-	    	addEssenceRecipe(new ItemStack(Parts.itemBotaniaFlowers, EssenceConfig.mysticalFlower, 13), "XEX", "EPE", "XEX", 'E', new ItemStack(type.MYSTICAL_FLOWER.getCrop(), 1, 0), 'P', new ItemStack(Parts.itemBotaniaPetals, 1, 13)); 
-	    	addEssenceRecipe(new ItemStack(Parts.itemBotaniaFlowers, EssenceConfig.mysticalFlower, 14), "XEX", "EPE", "XEX", 'E', new ItemStack(type.MYSTICAL_FLOWER.getCrop(), 1, 0), 'P', new ItemStack(Parts.itemBotaniaPetals, 1, 14)); 
-	    	addEssenceRecipe(new ItemStack(Parts.itemBotaniaFlowers, EssenceConfig.mysticalFlower, 15), "XEX", "EPE", "XEX", 'E', new ItemStack(type.MYSTICAL_FLOWER.getCrop(), 1, 0), 'P', new ItemStack(Parts.itemBotaniaPetals, 1, 15)); 
+	    	addEssenceRecipe(new ItemStack(Parts.itemBotaniaFlowers, EssenceConfig.mysticalFlower, 0), "EEE", "XXX", "XXX", 'E', new ItemStack(type.MYSTICAL_FLOWER.getCrop(), 1, 0)); 
+	    	addEssenceRecipe(new ItemStack(Parts.itemBotaniaFlowers, EssenceConfig.mysticalFlower, 1), "XXX", "EEE", "XXX", 'E', new ItemStack(type.MYSTICAL_FLOWER.getCrop(), 1, 0)); 
+	    	addEssenceRecipe(new ItemStack(Parts.itemBotaniaFlowers, EssenceConfig.mysticalFlower, 2), "EXX", "EXX", "EXX", 'E', new ItemStack(type.MYSTICAL_FLOWER.getCrop(), 1, 0)); 
+	    	addEssenceRecipe(new ItemStack(Parts.itemBotaniaFlowers, EssenceConfig.mysticalFlower, 3), "XEX", "XEX", "XEX", 'E', new ItemStack(type.MYSTICAL_FLOWER.getCrop(), 1, 0)); 
+	    	addEssenceRecipe(new ItemStack(Parts.itemBotaniaFlowers, EssenceConfig.mysticalFlower, 4), "XXE", "XXE", "XXE", 'E', new ItemStack(type.MYSTICAL_FLOWER.getCrop(), 1, 0)); 
+	    	addEssenceRecipe(new ItemStack(Parts.itemBotaniaFlowers, EssenceConfig.mysticalFlower, 5), "EXX", "XEX", "XXE", 'E', new ItemStack(type.MYSTICAL_FLOWER.getCrop(), 1, 0)); 
+	    	addEssenceRecipe(new ItemStack(Parts.itemBotaniaFlowers, EssenceConfig.mysticalFlower, 6), "XXE", "XEX", "EXX", 'E', new ItemStack(type.MYSTICAL_FLOWER.getCrop(), 1, 0)); 
+	    	addEssenceRecipe(new ItemStack(Parts.itemBotaniaFlowers, EssenceConfig.mysticalFlower, 7), "EXE", "XEX", "XXX", 'E', new ItemStack(type.MYSTICAL_FLOWER.getCrop(), 1, 0)); 
+	    	addEssenceRecipe(new ItemStack(Parts.itemBotaniaFlowers, EssenceConfig.mysticalFlower, 8), "XEX", "EXE", "XXX", 'E', new ItemStack(type.MYSTICAL_FLOWER.getCrop(), 1, 0)); 
+	    	addEssenceRecipe(new ItemStack(Parts.itemBotaniaFlowers, EssenceConfig.mysticalFlower, 9), "XXX", "EXE", "XEX", 'E', new ItemStack(type.MYSTICAL_FLOWER.getCrop(), 1, 0)); 
+	    	addEssenceRecipe(new ItemStack(Parts.itemBotaniaFlowers, EssenceConfig.mysticalFlower, 10), "XXX", "XEX", "EXE", 'E', new ItemStack(type.MYSTICAL_FLOWER.getCrop(), 1, 0)); 
+	    	addEssenceRecipe(new ItemStack(Parts.itemBotaniaFlowers, EssenceConfig.mysticalFlower, 11), "EEX", "XXE", "XXX", 'E', new ItemStack(type.MYSTICAL_FLOWER.getCrop(), 1, 0)); 
+	    	addEssenceRecipe(new ItemStack(Parts.itemBotaniaFlowers, EssenceConfig.mysticalFlower, 12), "XEE", "EXX", "XXX", 'E', new ItemStack(type.MYSTICAL_FLOWER.getCrop(), 1, 0)); 
+	    	addEssenceRecipe(new ItemStack(Parts.itemBotaniaFlowers, EssenceConfig.mysticalFlower, 13), "XXX", "XEE", "XXE", 'E', new ItemStack(type.MYSTICAL_FLOWER.getCrop(), 1, 0)); 
+	    	addEssenceRecipe(new ItemStack(Parts.itemBotaniaFlowers, EssenceConfig.mysticalFlower, 14), "XEX", "XEE", "XXX", 'E', new ItemStack(type.MYSTICAL_FLOWER.getCrop(), 1, 0)); 
+	    	addEssenceRecipe(new ItemStack(Parts.itemBotaniaFlowers, EssenceConfig.mysticalFlower, 15), "EXX", "EEX", "XXX", 'E', new ItemStack(type.MYSTICAL_FLOWER.getCrop(), 1, 0)); 
 	    }
 	    if(type.MANASTEEL.isEnabled()){ addEssenceRecipe(new ItemStack(Parts.itemBotaniaResources, EssenceConfig.manasteel, 0), "EEE", "EXE", "EEE", 'E', new ItemStack(type.MANASTEEL.getCrop(), 1, 0)); }
 	    if(type.TERRASTEEL.isEnabled()){ addEssenceRecipe(new ItemStack(Parts.itemBotaniaResources, EssenceConfig.terrasteel, 4), "EEE", "EXE", "EEE", 'E', new ItemStack(type.TERRASTEEL.getCrop(), 1, 0)); }

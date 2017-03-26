@@ -318,7 +318,7 @@ public class EssenceConfig {
 		vibrantAlloy = config.get(category, "vibrant_alloy", 3).getInt();
 		
 		category = "Botania";
-		mysticalFlower = config.get(category, "mystical_flower", 8).getInt();
+		mysticalFlower = config.get(category, "mystical_flower", 6).getInt();
 		manasteel = config.get(category, "manasteel", 5).getInt();
 		terrasteel = config.get(category, "terrasteel", 2).getInt();
 		
