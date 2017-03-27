@@ -49,8 +49,6 @@ public class CommonProxy {
 	
 	public void init(FMLInitializationEvent e){
 		ModTileEntities.initTileEntities();
-				
-		TinkeringTableManager.getInstance().addRecipe(new ItemStack(ModItems.itemInferiumEssence, 1, 0), "ABB", "BBB", "BBB", 'A', new ItemStack(ModItems.itemInferiumApple), 'B', new ItemStack(ModItems.itemBaseCraftingSeed));
 		
 		if(ModConfig.confSeedReprocessor){
 			ReprocessorManager.addRecipe(new ItemStack(ModItems.itemInferiumEssence, 1, 0), new ItemStack(ModItems.itemTier1InferiumSeeds, 1, 0));

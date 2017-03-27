@@ -6,10 +6,15 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.item.crafting.ShapedRecipes;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 import net.minecraftforge.oredict.OreDictionary;
 
 import javax.annotation.Nonnull;
+
+import com.blakebr0.mysticalagriculture.items.armor.ItemSupremiumArmor;
+import com.blakebr0.mysticalagriculture.util.NBTHelper;
 
 import java.util.*;
 
@@ -20,6 +25,8 @@ public class TinkeringTableRecipe implements IRecipe {
     public int width = 0;
     public int height = 0;
     private boolean mirrored = false;
+    private Item resultItem;
+    private int resultMeta;
 
     public TinkeringTableRecipe(Block result, Object... recipe){
         this(new ItemStack(result), recipe);
@@ -31,6 +38,9 @@ public class TinkeringTableRecipe implements IRecipe {
 
     public TinkeringTableRecipe(ItemStack result, Object... recipe){
         output = result.copy();
+        this.resultItem = result.getItem();
+        this.resultMeta = result.getItemDamage();
+        result.getEnchantmentTagList();
 
         String shape = "";
         int idx = 0;
@@ -130,11 +140,35 @@ public class TinkeringTableRecipe implements IRecipe {
         height = hei;
         output = result;
         input = ingredients;
+        this.resultItem = result.getItem();
+        this.resultMeta = result.getItemDamage();
+        result.getEnchantmentTagList();
     }
 
     @Override
-    public ItemStack getCraftingResult(InventoryCrafting var1) {
-        return output.copy();
+    public ItemStack getCraftingResult(InventoryCrafting inventoryCrafting) {
+        NBTTagCompound tags = null;
+        
+        ItemStack result = new ItemStack((Item)this.resultItem, 1, this.resultMeta);
+        
+        ItemStack slotStack;
+        for(int i = 0; i < inventoryCrafting.getSizeInventory(); i++){
+            slotStack = inventoryCrafting.getStackInSlot(i);
+            if(slotStack != null && slotStack.getItem() != null){
+                if(slotStack.getItem() instanceof ItemSupremiumArmor){
+                    tags = (NBTTagCompound) NBTHelper.getDataMap(slotStack).copy();
+	 				int newDamage = MathHelper.clamp_int(slotStack.getItemDamage(), 0, result.getMaxDamage());
+	 				result.setItemDamage(newDamage);
+	 				break;
+                }
+            }
+        }
+        
+        if(tags != null){
+            result.setTagCompound(tags);
+        }
+        
+        return result;
     }
 
     @Override
