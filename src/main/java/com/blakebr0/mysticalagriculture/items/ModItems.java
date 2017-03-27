@@ -24,6 +24,7 @@ import com.blakebr0.mysticalagriculture.items.armor.upgraded.ItemUpgradedAbsorpt
 import com.blakebr0.mysticalagriculture.items.tools.ItemEssenceAxe;
 import com.blakebr0.mysticalagriculture.items.tools.ItemEssenceHoe;
 import com.blakebr0.mysticalagriculture.items.tools.ItemEssencePickaxe;
+import com.blakebr0.mysticalagriculture.items.tools.ItemEssenceShears;
 import com.blakebr0.mysticalagriculture.items.tools.ItemEssenceShovel;
 import com.blakebr0.mysticalagriculture.items.tools.ItemEssenceSword;
 import com.blakebr0.mysticalagriculture.items.tools.upgraded.ItemAxeAOE;
@@ -171,30 +172,35 @@ public class ModItems {
 	public static ItemEssenceShovel itemInferiumShovel = new ItemEssenceShovel("inferium_shovel", ModToolMaterials.INFERIUM, ModItems.itemInferiumIngot, TextFormatting.YELLOW);
 	public static ItemEssenceAxe itemInferiumAxe = new ItemEssenceAxe("inferium_axe", ModToolMaterials.INFERIUM, ModItems.itemInferiumIngot, 8.0F, TextFormatting.YELLOW);
 	public static ItemEssenceHoe itemInferiumHoe = new ItemEssenceHoe("inferium_hoe", ModToolMaterials.INFERIUM, ModItems.itemInferiumIngot, TextFormatting.YELLOW);
+	public static ItemEssenceShears itemInferiumShears = new ItemEssenceShears("inferium_shears", ModToolMaterials.INFERIUM, ModItems.itemInferiumIngot, TextFormatting.YELLOW);
 	
 	public static ItemEssenceSword itemPrudentiumSword = new ItemEssenceSword("prudentium_sword", ModToolMaterials.PRUDENTIUM, ModItems.itemPrudentiumIngot, TextFormatting.GREEN);
 	public static ItemEssencePickaxe itemPrudentiumPickaxe = new ItemEssencePickaxe("prudentium_pickaxe", ModToolMaterials.PRUDENTIUM, ModItems.itemPrudentiumIngot, TextFormatting.GREEN);
 	public static ItemEssenceShovel itemPrudentiumShovel = new ItemEssenceShovel("prudentium_shovel", ModToolMaterials.PRUDENTIUM, ModItems.itemPrudentiumIngot, TextFormatting.GREEN);
 	public static ItemEssenceAxe itemPrudentiumAxe = new ItemEssenceAxe("prudentium_axe", ModToolMaterials.PRUDENTIUM, ModItems.itemPrudentiumIngot, 10.0F, TextFormatting.GREEN);
 	public static ItemEssenceHoe itemPrudentiumHoe = new ItemEssenceHoe("prudentium_hoe", ModToolMaterials.PRUDENTIUM, ModItems.itemPrudentiumIngot, TextFormatting.GREEN);
+	public static ItemEssenceShears itemPrudentiumShears = new ItemEssenceShears("prudentium_shears", ModToolMaterials.PRUDENTIUM, ModItems.itemPrudentiumIngot, TextFormatting.GREEN);
 	
 	public static ItemEssenceSword itemIntermediumSword = new ItemEssenceSword("intermedium_sword", ModToolMaterials.INTERMEDIUM, ModItems.itemIntermediumIngot, TextFormatting.GOLD);
 	public static ItemEssencePickaxe itemIntermediumPickaxe = new ItemEssencePickaxe("intermedium_pickaxe", ModToolMaterials.INTERMEDIUM, ModItems.itemIntermediumIngot, TextFormatting.GOLD);
 	public static ItemEssenceShovel itemIntermediumShovel = new ItemEssenceShovel("intermedium_shovel", ModToolMaterials.INTERMEDIUM, ModItems.itemIntermediumIngot, TextFormatting.GOLD);
 	public static ItemEssenceAxe itemIntermediumAxe = new ItemEssenceAxe("intermedium_axe", ModToolMaterials.INTERMEDIUM, ModItems.itemIntermediumIngot, 13.0F, TextFormatting.GOLD);
 	public static ItemEssenceHoe itemIntermediumHoe = new ItemEssenceHoe("intermedium_hoe", ModToolMaterials.INTERMEDIUM, ModItems.itemIntermediumIngot, TextFormatting.GOLD);
+	public static ItemEssenceShears itemIntermediumShears = new ItemEssenceShears("intermedium_shears", ModToolMaterials.INTERMEDIUM, ModItems.itemIntermediumIngot, TextFormatting.GOLD);
 	
 	public static ItemEssenceSword itemSuperiumSword = new ItemEssenceSword("superium_sword", ModToolMaterials.SUPERIUM, ModItems.itemSuperiumIngot, TextFormatting.AQUA);
 	public static ItemEssencePickaxe itemSuperiumPickaxe = new ItemEssencePickaxe("superium_pickaxe", ModToolMaterials.SUPERIUM, ModItems.itemSuperiumIngot, TextFormatting.AQUA);
 	public static ItemEssenceShovel itemSuperiumShovel = new ItemEssenceShovel("superium_shovel", ModToolMaterials.SUPERIUM, ModItems.itemSuperiumIngot, TextFormatting.AQUA);
 	public static ItemEssenceAxe itemSuperiumAxe = new ItemEssenceAxe("superium_axe", ModToolMaterials.SUPERIUM, ModItems.itemSuperiumIngot, 17.0F, TextFormatting.AQUA);
 	public static ItemEssenceHoe itemSuperiumHoe = new ItemEssenceHoe("superium_hoe", ModToolMaterials.SUPERIUM, ModItems.itemSuperiumIngot, TextFormatting.AQUA);
+	public static ItemEssenceShears itemSuperiumShears = new ItemEssenceShears("superium_shears", ModToolMaterials.SUPERIUM, ModItems.itemSuperiumIngot, TextFormatting.AQUA);
 	
 	public static ItemEssenceSword itemSupremiumSword = new ItemEssenceSword("supremium_sword", ModToolMaterials.SUPREMIUM, ModItems.itemSupremiumIngot, TextFormatting.RED);
 	public static ItemEssencePickaxe itemSupremiumPickaxe = new ItemEssencePickaxe("supremium_pickaxe", ModToolMaterials.SUPREMIUM, ModItems.itemSupremiumIngot, TextFormatting.RED);
 	public static ItemEssenceShovel itemSupremiumShovel = new ItemEssenceShovel("supremium_shovel", ModToolMaterials.SUPREMIUM, ModItems.itemSupremiumIngot, TextFormatting.RED);
 	public static ItemEssenceAxe itemSupremiumAxe = new ItemEssenceAxe("supremium_axe", ModToolMaterials.SUPREMIUM, ModItems.itemSupremiumIngot, 23.0F, TextFormatting.RED);
 	public static ItemEssenceHoe itemSupremiumHoe = new ItemEssenceHoe("supremium_hoe", ModToolMaterials.SUPREMIUM, ModItems.itemSupremiumIngot, TextFormatting.RED);
+	public static ItemEssenceShears itemSupremiumShears = new ItemEssenceShears("supremium_shears", ModToolMaterials.SUPREMIUM, ModItems.itemSupremiumIngot, TextFormatting.RED);
 	
 	public static ItemSwordStrength itemSupremiumSwordStrength = new ItemSwordStrength(ModToolMaterials.SUPREMIUM_STRENGTH1, "supremium_sword_strength1");
 	public static ItemSwordStrength itemSupremiumSwordStrength2 = new ItemSwordStrength(ModToolMaterials.SUPREMIUM_STRENGTH2, "supremium_sword_strength2");
@@ -391,30 +397,35 @@ public class ModItems {
 			registerItem(itemInferiumShovel);
 			registerItem(itemInferiumAxe);
 			registerItem(itemInferiumHoe);
+			registerItem(itemInferiumShears);
 			
 			registerItem(itemPrudentiumSword);
 			registerItem(itemPrudentiumPickaxe);
 			registerItem(itemPrudentiumShovel);
 			registerItem(itemPrudentiumAxe);
 			registerItem(itemPrudentiumHoe);
+			registerItem(itemPrudentiumShears);
 			
 			registerItem(itemIntermediumSword);
 			registerItem(itemIntermediumPickaxe);
 			registerItem(itemIntermediumShovel);
 			registerItem(itemIntermediumAxe);
 			registerItem(itemIntermediumHoe);
+			registerItem(itemIntermediumShears);
 			
 			registerItem(itemSuperiumSword);
 			registerItem(itemSuperiumPickaxe);
 			registerItem(itemSuperiumShovel);
 			registerItem(itemSuperiumAxe);
 			registerItem(itemSuperiumHoe);
+			registerItem(itemSuperiumShears);
 			
 			registerItem(itemSupremiumSword);
 			registerItem(itemSupremiumPickaxe);
 			registerItem(itemSupremiumShovel);
 			registerItem(itemSupremiumAxe);
 			registerItem(itemSupremiumHoe);
+			registerItem(itemSupremiumShears);
 			
 			registerItem(itemSupremiumSwordStrength);
 			registerItem(itemSupremiumSwordStrength2);
@@ -616,30 +627,35 @@ public class ModItems {
 			registerModel(itemInferiumShovel);
 			registerModel(itemInferiumAxe);
 			registerModel(itemInferiumHoe);
+			registerModel(itemInferiumShears);
 			
 			registerModel(itemPrudentiumSword);
 			registerModel(itemPrudentiumPickaxe);
 			registerModel(itemPrudentiumShovel);
 			registerModel(itemPrudentiumAxe);
 			registerModel(itemPrudentiumHoe);
+			registerModel(itemPrudentiumShears);
 			
 			registerModel(itemIntermediumSword);
 			registerModel(itemIntermediumPickaxe);
 			registerModel(itemIntermediumShovel);
 			registerModel(itemIntermediumAxe);
 			registerModel(itemIntermediumHoe);
+			registerModel(itemIntermediumShears);
 			
 			registerModel(itemSuperiumSword);
 			registerModel(itemSuperiumPickaxe);
 			registerModel(itemSuperiumShovel);
 			registerModel(itemSuperiumAxe);
 			registerModel(itemSuperiumHoe);
+			registerModel(itemSuperiumShears);
 			
 			registerModel(itemSupremiumSword);
 			registerModel(itemSupremiumPickaxe);
 			registerModel(itemSupremiumShovel);
 			registerModel(itemSupremiumAxe);
 			registerModel(itemSupremiumHoe);
+			registerModel(itemSupremiumShears);
 			
 			registerModel(itemSupremiumSwordStrength);
 			registerModel(itemSupremiumSwordStrength2);

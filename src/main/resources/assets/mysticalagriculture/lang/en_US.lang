@@ -539,30 +539,35 @@ item.ma.inferium_pickaxe.name=§eInferium Pickaxe
 item.ma.inferium_shovel.name=§eInferium Shovel
 item.ma.inferium_axe.name=§eInferium Axe
 item.ma.inferium_hoe.name=§eInferium Hoe
+item.ma.inferium_shears.name=§eInferium Shears
 
 item.ma.prudentium_sword.name=§aPrudentium Sword
 item.ma.prudentium_pickaxe.name=§aPrudentium Pickaxe
 item.ma.prudentium_shovel.name=§aPrudentium Shovel
 item.ma.prudentium_axe.name=§aPrudentium Axe
 item.ma.prudentium_hoe.name=§aPrudentium Hoe
+item.ma.prudentium_shears.name=§aPrudentium Shears
 
 item.ma.intermedium_sword.name=§6Intermedium Sword
 item.ma.intermedium_pickaxe.name=§6Intermedium Pickaxe
 item.ma.intermedium_shovel.name=§6Intermedium Shovel
 item.ma.intermedium_axe.name=§6Intermedium Axe
 item.ma.intermedium_hoe.name=§6Intermedium Hoe
+item.ma.intermedium_shears.name=§6Intermedium Shears
 
 item.ma.superium_sword.name=§bSuperium Sword
 item.ma.superium_pickaxe.name=§bSuperium Pickaxe
 item.ma.superium_shovel.name=§bSuperium Shovel
 item.ma.superium_axe.name=§bSuperium Axe
 item.ma.superium_hoe.name=§bSuperium Hoe
+item.ma.superium_shears.name=§bSuperium Shears
 
 item.ma.supremium_sword.name=§cSupremium Sword
 item.ma.supremium_pickaxe.name=§cSupremium Pickaxe
 item.ma.supremium_shovel.name=§cSupremium Shovel
 item.ma.supremium_axe.name=§cSupremium Axe
 item.ma.supremium_hoe.name=§cSupremium Hoe
+item.ma.supremium_shears.name=§cSupremium Shears
 
 item.ma.supremium_sword_strength1.name=§cSupremium Sword
 item.ma.supremium_sword_strength2.name=§cSupremium Sword

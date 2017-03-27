@@ -6,7 +6,7 @@ import java.util.List;
 import com.blakebr0.mysticalagriculture.MysticalAgriculture;
 import com.blakebr0.mysticalagriculture.config.ModConfig;
 import com.blakebr0.mysticalagriculture.items.ModItems;
-import com.blakebr0.mysticalagriculture.items.tools.ToolTools;
+import com.blakebr0.mysticalagriculture.util.ToolTools;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;

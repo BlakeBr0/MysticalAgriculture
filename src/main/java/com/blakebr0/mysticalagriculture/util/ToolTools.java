@@ -1,4 +1,4 @@
-package com.blakebr0.mysticalagriculture.items.tools;
+package com.blakebr0.mysticalagriculture.util;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;

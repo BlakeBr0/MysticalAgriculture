@@ -38,7 +38,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 public class MobDrops {
 	
-    public static Random r = new Random();
+    public static Random rand = new Random();
     public static int chance = 0;
     
     private static CropType.Type type;
@@ -46,67 +46,6 @@ public class MobDrops {
     private static final String BLIZZ_CLASS = "cofh.thermalfoundation.entity.monster.EntityBlizz";
     private static final String BLITZ_CLASS = "cofh.thermalfoundation.entity.monster.EntityBlitz";
     private static final String BASALZ_CLASS = "cofh.thermalfoundation.entity.monster.EntityBasalz";
-        
-    public static int dropChance(int type){
-    	switch(type - 1){
-    	case 0:
-    		if(r.nextInt(100 / 30) == 1){
-    			chance++;
-    		} else {
-    			chance = 0;
-    		}
-    		break;
-    	case 1:
-    		if(r.nextInt(100 / 25) == 1){
-    			chance++;
-    		} else {
-    			chance = 0;
-    		}
-    		break;
-    	case 2:
-    		if(r.nextInt(100 / 20) == 1){
-    			chance++;
-    		} else {
-    			chance = 0;
-    		}
-    		break;
-    	case 3:
-    		if(r.nextInt(100 / 15) == 1){
-    			chance++;
-    		} else {
-    			chance = 0;
-    		}
-    		break;
-    	case 4:
-    		if(r.nextInt(100 / 10) == 1){
-    			chance++;
-    		} else {
-    			chance = 0;
-    		}
-    		break;
-    	case 5:
-    		if(ModConfig.confHostileDropChance > 0){
-        		if(r.nextInt(100 / ModConfig.confHostileDropChance) == 1){
-        			chance++;
-        		} else {
-        			chance = 0;
-        		}
-    		}
-    		break;
-    	case 6:
-    		if(ModConfig.confPassiveDropChance > 0){
-        		if(r.nextInt(100 / ModConfig.confPassiveDropChance) == 1){
-        			chance++;
-        		} else {
-        			chance = 0;
-        		}
-    		}
-    		break;
-    	default:
-    		chance = 0;
-    	}
-    	return chance;
-    }
     
     @SubscribeEvent
     public void onMobDrops(LivingDropsEvent event){
@@ -219,7 +158,7 @@ public class MobDrops {
     
     public static int getChance(int chance){
     	int dropChance = 0;
-    	if(r.nextInt(100 / chance) == 1){
+    	if(rand.nextInt(100 / chance) == 1){
     		dropChance++;
     	}
     	return dropChance;
