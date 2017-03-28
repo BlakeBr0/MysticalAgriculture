@@ -256,6 +256,7 @@ public class ModConfig {
 	public static boolean confGenerateRegular;
 	public static boolean confGenerateNether;
 	public static boolean confGenerateEnd;
+	public static boolean confGenerateSoulstone;
 	
 	public static int confInferiumVeinCount;
 	public static int confInferiumVeinSize;
@@ -287,6 +288,11 @@ public class ModConfig {
 	public static int confEndProsperityMinY;
 	public static int confEndProsperityMaxY;
 		
+	public static int confSoulstoneVeinCount;
+	public static int confSoulstoneVeinSize;
+	public static int confSoulstoneMinY;
+	public static int confSoulstoneMaxY;
+	
 	@SubscribeEvent
     public void onConfigChanged(ConfigChangedEvent.OnConfigChangedEvent eventArgs) {
         if(eventArgs.getModID().equals(MysticalAgriculture.MOD_ID)) {
@@ -572,6 +578,7 @@ public class ModConfig {
 		confGenerateRegular = config.getBoolean("generate_regular", category, true, "Should the regular ores generate in the world?");
 		confGenerateNether = config.getBoolean("generate_nether", category, true, "Should the nether ores generate in the world?");
 		confGenerateEnd = config.getBoolean("generate_end", category, true, "Should the end ores generate in the world?");
+		confGenerateSoulstone = config.getBoolean("generate_soulstone", category, true, "Should Soulstone generate in the nether?");
 		
 		confInferiumVeinCount = config.getInt("inferium_veincount", category, 16, 0, 1000, "Amount of Inferium Ore veins to spawn. Higher = more.");
 		confInferiumVeinSize = config.getInt("inferium_veinsize", category, 6, 0, 100, "Size of the Inferium Ore veins.");
@@ -602,6 +609,11 @@ public class ModConfig {
 		confEndProsperityVeinSize = config.getInt("end_prosperity_veinsize", category, 6, 0, 100, "Size of the End Prosperity Ore veins.");
 		confEndProsperityMinY = config.getInt("end_prosperity_miny", category, 10, 1, 127, "Minimum Y level End Prosperity Ore should spawn.");
 		confEndProsperityMaxY = config.getInt("end_prosperity_maxy", category, 100, 1, 127, "Maximum Y level End Prosperity Ore should spawn.");
+		
+		confSoulstoneVeinCount = config.getInt("soulstone_veincount", category, 1, 0, 100, "Amount of Soulstone veins to spawn. Higher = more.");
+		confSoulstoneVeinSize = config.getInt("soulstone_veinsize", category, 64, 0, 100, "Size of the Soulstone veins.");
+		confSoulstoneMinY = config.getInt("soulstone_miny", category, 16, 1, 127, "Minimum Y level Soulstone should spawn.");
+		confSoulstoneMaxY = config.getInt("soulstone_maxy", category, 124, 1, 127, "Maximum Y level Soulstone should spawn.");
 		
 		if(config.hasChanged()){
 			config.save();

@@ -14,6 +14,8 @@ import com.blakebr0.mysticalagriculture.blocks.furnace.BlockSupremiumFurnace;
 import com.blakebr0.mysticalagriculture.blocks.furnace.BlockUltimateFurnace;
 import com.blakebr0.mysticalagriculture.blocks.ore.BlockInferiumOre;
 import com.blakebr0.mysticalagriculture.blocks.ore.BlockProsperityOre;
+import com.blakebr0.mysticalagriculture.blocks.soulstone.BlockSoulstone;
+import com.blakebr0.mysticalagriculture.blocks.soulstone.ItemBlockSoulstone;
 import com.blakebr0.mysticalagriculture.config.ModConfig;
 import com.blakebr0.mysticalagriculture.jei.CompatJEI;
 import com.blakebr0.mysticalagriculture.lib.CropType;
@@ -50,7 +52,7 @@ public class ModBlocks {
 	
 	public static BlockEssenceCoal blockEssenceCoal = new BlockEssenceCoal();
 	
-	public static BlockBase blockSoulstone = new BlockBase("soulstone", Material.ROCK, SoundType.STONE, 4.0F, 10.0F);
+	public static BlockSoulstone blockSoulstone = new BlockSoulstone();
 		
 	public static BlockInferiumFurnace blockInferiumFurnace = new BlockInferiumFurnace(false, "inferium_furnace", 5.0F, 10.0F);
 	public static BlockInferiumFurnace blockInferiumFurnaceActive = new BlockInferiumFurnace(true, "inferium_furnace_active", 5.0F, 10.0F);
@@ -110,7 +112,7 @@ public class ModBlocks {
 		
 		registerBlock(blockEssenceCoal, new ItemBlockEssenceCoal(blockEssenceCoal));
 		
-		registerBlock(blockSoulstone);
+		registerBlock(blockSoulstone, new ItemBlockSoulstone(blockSoulstone));
 		
 		if(ModConfig.confEssenceFurnaces){
 			registerBlock(blockInferiumFurnace);
@@ -186,7 +188,7 @@ public class ModBlocks {
 		
 		blockEssenceCoal.initModels();
 		
-		registerModel(blockSoulstone);
+		blockSoulstone.initModels();
 		
 		if(ModConfig.confEssenceFurnaces){
 			registerModel(blockInferiumFurnace);

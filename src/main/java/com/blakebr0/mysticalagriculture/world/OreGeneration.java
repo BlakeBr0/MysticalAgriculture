@@ -32,6 +32,9 @@ public class OreGeneration implements IWorldGenerator {
 			  if(ModConfig.confGenerateNether){
 				  generateNether(world, random, chunkX * 16, chunkZ * 16);
 			  }
+			  if(ModConfig.confGenerateSoulstone){
+				  generateSoulstone(world, random, chunkX * 16, chunkZ * 16);  
+			  }
 			  break;
 		  case 1:
 			  if(ModConfig.confGenerateEnd){
@@ -144,5 +147,26 @@ public class OreGeneration implements IWorldGenerator {
 	      state = block.getDefaultState();
 	      new WorldGenMinable(state, veinSize, predicate).generate(world, random, pos);
 	    }
+	  }
+	  
+	  private void generateSoulstone(World world, Random random, int posX, int posZ) {
+		    int i, x, y, z, meta, veinCount, veinSize;
+		    BlockPos pos;
+		    Block block;
+		    IBlockState state;
+		    ModConfig config = ModConfig.instance;
+		    Predicate predicate = BlockMatcher.forBlock(Blocks.NETHERRACK);
+		    
+		    block = ModBlocks.blockSoulstone;
+		    veinCount = config.confSoulstoneVeinCount;
+		    veinSize = config.confSoulstoneVeinSize;
+		    for (i = 0; i < 5; ++i) {
+		      x = posX + random.nextInt(16);
+		      y = random.nextInt(config.confSoulstoneMaxY - config.confSoulstoneMinY) + config.confSoulstoneMinY;
+		      z = posZ + random.nextInt(16);
+		      pos = new BlockPos(x, y, z);
+		      state = block.getDefaultState();
+		      new WorldGenMinable(state, veinSize, predicate).generate(world, random, pos);
+		    }
 	  }
 }

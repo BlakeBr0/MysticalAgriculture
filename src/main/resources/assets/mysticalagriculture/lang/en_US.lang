@@ -25,7 +25,12 @@ tile.ma.coal_block_intermedium.name=§6Intermedium Coal Block
 tile.ma.coal_block_superium.name=§bSuperium Coal Block
 tile.ma.coal_block_supremium.name=§cSupremium Coal Block
 
-tile.ma.soulstone.name=Soulstone
+tile.ma.soulstone_smooth.name=Soulstone
+tile.ma.soulstone_cobbled.name=Cobbled Soulstone
+tile.ma.soulstone_polished.name=Polished Soulstone
+tile.ma.soulstone_brick.name=Soulstone Bricks
+tile.ma.soulstone_cracked.name=Cracked Soulstone Bricks
+tile.ma.soulstone_chiseled.name=Chiseled Soulstone
 
 # FURNACES
 tile.ma.inferium_furnace.name=§eInferium Furnace

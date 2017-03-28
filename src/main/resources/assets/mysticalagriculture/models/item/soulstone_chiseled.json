@@ -1,5 +1,5 @@
 {
-	"parent": "mysticalagriculture:block/soulstone",
+	"parent": "mysticalagriculture:block/soulstone_chiseled",
     "display": {
         "gui": {
             "rotation": [ 30, 225, 0 ],

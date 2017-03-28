@@ -1,5 +1,10 @@
 {
   "variants": {
-    "normal": { "model": "mysticalagriculture:soulstone" }
+    "variant=smooth": { "model": "mysticalagriculture:soulstone_smooth" },
+	"variant=cobbled": { "model": "mysticalagriculture:soulstone_cobbled" },
+	"variant=polished": { "model": "mysticalagriculture:soulstone_polished" },
+	"variant=brick": { "model": "mysticalagriculture:soulstone_brick" },
+	"variant=cracked": { "model": "mysticalagriculture:soulstone_cracked" },
+	"variant=chiseled": { "model": "mysticalagriculture:soulstone_chiseled" }
   }
 }

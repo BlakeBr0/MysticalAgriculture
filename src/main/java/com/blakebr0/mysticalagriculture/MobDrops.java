@@ -38,9 +38,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 public class MobDrops {
 	
-    public static Random rand = new Random();
-    public static int chance = 0;
-    
+    public static Random rand = new Random();    
     private static CropType.Type type;
     
     private static final String BLIZZ_CLASS = "cofh.thermalfoundation.entity.monster.EntityBlizz";
