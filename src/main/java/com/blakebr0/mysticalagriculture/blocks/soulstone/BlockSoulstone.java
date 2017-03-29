@@ -78,7 +78,7 @@ public class BlockSoulstone extends BlockBase {
 		CHISELED(5, "chiseled"),
 		SLAB_BLOCK(6, "slab_block");
 		
-        private static final Type[] META_LOOKUP = new Type[values().length];
+		private static final Type[] META_LOOKUP = new Type[values().length];
 		private final int meta;
 		private final String name;
 		

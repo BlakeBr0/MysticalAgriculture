@@ -291,6 +291,22 @@ public class ModRecipes {
     	addShapedRecipe(new ItemStack(ModItems.itemSouliumIngot, 1, 0), "NNN", "NNN", "NNN", 'N', new ItemStack(ModItems.itemNugget, 1, 6));
     	
 	    addShapedRecipe(new ItemStack(ModBlocks.blockSoulstone, 8, 0), "XDX", "DXD", "XDX", 'X', "stone", 'D', new ItemStack(Blocks.SOUL_SAND, 1, 0));
+	    addSmeltingRecipe(new ItemStack(ModBlocks.blockSoulstone, 1, 1), new ItemStack(ModBlocks.blockSoulstone, 1, 0), 0.3F);
+	    addShapedRecipe(new ItemStack(ModBlocks.blockSoulstone, 2, 2), "SXX", "SXX", "XXX", 'S', new ItemStack(ModBlocks.blockSoulstone, 1, 0));
+	    addShapedRecipe(new ItemStack(ModBlocks.blockSoulstone, 4, 3), "SSX", "SSX", "XXX", 'S', new ItemStack(ModBlocks.blockSoulstone, 1, 0));
+	    addSmeltingRecipe(new ItemStack(ModBlocks.blockSoulstone, 1, 3), new ItemStack(ModBlocks.blockSoulstone, 1, 4), 0.3F);
+	    addShapedRecipe(new ItemStack(ModBlocks.blockSoulstone, 1, 5), "SXX", "SXX", "XXX", 'S', new ItemStack(ModBlocks.blockSoulstoneBrickSlab, 1, 0));
+	    addShapedRecipe(new ItemStack(ModBlocks.blockSoulstone, 2, 6), "SSX", "SSX", "XXX", 'S', new ItemStack(ModBlocks.blockSoulstoneSlab, 1, 0));
+	    
+	    addShapedRecipe(new ItemStack(ModBlocks.blockSoulstoneSlab, 6, 0), "SSS", "XXX", "XXX", 'S', new ItemStack(ModBlocks.blockSoulstone, 1, 0));
+	    addShapedRecipe(new ItemStack(ModBlocks.blockCobbledSoulstoneSlab, 6, 0), "SSS", "XXX", "XXX", 'S', new ItemStack(ModBlocks.blockSoulstone, 1, 1));
+	    addShapedRecipe(new ItemStack(ModBlocks.blockSoulstoneBrickSlab, 6, 0), "SSS", "XXX", "XXX", 'S', new ItemStack(ModBlocks.blockSoulstone, 1, 3));
+	    
+	    addShapedRecipe(new ItemStack(ModBlocks.blockCobbledSoulstoneStairs, 4, 0), "SXX", "SSX", "SSS", 'S', new ItemStack(ModBlocks.blockSoulstone, 1, 1));    
+	    addShapedRecipe(new ItemStack(ModBlocks.blockSoulstoneBrickStairs, 4, 0), "SXX", "SSX", "SSS", 'S', new ItemStack(ModBlocks.blockSoulstone, 1, 3));    
+	
+	    addShapedRecipe(new ItemStack(ModBlocks.blockCobbledSoulstoneWall, 6, 0), "XXX", "SSS", "SSS", 'S', new ItemStack(ModBlocks.blockSoulstone, 1, 1));    
+	    addShapedRecipe(new ItemStack(ModBlocks.blockSoulstoneBrickWall, 6, 0), "XXX", "SSS", "SSS", 'S', new ItemStack(ModBlocks.blockSoulstone, 1, 3));    
 	    
 	    addSmeltingRecipe(new ItemStack(ModBlocks.blockSoulstone, 1, 0), new ItemStack(ModItems.itemSoulDust), 0.3F);
 		addShapedRecipe(new ItemStack(ModItems.itemSouliumDust, 1, 0), "SXS", "XSX", "SXS", 'S', new ItemStack(ModItems.itemSoulDust, 1, 0), 'X', new ItemStack(ModItems.itemPrudentiumEssence, 1, 0));

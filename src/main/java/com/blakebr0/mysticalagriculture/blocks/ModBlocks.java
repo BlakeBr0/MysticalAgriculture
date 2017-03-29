@@ -30,6 +30,7 @@ import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemSlab;
+import net.minecraft.item.ItemStack;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
@@ -298,7 +299,7 @@ public class ModBlocks {
 		OreDictionary.registerOre("oreEndProsperity", blockProsperityOreEnd);
 		OreDictionary.registerOre("oreInferium", blockInferiumOre);
 		OreDictionary.registerOre("oreNetherInferium", blockInferiumOreNether);
-		OreDictionary.registerOre("oreEndInferium", blockInferiumOreEnd);
+		OreDictionary.registerOre("oreEndInferium", blockInferiumOreEnd);	
 	}
 	
 	public static void initJEIDescriptions(){
