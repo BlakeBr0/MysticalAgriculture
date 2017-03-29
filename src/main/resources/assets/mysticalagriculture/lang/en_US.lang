@@ -31,6 +31,17 @@ tile.ma.soulstone_polished.name=Polished Soulstone
 tile.ma.soulstone_brick.name=Soulstone Bricks
 tile.ma.soulstone_cracked.name=Cracked Soulstone Bricks
 tile.ma.soulstone_chiseled.name=Chiseled Soulstone
+tile.ma.soulstone_slab_block.name=Soulstone Slab Block
+
+tile.ma.soulstone_slab.name=Soulstone Slab
+tile.ma.cobbled_soulstone_slab.name=Cobbled Soulstone Slab
+tile.ma.soulstone_brick_slab.name=Soulstone Brick Slab
+
+tile.ma.cobbled_soulstone_stairs.name=Cobbled Soulstone Stairs
+tile.ma.soulstone_brick_stairs.name=Soulstone Brick Stairs
+
+tile.ma.cobbled_soulstone_wall.name=Cobbled Soulstone Wall
+tile.ma.soulstone_brick_wall.name=Soulstone Brick Wall
 
 # FURNACES
 tile.ma.inferium_furnace.name=§eInferium Furnace

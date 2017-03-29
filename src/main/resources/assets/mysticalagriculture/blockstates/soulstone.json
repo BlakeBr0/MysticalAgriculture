@@ -5,6 +5,7 @@
 	"variant=polished": { "model": "mysticalagriculture:soulstone_polished" },
 	"variant=brick": { "model": "mysticalagriculture:soulstone_brick" },
 	"variant=cracked": { "model": "mysticalagriculture:soulstone_cracked" },
-	"variant=chiseled": { "model": "mysticalagriculture:soulstone_chiseled" }
+	"variant=chiseled": { "model": "mysticalagriculture:soulstone_chiseled" },
+	"variant=slab_block": { "model": "mysticalagriculture:soulstone_slab_block" }
   }
 }

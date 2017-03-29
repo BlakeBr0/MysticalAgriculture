@@ -1,0 +1,6 @@
+{
+    "parent": "block/wall_side",
+    "textures": {
+        "wall": "mysticalagriculture:blocks/soulstone_brick"
+    }
+}

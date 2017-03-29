@@ -14,7 +14,10 @@ import com.blakebr0.mysticalagriculture.blocks.furnace.BlockSupremiumFurnace;
 import com.blakebr0.mysticalagriculture.blocks.furnace.BlockUltimateFurnace;
 import com.blakebr0.mysticalagriculture.blocks.ore.BlockInferiumOre;
 import com.blakebr0.mysticalagriculture.blocks.ore.BlockProsperityOre;
+import com.blakebr0.mysticalagriculture.blocks.soulstone.BlockSoulstoneStairs;
+import com.blakebr0.mysticalagriculture.blocks.soulstone.BlockSoulstoneWall;
 import com.blakebr0.mysticalagriculture.blocks.soulstone.BlockSoulstone;
+import com.blakebr0.mysticalagriculture.blocks.soulstone.BlockSoulstoneSlab;
 import com.blakebr0.mysticalagriculture.blocks.soulstone.ItemBlockSoulstone;
 import com.blakebr0.mysticalagriculture.config.ModConfig;
 import com.blakebr0.mysticalagriculture.jei.CompatJEI;
@@ -26,6 +29,7 @@ import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
+import net.minecraft.item.ItemSlab;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
@@ -53,7 +57,17 @@ public class ModBlocks {
 	public static BlockEssenceCoal blockEssenceCoal = new BlockEssenceCoal();
 	
 	public static BlockSoulstone blockSoulstone = new BlockSoulstone();
-		
+	public static BlockSoulstoneSlab blockSoulstoneSlab = new BlockSoulstoneSlab("soulstone_slab", false);
+	public static BlockSoulstoneSlab blockSoulstoneSlabFull = new BlockSoulstoneSlab("soulstone_slab_full", true);
+	public static BlockSoulstoneSlab blockCobbledSoulstoneSlab = new BlockSoulstoneSlab("cobbled_soulstone_slab", false);
+	public static BlockSoulstoneSlab blockCobbledSoulstoneSlabFull = new BlockSoulstoneSlab("cobbled_soulstone_slab_full", true);
+	public static BlockSoulstoneSlab blockSoulstoneBrickSlab = new BlockSoulstoneSlab("soulstone_brick_slab", false);
+	public static BlockSoulstoneSlab blockSoulstoneBrickSlabFull = new BlockSoulstoneSlab("soulstone_brick_slab_full", true);
+	public static BlockSoulstoneStairs blockCobbledSoulstoneStairs = new BlockSoulstoneStairs("cobbled_soulstone_stairs", blockSoulstone.getDefaultState().withProperty(BlockSoulstone.VARIANT, BlockSoulstone.Type.COBBLED));
+	public static BlockSoulstoneStairs blockSoulstoneBrickStairs = new BlockSoulstoneStairs("soulstone_brick_stairs", blockSoulstone.getDefaultState().withProperty(BlockSoulstone.VARIANT, BlockSoulstone.Type.BRICK));
+	public static BlockSoulstoneWall blockCobbledSoulstoneWall = new BlockSoulstoneWall("cobbled_soulstone_wall", blockSoulstone.getDefaultState().withProperty(BlockSoulstone.VARIANT, BlockSoulstone.Type.COBBLED).getBlock());	
+	public static BlockSoulstoneWall blockSoulstoneBrickWall = new BlockSoulstoneWall("soulstone_brick_wall", blockSoulstone.getDefaultState().withProperty(BlockSoulstone.VARIANT, BlockSoulstone.Type.BRICK).getBlock());	
+	
 	public static BlockInferiumFurnace blockInferiumFurnace = new BlockInferiumFurnace(false, "inferium_furnace", 5.0F, 10.0F);
 	public static BlockInferiumFurnace blockInferiumFurnaceActive = new BlockInferiumFurnace(true, "inferium_furnace_active", 5.0F, 10.0F);
 	public static BlockPrudentiumFurnace blockPrudentiumFurnace = new BlockPrudentiumFurnace(false, "prudentium_furnace", 5.0F, 10.0F);
@@ -113,6 +127,19 @@ public class ModBlocks {
 		registerBlock(blockEssenceCoal, new ItemBlockEssenceCoal(blockEssenceCoal));
 		
 		registerBlock(blockSoulstone, new ItemBlockSoulstone(blockSoulstone));
+		GameRegistry.register(blockSoulstoneSlab.setDrop(blockSoulstoneSlab));
+		GameRegistry.register(blockSoulstoneSlabFull.setDrop(blockSoulstoneSlab));
+		GameRegistry.register(new ItemSlab(blockSoulstoneSlab, blockSoulstoneSlab, blockSoulstoneSlabFull).setRegistryName(blockSoulstoneSlab.getRegistryName()));
+		GameRegistry.register(blockCobbledSoulstoneSlab.setDrop(blockCobbledSoulstoneSlab));
+		GameRegistry.register(blockCobbledSoulstoneSlabFull.setDrop(blockCobbledSoulstoneSlab));
+		GameRegistry.register(new ItemSlab(blockCobbledSoulstoneSlab, blockCobbledSoulstoneSlab, blockCobbledSoulstoneSlabFull).setRegistryName(blockCobbledSoulstoneSlab.getRegistryName()));
+		GameRegistry.register(blockSoulstoneBrickSlab.setDrop(blockSoulstoneBrickSlab));
+		GameRegistry.register(blockSoulstoneBrickSlabFull.setDrop(blockSoulstoneBrickSlab));
+		GameRegistry.register(new ItemSlab(blockSoulstoneBrickSlab, blockSoulstoneBrickSlab, blockSoulstoneBrickSlabFull).setRegistryName(blockSoulstoneBrickSlab.getRegistryName()));
+		registerBlock(blockCobbledSoulstoneStairs);
+		registerBlock(blockSoulstoneBrickStairs);
+		registerBlock(blockCobbledSoulstoneWall);
+		registerBlock(blockSoulstoneBrickWall);
 		
 		if(ModConfig.confEssenceFurnaces){
 			registerBlock(blockInferiumFurnace);
@@ -189,6 +216,13 @@ public class ModBlocks {
 		blockEssenceCoal.initModels();
 		
 		blockSoulstone.initModels();
+		registerModel(blockSoulstoneSlab);
+		registerModel(blockCobbledSoulstoneSlab);
+		registerModel(blockSoulstoneBrickSlab);
+		registerModel(blockCobbledSoulstoneStairs);
+		registerModel(blockSoulstoneBrickStairs);
+		registerModel(blockCobbledSoulstoneWall);
+		registerModel(blockSoulstoneBrickWall);
 		
 		if(ModConfig.confEssenceFurnaces){
 			registerModel(blockInferiumFurnace);
