@@ -156,6 +156,9 @@ public class MobDrops {
     
     public static int getChance(int chance){
     	int dropChance = 0;
+    	if(chance == 0){
+    		return 0;
+    	}
     	if(rand.nextInt(100 / chance) == 1){
     		dropChance++;
     	}
