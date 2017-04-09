@@ -94,6 +94,7 @@ public class ModItems {
 	public static ItemBase itemTier5CraftingSeed = new ItemBase("tier5_crafting_seed");
 	
 	public static ItemBase itemMysticalToolRod = new ItemBase("mystical_tool_rod");
+	public static ItemBase itemMysticalBowstring = new ItemBase("mystical_bowstring");
 	
 	public static ItemBase itemBaseEssenceIngot = new ItemBase("base_essence_ingot");
 	public static ItemBase itemInferiumIngot = new ItemBase("inferium_ingot");
@@ -311,6 +312,7 @@ public class ModItems {
 		registerItem(itemTier5CraftingSeed);
 		
 		registerItem(itemMysticalToolRod);
+		registerItem(itemMysticalBowstring);
 		
 		registerItem(itemBaseEssenceIngot);
 		registerItem(itemInferiumIngot);
@@ -546,6 +548,7 @@ public class ModItems {
 		registerModel(itemTier5CraftingSeed);
 		
 		registerModel(itemMysticalToolRod);
+		registerModel(itemMysticalBowstring);
 		
 		registerModel(itemBaseEssenceIngot);
 		registerModel(itemInferiumIngot);

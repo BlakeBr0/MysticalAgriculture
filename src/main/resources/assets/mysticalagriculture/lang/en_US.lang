@@ -253,6 +253,7 @@ item.ma.tier4_crafting_seed.name=Tier 4 Crafting Seed
 item.ma.tier5_crafting_seed.name=Tier 5 Crafting Seed
 
 item.ma.mystical_tool_rod.name=Mystical Tool Rod
+item.ma.mystical_bowstring.name=Mystical Bowstring
 
 item.ma.base_essence_ingot.name=Base Essence Ingot
 item.ma.inferium_ingot.name=§eInferium Ingot
