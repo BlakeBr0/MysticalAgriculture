@@ -141,7 +141,7 @@ public class ModRecipes {
 	    addShapedRecipe(new ItemStack(ModBlocks.blockSuperiumIngot, 1, 0), "EEE", "EEE", "EEE", 'E', new ItemStack(ModItems.itemSuperiumIngot, 1, 0));
 	    addShapedRecipe(new ItemStack(ModBlocks.blockSupremiumIngot, 1, 0), "EEE", "EEE", "EEE", 'E', new ItemStack(ModItems.itemSupremiumIngot, 1, 0));
 	    addShapedRecipe(new ItemStack(ModBlocks.blockSouliumIngot, 1, 0), "EEE", "EEE", "EEE", 'E', new ItemStack(ModItems.itemSouliumIngot, 1, 0));
-	    
+	    	    
 	    if(ModConfig.confEssenceFurnaces){
 	    	addShapedRecipe(new ItemStack(ModBlocks.blockInferiumFurnace, 1, 0), "SES", "EDE", "SBS", 'E', new ItemStack(ModItems.itemInferiumEssence, 1, 0), 'D', new ItemStack(Blocks.FURNACE, 1, 0), 'B', new ItemStack(ModBlocks.blockInferium, 1, 0));
 	    	addShapedRecipe(new ItemStack(ModBlocks.blockPrudentiumFurnace, 1, 0), "SES", "EDE", "SBS", 'E', new ItemStack(ModItems.itemPrudentiumEssence, 1, 0), 'D', new ItemStack(ModBlocks.blockInferiumFurnace, 1, 0), 'B', new ItemStack(ModBlocks.blockPrudentium, 1, 0));
@@ -214,6 +214,11 @@ public class ModRecipes {
 	    addShapedRecipe(new ItemStack(ModItems.itemIntermediumEssence, 1, 0), "XEX", "ECE", "XEX", 'E', new ItemStack(ModItems.itemPrudentiumEssence, 1, 0), 'C', new ItemStack(ModItems.itemInfusionCrystalMaster, 1, 0));
 	    addShapedRecipe(new ItemStack(ModItems.itemSuperiumEssence, 1, 0), "XEX", "ECE", "XEX", 'E', new ItemStack(ModItems.itemIntermediumEssence, 1, 0), 'C', new ItemStack(ModItems.itemInfusionCrystalMaster, 1, 0));
 	    addShapedRecipe(new ItemStack(ModItems.itemSupremiumEssence, 1, 0), "XEX", "ECE", "XEX", 'E', new ItemStack(ModItems.itemSuperiumEssence, 1, 0), 'C', new ItemStack(ModItems.itemInfusionCrystalMaster, 1, 0));
+
+		addShapedRecipe(new ItemStack(ModBlocks.blockPrudentium, 1, 0), "XEX", "ECE", "XEX", 'E', new ItemStack(ModBlocks.blockInferium, 1, 0), 'C', new ItemStack(ModItems.itemInfusionCrystalMaster, 1, 0));
+	    addShapedRecipe(new ItemStack(ModBlocks.blockIntermedium, 1, 0), "XEX", "ECE", "XEX", 'E', new ItemStack(ModBlocks.blockPrudentium, 1, 0), 'C', new ItemStack(ModItems.itemInfusionCrystalMaster, 1, 0));
+	    addShapedRecipe(new ItemStack(ModBlocks.blockSuperium, 1, 0), "XEX", "ECE", "XEX", 'E', new ItemStack(ModBlocks.blockIntermedium, 1, 0), 'C', new ItemStack(ModItems.itemInfusionCrystalMaster, 1, 0));
+	    addShapedRecipe(new ItemStack(ModBlocks.blockSupremium, 1, 0), "XEX", "ECE", "XEX", 'E', new ItemStack(ModBlocks.blockSuperium, 1, 0), 'C', new ItemStack(ModItems.itemInfusionCrystalMaster, 1, 0));
 
 		addShapelessRecipe(new ItemStack(ModItems.itemInferiumEssence, 4, 0), new ItemStack(ModItems.itemPrudentiumEssence, 1, 0));
 		addShapelessRecipe(new ItemStack(ModItems.itemPrudentiumEssence, 4, 0), new ItemStack(ModItems.itemIntermediumEssence, 1, 0));
