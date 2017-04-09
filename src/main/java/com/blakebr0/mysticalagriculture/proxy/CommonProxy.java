@@ -9,12 +9,14 @@ import com.blakebr0.mysticalagriculture.crafting.ModRecipes;
 import com.blakebr0.mysticalagriculture.crafting.ReprocessorManager;
 import com.blakebr0.mysticalagriculture.crafting.ReprocessorRecipe;
 import com.blakebr0.mysticalagriculture.crafting.TinkeringTableManager;
+import com.blakebr0.mysticalagriculture.handler.BowZoomHandler;
 import com.blakebr0.mysticalagriculture.handler.GuiHandler;
 import com.blakebr0.mysticalagriculture.items.ModItems;
 import com.blakebr0.mysticalagriculture.items.armor.ItemIntermediumArmor;
 import com.blakebr0.mysticalagriculture.items.armor.ItemSuperiumArmor;
 import com.blakebr0.mysticalagriculture.items.armor.ItemSupremiumArmor;
 import com.blakebr0.mysticalagriculture.items.armor.upgraded.ItemUpgradedSpeed;
+import com.blakebr0.mysticalagriculture.items.tools.ItemEssenceBow;
 import com.blakebr0.mysticalagriculture.lib.CropType;
 import com.blakebr0.mysticalagriculture.lib.Parts;
 import com.blakebr0.mysticalagriculture.tileentity.ModTileEntities;
@@ -41,6 +43,7 @@ public class CommonProxy {
 		ModBlocks.initBlocks();
 	    ModItems.initItems();
 
+	    MinecraftForge.EVENT_BUS.register(new BowZoomHandler());
 	    MinecraftForge.EVENT_BUS.register(new ItemIntermediumArmor.abilityHandler());
 	    MinecraftForge.EVENT_BUS.register(new ItemSuperiumArmor.abilityHandler());
 	    MinecraftForge.EVENT_BUS.register(new ItemSupremiumArmor.abilityHandler());
