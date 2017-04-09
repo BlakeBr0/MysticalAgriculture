@@ -62,6 +62,8 @@ public class CropType {
 		ELECTRUM("electrum", ModConfig.confElectrumTier, ModConfig.confElectrumSeeds && ModChecker.ELECTRUM),
 		INVAR("invar", ModConfig.confInvarTier, ModConfig.confInvarSeeds && ModChecker.INVAR),
 		PLATINUM("platinum", ModConfig.confPlatinumTier, ModConfig.confPlatinumSeeds && ModChecker.PLATINUM),
+		IRIDIUM("iridium", ModConfig.confIridiumTier, ModConfig.confIridiumSeeds),
+		MITHRIL("mithril", ModConfig.confMithrilTier, ModConfig.confMithrilSeeds),
 		
 		RUBY("ruby", ModConfig.confRubyTier, ModConfig.confRubySeeds && ModChecker.RUBY),
 		SAPPHIRE("sapphire", ModConfig.confSapphireTier, ModConfig.confSapphireSeeds && ModChecker.SAPPHIRE),

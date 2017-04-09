@@ -151,6 +151,8 @@ tile.ma.nickel_crop.name=Nickel Crop
 tile.ma.electrum_crop.name=Electrum Crop
 tile.ma.invar_crop.name=Invar Crop
 tile.ma.platinum_crop.name=Platinum Crop
+tile.ma.iridium_crop.name=Iridium Crop
+tile.ma.mithril_crop.name=Mithril Crop
 
 tile.ma.ruby_crop.name=Ruby Crop
 tile.ma.sapphire_crop.name=Sapphire Crop
@@ -352,6 +354,8 @@ item.ma.nickel_essence.name=Nickel Essence
 item.ma.electrum_essence.name=Electrum Essence
 item.ma.invar_essence.name=Invar Essence
 item.ma.platinum_essence.name=Platinum Essence
+item.ma.iridium_essence.name=Iridium Essence
+item.ma.mithril_essence.name=Mithril Essence
 
 item.ma.ruby_essence.name=Ruby Essence
 item.ma.sapphire_essence.name=Sapphire Essence
@@ -464,6 +468,8 @@ item.ma.nickel_seeds.name=Nickel Seeds
 item.ma.electrum_seeds.name=Electrum Seeds
 item.ma.invar_seeds.name=Invar Seeds
 item.ma.platinum_seeds.name=Platinum Seeds
+item.ma.iridium_seeds.name=Iridium Seeds
+item.ma.mithril_seeds.name=Mithril Seeds
 
 item.ma.ruby_seeds.name=Ruby Seeds
 item.ma.sapphire_seeds.name=Sapphire Seeds
