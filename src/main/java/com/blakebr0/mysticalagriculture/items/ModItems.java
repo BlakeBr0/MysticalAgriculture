@@ -170,6 +170,7 @@ public class ModItems {
 	public static ItemCharm itemCharmJump = new ItemCharm("charm_jump", "desc.ma.charm_jump", new boolean[]{ false, false, false, true, false, false, false, false, false });
 	public static ItemCharm itemCharmMiningAOE = new ItemCharm("charm_mining_aoe", "desc.ma.charm_mining_aoe", new boolean[]{ false, false, false, false, false, true, true, true, false });
 	public static ItemCharm itemCharmAttackAOE = new ItemCharm("charm_attack_aoe", "desc.ma.charm_attack_aoe", new boolean[]{ false, false, false, false, true, false, false, false, false });
+	public static ItemCharm itemCharmTillingAOE = new ItemCharm("charm_tilling_aoe", "desc.ma.charm_tilling_aoe", new boolean[]{ false, false, false, false, false, false, false, false, true });
 	
 	public static ItemEssenceSword itemInferiumSword = new ItemEssenceSword("inferium_sword", ModToolMaterials.INFERIUM, ModItems.itemInferiumIngot, TextFormatting.YELLOW);
 	public static ItemEssencePickaxe itemInferiumPickaxe = new ItemEssencePickaxe("inferium_pickaxe", ModToolMaterials.INFERIUM, ModItems.itemInferiumIngot, TextFormatting.YELLOW);
@@ -218,7 +219,7 @@ public class ModItems {
 	public static ItemPickaxeAOE itemSupremiumPickaxeAOE = new ItemPickaxeAOE("supremium_pickaxe_aoe", ModToolMaterials.SUPREMIUM_AOE, ModItems.itemSupremiumIngot, TextFormatting.RED);
 	public static ItemShovelAOE itemSupremiumShovelAOE = new ItemShovelAOE("supremium_shovel_aoe", ModToolMaterials.SUPREMIUM_AOE, ModItems.itemSupremiumIngot, TextFormatting.RED);
 	public static ItemAxeAOE itemSupremiumAxeAOE = new ItemAxeAOE("supremium_axe_aoe", ModToolMaterials.SUPREMIUM_AOE, ModItems.itemSupremiumIngot, 19.0F, TextFormatting.RED);
-	public static ItemHoeAOE itemSupremiumHoeAOE = new ItemHoeAOE("supremium_hoe_aoe", ModToolMaterials.SUPREMIUM_AOE, 2, ModItems.itemSupremiumIngot, TextFormatting.RED);
+	public static ItemHoeAOE itemSupremiumHoeAOE = new ItemHoeAOE("supremium_hoe_aoe", ModToolMaterials.SUPREMIUM_AOE, 3, ModItems.itemSupremiumIngot, TextFormatting.RED);
 	
 	public static ItemInferiumArmor itemInferiumHelmet = new ItemInferiumArmor("inferium_helmet", ModToolMaterials.INFERIUM_ARMOR, 0, EntityEquipmentSlot.HEAD);
 	public static ItemInferiumArmor itemInferiumChestplate = new ItemInferiumArmor("inferium_chestplate", ModToolMaterials.INFERIUM_ARMOR, 0, EntityEquipmentSlot.CHEST);
@@ -400,9 +401,12 @@ public class ModItems {
 			registerItem(itemCharmStrength2);
 			registerItem(itemCharmSpeed);
 			registerItem(itemCharmJump);
-			registerItem(itemCharmMiningAOE);
-			registerItem(itemCharmAttackAOE);
-			
+			if(ModConfig.confAOECharms){
+				registerItem(itemCharmMiningAOE);
+				registerItem(itemCharmAttackAOE);
+				registerItem(itemCharmTillingAOE);
+			}
+
 			registerItem(itemInferiumSword);
 			registerItem(itemInferiumPickaxe);
 			registerItem(itemInferiumShovel);
@@ -637,8 +641,11 @@ public class ModItems {
 			registerModel(itemCharmStrength2);
 			registerModel(itemCharmSpeed);
 			registerModel(itemCharmJump);
-			registerModel(itemCharmMiningAOE);
-			registerModel(itemCharmAttackAOE);
+			if(ModConfig.confAOECharms){
+				registerModel(itemCharmMiningAOE);
+				registerModel(itemCharmAttackAOE);
+				registerModel(itemCharmTillingAOE);
+			}
 			
 			registerModel(itemInferiumSword);
 			registerModel(itemInferiumPickaxe);

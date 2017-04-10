@@ -561,6 +561,7 @@ item.ma.charm_speed.name=Charm: Speed
 item.ma.charm_jump.name=Charm: Jump Boost
 item.ma.charm_mining_aoe.name=Charm: Mining AOE
 item.ma.charm_attack_aoe.name=Charm: Attack AOE
+item.ma.charm_tilling_aoe.name=Charm: Tilling AOE
 
 # TOOLS
 item.ma.inferium_sword.name=§eInferium Sword
@@ -684,3 +685,4 @@ desc.ma.charm_speed=Increases your movement speed.
 desc.ma.charm_jump=Increases your jump height.
 desc.ma.charm_mining_aoe=Increases your tool's mining radius to 3x3.
 desc.ma.charm_attack_aoe=Increases your sword's attack radius to 5x5.
+desc.ma.charm_tilling_aoe=Increases your hoe's tilling radius to 7x7.

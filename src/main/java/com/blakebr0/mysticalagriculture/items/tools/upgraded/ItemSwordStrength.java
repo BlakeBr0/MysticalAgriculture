@@ -23,8 +23,11 @@ public class ItemSwordStrength extends ItemEssenceSword {
 	}
 	
 	@Override
-    public ItemStack getContainerItem(ItemStack itemstack){
-        return new ItemStack(ModItems.itemCharmStrength, 1, 0);
+    public ItemStack getContainerItem(ItemStack stack){
+		if(stack.getItem() == ModItems.itemSupremiumSwordStrength2){
+	        return new ItemStack(ModItems.itemCharmStrength2, 1, 0);	
+		}
+		return new ItemStack(ModItems.itemCharmStrength, 1, 0);
     }
 
     @Override
