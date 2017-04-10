@@ -466,9 +466,9 @@ public class ModRecipes {
 	    addSeedRecipe(type.CONSTANTAN, "ingotConstantan");
 	    addSeedRecipe(type.ELECTRUM, "ingotElectrum");
 	    addSeedRecipe(type.INVAR, "ingotInvar");
+	    addSeedRecipe(type.MITHRIL, "ingotMithril");
 	    addSeedRecipe(type.PLATINUM, "ingotPlatinum");
 	    addSeedRecipe(type.IRIDIUM, "ingotIridium");
-	    addSeedRecipe(type.MITHRIL, "ingotMithril");
 
 	    addSeedRecipe(type.RUBY, "gemRuby");
 	    addSeedRecipe(type.SAPPHIRE, "gemSapphire");

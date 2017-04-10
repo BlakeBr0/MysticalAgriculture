@@ -80,9 +80,9 @@ public class ModConfig {
 	public static boolean confConstantanSeeds;
 	public static boolean confElectrumSeeds;
 	public static boolean confInvarSeeds;
+	public static boolean confMithrilSeeds;
 	public static boolean confPlatinumSeeds;
 	public static boolean confIridiumSeeds;
-	public static boolean confMithrilSeeds;
 	
 	public static boolean confRubySeeds;
 	public static boolean confSapphireSeeds;
@@ -188,9 +188,9 @@ public class ModConfig {
 	public static int confConstantanTier;
 	public static int confElectrumTier;
 	public static int confInvarTier;
+	public static int confMithrilTier;
 	public static int confPlatinumTier;
 	public static int confIridiumTier;
-	public static int confMithrilTier;
 	
 	public static int confRubyTier;
 	public static int confSapphireTier;
@@ -390,9 +390,9 @@ public class ModConfig {
 		confConstantanSeeds = config.get(category, "constantan_seeds", true).getBoolean();
 		confElectrumSeeds = config.get(category, "electrum_seeds", true).getBoolean();
 		confInvarSeeds = config.get(category, "invar_seeds", true).getBoolean();
+		confMithrilSeeds = config.get(category, "mithril_seeds", true).getBoolean();
 		confPlatinumSeeds = config.get(category, "platinum_seeds", true).getBoolean();
 		confIridiumSeeds = config.get(category, "iridium_seeds", true).getBoolean();
-		confMithrilSeeds = config.get(category, "mithril_seeds", true).getBoolean();
 		
 		confRubySeeds = config.get(category, "ruby_seeds", true).getBoolean();
 		confSapphireSeeds = config.get(category, "sapphire_seeds", true).getBoolean();
@@ -512,9 +512,9 @@ public class ModConfig {
 		confConstantanTier = config.get(category, "constantan_tier", 4).getInt();
 		confElectrumTier = config.get(category, "electrum_tier", 4).getInt();
 		confInvarTier = config.get(category, "invar_tier", 4).getInt();
+		confMithrilTier = config.get(category, "mithril_tier", 4).getInt();
 		confPlatinumTier = config.get(category, "platinum_tier", 5).getInt();
 		confIridiumTier = config.get(category, "iridium_tier", 5).getInt();
-		confMithrilTier = config.get(category, "mithril_tier", 5).getInt();
 		
 		confRubyTier = config.get(category, "ruby_tier", 4).getInt();
 		confSapphireTier = config.get(category, "sapphire", 4).getInt();
@@ -530,7 +530,7 @@ public class ModConfig {
 		confSignalumTier = config.get(category, "signalum_tier", 4).getInt();
 		confLumiumTier = config.get(category, "lumium_tier", 4).getInt();
 		confEnderiumTier = config.get(category, "enderium_tier", 5).getInt();
-		
+
 		confAluminumBrassTier = config.get(category, "aluminum_brass_tier", 2).getInt();
 		confKnightslimeTier = config.get(category, "knightslime_tier", 3).getInt();
 		confArditeTier = config.get(category, "ardite_tier", 3).getInt();

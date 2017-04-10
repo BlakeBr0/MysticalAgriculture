@@ -101,13 +101,17 @@ public class EssenceConfig {
 	public static int copper;
 	public static int tin;
 	public static int bronze;
+	public static int zinc;
+	public static int brass;
 	public static int silver;
 	public static int lead;
 	public static int steel;
 	public static int nickel;
 	public static int electrum;
 	public static int invar;
+	public static int mithril;
 	public static int platinum;
+	public static int iridium;
 	
 	public static int ruby;
 	public static int sapphire;
@@ -274,6 +278,8 @@ public class EssenceConfig {
 		copper = config.get(category, "copper", 6).getInt();
 		tin = config.get(category, "tin", 4).getInt();
 		bronze = config.get(category, "bronze", 4).getInt();
+		zinc = config.get(category, "zinc", 4).getInt();
+		brass = config.get(category, "brass", 4).getInt();
 		silver = config.get(category, "silver", 4).getInt();
 		lead = config.get(category, "lead", 4).getInt();
 		steel = config.get(category, "steel", 3).getInt();
@@ -281,7 +287,9 @@ public class EssenceConfig {
 		constantan = config.get(category, "constantan", 4).getInt();
 		electrum = config.get(category, "electrum", 4).getInt();
 		invar = config.get(category, "invar", 4).getInt();
+		mithril = config.get(category, "mithril", 3).getInt();
 		platinum = config.get(category, "platinum", 2).getInt();
+		iridium = config.get(category, "iridium", 2).getInt();
 		
 		category = "Gems";
 		ruby = config.get(category, "ruby", 6).getInt();

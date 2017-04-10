@@ -174,14 +174,18 @@ public class EssenceRecipes {
 	    if(type.COPPER.isEnabled()){ addEssenceRecipe(OreDictResources.getItem("ingotCopper", EssenceConfig.copper), "EEE", "EXE", "EEE", 'E', new ItemStack(type.COPPER.getCrop(), 1, 0)); }
 	    if(type.TIN.isEnabled()){ addEssenceRecipe(OreDictResources.getItem("ingotTin", EssenceConfig.tin), "EEE", "EXE", "EEE", 'E', new ItemStack(type.TIN.getCrop(), 1, 0)); }
 	    if(type.BRONZE.isEnabled()){ addEssenceRecipe(OreDictResources.getItem("ingotBronze", EssenceConfig.bronze), "EEE", "EXE", "EEE", 'E', new ItemStack(type.BRONZE.getCrop(), 1, 0)); }
+	    if(type.ZINC.isEnabled()){ addEssenceRecipe(OreDictResources.getItem("ingotZinc", EssenceConfig.zinc), "EEE", "EXE", "EEE", 'E', new ItemStack(type.ZINC.getCrop(), 1, 0)); }
+	    if(type.BRASS.isEnabled()){ addEssenceRecipe(OreDictResources.getItem("ingotBrass", EssenceConfig.brass), "EEE", "EXE", "EEE", 'E', new ItemStack(type.BRASS.getCrop(), 1, 0)); }
 	    if(type.SILVER.isEnabled()){ addEssenceRecipe(OreDictResources.getItem("ingotSilver", EssenceConfig.silver), "EEE", "EXE", "EEE", 'E', new ItemStack(type.SILVER.getCrop(), 1, 0)); }
 	    if(type.LEAD.isEnabled()){ addEssenceRecipe(OreDictResources.getItem("ingotLead", EssenceConfig.lead), "EEE", "EXE", "EEE", 'E', new ItemStack(type.LEAD.getCrop(), 1, 0)); }
 	    if(type.STEEL.isEnabled()){ addEssenceRecipe(OreDictResources.getItem("ingotSteel", EssenceConfig.steel), "EEE", "EXE", "EEE", 'E', new ItemStack(type.STEEL.getCrop(), 1, 0)); }
 	    if(type.NICKEL.isEnabled()){ addEssenceRecipe(OreDictResources.getItem("ingotNickel", EssenceConfig.nickel), "EEE", "EXE", "EEE", 'E', new ItemStack(type.NICKEL.getCrop(), 1, 0)); }
 	    if(type.CONSTANTAN.isEnabled()){ addEssenceRecipe(OreDictResources.getItem("ingotConstantan", EssenceConfig.constantan), "EEE", "EXE", "EEE", 'E', new ItemStack(type.CONSTANTAN.getCrop(), 1, 0)); }
 	    if(type.ELECTRUM.isEnabled()){ addEssenceRecipe(OreDictResources.getItem("ingotElectrum", EssenceConfig.electrum), "EEE", "EXE", "EEE", 'E', new ItemStack(type.ELECTRUM.getCrop(), 1, 0)); }
+	    if(type.MITHRIL.isEnabled()){ addEssenceRecipe(OreDictResources.getItem("ingotMithril", EssenceConfig.mithril), "EEE", "EXE", "EEE", 'E', new ItemStack(type.MITHRIL.getCrop(), 1, 0)); }
 	    if(type.INVAR.isEnabled()){ addEssenceRecipe(OreDictResources.getItem("ingotInvar", EssenceConfig.invar), "EEE", "EXE", "EEE", 'E', new ItemStack(type.INVAR.getCrop(), 1, 0)); }
 	    if(type.PLATINUM.isEnabled()){ addEssenceRecipe(OreDictResources.getItem("ingotPlatinum", EssenceConfig.platinum), "EEE", "EXE", "EEE", 'E', new ItemStack(type.PLATINUM.getCrop(), 1, 0)); }
+	    if(type.IRIDIUM.isEnabled()){ addEssenceRecipe(OreDictResources.getItem("ingotIridium", EssenceConfig.iridium), "EEE", "EXE", "EEE", 'E', new ItemStack(type.IRIDIUM.getCrop(), 1, 0)); }
 
 	    if(type.RUBY.isEnabled()){ addEssenceRecipe(OreDictResources.getItem("gemRuby", EssenceConfig.ruby), "EEE", "EXE", "EEE", 'E', new ItemStack(type.RUBY.getCrop(), 1, 0)); }
 	    if(type.SAPPHIRE.isEnabled()){ addEssenceRecipe(OreDictResources.getItem("gemSapphire", EssenceConfig.sapphire), "EEE", "EXE", "EEE", 'E', new ItemStack(type.SAPPHIRE.getCrop(), 1, 0)); }
