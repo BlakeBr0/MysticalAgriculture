@@ -71,6 +71,8 @@ public class ModConfig {
 	public static boolean confCopperSeeds;
 	public static boolean confTinSeeds;
 	public static boolean confBronzeSeeds;
+	public static boolean confZincSeeds;
+	public static boolean confBrassSeeds;
 	public static boolean confSilverSeeds;
 	public static boolean confLeadSeeds;
 	public static boolean confSteelSeeds;
@@ -177,6 +179,8 @@ public class ModConfig {
 	public static int confCopperTier;
 	public static int confTinTier;
 	public static int confBronzeTier;
+	public static int confZincTier;
+	public static int confBrassTier;
 	public static int confSilverTier;
 	public static int confLeadTier;
 	public static int confSteelTier;
@@ -377,6 +381,8 @@ public class ModConfig {
 		confCopperSeeds = config.get(category, "copper_seeds", true).getBoolean();
 		confTinSeeds = config.get(category, "tin_seeds", true).getBoolean();
 		confBronzeSeeds = config.get(category, "bronze_seeds", true).getBoolean();
+		confZincSeeds = config.get(category, "zinc_seeds", true).getBoolean();
+		confBrassSeeds = config.get(category, "brass_seeds", true).getBoolean();
 		confSilverSeeds = config.get(category, "silver_seeds", true).getBoolean();
 		confLeadSeeds = config.get(category, "lead_seeds", true).getBoolean();
 		confSteelSeeds = config.get(category, "steel_seeds", true).getBoolean();
@@ -497,6 +503,8 @@ public class ModConfig {
 		confCopperTier = config.get(category, "copper_tier", 2).getInt();
 		confTinTier = config.get(category, "tin_tier", 3).getInt();
 		confBronzeTier = config.get(category, "bronze_tier", 3).getInt();
+		confZincTier = config.get(category, "zinc_tier", 3).getInt();
+		confBrassTier = config.get(category, "brass_tier", 3).getInt();
 		confSilverTier = config.get(category, "silver_tier", 3).getInt();
 		confLeadTier = config.get(category, "lead_tier", 3).getInt();
 		confSteelTier = config.get(category, "steels_tier", 4).getInt();

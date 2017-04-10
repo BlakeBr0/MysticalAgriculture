@@ -54,6 +54,8 @@ public class CropType {
 		COPPER("copper", ModConfig.confCopperTier, ModConfig.confCopperSeeds && ModChecker.COPPER),
 		TIN("tin", ModConfig.confTinTier, ModConfig.confTinSeeds && ModChecker.TIN),
 		BRONZE("bronze", ModConfig.confBronzeTier, ModConfig.confBronzeSeeds && ModChecker.BRONZE),
+		ZINC("zinc", ModConfig.confZincTier, ModConfig.confZincSeeds),
+		BRASS("brass", ModConfig.confBrassTier, ModConfig.confBrassSeeds),
 		SILVER("silver", ModConfig.confSilverTier, ModConfig.confSilverSeeds && ModChecker.SILVER),
 		LEAD("lead", ModConfig.confLeadTier, ModConfig.confLeadSeeds && ModChecker.LEAD),
 		STEEL("steel", ModConfig.confSteelTier, ModConfig.confSteelSeeds && ModChecker.STEEL),
