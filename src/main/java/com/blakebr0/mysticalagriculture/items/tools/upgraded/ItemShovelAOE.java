@@ -6,30 +6,30 @@ import java.util.List;
 import com.blakebr0.mysticalagriculture.MysticalAgriculture;
 import com.blakebr0.mysticalagriculture.config.ModConfig;
 import com.blakebr0.mysticalagriculture.items.ModItems;
+import com.blakebr0.mysticalagriculture.items.tools.ItemEssenceShovel;
 import com.blakebr0.mysticalagriculture.util.ToolTools;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.ItemSpade;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.Item.ToolMaterial;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.RayTraceResult;
+import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 import net.minecraftforge.common.ForgeHooks;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class ItemShovelAOE extends ItemSpade {
+public class ItemShovelAOE extends ItemEssenceShovel {
 	
-	public static List<Material> ACCEPTED_MATERIALS = new ArrayList<Material>();
+	public static List<Material> acceptedMaterials = new ArrayList<Material>();
 	
-    public ItemShovelAOE(ToolMaterial material, String name){
-		super(material);
-		this.setUnlocalizedName("ma.supremium_shovel");
-		this.setRegistryName(name);
-		this.setCreativeTab(MysticalAgriculture.tabMysticalAgriculture);
+    public ItemShovelAOE(String name, ToolMaterial material, Item repairMaterial, TextFormatting color){
+		super(name, material, repairMaterial, color);
 		this.initAcceptedMaterials();
 	}
     
@@ -51,12 +51,12 @@ public class ItemShovelAOE extends ItemSpade {
     }
 	
 	public static void initAcceptedMaterials(){
-		ACCEPTED_MATERIALS.add(Material.CLAY);
-		ACCEPTED_MATERIALS.add(Material.CRAFTED_SNOW);
-		ACCEPTED_MATERIALS.add(Material.GRASS);
-		ACCEPTED_MATERIALS.add(Material.GROUND);
-		ACCEPTED_MATERIALS.add(Material.SAND);
-		ACCEPTED_MATERIALS.add(Material.SNOW);
+		acceptedMaterials.add(Material.CLAY);
+		acceptedMaterials.add(Material.CRAFTED_SNOW);
+		acceptedMaterials.add(Material.GRASS);
+		acceptedMaterials.add(Material.GROUND);
+		acceptedMaterials.add(Material.SAND);
+		acceptedMaterials.add(Material.SNOW);
 	}
 
 	@Override
@@ -97,7 +97,7 @@ public class ItemShovelAOE extends ItemSpade {
         		if(aoePos != pos){
         			IBlockState aoeState = world.getBlockState(aoePos);
         			if(aoeState.getBlockHardness(world, aoePos) <= hardness + 5.0F){
-        				if(ACCEPTED_MATERIALS.contains(aoeState.getMaterial())){
+        				if(acceptedMaterials.contains(aoeState.getMaterial())){
         					canHarvest(world, aoePos, true, stack, player);
         				}   
         			} else {

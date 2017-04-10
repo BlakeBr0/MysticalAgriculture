@@ -16,8 +16,8 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class ItemEssenceHoe extends ItemHoe {
 	    
-	private Item repairMaterial;
-	private TextFormatting color;
+	public Item repairMaterial;
+	public TextFormatting color;
 	
 	public ItemEssenceHoe(String name, ToolMaterial material, Item repairMaterial, TextFormatting color){
 		super(material);

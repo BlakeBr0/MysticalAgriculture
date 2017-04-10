@@ -12,29 +12,31 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item.ToolMaterial;
-import net.minecraft.item.ItemHoe;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class ItemSupremiumHoe extends ItemHoe {
+public class ItemSupremiumHoe extends ItemEssenceHoe {
 	
-	public ItemSupremiumHoe(String name, ToolMaterial material) {
-		super(material);
-		this.setUnlocalizedName("ma." + name);
-		this.setRegistryName(name);
-		this.setCreativeTab(MysticalAgriculture.tabMysticalAgriculture);
+	public int range;
+	
+	public ItemSupremiumHoe(String name, ToolMaterial material, int range, Item repairMaterial, TextFormatting color){
+		super(name, material, repairMaterial, color);
+		this.range = range;
 	}
 
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void addInformation(ItemStack stack, EntityPlayer player, List tooltip, boolean advanced){
-		if(ModConfig.confSneakHoeAOE){ tooltip.add("Hold " + Minecraft.getMinecraft().gameSettings.keyBindSneak.getDisplayName() +  " for \u00A7c3x3\u00A77."); }
+		int range = this.range + 2;
+		if(ModConfig.confSneakHoeAOE){ tooltip.add("Hold " + Minecraft.getMinecraft().gameSettings.keyBindSneak.getDisplayName() +  " for \u00A7c" + range + "x" + range + "\u00A77."); }
 		tooltip.add("Durability: \u00A7cUnlimited");
 		tooltip.add("Charm Slot: \u00A7c\u00A7oEmpty");
 	}
@@ -45,7 +47,7 @@ public class ItemSupremiumHoe extends ItemHoe {
 			return EnumActionResult.FAIL;
 		}
 		
-		Iterable<BlockPos> blocks = BlockPos.getAllInBox(pos.add(-1, 0, -1), pos.add(1, 0, 1));
+		Iterable<BlockPos> blocks = BlockPos.getAllInBox(pos.add(-range, 0, -range), pos.add(range, 0, range));
 		
 		if(player.isSneaking() && ModConfig.confSneakHoeAOE){
 			for(BlockPos aoePos : blocks){

@@ -19,8 +19,8 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class ItemEssenceAxe extends ItemAxe {
 	    
-	private Item repairMaterial;
-	private TextFormatting color;
+	public Item repairMaterial;
+	public TextFormatting color;
 	
 	public ItemEssenceAxe(String name, ToolMaterial material, Item repairMaterial, float damage, TextFormatting color){
 		super(material, damage, -3.2F);

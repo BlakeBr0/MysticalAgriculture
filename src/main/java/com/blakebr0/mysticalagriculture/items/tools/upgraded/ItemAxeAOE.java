@@ -6,6 +6,7 @@ import java.util.List;
 import com.blakebr0.mysticalagriculture.MysticalAgriculture;
 import com.blakebr0.mysticalagriculture.config.ModConfig;
 import com.blakebr0.mysticalagriculture.items.ModItems;
+import com.blakebr0.mysticalagriculture.items.tools.ItemEssenceAxe;
 import com.blakebr0.mysticalagriculture.lib.ModToolMaterials;
 import com.blakebr0.mysticalagriculture.util.ToolTools;
 
@@ -13,28 +14,23 @@ import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.ItemAxe;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.Item.ToolMaterial;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.RayTraceResult;
+import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 import net.minecraftforge.common.ForgeHooks;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class ItemAxeAOE extends ItemAxe {
+public class ItemAxeAOE extends ItemEssenceAxe {
 	
-	public static List<Material> ACCEPTED_MATERIALS = new ArrayList<Material>();
+	public static List<Material> acceptedMaterials = new ArrayList<Material>();
 	
-    public ItemAxeAOE(ToolMaterial material, String name){
-		super(material);
-		this.setUnlocalizedName("ma.supremium_axe");
-		this.setRegistryName(name);
-		this.setCreativeTab(MysticalAgriculture.tabMysticalAgriculture);
-		toolMaterial = ModToolMaterials.SUPREMIUM;
-		damageVsEntity = 23;
-		this.setMaxDamage(-1);
-		efficiencyOnProperMaterial = 15.0F;
+	public ItemAxeAOE(String name, ToolMaterial material, Item repairMaterial, float damage, TextFormatting color){
+		super(name, material, repairMaterial, damage, color);
 		this.initAcceptedMaterials();
 	}
     
@@ -56,7 +52,7 @@ public class ItemAxeAOE extends ItemAxe {
     }
 	
 	public static void initAcceptedMaterials(){
-		ACCEPTED_MATERIALS.add(Material.WOOD);
+		acceptedMaterials.add(Material.WOOD);
 	}
 
 	@Override
@@ -98,7 +94,7 @@ public class ItemAxeAOE extends ItemAxe {
         		if(aoePos != pos){
         			IBlockState aoeState = world.getBlockState(aoePos);
         			if(aoeState.getBlockHardness(world, aoePos) <= hardness + 5.0F){
-        				if(ACCEPTED_MATERIALS.contains(aoeState.getMaterial())){
+        				if(acceptedMaterials.contains(aoeState.getMaterial())){
         					canHarvest(world, aoePos, true, stack, player);
         				}   
         			} else {

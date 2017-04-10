@@ -6,30 +6,30 @@ import java.util.List;
 import com.blakebr0.mysticalagriculture.MysticalAgriculture;
 import com.blakebr0.mysticalagriculture.config.ModConfig;
 import com.blakebr0.mysticalagriculture.items.ModItems;
+import com.blakebr0.mysticalagriculture.items.tools.ItemEssencePickaxe;
 import com.blakebr0.mysticalagriculture.util.ToolTools;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.ItemPickaxe;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.Item.ToolMaterial;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.RayTraceResult;
+import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 import net.minecraftforge.common.ForgeHooks;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class ItemPickaxeAOE extends ItemPickaxe {
+public class ItemPickaxeAOE extends ItemEssencePickaxe {
 	
-	public static List<Material> ACCEPTED_MATERIALS = new ArrayList<Material>();
+	public static List<Material> acceptedMaterials = new ArrayList<Material>();
 	
-    public ItemPickaxeAOE(ToolMaterial material, String name){
-		super(material);
-		this.setUnlocalizedName("ma.supremium_pickaxe");
-		this.setRegistryName(name);
-		this.setCreativeTab(MysticalAgriculture.tabMysticalAgriculture);
+    public ItemPickaxeAOE(String name, ToolMaterial material, Item repairMaterial, TextFormatting color){
+		super(name, material, repairMaterial, color);
 		this.initAcceptedMaterials();
 	}
     
@@ -51,13 +51,13 @@ public class ItemPickaxeAOE extends ItemPickaxe {
     }
 	
 	public static void initAcceptedMaterials(){
-		ACCEPTED_MATERIALS.add(Material.ANVIL);
-		ACCEPTED_MATERIALS.add(Material.GLASS);
-		ACCEPTED_MATERIALS.add(Material.ICE);
-		ACCEPTED_MATERIALS.add(Material.IRON);
-		ACCEPTED_MATERIALS.add(Material.PACKED_ICE);
-		ACCEPTED_MATERIALS.add(Material.REDSTONE_LIGHT);
-		ACCEPTED_MATERIALS.add(Material.ROCK);
+		acceptedMaterials.add(Material.ANVIL);
+		acceptedMaterials.add(Material.GLASS);
+		acceptedMaterials.add(Material.ICE);
+		acceptedMaterials.add(Material.IRON);
+		acceptedMaterials.add(Material.PACKED_ICE);
+		acceptedMaterials.add(Material.REDSTONE_LIGHT);
+		acceptedMaterials.add(Material.ROCK);
 	}
 
 	@Override
@@ -99,7 +99,7 @@ public class ItemPickaxeAOE extends ItemPickaxe {
         		if(aoePos != pos){
         			IBlockState aoeState = world.getBlockState(aoePos);
         			if(aoeState.getBlockHardness(world, aoePos) <= hardness + 5.0F){
-        				if(ACCEPTED_MATERIALS.contains(aoeState.getMaterial())){
+        				if(acceptedMaterials.contains(aoeState.getMaterial())){
         					canHarvest(world, aoePos, true, stack, player);
         				}   
         			} else {

@@ -607,6 +607,10 @@ item.ma.supremium_sword_strength1.name=§cSupremium Sword
 item.ma.supremium_sword_strength2.name=§cSupremium Sword
 
 item.ma.supremium_sword_aoe.name=§cSupremium Sword
+item.ma.supremium_pickaxe_aoe.name=§cSupremium Pickaxe
+item.ma.supremium_shovel_aoe.name=§cSupremium Shovel
+item.ma.supremium_axe_aoe.name=§cSupremium Axe
+item.ma.supremium_hoe_aoe.name=§cSupremium Hoe
 
 # ARMOR
 item.ma.inferium_helmet.name=§eInferium Helmet

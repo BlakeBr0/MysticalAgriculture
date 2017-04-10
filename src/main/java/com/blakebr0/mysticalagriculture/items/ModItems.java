@@ -30,6 +30,7 @@ import com.blakebr0.mysticalagriculture.items.tools.ItemEssenceShovel;
 import com.blakebr0.mysticalagriculture.items.tools.ItemEssenceSword;
 import com.blakebr0.mysticalagriculture.items.tools.ItemSupremiumHoe;
 import com.blakebr0.mysticalagriculture.items.tools.upgraded.ItemAxeAOE;
+import com.blakebr0.mysticalagriculture.items.tools.upgraded.ItemHoeAOE;
 import com.blakebr0.mysticalagriculture.items.tools.upgraded.ItemPickaxeAOE;
 import com.blakebr0.mysticalagriculture.items.tools.upgraded.ItemShovelAOE;
 import com.blakebr0.mysticalagriculture.items.tools.upgraded.ItemSwordAOE;
@@ -206,17 +207,18 @@ public class ModItems {
 	public static ItemEssencePickaxe itemSupremiumPickaxe = new ItemEssencePickaxe("supremium_pickaxe", ModToolMaterials.SUPREMIUM, ModItems.itemSupremiumIngot, TextFormatting.RED);
 	public static ItemEssenceShovel itemSupremiumShovel = new ItemEssenceShovel("supremium_shovel", ModToolMaterials.SUPREMIUM, ModItems.itemSupremiumIngot, TextFormatting.RED);
 	public static ItemEssenceAxe itemSupremiumAxe = new ItemEssenceAxe("supremium_axe", ModToolMaterials.SUPREMIUM, ModItems.itemSupremiumIngot, 23.0F, TextFormatting.RED);
-	public static ItemSupremiumHoe itemSupremiumHoe = new ItemSupremiumHoe("supremium_hoe", ModToolMaterials.SUPREMIUM);
+	public static ItemSupremiumHoe itemSupremiumHoe = new ItemSupremiumHoe("supremium_hoe", ModToolMaterials.SUPREMIUM, 1, ModItems.itemSupremiumIngot, TextFormatting.RED);
 	public static ItemEssenceShears itemSupremiumShears = new ItemEssenceShears("supremium_shears", ModToolMaterials.SUPREMIUM, ModItems.itemSupremiumIngot, TextFormatting.RED);
 	public static ItemEssenceBow itemSupremiumBow = new ItemEssenceBow("supremium_bow", ModToolMaterials.SUPREMIUM, 0.80F, ModItems.itemSupremiumIngot, TextFormatting.RED);
 	
-	public static ItemSwordStrength itemSupremiumSwordStrength = new ItemSwordStrength(ModToolMaterials.SUPREMIUM_STRENGTH1, "supremium_sword_strength1");
-	public static ItemSwordStrength itemSupremiumSwordStrength2 = new ItemSwordStrength(ModToolMaterials.SUPREMIUM_STRENGTH2, "supremium_sword_strength2");
+	public static ItemSwordStrength itemSupremiumSwordStrength = new ItemSwordStrength("supremium_sword_strength1", ModToolMaterials.SUPREMIUM_STRENGTH1, ModItems.itemSupremiumIngot, TextFormatting.RED);
+	public static ItemSwordStrength itemSupremiumSwordStrength2 = new ItemSwordStrength("supremium_sword_strength2", ModToolMaterials.SUPREMIUM_STRENGTH2, ModItems.itemSupremiumIngot, TextFormatting.RED);
 	
-	public static ItemSwordAOE itemSupremiumSwordAOE = new ItemSwordAOE(ModToolMaterials.SUPREMIUM_AOE, "supremium_sword_aoe");
-	public static ItemPickaxeAOE itemSupremiumPickaxeAOE = new ItemPickaxeAOE(ModToolMaterials.SUPREMIUM_AOE, "supremium_pickaxe_aoe");
-	public static ItemShovelAOE itemSupremiumShovelAOE = new ItemShovelAOE(ModToolMaterials.SUPREMIUM_AOE, "supremium_shovel_aoe");
-	public static ItemAxeAOE itemSupremiumAxeAOE = new ItemAxeAOE(Item.ToolMaterial.DIAMOND, "supremium_axe_aoe");
+	public static ItemSwordAOE itemSupremiumSwordAOE = new ItemSwordAOE("supremium_sword_aoe", ModToolMaterials.SUPREMIUM_AOE, ModItems.itemSupremiumIngot, TextFormatting.RED);
+	public static ItemPickaxeAOE itemSupremiumPickaxeAOE = new ItemPickaxeAOE("supremium_pickaxe_aoe", ModToolMaterials.SUPREMIUM_AOE, ModItems.itemSupremiumIngot, TextFormatting.RED);
+	public static ItemShovelAOE itemSupremiumShovelAOE = new ItemShovelAOE("supremium_shovel_aoe", ModToolMaterials.SUPREMIUM_AOE, ModItems.itemSupremiumIngot, TextFormatting.RED);
+	public static ItemAxeAOE itemSupremiumAxeAOE = new ItemAxeAOE("supremium_axe_aoe", ModToolMaterials.SUPREMIUM_AOE, ModItems.itemSupremiumIngot, 19.0F, TextFormatting.RED);
+	public static ItemHoeAOE itemSupremiumHoeAOE = new ItemHoeAOE("supremium_hoe_aoe", ModToolMaterials.SUPREMIUM_AOE, 2, ModItems.itemSupremiumIngot, TextFormatting.RED);
 	
 	public static ItemInferiumArmor itemInferiumHelmet = new ItemInferiumArmor("inferium_helmet", ModToolMaterials.INFERIUM_ARMOR, 0, EntityEquipmentSlot.HEAD);
 	public static ItemInferiumArmor itemInferiumChestplate = new ItemInferiumArmor("inferium_chestplate", ModToolMaterials.INFERIUM_ARMOR, 0, EntityEquipmentSlot.CHEST);
@@ -449,6 +451,7 @@ public class ModItems {
 				registerItem(itemSupremiumPickaxeAOE); 
 				registerItem(itemSupremiumShovelAOE);
 				registerItem(itemSupremiumAxeAOE);
+				registerItem(itemSupremiumHoeAOE);
 			}
 			
 	        registerItem(itemInferiumHelmet);
@@ -685,6 +688,7 @@ public class ModItems {
 				registerModel(itemSupremiumPickaxeAOE); 
 				registerModel(itemSupremiumShovelAOE);
 				registerModel(itemSupremiumAxeAOE);
+				registerModel(itemSupremiumHoeAOE);
 			}
 			
 	        registerModel(itemInferiumHelmet);

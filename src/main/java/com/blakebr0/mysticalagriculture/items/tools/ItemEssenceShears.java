@@ -15,8 +15,8 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class ItemEssenceShears extends ItemShears {
 
-	private Item repairMaterial;
-	private TextFormatting color;
+	public Item repairMaterial;
+	public TextFormatting color;
 	
 	public ItemEssenceShears(String name, ToolMaterial material, Item repairMaterial, TextFormatting color){
 		this.setUnlocalizedName("ma." + name);

@@ -17,8 +17,8 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class ItemEssenceShovel extends ItemSpade {
 	    
-	private Item repairMaterial;
-	private TextFormatting color;
+	public Item repairMaterial;
+	public TextFormatting color;
 	
 	public ItemEssenceShovel(String name, ToolMaterial material, Item repairMaterial, TextFormatting color){
 		super(material);

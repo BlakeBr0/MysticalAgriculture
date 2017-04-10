@@ -5,22 +5,21 @@ import java.util.List;
 import com.blakebr0.mysticalagriculture.MysticalAgriculture;
 import com.blakebr0.mysticalagriculture.config.ModConfig;
 import com.blakebr0.mysticalagriculture.items.ModItems;
+import com.blakebr0.mysticalagriculture.items.tools.ItemEssenceSword;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.ItemSword;
+import net.minecraft.item.Item.ToolMaterial;
+import net.minecraft.util.text.TextFormatting;
 import net.minecraftforge.common.util.EnumHelper;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class ItemSwordStrength extends ItemSword {
+public class ItemSwordStrength extends ItemEssenceSword {
 	    	
-	public ItemSwordStrength(ToolMaterial material, String name){
-		super(material);
-		this.setUnlocalizedName("ma." + name);
-		this.setRegistryName(name);
-		this.setCreativeTab(MysticalAgriculture.tabMysticalAgriculture);
+	public ItemSwordStrength(String name, ToolMaterial material, Item repairMaterial, TextFormatting color){
+		super(name, material, repairMaterial, color);
 	}
 	
 	@Override

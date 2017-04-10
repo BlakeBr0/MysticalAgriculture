@@ -31,11 +31,11 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class ItemEssenceBow extends ItemBow {
 
-	private Item repairMaterial;
-	private ToolMaterial toolMaterial;
-	private float damage;
-	private float drawSpeed;
-	private TextFormatting color;
+	public Item repairMaterial;
+	public ToolMaterial toolMaterial;
+	public float damage;
+	public float drawSpeed;
+	public TextFormatting color;
 	
 	public ItemEssenceBow(String name, ToolMaterial material, float drawSpeed, Item repairMaterial, TextFormatting color){
 		this.setUnlocalizedName("ma." + name);

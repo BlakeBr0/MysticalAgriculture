@@ -17,8 +17,8 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class ItemEssenceSword extends ItemSword {
 	    
-	private Item repairMaterial;
-	private TextFormatting color;
+	public Item repairMaterial;
+	public TextFormatting color;
 	
 	public ItemEssenceSword(String name, ToolMaterial material, Item repairMaterial, TextFormatting color){
 		super(material);
