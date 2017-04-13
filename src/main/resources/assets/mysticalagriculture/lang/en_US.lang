@@ -668,11 +668,22 @@ item.ma.supremium_boots_fire.name=§cSupremium Boots
 item.ma.supremium_boots_resistance.name=§cSupremium Boots
 
 # TOOLTIPS
+tooltip.ma.growth_accelerator=Grows plants above it faster.
 tooltip.ma.blast_resistant=Blast Resistant
 
-tooltip.ma.growth_accelerator=Grows plants above it faster.
+tooltip.ma.inferium=Inferium
+tooltip.ma.prudentium=Prudentium
+tooltip.ma.intermedium=Intermedium
+tooltip.ma.superium=Superium
+tooltip.ma.supremium=Supremium
 
 tooltip.ma.mystical_fertilizer=Instantly grows a crop.
+
+tooltip.ma.burn_time=Burn Time
+tooltip.ma.material=Material
+tooltip.ma.unlimited=Unlimited
+tooltip.ma.durability=Durability
+tooltip.ma.charm_slot=Charm Slot
 
 desc.ma.charm_nightvision=Allows you to see in the dark.
 desc.ma.charm_absorption=Gives 10 Absorption hearts every 8 minutes.

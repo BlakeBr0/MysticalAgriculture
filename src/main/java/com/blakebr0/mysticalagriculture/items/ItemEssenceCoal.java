@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.blakebr0.mysticalagriculture.MysticalAgriculture;
 import com.blakebr0.mysticalagriculture.lib.EssenceType;
+import com.blakebr0.mysticalagriculture.lib.Tooltips;
 
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.creativetab.CreativeTabs;
@@ -46,23 +47,25 @@ public class ItemEssenceCoal extends ItemBase {
     @Override
     @SideOnly(Side.CLIENT)
     public void addInformation(ItemStack stack, EntityPlayer player, List<String> tooltip, boolean advanced) {
+    	String mat = "";
     	switch(stack.getMetadata()){
 		case 0:
-			tooltip.add("Burn Time: \u00A7e1.5x");
+			mat = Tooltips.INFERIUM;
 			break;
 		case 1:
-			tooltip.add("Burn Time: \u00A7a3.0x");
+			mat = Tooltips.PRUDENTIUM;
 			break;
 		case 2:
-			tooltip.add("Burn Time: \u00A766.0x");
+			mat = Tooltips.INTERMEDIUM;
 			break;
 		case 3: 
-			tooltip.add("Burn Time: \u00A7b12.0x");
+			mat = Tooltips.SUPERIUM;
 			break;
 		case 4:
-			tooltip.add("Burn Time: \u00A7c24.0x");
+			mat = Tooltips.SUPREMIUM;
 			break;
     	}
+		tooltip.add(Tooltips.MATERIAL + " " + mat);
     }
     
     public class FuelHander implements IFuelHandler {

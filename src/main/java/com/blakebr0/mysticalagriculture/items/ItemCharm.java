@@ -2,7 +2,7 @@ package com.blakebr0.mysticalagriculture.items;
 
 import java.util.List;
 
-import com.blakebr0.mysticalagriculture.util.ShiftChecker;
+import com.blakebr0.mysticalagriculture.util.Utils;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -24,7 +24,7 @@ public class ItemCharm extends ItemBase {
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void addInformation(ItemStack stack, EntityPlayer player, List tooltip, boolean advanced){
-		if(ShiftChecker.isShiftKeyDown()){
+		if(Utils.isShiftKeyDown()){
 			tooltip.add("\u00A7eDescription:");
 			tooltip.add(new TextComponentTranslation(desc).getFormattedText());
 			tooltip.add("");

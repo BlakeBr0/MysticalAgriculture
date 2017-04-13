@@ -7,8 +7,10 @@ import com.blakebr0.mysticalagriculture.MysticalAgriculture;
 import com.blakebr0.mysticalagriculture.config.ModConfig;
 import com.blakebr0.mysticalagriculture.items.ModItems;
 import com.blakebr0.mysticalagriculture.items.tools.ItemEssenceAxe;
+import com.blakebr0.mysticalagriculture.lib.Tooltips;
 import com.blakebr0.mysticalagriculture.lib.ModToolMaterials;
 import com.blakebr0.mysticalagriculture.util.ToolTools;
+import com.blakebr0.mysticalagriculture.util.Utils;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -37,7 +39,7 @@ public class ItemAxeAOE extends ItemEssenceAxe {
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void addInformation(ItemStack stack, EntityPlayer player, List tooltip, boolean advanced){
-		tooltip.add("Durability: \u00A7cUnlimited");
+		tooltip.add(Tooltips.DURABILITY + Tooltips.UNLIMITED);
 		tooltip.add("Charm Slot: \u00A7cMining AOE");
 	}
 	

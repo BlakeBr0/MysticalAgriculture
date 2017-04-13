@@ -6,6 +6,7 @@ import java.util.Random;
 import javax.annotation.Nonnull;
 
 import com.blakebr0.mysticalagriculture.MysticalAgriculture;
+import com.blakebr0.mysticalagriculture.lib.Tooltips;
 
 import net.minecraft.block.BlockGlass;
 import net.minecraft.block.SoundType;
@@ -77,6 +78,6 @@ public class BlockWitherproofGlass extends BlockGlass {
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void addInformation(ItemStack stack, EntityPlayer player, List tooltip, boolean advanced){
-		tooltip.add(new TextComponentTranslation("tooltip.ma.blast_resistant").getFormattedText());
+		tooltip.add(Tooltips.BLAST_RESISTANT);
 	}
 }

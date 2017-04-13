@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Random;
 
 import com.blakebr0.mysticalagriculture.config.ModConfig;
+import com.blakebr0.mysticalagriculture.lib.Tooltips;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.IGrowable;
@@ -29,7 +30,7 @@ public class BlockAccelerator extends BlockBase {
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void addInformation(ItemStack stack, EntityPlayer player, List tooltip, boolean advanced){
-		tooltip.add(new TextComponentTranslation("tooltip.ma.growth_accelerator").getFormattedText());
+		tooltip.add(Tooltips.GROWTH_ACCELERATOR);
 	}
 
 	@Override

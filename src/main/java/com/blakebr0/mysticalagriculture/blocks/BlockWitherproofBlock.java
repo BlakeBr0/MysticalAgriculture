@@ -2,6 +2,8 @@ package com.blakebr0.mysticalagriculture.blocks;
 
 import java.util.List;
 
+import com.blakebr0.mysticalagriculture.lib.Tooltips;
+
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -42,6 +44,6 @@ public class BlockWitherproofBlock extends BlockBase {
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void addInformation(ItemStack stack, EntityPlayer player, List tooltip, boolean advanced){
-		tooltip.add(new TextComponentTranslation("tooltip.ma.blast_resistant").getFormattedText());
+		tooltip.add(Tooltips.BLAST_RESISTANT);
 	}
 }

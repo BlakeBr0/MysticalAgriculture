@@ -3,6 +3,7 @@ package com.blakebr0.mysticalagriculture.blocks;
 import java.util.List;
 
 import com.blakebr0.mysticalagriculture.lib.EssenceType;
+import com.blakebr0.mysticalagriculture.lib.Tooltips;
 
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
@@ -71,19 +72,19 @@ public class BlockEssenceCoal extends BlockBase {
     public void addInformation(ItemStack stack, EntityPlayer player, List<String> tooltip, boolean advanced) {
     	switch(stack.getMetadata()){
 		case 0:
-			tooltip.add("Burn Time: \u00A7e1.5x");
+			tooltip.add(Tooltips.BURN_TIME + "\u00A7e1.5x");
 			break;
 		case 1:
-			tooltip.add("Burn Time: \u00A7a3.0x");
+			tooltip.add(Tooltips.BURN_TIME + "\u00A7a3.0x");
 			break;
 		case 2:
-			tooltip.add("Burn Time: \u00A766.0x");
+			tooltip.add(Tooltips.BURN_TIME + "\u00A766.0x");
 			break;
 		case 3: 
-			tooltip.add("Burn Time: \u00A7b12.0x");
+			tooltip.add(Tooltips.BURN_TIME + "\u00A7b12.0x");
 			break;
 		case 4:
-			tooltip.add("Burn Time: \u00A7c24.0x");
+			tooltip.add(Tooltips.BURN_TIME + "\u00A7c24.0x");
 			break;
     	}
     }
