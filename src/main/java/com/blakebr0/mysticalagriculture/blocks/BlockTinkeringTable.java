@@ -151,6 +151,6 @@ public class BlockTinkeringTable extends BlockBase implements ITileEntityProvide
 			mat = Tooltips.SUPREMIUM;
 			break;
     	}
-		tooltip.add(Tooltips.MATERIAL + " " + mat);
+		tooltip.add(Tooltips.MATERIAL + mat);
     }
 }
