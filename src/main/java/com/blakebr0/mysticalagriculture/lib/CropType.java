@@ -7,6 +7,7 @@ import com.blakebr0.mysticalagriculture.items.ItemSeed;
 import com.blakebr0.mysticalagriculture.util.ModChecker;
 
 import net.minecraft.util.IStringSerializable;
+import net.minecraftforge.oredict.OreDictionary;
 
 public class CropType {
 	
@@ -136,6 +137,7 @@ public class CropType {
 			this.seed = new ItemSeed(getName() + "_seeds", getPlant(), getTier());
 			getPlant().setCrop(getCrop());
 			getPlant().setSeed(getSeed());
+			OreDictionary.registerOre("essenceTier" + getTier(), getCrop());
 		}
 
 		@Override

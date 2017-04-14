@@ -763,6 +763,21 @@ public class ModItems {
 	}
 
 	public static void initOreDict(){
-
+		OreDictionary.registerOre("essenceInferium", itemInferiumEssence);
+		OreDictionary.registerOre("essencePrudentium", itemPrudentiumEssence);
+		OreDictionary.registerOre("essenceIntermedium", itemIntermediumEssence);
+		OreDictionary.registerOre("essenceSuperium", itemSuperiumEssence);
+		OreDictionary.registerOre("essenceSupremium", itemSupremiumEssence);
+		
+		OreDictionary.registerOre("itemProsperityShard", itemProsperityShard);
+		
+		OreDictionary.registerOre("ingotBaseEssence", itemBaseEssenceIngot);
+		OreDictionary.registerOre("ingotInferium", itemInferiumIngot);
+		OreDictionary.registerOre("ingotPrudentium", itemPrudentiumIngot);
+		OreDictionary.registerOre("ingotIntermedium", itemIntermediumIngot);
+		OreDictionary.registerOre("ingotSuperium", itemSuperiumIngot);
+		OreDictionary.registerOre("ingotSupremium", itemSupremiumIngot);
+		
+		OreDictionary.registerOre("ingotSoulium", itemSouliumIngot);
 	}
 }

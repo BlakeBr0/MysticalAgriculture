@@ -294,6 +294,22 @@ public class ModBlocks {
 	}
 	
 	public static void initOreDict(){
+		OreDictionary.registerOre("blockInferium", blockInferium);
+		OreDictionary.registerOre("blockPrudentium", blockPrudentium);
+		OreDictionary.registerOre("blockIntermedium", blockIntermedium);
+		OreDictionary.registerOre("blockSuperium", blockSuperium);
+		OreDictionary.registerOre("blockSupremium", blockSupremium);
+		
+		OreDictionary.registerOre("blockProsperityShard", blockProsperity);
+				
+		OreDictionary.registerOre("blockInferiumIngot", blockInferiumIngot);
+		OreDictionary.registerOre("blockPrudentiumIngot", blockPrudentiumIngot);
+		OreDictionary.registerOre("blockIntermediumIngot", blockIntermediumIngot);
+		OreDictionary.registerOre("blockSuperiumIngot", blockSuperiumIngot);
+		OreDictionary.registerOre("blockSupremiumIngot", blockSupremiumIngot);
+		
+		OreDictionary.registerOre("blockSouliumIngot", blockSouliumIngot);
+		
 		OreDictionary.registerOre("oreProsperity", blockProsperityOre);
 		OreDictionary.registerOre("oreNetherProsperity", blockProsperityOreNether);
 		OreDictionary.registerOre("oreEndProsperity", blockProsperityOreEnd);
