@@ -137,7 +137,9 @@ public class CropType {
 			this.seed = new ItemSeed(getName() + "_seeds", getPlant(), getTier());
 			getPlant().setCrop(getCrop());
 			getPlant().setSeed(getSeed());
-			OreDictionary.registerOre("essenceTier" + getTier(), getCrop());
+			if(isEnabled()){
+				OreDictionary.registerOre("essenceTier" + getTier(), getCrop());	
+			}
 		}
 
 		@Override

@@ -47,7 +47,7 @@ public class BlockTier5InferiumCrop extends BlockCrops implements IHornHarvestab
         if(world.getLightFromNeighbors(pos.up()) >= 9){
 	    	if(i < this.getMaxAge()){
 	    		float f = getGrowthChance(this, world, pos);
-	    		if (rand.nextInt((int)(35.0F / f) + 1) == 0) {
+	    		if(rand.nextInt((int)(35.0F / f) + 1) == 0) {
 	    			world.setBlockState(pos, this.withAge(i + 1), 2);
 	    		}
 	    	}

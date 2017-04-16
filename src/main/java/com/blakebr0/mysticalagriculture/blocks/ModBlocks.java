@@ -301,7 +301,7 @@ public class ModBlocks {
 		OreDictionary.registerOre("blockSupremium", blockSupremium);
 		
 		OreDictionary.registerOre("blockProsperityShard", blockProsperity);
-				
+		
 		OreDictionary.registerOre("blockInferiumIngot", blockInferiumIngot);
 		OreDictionary.registerOre("blockPrudentiumIngot", blockPrudentiumIngot);
 		OreDictionary.registerOre("blockIntermediumIngot", blockIntermediumIngot);
