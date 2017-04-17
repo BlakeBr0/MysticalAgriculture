@@ -83,7 +83,7 @@ public class MobDrops {
             		drops.add(drop(attacked, ModItems.itemSlimeChunk, 1, getChanceFromTier(type.SLIME.getTier())));
             	}
             	
-            	if(attacked instanceof EntitySkeleton && ((EntitySkeleton) attacked).func_189771_df() != SkeletonType.WITHER && type.SKELETON.isEnabled()){            	
+            	if(attacked instanceof EntitySkeleton && ((EntitySkeleton) attacked).getSkeletonType() != SkeletonType.WITHER && type.SKELETON.isEnabled()){            	
             		drops.add(drop(attacked, ModItems.itemSkeletonChunk, 1, getChanceFromTier(type.SKELETON.getTier())));
             	}
             	
@@ -115,7 +115,7 @@ public class MobDrops {
             		drops.add(drop(attacked, ModItems.itemEndermanChunk, 1, getChanceFromTier(type.ENDERMAN.getTier())));
             	}
             	
-            	if(attacked instanceof EntitySkeleton && ((EntitySkeleton) attacked).func_189771_df() == SkeletonType.WITHER && type.WITHER_SKELETON.isEnabled()){            	
+            	if(attacked instanceof EntitySkeleton && ((EntitySkeleton) attacked).getSkeletonType() == SkeletonType.WITHER && type.WITHER_SKELETON.isEnabled()){            	
             		drops.add(drop(attacked, ModItems.itemWitherSkeletonChunk, 1, getChanceFromTier(type.WITHER_SKELETON.getTier())));
             	}
             	
