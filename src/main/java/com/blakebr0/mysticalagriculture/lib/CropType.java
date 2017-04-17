@@ -11,6 +11,14 @@ import net.minecraftforge.oredict.OreDictionary;
 
 public class CropType {
 	
+	public static void init(){
+		for(CropType.Type type : CropType.Type.values()){
+			if(type.isEnabled()){
+				type.set();
+			}
+		}
+	}
+	
 	public static enum Type implements IStringSerializable {
 		
 		STONE("stone", ModConfig.confStoneTier, ModConfig.confStoneSeeds),
@@ -135,8 +143,6 @@ public class CropType {
 			this.plant = new BlockMysticalCrop(getName() + "_crop");
 			this.crop = new ItemBase(getName() + "_essence");
 			this.seed = new ItemSeed(getName() + "_seeds", getPlant(), getTier());
-			getPlant().setCrop(getCrop());
-			getPlant().setSeed(getSeed());
 		}
 
 		@Override
@@ -162,6 +168,12 @@ public class CropType {
 		
 		public ItemSeed getSeed(){
 			return this.seed;
+		}
+		
+		public Type set(){
+			this.getPlant().setCrop(this.getCrop());
+			this.getPlant().setSeed(this.getSeed());
+			return this;
 		}
 	}
 }

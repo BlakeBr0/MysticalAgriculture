@@ -42,6 +42,7 @@ public class CommonProxy {
 	public void preInit(FMLPreInitializationEvent e){      
 		ModBlocks.initBlocks();
 	    ModItems.initItems();
+	    CropType.init();
 
 	    MinecraftForge.EVENT_BUS.register(new BowZoomHandler());
 	    MinecraftForge.EVENT_BUS.register(new ItemIntermediumArmor.abilityHandler());
