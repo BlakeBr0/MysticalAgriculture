@@ -305,7 +305,7 @@ public class ModItems {
 			registerItem(itemSupremiumApple);
 		}
 		
-		if(ModConfig.confEssenceCoal){ registerItem(itemEssenceCoal); }
+		if(ModConfig.confEssenceCoal){ itemEssenceCoal.init(); }
 		
 		registerItem(itemBaseCraftingSeed);
 		registerItem(itemTier1CraftingSeed);
@@ -329,7 +329,7 @@ public class ModItems {
 		registerItem(itemSouliumIngot);
 		registerItem(itemSouliumDagger);
 		
-		registerItem(itemNugget);
+		itemNugget.init();
 		
 		registerItem(itemTier1MobChunk);
 		registerItem(itemTier2MobChunk);

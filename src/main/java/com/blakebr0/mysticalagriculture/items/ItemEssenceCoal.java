@@ -3,6 +3,7 @@ package com.blakebr0.mysticalagriculture.items;
 import java.util.List;
 
 import com.blakebr0.mysticalagriculture.MysticalAgriculture;
+import com.blakebr0.mysticalagriculture.config.ModConfig;
 import com.blakebr0.mysticalagriculture.lib.EssenceType;
 import com.blakebr0.mysticalagriculture.lib.Tooltips;
 
@@ -17,32 +18,30 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraftforge.fml.common.IFuelHandler;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
-public class ItemEssenceCoal extends ItemBase {
+public class ItemEssenceCoal extends ItemMeta {
 
+	public static ItemStack itemInferiumCoal;
+	public static ItemStack itemPrudentiumCoal;
+	public static ItemStack itemIntermediumCoal;
+	public static ItemStack itemSuperiumCoal;
+	public static ItemStack itemSupremiumCoal;
+	
 	public ItemEssenceCoal(){
 		super("coal");
-		this.setHasSubtypes(true);
-		GameRegistry.registerFuelHandler(new FuelHander());
 	}
 	
 	@Override
-	public void getSubItems(Item item, CreativeTabs tab, List<ItemStack> stacks) {
-        for(EssenceType.Type type : EssenceType.Type.values()){
-            stacks.add(new ItemStack(item, 1, type.getMetadata()));
-        }
+	public void init() {
+		GameRegistry.register(this);
+				
+		itemInferiumCoal = addItem(0, "inferium", "coalInferium");
+		itemPrudentiumCoal = addItem(1, "prudentium", "coalPrudentium");
+		itemIntermediumCoal = addItem(2, "intermedium", "coalIntermedium");
+		itemSuperiumCoal = addItem(3, "superium", "coalSuperium");
+		itemSupremiumCoal = addItem(4, "supremium", "coalSupremium");
+		
+		GameRegistry.registerFuelHandler(new FuelHander());
 	}
-	
-    @Override
-    public String getUnlocalizedName(ItemStack stack){
-        return super.getUnlocalizedName() + "_" + EssenceType.Type.byMetadata(stack.getMetadata()).getName();
-    }
-    
-    @SideOnly(Side.CLIENT)
-    public void initModels(){
-    	for(EssenceType.Type type : EssenceType.Type.values()){
-        	ModelLoader.setCustomModelResourceLocation(this, type.getMetadata(), new ModelResourceLocation(getRegistryName().toString() + "_" + type.byMetadata(type.getMetadata()).getName()));
-    	}
-    }
     
     @Override
     @SideOnly(Side.CLIENT)
