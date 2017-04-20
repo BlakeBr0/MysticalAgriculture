@@ -11,20 +11,17 @@ import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class ItemChunk extends Item {
+public class ItemChunk extends ItemBase {
 	
 	private int tier;
 	
 	public ItemChunk(String name, int tier){
-		super();
-		this.setUnlocalizedName("ma." + name);
-		this.setRegistryName(name);
-		this.setCreativeTab(MysticalAgriculture.tabMysticalAgriculture);
+		super(name);
 		this.tier = tier;
 	}
 			
 	@Override
-	@SideOnly(Side.CLIENT)
+	@SideOnly(Side.CLIENT) // TODO: localize
 	public void addInformation(ItemStack stack, EntityPlayer player, List tooltip, boolean advanced){
 		switch(this.tier - 1){
         case 0:

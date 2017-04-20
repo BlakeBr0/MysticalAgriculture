@@ -45,26 +45,26 @@ public class ItemEssenceCoal extends ItemMeta {
     
     @Override
     @SideOnly(Side.CLIENT)
-    public void addInformation(ItemStack stack, EntityPlayer player, List<String> tooltip, boolean advanced) {
-    	String mat = "";
+    public void addInformation(ItemStack stack, EntityPlayer player, List<String> tooltip, boolean advanced){
+    	String bt = null;
     	switch(stack.getMetadata()){
 		case 0:
-			mat = Tooltips.INFERIUM;
+			bt = "\u00A7e1.5x";
 			break;
 		case 1:
-			mat = Tooltips.PRUDENTIUM;
+			bt = "\u00A7a3.0x";
 			break;
 		case 2:
-			mat = Tooltips.INTERMEDIUM;
+			bt = "\u00A766.0x";
 			break;
 		case 3: 
-			mat = Tooltips.SUPERIUM;
+			bt = "\u00A7b12.0x";
 			break;
 		case 4:
-			mat = Tooltips.SUPREMIUM;
+			bt = "\u00A7c24.0x";
 			break;
     	}
-		tooltip.add(Tooltips.MATERIAL + " " + mat);
+    	tooltip.add(Tooltips.BURN_TIME + bt);
     }
     
     public class FuelHander implements IFuelHandler {

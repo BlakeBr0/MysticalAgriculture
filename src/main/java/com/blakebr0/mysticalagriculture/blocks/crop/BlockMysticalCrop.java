@@ -73,9 +73,9 @@ public class BlockMysticalCrop extends BlockCrops implements IHornHarvestable {
         return CROPS_AABB;
     }
         
-    public Item setSeed(Item seed){
+    public BlockMysticalCrop setSeed(Item seed){
     	this.seed = seed;
-    	return this.seed;
+    	return this;
     }
 
     @Override
@@ -83,9 +83,9 @@ public class BlockMysticalCrop extends BlockCrops implements IHornHarvestable {
     	return this.seed;
     }
     
-    public Item setCrop(Item crop){
+    public BlockMysticalCrop setCrop(Item crop){
     	this.crop = crop;
-    	return this.crop;
+    	return this;
     }
     
     @Override

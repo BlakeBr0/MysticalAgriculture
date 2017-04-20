@@ -47,7 +47,7 @@ public class ItemInferiumApple extends ItemFood {
     }
     
 	@Override
-	@SideOnly(Side.CLIENT)
+	@SideOnly(Side.CLIENT) // TODO: Localize
 	public void addInformation(ItemStack stack, EntityPlayer player, List tooltip, boolean advanced){
 		tooltip.add("Gives Buffs:");
 		int duration = ModConfig.confAppleBuffDuration;

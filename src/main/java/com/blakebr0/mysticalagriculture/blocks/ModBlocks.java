@@ -1,11 +1,7 @@
 package com.blakebr0.mysticalagriculture.blocks;
 
 import com.blakebr0.mysticalagriculture.MysticalAgriculture;
-import com.blakebr0.mysticalagriculture.blocks.crop.BlockTier1InferiumCrop;
-import com.blakebr0.mysticalagriculture.blocks.crop.BlockTier2InferiumCrop;
-import com.blakebr0.mysticalagriculture.blocks.crop.BlockTier3InferiumCrop;
-import com.blakebr0.mysticalagriculture.blocks.crop.BlockTier4InferiumCrop;
-import com.blakebr0.mysticalagriculture.blocks.crop.BlockTier5InferiumCrop;
+import com.blakebr0.mysticalagriculture.blocks.crop.BlockInferiumCrop;
 import com.blakebr0.mysticalagriculture.blocks.furnace.BlockInferiumFurnace;
 import com.blakebr0.mysticalagriculture.blocks.furnace.BlockIntermediumFurnace;
 import com.blakebr0.mysticalagriculture.blocks.furnace.BlockPrudentiumFurnace;
@@ -20,6 +16,7 @@ import com.blakebr0.mysticalagriculture.blocks.soulstone.BlockSoulstone;
 import com.blakebr0.mysticalagriculture.blocks.soulstone.BlockSoulstoneSlab;
 import com.blakebr0.mysticalagriculture.blocks.soulstone.ItemBlockSoulstone;
 import com.blakebr0.mysticalagriculture.config.ModConfig;
+import com.blakebr0.mysticalagriculture.items.ModItems;
 import com.blakebr0.mysticalagriculture.jei.CompatJEI;
 import com.blakebr0.mysticalagriculture.lib.CropType;
 
@@ -101,11 +98,11 @@ public class ModBlocks {
 	
 	public static BlockTinkeringTable blockTinkeringTable = new BlockTinkeringTable();
 
-	public static BlockTier1InferiumCrop blockTier1InferiumCrop = new BlockTier1InferiumCrop("tier1_inferium_crop");
-	public static BlockTier2InferiumCrop blockTier2InferiumCrop = new BlockTier2InferiumCrop("tier2_inferium_crop");
-	public static BlockTier3InferiumCrop blockTier3InferiumCrop = new BlockTier3InferiumCrop("tier3_inferium_crop");
-	public static BlockTier4InferiumCrop blockTier4InferiumCrop = new BlockTier4InferiumCrop("tier4_inferium_crop");
-	public static BlockTier5InferiumCrop blockTier5InferiumCrop = new BlockTier5InferiumCrop("tier5_inferium_crop");
+	public static BlockInferiumCrop blockTier1InferiumCrop = new BlockInferiumCrop("tier1_inferium_crop", 1);
+	public static BlockInferiumCrop blockTier2InferiumCrop = new BlockInferiumCrop("tier2_inferium_crop", 2);
+	public static BlockInferiumCrop blockTier3InferiumCrop = new BlockInferiumCrop("tier3_inferium_crop", 3);
+	public static BlockInferiumCrop blockTier4InferiumCrop = new BlockInferiumCrop("tier4_inferium_crop", 4);
+	public static BlockInferiumCrop blockTier5InferiumCrop = new BlockInferiumCrop("tier5_inferium_crop", 5);
 		
 	public static void initBlocks(){
 								
@@ -265,11 +262,11 @@ public class ModBlocks {
 		
 		blockTinkeringTable.initModels();
 
-		registerModel(blockTier1InferiumCrop);
-		registerModel(blockTier2InferiumCrop);
-		registerModel(blockTier3InferiumCrop);
-		registerModel(blockTier4InferiumCrop);
-		registerModel(blockTier5InferiumCrop);
+		registerModel(blockTier1InferiumCrop.setSeed(ModItems.itemTier1InferiumSeeds));
+		registerModel(blockTier2InferiumCrop.setSeed(ModItems.itemTier2InferiumSeeds));
+		registerModel(blockTier3InferiumCrop.setSeed(ModItems.itemTier3InferiumSeeds));
+		registerModel(blockTier4InferiumCrop.setSeed(ModItems.itemTier4InferiumSeeds));
+		registerModel(blockTier5InferiumCrop.setSeed(ModItems.itemTier5InferiumSeeds));
 		
 		for(CropType.Type type : CropType.Type.values()){
 			if(type.isEnabled()){

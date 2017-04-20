@@ -19,7 +19,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class ItemCoreRemover extends Item {
+public class ItemCoreRemover extends Item { // TODO: itembase
 	
 	public ItemCoreRemover(String name){
 		super();

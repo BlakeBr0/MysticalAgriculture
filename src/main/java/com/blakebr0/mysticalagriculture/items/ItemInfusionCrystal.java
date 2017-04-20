@@ -19,7 +19,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class ItemInfusionCrystal extends Item {
+public class ItemInfusionCrystal extends Item { // TODO: itembase
 	
 	public ItemInfusionCrystal(String name){
 		super();
@@ -47,7 +47,7 @@ public class ItemInfusionCrystal extends Item {
     }
     
     @Override
-    @SideOnly(Side.CLIENT)
+    @SideOnly(Side.CLIENT) // TODO: localize
     public void addInformation(ItemStack stack, EntityPlayer player, List tooltip, boolean advanced){
     	int damage = stack.getMaxDamage() - stack.getItemDamage() + 1;
     	tooltip.add("Uses Left: \u00A7c" + damage);

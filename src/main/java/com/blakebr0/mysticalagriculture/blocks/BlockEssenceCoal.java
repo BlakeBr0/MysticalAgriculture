@@ -26,10 +26,23 @@ public class BlockEssenceCoal extends BlockBase {
 	
     public static final PropertyEnum<EssenceType.Type> VARIANT = PropertyEnum.<EssenceType.Type>create("variant", EssenceType.Type.class);
 
+    public static ItemStack blockInferiumCoal;
+    public static ItemStack blockPrudentiumCoal;
+    public static ItemStack blockIntermediumCoal;
+    public static ItemStack blockSuperiumCoal;
+    public static ItemStack blockSupremiumCoal;
+    
     public BlockEssenceCoal(){
         super("coal_block", Material.ROCK, SoundType.STONE, 5.0F, 10.0F);
         this.setDefaultState(this.blockState.getBaseState().withProperty(VARIANT, EssenceType.Type.INFERIUM));
-        GameRegistry.registerFuelHandler(new FuelHander());
+    }
+    
+    @Override
+    public void init(){
+    	GameRegistry.register(this);
+    	GameRegistry.register(new ItemBlockEssenceCoal(this).setRegistryName(getRegistryName()));
+    	
+        GameRegistry.registerFuelHandler(new FuelHander()); 	
     }
 
     @Override
@@ -69,24 +82,26 @@ public class BlockEssenceCoal extends BlockBase {
     
     @Override
     @SideOnly(Side.CLIENT)
-    public void addInformation(ItemStack stack, EntityPlayer player, List<String> tooltip, boolean advanced) {
+    public void addInformation(ItemStack stack, EntityPlayer player, List<String> tooltip, boolean advanced){
+    	String bt = null;
     	switch(stack.getMetadata()){
 		case 0:
-			tooltip.add(Tooltips.BURN_TIME + "\u00A7e1.5x");
+			bt = "\u00A7e1.5x";
 			break;
 		case 1:
-			tooltip.add(Tooltips.BURN_TIME + "\u00A7a3.0x");
+			bt = "\u00A7a3.0x";
 			break;
 		case 2:
-			tooltip.add(Tooltips.BURN_TIME + "\u00A766.0x");
+			bt = "\u00A766.0x";
 			break;
 		case 3: 
-			tooltip.add(Tooltips.BURN_TIME + "\u00A7b12.0x");
+			bt = "\u00A7b12.0x";
 			break;
 		case 4:
-			tooltip.add(Tooltips.BURN_TIME + "\u00A7c24.0x");
+			bt = "\u00A7c24.0x";
 			break;
     	}
+    	tooltip.add(Tooltips.BURN_TIME + bt);
     }
     
     public class FuelHander implements IFuelHandler {

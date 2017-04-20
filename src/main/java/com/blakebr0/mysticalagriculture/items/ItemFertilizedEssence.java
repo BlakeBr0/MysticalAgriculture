@@ -3,12 +3,9 @@ package com.blakebr0.mysticalagriculture.items;
 import java.util.List;
 
 import com.blakebr0.mysticalagriculture.blocks.crop.BlockMysticalCrop;
-import com.blakebr0.mysticalagriculture.blocks.crop.BlockTier1InferiumCrop;
-import com.blakebr0.mysticalagriculture.blocks.crop.BlockTier2InferiumCrop;
-import com.blakebr0.mysticalagriculture.blocks.crop.BlockTier3InferiumCrop;
-import com.blakebr0.mysticalagriculture.blocks.crop.BlockTier4InferiumCrop;
-import com.blakebr0.mysticalagriculture.blocks.crop.BlockTier5InferiumCrop;
+import com.blakebr0.mysticalagriculture.blocks.crop.BlockInferiumCrop;
 import com.blakebr0.mysticalagriculture.config.ModConfig;
+import com.blakebr0.mysticalagriculture.lib.Tooltips;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockCrops;
@@ -34,9 +31,9 @@ public class ItemFertilizedEssence extends ItemBase {
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void addInformation(ItemStack stack, EntityPlayer player, List tooltip, boolean advanced){
-		tooltip.add("Bonemeal that works on Resource Crops.");
+		tooltip.add(Tooltips.FERTILIZED_ESSENCE);
 		int chance = ModConfig.confFertilizedEssenceChance;
-		if(ModConfig.confFertilizedEssenceChance > 0){ tooltip.add("Drop Chance: \u00A7d" + chance + "%"); }
+		if(ModConfig.confFertilizedEssenceChance > 0){ tooltip.add(Tooltips.DROP_CHANCE + "\u00A7d" + chance + "%"); }
 	}
 	
     public static boolean applyFertilizer(ItemStack stack, World worldIn, BlockPos target, EntityPlayer player){
@@ -50,7 +47,7 @@ public class ItemFertilizedEssence extends ItemBase {
 
             if(igrowable.canGrow(worldIn, target, iblockstate, worldIn.isRemote)){
                 if(!worldIn.isRemote){
-                    if(igrowable.canUseBonemeal(worldIn, worldIn.rand, target, iblockstate) || iblockstate.getBlock() instanceof BlockMysticalCrop || iblockstate.getBlock() instanceof BlockTier1InferiumCrop || iblockstate.getBlock() instanceof BlockTier2InferiumCrop || iblockstate.getBlock() instanceof BlockTier3InferiumCrop || iblockstate.getBlock() instanceof BlockTier4InferiumCrop || iblockstate.getBlock() instanceof BlockTier5InferiumCrop){
+                    if(igrowable.canUseBonemeal(worldIn, worldIn.rand, target, iblockstate) || iblockstate.getBlock() instanceof BlockMysticalCrop || iblockstate.getBlock() instanceof BlockInferiumCrop){
                     	igrowable.grow(worldIn, worldIn.rand, target, iblockstate);
                     }
                     --stack.stackSize;

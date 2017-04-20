@@ -33,7 +33,7 @@ public class ItemSupremiumArmor extends ItemArmor {
 	    this.setMaxStackSize(1);
 	}
 	
-	@SideOnly(Side.CLIENT)
+	@SideOnly(Side.CLIENT) // TODO: localize
 	public void addInformation(ItemStack stack, EntityPlayer player, List tooltip, boolean advanced){
 		int damage = stack.getMaxDamage() - stack.getItemDamage();
 		tooltip.add("Durability: \u00A7c" + damage);

@@ -3,11 +3,8 @@ package com.blakebr0.mysticalagriculture.items;
 import java.util.List;
 
 import com.blakebr0.mysticalagriculture.blocks.crop.BlockMysticalCrop;
-import com.blakebr0.mysticalagriculture.blocks.crop.BlockTier1InferiumCrop;
-import com.blakebr0.mysticalagriculture.blocks.crop.BlockTier2InferiumCrop;
-import com.blakebr0.mysticalagriculture.blocks.crop.BlockTier3InferiumCrop;
-import com.blakebr0.mysticalagriculture.blocks.crop.BlockTier4InferiumCrop;
-import com.blakebr0.mysticalagriculture.blocks.crop.BlockTier5InferiumCrop;
+import com.blakebr0.mysticalagriculture.lib.Tooltips;
+import com.blakebr0.mysticalagriculture.blocks.crop.BlockInferiumCrop;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockCrops;
@@ -33,7 +30,7 @@ public class ItemMysticalFertilizer extends ItemBase {
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void addInformation(ItemStack stack, EntityPlayer player, List tooltip, boolean advanced){
-		tooltip.add(new TextComponentTranslation("tooltip.ma.mystical_fertilizer").getFormattedText());
+		tooltip.add(Tooltips.MYSTICAL_FERTILIZER);
 	}
 	
     public static boolean applyFertilizer(ItemStack stack, World world, BlockPos pos, EntityPlayer player){
@@ -47,7 +44,7 @@ public class ItemMysticalFertilizer extends ItemBase {
 
             if(growable.canGrow(world, pos, state, world.isRemote)){
                 if(!world.isRemote){
-                	if(growable.canUseBonemeal(world, world.rand, pos, state) || growable instanceof BlockMysticalCrop || growable instanceof BlockTier1InferiumCrop || growable instanceof BlockTier2InferiumCrop || growable instanceof BlockTier3InferiumCrop || growable instanceof BlockTier4InferiumCrop || growable instanceof BlockTier5InferiumCrop){
+                	if(growable.canUseBonemeal(world, world.rand, pos, state) || growable instanceof BlockMysticalCrop || growable instanceof BlockInferiumCrop){
                 		if(growable instanceof BlockCrops){
                 			BlockCrops crop = (BlockCrops)state.getBlock();
                 			world.setBlockState(pos, crop.withAge(crop.getMaxAge()), 2);

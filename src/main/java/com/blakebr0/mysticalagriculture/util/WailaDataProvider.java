@@ -13,11 +13,7 @@ import java.util.List;
 import com.blakebr0.mysticalagriculture.blocks.BlockSeedReprocessor;
 import com.blakebr0.mysticalagriculture.blocks.BlockTinkeringTable;
 import com.blakebr0.mysticalagriculture.blocks.crop.BlockMysticalCrop;
-import com.blakebr0.mysticalagriculture.blocks.crop.BlockTier1InferiumCrop;
-import com.blakebr0.mysticalagriculture.blocks.crop.BlockTier2InferiumCrop;
-import com.blakebr0.mysticalagriculture.blocks.crop.BlockTier3InferiumCrop;
-import com.blakebr0.mysticalagriculture.blocks.crop.BlockTier4InferiumCrop;
-import com.blakebr0.mysticalagriculture.blocks.crop.BlockTier5InferiumCrop;
+import com.blakebr0.mysticalagriculture.blocks.crop.BlockInferiumCrop;
 import com.blakebr0.mysticalagriculture.tileentity.TileEntitySeedReprocessor;
 
 import mcp.mobius.waila.api.IWailaConfigHandler;
@@ -29,11 +25,7 @@ public class WailaDataProvider implements IWailaDataProvider {
 
 	public static void callbackRegister(IWailaRegistrar registrar) {
 		registrar.registerStackProvider(new WailaDataProvider(), BlockMysticalCrop.class);
-		registrar.registerStackProvider(new WailaDataProvider(), BlockTier1InferiumCrop.class);
-		registrar.registerStackProvider(new WailaDataProvider(), BlockTier2InferiumCrop.class);
-		registrar.registerStackProvider(new WailaDataProvider(), BlockTier3InferiumCrop.class);
-		registrar.registerStackProvider(new WailaDataProvider(), BlockTier4InferiumCrop.class);
-		registrar.registerStackProvider(new WailaDataProvider(), BlockTier5InferiumCrop.class);
+		registrar.registerStackProvider(new WailaDataProvider(), BlockInferiumCrop.class);
 		registrar.registerStackProvider(new WailaDataProvider(), BlockTinkeringTable.class);
 	}
 

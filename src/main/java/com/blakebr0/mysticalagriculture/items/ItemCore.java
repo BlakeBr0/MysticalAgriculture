@@ -10,7 +10,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class ItemCore extends Item {
+public class ItemCore extends Item { // TODO: itembase
 	
 	public ItemCore(String name){
 		super();
@@ -22,6 +22,6 @@ public class ItemCore extends Item {
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void addInformation(ItemStack stack, EntityPlayer player, List tooltip, boolean advanced){
-		tooltip.add("Can be re-claimed using a \u00A7cCore Remover\u00A77.");
+		tooltip.add("Can be re-claimed using a \u00A7cCore Remover\u00A77."); // TODO: localize
 	}
 }

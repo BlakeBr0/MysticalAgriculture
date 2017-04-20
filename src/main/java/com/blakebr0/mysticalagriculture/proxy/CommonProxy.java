@@ -1,7 +1,10 @@
 package com.blakebr0.mysticalagriculture.proxy;
 
+import java.io.File;
+
 import com.blakebr0.mysticalagriculture.MysticalAgriculture;
 import com.blakebr0.mysticalagriculture.blocks.ModBlocks;
+import com.blakebr0.mysticalagriculture.config.EssenceConfig;
 import com.blakebr0.mysticalagriculture.config.ModConfig;
 import com.blakebr0.mysticalagriculture.crafting.CharmRecipe;
 import com.blakebr0.mysticalagriculture.crafting.EssenceRecipes;
@@ -11,6 +14,7 @@ import com.blakebr0.mysticalagriculture.crafting.ReprocessorRecipe;
 import com.blakebr0.mysticalagriculture.crafting.TinkeringTableManager;
 import com.blakebr0.mysticalagriculture.handler.BowZoomHandler;
 import com.blakebr0.mysticalagriculture.handler.GuiHandler;
+import com.blakebr0.mysticalagriculture.handler.MobDrops;
 import com.blakebr0.mysticalagriculture.items.ModItems;
 import com.blakebr0.mysticalagriculture.items.armor.ItemIntermediumArmor;
 import com.blakebr0.mysticalagriculture.items.armor.ItemSuperiumArmor;
@@ -30,6 +34,7 @@ import net.minecraft.item.crafting.IRecipe;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLInterModComms;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
@@ -39,7 +44,12 @@ import net.minecraftforge.oredict.RecipeSorter.Category;
 
 public class CommonProxy {
 	
-	public void preInit(FMLPreInitializationEvent e){      
+	public void preInit(FMLPreInitializationEvent e){
+		ModConfig.init(new File(e.getModConfigurationDirectory(), "mysticalagriculture.cfg"));
+		EssenceConfig.init(new File(e.getModConfigurationDirectory(), "mysticalagriculture_recipes.cfg"));
+		MinecraftForge.EVENT_BUS.register(new ModConfig());
+		MinecraftForge.EVENT_BUS.register(new EssenceConfig());
+		
 		ModBlocks.initBlocks();
 	    ModItems.initItems();
 	    CropType.init();
@@ -52,6 +62,8 @@ public class CommonProxy {
 	}
 	
 	public void init(FMLInitializationEvent e){
+		FMLInterModComms.sendMessage("Waila", "register", "com.blakebr0.mysticalagriculture.util.WailaDataProvider.callbackRegister");
+		
 		ModTileEntities.initTileEntities();
 		
 		if(ModConfig.confSeedReprocessor){
@@ -81,7 +93,10 @@ public class CommonProxy {
 		RecipeSorter.register("mysticalagriculture:charm_recipe", CharmRecipe.class, Category.SHAPELESS, "after:forge:shapelessore");
 		
 		ModRecipes.initRecipes();
-		EssenceRecipes.init(); 
+		EssenceRecipes.init();
+		
+	    GameRegistry.registerWorldGenerator(new OreGeneration(), 0);
+	    MinecraftForge.EVENT_BUS.register(new MobDrops());
 	}
 
 	public void postInit(FMLPostInitializationEvent e) {

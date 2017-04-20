@@ -41,7 +41,7 @@ public class ItemSouliumDagger extends ItemSword {
 	}
 		
 	@Override
-	@SideOnly(Side.CLIENT)
+	@SideOnly(Side.CLIENT) // TODO: localize
 	public void addInformation(ItemStack stack, EntityPlayer player, List tooltip, boolean advanced){
 		int damage = stack.getMaxDamage() - stack.getItemDamage();
 		tooltip.add("Used to obtain \u00A7cMob Chunks\u00A77.");

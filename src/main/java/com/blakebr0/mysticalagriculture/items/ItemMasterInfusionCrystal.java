@@ -11,7 +11,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class ItemMasterInfusionCrystal extends Item {
+public class ItemMasterInfusionCrystal extends Item { // TODO: itembase
 	
 	public ItemMasterInfusionCrystal(String name){
 		super();
@@ -39,7 +39,7 @@ public class ItemMasterInfusionCrystal extends Item {
     }
     
     @Override
-    @SideOnly(Side.CLIENT)
+    @SideOnly(Side.CLIENT) // TODO: localize
     public void addInformation(ItemStack stack, EntityPlayer player, List tooltip, boolean advanced){
     	tooltip.add("Uses Left: \u00A7cUnlimited");
     }

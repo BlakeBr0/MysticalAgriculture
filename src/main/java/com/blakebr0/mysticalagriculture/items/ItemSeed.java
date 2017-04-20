@@ -34,7 +34,7 @@ public class ItemSeed extends ItemSeeds {
 	}
 
 	@Override
-    @SideOnly(Side.CLIENT)
+    @SideOnly(Side.CLIENT) // TODO: localize
     public void addInformation(ItemStack stack, EntityPlayer player, List tooltip, boolean advanced){
         switch(this.tier - 1){
         case 0:

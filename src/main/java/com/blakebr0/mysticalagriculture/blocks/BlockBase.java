@@ -27,5 +27,9 @@ public class BlockBase extends Block {
 		this.setRegistryName(name);
 		this.setHardness(hardness);
 		this.setResistance(resistance);
-	} 
+	}
+	
+	public void init(){
+		
+	}
 }
