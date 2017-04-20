@@ -33,7 +33,7 @@ public class ItemSupremiumHoe extends ItemEssenceHoe {
 	}
 
 	@Override
-	@SideOnly(Side.CLIENT)
+	@SideOnly(Side.CLIENT) // TODO: localize
 	public void addInformation(ItemStack stack, EntityPlayer player, List tooltip, boolean advanced){
 		int range = this.range + 2;
 		if(ModConfig.confSneakHoeAOE){ tooltip.add("Hold " + Minecraft.getMinecraft().gameSettings.keyBindSneak.getDisplayName() +  " for \u00A7c" + range + "x" + range + "\u00A77."); }
@@ -49,7 +49,7 @@ public class ItemSupremiumHoe extends ItemEssenceHoe {
 		
 		Iterable<BlockPos> blocks = BlockPos.getAllInBox(pos.add(-range, 0, -range), pos.add(range, 0, range));
 		
-		if(player.isSneaking() && ModConfig.confSneakHoeAOE){
+		if(player.isSneaking() && ModConfig.confSneakHoeAOE){ // TODO: make it so the 7x7 hoe ignores this NICE config option ty
 			for(BlockPos aoePos : blocks){
 				canHoe(stack, player, world, aoePos, facing);
 			}

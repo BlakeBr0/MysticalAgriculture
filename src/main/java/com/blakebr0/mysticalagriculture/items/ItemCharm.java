@@ -2,6 +2,7 @@ package com.blakebr0.mysticalagriculture.items;
 
 import java.util.List;
 
+import com.blakebr0.mysticalagriculture.lib.Tooltips;
 import com.blakebr0.mysticalagriculture.util.Utils;
 
 import net.minecraft.entity.player.EntityPlayer;
@@ -24,10 +25,10 @@ public class ItemCharm extends ItemBase {
 	@SideOnly(Side.CLIENT)
 	public void addInformation(ItemStack stack, EntityPlayer player, List tooltip, boolean advanced){
 		if(Utils.isShiftKeyDown()){
-			tooltip.add("\u00A7eDescription:");
+			tooltip.add(Tooltips.DESCRIPTION);
 			tooltip.add(Utils.localize(desc));
 			tooltip.add("");
-			tooltip.add("\u00A7eApplicable To:");
+			tooltip.add(Tooltips.APPLICABLE_TO);
 			for(int i = 0; i < applicable.length; i++){
 				tooltip.add(applicable[i].getDesc());
 			}

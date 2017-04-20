@@ -7,22 +7,12 @@ import java.util.Random;
 import com.blakebr0.mysticalagriculture.config.ModConfig;
 import com.blakebr0.mysticalagriculture.items.ModItems;
 
-import net.minecraft.block.BlockCrops;
-import net.minecraft.block.SoundType;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
-import net.minecraftforge.common.EnumPlantType;
-import net.minecraftforge.fml.common.Optional;
-
-import vazkii.botania.api.item.IHornHarvestable;
-import vazkii.botania.api.item.IHornHarvestable.EnumHornType;
 
 public class BlockInferiumCrop extends BlockMysticalCrop {
 	

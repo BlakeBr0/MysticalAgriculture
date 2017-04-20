@@ -1,4 +1,4 @@
-package com.blakebr0.mysticalagriculture.items;
+package com.blakebr0.mysticalagriculture.items.apples;
 
 import java.util.List;
 

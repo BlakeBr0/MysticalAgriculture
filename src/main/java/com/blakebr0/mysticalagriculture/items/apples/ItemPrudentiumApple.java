@@ -1,4 +1,4 @@
-package com.blakebr0.mysticalagriculture.items;
+package com.blakebr0.mysticalagriculture.items.apples;
 
 import java.util.List;
 
@@ -17,10 +17,10 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class ItemInferiumApple extends ItemFood {
+public class ItemPrudentiumApple extends ItemFood {
 	
-	public ItemInferiumApple(String name){
-        super(6, 0.3F, false);
+	public ItemPrudentiumApple(String name){
+        super(8, 0.4F, false);
 		this.setUnlocalizedName("ma." + name);
 		this.setRegistryName(name);
 		this.setCreativeTab(MysticalAgriculture.tabMysticalAgriculture);
@@ -29,7 +29,7 @@ public class ItemInferiumApple extends ItemFood {
 	
     @Override
     protected void onFoodEaten(ItemStack stack, World world, EntityPlayer player){
-        if(!world.isRemote){
+        if(!world.isRemote) {
         	int duration = 0;
             PotionEffect potion;
             int bufflength = ModConfig.confAppleBuffDuration * 20;
@@ -38,6 +38,11 @@ public class ItemInferiumApple extends ItemFood {
             if(potion != null)
             	duration = potion.getDuration();
             player.addPotionEffect(new PotionEffect(MobEffects.ABSORPTION, duration + 60 * bufflength, 1));
+            
+            potion = player.getActivePotionEffect(MobEffects.SPEED);
+            if(potion != null)
+            	duration = potion.getDuration();
+            player.addPotionEffect(new PotionEffect(MobEffects.SPEED, duration + 60 * bufflength, 1));
         }
     }
     
@@ -47,10 +52,11 @@ public class ItemInferiumApple extends ItemFood {
     }
     
 	@Override
-	@SideOnly(Side.CLIENT) // TODO: Localize
+	@SideOnly(Side.CLIENT) // TODO: localize
 	public void addInformation(ItemStack stack, EntityPlayer player, List tooltip, boolean advanced){
 		tooltip.add("Gives Buffs:");
 		int duration = ModConfig.confAppleBuffDuration;
 		tooltip.add("- \u00A7eAbsorption II \u00A77(" + duration + ":00)");
+		tooltip.add("- \u00A7aSpeed II \u00A77(" + duration + ":00)");
 	}
 }

@@ -685,10 +685,11 @@ tooltip.ma.burn_time=Burn Time
 tooltip.ma.material=Material
 tooltip.ma.durability=Durability
 tooltip.ma.charm_slot=Charm Slot
-tooltip.ma.description=Description
-tooltip.ma.applicable_to=Applicable To
 tooltip.ma.tier=Tier
 tooltip.ma.drop_chance=Drop Chance
+tooltip.ma.gives_buffs=Gives Buffs
+tooltip.ma.description=Description
+tooltip.ma.applicable_to=Applicable To
 
 tooltip.ma.unlimited=Unlimited
 

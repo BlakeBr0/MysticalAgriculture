@@ -2,6 +2,7 @@ package com.blakebr0.mysticalagriculture.lib;
 
 import com.blakebr0.mysticalagriculture.util.Utils;
 
+import net.minecraft.init.MobEffects;
 import net.minecraft.util.text.TextFormatting;
 
 public class Tooltips {
@@ -20,14 +21,21 @@ public class Tooltips {
 	public static final String SUPERIUM = TextFormatting.AQUA + Utils.localize("tooltip.ma.superium");
 	public static final String SUPREMIUM = TextFormatting.RED + Utils.localize("tooltip.ma.supremium");
 	
+	public static final String ABSORPTION = TextFormatting.YELLOW + Utils.localize(MobEffects.ABSORPTION.getName()) + " II";
+	public static final String SPEED = TextFormatting.GREEN + Utils.localize(MobEffects.SPEED.getName()) + " II";
+	public static final String RESISTANCE = TextFormatting.GOLD + Utils.localize(MobEffects.RESISTANCE.getName()) + " II";
+	public static final String REGENERATION = TextFormatting.AQUA + Utils.localize(MobEffects.REGENERATION.getName()) + " II";
+	public static final String STRENGTH = TextFormatting.RED + Utils.localize(MobEffects.STRENGTH.getName()) + " II";
+
 	public static final String BURN_TIME = Utils.localize("tooltip.ma.burn_time") + SEMICOLON;
 	public static final String MATERIAL = Utils.localize("tooltip.ma.material") + SEMICOLON;
 	public static final String DURABILITY = Utils.localize("tooltip.ma.durability") + SEMICOLON;
 	public static final String CHARM_SLOT = Utils.localize("tooltip.ma.charm_slot") + SEMICOLON;
-	public static final String DESCRIPTION = Utils.localize("tooltip.ma.description") + SEMICOLON;
-	public static final String APPLICABLE_TO = Utils.localize("tooltip.ma.applicable_to") + SEMICOLON;
 	public static final String TIER = Utils.localize("tooltip.ma.tier") + SEMICOLON;
 	public static final String DROP_CHANCE = Utils.localize("tooltip.ma.drop_chance") + SEMICOLON;
+	public static final String GIVES_BUFFS = Utils.localize("tooltip.ma.gives_buffs") + SEMICOLON;
+	public static final String APPLICABLE_TO = TextFormatting.YELLOW + Utils.localize("tooltip.ma.applicable_to") + SEMICOLON;
+	public static final String DESCRIPTION = TextFormatting.YELLOW + Utils.localize("tooltip.ma.description") + SEMICOLON;
 	
 	public static final String UNLIMITED = Utils.localize("tooltip.ma.unlimited");
 }

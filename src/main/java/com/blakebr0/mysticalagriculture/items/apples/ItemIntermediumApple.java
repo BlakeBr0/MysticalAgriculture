@@ -1,4 +1,4 @@
-package com.blakebr0.mysticalagriculture.items;
+package com.blakebr0.mysticalagriculture.items.apples;
 
 import java.util.List;
 
@@ -17,10 +17,10 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class ItemSupremiumApple extends ItemFood {
+public class ItemIntermediumApple extends ItemFood {
 	
-	public ItemSupremiumApple(String name){
-        super(20, 0.9F, false);
+	public ItemIntermediumApple(String name){
+        super(10, 0.5F, false);
 		this.setUnlocalizedName("ma." + name);
 		this.setRegistryName(name);
 		this.setCreativeTab(MysticalAgriculture.tabMysticalAgriculture);
@@ -29,7 +29,7 @@ public class ItemSupremiumApple extends ItemFood {
 	
     @Override
     protected void onFoodEaten(ItemStack stack, World world, EntityPlayer player){
-        if(!world.isRemote) {
+        if(!world.isRemote){
         	int duration = 0;
             PotionEffect potion;
             int bufflength = ModConfig.confAppleBuffDuration * 20;
@@ -48,16 +48,6 @@ public class ItemSupremiumApple extends ItemFood {
             if(potion != null)
             	duration = potion.getDuration();
             player.addPotionEffect(new PotionEffect(MobEffects.RESISTANCE, duration + 60 * bufflength, 1));
-            
-            potion = player.getActivePotionEffect(MobEffects.REGENERATION);
-            if(potion != null)
-            	duration = potion.getDuration();
-            player.addPotionEffect(new PotionEffect(MobEffects.REGENERATION, duration + 60 * bufflength, 1));
-            
-            potion = player.getActivePotionEffect(MobEffects.STRENGTH);
-            if(potion != null)
-            	duration = potion.getDuration();
-            player.addPotionEffect(new PotionEffect(MobEffects.STRENGTH, duration + 60 * bufflength, 1));
         }
     }
     
@@ -74,7 +64,5 @@ public class ItemSupremiumApple extends ItemFood {
 		tooltip.add("- \u00A7eAbsorption II \u00A77(" + duration + ":00)");
 		tooltip.add("- \u00A7aSpeed II \u00A77(" + duration + ":00)");
 		tooltip.add("- \u00A76Resistance II \u00A77(" + duration + ":00)");
-		tooltip.add("- \u00A7bRegeneration II \u00A77(" + duration + ":00)");
-		tooltip.add("- \u00A7cStrength II \u00A77(" + duration + ":00)");
 	}
 }

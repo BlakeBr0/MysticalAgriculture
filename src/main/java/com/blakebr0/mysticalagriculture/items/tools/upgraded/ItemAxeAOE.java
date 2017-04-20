@@ -37,7 +37,7 @@ public class ItemAxeAOE extends ItemEssenceAxe {
 	}
     
 	@Override
-	@SideOnly(Side.CLIENT)
+	@SideOnly(Side.CLIENT) // TODO: localize
 	public void addInformation(ItemStack stack, EntityPlayer player, List tooltip, boolean advanced){
 		tooltip.add(Tooltips.DURABILITY + Tooltips.UNLIMITED);
 		tooltip.add("Charm Slot: \u00A7cMining AOE");

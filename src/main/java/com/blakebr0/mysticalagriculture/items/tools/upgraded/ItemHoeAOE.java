@@ -32,7 +32,7 @@ public class ItemHoeAOE extends ItemSupremiumHoe {
     }
 
 	@Override
-	@SideOnly(Side.CLIENT)
+	@SideOnly(Side.CLIENT) // TODO: localize
 	public void addInformation(ItemStack stack, EntityPlayer player, List tooltip, boolean advanced){
 		int range = this.range * 2 + 1;
 		if(ModConfig.confSneakHoeAOE){ tooltip.add("Hold " + Minecraft.getMinecraft().gameSettings.keyBindSneak.getDisplayName() +  " for \u00A7c" + range + "x" + range + "\u00A77."); }
