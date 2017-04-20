@@ -28,7 +28,7 @@ public class ItemSwordAOE extends ItemEssenceSword {
 	}
 		
 	@Override
-	@SideOnly(Side.CLIENT)
+	@SideOnly(Side.CLIENT) // TODO: localize
 	public void addInformation(ItemStack stack, EntityPlayer player, List tooltip, boolean advanced){
 		tooltip.add("Durability: \u00A7cUnlimited");
 		tooltip.add("Charm Slot: \u00A7cAttack AOE");
