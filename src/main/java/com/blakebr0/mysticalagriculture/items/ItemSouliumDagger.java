@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.blakebr0.mysticalagriculture.MysticalAgriculture;
 import com.blakebr0.mysticalagriculture.config.ModConfig;
+import com.blakebr0.mysticalagriculture.lib.Tooltips;
 
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityItem;
@@ -45,9 +46,10 @@ public class ItemSouliumDagger extends ItemSword {
 	public void addInformation(ItemStack stack, EntityPlayer player, List tooltip, boolean advanced){
 		int damage = stack.getMaxDamage() - stack.getItemDamage();
 		tooltip.add("Used to obtain \u00A7cMob Chunks\u00A77.");
-		tooltip.add("Durability: \u00A7d" + damage);
+		tooltip.add(Tooltips.DURABILITY + "\u00A7d" + damage);
 	}
 	
+	@Override
     public boolean getIsRepairable(ItemStack toRepair, ItemStack repair){
         return repair.getItem() == ModItems.itemSouliumIngot;
     }

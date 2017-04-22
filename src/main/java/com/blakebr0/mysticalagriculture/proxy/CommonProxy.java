@@ -55,10 +55,10 @@ public class CommonProxy {
 	    CropType.init();
 
 	    MinecraftForge.EVENT_BUS.register(new BowZoomHandler());
-	    MinecraftForge.EVENT_BUS.register(new ItemIntermediumArmor.abilityHandler());
-	    MinecraftForge.EVENT_BUS.register(new ItemSuperiumArmor.abilityHandler());
-	    MinecraftForge.EVENT_BUS.register(new ItemSupremiumArmor.abilityHandler());
-	    MinecraftForge.EVENT_BUS.register(new ItemUpgradedSpeed.abilityHandler());
+	    MinecraftForge.EVENT_BUS.register(new ItemIntermediumArmor.AbilityHandler());
+	    MinecraftForge.EVENT_BUS.register(new ItemSuperiumArmor.AbilityHandler());
+	    MinecraftForge.EVENT_BUS.register(new ItemSupremiumArmor.AbilityHandler());
+	    MinecraftForge.EVENT_BUS.register(new ItemUpgradedSpeed.AbilityHandler());
 	}
 	
 	public void init(FMLInitializationEvent e){

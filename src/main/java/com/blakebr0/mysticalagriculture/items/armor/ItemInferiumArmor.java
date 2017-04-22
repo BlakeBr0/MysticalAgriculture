@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.blakebr0.mysticalagriculture.MysticalAgriculture;
 import com.blakebr0.mysticalagriculture.items.ModItems;
+import com.blakebr0.mysticalagriculture.lib.Tooltips;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.EntityEquipmentSlot;
@@ -24,12 +25,13 @@ public class ItemInferiumArmor extends ItemArmor {
 	}
 	
 	@Override
-	@SideOnly(Side.CLIENT) // TODO: localize
+	@SideOnly(Side.CLIENT)
 	public void addInformation(ItemStack stack, EntityPlayer player, List tooltip, boolean advanced){
 		int damage = stack.getMaxDamage() - stack.getItemDamage();
-		tooltip.add("Durability: \u00A7e" + damage);
+		tooltip.add(Tooltips.DURABILITY + "\u00A7e" + damage);
 	}
 
+	@Override
     public boolean getIsRepairable(ItemStack toRepair, ItemStack repair){
         return repair.getItem() == ModItems.itemInferiumIngot;
     }

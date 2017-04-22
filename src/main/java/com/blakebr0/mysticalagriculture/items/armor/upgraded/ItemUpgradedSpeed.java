@@ -7,17 +7,11 @@ import com.blakebr0.mysticalagriculture.MysticalAgriculture;
 import com.blakebr0.mysticalagriculture.config.ModConfig;
 import com.blakebr0.mysticalagriculture.items.ModItems;
 import com.blakebr0.mysticalagriculture.items.armor.ItemSupremiumArmor;
-import com.google.common.collect.Multimap;
 
 import net.minecraft.block.material.Material;
-import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.SharedMonsterAttributes;
-import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.MobEffects;
 import net.minecraft.inventory.EntityEquipmentSlot;
-import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.world.World;
@@ -53,31 +47,27 @@ public class ItemUpgradedSpeed extends ItemSupremiumArmor {
         return ModConfig.confCharmReturn;
     }
 
-	public void onArmorTick(World world, EntityPlayer entity, ItemStack itemStack){
-		ItemStack head = entity.getItemStackFromSlot(EntityEquipmentSlot.HEAD);
-		ItemStack chest = entity.getItemStackFromSlot(EntityEquipmentSlot.CHEST);
-		ItemStack legs = entity.getItemStackFromSlot(EntityEquipmentSlot.LEGS);
-		ItemStack feet = entity.getItemStackFromSlot(EntityEquipmentSlot.FEET);
-		if(head != null && head.getItem() instanceof ItemSupremiumArmor && chest != null && chest.getItem() instanceof ItemSupremiumArmor && legs != null && legs.getItem() instanceof ItemSupremiumArmor && feet != null && feet.getItem() instanceof ItemSupremiumArmor || entity.capabilities.isCreativeMode || entity.isSpectator()) {
-			if(ModConfig.confSetBonuses){
-				if(entity.isInWater()){
-					entity.addPotionEffect(new PotionEffect(MobEffects.WATER_BREATHING, 5, 0, true, false));
-				}
-				entity.fallDistance = 0;
-			}
-		}
-	}
+    @Override
+	public void onArmorTick(World world, EntityPlayer player, ItemStack stack){
+    	if(ModConfig.confSetBonuses && ItemSupremiumArmor.isFullSet(player)){
+    		if(player.isInWater()){
+    			player.addPotionEffect(new PotionEffect(MobEffects.WATER_BREATHING, 5, 0, true, false));
+    		}
+    		player.fallDistance = 0;
+    	}
+    }
 
+    @Override
     public boolean getIsRepairable(ItemStack toRepair, ItemStack repair){
         return repair.getItem() == ModItems.itemSupremiumIngot;
     }
     
-    public static class abilityHandler {
+    public static class AbilityHandler {
     	
     	public static List<String> playersWithSpeed = new ArrayList<String>();
     	
     	public static String playerKey(EntityPlayer player) {
-    		return player.getGameProfile().getName() +":"+ player.worldObj.isRemote;
+    		return player.getGameProfile().getName() + ":" + player.worldObj.isRemote;
     	}
     	
     	public static boolean playerHasSet(EntityPlayer entity) {

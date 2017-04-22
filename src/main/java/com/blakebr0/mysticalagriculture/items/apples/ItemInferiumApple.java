@@ -38,8 +38,8 @@ public class ItemInferiumApple extends ItemFood {
             potion = player.getActivePotionEffect(MobEffects.ABSORPTION);
             if(potion != null){
             	duration = potion.getDuration();
-            	player.addPotionEffect(new PotionEffect(MobEffects.ABSORPTION, duration + 60 * buffLength, 1));
             }
+        	player.addPotionEffect(new PotionEffect(MobEffects.ABSORPTION, duration + 60 * buffLength, 1));
         }
     }
     

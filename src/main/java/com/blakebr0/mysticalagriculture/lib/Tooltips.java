@@ -30,6 +30,7 @@ public class Tooltips {
 	public static final String BURN_TIME = Utils.localize("tooltip.ma.burn_time") + SEMICOLON;
 	public static final String MATERIAL = Utils.localize("tooltip.ma.material") + SEMICOLON;
 	public static final String DURABILITY = Utils.localize("tooltip.ma.durability") + SEMICOLON;
+	public static final String SET_BONUS = Utils.localize("tooltip.ma.set_bonus") + SEMICOLON;
 	public static final String CHARM_SLOT = Utils.localize("tooltip.ma.charm_slot") + SEMICOLON;
 	public static final String TIER = Utils.localize("tooltip.ma.tier") + SEMICOLON;
 	public static final String DROP_CHANCE = Utils.localize("tooltip.ma.drop_chance") + SEMICOLON;

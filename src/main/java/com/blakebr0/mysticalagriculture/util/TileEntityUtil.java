@@ -21,7 +21,7 @@ public class TileEntityUtil extends TileEntity {
 		readCustomNBT(tag);
 	}
 
-	public NBTTagCompound writeCustomNBT(NBTTagCompound tag){ return tag;}
+	public NBTTagCompound writeCustomNBT(NBTTagCompound tag){ return tag; }
 	public void readCustomNBT(NBTTagCompound tag){}
 
 	@Override

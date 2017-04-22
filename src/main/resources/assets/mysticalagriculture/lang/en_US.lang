@@ -684,6 +684,7 @@ tooltip.ma.supremium=Supremium
 tooltip.ma.burn_time=Burn Time
 tooltip.ma.material=Material
 tooltip.ma.durability=Durability
+tooltip.ma.set_bonus=Set Bonus
 tooltip.ma.charm_slot=Charm Slot
 tooltip.ma.tier=Tier
 tooltip.ma.drop_chance=Drop Chance

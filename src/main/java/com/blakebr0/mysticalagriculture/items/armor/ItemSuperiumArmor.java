@@ -6,6 +6,8 @@ import java.util.List;
 import com.blakebr0.mysticalagriculture.MysticalAgriculture;
 import com.blakebr0.mysticalagriculture.config.ModConfig;
 import com.blakebr0.mysticalagriculture.items.ModItems;
+import com.blakebr0.mysticalagriculture.lib.Tooltips;
+import com.blakebr0.mysticalagriculture.util.Utils;
 
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -37,51 +39,49 @@ public class ItemSuperiumArmor extends ItemArmor {
 	@SideOnly(Side.CLIENT) // TODO: localize
 	public void addInformation(ItemStack stack, EntityPlayer player, List tooltip, boolean advanced){
 		int damage = stack.getMaxDamage() - stack.getItemDamage();
-		tooltip.add("Durability: \u00A7b" + damage);
-		if(ModConfig.confSetBonuses){ tooltip.add("Set Bonus:\u00A7b No Fall Damage"); }
+		tooltip.add(Tooltips.DURABILITY + "\u00A7b" + damage);
+		if(ModConfig.confSetBonuses){ tooltip.add(Tooltips.SET_BONUS + "\u00A7bNo Fall Damage"); }
 	}
 
-	public void onArmorTick(World world, EntityPlayer entity, ItemStack itemStack){
-		ItemStack head = entity.getItemStackFromSlot(EntityEquipmentSlot.HEAD);
-		ItemStack chest = entity.getItemStackFromSlot(EntityEquipmentSlot.CHEST);
-		ItemStack legs = entity.getItemStackFromSlot(EntityEquipmentSlot.LEGS);
-		ItemStack feet = entity.getItemStackFromSlot(EntityEquipmentSlot.FEET);
-		if(ModConfig.confSetBonuses && head != null && head.getItem() instanceof ItemSuperiumArmor && chest != null && chest.getItem() instanceof ItemSuperiumArmor && legs != null && legs.getItem() instanceof ItemSuperiumArmor && feet != null && feet.getItem() instanceof ItemSuperiumArmor){
-			if(entity.isInWater()){
-				entity.addPotionEffect(new PotionEffect(MobEffects.WATER_BREATHING, 5, 0, true, false));
+	@Override
+	public void onArmorTick(World world, EntityPlayer player, ItemStack stack){
+		if(ModConfig.confSetBonuses && isFullSet(player)){
+			if(player.isInWater()){
+				player.addPotionEffect(new PotionEffect(MobEffects.WATER_BREATHING, 5, 0, true, false));
 			}
-			entity.fallDistance = 0;
+			player.fallDistance = 0;
 		}
 	}
 	
+	@Override
     public boolean getIsRepairable(ItemStack toRepair, ItemStack repair){
         return repair.getItem() == ModItems.itemSuperiumIngot;
     }
+	
+	public static boolean isFullSet(EntityPlayer player){		
+		ItemStack head = player.getItemStackFromSlot(EntityEquipmentSlot.HEAD);
+		ItemStack chest = player.getItemStackFromSlot(EntityEquipmentSlot.CHEST);
+		ItemStack legs = player.getItemStackFromSlot(EntityEquipmentSlot.LEGS);
+		ItemStack feet = player.getItemStackFromSlot(EntityEquipmentSlot.FEET);
+		
+		return head != null && head.getItem() instanceof ItemSuperiumArmor && chest != null && chest.getItem() instanceof ItemSuperiumArmor && legs != null && legs.getItem() instanceof ItemSuperiumArmor && feet != null && feet.getItem() instanceof ItemSuperiumArmor;
+	}
     
-    public static class abilityHandler {
+    public static class AbilityHandler {
     	
     	public static List<String> playersWithSet = new ArrayList<String>();
     	
-    	public static String playerKey(EntityPlayer player) {
-    		return player.getGameProfile().getName() +":"+ player.worldObj.isRemote;
-    	}
-    	
-    	public static boolean playerHasSet(EntityPlayer entity) {
-    		ItemStack head = entity.getItemStackFromSlot(EntityEquipmentSlot.HEAD);
-    		ItemStack chest = entity.getItemStackFromSlot(EntityEquipmentSlot.CHEST);
-    		ItemStack legs = entity.getItemStackFromSlot(EntityEquipmentSlot.LEGS);
-    		ItemStack feet = entity.getItemStackFromSlot(EntityEquipmentSlot.FEET);	
-    		
-    		return head != null && head.getItem() instanceof ItemSuperiumArmor && chest != null && chest.getItem() instanceof ItemSuperiumArmor && legs != null && legs.getItem() instanceof ItemSuperiumArmor && feet != null && feet.getItem() instanceof ItemSuperiumArmor;
+    	public static String playerKey(EntityPlayer player){
+    		return player.getGameProfile().getName() + ":" + player.worldObj.isRemote;
     	}
     	
     	@SubscribeEvent
-    	public void updatePlayerAbilityStatus(LivingUpdateEvent event) {
-    		if(event.getEntityLiving() instanceof EntityPlayer) {
+    	public void updatePlayerAbilityStatus(LivingUpdateEvent event){
+    		if(event.getEntityLiving() instanceof EntityPlayer){
     			EntityPlayer player = (EntityPlayer)event.getEntityLiving();
     			String key = playerKey(player);
 
-    			Boolean hasSet = playerHasSet(player);
+    			Boolean hasSet = ItemPrudentiumArmor.isFullSet(player);
     			if(playersWithSet.contains(key) && ModConfig.confSetBonuses){
     				if(hasSet){
     					player.stepHeight = 1.0F;
@@ -89,7 +89,7 @@ public class ItemSuperiumArmor extends ItemArmor {
     					player.stepHeight = 0.5F;
     					playersWithSet.remove(key);
     				}
-    			} else if(hasSet) {
+    			} else if(hasSet){
     				playersWithSet.add(key);
     			}
     		}

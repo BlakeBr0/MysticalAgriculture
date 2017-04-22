@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.blakebr0.mysticalagriculture.MysticalAgriculture;
 import com.blakebr0.mysticalagriculture.config.ModConfig;
+import com.blakebr0.mysticalagriculture.lib.Tooltips;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.MobEffects;
@@ -32,32 +33,37 @@ public class ItemSupremiumApple extends ItemFood {
         if(!world.isRemote) {
         	int duration = 0;
             PotionEffect potion;
-            int bufflength = ModConfig.confAppleBuffDuration * 20;
+            int buffLength = ModConfig.confAppleBuffDuration * 20;
             
             potion = player.getActivePotionEffect(MobEffects.ABSORPTION);
-            if(potion != null)
+            if(potion != null){
             	duration = potion.getDuration();
-            player.addPotionEffect(new PotionEffect(MobEffects.ABSORPTION, duration + 60 * bufflength, 1));
-            
+            }
+        	player.addPotionEffect(new PotionEffect(MobEffects.ABSORPTION, duration + 60 * buffLength, 1));
+        	
             potion = player.getActivePotionEffect(MobEffects.SPEED);
-            if(potion != null)
+            if(potion != null){
             	duration = potion.getDuration();
-            player.addPotionEffect(new PotionEffect(MobEffects.SPEED, duration + 60 * bufflength, 1));
-            
+            }
+        	player.addPotionEffect(new PotionEffect(MobEffects.SPEED, duration + 60 * buffLength, 1));
+
             potion = player.getActivePotionEffect(MobEffects.RESISTANCE);
-            if(potion != null)
+            if(potion != null){
             	duration = potion.getDuration();
-            player.addPotionEffect(new PotionEffect(MobEffects.RESISTANCE, duration + 60 * bufflength, 1));
-            
+            }
+        	player.addPotionEffect(new PotionEffect(MobEffects.RESISTANCE, duration + 60 * buffLength, 1));
+
             potion = player.getActivePotionEffect(MobEffects.REGENERATION);
-            if(potion != null)
+            if(potion != null){
             	duration = potion.getDuration();
-            player.addPotionEffect(new PotionEffect(MobEffects.REGENERATION, duration + 60 * bufflength, 1));
+            }
+        	player.addPotionEffect(new PotionEffect(MobEffects.REGENERATION, duration + 60 * buffLength, 1));          	
             
             potion = player.getActivePotionEffect(MobEffects.STRENGTH);
-            if(potion != null)
+            if(potion != null){
             	duration = potion.getDuration();
-            player.addPotionEffect(new PotionEffect(MobEffects.STRENGTH, duration + 60 * bufflength, 1));
+            }
+        	player.addPotionEffect(new PotionEffect(MobEffects.STRENGTH, duration + 60 * buffLength, 1));
         }
     }
     
@@ -67,14 +73,14 @@ public class ItemSupremiumApple extends ItemFood {
     }
     
 	@Override
-	@SideOnly(Side.CLIENT) // TODO: localize
+	@SideOnly(Side.CLIENT)
 	public void addInformation(ItemStack stack, EntityPlayer player, List tooltip, boolean advanced){
-		tooltip.add("Gives Buffs:");
+		tooltip.add(Tooltips.GIVES_BUFFS);
 		int duration = ModConfig.confAppleBuffDuration;
-		tooltip.add("- \u00A7eAbsorption II \u00A77(" + duration + ":00)");
-		tooltip.add("- \u00A7aSpeed II \u00A77(" + duration + ":00)");
-		tooltip.add("- \u00A76Resistance II \u00A77(" + duration + ":00)");
-		tooltip.add("- \u00A7bRegeneration II \u00A77(" + duration + ":00)");
-		tooltip.add("- \u00A7cStrength II \u00A77(" + duration + ":00)");
+		tooltip.add("- " + Tooltips.ABSORPTION + " \u00A77(" + duration + ":00)");
+		tooltip.add("- " + Tooltips.SPEED + " \u00A77(" + duration + ":00)");
+		tooltip.add("- " + Tooltips.RESISTANCE + " \u00A77(" + duration + ":00)");
+		tooltip.add("- " + Tooltips.REGENERATION + " \u00A77(" + duration + ":00)");
+		tooltip.add("- " + Tooltips.STRENGTH + " \u00A77(" + duration + ":00)");
 	}
 }

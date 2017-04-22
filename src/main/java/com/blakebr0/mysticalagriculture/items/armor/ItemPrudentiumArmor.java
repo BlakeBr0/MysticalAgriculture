@@ -5,6 +5,8 @@ import java.util.List;
 import com.blakebr0.mysticalagriculture.MysticalAgriculture;
 import com.blakebr0.mysticalagriculture.config.ModConfig;
 import com.blakebr0.mysticalagriculture.items.ModItems;
+import com.blakebr0.mysticalagriculture.lib.Tooltips;
+import com.blakebr0.mysticalagriculture.util.Utils;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.MobEffects;
@@ -31,23 +33,30 @@ public class ItemPrudentiumArmor extends ItemArmor {
 	@SideOnly(Side.CLIENT) // TODO: localize
 	public void addInformation(ItemStack stack, EntityPlayer player, List tooltip, boolean advanced){
 		int damage = stack.getMaxDamage() - stack.getItemDamage();
-		tooltip.add("Durability: \u00A7a" + damage);
-		if(ModConfig.confSetBonuses){ tooltip.add("Set Bonus: \u00A7aWater Breathing"); }
+		tooltip.add(Tooltips.DURABILITY + "\u00A7a" + damage);
+		if(ModConfig.confSetBonuses){ tooltip.add(Tooltips.SET_BONUS + "\u00A7aWater Breathing"); }
 	}
 
-	public void onArmorTick(World world, EntityPlayer entity, ItemStack itemStack){
-		ItemStack head = entity.getItemStackFromSlot(EntityEquipmentSlot.HEAD);
-		ItemStack chest = entity.getItemStackFromSlot(EntityEquipmentSlot.CHEST);
-		ItemStack legs = entity.getItemStackFromSlot(EntityEquipmentSlot.LEGS);
-		ItemStack feet = entity.getItemStackFromSlot(EntityEquipmentSlot.FEET);
-		if(ModConfig.confSetBonuses && head != null && head.getItem() instanceof ItemPrudentiumArmor && chest != null && chest.getItem() instanceof ItemPrudentiumArmor && legs != null && legs.getItem() instanceof ItemPrudentiumArmor && feet != null && feet.getItem() instanceof ItemPrudentiumArmor){
-			if(entity.isInWater()){
-				entity.addPotionEffect(new PotionEffect(MobEffects.WATER_BREATHING, 5, 0, true, false));
+	@Override
+	public void onArmorTick(World world, EntityPlayer player, ItemStack stack){
+		if(ModConfig.confSetBonuses && isFullSet(player)){
+			if(player.isInWater()){
+				player.addPotionEffect(new PotionEffect(MobEffects.WATER_BREATHING, 5, 0, true, false));
 			}
 		}
 	}
 	
+	@Override
     public boolean getIsRepairable(ItemStack toRepair, ItemStack repair){
         return repair.getItem() == ModItems.itemPrudentiumIngot;
     }
+	
+	public static boolean isFullSet(EntityPlayer player){		
+		ItemStack head = player.getItemStackFromSlot(EntityEquipmentSlot.HEAD);
+		ItemStack chest = player.getItemStackFromSlot(EntityEquipmentSlot.CHEST);
+		ItemStack legs = player.getItemStackFromSlot(EntityEquipmentSlot.LEGS);
+		ItemStack feet = player.getItemStackFromSlot(EntityEquipmentSlot.FEET);
+		
+		return head != null && head.getItem() instanceof ItemPrudentiumArmor && chest != null && chest.getItem() instanceof ItemPrudentiumArmor && legs != null && legs.getItem() instanceof ItemPrudentiumArmor && feet != null && feet.getItem() instanceof ItemPrudentiumArmor;
+	}
 }
