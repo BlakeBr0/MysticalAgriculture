@@ -32,35 +32,39 @@ public class ItemSupremiumHoe extends ItemEssenceHoe {
 		this.range = range;
 	}
 
+	public boolean isSneakAbilityEnabled(){
+		return ModConfig.confSneakHoeAOE;
+	}
+	
 	@Override
 	@SideOnly(Side.CLIENT) // TODO: localize
 	public void addInformation(ItemStack stack, EntityPlayer player, List tooltip, boolean advanced){
 		int range = this.range + 2;
-		if(ModConfig.confSneakHoeAOE){ tooltip.add("Hold " + Minecraft.getMinecraft().gameSettings.keyBindSneak.getDisplayName() +  " for \u00A7c" + range + "x" + range + "\u00A77."); }
+		if(isSneakAbilityEnabled()){ tooltip.add("Hold " + Minecraft.getMinecraft().gameSettings.keyBindSneak.getDisplayName() +  " for \u00A7c" + range + "x" + range + "\u00A77."); }
 		tooltip.add("Durability: \u00A7cUnlimited");
 		tooltip.add("Charm Slot: \u00A7c\u00A7oEmpty");
 	}
-
+	
 	@Override
 	public EnumActionResult onItemUse(ItemStack stack, EntityPlayer player, World world, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {		
-		if(!canHoe(stack, player, world, pos, facing) && !player.isSneaking()){
+		if(!hoe(stack, player, world, pos, facing) && !player.isSneaking()){
 			return EnumActionResult.FAIL;
 		}
 		
 		Iterable<BlockPos> blocks = BlockPos.getAllInBox(pos.add(-range, 0, -range), pos.add(range, 0, range));
 		
-		if(player.isSneaking() && ModConfig.confSneakHoeAOE){ // TODO: make it so the 7x7 hoe ignores this NICE config option ty
+		if(player.isSneaking() && isSneakAbilityEnabled()){
 			for(BlockPos aoePos : blocks){
-				canHoe(stack, player, world, aoePos, facing);
+				hoe(stack, player, world, aoePos, facing);
 			}
 		} else {
-			canHoe(stack, player, world, pos, facing);
+			hoe(stack, player, world, pos, facing);
 		}
 		return EnumActionResult.SUCCESS;
 	}
 	
 	@SuppressWarnings("incomplete-switch")
-	private boolean canHoe(ItemStack stack, EntityPlayer player, World world, BlockPos pos, EnumFacing face){
+	private boolean hoe(ItemStack stack, EntityPlayer player, World world, BlockPos pos, EnumFacing face){
         if(!player.canPlayerEdit(pos.offset(face), face, stack)){
             return false;
         } else {

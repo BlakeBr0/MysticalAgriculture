@@ -22,6 +22,11 @@ public class ItemHoeAOE extends ItemSupremiumHoe {
 	}
 	
 	@Override
+	public boolean isSneakAbilityEnabled(){
+		return true;
+	}
+	
+	@Override
     public ItemStack getContainerItem(ItemStack itemstack){
         return new ItemStack(ModItems.itemCharmTillingAOE, 1, 0);
     }
@@ -35,7 +40,7 @@ public class ItemHoeAOE extends ItemSupremiumHoe {
 	@SideOnly(Side.CLIENT) // TODO: localize
 	public void addInformation(ItemStack stack, EntityPlayer player, List tooltip, boolean advanced){
 		int range = this.range * 2 + 1;
-		if(ModConfig.confSneakHoeAOE){ tooltip.add("Hold " + Minecraft.getMinecraft().gameSettings.keyBindSneak.getDisplayName() +  " for \u00A7c" + range + "x" + range + "\u00A77."); }
+		tooltip.add("Hold " + Minecraft.getMinecraft().gameSettings.keyBindSneak.getDisplayName() +  " for \u00A7c" + range + "x" + range + "\u00A77.");
 		tooltip.add("Durability: \u00A7cUnlimited");
 		tooltip.add("Charm Slot: \u00A7cTilling AOE");
 	}

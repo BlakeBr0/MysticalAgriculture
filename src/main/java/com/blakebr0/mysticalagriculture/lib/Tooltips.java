@@ -41,6 +41,4 @@ public class Tooltips {
 	public static final String DESCRIPTION = TextFormatting.YELLOW + Utils.localize("tooltip.ma.description") + SEMICOLON;
 	
 	public static final String UNLIMITED = Utils.localize("tooltip.ma.unlimited");
-	public static final String FILLED = Utils.localize("tooltip.ma.filled");
-	public static final String EMPTY = Utils.localize("tooltip.ma.empty");
 }
