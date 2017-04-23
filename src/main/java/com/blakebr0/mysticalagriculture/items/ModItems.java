@@ -87,6 +87,8 @@ public class ModItems {
 	
 	public static ItemEssenceCoal itemEssenceCoal = new ItemEssenceCoal();
 	
+	public static ItemWateringCan itemWateringCan = new ItemWateringCan();
+	
 	public static ItemBase itemBaseCraftingSeed = new ItemBase("base_crafting_seed");
 	public static ItemBase itemTier1CraftingSeed = new ItemBase("tier1_crafting_seed");
 	public static ItemBase itemTier2CraftingSeed = new ItemBase("tier2_crafting_seed");
@@ -111,6 +113,8 @@ public class ModItems {
 		
 	public static ItemNugget itemNugget = new ItemNugget();
 	
+	public static ItemCrafting itemCrafting = new ItemCrafting();
+		
 	public static ItemBase itemTier1MobChunk = new ItemBase("tier1_mob_chunk");
 	public static ItemBase itemTier2MobChunk = new ItemBase("tier2_mob_chunk");
 	public static ItemBase itemTier3MobChunk = new ItemBase("tier3_mob_chunk");
@@ -307,6 +311,8 @@ public class ModItems {
 		
 		if(ModConfig.confEssenceCoal){ itemEssenceCoal.init(); }
 		
+		if(ModConfig.confWateringCans){ itemWateringCan.init(); }
+		
 		registerItem(itemBaseCraftingSeed);
 		registerItem(itemTier1CraftingSeed);
 		registerItem(itemTier2CraftingSeed);
@@ -331,6 +337,8 @@ public class ModItems {
 		
 		itemNugget.init();
 		
+		itemCrafting.init();
+				
 		registerItem(itemTier1MobChunk);
 		registerItem(itemTier2MobChunk);
 		registerItem(itemTier3MobChunk);
@@ -548,6 +556,8 @@ public class ModItems {
 		
 		if(ModConfig.confEssenceCoal){ itemEssenceCoal.initModels(); }
 		
+		if(ModConfig.confWateringCans){ itemWateringCan.initModels(); }
+		
 		registerModel(itemBaseCraftingSeed);
 		registerModel(itemTier1CraftingSeed);
 		registerModel(itemTier2CraftingSeed);
@@ -572,6 +582,8 @@ public class ModItems {
 		
 		itemNugget.initModels();
 		
+		itemCrafting.initModels();
+			
 		registerModel(itemTier1MobChunk);
 		registerModel(itemTier2MobChunk);
 		registerModel(itemTier3MobChunk);

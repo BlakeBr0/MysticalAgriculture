@@ -14,6 +14,7 @@ public class Tooltips {
 	
 	public static final String FERTILIZED_ESSENCE = Utils.localize("tooltip.ma.fertilized_essence");
 	public static final String MYSTICAL_FERTILIZER = Utils.localize("tooltip.ma.mystical_fertilizer");
+	public static final String CORE_REMOVAL = "Can be re-claimed using a \u00A7cCore Remover\u00A77."; // TODO: localize
 	
 	public static final String INFERIUM = TextFormatting.YELLOW + Utils.localize("tooltip.ma.inferium");
 	public static final String PRUDENTIUM = TextFormatting.GREEN + Utils.localize("tooltip.ma.prudentium");
@@ -35,8 +36,11 @@ public class Tooltips {
 	public static final String TIER = Utils.localize("tooltip.ma.tier") + SEMICOLON;
 	public static final String DROP_CHANCE = Utils.localize("tooltip.ma.drop_chance") + SEMICOLON;
 	public static final String GIVES_BUFFS = Utils.localize("tooltip.ma.gives_buffs") + SEMICOLON;
+	public static final String RANGE = Utils.localize("tooltip.ma.range") + SEMICOLON;
 	public static final String APPLICABLE_TO = TextFormatting.YELLOW + Utils.localize("tooltip.ma.applicable_to") + SEMICOLON;
 	public static final String DESCRIPTION = TextFormatting.YELLOW + Utils.localize("tooltip.ma.description") + SEMICOLON;
 	
 	public static final String UNLIMITED = Utils.localize("tooltip.ma.unlimited");
+	public static final String FILLED = Utils.localize("tooltip.ma.filled");
+	public static final String EMPTY = Utils.localize("tooltip.ma.empty");
 }

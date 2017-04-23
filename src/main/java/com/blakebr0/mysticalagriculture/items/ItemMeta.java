@@ -7,6 +7,7 @@ import java.util.Map;
 
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.client.model.ModelLoader;
@@ -19,6 +20,7 @@ public class ItemMeta extends ItemBase {
 
 	public Map<Integer, MetaItem> items = new HashMap<>();
 	public ArrayList<Integer> metas = new ArrayList<>();
+	public List<String> tooltip = new ArrayList<>();
 	
 	public ItemMeta(String name){
 		super(name);
@@ -33,12 +35,26 @@ public class ItemMeta extends ItemBase {
 		return new ItemStack(this, 1, meta);
 	}
 	
+	public ItemStack addItem(int meta, String name, boolean enabled, List<String> tooltip){
+		if(!enabled){ return null; }
+		if(items.containsKey(meta)){ return null; }
+		items.put(meta, new MetaItem(name, enabled, tooltip));
+		metas.add(meta);
+		return new ItemStack(this, 1, meta);
+	}
+	
 	public ItemStack addItem(int meta, String name){
 		return addItem(meta, name, true);
 	}
 	
 	public ItemStack addItem(int meta, String name, String ore, boolean enabled){
 		ItemStack stack = addItem(meta, name, enabled);
+		OreDictionary.registerOre(ore, stack);
+		return stack;
+	}
+	
+	public ItemStack addItem(int meta, String name, String ore, boolean enabled, List<String> tooltip){
+		ItemStack stack = addItem(meta, name, enabled, tooltip);
 		OreDictionary.registerOre(ore, stack);
 		return stack;
 	}
@@ -62,6 +78,17 @@ public class ItemMeta extends ItemBase {
 		return this.getUnlocalizedName() + "_" + item.getName();
 	}
 	
+	@Override
+	public void addInformation(ItemStack stack, EntityPlayer player, List<String> tooltip, boolean advanced){
+		int i = stack.getMetadata();
+		if(items.containsKey(i)){
+			MetaItem item = items.get(i);
+			if(item.getTooltip() != null && !item.getTooltip().isEmpty()){
+				tooltip.addAll(item.getTooltip());
+			}
+		}
+	}
+	
     @SideOnly(Side.CLIENT)
     public void initModels(){
     	for(Map.Entry<Integer, MetaItem> item : items.entrySet()){
@@ -76,10 +103,17 @@ public class ItemMeta extends ItemBase {
 	public class MetaItem {
 		private String name;
 		private boolean enabled;
+		private List<String> tooltip;
 		
 		MetaItem(String name, boolean enabled){
 			this.name = name;
 			this.enabled = enabled;
+		}
+		
+		MetaItem(String name, boolean enabled, List<String> tooltip){
+			this.name = name;
+			this.enabled = enabled;
+			this.tooltip = tooltip;
 		}
 		
 		public String getName(){
@@ -88,6 +122,10 @@ public class ItemMeta extends ItemBase {
 		
 		public boolean isEnabled(){
 			return enabled;
+		}
+		
+		public List<String> getTooltip(){
+			return tooltip;
 		}
 	}
 }
