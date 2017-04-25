@@ -118,6 +118,12 @@ public class CropType {
 		LIMESTONE("limestone", ModConfig.confLimestoneTier, ModConfig.confLimestoneSeeds && ModChecker.CHISEL),
 		BASALT("basalt", ModConfig.confBasaltTier, ModConfig.confBasaltSeeds && ModChecker.CHISEL),
 		
+		VINTEUM("vinteum", ModConfig.confVinteumTier, ModConfig.confVinteumSeeds && ModChecker.AM2),
+		CHIMERITE("chimerite", ModConfig.confChimeriteTier, ModConfig.confChimeriteSeeds && ModChecker.AM2),
+		BLUE_TOPAZ("blue_topaz", ModConfig.confBlueTopazTier, ModConfig.confBlueTopazSeeds && ModChecker.AM2),
+		MOONSTONE("moonstone", ModConfig.confMoonstoneTier, ModConfig.confMoonstoneSeeds && ModChecker.AM2),
+		SUNSTONE("sunstone", ModConfig.confSunstoneTier, ModConfig.confSunstoneSeeds && ModChecker.AM2),
+		
 		ENDER_AMETHYST("ender_amethyst", ModConfig.confEnderAmethystTier, ModConfig.confEnderAmethystSeeds && ModChecker.BOP),
 		
 		DRACONIUM("draconium", ModConfig.confDraconiumTier, ModConfig.confDraconiumSeeds && ModChecker.DRACONIC),

@@ -126,6 +126,12 @@ public class ModConfig {
 	public static boolean confLimestoneSeeds;
 	public static boolean confBasaltSeeds;
 	
+	public static boolean confVinteumSeeds;
+	public static boolean confChimeriteSeeds;
+	public static boolean confBlueTopazSeeds;
+	public static boolean confMoonstoneSeeds;
+	public static boolean confSunstoneSeeds;
+	
 	public static boolean confEnderAmethystSeeds;
 	
 	public static boolean confDraconiumSeeds;
@@ -233,6 +239,12 @@ public class ModConfig {
 	public static int confMarbleTier;
 	public static int confLimestoneTier;
 	public static int confBasaltTier;
+	
+	public static int confVinteumTier;
+	public static int confChimeriteTier;
+	public static int confBlueTopazTier;
+	public static int confMoonstoneTier;
+	public static int confSunstoneTier;
 	
 	public static int confEnderAmethystTier;
 	
@@ -437,6 +449,12 @@ public class ModConfig {
 		confLimestoneSeeds = config.get(category, "limestone_seeds", true).getBoolean();
 		confBasaltSeeds = config.get(category, "basalt_seeds", true).getBoolean();
 		
+		confVinteumSeeds = config.get(category, "vinteum_seeds", true).getBoolean();
+		confChimeriteSeeds = config.get(category, "chimerite_seeds", true).getBoolean();
+		confBlueTopazSeeds = config.get(category, "blue_topaz_seeds", true).getBoolean();
+		confMoonstoneSeeds = config.get(category, "moonstone_seeds", true).getBoolean();
+		confSunstoneSeeds = config.get(category, "sunstone_seeds", true).getBoolean();
+		
 		confEnderAmethystSeeds = config.get(category, "ender_amethyst_seeds", true).getBoolean();
 	
 		confDraconiumSeeds = config.get(category, "draconium_seeds", true).getBoolean();
@@ -558,6 +576,12 @@ public class ModConfig {
 		confMarbleTier = config.get(category, "marble_tier", 2).getInt();
 		confLimestoneTier = config.get(category, "limestone_tier", 2).getInt();
 		confBasaltTier = config.get(category, "basalt_tier", 2).getInt();
+		
+		confVinteumTier = config.get(category, "vinteum_tier", 3).getInt();
+		confChimeriteTier = config.get(category, "chimerite_tier", 3).getInt();
+		confBlueTopazTier = config.get(category, "blue_topaz_tier", 3).getInt();
+		confMoonstoneTier = config.get(category, "moonstone_tier", 5).getInt();
+		confSunstoneTier = config.get(category, "sunstone_tier", 5).getInt();
 		
 		confEnderAmethystTier = config.get(category, "ender_amethyst_tier", 5).getInt();
 		

@@ -541,6 +541,12 @@ public class ModRecipes {
 	    addSeedRecipe(type.MARBLE, new ItemStack(Parts.itemChiselMarble, 1, 7));
 	    addSeedRecipe(type.LIMESTONE, new ItemStack(Parts.itemChiselLimestone, 1, 7));
 	    addSeedRecipe(type.BASALT, new ItemStack(Parts.itemChiselBasalt, 1, 7));
+	    
+	    addSeedRecipe(type.VINTEUM, "dustVinteum");
+	    addSeedRecipe(type.CHIMERITE, "gemChimerite");
+	    addSeedRecipe(type.BLUE_TOPAZ, "gemBlueTopaz");
+	    addSeedRecipe(type.MOONSTONE, "gemMoonstone");
+	    addSeedRecipe(type.SUNSTONE, "gemSunstone");
 
 	    addSeedRecipe(type.ENDER_AMETHYST, new ItemStack(Parts.itemBOPGems, 1, 0));
 	    

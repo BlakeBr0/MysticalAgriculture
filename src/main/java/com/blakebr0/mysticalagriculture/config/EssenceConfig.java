@@ -155,6 +155,12 @@ public class EssenceConfig {
 	public static int limestone;
 	public static int basalt;
 	
+	public static int vinteum;
+	public static int chimerite;
+	public static int blueTopaz;
+	public static int moonstone;
+	public static int sunstone;
+	
 	public static int enderAmethyst;
 	
 	public static int draconium;
@@ -339,7 +345,14 @@ public class EssenceConfig {
 		marble = config.get(category, "marble", 24).getInt();
 		limestone = config.get(category, "limestone", 24).getInt();
 		basalt = config.get(category, "basalt", 16).getInt();
-	
+		
+		category = "Ars Magica 2";
+		vinteum = config.get(category, "vinteum", 8).getInt();
+		chimerite = config.get(category, "chimerite", 8).getInt();
+		blueTopaz = config.get(category, "blue_topaz", 6).getInt();
+		moonstone = config.get(category, "moonstone", 3).getInt();
+		sunstone = config.get(category, "sunstone", 3).getInt();
+ 	
 		category = "Biomes 'O Plenty";
 		enderAmethyst = config.get(category, "ender_amethyst", 3).getInt();
 		

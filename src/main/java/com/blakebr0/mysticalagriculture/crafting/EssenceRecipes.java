@@ -246,6 +246,12 @@ public class EssenceRecipes {
 	    if(type.LIMESTONE.isEnabled()){ addEssenceRecipe(new ItemStack(Parts.itemChiselLimestone, EssenceConfig.limestone, 7), "EEE", "EXE", "EEE", 'E', new ItemStack(type.LIMESTONE.getCrop(), 1, 0)); }
 	    if(type.BASALT.isEnabled()){ addEssenceRecipe(new ItemStack(Parts.itemChiselBasalt, EssenceConfig.basalt, 7), "EEE", "EXE", "EEE", 'E', new ItemStack(type.BASALT.getCrop(), 1, 0)); }
 
+	    if(type.VINTEUM.isEnabled()){ addEssenceRecipe(Utils.getItem("dustVinteum", EssenceConfig.vinteum), "EEE", "EXE", "EEE", 'E', new ItemStack(type.VINTEUM.getCrop(), 1, 0)); }    
+	    if(type.CHIMERITE.isEnabled()){ addEssenceRecipe(Utils.getItem("gemChimerite", EssenceConfig.chimerite), "XEX", "EEE", "XEX", 'E', new ItemStack(type.CHIMERITE.getCrop(), 1, 0)); }    
+	    if(type.BLUE_TOPAZ.isEnabled()){ addEssenceRecipe(Utils.getItem("gemBlueTopaz", EssenceConfig.blueTopaz), "EEE", "EXE", "EEE", 'E', new ItemStack(type.BLUE_TOPAZ.getCrop(), 1, 0)); }    
+	    if(type.MOONSTONE.isEnabled()){ addEssenceRecipe(Utils.getItem("gemMoonstone", EssenceConfig.moonstone), "EEE", "EXE", "EEE", 'E', new ItemStack(type.MOONSTONE.getCrop(), 1, 0)); }    
+	    if(type.SUNSTONE.isEnabled()){ addEssenceRecipe(Utils.getItem("gemSunstone", EssenceConfig.sunstone), "EEE", "EXE", "EEE", 'E', new ItemStack(type.SUNSTONE.getCrop(), 1, 0)); }    
+	    
 	    if(type.ENDER_AMETHYST.isEnabled()){ addEssenceRecipe(new ItemStack(Parts.itemBOPGems, EssenceConfig.enderAmethyst, 0), "EEE", "EXE", "EEE", 'E', new ItemStack(type.ENDER_AMETHYST.getCrop(), 1, 0)); }    
 	    
 	    if(type.DRACONIUM.isEnabled()){ addEssenceRecipe(Utils.getItem("ingotDraconium", EssenceConfig.draconium), "EEE", "EXE", "EEE", 'E', new ItemStack(type.DRACONIUM.getCrop(), 1, 0)); }

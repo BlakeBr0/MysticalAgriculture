@@ -70,7 +70,7 @@ container.ma.ultimate_furnace.name=Ultimate Furnace
 
 tile.ma.mystical_machine_frame.name=Mystical Machine Frame
 tile.ma.glowstone_lamp.name=Glowstone Lamp
-desc.tile.ma.glowstone_lamp=An industrial looking Glowstone Lamp... in a magic themed mod... what is this??? \n\nTo make one, simply right-click on a §8Mystical Machine Frame §0with a block of Glowstone. \n\nYou can take out the Glowstone at any time by shift right-clicking the block with an empty hand.
+desc.tile.ma.glowstone_lamp=To make a Glowstone Lamp, simply right-click on a §8Mystical Machine Frame §0with a block of Glowstone. \n\nYou can take out the Glowstone at any time by shift right-clicking the block with an empty hand.
 
 # MACHINE
 tile.ma.seed_reprocessor.name=Seed Reprocessor
@@ -197,6 +197,12 @@ tile.ma.refined_obsidian_crop.name=Refined Obsidian Crop
 tile.ma.marble_crop.name=Marble Crop
 tile.ma.limestone_crop.name=Limestone Crop
 tile.ma.basalt_crop.name=Basalt Crop
+
+tile.ma.vinteum_crop.name=Vinteum Crop
+tile.ma.chimerite_crop.name=Chimerite Crop
+tile.ma.blue_topaz_crop.name=Blue Topaz Crop
+tile.ma.moonstone_crop.name=Moonstone Crop
+tile.ma.sunstone_crop.name=Sunstone Crop
 
 tile.ma.ender_amethyst_crop.name=Ender Amethyst Crop
 
@@ -417,6 +423,12 @@ item.ma.marble_essence.name=Marble Essence
 item.ma.limestone_essence.name=Limestone Essence
 item.ma.basalt_essence.name=Basalt Essence
 
+item.ma.vinteum_essence.name=Vinteum Essence
+item.ma.chimerite_essence.name=Chimerite Essence
+item.ma.blue_topaz_essence.name=Blue Topaz Essence
+item.ma.moonstone_essence.name=Moonstone Essence
+item.ma.sunstone_essence.name=Sunstone Essence
+
 item.ma.ender_amethyst_essence.name=Ender Amethyst Essence
 
 item.ma.draconium_essence.name=Draconium Essence
@@ -532,6 +544,12 @@ item.ma.refined_obsidian_seeds.name=Refined Obsidian Seeds
 item.ma.marble_seeds.name=Marble Seeds
 item.ma.limestone_seeds.name=Limestone Seeds
 item.ma.basalt_seeds.name=Basalt Seeds
+
+item.ma.vinteum_seeds.name=Vinteum Seeds
+item.ma.chimerite_seeds.name=Chimerite Seeds
+item.ma.blue_topaz_seeds.name=Blue Topaz Seeds
+item.ma.moonstone_seeds.name=Moonstone Seeds
+item.ma.sunstone_seeds.name=Sunstone Seeds
 
 item.ma.ender_amethyst_seeds.name=Ender Amethyst Seeds
 

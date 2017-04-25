@@ -17,6 +17,7 @@ public class ModChecker {
 	public static boolean AE2 = Loader.isModLoaded("appliedenergistics2");
 	public static boolean RS = Loader.isModLoaded("refinedstorage");
 	public static boolean IE = Loader.isModLoaded("immersiveengineering");
+	public static boolean AM2 = Loader.isModLoaded("arsmagica2");
 	public static boolean IC2 = Loader.isModLoaded("IC2") || Loader.isModLoaded("ic2");
 	public static boolean BOP = Loader.isModLoaded("BiomesOPlenty") || Loader.isModLoaded("biomesoplenty");
 	public static boolean FORESTRY = Loader.isModLoaded("forestry");
