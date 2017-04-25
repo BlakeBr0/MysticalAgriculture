@@ -182,8 +182,8 @@ public class ModRecipes {
 	    }
 	    
 	    if(ModConfig.confWitherproofBlocks){
-	    	addShapedRecipe(new ItemStack(ModBlocks.blockWitherproofBlock, 1, 0), "SES", "EDE", "SES", 'E', new ItemStack(type.WITHER_SKELETON.getCrop(), 1, 0), 'D', "stone");
-	    	addShapedRecipe(new ItemStack(ModBlocks.blockWitherproofGlass, 1, 0), "SES", "EDE", "SES", 'E', new ItemStack(type.WITHER_SKELETON.getCrop(), 1, 0), 'D', "blockGlass");
+	    	addShapedRecipe(new ItemStack(ModBlocks.blockWitherproofBlock, 1, 0), "SES", "EDE", "SES", 'E', new ItemStack(type.WITHER_SKELETON.getCrop(), 1, 0), 'D', new ItemStack(ModBlocks.blockSoulstone, 1, 0));
+	    	addShapedRecipe(new ItemStack(ModBlocks.blockWitherproofGlass, 1, 0), "SES", "EDE", "SES", 'E', new ItemStack(type.WITHER_SKELETON.getCrop(), 1, 0), 'D', new ItemStack(ModBlocks.blockSoulGlass, 1, 0));
 	    }
 	    
 	    addShapedRecipe(new ItemStack(ModBlocks.blockTinkeringTable, 1, 0), "SSS", "ICI", "IXI", 'S', new ItemStack(ModBlocks.blockSoulstone, 1, 0), 'I', new ItemStack(ModItems.itemInferiumIngot, 1, 0), 'C', "workbench");
@@ -324,6 +324,9 @@ public class ModRecipes {
 	
 	    addShapedRecipe(new ItemStack(ModBlocks.blockCobbledSoulstoneWall, 6, 0), "XXX", "SSS", "SSS", 'S', new ItemStack(ModBlocks.blockSoulstone, 1, 1));    
 	    addShapedRecipe(new ItemStack(ModBlocks.blockSoulstoneBrickWall, 6, 0), "XXX", "SSS", "SSS", 'S', new ItemStack(ModBlocks.blockSoulstone, 1, 3));    
+	    
+	    addShapedRecipe(new ItemStack(ModBlocks.blockSoulGlass, 8, 0), "XDX", "DXD", "XDX", 'X', "blockGlass", 'D', new ItemStack(Blocks.SOUL_SAND, 1, 0));
+	    addShapedRecipe(new ItemStack(ModBlocks.blockSoulGlassPane, 16, 0), "DDD", "XXX", "XXX", 'X', new ItemStack(ModBlocks.blockSoulGlass, 1, 0));
 	    
 	    addSmeltingRecipe(new ItemStack(ModBlocks.blockSoulstone, 1, 0), new ItemStack(ModItems.itemSoulDust), 0.3F);
 		addShapedRecipe(new ItemStack(ModItems.itemSouliumDust, 1, 0), "SXS", "XSX", "SXS", 'S', new ItemStack(ModItems.itemSoulDust, 1, 0), 'X', new ItemStack(ModItems.itemPrudentiumEssence, 1, 0));
@@ -732,6 +735,7 @@ public class ModRecipes {
 
 			addTinkeringRecipe(new ItemStack(ModItems.itemSupremiumSwordStrength), new ItemStack(ModItems.itemSupremiumSword, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(ModItems.itemCharmStrength, 1, 0));
 			addTinkeringRecipe(new ItemStack(ModItems.itemSupremiumSwordStrength2), new ItemStack(ModItems.itemSupremiumSword, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(ModItems.itemCharmStrength2, 1, 0));
+
 			if(ModConfig.confAOECharms){
 				addTinkeringRecipe(new ItemStack(ModItems.itemSupremiumSwordAOE), new ItemStack(ModItems.itemSupremiumSword, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(ModItems.itemCharmAttackAOE, 1, 0));
 				addTinkeringRecipe(new ItemStack(ModItems.itemSupremiumPickaxeAOE), new ItemStack(ModItems.itemSupremiumPickaxe, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(ModItems.itemCharmMiningAOE, 1, 0));
@@ -739,7 +743,7 @@ public class ModRecipes {
 				addTinkeringRecipe(new ItemStack(ModItems.itemSupremiumAxeAOE), new ItemStack(ModItems.itemSupremiumAxe, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(ModItems.itemCharmMiningAOE, 1, 0));
 				addTinkeringRecipe(new ItemStack(ModItems.itemSupremiumHoeAOE), new ItemStack(ModItems.itemSupremiumHoe, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(ModItems.itemCharmTillingAOE, 1, 0));
 			}
-
+			
 			addTinkeringRecipe(new ItemStack(ModItems.itemSupremiumHelmetNightvision), new ItemStack(ModItems.itemSupremiumHelmet, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(ModItems.itemCharmNightvision, 1, 0));
 			addTinkeringRecipe(new ItemStack(ModItems.itemSupremiumHelmetAbsorption), new ItemStack(ModItems.itemSupremiumHelmet, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(ModItems.itemCharmAbsorption, 1, 0));
 			addTinkeringRecipe(new ItemStack(ModItems.itemSupremiumHelmetWither), new ItemStack(ModItems.itemSupremiumHelmet, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(ModItems.itemCharmWither, 1, 0));

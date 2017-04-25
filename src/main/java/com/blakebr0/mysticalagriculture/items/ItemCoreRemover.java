@@ -6,6 +6,7 @@ import javax.annotation.Nullable;
 
 import com.blakebr0.mysticalagriculture.MysticalAgriculture;
 import com.blakebr0.mysticalagriculture.config.ModConfig;
+import com.blakebr0.mysticalagriculture.lib.Tooltips;
 
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -19,13 +20,10 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class ItemCoreRemover extends Item { // TODO: itembase
+public class ItemCoreRemover extends ItemBase {
 	
 	public ItemCoreRemover(String name){
-		super();
-		this.setUnlocalizedName("ma." + name);
-		this.setRegistryName(name);
-		this.setCreativeTab(MysticalAgriculture.tabMysticalAgriculture);
+		super(name);
 		this.setMaxStackSize(1);
 		this.setMaxDamage(ModConfig.confRemoverDurability - 1);
 		this.setNoRepair();
@@ -50,6 +48,6 @@ public class ItemCoreRemover extends Item { // TODO: itembase
     @SideOnly(Side.CLIENT)
     public void addInformation(ItemStack stack, EntityPlayer player, List tooltip, boolean advanced){
     	int damage = stack.getMaxDamage() - stack.getItemDamage() + 1;
-    	tooltip.add("Uses Left: \u00A7c" + damage);
+    	tooltip.add(Tooltips.USES_LEFT + "\u00A7c" + damage);
     }
 }

@@ -43,6 +43,9 @@ tile.ma.soulstone_brick_stairs.name=Soulstone Brick Stairs
 tile.ma.cobbled_soulstone_wall.name=Cobbled Soulstone Wall
 tile.ma.soulstone_brick_wall.name=Soulstone Brick Wall
 
+tile.ma.soul_glass.name=Soul Glass
+tile.ma.soul_glass_pane.name=Soul Glass Pane
+
 # FURNACES
 tile.ma.inferium_furnace.name=§eInferium Furnace
 tile.ma.inferium_furnace_active.name=§eInferium Furnace

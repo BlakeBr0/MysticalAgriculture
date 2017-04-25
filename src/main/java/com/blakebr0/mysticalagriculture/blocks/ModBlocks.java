@@ -66,6 +66,9 @@ public class ModBlocks {
 	public static BlockSoulstoneWall blockCobbledSoulstoneWall = new BlockSoulstoneWall("cobbled_soulstone_wall", blockSoulstone.getDefaultState().withProperty(BlockSoulstone.VARIANT, BlockSoulstone.Type.COBBLED).getBlock());	
 	public static BlockSoulstoneWall blockSoulstoneBrickWall = new BlockSoulstoneWall("soulstone_brick_wall", blockSoulstone.getDefaultState().withProperty(BlockSoulstone.VARIANT, BlockSoulstone.Type.BRICK).getBlock());	
 	
+	public static BlockSoulGlass blockSoulGlass = new BlockSoulGlass("soul_glass");
+	public static BlockSoulGlassPane blockSoulGlassPane = new BlockSoulGlassPane("soul_glass_pane");
+	
 	public static BlockInferiumFurnace blockInferiumFurnace = new BlockInferiumFurnace(false, "inferium_furnace", 5.0F, 10.0F);
 	public static BlockInferiumFurnace blockInferiumFurnaceActive = new BlockInferiumFurnace(true, "inferium_furnace_active", 5.0F, 10.0F);
 	public static BlockPrudentiumFurnace blockPrudentiumFurnace = new BlockPrudentiumFurnace(false, "prudentium_furnace", 5.0F, 10.0F);
@@ -138,6 +141,9 @@ public class ModBlocks {
 		registerBlock(blockSoulstoneBrickStairs);
 		registerBlock(blockCobbledSoulstoneWall);
 		registerBlock(blockSoulstoneBrickWall);
+		
+		registerBlock(blockSoulGlass);
+		registerBlock(blockSoulGlassPane);
 		
 		if(ModConfig.confEssenceFurnaces){
 			registerBlock(blockInferiumFurnace);
@@ -221,6 +227,9 @@ public class ModBlocks {
 		registerModel(blockSoulstoneBrickStairs);
 		registerModel(blockCobbledSoulstoneWall);
 		registerModel(blockSoulstoneBrickWall);
+		
+		registerModel(blockSoulGlass);
+		registerModel(blockSoulGlassPane);
 		
 		if(ModConfig.confEssenceFurnaces){
 			registerModel(blockInferiumFurnace);

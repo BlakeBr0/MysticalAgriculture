@@ -37,6 +37,7 @@ public class Tooltips {
 	public static final String DROP_CHANCE = Utils.localize("tooltip.ma.drop_chance") + SEMICOLON;
 	public static final String GIVES_BUFFS = Utils.localize("tooltip.ma.gives_buffs") + SEMICOLON;
 	public static final String RANGE = Utils.localize("tooltip.ma.range") + SEMICOLON;
+	public static final String USES_LEFT = Utils.localize("tooltip.ma.uses_left") + SEMICOLON;
 	public static final String APPLICABLE_TO = TextFormatting.YELLOW + Utils.localize("tooltip.ma.applicable_to") + SEMICOLON;
 	public static final String DESCRIPTION = TextFormatting.YELLOW + Utils.localize("tooltip.ma.description") + SEMICOLON;
 	

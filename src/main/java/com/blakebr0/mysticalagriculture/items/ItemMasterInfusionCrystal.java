@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.blakebr0.mysticalagriculture.MysticalAgriculture;
 import com.blakebr0.mysticalagriculture.config.ModConfig;
+import com.blakebr0.mysticalagriculture.lib.Tooltips;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
@@ -11,21 +12,18 @@ import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class ItemMasterInfusionCrystal extends Item { // TODO: itembase
+public class ItemMasterInfusionCrystal extends ItemBase {
 	
 	public ItemMasterInfusionCrystal(String name){
-		super();
-		this.setUnlocalizedName("ma." + name);
-		this.setRegistryName(name);
-		this.setCreativeTab(MysticalAgriculture.tabMysticalAgriculture);
+		super(name);
 		this.setMaxStackSize(1);
 	}
 
     @Override
-    public ItemStack getContainerItem(ItemStack itemstack){
-        ItemStack stack = itemstack.copy();
-        stack.stackSize = 1;
-        return stack;
+    public ItemStack getContainerItem(ItemStack stack){
+        ItemStack item = stack.copy();
+        item.stackSize = 1;
+        return item;
     }
 
     @Override
@@ -39,8 +37,8 @@ public class ItemMasterInfusionCrystal extends Item { // TODO: itembase
     }
     
     @Override
-    @SideOnly(Side.CLIENT) // TODO: localize
+    @SideOnly(Side.CLIENT)
     public void addInformation(ItemStack stack, EntityPlayer player, List tooltip, boolean advanced){
-    	tooltip.add("Uses Left: \u00A7cUnlimited");
+    	tooltip.add(Tooltips.USES_LEFT + "\u00A7cUnlimited");
     }
 }

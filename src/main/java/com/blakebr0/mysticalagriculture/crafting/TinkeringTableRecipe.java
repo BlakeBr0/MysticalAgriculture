@@ -9,6 +9,7 @@ import net.minecraft.item.crafting.ShapedRecipes;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
+import net.minecraftforge.common.ForgeHooks;
 import net.minecraftforge.oredict.OreDictionary;
 
 import javax.annotation.Nonnull;
@@ -182,8 +183,8 @@ public class TinkeringTableRecipe implements IRecipe {
     }
 
     @Override
-    public ItemStack[] getRemainingItems(InventoryCrafting inv) {
-        return new ItemStack[0];
+    public ItemStack[] getRemainingItems(InventoryCrafting inv){
+        return ForgeHooks.defaultRecipeGetRemainingItems(inv);
     }
 
     @Override

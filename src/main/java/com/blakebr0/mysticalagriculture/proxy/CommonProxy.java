@@ -65,7 +65,7 @@ public class CommonProxy {
 		FMLInterModComms.sendMessage("Waila", "register", "com.blakebr0.mysticalagriculture.util.WailaDataProvider.callbackRegister");
 		
 		ModTileEntities.initTileEntities();
-		
+
 		if(ModConfig.confSeedReprocessor){
 			ReprocessorManager.addRecipe(new ItemStack(ModItems.itemInferiumEssence, 1, 0), new ItemStack(ModItems.itemTier1InferiumSeeds, 1, 0));
 			ReprocessorManager.addRecipe(new ItemStack(ModItems.itemInferiumEssence, 2, 0), new ItemStack(ModItems.itemTier2InferiumSeeds, 1, 0));
