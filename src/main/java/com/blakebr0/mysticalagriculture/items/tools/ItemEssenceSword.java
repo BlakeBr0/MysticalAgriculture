@@ -4,7 +4,6 @@ import java.util.List;
 
 import com.blakebr0.mysticalagriculture.MysticalAgriculture;
 import com.blakebr0.mysticalagriculture.items.ModItems;
-import com.sun.prism.Material;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
