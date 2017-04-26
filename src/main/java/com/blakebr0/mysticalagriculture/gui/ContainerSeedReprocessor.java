@@ -1,5 +1,7 @@
 package com.blakebr0.mysticalagriculture.gui;
 
+import javax.annotation.Nullable;
+
 import com.blakebr0.mysticalagriculture.crafting.ReprocessorManager;
 import com.blakebr0.mysticalagriculture.tileentity.TileEntitySeedReprocessor;
 
@@ -41,6 +43,7 @@ public class ContainerSeedReprocessor extends Container {
         return this.reprocessor.isUseableByPlayer(player);
     }
 
+    @Override
     public ItemStack transferStackInSlot(EntityPlayer player, int slotNumber){
         ItemStack itemstack = null;
         Slot slot = (Slot)this.inventorySlots.get(slotNumber);
@@ -50,29 +53,31 @@ public class ContainerSeedReprocessor extends Container {
             itemstack = itemstack1.copy();
 
             if(slotNumber == 1){
-                if(!this.mergeItemStack(itemstack1, 2, 38, true)){
+                if(!this.mergeItemStack(itemstack1, 2, 38, false)){
                     return null;
                 }
                 slot.onSlotChange(itemstack1, itemstack);
+            
             } else if(slotNumber != 0){
                 if(ReprocessorManager.getOutput(itemstack1) != null){
                     if(!this.mergeItemStack(itemstack1, 0, 1, false)){
                         return null;
                     }
-                } else if(slotNumber >= 3 && slotNumber < 30){
-                    if(!this.mergeItemStack(itemstack1, 29, 38, false)){
+                } else if(slotNumber >= 2 && slotNumber < 29){
+                    if (!this.mergeItemStack(itemstack1, 29, 38, false)){
                         return null;
                     }
-                }
-                else if(slotNumber >= 29 && slotNumber < 38 && !this.mergeItemStack(itemstack1, 2, 29, false)){
-                    return null;
-                }
+                } else if(slotNumber >= 29 && slotNumber < 38){
+                    if (!this.mergeItemStack(itemstack1, 2, 29, false)){
+                        return null;
+                    }
+                }           
             } else if(!this.mergeItemStack(itemstack1, 2, 38, false)){
                 return null;
             }
 
             if(itemstack1.stackSize == 0){
-                slot.putStack((ItemStack)null);
+                slot.putStack(null);
             } else {
                 slot.onSlotChanged();
             }
@@ -80,8 +85,10 @@ public class ContainerSeedReprocessor extends Container {
             if(itemstack1.stackSize == itemstack.stackSize){
                 return null;
             }
+
             slot.onPickupFromSlot(player, itemstack1);
         }
+
         return itemstack;
     }
 }

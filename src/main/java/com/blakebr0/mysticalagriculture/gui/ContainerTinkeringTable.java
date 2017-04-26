@@ -88,7 +88,7 @@ public class ContainerTinkeringTable extends Container {
             ItemStack itemstack1 = slot.getStack();
             itemstack = itemstack1.copy();
 
-            if (slotNumber == 0) {
+            if(slotNumber == 0){
                 if(!this.mergeItemStack(itemstack1, 10, 46, true)){
                     return null;
                 }
@@ -98,7 +98,7 @@ public class ContainerTinkeringTable extends Container {
                 if (!this.mergeItemStack(itemstack1, 37, 46, false)) {
                     return null;
                 }
-            } else if (slotNumber >= 37 && slotNumber < 62) {
+            } else if(slotNumber >= 37 && slotNumber < 62) {
                 if (!this.mergeItemStack(itemstack1, 10, 37, false)) {
                     return null;
                 }
