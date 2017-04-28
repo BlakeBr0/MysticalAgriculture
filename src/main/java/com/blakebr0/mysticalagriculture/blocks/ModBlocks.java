@@ -125,7 +125,7 @@ public class ModBlocks {
 		registerBlock(blockSupremiumIngot);
 		registerBlock(blockSouliumIngot);
 		
-		registerBlock(blockEssenceCoal, new ItemBlockEssenceCoal(blockEssenceCoal));
+		blockEssenceCoal.init();
 		
 		registerBlock(blockSoulstone, new ItemBlockSoulstone(blockSoulstone));
 		GameRegistry.register(blockSoulstoneSlab.setDrop(blockSoulstoneSlab));
@@ -185,11 +185,11 @@ public class ModBlocks {
 
 		registerBlock(blockTinkeringTable, new ItemBlockTinkeringTable(blockTinkeringTable));
 		
-		registerBlock(blockTier1InferiumCrop);
-		registerBlock(blockTier2InferiumCrop);
-		registerBlock(blockTier3InferiumCrop);
-		registerBlock(blockTier4InferiumCrop);
-		registerBlock(blockTier5InferiumCrop);
+		registerBlock(blockTier1InferiumCrop.setSeed(ModItems.itemTier1InferiumSeeds));
+		registerBlock(blockTier2InferiumCrop.setSeed(ModItems.itemTier2InferiumSeeds));
+		registerBlock(blockTier3InferiumCrop.setSeed(ModItems.itemTier3InferiumSeeds));
+		registerBlock(blockTier4InferiumCrop.setSeed(ModItems.itemTier4InferiumSeeds));
+		registerBlock(blockTier5InferiumCrop.setSeed(ModItems.itemTier5InferiumSeeds));
 		
 		for(CropType.Type type : CropType.Type.values()){
 			if(type.isEnabled()){
@@ -271,11 +271,11 @@ public class ModBlocks {
 		
 		blockTinkeringTable.initModels();
 
-		registerModel(blockTier1InferiumCrop.setSeed(ModItems.itemTier1InferiumSeeds));
-		registerModel(blockTier2InferiumCrop.setSeed(ModItems.itemTier2InferiumSeeds));
-		registerModel(blockTier3InferiumCrop.setSeed(ModItems.itemTier3InferiumSeeds));
-		registerModel(blockTier4InferiumCrop.setSeed(ModItems.itemTier4InferiumSeeds));
-		registerModel(blockTier5InferiumCrop.setSeed(ModItems.itemTier5InferiumSeeds));
+		registerModel(blockTier1InferiumCrop);
+		registerModel(blockTier2InferiumCrop);
+		registerModel(blockTier3InferiumCrop);
+		registerModel(blockTier4InferiumCrop);
+		registerModel(blockTier5InferiumCrop);
 		
 		for(CropType.Type type : CropType.Type.values()){
 			if(type.isEnabled()){
