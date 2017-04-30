@@ -52,7 +52,6 @@ public class MobDrops {
         DamageSource source = event.getSource();
         Entity entity = source.getEntity();
         List<EntityItem> drops = event.getDrops();
-    	EntityItem drop = null;
         
         if(entity != null && entity instanceof EntityPlayer){
             EntityPlayer player = (EntityPlayer) entity;
@@ -61,102 +60,98 @@ public class MobDrops {
             if(held != null && held.getItem() == ModItems.itemSouliumDagger){
             	
             	if(attacked instanceof EntityZombie && type.ZOMBIE.isEnabled()){
-            		drop = drop(attacked, ModItems.itemZombieChunk, 1, getChanceFromTier(type.ZOMBIE.getTier()));
+            		drop(attacked, ModItems.itemZombieChunk, 1, getChanceFromTier(type.ZOMBIE.getTier()), drops);
             	}
             	
             	if(attacked instanceof EntityPig && type.PIG.isEnabled()){            	
-            		drop = drop(attacked, ModItems.itemPigChunk, 1, getChanceFromTier(type.PIG.getTier()));
+            		drop(attacked, ModItems.itemPigChunk, 1, getChanceFromTier(type.PIG.getTier()), drops);
             	}
             	
             	if(attacked instanceof EntityChicken && type.CHICKEN.isEnabled()){            	
-            		drop = drop(attacked, ModItems.itemChickenChunk, 1, getChanceFromTier(type.CHICKEN.getTier()));
+            		drop(attacked, ModItems.itemChickenChunk, 1, getChanceFromTier(type.CHICKEN.getTier()), drops);
             	}
             	
             	if(attacked instanceof EntityCow && type.COW.isEnabled()){            	
-            		drop = drop(attacked, ModItems.itemCowChunk, 1, getChanceFromTier(type.COW.getTier()));
+            		drop(attacked, ModItems.itemCowChunk, 1, getChanceFromTier(type.COW.getTier()), drops);
             	}
             	
             	if(attacked instanceof EntitySheep && type.SHEEP.isEnabled()){            	
-            		drop = drop(attacked, ModItems.itemSheepChunk, 1, getChanceFromTier(type.SHEEP.getTier()));
+            		drop(attacked, ModItems.itemSheepChunk, 1, getChanceFromTier(type.SHEEP.getTier()), drops);
             	}
             	
             	if(attacked instanceof EntitySlime && type.SLIME.isEnabled()){            	
-            		drop = drop(attacked, ModItems.itemSlimeChunk, 1, getChanceFromTier(type.SLIME.getTier()));
+            		drop(attacked, ModItems.itemSlimeChunk, 1, getChanceFromTier(type.SLIME.getTier()), drops);
             	}
             	
-            	if(attacked instanceof EntitySkeleton && ((EntitySkeleton) attacked).getSkeletonType() != SkeletonType.WITHER && type.SKELETON.isEnabled()){            	
-            		drop = drop(attacked, ModItems.itemSkeletonChunk, 1, getChanceFromTier(type.SKELETON.getTier()));
+            	if(attacked instanceof EntitySkeleton && type.SKELETON.isEnabled()){            	
+            		drop(attacked, ModItems.itemSkeletonChunk, 1, getChanceFromTier(type.SKELETON.getTier()), drops);
             	}
             	
             	if(attacked instanceof EntityCreeper && type.CREEPER.isEnabled()){            	
-            		drop = drop(attacked, ModItems.itemCreeperChunk, 1, getChanceFromTier(type.CREEPER.getTier()));
+            		drop(attacked, ModItems.itemCreeperChunk, 1, getChanceFromTier(type.CREEPER.getTier()), drops);
             	}
             	
             	if(attacked instanceof EntitySpider && type.SPIDER.isEnabled()){            	
-            		drop = drop(attacked, ModItems.itemSpiderChunk, 1, getChanceFromTier(type.SPIDER.getTier()));
+            		drop(attacked, ModItems.itemSpiderChunk, 1, getChanceFromTier(type.SPIDER.getTier()), drops);
             	}
             	
             	if(attacked instanceof EntityRabbit && type.RABBIT.isEnabled()){            	
-            		drop = drop(attacked, ModItems.itemRabbitChunk, 1, getChanceFromTier(type.RABBIT.getTier()));
+            		drop(attacked, ModItems.itemRabbitChunk, 1, getChanceFromTier(type.RABBIT.getTier()), drops);
             	}
             	
             	if(attacked instanceof EntityGuardian && type.GUARDIAN.isEnabled()){            	
-            		drop = drop(attacked, ModItems.itemGuardianChunk, 1, getChanceFromTier(type.GUARDIAN.getTier()));
+            		drop(attacked, ModItems.itemGuardianChunk, 1, getChanceFromTier(type.GUARDIAN.getTier()), drops);
             	}
             	
             	if(attacked instanceof EntityBlaze && type.BLAZE.isEnabled()){            	
-            		drop = drop(attacked, ModItems.itemBlazeChunk, 1, getChanceFromTier(type.BLAZE.getTier()));
+            		drop(attacked, ModItems.itemBlazeChunk, 1, getChanceFromTier(type.BLAZE.getTier()), drops);
             	}
             	
             	if(attacked instanceof EntityGhast && type.GHAST.isEnabled()){            	
-            		drop = drop(attacked, ModItems.itemGhastChunk, 1, getChanceFromTier(type.GHAST.getTier()));
+            		drop(attacked, ModItems.itemGhastChunk, 1, getChanceFromTier(type.GHAST.getTier()), drops);
             	}
             	
             	if(attacked instanceof EntityEnderman && type.ENDERMAN.isEnabled()){            	
-            		drop = drop(attacked, ModItems.itemEndermanChunk, 1, getChanceFromTier(type.ENDERMAN.getTier()));
+            		drop(attacked, ModItems.itemEndermanChunk, 1, getChanceFromTier(type.ENDERMAN.getTier()), drops);
             	}
             	
-            	if(attacked instanceof EntitySkeleton && ((EntitySkeleton) attacked).getSkeletonType() == SkeletonType.WITHER && type.WITHER_SKELETON.isEnabled()){            	
-            		drop = drop(attacked, ModItems.itemWitherSkeletonChunk, 1, getChanceFromTier(type.WITHER_SKELETON.getTier()));
+            	if(attacked instanceof EntitySkeleton && ((EntitySkeleton)attacked).getSkeletonType() == SkeletonType.WITHER && type.WITHER_SKELETON.isEnabled()){            	
+            		drop(attacked, ModItems.itemWitherSkeletonChunk, 1, getChanceFromTier(type.WITHER_SKELETON.getTier()), drops);
             	}
             	
             	if(attacked instanceof EntityMob){            	
-            		drop = drop(attacked, ModItems.itemExperienceChunk, 1, getChance(10));
+            		drop(attacked, ModItems.itemExperienceChunk, 1, getChance(10), drops);
             	}
             	
             	if(attacked.getClass().getName() == BLIZZ_CLASS && type.BLIZZ.isEnabled()){
-            		drop = drop(attacked, ModItems.itemBlizzChunk, 1, getChanceFromTier(type.BLIZZ.getTier()));
+            		drop(attacked, ModItems.itemBlizzChunk, 1, getChanceFromTier(type.BLIZZ.getTier()), drops);
             	}
             	
             	if(attacked.getClass().getName() == BLITZ_CLASS && type.BLITZ.isEnabled()){
-            		drop = drop(attacked, ModItems.itemBlitzChunk, 1, getChanceFromTier(type.BLITZ.getTier()));
+            		drop(attacked, ModItems.itemBlitzChunk, 1, getChanceFromTier(type.BLITZ.getTier()), drops);
             	}
             	
             	if(attacked.getClass().getName() == BASALZ_CLASS && type.BASALZ.isEnabled()){
-            		drop = drop(attacked, ModItems.itemBasalzChunk, 1, getChanceFromTier(type.BASALZ.getTier()));
+            		drop(attacked, ModItems.itemBasalzChunk, 1, getChanceFromTier(type.BASALZ.getTier()), drops);
             	}
             }          
         }
-                
-    	if(event.getEntity() instanceof EntityMob){            	
-    		drop = drop(attacked, ModItems.itemInferiumEssence, 1, getChance(ModConfig.confHostileDropChance));
-    	}
-    	
-    	if(event.getEntity() instanceof EntityAnimal){            	
-    		drop = drop(attacked, ModItems.itemInferiumEssence, 1, getChance(ModConfig.confPassiveDropChance));
-    	}  
         	
-    	if(event.getEntity() instanceof EntityWither){            	
-    		drop = drop(attacked, ModItems.itemSupremiumEssence, ModConfig.confWitherSupremium, ModConfig.confWitherSupremium);
-    	} 
-    	
-    	if(event.getEntity() instanceof EntityDragon){        	
-    		drop = drop(attacked, ModItems.itemSupremiumEssence, ModConfig.confDragonSupremium, ModConfig.confDragonSupremium);
-    	}
-    	
-    	if(drop != null && drop.getEntityItem().stackSize > 0){
-        	drops.add(drop);	
-    	}
+        if(event.getEntity() instanceof EntityMob){            	
+        	drop(attacked, ModItems.itemInferiumEssence, 1, getChance(ModConfig.confHostileDropChance), drops);
+        }
+        	
+        if(event.getEntity() instanceof EntityAnimal){            	
+        	drop(attacked, ModItems.itemInferiumEssence, 1, getChance(ModConfig.confPassiveDropChance), drops);
+        }  
+            	
+        if(event.getEntity() instanceof EntityWither){            	
+        	drop(attacked, ModItems.itemSupremiumEssence, ModConfig.confWitherSupremium, ModConfig.confWitherSupremium, drops);
+        } 
+        	
+        if(event.getEntity() instanceof EntityDragon){        	
+        	drop(attacked, ModItems.itemSupremiumEssence, ModConfig.confDragonSupremium, ModConfig.confDragonSupremium, drops);
+        }
     }
     
     public static int getChance(int chance){
@@ -175,16 +170,19 @@ public class MobDrops {
     	return getChance(chance);
     }
     
-    public EntityItem drop(Entity entity, Item item, int amount, int chance){
-    	return drop(entity, item, amount, 0, chance);
+    public EntityItem drop(Entity entity, Item item, int amount, int chance, List<EntityItem> drops){
+    	return drop(entity, item, amount, 0, chance, drops);
     }
     
-    public EntityItem drop(Entity entity, Item item, int amount, int meta, int chance){
+    public EntityItem drop(Entity entity, Item item, int amount, int meta, int chance, List<EntityItem> drops){
     	ItemStack stack = new ItemStack(item, chance, meta);
     	if(stack.stackSize > amount){
     		stack.stackSize = amount;
     	}
     	EntityItem drop = new EntityItem(entity.worldObj, entity.posX, entity.posY, entity.posZ, stack);
+    	if(drop != null & stack.stackSize >= 1){
+    		drops.add(drop);
+    	}
     	return drop;
     }
 }
