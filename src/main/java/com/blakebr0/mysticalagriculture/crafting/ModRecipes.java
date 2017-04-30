@@ -545,6 +545,8 @@ public class ModRecipes {
 	    addSeedRecipe(type.LIMESTONE, new ItemStack(Parts.itemChiselLimestone, 1, 7));
 	    addSeedRecipe(type.BASALT, new ItemStack(Parts.itemChiselBasalt, 1, 7));
 	    
+	    addSeedRecipe(type.APATITE, "gemApatite");
+	    
 	    addSeedRecipe(type.VINTEUM, "dustVinteum");
 	    addSeedRecipe(type.CHIMERITE, "gemChimerite");
 	    addSeedRecipe(type.BLUE_TOPAZ, "gemBlueTopaz");

@@ -246,6 +246,8 @@ public class EssenceRecipes {
 	    if(type.LIMESTONE.isEnabled()){ addEssenceRecipe(new ItemStack(Parts.itemChiselLimestone, EssenceConfig.limestone, 7), "EEE", "EXE", "EEE", 'E', new ItemStack(type.LIMESTONE.getCrop(), 1, 0)); }
 	    if(type.BASALT.isEnabled()){ addEssenceRecipe(new ItemStack(Parts.itemChiselBasalt, EssenceConfig.basalt, 7), "EEE", "EXE", "EEE", 'E', new ItemStack(type.BASALT.getCrop(), 1, 0)); }
 
+	    if(type.APATITE.isEnabled()){ addEssenceRecipe(Utils.getItem("gemApatite", EssenceConfig.apatite), "EEE", "XXX", "XXX", 'E', new ItemStack(type.APATITE.getCrop(), 1, 0)); }    
+
 	    if(type.VINTEUM.isEnabled()){ addEssenceRecipe(Utils.getItem("dustVinteum", EssenceConfig.vinteum), "EEE", "EXE", "EEE", 'E', new ItemStack(type.VINTEUM.getCrop(), 1, 0)); }    
 	    if(type.CHIMERITE.isEnabled()){ addEssenceRecipe(Utils.getItem("gemChimerite", EssenceConfig.chimerite), "XEX", "EEE", "XEX", 'E', new ItemStack(type.CHIMERITE.getCrop(), 1, 0)); }    
 	    if(type.BLUE_TOPAZ.isEnabled()){ addEssenceRecipe(Utils.getItem("gemBlueTopaz", EssenceConfig.blueTopaz), "EEE", "EXE", "EEE", 'E', new ItemStack(type.BLUE_TOPAZ.getCrop(), 1, 0)); }    

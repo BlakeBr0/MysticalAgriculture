@@ -155,6 +155,8 @@ public class EssenceConfig {
 	public static int limestone;
 	public static int basalt;
 	
+	public static int apatite;
+	
 	public static int vinteum;
 	public static int chimerite;
 	public static int blueTopaz;
@@ -345,6 +347,9 @@ public class EssenceConfig {
 		marble = config.get(category, "marble", 24).getInt();
 		limestone = config.get(category, "limestone", 24).getInt();
 		basalt = config.get(category, "basalt", 16).getInt();
+		
+		category = "Forestry";
+		apatite = config.get(category, "apatite", 8).getInt();
 		
 		category = "Ars Magica 2";
 		vinteum = config.get(category, "vinteum", 8).getInt();
