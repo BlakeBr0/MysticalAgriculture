@@ -180,7 +180,7 @@ public class MobDrops {
     		stack.stackSize = amount;
     	}
     	EntityItem drop = new EntityItem(entity.worldObj, entity.posX, entity.posY, entity.posZ, stack);
-    	if(drop != null & stack.stackSize >= 1){
+    	if(drop != null && stack.stackSize >= 1){
     		drops.add(drop);
     	}
     	return drop;

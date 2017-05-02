@@ -114,6 +114,10 @@ public class CropType {
 		GLOWSTONE_INGOT("glowstone_ingot", ModConfig.confGlowstoneIngotTier, ModConfig.confGlowstoneIngotSeeds && ModChecker.MEKANISM),
 		REFINED_OBSIDIAN("refined_obsidian", ModConfig.confRefinedObsidianTier, ModConfig.confRefinedObsidianSeeds && ModChecker.MEKANISM),
 		
+		AQUARIUM("aquarium", ModConfig.confAquariumTier, ModConfig.confAquariumSeeds && ModChecker.BASEMETALS),
+		COLD_IRON("cold_iron", ModConfig.confColdIronTier, ModConfig.confColdIronSeeds && ModChecker.BASEMETALS),
+		STAR_STEEL("star_steel", ModConfig.confStarSteelTier, ModConfig.confStarSteelSeeds && ModChecker.BASEMETALS),
+		
 		MARBLE("marble", ModConfig.confMarbleTier, ModConfig.confMarbleSeeds && ModChecker.CHISEL),
 		LIMESTONE("limestone", ModConfig.confLimestoneTier, ModConfig.confLimestoneSeeds && ModChecker.CHISEL),
 		BASALT("basalt", ModConfig.confBasaltTier, ModConfig.confBasaltSeeds && ModChecker.CHISEL),

@@ -197,6 +197,10 @@ tile.ma.osmium_crop.name=Osmium Crop
 tile.ma.glowstone_ingot_crop.name=Glowstone Ingot Crop
 tile.ma.refined_obsidian_crop.name=Refined Obsidian Crop
 
+tile.ma.aquarium_crop.name=Aquarium Crop
+tile.ma.cold_iron_crop.name=Cold-Iron Crop
+tile.ma.star_steel_crop.name=Star-Steel Crop
+
 tile.ma.marble_crop.name=Marble Crop
 tile.ma.limestone_crop.name=Limestone Crop
 tile.ma.basalt_crop.name=Basalt Crop
@@ -424,6 +428,10 @@ item.ma.osmium_essence.name=Osmium Essence
 item.ma.glowstone_ingot_essence.name=Glowstone Ingot Essence
 item.ma.refined_obsidian_essence.name=Refined Obsidian Essence
 
+item.ma.aquarium_essence.name=Aquarium Essence
+item.ma.cold_iron_essence.name=Cold-Iron Essence
+item.ma.star_steel_essence.name=Star-Steel Essence
+
 item.ma.marble_essence.name=Marble Essence
 item.ma.limestone_essence.name=Limestone Essence
 item.ma.basalt_essence.name=Basalt Essence
@@ -547,6 +555,10 @@ item.ma.terrasteel_seeds.name=Terrasteel Seeds
 item.ma.osmium_seeds.name=Osmium Seeds
 item.ma.glowstone_ingot_seeds.name=Glowstone Ingot Seeds
 item.ma.refined_obsidian_seeds.name=Refined Obsidian Seeds
+
+item.ma.aquarium_seeds.name=Aquarium Seeds
+item.ma.cold_iron_seeds.name=Cold-Iron Seeds
+item.ma.star_steel_seeds.name=Star-Steel Seeds
 
 item.ma.marble_seeds.name=Marble Seeds
 item.ma.limestone_seeds.name=Limestone Seeds

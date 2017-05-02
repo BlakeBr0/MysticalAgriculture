@@ -242,6 +242,10 @@ public class EssenceRecipes {
 	    if(type.GLOWSTONE_INGOT.isEnabled()){ addEssenceRecipe(Utils.getItem("ingotRefinedGlowstone", EssenceConfig.glowstoneIngot), "EEE", "EXE", "EEE", 'E', new ItemStack(type.GLOWSTONE_INGOT.getCrop(), 1, 0)); }
 	    if(type.REFINED_OBSIDIAN.isEnabled()){ addEssenceRecipe(Utils.getItem("ingotRefinedObsidian", EssenceConfig.refinedObsidian), "EEE", "EXE", "EEE", 'E', new ItemStack(type.REFINED_OBSIDIAN.getCrop(), 1, 0)); }
 
+	    if(type.AQUARIUM.isEnabled()){ addEssenceRecipe(Utils.getItem("ingotAquarium", EssenceConfig.aquarium), "EEE", "EXE", "EEE", 'E', new ItemStack(type.AQUARIUM.getCrop(), 1, 0)); }
+	    if(type.COLD_IRON.isEnabled()){ addEssenceRecipe(Utils.getItem("ingotColdiron", EssenceConfig.coldIron), "EEE", "EXE", "EEE", 'E', new ItemStack(type.COLD_IRON.getCrop(), 1, 0)); }
+	    if(type.STAR_STEEL.isEnabled()){ addEssenceRecipe(Utils.getItem("ingotStarsteel", EssenceConfig.starSteel), "EEE", "EXE", "EEE", 'E', new ItemStack(type.STAR_STEEL.getCrop(), 1, 0)); }
+
 	    if(type.MARBLE.isEnabled()){ addEssenceRecipe(new ItemStack(Parts.itemChiselMarble, EssenceConfig.marble, 7), "EEE", "EXE", "EEE", 'E', new ItemStack(type.MARBLE.getCrop(), 1, 0)); }
 	    if(type.LIMESTONE.isEnabled()){ addEssenceRecipe(new ItemStack(Parts.itemChiselLimestone, EssenceConfig.limestone, 7), "EEE", "EXE", "EEE", 'E', new ItemStack(type.LIMESTONE.getCrop(), 1, 0)); }
 	    if(type.BASALT.isEnabled()){ addEssenceRecipe(new ItemStack(Parts.itemChiselBasalt, EssenceConfig.basalt, 7), "EEE", "EXE", "EEE", 'E', new ItemStack(type.BASALT.getCrop(), 1, 0)); }

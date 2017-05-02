@@ -540,6 +540,10 @@ public class ModRecipes {
 	    addSeedRecipe(type.OSMIUM, "ingotOsmium");
 	    addSeedRecipe(type.GLOWSTONE_INGOT, "ingotRefinedGlowstone");
 	    addSeedRecipe(type.REFINED_OBSIDIAN, "ingotRefinedObsidian");
+	    
+	    addSeedRecipe(type.AQUARIUM, "ingotAquarium");
+	    addSeedRecipe(type.COLD_IRON, "ingotColdiron");
+	    addSeedRecipe(type.STAR_STEEL, "ingotStarsteel");
 
 	    addSeedRecipe(type.MARBLE, new ItemStack(Parts.itemChiselMarble, 1, 7));
 	    addSeedRecipe(type.LIMESTONE, new ItemStack(Parts.itemChiselLimestone, 1, 7));

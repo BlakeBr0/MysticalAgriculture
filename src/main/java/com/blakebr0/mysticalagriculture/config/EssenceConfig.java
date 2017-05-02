@@ -151,6 +151,10 @@ public class EssenceConfig {
 	public static int glowstoneIngot;
 	public static int refinedObsidian;
 	
+	public static int aquarium;
+	public static int coldIron;
+	public static int starSteel;
+	
 	public static int marble;
 	public static int limestone;
 	public static int basalt;
@@ -342,6 +346,11 @@ public class EssenceConfig {
 		osmium = config.get(category, "osmium", 4).getInt();
 		glowstoneIngot = config.get(category, "glowstone_ingot", 3).getInt();
 		refinedObsidian = config.get(category, "refined_obsidian", 2).getInt();
+		
+		category = "Base Metals";
+		aquarium = config.get(category, "aquarium", 4).getInt();
+		coldIron = config.get(category, "cold_iron", 4).getInt();
+		starSteel = config.get(category, "star_steel", 3).getInt();
 		
 		category = "Chisel";
 		marble = config.get(category, "marble", 24).getInt();

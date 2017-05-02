@@ -122,6 +122,10 @@ public class ModConfig {
 	public static boolean confGlowstoneIngotSeeds;
 	public static boolean confRefinedObsidianSeeds;
 	
+	public static boolean confAquariumSeeds;
+	public static boolean confColdIronSeeds;
+	public static boolean confStarSteelSeeds;
+	
 	public static boolean confMarbleSeeds;
 	public static boolean confLimestoneSeeds;
 	public static boolean confBasaltSeeds;
@@ -237,6 +241,10 @@ public class ModConfig {
 	public static int confOsmiumTier;
 	public static int confGlowstoneIngotTier;
 	public static int confRefinedObsidianTier;
+	
+	public static int confAquariumTier;
+	public static int confColdIronTier;
+	public static int confStarSteelTier;
 	
 	public static int confMarbleTier;
 	public static int confLimestoneTier;
@@ -449,6 +457,10 @@ public class ModConfig {
 		confGlowstoneIngotSeeds = config.get(category, "glowstone_ingot_seeds", true).getBoolean();
 		confRefinedObsidianSeeds = config.get(category, "refined_obsidian_seeds", true).getBoolean();
 		
+		confAquariumSeeds = config.get(category, "aquarium_seeds", true).getBoolean();
+		confColdIronSeeds = config.get(category, "cold_iron_seeds", true).getBoolean();
+		confStarSteelSeeds = config.get(category, "star_steel_seeds", true).getBoolean();
+		
 		confMarbleSeeds = config.get(category, "marble_seeds", true).getBoolean();
 		confLimestoneSeeds = config.get(category, "limestone_seeds", true).getBoolean();
 		confBasaltSeeds = config.get(category, "basalt_seeds", true).getBoolean();
@@ -578,6 +590,10 @@ public class ModConfig {
 		confOsmiumTier = config.get(category, "osmium_tier", 4).getInt();
 		confGlowstoneIngotTier = config.get(category, "glowstone_ingot_tier", 4).getInt();
 		confRefinedObsidianTier = config.get(category, "refined_obsidian_tier", 5).getInt();
+		
+		confAquariumTier = config.get(category, "aquarium_tier", 3).getInt();
+		confColdIronTier = config.get(category, "cold_iron_tier", 3).getInt();
+		confStarSteelTier = config.get(category, "star_steel_tier", 4).getInt();
 		
 		confMarbleTier = config.get(category, "marble_tier", 2).getInt();
 		confLimestoneTier = config.get(category, "limestone_tier", 2).getInt();
