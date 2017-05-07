@@ -112,7 +112,8 @@ public class ItemWateringCan extends ItemMeta {
 	    if(!world.isRemote && water){
 	    	water = false;
 	    	int chance = randInt(1, 100);
-	        if(chance <= 35){
+	    	int bonus = 5 * stack.getMetadata();
+	        if(chance <= (40 + bonus)){
 	        	for(BlockPos aoePos : blocks){
 	        		Block plant = world.getBlockState(aoePos).getBlock();	        		
 	        		if(plant instanceof IGrowable || plant instanceof IPlantable || plant == Blocks.MYCELIUM || plant == Blocks.CHORUS_FLOWER){
