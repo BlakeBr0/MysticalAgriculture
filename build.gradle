@@ -21,9 +21,9 @@ plugins {
 }
 */
 
-sourceCompatibility = targetCompatibility = "1.7" // Need this here so eclipse task generates correctly.
+sourceCompatibility = targetCompatibility = "1.8" // Need this here so eclipse task generates correctly.
 compileJava {
-    sourceCompatibility = targetCompatibility = "1.7"
+    sourceCompatibility = targetCompatibility = "1.8"
 }
 
 version = "1.0"

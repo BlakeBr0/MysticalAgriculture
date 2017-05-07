@@ -2,6 +2,7 @@ package com.blakebr0.mysticalagriculture.util;
 
 import java.util.Collections;
 import java.util.List;
+import java.util.Random;
 
 import org.lwjgl.input.Keyboard;
 
@@ -11,6 +12,8 @@ import net.minecraft.util.text.TextFormatting;
 import net.minecraftforge.oredict.OreDictionary;
 
 public class Utils {
+	
+	public static Random rand = new Random();
 
 	public static String localize(String string){
 		return new TextComponentTranslation(string).getFormattedText();
@@ -22,6 +25,10 @@ public class Utils {
 	
 	public static List<String> asList(String string){
 		return Collections.singletonList(string);
+	}
+	
+	public static int randInt(int min, int max){
+		return rand.nextInt(max - min + 1) + min;
 	}
 	
     public static TextFormatting getColorFromMeta(int meta){

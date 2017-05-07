@@ -20,6 +20,11 @@ import com.blakebr0.mysticalagriculture.items.armor.ItemSupremiumArmor;
 import com.blakebr0.mysticalagriculture.items.armor.upgraded.ItemUpgradedAntivenom;
 import com.blakebr0.mysticalagriculture.items.armor.upgraded.ItemUpgradedNightvision;
 import com.blakebr0.mysticalagriculture.items.armor.upgraded.ItemUpgradedWither;
+import com.blakebr0.mysticalagriculture.items.arrow.ItemInferiumArrow;
+import com.blakebr0.mysticalagriculture.items.arrow.ItemIntermediumArrow;
+import com.blakebr0.mysticalagriculture.items.arrow.ItemPrudentiumArrow;
+import com.blakebr0.mysticalagriculture.items.arrow.ItemSuperiumArrow;
+import com.blakebr0.mysticalagriculture.items.arrow.ItemSupremiumArrow;
 import com.blakebr0.mysticalagriculture.items.armor.upgraded.ItemUpgradedJump;
 import com.blakebr0.mysticalagriculture.items.armor.upgraded.ItemUpgradedFire;
 import com.blakebr0.mysticalagriculture.items.armor.upgraded.ItemUpgradedResistance;
@@ -98,6 +103,7 @@ public class ModItems {
 	
 	public static ItemBase itemMysticalToolRod = new ItemBase("mystical_tool_rod");
 	public static ItemBase itemMysticalBowstring = new ItemBase("mystical_bowstring");
+	public static ItemBase itemMysticalFletching = new ItemBase("mystical_fletching");
 	
 	public static ItemBase itemBaseEssenceIngot = new ItemBase("base_essence_ingot");
 	public static ItemBase itemInferiumIngot = new ItemBase("inferium_ingot");
@@ -175,6 +181,14 @@ public class ModItems {
 	public static ItemCharm itemCharmMiningAOE = new ItemCharm("charm_mining_aoe", "desc.ma.charm_mining_aoe", new Applicable[]{ Applicable.PICKAXE, Applicable.SHOVEL, Applicable.AXE });
 	public static ItemCharm itemCharmAttackAOE = new ItemCharm("charm_attack_aoe", "desc.ma.charm_attack_aoe", new Applicable[]{ Applicable.SWORD });
 	public static ItemCharm itemCharmTillingAOE = new ItemCharm("charm_tilling_aoe", "desc.ma.charm_tilling_aoe", new Applicable[]{ Applicable.HOE });
+	
+	public static ItemArrowHead itemArrowHead = new ItemArrowHead();
+	
+	public static ItemInferiumArrow itemInferiumArrow = new ItemInferiumArrow("inferium_arrow");
+	public static ItemPrudentiumArrow itemPrudentiumArrow = new ItemPrudentiumArrow("prudentium_arrow");
+	public static ItemIntermediumArrow itemIntermediumArrow = new ItemIntermediumArrow("intermedium_arrow");
+	public static ItemSuperiumArrow itemSuperiumArrow = new ItemSuperiumArrow("superium_arrow");
+	public static ItemSupremiumArrow itemSupremiumArrow = new ItemSupremiumArrow("supremium_arrow");
 	
 	public static ItemEssenceSword itemInferiumSword = new ItemEssenceSword("inferium_sword", ModToolMaterials.INFERIUM, ModItems.itemInferiumIngot, TextFormatting.YELLOW);
 	public static ItemEssencePickaxe itemInferiumPickaxe = new ItemEssencePickaxe("inferium_pickaxe", ModToolMaterials.INFERIUM, ModItems.itemInferiumIngot, TextFormatting.YELLOW);
@@ -322,6 +336,7 @@ public class ModItems {
 		
 		registerItem(itemMysticalToolRod);
 		registerItem(itemMysticalBowstring);
+		registerItem(itemMysticalFletching);
 		
 		registerItem(itemBaseEssenceIngot);
 		registerItem(itemInferiumIngot);
@@ -415,7 +430,15 @@ public class ModItems {
 				registerItem(itemCharmAttackAOE);
 				registerItem(itemCharmTillingAOE);
 			}
-
+			
+			itemArrowHead.init();
+			
+			registerItem(itemInferiumArrow);
+			registerItem(itemPrudentiumArrow);
+			registerItem(itemIntermediumArrow);
+			registerItem(itemSuperiumArrow);
+			registerItem(itemSupremiumArrow);
+			
 			registerItem(itemInferiumSword);
 			registerItem(itemInferiumPickaxe);
 			registerItem(itemInferiumShovel);
@@ -567,6 +590,7 @@ public class ModItems {
 		
 		registerModel(itemMysticalToolRod);
 		registerModel(itemMysticalBowstring);
+		registerModel(itemMysticalFletching);
 		
 		registerModel(itemBaseEssenceIngot);
 		registerModel(itemInferiumIngot);
@@ -659,6 +683,14 @@ public class ModItems {
 				registerModel(itemCharmAttackAOE);
 				registerModel(itemCharmTillingAOE);
 			}
+			
+			itemArrowHead.initModels();
+			
+			registerModel(itemInferiumArrow);
+			registerModel(itemPrudentiumArrow);
+			registerModel(itemIntermediumArrow);
+			registerModel(itemSuperiumArrow);
+			registerModel(itemSupremiumArrow);
 			
 			registerModel(itemInferiumSword);
 			registerModel(itemInferiumPickaxe);

@@ -14,13 +14,13 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class ItemNugget extends ItemMeta {
 
-	public static ItemStack itemBaseEssenceNugget;
-	public static ItemStack itemInferiumNugget;
-	public static ItemStack itemPrudentiumNugget;
-	public static ItemStack itemIntermediumNugget;
-	public static ItemStack itemSuperiumNugget;
-	public static ItemStack itemSupremiumNugget;
-	public static ItemStack itemSouliumNugget;
+	public static ItemStack baseEssence;
+	public static ItemStack inferium;
+	public static ItemStack prudentium;
+	public static ItemStack intermedium;
+	public static ItemStack superium;
+	public static ItemStack supremium;
+	public static ItemStack soulium;
 	
 	public ItemNugget(){
 		super("nugget");
@@ -30,12 +30,12 @@ public class ItemNugget extends ItemMeta {
 	public void init(){
 		GameRegistry.register(this);
 		
-		itemBaseEssenceNugget = addItem(0, "base_essence", "nuggetBaseEssence");
-		itemInferiumNugget = addItem(1, "inferium", "nuggetInferium");
-		itemPrudentiumNugget = addItem(2, "prudentium", "nuggetPrudentium");
-		itemIntermediumNugget = addItem(3, "intermedium", "nuggetIntermedium");
-		itemSuperiumNugget = addItem(4, "superium", "nuggetSuperium");
-		itemSupremiumNugget = addItem(5, "supremium", "nuggetSupremium");
-		itemSouliumNugget = addItem(6, "soulium", "nuggetSoulium");
+		baseEssence = addItem(0, "base_essence", "nuggetBaseEssence");
+		inferium = addItem(1, "inferium", "nuggetInferium");
+		prudentium = addItem(2, "prudentium", "nuggetPrudentium");
+		intermedium = addItem(3, "intermedium", "nuggetIntermedium");
+		superium = addItem(4, "superium", "nuggetSuperium");
+		supremium = addItem(5, "supremium", "nuggetSupremium");
+		soulium = addItem(6, "soulium", "nuggetSoulium");
 	}
 }

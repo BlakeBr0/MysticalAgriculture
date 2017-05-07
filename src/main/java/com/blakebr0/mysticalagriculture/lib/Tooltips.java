@@ -27,6 +27,12 @@ public class Tooltips {
 	public static final String RESISTANCE = TextFormatting.GOLD + Utils.localize(MobEffects.RESISTANCE.getName()) + " II";
 	public static final String REGENERATION = TextFormatting.AQUA + Utils.localize(MobEffects.REGENERATION.getName()) + " II";
 	public static final String STRENGTH = TextFormatting.RED + Utils.localize(MobEffects.STRENGTH.getName()) + " II";
+	
+	public static final String BLINDNESS = TextFormatting.YELLOW + Utils.localize(MobEffects.BLINDNESS.getName());
+	public static final String SLOWNESS = TextFormatting.GREEN + Utils.localize(MobEffects.SLOWNESS.getName());
+	public static final String POISON = TextFormatting.GOLD + Utils.localize(MobEffects.POISON.getName());
+	public static final String WEAKNESS = TextFormatting.AQUA + Utils.localize(MobEffects.WEAKNESS.getName());
+	public static final String WITHER = TextFormatting.RED + Utils.localize(MobEffects.WITHER.getName());
 
 	public static final String BURN_TIME = Utils.localize("tooltip.ma.burn_time") + SEMICOLON;
 	public static final String MATERIAL = Utils.localize("tooltip.ma.material") + SEMICOLON;
@@ -36,10 +42,14 @@ public class Tooltips {
 	public static final String TIER = Utils.localize("tooltip.ma.tier") + SEMICOLON;
 	public static final String DROP_CHANCE = Utils.localize("tooltip.ma.drop_chance") + SEMICOLON;
 	public static final String GIVES_BUFFS = Utils.localize("tooltip.ma.gives_buffs") + SEMICOLON;
+	public static final String GIVES_DEBUFFS = Utils.localize("tooltip.ma.gives_debuffs") + SEMICOLON;
 	public static final String RANGE = Utils.localize("tooltip.ma.range") + SEMICOLON;
 	public static final String USES_LEFT = Utils.localize("tooltip.ma.uses_left") + SEMICOLON;
+	public static final String DAMAGE = Utils.localize("tooltip.ma.damage") + SEMICOLON;
 	public static final String APPLICABLE_TO = TextFormatting.YELLOW + Utils.localize("tooltip.ma.applicable_to") + SEMICOLON;
 	public static final String DESCRIPTION = TextFormatting.YELLOW + Utils.localize("tooltip.ma.description") + SEMICOLON;
+	
+	public static final String HOLD_SHIFT_FOR_INFO = Utils.localize("tooltip.ma.hold") + " " + Colors.YELLOW + Colors.ITALICS + Utils.localize("tooltip.ma.shift") + " " + Colors.RESET + Colors.GRAY + Utils.localize("tooltip.ma.for_info");
 	
 	public static final String UNLIMITED = Utils.localize("tooltip.ma.unlimited");
 }

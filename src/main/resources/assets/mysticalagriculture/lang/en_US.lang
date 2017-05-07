@@ -279,6 +279,7 @@ item.ma.tier5_crafting_seed.name=Tier 5 Crafting Seed
 
 item.ma.mystical_tool_rod.name=Mystical Tool Rod
 item.ma.mystical_bowstring.name=Mystical Bowstring
+item.ma.mystical_fletching.name=Mystical Fletching
 
 item.ma.base_essence_ingot.name=Base Essence Ingot
 item.ma.inferium_ingot.name=§eInferium Ingot
@@ -617,6 +618,18 @@ item.ma.charm_mining_aoe.name=Charm: Mining AOE
 item.ma.charm_attack_aoe.name=Charm: Attack AOE
 item.ma.charm_tilling_aoe.name=Charm: Tilling AOE
 
+item.ma.arrow_head_inferium.name=§eInferium Arrow Head
+item.ma.arrow_head_prudentium.name=§aPrudentium Arrow Head
+item.ma.arrow_head_intermedium.name=§6Intermedium Arrow Head
+item.ma.arrow_head_superium.name=§bSuperium Arrow Head
+item.ma.arrow_head_supremium.name=§cSupremium Arrow Head
+
+item.ma.inferium_arrow.name=§eInferium Arrow
+item.ma.prudentium_arrow.name=§aPrudentium Arrow
+item.ma.intermedium_arrow.name=§6Intermedium Arrow
+item.ma.superium_arrow.name=§bSuperium Arrow
+item.ma.supremium_arrow.name=§cSupremium Arrow
+
 # TOOLS
 item.ma.inferium_sword.name=§eInferium Sword
 item.ma.inferium_pickaxe.name=§eInferium Pickaxe
@@ -742,9 +755,17 @@ tooltip.ma.charm_slot=Charm Slot
 tooltip.ma.tier=Tier
 tooltip.ma.drop_chance=Drop Chance
 tooltip.ma.gives_buffs=Gives Buffs
+tooltip.ma.gives_debuffs=Gives Debuffs
 tooltip.ma.range=Range
+tooltip.ma.uses_left=Uses Left
+tooltip.ma.damage=Damage
 tooltip.ma.description=Description
 tooltip.ma.applicable_to=Applicable To
+
+# Why do things well when you can do them as badly as possible?
+tooltip.ma.hold=Hold
+tooltip.ma.shift=SHIFT
+tooltip.ma.for_info=for info.
 
 tooltip.ma.unlimited=Unlimited
 
