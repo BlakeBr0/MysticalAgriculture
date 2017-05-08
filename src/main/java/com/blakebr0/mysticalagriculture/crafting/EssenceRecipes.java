@@ -104,6 +104,7 @@ public class EssenceRecipes {
 	    addEssenceRecipe(new ItemStack(Blocks.NETHERRACK, EssenceConfig.netherrack, 0), "XEX", "EEE", "XEX", 'E', new ItemStack(type.NETHER.getCrop(), 1, 0));
 	    addEssenceRecipe(new ItemStack(Blocks.SOUL_SAND, EssenceConfig.soulSand, 0), "EEE", "EXE", "EEE", 'E', new ItemStack(type.NETHER.getCrop(), 1, 0));
 	    addEssenceRecipe(new ItemStack(Blocks.NETHER_BRICK, EssenceConfig.netherBrick, 0), "EEE", "XEX", "XXX", 'E', new ItemStack(type.NETHER.getCrop(), 1, 0));
+	    addEssenceRecipe(new ItemStack(Items.NETHER_WART, EssenceConfig.netherWart, 0), "ENE", "XXX", "XXX", 'E', new ItemStack(type.NETHER.getCrop(), 1, 0), 'N', new ItemStack(type.NATURE.getCrop(), 1, 0));
 
 	    addEssenceRecipe(new ItemStack(Items.COAL, EssenceConfig.coal, 0), "EEE", "EXE", "EEE", 'E', new ItemStack(type.COAL.getCrop(), 1, 0));
 
