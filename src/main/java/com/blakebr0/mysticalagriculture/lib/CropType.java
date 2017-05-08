@@ -38,6 +38,7 @@ public class CropType {
 		OBSIDIAN("obsidian", ModConfig.confObsidianTier, ModConfig.confObsidianSeeds),
 		GOLD("gold", ModConfig.confGoldTier, ModConfig.confGoldSeeds),
 		LAPIS_LAZULI("lapis_lazuli", ModConfig.confLapisLazuliTier, ModConfig.confLapisLazuliSeeds),
+		END("end", ModConfig.confEndTier, ModConfig.confEndSeeds),
 		EXPERIENCE("experience", ModConfig.confExperienceTier, ModConfig.confExperienceSeeds),
 		DIAMOND("diamond", ModConfig.confDiamondTier, ModConfig.confDiamondSeeds),
 		EMERALD("emerald", ModConfig.confEmeraldTier, ModConfig.confEmeraldSeeds),

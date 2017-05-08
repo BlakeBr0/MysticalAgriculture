@@ -46,6 +46,7 @@ public class ModConfig {
 	public static boolean confObsidianSeeds;
 	public static boolean confGoldSeeds;
 	public static boolean confLapisLazuliSeeds;
+	public static boolean confEndSeeds;
 	public static boolean confExperienceSeeds;
 	public static boolean confDiamondSeeds;
 	public static boolean confEmeraldSeeds;
@@ -166,6 +167,7 @@ public class ModConfig {
 	public static int confObsidianTier;
 	public static int confGoldTier;
 	public static int confLapisLazuliTier;
+	public static int confEndTier;
 	public static int confExperienceTier;
 	public static int confDiamondTier;
 	public static int confEmeraldTier;
@@ -379,6 +381,7 @@ public class ModConfig {
 		confRedstoneSeeds = config.get(category, "redstone_seeds", true).getBoolean();
 		confGoldSeeds = config.get(category, "gold_seeds", true).getBoolean();
 		confLapisLazuliSeeds = config.get(category, "lapis_lazuli_seeds", true).getBoolean();
+		confEndSeeds = config.get(category, "end_seeds", true).getBoolean();
 		confExperienceSeeds = config.get(category, "experience_seeds", true).getBoolean();
 		confDiamondSeeds = config.get(category, "diamond_seeds", true).getBoolean();
 		confEmeraldSeeds = config.get(category, "emerald_seeds", true).getBoolean();
@@ -508,6 +511,7 @@ public class ModConfig {
 		confObsidianTier = config.get(category, "obsidian_tier", 3).getInt();
 		confGoldTier = config.get(category, "gold_tier", 4).getInt();
 		confLapisLazuliTier = config.get(category, "lapis_lazuli_tier", 4).getInt();
+		confEndTier = config.get(category, "end_tier", 4).getInt();
 		confExperienceTier = config.get(category, "experience_tier", 4).getInt();
 		confDiamondTier = config.get(category, "diamond_tier", 5).getInt();
 		confEmeraldTier = config.get(category, "emerald_tier", 5).getInt();

@@ -80,6 +80,7 @@ public class ModItems {
 	public static ItemBase itemNatureCluster = new ItemBase("nature_cluster");
 	public static ItemBase itemDyeCluster = new ItemBase("dye_cluster");
 	public static ItemBase itemNetherCluster = new ItemBase("nether_cluster");
+	public static ItemBase itemEndCluster = new ItemBase("end_cluster");
 	public static ItemBase itemMysticalFlowerCluster = new ItemBase("mystical_flower_cluster");
 	
 	public static ItemBase itemBlankRecord = new ItemBase("blank_record");
@@ -311,6 +312,7 @@ public class ModItems {
 		if(type.NATURE.isEnabled()){ registerItem(itemNatureCluster); }
 		if(type.DYE.isEnabled()){ registerItem(itemDyeCluster); }
 		if(type.NETHER.isEnabled()){ registerItem(itemNetherCluster); }
+		if(type.END.isEnabled()){ registerItem(itemEndCluster); }
 		if(type.MYSTICAL_FLOWER.isEnabled()){ registerItem(itemMysticalFlowerCluster); }
 		
 		if(type.SKELETON.isEnabled() && type.CREEPER.isEnabled()){ registerItem(itemBlankRecord); }
@@ -562,12 +564,13 @@ public class ModItems {
 		if(ModConfig.confFertilizedEssence){ registerModel(itemFertilizedEssence); }
 		if(ModConfig.confMysticalFertilizer){ registerModel(itemMysticalFertilizer); }
 		
-		if(CropType.Type.NATURE.isEnabled()){ registerModel(itemNatureCluster); }
-		if(CropType.Type.DYE.isEnabled()){ registerModel(itemDyeCluster); }
-		if(CropType.Type.NETHER.isEnabled()){ registerModel(itemNetherCluster); }
-		if(CropType.Type.MYSTICAL_FLOWER.isEnabled()){ registerModel(itemMysticalFlowerCluster); }
+		if(type.NATURE.isEnabled()){ registerModel(itemNatureCluster); }
+		if(type.DYE.isEnabled()){ registerModel(itemDyeCluster); }
+		if(type.NETHER.isEnabled()){ registerModel(itemNetherCluster); }
+		if(type.END.isEnabled()){ registerModel(itemEndCluster); }
+		if(type.MYSTICAL_FLOWER.isEnabled()){ registerModel(itemMysticalFlowerCluster); }
 		
-		if(CropType.Type.SKELETON.isEnabled() && CropType.Type.CREEPER.isEnabled()){ registerModel(itemBlankRecord); }
+		if(type.SKELETON.isEnabled() && type.CREEPER.isEnabled()){ registerModel(itemBlankRecord); }
 		
 		if(ModConfig.confEssenceApples){
 			registerModel(itemInferiumApple);

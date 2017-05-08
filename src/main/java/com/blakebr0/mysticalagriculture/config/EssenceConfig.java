@@ -55,6 +55,8 @@ public class EssenceConfig {
 	public static int soulSand;
 	public static int netherBrick;
 	public static int endStone;
+	public static int purpurBlock;
+	public static int chorusFruit;
 	
 	public static int coal;
 	public static int iron;
@@ -240,7 +242,9 @@ public class EssenceConfig {
 		netherrack = config.get(category, "netherrack", 32).getInt();
 		soulSand = config.get(category, "soul_sand", 20).getInt();
 		netherBrick = config.get(category, "nether_brick", 24).getInt();
-		endStone = config.get(category, "end_stone", 16).getInt();
+		endStone = config.get(category, "end_stone", 24).getInt();
+		purpurBlock = config.get(category, "purpur_block", 8).getInt();
+		chorusFruit = config.get(category, "chorus_fruit", 12).getInt();
 		
 		category = "Rare Resources";
 		coal = config.get(category, "coal", 12).getInt();

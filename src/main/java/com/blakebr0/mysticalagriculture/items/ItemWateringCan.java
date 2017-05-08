@@ -68,12 +68,6 @@ public class ItemWateringCan extends ItemMeta {
     public EnumAction getItemUseAction(ItemStack stack){
         return EnumAction.NONE;
     }
-    
-	public static int randInt(int min, int max){	
-	    Random rand = new Random();	    
-	    int number = rand.nextInt(max - min + 1) + min;	    
-	    return number;
-	}
 	
     @Override
     public EnumActionResult onItemUse(ItemStack stack, EntityPlayer player, World world, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ){
@@ -111,8 +105,8 @@ public class ItemWateringCan extends ItemMeta {
 		
 	    if(!world.isRemote && water){
 	    	water = false;
-	    	int chance = randInt(1, 100);
-	    	int bonus = 5 * stack.getMetadata();
+	    	int chance = Utils.randInt(1, 100);
+	    	int bonus = 4 * stack.getMetadata();
 	        if(chance <= (40 + bonus)){
 	        	for(BlockPos aoePos : blocks){
 	        		Block plant = world.getBlockState(aoePos).getBlock();	        		

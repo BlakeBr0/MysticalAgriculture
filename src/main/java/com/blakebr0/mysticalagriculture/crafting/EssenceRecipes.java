@@ -121,6 +121,10 @@ public class EssenceRecipes {
 
 	    addEssenceRecipe(new ItemStack(Items.DYE, EssenceConfig.lapis, 4), "EEE", "EXE", "EEE", 'E', new ItemStack(type.LAPIS_LAZULI.getCrop(), 1, 0));
 
+	    addEssenceRecipe(new ItemStack(Blocks.END_STONE, EssenceConfig.endStone, 0), "EEE", "EXE", "EEE", 'E', new ItemStack(type.END.getCrop(), 1, 0));
+		addEssenceRecipe(new ItemStack(Blocks.PURPUR_BLOCK, EssenceConfig.purpurBlock, 0), "XEX", "EXE", "XEX", 'E', new ItemStack(type.END.getCrop(), 1, 0));
+	    addEssenceRecipe(new ItemStack(Items.CHORUS_FRUIT, EssenceConfig.chorusFruit, 0), "ENE", "XXX", "XXX", 'E', new ItemStack(type.END.getCrop(), 1, 0), 'N', new ItemStack(type.NATURE.getCrop(), 1, 0));
+
 	    addEssenceRecipe(new ItemStack(Items.EXPERIENCE_BOTTLE, EssenceConfig.experienceBottle, 0), "EEE", "EXE", "EEE", 'E', new ItemStack(type.EXPERIENCE.getCrop(), 1, 0));
 
 	    addEssenceRecipe(new ItemStack(Items.DIAMOND, EssenceConfig.diamond, 0), "EEE", "EEE", "EEE", 'E', new ItemStack(type.DIAMOND.getCrop(), 1, 0));
@@ -165,7 +169,6 @@ public class EssenceRecipes {
 	    addEssenceRecipe(new ItemStack(Items.GHAST_TEAR, EssenceConfig.ghastTear, 0), "EEE", "EXE", "EEE", 'E', new ItemStack(type.GHAST.getCrop(), 1, 0));
   
 	    addEssenceRecipe(new ItemStack(Items.ENDER_PEARL, EssenceConfig.enderPearl, 0), "EEE", "EXE", "EEE", 'E', new ItemStack(type.ENDERMAN.getCrop(), 1, 0));
-	    addEssenceRecipe(new ItemStack(Blocks.END_STONE, EssenceConfig.endStone, 0), "EEE", "EBE", "EEE", 'E', new ItemStack(type.ENDERMAN.getCrop(), 1, 0), 'B', new ItemStack(Blocks.STONE, 1, 0));
 
 	    addEssenceRecipe(new ItemStack(Items.SKULL, EssenceConfig.witherSkeletonSkull, 1), "EEE", "EEE", "EEE", 'E', new ItemStack(type.WITHER_SKELETON.getCrop(), 1, 0));
 

@@ -240,6 +240,7 @@ public class ModRecipes {
 		if(type.NATURE.isEnabled()){ addShapelessRecipe(new ItemStack(ModItems.itemNatureCluster, 1, 0), new ItemStack(Blocks.CACTUS, 1, 0), new ItemStack(Blocks.PUMPKIN, 1, 0), new ItemStack(Items.REEDS, 1, 0), new ItemStack(Items.WHEAT, 1, 0)); }
 		if(type.DYE.isEnabled()){ addShapelessRecipe(new ItemStack(ModItems.itemDyeCluster, 1, 0), new ItemStack(Items.DYE, 1, 0), new ItemStack(Items.DYE, 1, 14), new ItemStack(Items.DYE, 1, 6), new ItemStack(Items.DYE, 1, 13)); }
 		if(type.NETHER.isEnabled()){ addShapelessRecipe(new ItemStack(ModItems.itemNetherCluster, 1, 0), new ItemStack(Blocks.SOUL_SAND, 1, 0), new ItemStack(Blocks.NETHERRACK, 1, 0), new ItemStack(Blocks.NETHERRACK, 1, 0), new ItemStack(Blocks.SOUL_SAND, 1, 0)); }
+		if(type.END.isEnabled()){ addShapelessRecipe(new ItemStack(ModItems.itemEndCluster, 1, 0), new ItemStack(Blocks.END_STONE, 1, 0), new ItemStack(Blocks.PURPUR_BLOCK, 1, 0), new ItemStack(Blocks.PURPUR_BLOCK, 1, 0), new ItemStack(Blocks.END_STONE, 1, 0)); }
 		if(type.MYSTICAL_FLOWER.isEnabled()){ addShapelessRecipe(new ItemStack(ModItems.itemMysticalFlowerCluster, 1, 0), new ItemStack(Parts.itemBotaniaFlowers, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(Parts.itemBotaniaFlowers, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(Parts.itemBotaniaFlowers, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(Parts.itemBotaniaFlowers, 1, OreDictionary.WILDCARD_VALUE)); }
    
 		if(type.SKELETON.isEnabled() && type.CREEPER.isEnabled() && EssenceConfig.record){ 
@@ -466,6 +467,7 @@ public class ModRecipes {
 	    addSeedRecipe(type.GOLD, "ingotGold");
 	    addSeedRecipe(type.LAPIS_LAZULI, new ItemStack(Items.DYE, 1, 4));
 	    addSeedRecipe(type.EXPERIENCE, new ItemStack(ModItems.itemExperienceChunk, 1, 0));
+	    addSeedRecipe(type.END, new ItemStack(ModItems.itemEndCluster, 1, 0));
 	    addSeedRecipe(type.DIAMOND, new ItemStack(Items.DIAMOND, 1, 0));
 	    addSeedRecipe(type.EMERALD, new ItemStack(Items.EMERALD, 1, 0));
 
