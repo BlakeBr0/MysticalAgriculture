@@ -5,12 +5,14 @@ import com.google.common.base.Predicate;
 
 import com.blakebr0.mysticalagriculture.blocks.ModBlocks;
 import com.blakebr0.mysticalagriculture.config.ModConfig;
+import com.blakebr0.mysticalagriculture.util.Utils;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.block.state.pattern.BlockMatcher;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.IChunkGenerator;
 import net.minecraft.world.chunk.IChunkProvider;
@@ -150,23 +152,23 @@ public class OreGeneration implements IWorldGenerator {
 	  }
 	  
 	  private void generateSoulstone(World world, Random random, int posX, int posZ) {
-		    int i, x, y, z, meta, veinCount, veinSize;
-		    BlockPos pos;
-		    Block block;
-		    IBlockState state;
-		    ModConfig config = ModConfig.instance;
-		    Predicate predicate = BlockMatcher.forBlock(Blocks.NETHERRACK);
+		  int i, x, y, z, meta, veinCount, veinSize;
+		  BlockPos pos;
+		  Block block;
+		  IBlockState state;
+		  ModConfig config = ModConfig.instance;
+		  Predicate predicate = BlockMatcher.forBlock(Blocks.NETHERRACK);
 		    
-		    block = ModBlocks.blockSoulstone;
-		    veinCount = config.confSoulstoneVeinCount;
-		    veinSize = config.confSoulstoneVeinSize;
-		    for (i = 0; i < 5; ++i) {
-		      x = posX + random.nextInt(16);
-		      y = random.nextInt(config.confSoulstoneMaxY - config.confSoulstoneMinY) + config.confSoulstoneMinY;
-		      z = posZ + random.nextInt(16);
-		      pos = new BlockPos(x, y, z);
-		      state = block.getDefaultState();
-		      new WorldGenMinable(state, veinSize, predicate).generate(world, random, pos);
-		    }
+		  block = ModBlocks.blockSoulstone;
+		  veinCount = config.confSoulstoneVeinCount;
+		  veinSize = MathHelper.clamp_int(config.confSoulstoneVeinSize, 0, 40);
+		  for (i = 0; i < veinCount; ++i) {
+			  x = posX + random.nextInt(16);
+			  y = Utils.randInt(config.confSoulstoneMinY, config.confSoulstoneMaxY);
+			  z = posZ + random.nextInt(16);
+			  pos = new BlockPos(x, y, z);
+			  state = block.getDefaultState();
+			  new WorldGenMinable(state, veinSize, predicate).generate(world, random, pos);
+		  }
 	  }
-}
+}	

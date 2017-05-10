@@ -680,8 +680,8 @@ public class ModConfig {
 		confEndProsperityMinY = config.getInt("end_prosperity_miny", category, 10, 1, 127, "Minimum Y level End Prosperity Ore should spawn.");
 		confEndProsperityMaxY = config.getInt("end_prosperity_maxy", category, 100, 1, 127, "Maximum Y level End Prosperity Ore should spawn.");
 		
-		confSoulstoneVeinCount = config.getInt("soulstone_veincount", category, 1, 0, 100, "Amount of Soulstone veins to spawn. Higher = more.");
-		confSoulstoneVeinSize = config.getInt("soulstone_veinsize", category, 64, 0, 100, "Size of the Soulstone veins.");
+		confSoulstoneVeinCount = config.getInt("soulstone_veincount", category, 8, 0, 100, "Amount of Soulstone veins to spawn. Higher = more.");
+		confSoulstoneVeinSize = config.getInt("soulstone_veinsize", category, 40, 0, 40, "Size of the Soulstone veins.");
 		confSoulstoneMinY = config.getInt("soulstone_miny", category, 16, 1, 127, "Minimum Y level Soulstone should spawn.");
 		confSoulstoneMaxY = config.getInt("soulstone_maxy", category, 124, 1, 127, "Maximum Y level Soulstone should spawn.");
 		
