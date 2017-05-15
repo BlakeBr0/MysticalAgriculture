@@ -502,6 +502,9 @@ public class ModRecipes {
 	    addSeedRecipe(type.ELECTRUM, "ingotElectrum");
 	    addSeedRecipe(type.INVAR, "ingotInvar");
 	    addSeedRecipe(type.MITHRIL, "ingotMithril");
+	    addSeedRecipe(type.TUNGSTEN, "ingotTungsten");
+	    addSeedRecipe(type.TITANIUM, "ingotTitanium");
+	    addSeedRecipe(type.CHROME, "ingotChrome");
 	    addSeedRecipe(type.PLATINUM, "ingotPlatinum");
 	    addSeedRecipe(type.IRIDIUM, "ingotIridium");
 
@@ -546,6 +549,7 @@ public class ModRecipes {
 	    addSeedRecipe(type.AQUARIUM, "ingotAquarium");
 	    addSeedRecipe(type.COLD_IRON, "ingotColdiron");
 	    addSeedRecipe(type.STAR_STEEL, "ingotStarsteel");
+	    addSeedRecipe(type.ADAMANTINE, "ingotAdamantine");
 
 	    addSeedRecipe(type.MARBLE, new ItemStack(Parts.itemChiselMarble, 1, 7));
 	    addSeedRecipe(type.LIMESTONE, new ItemStack(Parts.itemChiselLimestone, 1, 7));

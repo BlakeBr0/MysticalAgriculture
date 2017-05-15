@@ -156,9 +156,12 @@ tile.ma.steel_crop.name=Steel Crop
 tile.ma.nickel_crop.name=Nickel Crop
 tile.ma.electrum_crop.name=Electrum Crop
 tile.ma.invar_crop.name=Invar Crop
+tile.ma.mithril_crop.name=Mithril Crop
+tile.ma.tungsten_crop.name=Tungsten Crop
+tile.ma.titanium_crop.name=Titanium Crop
+tile.ma.chrome_crop.name=Chrome Crop
 tile.ma.platinum_crop.name=Platinum Crop
 tile.ma.iridium_crop.name=Iridium Crop
-tile.ma.mithril_crop.name=Mithril Crop
 
 tile.ma.ruby_crop.name=Ruby Crop
 tile.ma.sapphire_crop.name=Sapphire Crop
@@ -201,6 +204,7 @@ tile.ma.refined_obsidian_crop.name=Refined Obsidian Crop
 tile.ma.aquarium_crop.name=Aquarium Crop
 tile.ma.cold_iron_crop.name=Cold-Iron Crop
 tile.ma.star_steel_crop.name=Star-Steel Crop
+tile.ma.adamantine_crop.name=Adamantine Crop
 
 tile.ma.marble_crop.name=Marble Crop
 tile.ma.limestone_crop.name=Limestone Crop
@@ -390,9 +394,12 @@ item.ma.steel_essence.name=Steel Essence
 item.ma.nickel_essence.name=Nickel Essence
 item.ma.electrum_essence.name=Electrum Essence
 item.ma.invar_essence.name=Invar Essence
+item.ma.mithril_essence.name=Mithril Essence
+item.ma.tungsten_essence.name=Tungsten Essence
+item.ma.titanium_essence.name=Titanium Essence
+item.ma.chrome_essence.name=Chrome Essence
 item.ma.platinum_essence.name=Platinum Essence
 item.ma.iridium_essence.name=Iridium Essence
-item.ma.mithril_essence.name=Mithril Essence
 
 item.ma.ruby_essence.name=Ruby Essence
 item.ma.sapphire_essence.name=Sapphire Essence
@@ -435,6 +442,7 @@ item.ma.refined_obsidian_essence.name=Refined Obsidian Essence
 item.ma.aquarium_essence.name=Aquarium Essence
 item.ma.cold_iron_essence.name=Cold-Iron Essence
 item.ma.star_steel_essence.name=Star-Steel Essence
+item.ma.adamantine_essence.name=Adamantine Essence
 
 item.ma.marble_essence.name=Marble Essence
 item.ma.limestone_essence.name=Limestone Essence
@@ -519,9 +527,12 @@ item.ma.steel_seeds.name=Steel Seeds
 item.ma.nickel_seeds.name=Nickel Seeds
 item.ma.electrum_seeds.name=Electrum Seeds
 item.ma.invar_seeds.name=Invar Seeds
+item.ma.mithril_seeds.name=Mithril Seeds
+item.ma.tungsten_seeds.name=Tungsten Seeds
+item.ma.titanium_seeds.name=Titanium Seeds
+item.ma.chrome_seeds.name=Chrome Seeds
 item.ma.platinum_seeds.name=Platinum Seeds
 item.ma.iridium_seeds.name=Iridium Seeds
-item.ma.mithril_seeds.name=Mithril Seeds
 
 item.ma.ruby_seeds.name=Ruby Seeds
 item.ma.sapphire_seeds.name=Sapphire Seeds
@@ -564,6 +575,7 @@ item.ma.refined_obsidian_seeds.name=Refined Obsidian Seeds
 item.ma.aquarium_seeds.name=Aquarium Seeds
 item.ma.cold_iron_seeds.name=Cold-Iron Seeds
 item.ma.star_steel_seeds.name=Star-Steel Seeds
+item.ma.adamantine_seeds.name=Adamantine Seeds
 
 item.ma.marble_seeds.name=Marble Seeds
 item.ma.limestone_seeds.name=Limestone Seeds

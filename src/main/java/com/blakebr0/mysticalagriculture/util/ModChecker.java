@@ -40,6 +40,9 @@ public class ModChecker {
 	public static boolean ELECTRUM = OreDictionary.getOres("ingotElectrum").size() > 0 || THERMAL || IE || TECHREBORN || SUBSTRATUM || BASEMETALS;
 	public static boolean INVAR = OreDictionary.getOres("ingotInvar").size() > 0 || THERMAL || SUBSTRATUM || BASEMETALS;
 	public static boolean MITHRIL = OreDictionary.getOres("ingotMithril").size() > 0 || THERMAL || BASEMETALS;
+	public static boolean TUNGSTEN = OreDictionary.getOres("ingotTungsten").size() > 0 || TECHREBORN;
+	public static boolean TITANIUM = OreDictionary.getOres("ingotTitanium").size() > 0 || TECHREBORN;
+	public static boolean CHROME = OreDictionary.getOres("ingotChrome").size() > 0 || TECHREBORN || SUBSTRATUM;
 	public static boolean PLATINUM = OreDictionary.getOres("ingotPlatinum").size() > 0 || THERMAL || SUBSTRATUM || BASEMETALS;
 	public static boolean IRIDIUM = OreDictionary.getOres("ingotIridium").size() > 0 || THERMAL || TECHREBORN;
 

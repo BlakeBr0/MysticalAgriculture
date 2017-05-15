@@ -19,6 +19,7 @@ public class CropType {
 		}
 	}
 	
+	// TODO: do a better job with config options for fuck sake
 	public static enum Type implements IStringSerializable {
 		
 		STONE("stone", ModConfig.confStoneTier, ModConfig.confStoneSeeds),
@@ -74,6 +75,9 @@ public class CropType {
 		ELECTRUM("electrum", ModConfig.confElectrumTier, ModConfig.confElectrumSeeds && ModChecker.ELECTRUM),
 		INVAR("invar", ModConfig.confInvarTier, ModConfig.confInvarSeeds && ModChecker.INVAR),
 		MITHRIL("mithril", ModConfig.confMithrilTier, ModConfig.confMithrilSeeds && ModChecker.MITHRIL),
+		TUNGSTEN("tungsten", ModConfig.confTungstenTier, ModConfig.confTungstenSeeds && ModChecker.TUNGSTEN),
+		TITANIUM("titanium", ModConfig.confTitaniumTier, ModConfig.confTitaniumSeeds && ModChecker.TITANIUM),
+		CHROME("chrome", ModConfig.confChromeTier, ModConfig.confChromeSeeds && ModChecker.CHROME),
 		PLATINUM("platinum", ModConfig.confPlatinumTier, ModConfig.confPlatinumSeeds && ModChecker.PLATINUM),
 		IRIDIUM("iridium", ModConfig.confIridiumTier, ModConfig.confIridiumSeeds && ModChecker.IRIDIUM),
 		
@@ -118,6 +122,7 @@ public class CropType {
 		AQUARIUM("aquarium", ModConfig.confAquariumTier, ModConfig.confAquariumSeeds && ModChecker.BASEMETALS),
 		COLD_IRON("cold_iron", ModConfig.confColdIronTier, ModConfig.confColdIronSeeds && ModChecker.BASEMETALS),
 		STAR_STEEL("star_steel", ModConfig.confStarSteelTier, ModConfig.confStarSteelSeeds && ModChecker.BASEMETALS),
+		ADAMANTINE("adamantine", ModConfig.confAdamantineTier, ModConfig.confAdamantineSeeds && ModChecker.BASEMETALS),
 		
 		MARBLE("marble", ModConfig.confMarbleTier, ModConfig.confMarbleSeeds && ModChecker.CHISEL),
 		LIMESTONE("limestone", ModConfig.confLimestoneTier, ModConfig.confLimestoneSeeds && ModChecker.CHISEL),

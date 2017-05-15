@@ -113,6 +113,9 @@ public class EssenceConfig {
 	public static int electrum;
 	public static int invar;
 	public static int mithril;
+	public static int tungsten;
+	public static int titanium;
+	public static int chrome;
 	public static int platinum;
 	public static int iridium;
 	
@@ -157,6 +160,7 @@ public class EssenceConfig {
 	public static int aquarium;
 	public static int coldIron;
 	public static int starSteel;
+	public static int adamantine;
 	
 	public static int marble;
 	public static int limestone;
@@ -306,6 +310,9 @@ public class EssenceConfig {
 		electrum = config.get(category, "electrum", 4).getInt();
 		invar = config.get(category, "invar", 4).getInt();
 		mithril = config.get(category, "mithril", 3).getInt();
+		tungsten = config.get(category, "tungsten", 2).getInt();
+		titanium = config.get(category, "titanium", 2).getInt();
+		chrome = config.get(category, "chrome", 2).getInt();
 		platinum = config.get(category, "platinum", 2).getInt();
 		iridium = config.get(category, "iridium", 2).getInt();
 		
@@ -357,6 +364,7 @@ public class EssenceConfig {
 		aquarium = config.get(category, "aquarium", 4).getInt();
 		coldIron = config.get(category, "cold_iron", 4).getInt();
 		starSteel = config.get(category, "star_steel", 3).getInt();
+		adamantine = config.get(category, "adamantine", 2).getInt();
 		
 		category = "Chisel";
 		marble = config.get(category, "marble", 24).getInt();
