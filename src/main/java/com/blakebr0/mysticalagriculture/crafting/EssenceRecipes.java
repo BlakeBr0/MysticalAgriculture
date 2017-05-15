@@ -186,8 +186,11 @@ public class EssenceRecipes {
 	    if(type.NICKEL.isEnabled()){ addEssenceRecipe(Utils.getItem("ingotNickel", EssenceConfig.nickel), "EEE", "EXE", "EEE", 'E', new ItemStack(type.NICKEL.getCrop(), 1, 0)); }
 	    if(type.CONSTANTAN.isEnabled()){ addEssenceRecipe(Utils.getItem("ingotConstantan", EssenceConfig.constantan), "EEE", "EXE", "EEE", 'E', new ItemStack(type.CONSTANTAN.getCrop(), 1, 0)); }
 	    if(type.ELECTRUM.isEnabled()){ addEssenceRecipe(Utils.getItem("ingotElectrum", EssenceConfig.electrum), "EEE", "EXE", "EEE", 'E', new ItemStack(type.ELECTRUM.getCrop(), 1, 0)); }
-	    if(type.MITHRIL.isEnabled()){ addEssenceRecipe(Utils.getItem("ingotMithril", EssenceConfig.mithril), "EEE", "EXE", "EEE", 'E', new ItemStack(type.MITHRIL.getCrop(), 1, 0)); }
 	    if(type.INVAR.isEnabled()){ addEssenceRecipe(Utils.getItem("ingotInvar", EssenceConfig.invar), "EEE", "EXE", "EEE", 'E', new ItemStack(type.INVAR.getCrop(), 1, 0)); }
+	    if(type.MITHRIL.isEnabled()){ addEssenceRecipe(Utils.getItem("ingotMithril", EssenceConfig.mithril), "EEE", "EXE", "EEE", 'E', new ItemStack(type.MITHRIL.getCrop(), 1, 0)); }
+	    if(type.TUNGSTEN.isEnabled()){ addEssenceRecipe(Utils.getItem("ingotTungsten", EssenceConfig.tungsten), "EEE", "EXE", "EEE", 'E', new ItemStack(type.TUNGSTEN.getCrop(), 1, 0)); }
+	    if(type.TITANIUM.isEnabled()){ addEssenceRecipe(Utils.getItem("ingotTitanium", EssenceConfig.titanium), "EEE", "EXE", "EEE", 'E', new ItemStack(type.TITANIUM.getCrop(), 1, 0)); }
+	    if(type.CHROME.isEnabled()){ addEssenceRecipe(Utils.getItem("ingotChrome", EssenceConfig.chrome), "EEE", "EXE", "EEE", 'E', new ItemStack(type.CHROME.getCrop(), 1, 0)); }
 	    if(type.PLATINUM.isEnabled()){ addEssenceRecipe(Utils.getItem("ingotPlatinum", EssenceConfig.platinum), "EEE", "EXE", "EEE", 'E', new ItemStack(type.PLATINUM.getCrop(), 1, 0)); }
 	    if(type.IRIDIUM.isEnabled()){ addEssenceRecipe(Utils.getItem("ingotIridium", EssenceConfig.iridium), "EEE", "EXE", "EEE", 'E', new ItemStack(type.IRIDIUM.getCrop(), 1, 0)); }
 
@@ -249,6 +252,7 @@ public class EssenceRecipes {
 	    if(type.AQUARIUM.isEnabled()){ addEssenceRecipe(Utils.getItem("ingotAquarium", EssenceConfig.aquarium), "EEE", "EXE", "EEE", 'E', new ItemStack(type.AQUARIUM.getCrop(), 1, 0)); }
 	    if(type.COLD_IRON.isEnabled()){ addEssenceRecipe(Utils.getItem("ingotColdiron", EssenceConfig.coldIron), "EEE", "EXE", "EEE", 'E', new ItemStack(type.COLD_IRON.getCrop(), 1, 0)); }
 	    if(type.STAR_STEEL.isEnabled()){ addEssenceRecipe(Utils.getItem("ingotStarsteel", EssenceConfig.starSteel), "EEE", "EXE", "EEE", 'E', new ItemStack(type.STAR_STEEL.getCrop(), 1, 0)); }
+	    if(type.ADAMANTINE.isEnabled()){ addEssenceRecipe(Utils.getItem("ingotAdamantine", EssenceConfig.adamantine), "EEE", "EXE", "EEE", 'E', new ItemStack(type.ADAMANTINE.getCrop(), 1, 0)); }
 
 	    if(type.MARBLE.isEnabled()){ addEssenceRecipe(new ItemStack(Parts.itemChiselMarble, EssenceConfig.marble, 7), "EEE", "EXE", "EEE", 'E', new ItemStack(type.MARBLE.getCrop(), 1, 0)); }
 	    if(type.LIMESTONE.isEnabled()){ addEssenceRecipe(new ItemStack(Parts.itemChiselLimestone, EssenceConfig.limestone, 7), "EEE", "EXE", "EEE", 'E', new ItemStack(type.LIMESTONE.getCrop(), 1, 0)); }
