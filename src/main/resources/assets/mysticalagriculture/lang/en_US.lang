@@ -761,6 +761,7 @@ tooltip.ma.blast_resistant=Blast Resistant
 
 tooltip.ma.fertilized_essence=Bonemeal that works on Resource Crops.
 tooltip.ma.mystical_fertilizer=Instantly grows a crop.
+tooltip.ma.core_removal=Can be re-claimed using a §cCore Remover§7.
 
 tooltip.ma.inferium=Inferium
 tooltip.ma.prudentium=Prudentium
@@ -788,7 +789,19 @@ tooltip.ma.hold=Hold
 tooltip.ma.shift=SHIFT
 tooltip.ma.for_info=for info.
 
+tooltip.ma.flight=Flight
+tooltip.ma.wither_resistance=Wither Resistance
+tooltip.ma.strength=Strength
+tooltip.ma.speed=Speed
+tooltip.ma.resistance=Resistance
+tooltip.ma.night_vision=Night Vision
+tooltip.ma.jump_boost=Jump Boost
+tooltip.ma.fire_resistance=Fire Resistance
+tooltip.ma.antivenom=Antivenom
+tooltip.ma.attack_aoe=Attack AOE
 tooltip.ma.unlimited=Unlimited
+
+tooltip.ma.empty=Empty
 
 # CHARM DESCRIPTIONS
 desc.ma.charm_nightvision=Allows you to see in the dark.

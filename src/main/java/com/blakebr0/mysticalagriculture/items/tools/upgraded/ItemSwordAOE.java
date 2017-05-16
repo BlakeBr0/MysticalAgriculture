@@ -6,6 +6,8 @@ import com.blakebr0.mysticalagriculture.MysticalAgriculture;
 import com.blakebr0.mysticalagriculture.config.ModConfig;
 import com.blakebr0.mysticalagriculture.items.ModItems;
 import com.blakebr0.mysticalagriculture.items.tools.ItemEssenceSword;
+import com.blakebr0.mysticalagriculture.lib.Colors;
+import com.blakebr0.mysticalagriculture.lib.Tooltips;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -28,10 +30,10 @@ public class ItemSwordAOE extends ItemEssenceSword {
 	}
 		
 	@Override
-	@SideOnly(Side.CLIENT) // TODO: localize
+	@SideOnly(Side.CLIENT)
 	public void addInformation(ItemStack stack, EntityPlayer player, List tooltip, boolean advanced){
-		tooltip.add("Durability: \u00A7cUnlimited");
-		tooltip.add("Charm Slot: \u00A7cAttack AOE");
+		tooltip.add(Tooltips.DURABILITY + Colors.RED + Tooltips.UNLIMITED);
+		tooltip.add(Tooltips.CHARM_SLOT + Colors.RED + Tooltips.ATTACK_AOE);
 	}
 	
 	@Override
@@ -47,7 +49,7 @@ public class ItemSwordAOE extends ItemEssenceSword {
     @Override
     public boolean onLeftClickEntity(ItemStack stack, EntityPlayer player, Entity entity){
     	if(player.getCooledAttackStrength(0.5F) >= 0.95F){
-    		List<EntityLivingBase> entities = player.worldObj.getEntitiesWithinAABB(EntityLivingBase.class, entity.getEntityBoundingBox().expand(1.5D, 0.25D, 1.5D));
+    		List<EntityLivingBase> entities = player.getEntityWorld().getEntitiesWithinAABB(EntityLivingBase.class, entity.getEntityBoundingBox().expand(1.5D, 0.25D, 1.5D));
 
             for(EntityLivingBase aoeEntity : entities) {
                 if(aoeEntity != player && aoeEntity != entity && !player.isOnSameTeam(entity)) {

@@ -6,6 +6,8 @@ import com.blakebr0.mysticalagriculture.MysticalAgriculture;
 import com.blakebr0.mysticalagriculture.config.ModConfig;
 import com.blakebr0.mysticalagriculture.items.ModItems;
 import com.blakebr0.mysticalagriculture.items.armor.ItemSupremiumArmor;
+import com.blakebr0.mysticalagriculture.lib.Colors;
+import com.blakebr0.mysticalagriculture.lib.Tooltips;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.MobEffects;
@@ -25,12 +27,12 @@ public class ItemUpgradedResistance extends ItemSupremiumArmor {
 	}
 	
 	@Override
-	@SideOnly(Side.CLIENT) // TODO: localize
+	@SideOnly(Side.CLIENT)
 	public void addInformation(ItemStack stack, EntityPlayer player, List tooltip, boolean advanced){
 		int damage = stack.getMaxDamage() - stack.getItemDamage();
-		tooltip.add("Durability: \u00A7c" + damage);
-		if(ModConfig.confSupremiumFlight){ tooltip.add("Set Bonus: \u00A7cFlight"); }
-		tooltip.add("Charm Slot: \u00A7cResistance");
+		tooltip.add(Tooltips.DURABILITY + Colors.RED + damage);
+		if(ModConfig.confSupremiumFlight){ tooltip.add(Tooltips.SET_BONUS + Colors.RED + Tooltips.FLIGHT); }
+		tooltip.add(Tooltips.CHARM_SLOT + Colors.RED + Tooltips.RESISTANCE_YES);
 	}
 	
 	@Override

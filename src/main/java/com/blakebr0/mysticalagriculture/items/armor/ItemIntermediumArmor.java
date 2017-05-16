@@ -6,6 +6,7 @@ import java.util.List;
 import com.blakebr0.mysticalagriculture.MysticalAgriculture;
 import com.blakebr0.mysticalagriculture.config.ModConfig;
 import com.blakebr0.mysticalagriculture.items.ModItems;
+import com.blakebr0.mysticalagriculture.lib.Colors;
 import com.blakebr0.mysticalagriculture.lib.Tooltips;
 import com.blakebr0.mysticalagriculture.util.Utils;
 
@@ -37,7 +38,7 @@ public class ItemIntermediumArmor extends ItemArmor {
 	@SideOnly(Side.CLIENT) // TODO: localize
 	public void addInformation(ItemStack stack, EntityPlayer player, List tooltip, boolean advanced){
 		int damage = stack.getMaxDamage() - stack.getItemDamage();
-		tooltip.add(Tooltips.DURABILITY + "\u00A76" + damage);
+		tooltip.add(Tooltips.DURABILITY + Colors.GOLD + damage);
 		if(ModConfig.confSetBonuses){ tooltip.add(Tooltips.SET_BONUS + "\u00A76Step Assist"); }
 	}
 

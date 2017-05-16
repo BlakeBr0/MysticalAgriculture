@@ -33,7 +33,7 @@ public class ItemCharm extends ItemBase {
 				tooltip.add(applicable[i].getDesc());
 			}
 		} else {
-			tooltip.add("Hold \u00A7e\u00A7oSHIFT \u00A7r\u00A77for info."); // TODO: localize
+			tooltip.add(Tooltips.HOLD_SHIFT_FOR_INFO);
 		}
 	}
 	
