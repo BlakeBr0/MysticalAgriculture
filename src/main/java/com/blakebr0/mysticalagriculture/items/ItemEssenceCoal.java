@@ -20,11 +20,11 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 
 public class ItemEssenceCoal extends ItemMeta {
 
-	public static ItemStack itemInferiumCoal;
-	public static ItemStack itemPrudentiumCoal;
-	public static ItemStack itemIntermediumCoal;
-	public static ItemStack itemSuperiumCoal;
-	public static ItemStack itemSupremiumCoal;
+	public static ItemStack inferium;
+	public static ItemStack prudentium;
+	public static ItemStack intermedium;
+	public static ItemStack superium;
+	public static ItemStack supremium;
 	
 	public ItemEssenceCoal(){
 		super("coal");
@@ -34,11 +34,11 @@ public class ItemEssenceCoal extends ItemMeta {
 	public void init() {
 		GameRegistry.register(this);
 				
-		itemInferiumCoal = addItem(0, "inferium", "coalInferium");
-		itemPrudentiumCoal = addItem(1, "prudentium", "coalPrudentium");
-		itemIntermediumCoal = addItem(2, "intermedium", "coalIntermedium");
-		itemSuperiumCoal = addItem(3, "superium", "coalSuperium");
-		itemSupremiumCoal = addItem(4, "supremium", "coalSupremium");
+		inferium = addItem(0, "inferium", "coalInferium");
+		prudentium = addItem(1, "prudentium", "coalPrudentium");
+		intermedium = addItem(2, "intermedium", "coalIntermedium");
+		superium = addItem(3, "superium", "coalSuperium");
+		supremium = addItem(4, "supremium", "coalSupremium");
 		
 		GameRegistry.registerFuelHandler(new FuelHander());
 	}

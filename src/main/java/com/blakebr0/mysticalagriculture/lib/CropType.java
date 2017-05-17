@@ -154,6 +154,8 @@ public class CropType {
 		private final ItemBase crop;
 		private final ItemSeed seed;
 		
+		private final boolean debug = false;
+		
 		Type(String name, int tier, boolean enabled){
 			this.name = name;
 			this.tier = tier;
@@ -173,7 +175,7 @@ public class CropType {
 		}
 		
 		public boolean isEnabled(){
-			return this.enabled;
+			return this.enabled || debug;
 		}
 		
 		public BlockMysticalCrop getPlant(){

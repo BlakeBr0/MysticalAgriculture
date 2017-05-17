@@ -61,6 +61,7 @@ public class Tooltips {
 	public static final String ANTIVENOM = Utils.localize("tooltip.ma.antivenom");
 	public static final String ABSORPTION_YES = Utils.localize("tooltip.ma.absorption");
 	public static final String ATTACK_AOE = Utils.localize("tooltip.ma.attack_aoe");
+	public static final String MINERS_VISION = Utils.localize("tooltip.ma.miners_vision");
 	public static final String UNLIMITED = Utils.localize("tooltip.ma.unlimited");
 	
 	public static final String EMPTY = Colors.ITALICS + Utils.localize("tooltip.ma.empty");

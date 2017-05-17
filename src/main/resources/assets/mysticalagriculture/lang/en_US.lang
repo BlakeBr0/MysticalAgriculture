@@ -231,6 +231,8 @@ tile.ma.quartz_enriched_iron_crop.name=Quartz Enriched Iron Crop
 
 tile.ma.constantan_crop.name=Constantan Crop
 
+tile.ma.miners_torch.name=Miner's Torch
+
 # BASE ESSENCES
 item.ma.inferium_essence.name=§eInferium Essence
 item.ma.prudentium_essence.name=§aPrudentium Essence
@@ -630,6 +632,7 @@ item.ma.charm_strength1.name=Charm: Strength
 item.ma.charm_strength2.name=Charm: Strength 2
 item.ma.charm_speed.name=Charm: Speed
 item.ma.charm_jump.name=Charm: Jump Boost
+item.ma.charm_miners_vision.name=Charm: Miner's Vision
 item.ma.charm_mining_aoe.name=Charm: Mining AOE
 item.ma.charm_attack_aoe.name=Charm: Attack AOE
 item.ma.charm_tilling_aoe.name=Charm: Tilling AOE
@@ -696,9 +699,15 @@ item.ma.supremium_sword_strength1.name=§cSupremium Sword
 item.ma.supremium_sword_strength2.name=§cSupremium Sword
 
 item.ma.supremium_sword_aoe.name=§cSupremium Sword
+
 item.ma.supremium_pickaxe_aoe.name=§cSupremium Pickaxe
+
+item.ma.supremium_pickaxe_miners.name=§cSupremium Pickaxe
+
 item.ma.supremium_shovel_aoe.name=§cSupremium Shovel
+
 item.ma.supremium_axe_aoe.name=§cSupremium Axe
+
 item.ma.supremium_hoe_aoe.name=§cSupremium Hoe
 
 # ARMOR
@@ -755,6 +764,9 @@ item.ma.supremium_boots_antivenom.name=§cSupremium Boots
 item.ma.supremium_boots_fire.name=§cSupremium Boots
 item.ma.supremium_boots_resistance.name=§cSupremium Boots
 
+# JEI DESCRIPTIONS
+desc.tile.ma.miners_torch=An un-collectable torch only to be placed by a Supremium Pickaxe with a Miner's Vision charm.
+
 # TOOLTIPS
 tooltip.ma.growth_accelerator=Grows plants above it faster.
 tooltip.ma.blast_resistant=Blast Resistant
@@ -799,6 +811,7 @@ tooltip.ma.jump_boost=Jump Boost
 tooltip.ma.fire_resistance=Fire Resistance
 tooltip.ma.antivenom=Antivenom
 tooltip.ma.attack_aoe=Attack AOE
+tooltip.ma.miners_vision=Miner's Vision
 tooltip.ma.unlimited=Unlimited
 
 tooltip.ma.empty=Empty
@@ -813,6 +826,7 @@ desc.ma.charm_resistance=Lowers damage taken by 20%.
 desc.ma.charm_strength=Increases your attack damage.
 desc.ma.charm_speed=Increases your movement speed.
 desc.ma.charm_jump=Increases your jump height.
+desc.ma.charm_miners_vision=Allows your tool to place unlimited light sources.
 desc.ma.charm_mining_aoe=Increases your tool's mining radius to 3x3.
 desc.ma.charm_attack_aoe=Increases your sword's attack radius to 5x5.
 desc.ma.charm_tilling_aoe=Increases your hoe's tilling radius to 7x7.

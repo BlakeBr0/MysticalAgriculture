@@ -106,6 +106,8 @@ public class ModBlocks {
 	public static BlockInferiumCrop blockTier3InferiumCrop = new BlockInferiumCrop("tier3_inferium_crop", 3);
 	public static BlockInferiumCrop blockTier4InferiumCrop = new BlockInferiumCrop("tier4_inferium_crop", 4);
 	public static BlockInferiumCrop blockTier5InferiumCrop = new BlockInferiumCrop("tier5_inferium_crop", 5);
+	
+	public static BlockMinersTorch blockMinersTorch = new BlockMinersTorch();
 		
 	public static void initBlocks(){
 								
@@ -196,6 +198,10 @@ public class ModBlocks {
 				registerBlock(type.getPlant());
 			}
 		}
+		
+		if(ModConfig.confGearModuleOverride){
+			registerBlock(blockMinersTorch);
+		}
 	}
 	
 	@SideOnly(Side.CLIENT)
@@ -282,6 +288,10 @@ public class ModBlocks {
 				registerModel(type.getPlant());
 			}
 		}
+		
+		if(ModConfig.confGearModuleOverride){
+			registerModel(blockMinersTorch);
+		}
 	}
 	
 	public static void registerBlock(Block block){
@@ -330,6 +340,7 @@ public class ModBlocks {
 		if(ModConfig.confSeedReprocessor){
 			addJEIDescription(blockSeedReprocessor);
 		}
+		addJEIDescription(blockMinersTorch);
 	}
 	
 	public static void addJEIDescription(Block block){
