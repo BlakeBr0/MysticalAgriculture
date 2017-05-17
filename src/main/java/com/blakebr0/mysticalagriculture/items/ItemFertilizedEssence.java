@@ -5,6 +5,7 @@ import java.util.List;
 import com.blakebr0.mysticalagriculture.blocks.crop.BlockMysticalCrop;
 import com.blakebr0.mysticalagriculture.blocks.crop.BlockInferiumCrop;
 import com.blakebr0.mysticalagriculture.config.ModConfig;
+import com.blakebr0.mysticalagriculture.lib.Colors;
 import com.blakebr0.mysticalagriculture.lib.Tooltips;
 
 import net.minecraft.block.Block;
@@ -33,7 +34,7 @@ public class ItemFertilizedEssence extends ItemBase {
 	public void addInformation(ItemStack stack, EntityPlayer player, List tooltip, boolean advanced){
 		tooltip.add(Tooltips.FERTILIZED_ESSENCE);
 		int chance = ModConfig.confFertilizedEssenceChance;
-		if(ModConfig.confFertilizedEssenceChance > 0){ tooltip.add(Tooltips.DROP_CHANCE + "\u00A7d" + chance + "%"); }
+		if(ModConfig.confFertilizedEssenceChance > 0){ tooltip.add(Tooltips.DROP_CHANCE + Colors.LIGHT_PURPLE + chance + "%"); }
 	}
 	
     public static boolean applyFertilizer(ItemStack stack, World worldIn, BlockPos target, EntityPlayer player){

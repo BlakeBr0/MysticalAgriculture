@@ -6,6 +6,7 @@ import javax.annotation.Nullable;
 
 import com.blakebr0.mysticalagriculture.MysticalAgriculture;
 import com.blakebr0.mysticalagriculture.config.ModConfig;
+import com.blakebr0.mysticalagriculture.lib.Colors;
 import com.blakebr0.mysticalagriculture.lib.Tooltips;
 
 import net.minecraft.entity.EntityLivingBase;
@@ -48,6 +49,6 @@ public class ItemCoreRemover extends ItemBase {
     @SideOnly(Side.CLIENT)
     public void addInformation(ItemStack stack, EntityPlayer player, List tooltip, boolean advanced){
     	int damage = stack.getMaxDamage() - stack.getItemDamage() + 1;
-    	tooltip.add(Tooltips.USES_LEFT + "\u00A7c" + damage);
+    	tooltip.add(Tooltips.USES_LEFT + Colors.RED + damage);
     }
 }

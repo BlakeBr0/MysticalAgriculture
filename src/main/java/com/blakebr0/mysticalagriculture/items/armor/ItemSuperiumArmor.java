@@ -37,11 +37,11 @@ public class ItemSuperiumArmor extends ItemArmor {
 	}
 		
 	@Override
-	@SideOnly(Side.CLIENT) // TODO: localize
+	@SideOnly(Side.CLIENT)
 	public void addInformation(ItemStack stack, EntityPlayer player, List tooltip, boolean advanced){
 		int damage = stack.getMaxDamage() - stack.getItemDamage();
 		tooltip.add(Tooltips.DURABILITY + Colors.AQUA + damage);
-		if(ModConfig.confSetBonuses){ tooltip.add(Tooltips.SET_BONUS + "\u00A7bNo Fall Damage"); }
+		if(ModConfig.confSetBonuses){ tooltip.add(Tooltips.SET_BONUS + Colors.AQUA + Tooltips.NO_FALL_DAMAGE); }
 	}
 
 	@Override

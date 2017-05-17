@@ -14,6 +14,7 @@ public class Tooltips {
 	public static final String FERTILIZED_ESSENCE = Utils.localize("tooltip.ma.fertilized_essence");
 	public static final String MYSTICAL_FERTILIZER = Utils.localize("tooltip.ma.mystical_fertilizer");
 	public static final String CORE_REMOVAL = Utils.localize("tooltip.ma.core_removal");
+	public static final String SOULIUM_DAGGER = Utils.localize("tooltip.ma.soulium_dagger");
 	
 	public static final String INFERIUM = Colors.YELLOW + Utils.localize("tooltip.ma.inferium");
 	public static final String PRUDENTIUM = Colors.GREEN + Utils.localize("tooltip.ma.prudentium");
@@ -45,11 +46,16 @@ public class Tooltips {
 	public static final String RANGE = Utils.localize("tooltip.ma.range") + SEMICOLON;
 	public static final String USES_LEFT = Utils.localize("tooltip.ma.uses_left") + SEMICOLON;
 	public static final String DAMAGE = Utils.localize("tooltip.ma.damage") + SEMICOLON;
+	public static final String DRAW_SPEED = Utils.localize("tooltip.ma.draw_speed") + SEMICOLON;
+	public static final String EFFICIENCY = Utils.localize("tooltip.ma.efficiency") + SEMICOLON;
 	public static final String APPLICABLE_TO = Colors.YELLOW + Utils.localize("tooltip.ma.applicable_to") + SEMICOLON;
 	public static final String DESCRIPTION = Colors.YELLOW + Utils.localize("tooltip.ma.description") + SEMICOLON;
-	// TODO: lol.
-	public static final String HOLD_SHIFT_FOR_INFO = Utils.localize("tooltip.ma.hold") + " " + Colors.YELLOW + Colors.ITALICS + Utils.localize("tooltip.ma.shift") + " " + Colors.RESET + Colors.GRAY + Utils.localize("tooltip.ma.for_info");
 	
+	public static final String HOLD_SHIFT_FOR_INFO = Utils.localize("tooltip.ma.hold_shift_for_info");
+	
+	public static final String WATER_BREATHING = Utils.localize("tooltip.ma.water_breathing");
+	public static final String STEP_ASSIST = Utils.localize("tooltip.ma.step_assist");
+	public static final String NO_FALL_DAMAGE = Utils.localize("tooltip.ma.no_fall_damage");
 	public static final String FLIGHT = Utils.localize("tooltip.ma.flight");
 	public static final String WITHER_RESISTANCE = Utils.localize("tooltip.ma.wither_resistance");
 	public static final String STRENGTH_YES = Utils.localize("tooltip.ma.strength");
@@ -60,9 +66,12 @@ public class Tooltips {
 	public static final String FIRE_RESISTANCE = Utils.localize("tooltip.ma.fire_resistance");
 	public static final String ANTIVENOM = Utils.localize("tooltip.ma.antivenom");
 	public static final String ABSORPTION_YES = Utils.localize("tooltip.ma.absorption");
+	public static final String MINING_AOE = Utils.localize("tooltip.ma.mining_aoe");
 	public static final String ATTACK_AOE = Utils.localize("tooltip.ma.attack_aoe");
+	public static final String TILLING_AOE = Utils.localize("tooltip.ma.tilling_aoe");
 	public static final String MINERS_VISION = Utils.localize("tooltip.ma.miners_vision");
 	public static final String UNLIMITED = Utils.localize("tooltip.ma.unlimited");
 	
+	public static final String CRAFTABLE = Colors.ITALICS + Utils.localize("tooltip.ma.craftable");
 	public static final String EMPTY = Colors.ITALICS + Utils.localize("tooltip.ma.empty");
 }

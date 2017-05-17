@@ -19,7 +19,6 @@ public class CropType {
 		}
 	}
 	
-	// TODO: do a better job with config options for fuck sake
 	public static enum Type implements IStringSerializable {
 		
 		STONE("stone", ModConfig.confStoneTier, ModConfig.confStoneSeeds),

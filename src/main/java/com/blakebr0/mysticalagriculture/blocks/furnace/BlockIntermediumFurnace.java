@@ -6,6 +6,8 @@ import javax.annotation.Nullable;
 
 import com.blakebr0.mysticalagriculture.MysticalAgriculture;
 import com.blakebr0.mysticalagriculture.blocks.ModBlocks;
+import com.blakebr0.mysticalagriculture.lib.Colors;
+import com.blakebr0.mysticalagriculture.lib.Tooltips;
 import com.blakebr0.mysticalagriculture.tileentity.TileEntityIntermediumFurnace;
 
 import net.minecraft.block.BlockContainer;
@@ -57,8 +59,7 @@ public class BlockIntermediumFurnace extends BlockContainer {
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void addInformation(ItemStack stack, EntityPlayer player, List tooltip, boolean advanced){
-		tooltip.add("Efficiency: \u00A76+60%");
-		super.addInformation(stack, player, tooltip, advanced);
+		tooltip.add(Tooltips.EFFICIENCY + Colors.GOLD + "+60%");
 	}
 
     @Nullable

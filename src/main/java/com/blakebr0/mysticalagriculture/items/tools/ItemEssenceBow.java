@@ -6,6 +6,8 @@ import javax.annotation.Nullable;
 
 import com.blakebr0.mysticalagriculture.MysticalAgriculture;
 import com.blakebr0.mysticalagriculture.items.ModItems;
+import com.blakebr0.mysticalagriculture.lib.Colors;
+import com.blakebr0.mysticalagriculture.lib.Tooltips;
 
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.EntityLivingBase;
@@ -69,14 +71,14 @@ public class ItemEssenceBow extends ItemBow {
 	}
 	
 	@Override
-	@SideOnly(Side.CLIENT) // TODO: localize
+	@SideOnly(Side.CLIENT)
 	public void addInformation(ItemStack stack, EntityPlayer player, List tooltip, boolean advanced){
 		int damage = stack.getMaxDamage() - stack.getItemDamage();
-		tooltip.add("Durability: " + color + (damage > -1 ? damage : "Unlimited"));
-		tooltip.add("Damage: " + color + "+" + this.damage);
-		tooltip.add("Draw Speed: " + color +  "+" + (int)(this.drawSpeed * 100) + "%");
+		tooltip.add(Tooltips.DURABILITY + color + (damage > -1 ? damage : Tooltips.UNLIMITED));
+		tooltip.add(Tooltips.DAMAGE + color + "+" + this.damage);
+		tooltip.add(Tooltips.DRAW_SPEED + color +  "+" + (int)(this.drawSpeed * 100) + "%");
 		if(repairMaterial == ModItems.itemSupremiumIngot){
-			tooltip.add("Charm Slot: \u00A7c\u00A7oEmpty");
+			tooltip.add(Tooltips.CHARM_SLOT + Colors.RED + Tooltips.EMPTY);
 		}
 	}
 	

@@ -35,11 +35,11 @@ public class ItemIntermediumArmor extends ItemArmor {
 	}
 		
 	@Override
-	@SideOnly(Side.CLIENT) // TODO: localize
+	@SideOnly(Side.CLIENT)
 	public void addInformation(ItemStack stack, EntityPlayer player, List tooltip, boolean advanced){
 		int damage = stack.getMaxDamage() - stack.getItemDamage();
 		tooltip.add(Tooltips.DURABILITY + Colors.GOLD + damage);
-		if(ModConfig.confSetBonuses){ tooltip.add(Tooltips.SET_BONUS + "\u00A76Step Assist"); }
+		if(ModConfig.confSetBonuses){ tooltip.add(Tooltips.SET_BONUS + Colors.GOLD + Tooltips.STEP_ASSIST); }
 	}
 
 	@Override

@@ -7,6 +7,8 @@ import com.blakebr0.mysticalagriculture.MysticalAgriculture;
 import com.blakebr0.mysticalagriculture.config.ModConfig;
 import com.blakebr0.mysticalagriculture.items.ModItems;
 import com.blakebr0.mysticalagriculture.items.tools.ItemEssenceShovel;
+import com.blakebr0.mysticalagriculture.lib.Colors;
+import com.blakebr0.mysticalagriculture.lib.Tooltips;
 import com.blakebr0.mysticalagriculture.util.ToolTools;
 
 import net.minecraft.block.Block;
@@ -34,10 +36,10 @@ public class ItemShovelAOE extends ItemEssenceShovel {
 	}
     
 	@Override
-	@SideOnly(Side.CLIENT) // TODO: localize
+	@SideOnly(Side.CLIENT)
 	public void addInformation(ItemStack stack, EntityPlayer player, List tooltip, boolean advanced){
-		tooltip.add("Durability: \u00A7cUnlimited");
-		tooltip.add("Charm Slot: \u00A7cMining AOE");
+		tooltip.add(Tooltips.DURABILITY + Colors.RED + Tooltips.UNLIMITED);
+		tooltip.add(Tooltips.CHARM_SLOT + Colors.RED + Tooltips.MINING_AOE);
 	}
 	
 	@Override

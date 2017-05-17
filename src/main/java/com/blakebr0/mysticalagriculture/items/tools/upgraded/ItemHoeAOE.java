@@ -5,6 +5,7 @@ import java.util.List;
 import com.blakebr0.mysticalagriculture.config.ModConfig;
 import com.blakebr0.mysticalagriculture.items.ModItems;
 import com.blakebr0.mysticalagriculture.items.tools.ItemSupremiumHoe;
+import com.blakebr0.mysticalagriculture.lib.Colors;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.player.EntityPlayer;
@@ -40,7 +41,7 @@ public class ItemHoeAOE extends ItemSupremiumHoe {
 	@SideOnly(Side.CLIENT) // TODO: localize
 	public void addInformation(ItemStack stack, EntityPlayer player, List tooltip, boolean advanced){
 		int range = this.range * 2 + 1;
-		tooltip.add("Hold " + Minecraft.getMinecraft().gameSettings.keyBindSneak.getDisplayName() +  " for \u00A7c" + range + "x" + range + "\u00A77.");
+		tooltip.add("Hold " + Minecraft.getMinecraft().gameSettings.keyBindSneak.getDisplayName() +  " for " + Colors.RED + range + "x" + range + Colors.GRAY + ".");
 		tooltip.add("Durability: \u00A7cUnlimited");
 		tooltip.add("Charm Slot: \u00A7cTilling AOE");
 	}

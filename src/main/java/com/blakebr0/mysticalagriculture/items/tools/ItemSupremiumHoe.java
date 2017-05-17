@@ -42,7 +42,7 @@ public class ItemSupremiumHoe extends ItemEssenceHoe {
 	@SideOnly(Side.CLIENT) // TODO: localize
 	public void addInformation(ItemStack stack, EntityPlayer player, List tooltip, boolean advanced){
 		int range = this.range + 2;
-		if(isSneakAbilityEnabled()){ tooltip.add("Hold " + Minecraft.getMinecraft().gameSettings.keyBindSneak.getDisplayName() +  " for \u00A7c" + range + "x" + range + "\u00A77."); }
+		if(isSneakAbilityEnabled()){ tooltip.add("Hold " + Minecraft.getMinecraft().gameSettings.keyBindSneak.getDisplayName() +  " for " + Colors.RED + range + "x" + range + Colors.GRAY + "."); }
 		tooltip.add(Tooltips.DURABILITY + Colors.RED + Tooltips.UNLIMITED);
 		tooltip.add(Tooltips.CHARM_SLOT + Colors.RED + Tooltips.EMPTY);
 	}
