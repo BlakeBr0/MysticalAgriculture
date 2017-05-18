@@ -8,12 +8,16 @@ import com.blakebr0.mysticalagriculture.lib.Colors;
 import com.blakebr0.mysticalagriculture.lib.Tooltips;
 import com.blakebr0.mysticalagriculture.util.ToolTools;
 import com.blakebr0.mysticalagriculture.util.Utils;
+import com.google.common.collect.Multimap;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.entity.SharedMonsterAttributes;
+import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
+import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Item.ToolMaterial;
@@ -43,7 +47,7 @@ public class ItemEssenceSickle extends Item {
 		this.repairMaterial = repairMaterial;
 		this.color = color;
 	}
-	
+		
 	@Override
     public float getStrVsBlock(ItemStack stack, IBlockState state){
         return (state.getMaterial() == Material.LEAVES || state.getMaterial() == Material.PLANTS || state.getMaterial() == Material.VINE) ? (this.toolMaterial.getEfficiencyOnProperMaterial() / 2) : super.getStrVsBlock(stack, state);
@@ -122,5 +126,17 @@ public class ItemEssenceSickle extends Item {
         	return ToolTools.breakBlocksAOE(stack, world, player, pos);
         }
         return false;
+    }
+    
+    @Override
+    public Multimap<String, AttributeModifier> getItemAttributeModifiers(EntityEquipmentSlot equipmentSlot){
+        Multimap<String, AttributeModifier> multimap = super.getItemAttributeModifiers(equipmentSlot);
+
+        if(equipmentSlot == EntityEquipmentSlot.MAINHAND){
+            multimap.put(SharedMonsterAttributes.ATTACK_DAMAGE.getAttributeUnlocalizedName(), new AttributeModifier(ATTACK_DAMAGE_MODIFIER, "Weapon modifier", (double)this.toolMaterial.getDamageVsEntity(), 0));
+            multimap.put(SharedMonsterAttributes.ATTACK_SPEED.getAttributeUnlocalizedName(), new AttributeModifier(ATTACK_SPEED_MODIFIER, "Weapon modifier", -2.5D, 0));
+        }
+
+        return multimap;
     }
 }

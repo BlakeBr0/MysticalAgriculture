@@ -711,6 +711,8 @@ item.ma.supremium_axe_aoe.name=§cSupremium Axe
 
 item.ma.supremium_hoe_aoe.name=§cSupremium Hoe
 
+item.ma.supremium_shears_rainbow.name=§cSupremium Shears
+
 item.ma.supremium_sickle_aoe.name=§cSupremium Sickle
 
 # ARMOR
@@ -818,6 +820,7 @@ tooltip.ma.fire_resistance=Fire Resistance
 tooltip.ma.antivenom=Antivenom
 tooltip.ma.absorption=Absorption
 tooltip.ma.miners_vision=Miner's Vision
+tooltip.ma.rainbow=Rainbow
 tooltip.ma.attack_aoe=Attack AOE
 tooltip.ma.mining_aoe=Mining AOE
 tooltip.ma.tilling_aoe=Tilling AOE

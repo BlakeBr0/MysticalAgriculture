@@ -58,7 +58,7 @@ public class ItemSwordAOE extends ItemEssenceSword {
                 }
             }
 
-            player.worldObj.playSound(null, player.posX, player.posY, player.posZ, SoundEvents.ENTITY_PLAYER_ATTACK_SWEEP, player.getSoundCategory(), 1.0F, 1.0F);
+            player.getEntityWorld().playSound(null, player.posX, player.posY, player.posZ, SoundEvents.ENTITY_PLAYER_ATTACK_SWEEP, player.getSoundCategory(), 1.0F, 1.0F);
             player.spawnSweepParticles();
     	}
     	return super.onLeftClickEntity(stack, player, entity);

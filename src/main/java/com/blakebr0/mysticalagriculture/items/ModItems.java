@@ -44,6 +44,7 @@ import com.blakebr0.mysticalagriculture.items.tools.upgraded.ItemAxeAOE;
 import com.blakebr0.mysticalagriculture.items.tools.upgraded.ItemHoeAOE;
 import com.blakebr0.mysticalagriculture.items.tools.upgraded.ItemPickaxeAOE;
 import com.blakebr0.mysticalagriculture.items.tools.upgraded.ItemPickaxeMinersVision;
+import com.blakebr0.mysticalagriculture.items.tools.upgraded.ItemShearsRainbow;
 import com.blakebr0.mysticalagriculture.items.tools.upgraded.ItemShovelAOE;
 import com.blakebr0.mysticalagriculture.items.tools.upgraded.ItemSickleAOE;
 import com.blakebr0.mysticalagriculture.items.tools.upgraded.ItemSwordAOE;
@@ -255,6 +256,8 @@ public class ModItems {
 	public static ItemAxeAOE itemSupremiumAxeAOE = new ItemAxeAOE("supremium_axe_aoe", ModToolMaterials.SUPREMIUM_AOE, ModItems.itemSupremiumIngot, 19.0F, TextFormatting.RED);
 	
 	public static ItemHoeAOE itemSupremiumHoeAOE = new ItemHoeAOE("supremium_hoe_aoe", ModToolMaterials.SUPREMIUM_AOE, 3, ModItems.itemSupremiumIngot, TextFormatting.RED);
+	
+	public static ItemShearsRainbow itemSupremiumShearsRainbow = new ItemShearsRainbow("supremium_shears_rainbow", ModToolMaterials.SUPREMIUM, ModItems.itemSupremiumIngot, TextFormatting.RED);
 	
 	public static ItemSickleAOE itemSupremiumSickleAOE = new ItemSickleAOE("supremium_sickle_aoe", 3, ModToolMaterials.SUPREMIUM_AOE, ModItems.itemSupremiumIngot, TextFormatting.RED);
 	
@@ -520,6 +523,8 @@ public class ModItems {
 			if(ModConfig.confAOECharms){ registerItem(itemSupremiumAxeAOE); }
 			
 			if(ModConfig.confAOECharms){ registerItem(itemSupremiumHoeAOE); }
+			
+			registerItem(itemSupremiumShearsRainbow);
 			
 			if(ModConfig.confAOECharms){ registerItem(itemSupremiumSickleAOE); }
 			
@@ -787,6 +792,8 @@ public class ModItems {
 			if(ModConfig.confAOECharms){ registerModel(itemSupremiumAxeAOE); }
 			
 			if(ModConfig.confAOECharms){ registerModel(itemSupremiumHoeAOE); }
+			
+			registerModel(itemSupremiumShearsRainbow);
 			
 			if(ModConfig.confAOECharms){ registerModel(itemSupremiumSickleAOE); }
 			

@@ -65,10 +65,10 @@ public class ItemPickaxeAOE extends ItemEssencePickaxe {
 	@Override
     public boolean onBlockStartBreak(ItemStack stack, BlockPos pos, EntityPlayer player){
         boolean blocks = false;
-            RayTraceResult ray = ToolTools.getBlockWithinReach(player.worldObj, player);
+            RayTraceResult ray = ToolTools.getBlockWithinReach(player.getEntityWorld(), player);
             if(ray != null){
                 int side = ray.sideHit.ordinal();
-                blocks = this.harvest(stack, 1, player.worldObj, pos, side, player);
+                blocks = this.harvest(stack, 1, player.getEntityWorld(), pos, side, player);
             }
         return blocks;
     }
