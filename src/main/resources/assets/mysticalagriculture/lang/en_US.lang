@@ -636,6 +636,7 @@ item.ma.charm_miners_vision.name=Charm: Miner's Vision
 item.ma.charm_mining_aoe.name=Charm: Mining AOE
 item.ma.charm_attack_aoe.name=Charm: Attack AOE
 item.ma.charm_tilling_aoe.name=Charm: Tilling AOE
+item.ma.charm_reaping_aoe.name=Charm: Reaping AOE
 
 item.ma.arrow_head_inferium.name=§eInferium Arrow Head
 item.ma.arrow_head_prudentium.name=§aPrudentium Arrow Head
@@ -710,6 +711,8 @@ item.ma.supremium_axe_aoe.name=§cSupremium Axe
 
 item.ma.supremium_hoe_aoe.name=§cSupremium Hoe
 
+item.ma.supremium_sickle_aoe.name=§cSupremium Sickle
+
 # ARMOR
 item.ma.inferium_helmet.name=§eInferium Helmet
 item.ma.inferium_chestplate.name=§eInferium Chestplate
@@ -765,7 +768,7 @@ item.ma.supremium_boots_fire.name=§cSupremium Boots
 item.ma.supremium_boots_resistance.name=§cSupremium Boots
 
 # JEI DESCRIPTIONS
-desc.tile.ma.miners_torch=An un-collectable torch only to be placed by a Supremium Pickaxe with a Miner's Vision charm.
+desc.tile.ma.miners_torch=An un-collectable torch that can only be placed by a Supremium Pickaxe with a Miner's Vision charm.
 
 # TOOLTIPS
 tooltip.ma.growth_accelerator=Grows plants above it faster.
@@ -813,8 +816,12 @@ tooltip.ma.night_vision=Night Vision
 tooltip.ma.jump_boost=Jump Boost
 tooltip.ma.fire_resistance=Fire Resistance
 tooltip.ma.antivenom=Antivenom
-tooltip.ma.attack_aoe=Attack AOE
+tooltip.ma.absorption=Absorption
 tooltip.ma.miners_vision=Miner's Vision
+tooltip.ma.attack_aoe=Attack AOE
+tooltip.ma.mining_aoe=Mining AOE
+tooltip.ma.tilling_aoe=Tilling AOE
+tooltip.ma.reaping_aoe=Reaping AOE
 tooltip.ma.unlimited=Unlimited
 
 tooltip.ma.craftable=Craftable
@@ -834,3 +841,4 @@ desc.ma.charm_miners_vision=Allows your tool to place unlimited light sources.
 desc.ma.charm_mining_aoe=Increases your tool's mining radius to 3x3.
 desc.ma.charm_attack_aoe=Increases your sword's attack radius to 5x5.
 desc.ma.charm_tilling_aoe=Increases your hoe's tilling radius to 7x7.
+desc.ma.charm_reaping_aoe=Increases your sickle's reaping radius to 7x7.

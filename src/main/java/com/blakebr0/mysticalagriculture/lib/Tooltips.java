@@ -66,10 +66,11 @@ public class Tooltips {
 	public static final String FIRE_RESISTANCE = Utils.localize("tooltip.ma.fire_resistance");
 	public static final String ANTIVENOM = Utils.localize("tooltip.ma.antivenom");
 	public static final String ABSORPTION_YES = Utils.localize("tooltip.ma.absorption");
+	public static final String MINERS_VISION = Utils.localize("tooltip.ma.miners_vision");
 	public static final String MINING_AOE = Utils.localize("tooltip.ma.mining_aoe");
 	public static final String ATTACK_AOE = Utils.localize("tooltip.ma.attack_aoe");
 	public static final String TILLING_AOE = Utils.localize("tooltip.ma.tilling_aoe");
-	public static final String MINERS_VISION = Utils.localize("tooltip.ma.miners_vision");
+	public static final String REAPING_AOE = Utils.localize("tooltip.ma.reaping_aoe");
 	public static final String UNLIMITED = Utils.localize("tooltip.ma.unlimited");
 	
 	public static final String CRAFTABLE = Colors.ITALICS + Utils.localize("tooltip.ma.craftable");

@@ -45,6 +45,7 @@ import com.blakebr0.mysticalagriculture.items.tools.upgraded.ItemHoeAOE;
 import com.blakebr0.mysticalagriculture.items.tools.upgraded.ItemPickaxeAOE;
 import com.blakebr0.mysticalagriculture.items.tools.upgraded.ItemPickaxeMinersVision;
 import com.blakebr0.mysticalagriculture.items.tools.upgraded.ItemShovelAOE;
+import com.blakebr0.mysticalagriculture.items.tools.upgraded.ItemSickleAOE;
 import com.blakebr0.mysticalagriculture.items.tools.upgraded.ItemSwordAOE;
 import com.blakebr0.mysticalagriculture.items.tools.upgraded.ItemSwordStrength;
 import com.blakebr0.mysticalagriculture.lib.CropType;
@@ -185,6 +186,7 @@ public class ModItems {
 	public static ItemCharm itemCharmMiningAOE = new ItemCharm("charm_mining_aoe", "desc.ma.charm_mining_aoe", new Applicable[]{ Applicable.PICKAXE, Applicable.SHOVEL, Applicable.AXE });
 	public static ItemCharm itemCharmAttackAOE = new ItemCharm("charm_attack_aoe", "desc.ma.charm_attack_aoe", new Applicable[]{ Applicable.SWORD });
 	public static ItemCharm itemCharmTillingAOE = new ItemCharm("charm_tilling_aoe", "desc.ma.charm_tilling_aoe", new Applicable[]{ Applicable.HOE });
+	public static ItemCharm itemCharmReapingAOE = new ItemCharm("charm_reaping_aoe", "desc.ma.charm_reaping_aoe", new Applicable[]{ Applicable.SICKLE });
 	
 	public static ItemArrowHead itemArrowHead = new ItemArrowHead();
 	
@@ -253,6 +255,8 @@ public class ModItems {
 	public static ItemAxeAOE itemSupremiumAxeAOE = new ItemAxeAOE("supremium_axe_aoe", ModToolMaterials.SUPREMIUM_AOE, ModItems.itemSupremiumIngot, 19.0F, TextFormatting.RED);
 	
 	public static ItemHoeAOE itemSupremiumHoeAOE = new ItemHoeAOE("supremium_hoe_aoe", ModToolMaterials.SUPREMIUM_AOE, 3, ModItems.itemSupremiumIngot, TextFormatting.RED);
+	
+	public static ItemSickleAOE itemSupremiumSickleAOE = new ItemSickleAOE("supremium_sickle_aoe", 3, ModToolMaterials.SUPREMIUM_AOE, ModItems.itemSupremiumIngot, TextFormatting.RED);
 	
 	public static ItemInferiumArmor itemInferiumHelmet = new ItemInferiumArmor("inferium_helmet", ModToolMaterials.INFERIUM_ARMOR, 0, EntityEquipmentSlot.HEAD);
 	public static ItemInferiumArmor itemInferiumChestplate = new ItemInferiumArmor("inferium_chestplate", ModToolMaterials.INFERIUM_ARMOR, 0, EntityEquipmentSlot.CHEST);
@@ -446,6 +450,7 @@ public class ModItems {
 				registerItem(itemCharmMiningAOE);
 				registerItem(itemCharmAttackAOE);
 				registerItem(itemCharmTillingAOE);
+				registerItem(itemCharmReapingAOE);
 			}
 			
 			itemArrowHead.init();
@@ -515,6 +520,8 @@ public class ModItems {
 			if(ModConfig.confAOECharms){ registerItem(itemSupremiumAxeAOE); }
 			
 			if(ModConfig.confAOECharms){ registerItem(itemSupremiumHoeAOE); }
+			
+			if(ModConfig.confAOECharms){ registerItem(itemSupremiumSickleAOE); }
 			
 	        registerItem(itemInferiumHelmet);
 	        registerItem(itemInferiumChestplate);
@@ -710,6 +717,7 @@ public class ModItems {
 				registerModel(itemCharmMiningAOE);
 				registerModel(itemCharmAttackAOE);
 				registerModel(itemCharmTillingAOE);
+				registerModel(itemCharmReapingAOE);
 			}
 			
 			itemArrowHead.initModels();
@@ -779,6 +787,8 @@ public class ModItems {
 			if(ModConfig.confAOECharms){ registerModel(itemSupremiumAxeAOE); }
 			
 			if(ModConfig.confAOECharms){ registerModel(itemSupremiumHoeAOE); }
+			
+			if(ModConfig.confAOECharms){ registerModel(itemSupremiumSickleAOE); }
 			
 	        registerModel(itemInferiumHelmet);
 	        registerModel(itemInferiumChestplate);

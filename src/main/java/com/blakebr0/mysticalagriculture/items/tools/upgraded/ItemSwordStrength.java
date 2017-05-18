@@ -45,7 +45,7 @@ public class ItemSwordStrength extends ItemEssenceSword {
 			tooltip.add(Tooltips.CHARM_SLOT + Colors.RED + Tooltips.STRENGTH_YES);
 		}
 		if(stack.getItem() == ModItems.itemSupremiumSwordStrength2){
-			tooltip.add(Tooltips.CHARM_SLOT + Colors.RED + Tooltips.STRENGTH_YES + " II");
+			tooltip.add(Tooltips.CHARM_SLOT + Colors.RED + Tooltips.STRENGTH_YES + Colors.RED + " II");
 		}
 	}
 }

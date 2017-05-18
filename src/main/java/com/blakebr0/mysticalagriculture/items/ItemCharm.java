@@ -37,7 +37,7 @@ public class ItemCharm extends ItemBase {
 		}
 	}
 	
-	public enum Applicable {
+	public enum Applicable { // TODO: localize
 		
 		HELMET("- \u00A7cHelmet"),
 		CHESTPLATE("- \u00A7cChestplate"),
@@ -48,8 +48,10 @@ public class ItemCharm extends ItemBase {
 		PICKAXE("- \u00A7cPickaxe"),
 		SHOVEL("- \u00A7cShovel"),
 		AXE("- \u00A7cAxe"),
-		HOE("- \u00A7cHoe");
-				
+		HOE("- \u00A7cHoe"),
+		SHEARS("- \u00A7cShears"),
+		SICKLE("- \u00A7cSickle");
+		
 		private final String desc;
 		
 		Applicable(String desc){
