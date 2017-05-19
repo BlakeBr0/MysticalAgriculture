@@ -44,6 +44,7 @@ import com.blakebr0.mysticalagriculture.items.tools.upgraded.ItemAxeAOE;
 import com.blakebr0.mysticalagriculture.items.tools.upgraded.ItemHoeAOE;
 import com.blakebr0.mysticalagriculture.items.tools.upgraded.ItemPickaxeAOE;
 import com.blakebr0.mysticalagriculture.items.tools.upgraded.ItemPickaxeMinersVision;
+import com.blakebr0.mysticalagriculture.items.tools.upgraded.ItemShearsAOE;
 import com.blakebr0.mysticalagriculture.items.tools.upgraded.ItemShearsRainbow;
 import com.blakebr0.mysticalagriculture.items.tools.upgraded.ItemShovelAOE;
 import com.blakebr0.mysticalagriculture.items.tools.upgraded.ItemSickleAOE;
@@ -184,9 +185,11 @@ public class ModItems {
 	public static ItemCharm itemCharmSpeed = new ItemCharm("charm_speed", "desc.ma.charm_speed", new Applicable[]{ Applicable.LEGGINGS });
 	public static ItemCharm itemCharmJump = new ItemCharm("charm_jump", "desc.ma.charm_jump", new Applicable[]{ Applicable.BOOTS });
 	public static ItemCharm itemCharmMinersVision = new ItemCharm("charm_miners_vision", "desc.ma.charm_miners_vision", new Applicable[]{ Applicable.PICKAXE });
+	public static ItemCharm itemCharmRainbow = new ItemCharm("charm_rainbow", "desc.ma.charm_rainbow", new Applicable[]{ Applicable.SHEARS });
 	public static ItemCharm itemCharmMiningAOE = new ItemCharm("charm_mining_aoe", "desc.ma.charm_mining_aoe", new Applicable[]{ Applicable.PICKAXE, Applicable.SHOVEL, Applicable.AXE });
 	public static ItemCharm itemCharmAttackAOE = new ItemCharm("charm_attack_aoe", "desc.ma.charm_attack_aoe", new Applicable[]{ Applicable.SWORD });
 	public static ItemCharm itemCharmTillingAOE = new ItemCharm("charm_tilling_aoe", "desc.ma.charm_tilling_aoe", new Applicable[]{ Applicable.HOE });
+	public static ItemCharm itemCharmShearingAOE = new ItemCharm("charm_shearing_aoe", "desc.ma.charm_shearing_aoe", new Applicable[]{ Applicable.SHEARS });
 	public static ItemCharm itemCharmReapingAOE = new ItemCharm("charm_reaping_aoe", "desc.ma.charm_reaping_aoe", new Applicable[]{ Applicable.SICKLE });
 	
 	public static ItemArrowHead itemArrowHead = new ItemArrowHead();
@@ -258,6 +261,8 @@ public class ModItems {
 	public static ItemHoeAOE itemSupremiumHoeAOE = new ItemHoeAOE("supremium_hoe_aoe", ModToolMaterials.SUPREMIUM_AOE, 3, ModItems.itemSupremiumIngot, TextFormatting.RED);
 	
 	public static ItemShearsRainbow itemSupremiumShearsRainbow = new ItemShearsRainbow("supremium_shears_rainbow", ModToolMaterials.SUPREMIUM, ModItems.itemSupremiumIngot, TextFormatting.RED);
+	
+	public static ItemShearsAOE itemSupremiumShearsAOE = new ItemShearsAOE("supremium_shears_aoe", ModToolMaterials.SUPREMIUM_AOE, ModItems.itemSupremiumIngot, TextFormatting.RED);
 	
 	public static ItemSickleAOE itemSupremiumSickleAOE = new ItemSickleAOE("supremium_sickle_aoe", 3, ModToolMaterials.SUPREMIUM_AOE, ModItems.itemSupremiumIngot, TextFormatting.RED);
 	
@@ -449,10 +454,12 @@ public class ModItems {
 			registerItem(itemCharmSpeed);
 			registerItem(itemCharmJump);
 			registerItem(itemCharmMinersVision);
+			registerItem(itemCharmRainbow);
 			if(ModConfig.confAOECharms){
 				registerItem(itemCharmMiningAOE);
 				registerItem(itemCharmAttackAOE);
 				registerItem(itemCharmTillingAOE);
+				registerItem(itemCharmShearingAOE);
 				registerItem(itemCharmReapingAOE);
 			}
 			
@@ -525,6 +532,8 @@ public class ModItems {
 			if(ModConfig.confAOECharms){ registerItem(itemSupremiumHoeAOE); }
 			
 			registerItem(itemSupremiumShearsRainbow);
+			
+			if(ModConfig.confAOECharms){ registerItem(itemSupremiumShearsAOE); }
 			
 			if(ModConfig.confAOECharms){ registerItem(itemSupremiumSickleAOE); }
 			
@@ -718,10 +727,12 @@ public class ModItems {
 			registerModel(itemCharmSpeed);
 			registerModel(itemCharmJump);
 			registerModel(itemCharmMinersVision);
+			registerModel(itemCharmRainbow);
 			if(ModConfig.confAOECharms){
 				registerModel(itemCharmMiningAOE);
 				registerModel(itemCharmAttackAOE);
 				registerModel(itemCharmTillingAOE);
+				registerModel(itemCharmShearingAOE);
 				registerModel(itemCharmReapingAOE);
 			}
 			
@@ -794,6 +805,8 @@ public class ModItems {
 			if(ModConfig.confAOECharms){ registerModel(itemSupremiumHoeAOE); }
 			
 			registerModel(itemSupremiumShearsRainbow);
+			
+			if(ModConfig.confAOECharms){ registerModel(itemSupremiumShearsAOE); }
 			
 			if(ModConfig.confAOECharms){ registerModel(itemSupremiumSickleAOE); }
 			

@@ -71,7 +71,9 @@ public class Tooltips {
 	public static final String MINING_AOE = Utils.localize("tooltip.ma.mining_aoe");
 	public static final String ATTACK_AOE = Utils.localize("tooltip.ma.attack_aoe");
 	public static final String TILLING_AOE = Utils.localize("tooltip.ma.tilling_aoe");
+	public static final String SHEARING_AOE = Utils.localize("tooltip.ma.shearing_aoe");
 	public static final String REAPING_AOE = Utils.localize("tooltip.ma.reaping_aoe");
+	
 	public static final String UNLIMITED = Utils.localize("tooltip.ma.unlimited");
 	
 	public static final String CRAFTABLE = Colors.ITALICS + Utils.localize("tooltip.ma.craftable");
