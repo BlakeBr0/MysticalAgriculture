@@ -268,11 +268,11 @@ public class ModRecipes {
 		}
 		
 	    if(ModConfig.confWateringCans){
-	    	addShapedRecipe(ModItems.itemWateringCan.itemInferiumWateringCan, "ICX", "IWI", "XIX", 'I', ModItems.itemInferiumIngot, 'C', ModItems.itemCrafting.itemInferiumFertCore, 'W', ItemCrafting.itemTheoreticalWater);
-	    	addShapedRecipe(ModItems.itemWateringCan.itemPrudentiumWateringCan, "ICX", "IWI", "XIX", 'I', ModItems.itemPrudentiumIngot, 'C', ModItems.itemCrafting.itemPrudentiumFertCore, 'W', ItemCrafting.itemTheoreticalWater);
-	    	addShapedRecipe(ModItems.itemWateringCan.itemIntermediumWateringCan, "ICX", "IWI", "XIX", 'I', ModItems.itemIntermediumIngot, 'C', ModItems.itemCrafting.itemIntermediumFertCore, 'W', ItemCrafting.itemTheoreticalWater);
-	    	addShapedRecipe(ModItems.itemWateringCan.itemSuperiumWateringCan, "ICX", "IWI", "XIX", 'I', ModItems.itemSuperiumIngot, 'C', ModItems.itemCrafting.itemSuperiumFertCore, 'W', ItemCrafting.itemTheoreticalWater);
-	    	addShapedRecipe(ModItems.itemWateringCan.itemSupremiumWateringCan, "ICX", "IWI", "XIX", 'I', ModItems.itemSupremiumIngot, 'C', ModItems.itemCrafting.itemSupremiumFertCore, 'W', ItemCrafting.itemTheoreticalWater);
+	    	addShapedRecipe(ModItems.itemWateringCan.inferium, "ICX", "IWI", "XIX", 'I', ModItems.itemInferiumIngot, 'C', ModItems.itemCrafting.itemInferiumFertCore, 'W', ItemCrafting.itemTheoreticalWater);
+	    	addShapedRecipe(ModItems.itemWateringCan.prudentium, "ICX", "IWI", "XIX", 'I', ModItems.itemPrudentiumIngot, 'C', ModItems.itemCrafting.itemPrudentiumFertCore, 'W', ItemCrafting.itemTheoreticalWater);
+	    	addShapedRecipe(ModItems.itemWateringCan.intermedium, "ICX", "IWI", "XIX", 'I', ModItems.itemIntermediumIngot, 'C', ModItems.itemCrafting.itemIntermediumFertCore, 'W', ItemCrafting.itemTheoreticalWater);
+	    	addShapedRecipe(ModItems.itemWateringCan.superium, "ICX", "IWI", "XIX", 'I', ModItems.itemSuperiumIngot, 'C', ModItems.itemCrafting.itemSuperiumFertCore, 'W', ItemCrafting.itemTheoreticalWater);
+	    	addShapedRecipe(ModItems.itemWateringCan.supremium, "ICX", "IWI", "XIX", 'I', ModItems.itemSupremiumIngot, 'C', ModItems.itemCrafting.itemSupremiumFertCore, 'W', ItemCrafting.itemTheoreticalWater);
 	    }
 		
 		addShapedRecipe(new ItemStack(ModItems.itemBaseCraftingSeed, 1, 0), "XSX", "SWS", "XSX", 'S', new ItemStack(ModItems.itemProsperityShard, 1, 0), 'W', new ItemStack(Items.WHEAT_SEEDS, 1, 0));
@@ -636,11 +636,11 @@ public class ModRecipes {
 		    addShapedRecipe(new ItemStack(ModItems.itemSupremiumSickle, 1, 0), "XIX", "XXC", "SIX", 'I', new ItemStack(ModItems.itemSupremiumIngot, 1, 0), 'C', new ItemStack(ModItems.itemSupremiumToolCore, 1, 0), 'S', new ItemStack(ModItems.itemMysticalToolRod, 1, 0));
 
 			if(ModConfig.confWateringCans){
-				addShapelessRecipe(ItemCrafting.itemInferiumFertCore, ItemWateringCan.itemInferiumWateringCan, new ItemStack(ModItems.itemCoreRemover, 1, OreDictionary.WILDCARD_VALUE));
-				addShapelessRecipe(ItemCrafting.itemPrudentiumFertCore, ItemWateringCan.itemPrudentiumWateringCan, new ItemStack(ModItems.itemCoreRemover, 1, OreDictionary.WILDCARD_VALUE));
-				addShapelessRecipe(ItemCrafting.itemIntermediumFertCore, ItemWateringCan.itemIntermediumWateringCan, new ItemStack(ModItems.itemCoreRemover, 1, OreDictionary.WILDCARD_VALUE));
-				addShapelessRecipe(ItemCrafting.itemSuperiumFertCore, ItemWateringCan.itemSuperiumWateringCan, new ItemStack(ModItems.itemCoreRemover, 1, OreDictionary.WILDCARD_VALUE));
-				addShapelessRecipe(ItemCrafting.itemSupremiumFertCore, ItemWateringCan.itemSupremiumWateringCan, new ItemStack(ModItems.itemCoreRemover, 1, OreDictionary.WILDCARD_VALUE));
+				addShapelessRecipe(ItemCrafting.itemInferiumFertCore, ItemWateringCan.inferium, new ItemStack(ModItems.itemCoreRemover, 1, OreDictionary.WILDCARD_VALUE));
+				addShapelessRecipe(ItemCrafting.itemPrudentiumFertCore, ItemWateringCan.prudentium, new ItemStack(ModItems.itemCoreRemover, 1, OreDictionary.WILDCARD_VALUE));
+				addShapelessRecipe(ItemCrafting.itemIntermediumFertCore, ItemWateringCan.intermedium, new ItemStack(ModItems.itemCoreRemover, 1, OreDictionary.WILDCARD_VALUE));
+				addShapelessRecipe(ItemCrafting.itemSuperiumFertCore, ItemWateringCan.superium, new ItemStack(ModItems.itemCoreRemover, 1, OreDictionary.WILDCARD_VALUE));
+				addShapelessRecipe(ItemCrafting.itemSupremiumFertCore, ItemWateringCan.supremium, new ItemStack(ModItems.itemCoreRemover, 1, OreDictionary.WILDCARD_VALUE));
 			}
 		    
 			addShapelessRecipe(new ItemStack(ModItems.itemInferiumToolCore, 1, 0), new ItemStack(ModItems.itemInferiumSword, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(ModItems.itemCoreRemover, 1, OreDictionary.WILDCARD_VALUE));

@@ -32,11 +32,11 @@ public class ItemWateringCan extends ItemMeta {
 	private boolean water = false;
 	private long ticks;
 	
-	public static ItemStack itemInferiumWateringCan;
-	public static ItemStack itemPrudentiumWateringCan;
-	public static ItemStack itemIntermediumWateringCan;
-	public static ItemStack itemSuperiumWateringCan;
-	public static ItemStack itemSupremiumWateringCan;
+	public static ItemStack inferium;
+	public static ItemStack prudentium;
+	public static ItemStack intermedium;
+	public static ItemStack superium;
+	public static ItemStack supremium;
 	
 	public ItemWateringCan(){
 		super("watering_can");
@@ -47,11 +47,11 @@ public class ItemWateringCan extends ItemMeta {
 	public void init(){
 		GameRegistry.register(this);
 		
-		itemInferiumWateringCan = addItem(0, "inferium");
-		itemPrudentiumWateringCan = addItem(1, "prudentium");
-		itemIntermediumWateringCan = addItem(2, "intermedium");
-		itemSuperiumWateringCan = addItem(3, "superium");
-		itemSupremiumWateringCan = addItem(4, "supremium");
+		inferium = addItem(0, "inferium");
+		prudentium = addItem(1, "prudentium");
+		intermedium = addItem(2, "intermedium");
+		superium = addItem(3, "superium");
+		supremium = addItem(4, "supremium");
 	}
 
 	@Override

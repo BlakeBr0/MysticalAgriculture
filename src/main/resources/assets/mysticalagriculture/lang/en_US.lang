@@ -852,4 +852,4 @@ desc.ma.charm_mining_aoe=Increases your tool's mining radius to 3x3.
 desc.ma.charm_attack_aoe=Increases your sword's attack radius to 5x5.
 desc.ma.charm_tilling_aoe=Increases your hoe's tilling radius to 7x7.
 desc.ma.charm_shearing_aoe=Increases your shears' animal shearing radius to 5x5 and block shearing radius to 3x3x3.
-desc.ma.charm_reaping_aoe=Increases your sickle's reaping radius to 7x7.
+desc.ma.charm_reaping_aoe=Increases your sickle's reaping radius to 7x7x7.
