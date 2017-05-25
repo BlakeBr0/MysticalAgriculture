@@ -661,6 +661,7 @@ item.ma.inferium_hoe.name=§eInferium Hoe
 item.ma.inferium_shears.name=§eInferium Shears
 item.ma.inferium_bow.name=§eInferium Bow
 item.ma.inferium_sickle.name=§eInferium Sickle
+item.ma.inferium_scythe.name=§eInferium Scythe
 
 item.ma.prudentium_sword.name=§aPrudentium Sword
 item.ma.prudentium_pickaxe.name=§aPrudentium Pickaxe
@@ -670,6 +671,7 @@ item.ma.prudentium_hoe.name=§aPrudentium Hoe
 item.ma.prudentium_shears.name=§aPrudentium Shears
 item.ma.prudentium_bow.name=§aPrudentium Bow
 item.ma.prudentium_sickle.name=§aPrudentium Sickle
+item.ma.prudentium_scythe.name=§aPrudentium Scythe
 
 item.ma.intermedium_sword.name=§6Intermedium Sword
 item.ma.intermedium_pickaxe.name=§6Intermedium Pickaxe
@@ -679,6 +681,7 @@ item.ma.intermedium_hoe.name=§6Intermedium Hoe
 item.ma.intermedium_shears.name=§6Intermedium Shears
 item.ma.intermedium_bow.name=§6Intermedium Bow
 item.ma.intermedium_sickle.name=§6Intermedium Sickle
+item.ma.intermedium_scythe.name=§6Intermedium Scythe
 
 item.ma.superium_sword.name=§bSuperium Sword
 item.ma.superium_pickaxe.name=§bSuperium Pickaxe
@@ -688,6 +691,7 @@ item.ma.superium_hoe.name=§bSuperium Hoe
 item.ma.superium_shears.name=§bSuperium Shears
 item.ma.superium_bow.name=§bSuperium Bow
 item.ma.superium_sickle.name=§bSuperium Sickle
+item.ma.superium_scythe.name=§bSuperium Scythe
 
 item.ma.supremium_sword.name=§cSupremium Sword
 item.ma.supremium_pickaxe.name=§cSupremium Pickaxe
@@ -697,6 +701,7 @@ item.ma.supremium_hoe.name=§cSupremium Hoe
 item.ma.supremium_shears.name=§cSupremium Shears
 item.ma.supremium_bow.name=§cSupremium Bow
 item.ma.supremium_sickle.name=§cSupremium Sickle
+item.ma.supremium_scythe.name=§cSupremium Scythe
 
 item.ma.supremium_sword_strength1.name=§cSupremium Sword
 item.ma.supremium_sword_strength2.name=§cSupremium Sword
