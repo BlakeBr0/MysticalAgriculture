@@ -25,10 +25,12 @@ public class BlockInferiumOre extends BlockBase {
 	}
 
     @Nullable
+    @Override
     public Item getItemDropped(IBlockState state, Random rand, int fortune){
         return ModItems.itemInferiumEssence;
     }
 
+    @Override
     public int quantityDropped(Random random){
     	int amount = 0;
     	if(this == ModBlocks.blockInferiumOre){
@@ -43,6 +45,7 @@ public class BlockInferiumOre extends BlockBase {
         return amount; 
     }
 
+    @Override
     public int quantityDroppedWithBonus(int fortune, Random random){
         if(fortune > 0 && Item.getItemFromBlock(this) != this.getItemDropped((IBlockState)this.getBlockState().getValidStates().iterator().next(), random, fortune)){
             int i = random.nextInt(fortune + 2) - 1;
@@ -56,6 +59,7 @@ public class BlockInferiumOre extends BlockBase {
         }
     }
 
+    @Override
     public void dropBlockAsItemWithChance(World world, BlockPos pos, IBlockState state, float chance, int fortune){
         super.dropBlockAsItemWithChance(world, pos, state, chance, fortune);
     }
@@ -80,10 +84,12 @@ public class BlockInferiumOre extends BlockBase {
         return 0;
     }
 
+    @Override
     public ItemStack getItem(World world, BlockPos pos, IBlockState state){
         return new ItemStack(this);
     }
 
+    @Override
     public int damageDropped(IBlockState state){
         return 0;
     }

@@ -814,6 +814,8 @@ tooltip.ma.description=Description
 tooltip.ma.applicable_to=Applicable To
 
 tooltip.ma.hold_shift_for_info=Hold §e§oSHIFT §r§7for info.
+tooltip.ma.hold=Hold
+tooltip.ma.for=for
 
 tooltip.ma.water_breathing=Water Breathing
 tooltip.ma.step_assist=Step Assist
@@ -840,6 +842,21 @@ tooltip.ma.unlimited=Unlimited
 
 tooltip.ma.craftable=Craftable
 tooltip.ma.empty=Empty
+
+tooltip.ma.helmet=Helmet
+tooltip.ma.chestplate=Chestplate
+tooltip.ma.leggings=Leggings
+tooltip.ma.boots=Boots
+
+tooltip.ma.sword=Sword
+tooltip.ma.pickaxe=Pickaxe
+tooltip.ma.shovel=Shovel
+tooltip.ma.axe=Axe
+tooltip.ma.hoe=Hoe
+tooltip.ma.shears=Shears
+tooltip.ma.bow=Bow
+tooltip.ma.sickle=Sickle
+tooltip.ma.scythe=Scythe
 
 # CHARM DESCRIPTIONS
 desc.ma.charm_nightvision=Allows you to see in the dark.

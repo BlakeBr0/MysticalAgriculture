@@ -2,6 +2,7 @@ package com.blakebr0.mysticalagriculture.items;
 
 import java.util.List;
 
+import com.blakebr0.mysticalagriculture.lib.Colors;
 import com.blakebr0.mysticalagriculture.lib.Tooltips;
 import com.blakebr0.mysticalagriculture.util.Utils;
 
@@ -37,20 +38,22 @@ public class ItemCharm extends ItemBase {
 		}
 	}
 	
-	public enum Applicable { // TODO: localize
+	public enum Applicable {
 		
-		HELMET("- \u00A7cHelmet"),
-		CHESTPLATE("- \u00A7cChestplate"),
-		LEGGINGS("- \u00A7cLeggings"),
-		BOOTS("- \u00A7cBoots"),
+		HELMET("- " + Colors.RED + Tooltips.HELMET),
+		CHESTPLATE("- " + Colors.RED + Tooltips.CHESTPLATE),
+		LEGGINGS("- " + Colors.RED + Tooltips.LEGGINGS),
+		BOOTS("- " + Colors.RED + Tooltips.BOOTS),
 		
-		SWORD("- \u00A7cSword"),
-		PICKAXE("- \u00A7cPickaxe"),
-		SHOVEL("- \u00A7cShovel"),
-		AXE("- \u00A7cAxe"),
-		HOE("- \u00A7cHoe"),
-		SHEARS("- \u00A7cShears"),
-		SICKLE("- \u00A7cSickle");
+		SWORD("- " + Colors.RED + Tooltips.SWORD),
+		PICKAXE("- " + Colors.RED + Tooltips.PICKAXE),
+		SHOVEL("- " + Colors.RED + Tooltips.SHOVEL),
+		AXE("- " + Colors.RED + Tooltips.AXE),
+		HOE("- " + Colors.RED + Tooltips.HOE),
+		SHEARS("- " + Colors.RED + Tooltips.SHEARS),
+		BOW("- " + Colors.RED + Tooltips.BOW),
+		SICKLE("- " + Colors.RED + Tooltips.SICKLE),
+		SCYTHE("- " + Colors.RED + Tooltips.SCYTHE);
 		
 		private final String desc;
 		

@@ -52,6 +52,7 @@ public class Tooltips {
 	public static final String DESCRIPTION = Colors.YELLOW + Utils.localize("tooltip.ma.description") + SEMICOLON;
 	
 	public static final String HOLD_SHIFT_FOR_INFO = Utils.localize("tooltip.ma.hold_shift_for_info");
+	public static final String[] HOE_TOOLTIP = new String[]{ Colors.GRAY + Utils.localize("tooltip.ma.hold"), Colors.GRAY + Utils.localize("tooltip.ma.for") };
 	
 	public static final String WATER_BREATHING = Utils.localize("tooltip.ma.water_breathing");
 	public static final String STEP_ASSIST = Utils.localize("tooltip.ma.step_assist");
@@ -78,4 +79,19 @@ public class Tooltips {
 	
 	public static final String CRAFTABLE = Colors.ITALICS + Utils.localize("tooltip.ma.craftable");
 	public static final String EMPTY = Colors.ITALICS + Utils.localize("tooltip.ma.empty");
+		
+	public static final String HELMET = Utils.localize("tooltip.ma.helmet");
+	public static final String CHESTPLATE = Utils.localize("tooltip.ma.chestplate");
+	public static final String LEGGINGS = Utils.localize("tooltip.ma.leggings");
+	public static final String BOOTS = Utils.localize("tooltip.ma.boots");
+	
+	public static final String SWORD = Utils.localize("tooltip.ma.sword");
+	public static final String PICKAXE = Utils.localize("tooltip.ma.pickaxe");
+	public static final String SHOVEL = Utils.localize("tooltip.ma.shovel");
+	public static final String AXE = Utils.localize("tooltip.ma.axe");
+	public static final String HOE = Utils.localize("tooltip.ma.hoe");
+	public static final String SHEARS = Utils.localize("tooltip.ma.shears");
+	public static final String BOW = Utils.localize("tooltip.ma.bow");
+	public static final String SICKLE = Utils.localize("tooltip.ma.sickle");
+	public static final String SCYTHE = Utils.localize("tooltip.ma.scythe");
 }
