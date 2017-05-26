@@ -42,6 +42,8 @@ import com.blakebr0.mysticalagriculture.items.tools.ItemEssenceSickle;
 import com.blakebr0.mysticalagriculture.items.tools.ItemEssenceSword;
 import com.blakebr0.mysticalagriculture.items.tools.ItemSupremiumHoe;
 import com.blakebr0.mysticalagriculture.items.tools.upgraded.ItemAxeAOE;
+import com.blakebr0.mysticalagriculture.items.tools.upgraded.ItemBowQuickDraw;
+import com.blakebr0.mysticalagriculture.items.tools.upgraded.ItemBowTripleShot;
 import com.blakebr0.mysticalagriculture.items.tools.upgraded.ItemHoeAOE;
 import com.blakebr0.mysticalagriculture.items.tools.upgraded.ItemPickaxeAOE;
 import com.blakebr0.mysticalagriculture.items.tools.upgraded.ItemPickaxeMinersVision;
@@ -187,6 +189,8 @@ public class ModItems {
 	public static ItemCharm itemCharmJump = new ItemCharm("charm_jump", "desc.ma.charm_jump", new Applicable[]{ Applicable.BOOTS });
 	public static ItemCharm itemCharmMinersVision = new ItemCharm("charm_miners_vision", "desc.ma.charm_miners_vision", new Applicable[]{ Applicable.PICKAXE });
 	public static ItemCharm itemCharmRainbow = new ItemCharm("charm_rainbow", "desc.ma.charm_rainbow", new Applicable[]{ Applicable.SHEARS });
+	public static ItemCharm itemCharmQuickDraw = new ItemCharm("charm_quick_draw", "desc.ma.charm_quick_draw", new Applicable[]{ Applicable.BOW });
+	public static ItemCharm itemCharmTripleShot = new ItemCharm("charm_triple_shot", "desc.ma.charm_triple_shot", new Applicable[]{ Applicable.BOW });
 	public static ItemCharm itemCharmMiningAOE = new ItemCharm("charm_mining_aoe", "desc.ma.charm_mining_aoe", new Applicable[]{ Applicable.PICKAXE, Applicable.SHOVEL, Applicable.AXE });
 	public static ItemCharm itemCharmAttackAOE = new ItemCharm("charm_attack_aoe", "desc.ma.charm_attack_aoe", new Applicable[]{ Applicable.SWORD });
 	public static ItemCharm itemCharmTillingAOE = new ItemCharm("charm_tilling_aoe", "desc.ma.charm_tilling_aoe", new Applicable[]{ Applicable.HOE });
@@ -253,7 +257,7 @@ public class ModItems {
 	
 	public static ItemSwordStrength itemSupremiumSwordStrength = new ItemSwordStrength("supremium_sword_strength1", ModToolMaterials.SUPREMIUM_STRENGTH1, ModItems.itemSupremiumIngot, TextFormatting.RED);
 	public static ItemSwordStrength itemSupremiumSwordStrength2 = new ItemSwordStrength("supremium_sword_strength2", ModToolMaterials.SUPREMIUM_STRENGTH2, ModItems.itemSupremiumIngot, TextFormatting.RED);
-	
+
 	public static ItemSwordAOE itemSupremiumSwordAOE = new ItemSwordAOE("supremium_sword_aoe", ModToolMaterials.SUPREMIUM_AOE, ModItems.itemSupremiumIngot, TextFormatting.RED);
 
 	public static ItemPickaxeMinersVision itemSupremiumPickaxeMinersVision = new ItemPickaxeMinersVision("supremium_pickaxe_miners", ModToolMaterials.SUPREMIUM, ModItems.itemSupremiumIngot, TextFormatting.RED);
@@ -269,6 +273,10 @@ public class ModItems {
 	public static ItemShearsRainbow itemSupremiumShearsRainbow = new ItemShearsRainbow("supremium_shears_rainbow", ModToolMaterials.SUPREMIUM, ModItems.itemSupremiumIngot, TextFormatting.RED);
 	
 	public static ItemShearsAOE itemSupremiumShearsAOE = new ItemShearsAOE("supremium_shears_aoe", ModToolMaterials.SUPREMIUM_AOE, ModItems.itemSupremiumIngot, TextFormatting.RED);
+	
+	public static ItemBowQuickDraw itemSupremiumBowQuickDraw = new ItemBowQuickDraw("supremium_bow_quick", ModToolMaterials.SUPREMIUM, 1.50F, ModItems.itemSupremiumIngot, TextFormatting.RED);
+	
+	public static ItemBowTripleShot itemSupremiumBowTripleShot = new ItemBowTripleShot("supremium_bow_triple", ModToolMaterials.SUPREMIUM, 0.40F, ModItems.itemSupremiumIngot, TextFormatting.RED);
 	
 	public static ItemSickleAOE itemSupremiumSickleAOE = new ItemSickleAOE("supremium_sickle_aoe", 3, ModToolMaterials.SUPREMIUM_AOE, ModItems.itemSupremiumIngot, TextFormatting.RED);
 	
@@ -461,6 +469,8 @@ public class ModItems {
 			registerItem(itemCharmJump);
 			registerItem(itemCharmMinersVision);
 			registerItem(itemCharmRainbow);
+			registerItem(itemCharmQuickDraw);
+			registerItem(itemCharmTripleShot);
 			if(ModConfig.confAOECharms){
 				registerItem(itemCharmMiningAOE);
 				registerItem(itemCharmAttackAOE);
@@ -546,6 +556,10 @@ public class ModItems {
 			
 			if(ModConfig.confAOECharms){ registerItem(itemSupremiumShearsAOE); }
 			
+			registerItem(itemSupremiumBowQuickDraw);
+			
+			registerItem(itemSupremiumBowTripleShot);
+						
 			if(ModConfig.confAOECharms){ registerItem(itemSupremiumSickleAOE); }
 			
 	        registerItem(itemInferiumHelmet);
@@ -739,6 +753,8 @@ public class ModItems {
 			registerModel(itemCharmJump);
 			registerModel(itemCharmMinersVision);
 			registerModel(itemCharmRainbow);
+			registerModel(itemCharmQuickDraw);
+			registerModel(itemCharmTripleShot);
 			if(ModConfig.confAOECharms){
 				registerModel(itemCharmMiningAOE);
 				registerModel(itemCharmAttackAOE);
@@ -821,8 +837,12 @@ public class ModItems {
 			if(ModConfig.confAOECharms){ registerModel(itemSupremiumHoeAOE); }
 			
 			registerModel(itemSupremiumShearsRainbow);
-			
+	
 			if(ModConfig.confAOECharms){ registerModel(itemSupremiumShearsAOE); }
+
+			registerModel(itemSupremiumBowQuickDraw);
+			
+			registerModel(itemSupremiumBowTripleShot);
 			
 			if(ModConfig.confAOECharms){ registerModel(itemSupremiumSickleAOE); }
 			

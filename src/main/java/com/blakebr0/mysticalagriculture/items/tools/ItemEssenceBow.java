@@ -91,7 +91,7 @@ public class ItemEssenceBow extends ItemBow {
 		return this.drawSpeed + 1.0f;
 	}
 	
-	private ItemStack findAmmo(EntityPlayer player){
+	public ItemStack findAmmo(EntityPlayer player){
 		if(this.isArrow(player.getHeldItem(EnumHand.OFF_HAND))){
 			return player.getHeldItem(EnumHand.OFF_HAND);
 		} else if(this.isArrow(player.getHeldItem(EnumHand.MAIN_HAND))){

@@ -711,6 +711,8 @@ public class ModRecipes {
 			addShapedRecipe(new ItemStack(ModItems.itemCharmJump, 1, 0), "MEM", "EBE", "MEM", 'E', new ItemStack(ModItems.itemSuperiumEssence, 1, 0), 'B', new ItemStack(ModItems.itemCharmBlank, 1, 0), 'M', new ItemStack(Items.RABBIT_FOOT, 1, 0));
 			addShapedRecipe(new ItemStack(ModItems.itemCharmMinersVision, 1, 0), "MEM", "EBE", "MEM", 'E', new ItemStack(ModItems.itemSuperiumEssence, 1, 0), 'B', new ItemStack(ModItems.itemCharmBlank, 1, 0), 'M', ModItems.itemEssenceCoal.supremium);
 			addShapedRecipe(new ItemStack(ModItems.itemCharmRainbow, 1, 0), "MEM", "EBE", "MEM", 'E', new ItemStack(ModItems.itemSuperiumEssence, 1, 0), 'B', new ItemStack(ModItems.itemCharmBlank, 1, 0), 'M', new ItemStack(ModItems.itemDyeCluster, 1, 0));
+			addShapedRecipe(new ItemStack(ModItems.itemCharmQuickDraw, 1, 0), "MEM", "EBE", "MEM", 'E', new ItemStack(ModItems.itemSuperiumEssence, 1, 0), 'B', new ItemStack(ModItems.itemCharmBlank, 1, 0), 'M', new ItemStack(ModItems.itemIntermediumApple, 1, 0));
+			addShapedRecipe(new ItemStack(ModItems.itemCharmTripleShot, 1, 0), "MED", "EBE", "DEM", 'E', new ItemStack(ModItems.itemSuperiumEssence, 1, 0), 'B', new ItemStack(ModItems.itemCharmBlank, 1, 0), 'M', new ItemStack(ModItems.itemSupremiumBow, 1, 0), 'D', new ItemStack(ModItems.itemSupremiumIngot, 1, 0));
 			if(ModConfig.confAOECharms){
 				addShapedRecipe(new ItemStack(ModItems.itemCharmMiningAOE, 1, 0), "MED", "EBE", "DEM", 'E', new ItemStack(ModItems.itemSuperiumEssence, 1, 0), 'B', new ItemStack(ModItems.itemCharmBlank, 1, 0), 'M', new ItemStack(ModItems.itemSupremiumPickaxe, 1, 0), 'D', new ItemStack(ModItems.itemSupremiumIngot, 1, 0));
 				addShapedRecipe(new ItemStack(ModItems.itemCharmAttackAOE, 1, 0), "MED", "EBE", "DEM", 'E', new ItemStack(ModItems.itemSuperiumEssence, 1, 0), 'B', new ItemStack(ModItems.itemCharmBlank, 1, 0), 'M', new ItemStack(ModItems.itemSupremiumSword, 1, 0), 'D', new ItemStack(ModItems.itemSupremiumIngot, 1, 0));			
@@ -799,6 +801,10 @@ public class ModRecipes {
 			addTinkeringRecipe(new ItemStack(ModItems.itemSupremiumShearsRainbow), new ItemStack(ModItems.itemSupremiumShears, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(ModItems.itemCharmRainbow, 1, 0));
 			
 			if(ModConfig.confAOECharms){ addTinkeringRecipe(new ItemStack(ModItems.itemSupremiumShearsAOE), new ItemStack(ModItems.itemSupremiumShears, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(ModItems.itemCharmShearingAOE, 1, 0)); }
+	
+			addTinkeringRecipe(new ItemStack(ModItems.itemSupremiumBowQuickDraw), new ItemStack(ModItems.itemSupremiumBow, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(ModItems.itemCharmQuickDraw, 1, 0));
+
+			addTinkeringRecipe(new ItemStack(ModItems.itemSupremiumBowTripleShot), new ItemStack(ModItems.itemSupremiumBow, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(ModItems.itemCharmTripleShot, 1, 0));
 
 			if(ModConfig.confAOECharms){ addTinkeringRecipe(new ItemStack(ModItems.itemSupremiumSickleAOE), new ItemStack(ModItems.itemSupremiumSickle, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(ModItems.itemCharmReapingAOE, 1, 0)); }
 			
@@ -848,7 +854,11 @@ public class ModRecipes {
 			addCharmRecipe(new ItemStack(ModItems.itemSupremiumShears), new ItemStack(ModItems.itemSupremiumShearsRainbow, 1, OreDictionary.WILDCARD_VALUE));
 
 			if(ModConfig.confAOECharms){ addCharmRecipe(new ItemStack(ModItems.itemSupremiumShears), new ItemStack(ModItems.itemSupremiumShearsAOE, 1, OreDictionary.WILDCARD_VALUE)); }
-			
+	
+			addCharmRecipe(new ItemStack(ModItems.itemSupremiumBow), new ItemStack(ModItems.itemSupremiumBowQuickDraw, 1, OreDictionary.WILDCARD_VALUE));
+	
+			addCharmRecipe(new ItemStack(ModItems.itemSupremiumBow), new ItemStack(ModItems.itemSupremiumBowTripleShot, 1, OreDictionary.WILDCARD_VALUE));
+
 			if(ModConfig.confAOECharms){ addCharmRecipe(new ItemStack(ModItems.itemSupremiumSickle), new ItemStack(ModItems.itemSupremiumSickleAOE, 1, OreDictionary.WILDCARD_VALUE)); }
 
 			addCharmRecipe(new ItemStack(ModItems.itemSupremiumHelmet), new ItemStack(ModItems.itemSupremiumHelmetNightvision, 1, OreDictionary.WILDCARD_VALUE));

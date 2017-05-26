@@ -69,6 +69,8 @@ public class Tooltips {
 	public static final String ABSORPTION_YES = Utils.localize("tooltip.ma.absorption");
 	public static final String MINERS_VISION = Utils.localize("tooltip.ma.miners_vision");
 	public static final String RAINBOW = Utils.localize("tooltip.ma.rainbow");
+	public static final String QUICK_DRAW = Utils.localize("tooltip.ma.quick_draw");
+	public static final String TRIPLE_SHOT = Utils.localize("tooltip.ma.triple_shot");
 	public static final String MINING_AOE = Utils.localize("tooltip.ma.mining_aoe");
 	public static final String ATTACK_AOE = Utils.localize("tooltip.ma.attack_aoe");
 	public static final String TILLING_AOE = Utils.localize("tooltip.ma.tilling_aoe");

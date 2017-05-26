@@ -634,6 +634,8 @@ item.ma.charm_speed.name=Charm: Speed
 item.ma.charm_jump.name=Charm: Jump Boost
 item.ma.charm_miners_vision.name=Charm: Miner's Vision
 item.ma.charm_rainbow.name=Charm: Rainbow
+item.ma.charm_quick_draw.name=Charm: Quick Draw
+item.ma.charm_triple_shot.name=Charm: Triple Shot
 item.ma.charm_mining_aoe.name=Charm: Mining AOE
 item.ma.charm_attack_aoe.name=Charm: Attack AOE
 item.ma.charm_tilling_aoe.name=Charm: Tilling AOE
@@ -721,6 +723,10 @@ item.ma.supremium_hoe_aoe.name=§cSupremium Hoe
 item.ma.supremium_shears_rainbow.name=§cSupremium Shears
 
 item.ma.supremium_shears_aoe.name=§cSupremium Shears
+
+item.ma.supremium_bow_quick.name=§cSupremium Bow
+
+item.ma.supremium_bow_triple.name=§cSupremium Bow
 
 item.ma.supremium_sickle_aoe.name=§cSupremium Sickle
 
@@ -832,6 +838,8 @@ tooltip.ma.antivenom=Antivenom
 tooltip.ma.absorption=Absorption
 tooltip.ma.miners_vision=Miner's Vision
 tooltip.ma.rainbow=Rainbow
+tooltip.ma.quick_draw=Quick Draw
+tooltip.ma.triple_shot=Triple Shot
 tooltip.ma.attack_aoe=Attack AOE
 tooltip.ma.mining_aoe=Mining AOE
 tooltip.ma.tilling_aoe=Tilling AOE
@@ -870,6 +878,8 @@ desc.ma.charm_speed=Increases your movement speed.
 desc.ma.charm_jump=Increases your jump height.
 desc.ma.charm_miners_vision=Allows your tool to place unlimited light sources.
 desc.ma.charm_rainbow=Gives wool a random color.
+desc.ma.charm_quick_draw=Increases your bow's draw speed.
+desc.ma.charm_triple_shot=Makes your bow shoot 3 arrows.
 desc.ma.charm_mining_aoe=Increases your tool's mining radius to 3x3.
 desc.ma.charm_attack_aoe=Increases your sword's attack radius to 5x5.
 desc.ma.charm_tilling_aoe=Increases your hoe's tilling radius to 7x7.
