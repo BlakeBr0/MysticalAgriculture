@@ -147,8 +147,7 @@
           "cullface": "south"
         },
         "north": {
-          "uv": [ 0, 4, 4, 16
-          ],
+          "uv": [ 0, 4, 4, 16 ],
           "texture": "#leg"
         }
       }
