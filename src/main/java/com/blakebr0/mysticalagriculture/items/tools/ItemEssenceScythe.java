@@ -109,7 +109,7 @@ public class ItemEssenceScythe extends ItemBase {
 		return EnumActionResult.SUCCESS;
 	}
 	
-    @Override // TODO: aoe charm compaterino TODO: balance
+    @Override
     public boolean onLeftClickEntity(ItemStack stack, EntityPlayer player, Entity entity){
     	if(player.getCooledAttackStrength(0.5F) >= 0.95F){
     		List<EntityLivingBase> entities = player.getEntityWorld().getEntitiesWithinAABB(EntityLivingBase.class, entity.getEntityBoundingBox().expand(1.0D, 0.25D, 1.0D));
@@ -117,7 +117,7 @@ public class ItemEssenceScythe extends ItemBase {
             for(EntityLivingBase aoeEntity : entities) {
                 if(aoeEntity != player && aoeEntity != entity && !player.isOnSameTeam(entity)) {
                     aoeEntity.knockBack(player, 0.4F, (double) MathHelper.sin(player.rotationYaw * 0.017453292F), (double)(-MathHelper.cos(player.rotationYaw * 0.017453292F)));
-                    aoeEntity.attackEntityFrom(DamageSource.causePlayerDamage(player), 13F);
+                    aoeEntity.attackEntityFrom(DamageSource.causePlayerDamage(player), 11.5F);
                 }
             }
 
@@ -127,13 +127,13 @@ public class ItemEssenceScythe extends ItemBase {
     	return super.onLeftClickEntity(stack, player, entity);
     }
     
-    @Override // TODO: balance
+    @Override
     public Multimap<String, AttributeModifier> getItemAttributeModifiers(EntityEquipmentSlot equipmentSlot){
         Multimap<String, AttributeModifier> multimap = super.getItemAttributeModifiers(equipmentSlot);
 
         if(equipmentSlot == EntityEquipmentSlot.MAINHAND){
-            multimap.put(SharedMonsterAttributes.ATTACK_DAMAGE.getAttributeUnlocalizedName(), new AttributeModifier(ATTACK_DAMAGE_MODIFIER, "Weapon modifier", (double)this.toolMaterial.getDamageVsEntity(), 0));
-            multimap.put(SharedMonsterAttributes.ATTACK_SPEED.getAttributeUnlocalizedName(), new AttributeModifier(ATTACK_SPEED_MODIFIER, "Weapon modifier", -2.4000000953674316D, 0));
+            multimap.put(SharedMonsterAttributes.ATTACK_DAMAGE.getAttributeUnlocalizedName(), new AttributeModifier(ATTACK_DAMAGE_MODIFIER, "Weapon modifier", (double)this.toolMaterial.getDamageVsEntity() - 1.0F, 0));
+            multimap.put(SharedMonsterAttributes.ATTACK_SPEED.getAttributeUnlocalizedName(), new AttributeModifier(ATTACK_SPEED_MODIFIER, "Weapon modifier", -2.5D, 0));
         }
         return multimap;
     }
