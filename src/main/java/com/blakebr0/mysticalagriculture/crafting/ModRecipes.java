@@ -719,6 +719,7 @@ public class ModRecipes {
 				addShapedRecipe(new ItemStack(ModItems.itemCharmTillingAOE, 1, 0), "MED", "EBE", "DEM", 'E', new ItemStack(ModItems.itemSuperiumEssence, 1, 0), 'B', new ItemStack(ModItems.itemCharmBlank, 1, 0), 'M', new ItemStack(ModItems.itemSupremiumHoe, 1, 0), 'D', new ItemStack(ModItems.itemSupremiumIngot, 1, 0));			
 				addShapedRecipe(new ItemStack(ModItems.itemCharmShearingAOE, 1, 0), "MED", "EBE", "DEM", 'E', new ItemStack(ModItems.itemSuperiumEssence, 1, 0), 'B', new ItemStack(ModItems.itemCharmBlank, 1, 0), 'M', new ItemStack(ModItems.itemSupremiumShears, 1, 0), 'D', new ItemStack(ModItems.itemSupremiumIngot, 1, 0));			
 				addShapedRecipe(new ItemStack(ModItems.itemCharmReapingAOE, 1, 0), "MED", "EBE", "DEM", 'E', new ItemStack(ModItems.itemSuperiumEssence, 1, 0), 'B', new ItemStack(ModItems.itemCharmBlank, 1, 0), 'M', new ItemStack(ModItems.itemSupremiumSickle, 1, 0), 'D', new ItemStack(ModItems.itemSupremiumIngot, 1, 0));			
+				addShapedRecipe(new ItemStack(ModItems.itemCharmScythingAOE, 1, 0), "MED", "EBE", "DEM", 'E', new ItemStack(ModItems.itemSuperiumEssence, 1, 0), 'B', new ItemStack(ModItems.itemCharmBlank, 1, 0), 'M', new ItemStack(ModItems.itemSupremiumScythe, 1, 0), 'D', new ItemStack(ModItems.itemSupremiumIngot, 1, 0));			
 			}
 			
 			addShapedRecipe(new ItemStack(ModItems.itemArrowHead, 1, 0), "XNX", "NMN", "XNX", 'N', ModItems.itemNugget.inferium, 'M', new ItemStack(Items.FLINT, 1, 0));
@@ -807,7 +808,9 @@ public class ModRecipes {
 			addTinkeringRecipe(new ItemStack(ModItems.itemSupremiumBowTripleShot), new ItemStack(ModItems.itemSupremiumBow, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(ModItems.itemCharmTripleShot, 1, 0));
 
 			if(ModConfig.confAOECharms){ addTinkeringRecipe(new ItemStack(ModItems.itemSupremiumSickleAOE), new ItemStack(ModItems.itemSupremiumSickle, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(ModItems.itemCharmReapingAOE, 1, 0)); }
-			
+
+			if(ModConfig.confAOECharms){ addTinkeringRecipe(new ItemStack(ModItems.itemSupremiumScytheAOE), new ItemStack(ModItems.itemSupremiumScythe, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(ModItems.itemCharmScythingAOE, 1, 0)); }
+
 			addTinkeringRecipe(new ItemStack(ModItems.itemSupremiumHelmetNightvision), new ItemStack(ModItems.itemSupremiumHelmet, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(ModItems.itemCharmNightvision, 1, 0));
 			addTinkeringRecipe(new ItemStack(ModItems.itemSupremiumHelmetAbsorption), new ItemStack(ModItems.itemSupremiumHelmet, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(ModItems.itemCharmAbsorption, 1, 0));
 			addTinkeringRecipe(new ItemStack(ModItems.itemSupremiumHelmetWither), new ItemStack(ModItems.itemSupremiumHelmet, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(ModItems.itemCharmWither, 1, 0));
@@ -860,6 +863,8 @@ public class ModRecipes {
 			addCharmRecipe(new ItemStack(ModItems.itemSupremiumBow), new ItemStack(ModItems.itemSupremiumBowTripleShot, 1, OreDictionary.WILDCARD_VALUE));
 
 			if(ModConfig.confAOECharms){ addCharmRecipe(new ItemStack(ModItems.itemSupremiumSickle), new ItemStack(ModItems.itemSupremiumSickleAOE, 1, OreDictionary.WILDCARD_VALUE)); }
+
+			if(ModConfig.confAOECharms){ addCharmRecipe(new ItemStack(ModItems.itemSupremiumScythe), new ItemStack(ModItems.itemSupremiumScytheAOE, 1, OreDictionary.WILDCARD_VALUE)); }
 
 			addCharmRecipe(new ItemStack(ModItems.itemSupremiumHelmet), new ItemStack(ModItems.itemSupremiumHelmetNightvision, 1, OreDictionary.WILDCARD_VALUE));
 			addCharmRecipe(new ItemStack(ModItems.itemSupremiumHelmet), new ItemStack(ModItems.itemSupremiumHelmetAbsorption, 1, OreDictionary.WILDCARD_VALUE));

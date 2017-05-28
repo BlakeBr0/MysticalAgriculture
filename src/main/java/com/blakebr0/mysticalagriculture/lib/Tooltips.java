@@ -76,6 +76,7 @@ public class Tooltips {
 	public static final String TILLING_AOE = Utils.localize("tooltip.ma.tilling_aoe");
 	public static final String SHEARING_AOE = Utils.localize("tooltip.ma.shearing_aoe");
 	public static final String REAPING_AOE = Utils.localize("tooltip.ma.reaping_aoe");
+	public static final String SCYTHING_AOE = Utils.localize("tooltip.ma.scything_aoe");
 	
 	public static final String UNLIMITED = Utils.localize("tooltip.ma.unlimited");
 	

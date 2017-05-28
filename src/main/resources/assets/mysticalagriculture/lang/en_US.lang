@@ -641,6 +641,7 @@ item.ma.charm_attack_aoe.name=Charm: Attack AOE
 item.ma.charm_tilling_aoe.name=Charm: Tilling AOE
 item.ma.charm_shearing_aoe.name=Charm: Shearing AOE
 item.ma.charm_reaping_aoe.name=Charm: Reaping AOE
+item.ma.charm_scything_aoe.name=Charm: Scything AOE
 
 item.ma.arrow_head_inferium.name=§eInferium Arrow Head
 item.ma.arrow_head_prudentium.name=§aPrudentium Arrow Head
@@ -729,6 +730,8 @@ item.ma.supremium_bow_quick.name=§cSupremium Bow
 item.ma.supremium_bow_triple.name=§cSupremium Bow
 
 item.ma.supremium_sickle_aoe.name=§cSupremium Sickle
+
+item.ma.supremium_scythe_aoe.name=§cSupremium Scythe
 
 # ARMOR
 item.ma.inferium_helmet.name=§eInferium Helmet
@@ -845,6 +848,7 @@ tooltip.ma.mining_aoe=Mining AOE
 tooltip.ma.tilling_aoe=Tilling AOE
 tooltip.ma.shearing_aoe=Shearing AOE
 tooltip.ma.reaping_aoe=Reaping AOE
+tooltip.ma.scything_aoe=Scything AOE
 
 tooltip.ma.unlimited=Unlimited
 
@@ -885,3 +889,4 @@ desc.ma.charm_attack_aoe=Increases your sword's attack radius to 5x5.
 desc.ma.charm_tilling_aoe=Increases your hoe's tilling radius to 7x7.
 desc.ma.charm_shearing_aoe=Increases your shears' animal shearing radius to 5x5 and block shearing radius to 3x3x3.
 desc.ma.charm_reaping_aoe=Increases your sickle's reaping radius to 7x7x7.
+desc.ma.charm_scything_aoe=Increases your scythe's scything and attack radius to 5x5.
