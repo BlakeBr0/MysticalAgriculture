@@ -29,6 +29,7 @@ public class ModChecker {
 	public static boolean BASEMETALS = Loader.isModLoaded("basemetals");
 	
 	public static boolean RUBBER = OreDictionary.getOres("itemRubber").size() > 0 || IC2 || TECHREBORN;
+	public static boolean SILICON = OreDictionary.getOres("itemSilicon").size() > 0 || ENDERIO || GALACTICRAFT || AE2 || RS;
 	public static boolean ALUMINUM = OreDictionary.getOres("ingotAluminum").size() > 0 || OreDictionary.getOres("ingotAluminium").size() > 0 || THERMAL || IE || GALACTICRAFT || TECHREBORN || PIXELMON || SUBSTRATUM || BASEMETALS;
 	public static boolean COPPER = OreDictionary.getOres("ingotCopper").size() > 0 || THERMAL || IC2 || IE || FORESTRY || TECHREBORN || MEKANISM || SUBSTRATUM || BASEMETALS;
 	public static boolean TIN = OreDictionary.getOres("ingotTin").size() > 0 || THERMAL || IC2 || GALACTICRAFT || FORESTRY || TECHREBORN || MEKANISM || SUBSTRATUM || BASEMETALS;

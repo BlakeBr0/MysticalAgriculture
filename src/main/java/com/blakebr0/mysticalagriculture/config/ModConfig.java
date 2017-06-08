@@ -68,6 +68,7 @@ public class ModConfig {
 	public static boolean confWitherSkeletonSeeds;
 	
 	public static boolean confRubberSeeds;
+	public static boolean confSiliconSeeds;
 	public static boolean confAluminumSeeds;
 	public static boolean confCopperSeeds;
 	public static boolean confTinSeeds;
@@ -196,6 +197,7 @@ public class ModConfig {
 	public static int confWitherSkeletonTier;
 	
 	public static int confRubberTier;
+	public static int confSiliconTier;
 	public static int confAluminumTier;
 	public static int confCopperTier;
 	public static int confTinTier;
@@ -419,6 +421,7 @@ public class ModConfig {
 		category = "Mod Support Seeds";
 		config.addCustomCategoryComment(category, "Enable/Disable Mod Support seeds individually.");
 		confRubberSeeds = config.get(category, "rubber_seeds", true).getBoolean();
+		confSiliconSeeds = config.get(category, "silicon_seeds", true).getBoolean();
 		confAluminumSeeds = config.get(category, "aluminum_seeds", true).getBoolean();
 		confCopperSeeds = config.get(category, "copper_seeds", true).getBoolean();
 		confTinSeeds = config.get(category, "tin_seeds", true).getBoolean();
@@ -561,6 +564,7 @@ public class ModConfig {
 				+ "\nTier 4: Superium"
 				+ "\nTier 5: Supremium");
 		confRubberTier = config.get(category, "rubber_tier", 2).getInt();
+		confSiliconTier = config.get(category, "silicon_tier", 2).getInt();
 		confAluminumTier = config.get(category, "aluminum_tier", 2).getInt();
 		confCopperTier = config.get(category, "copper_tier", 2).getInt();
 		confTinTier = config.get(category, "tin_tier", 3).getInt();

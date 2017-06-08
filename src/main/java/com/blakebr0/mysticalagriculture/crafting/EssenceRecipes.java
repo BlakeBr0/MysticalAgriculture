@@ -174,6 +174,7 @@ public class EssenceRecipes {
 	    addEssenceRecipe(new ItemStack(Items.SKULL, EssenceConfig.witherSkeletonSkull, 1), "EEE", "EEE", "EEE", 'E', new ItemStack(type.WITHER_SKELETON.getCrop(), 1, 0));
 
 	    if(type.RUBBER.isEnabled()){ addEssenceRecipe(Utils.getItem("itemRubber", EssenceConfig.rubber), "EEE", "XXX", "XXX", 'E', new ItemStack(type.RUBBER.getCrop(), 1, 0)); }
+	    if(type.SILICON.isEnabled()){ addEssenceRecipe(Utils.getItem("itemSilicon", EssenceConfig.silicon), "EEE", "XXX", "XXX", 'E', new ItemStack(type.SILICON.getCrop(), 1, 0)); }
 	    if(type.ALUMINUM.isEnabled()){ addEssenceRecipe(Utils.getItem("ingotAluminum", EssenceConfig.aluminum), "EEE", "EXE", "EEE", 'E', new ItemStack(type.ALUMINUM.getCrop(), 1, 0)); }  
 	    if(type.COPPER.isEnabled()){ addEssenceRecipe(Utils.getItem("ingotCopper", EssenceConfig.copper), "EEE", "EXE", "EEE", 'E', new ItemStack(type.COPPER.getCrop(), 1, 0)); }
 	    if(type.TIN.isEnabled()){ addEssenceRecipe(Utils.getItem("ingotTin", EssenceConfig.tin), "EEE", "EXE", "EEE", 'E', new ItemStack(type.TIN.getCrop(), 1, 0)); }

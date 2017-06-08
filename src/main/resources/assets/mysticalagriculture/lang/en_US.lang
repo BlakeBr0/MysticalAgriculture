@@ -144,6 +144,7 @@ tile.ma.enderman_crop.name=Enderman Crop
 tile.ma.wither_skeleton_crop.name=Wither Skeleton Crop
 
 tile.ma.rubber_crop.name=Rubber Crop
+tile.ma.silicon_crop.name=Silicon Crop
 tile.ma.aluminum_crop.name=Aluminum Crop
 tile.ma.copper_crop.name=Copper Crop
 tile.ma.tin_crop.name=Tin Crop
@@ -387,6 +388,7 @@ item.ma.enderman_essence.name=Enderman Essence
 item.ma.wither_skeleton_essence.name=Wither Skeleton Essence
 
 item.ma.rubber_essence.name=Rubber Essence
+item.ma.silicon_essence.name=Silicon Essence
 item.ma.aluminum_essence.name=Aluminum Essence
 item.ma.copper_essence.name=Copper Essence
 item.ma.tin_essence.name=Tin Essence
@@ -523,6 +525,7 @@ item.ma.enderman_seeds.name=Enderman Seeds
 item.ma.wither_skeleton_seeds.name=Wither Skeleton Seeds
 
 item.ma.rubber_seeds.name=Rubber Seeds
+item.ma.silicon_seeds.name=Silicon Seeds
 item.ma.aluminum_seeds.name=Aluminum Seeds
 item.ma.copper_seeds.name=Copper Seeds
 item.ma.tin_seeds.name=Tin Seeds

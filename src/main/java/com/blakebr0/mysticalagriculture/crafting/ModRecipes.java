@@ -488,6 +488,7 @@ public class ModRecipes {
 	    addSeedRecipe(type.WITHER_SKELETON, new ItemStack(ModItems.itemWitherSkeletonChunk, 1, 0));
 
 	    addSeedRecipe(type.RUBBER, "itemRubber");
+	    addSeedRecipe(type.SILICON, "itemSilicon");
 	    addSeedRecipe(type.ALUMINUM, "ingotAluminum");
 	    addSeedRecipe(type.COPPER, "ingotCopper");
 	    addSeedRecipe(type.TIN, "ingotTin");

@@ -100,6 +100,7 @@ public class EssenceConfig {
 	public static int witherSkeletonSkull;
 	
 	public static int rubber;
+	public static int silicon;
 	public static int aluminum;
 	public static int copper;
 	public static int tin;
@@ -299,6 +300,7 @@ public class EssenceConfig {
 		
 		category = "OreDict Resources";
 		rubber = config.get(category, "rubber", 8).getInt();
+		silicon = config.get(category, "silicon", 8).getInt();
 		aluminum = config.get(category, "aluminum", 8).getInt();
 		copper = config.get(category, "copper", 6).getInt();
 		tin = config.get(category, "tin", 4).getInt();

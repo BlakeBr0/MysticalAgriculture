@@ -60,6 +60,7 @@ public class CropType {
 		WITHER_SKELETON("wither_skeleton", ModConfig.confWitherSkeletonTier, ModConfig.confWitherSkeletonSeeds),
 		
 		RUBBER("rubber", ModConfig.confRubberTier, ModConfig.confRubberSeeds && ModChecker.RUBBER),
+		SILICON("silicon", ModConfig.confSiliconTier, ModConfig.confSiliconSeeds && ModChecker.SILICON),
 		ALUMINUM("aluminum", ModConfig.confAluminumTier, ModConfig.confAluminumSeeds && ModChecker.ALUMINUM),
 		COPPER("copper", ModConfig.confCopperTier, ModConfig.confCopperSeeds && ModChecker.COPPER),
 		TIN("tin", ModConfig.confTinTier, ModConfig.confTinSeeds && ModChecker.TIN),
