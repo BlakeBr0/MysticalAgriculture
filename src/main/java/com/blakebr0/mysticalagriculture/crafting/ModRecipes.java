@@ -557,6 +557,9 @@ public class ModRecipes {
 	    
 	    addSeedRecipe(type.APATITE, "gemApatite");
 	    
+	    addSeedRecipe(type.METEORIC_IRON, "ingotMeteoricIron");
+	    addSeedRecipe(type.DESH, "ingotDesh");
+	    
 	    addSeedRecipe(type.VINTEUM, "dustVinteum");
 	    addSeedRecipe(type.CHIMERITE, "gemChimerite");
 	    addSeedRecipe(type.BLUE_TOPAZ, "gemBlueTopaz");

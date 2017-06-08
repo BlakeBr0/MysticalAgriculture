@@ -168,6 +168,9 @@ public class EssenceConfig {
 	
 	public static int apatite;
 	
+	public static int meteoricIron;
+	public static int desh;
+	
 	public static int vinteum;
 	public static int chimerite;
 	public static int blueTopaz;
@@ -373,6 +376,10 @@ public class EssenceConfig {
 		
 		category = "Forestry";
 		apatite = config.get(category, "apatite", 8).getInt();
+		
+		category = "Galacticraft";
+		meteoricIron = config.get(category, "meteoric_iron", 3).getInt();
+		desh = config.get(category, "desh", 2).getInt();
 		
 		category = "Ars Magica 2";
 		vinteum = config.get(category, "vinteum", 8).getInt();

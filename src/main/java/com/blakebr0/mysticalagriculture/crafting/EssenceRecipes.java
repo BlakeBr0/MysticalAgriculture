@@ -260,6 +260,9 @@ public class EssenceRecipes {
 
 	    if(type.APATITE.isEnabled()){ addEssenceRecipe(Utils.getItem("gemApatite", EssenceConfig.apatite), "EEE", "XXX", "XXX", 'E', new ItemStack(type.APATITE.getCrop(), 1, 0)); }    
 
+	    if(type.METEORIC_IRON.isEnabled()){ addEssenceRecipe(Utils.getItem("ingotMeteoricIron", EssenceConfig.meteoricIron), "EEE", "EXE", "EEE", 'E', new ItemStack(type.METEORIC_IRON.getCrop(), 1, 0)); }
+	    if(type.DESH.isEnabled()){ addEssenceRecipe(Utils.getItem("ingotDesh", EssenceConfig.desh), "EEE", "EXE", "EEE", 'E', new ItemStack(type.DESH.getCrop(), 1, 0)); }
+
 	    if(type.VINTEUM.isEnabled()){ addEssenceRecipe(Utils.getItem("dustVinteum", EssenceConfig.vinteum), "EEE", "EXE", "EEE", 'E', new ItemStack(type.VINTEUM.getCrop(), 1, 0)); }    
 	    if(type.CHIMERITE.isEnabled()){ addEssenceRecipe(Utils.getItem("gemChimerite", EssenceConfig.chimerite), "XEX", "EEE", "XEX", 'E', new ItemStack(type.CHIMERITE.getCrop(), 1, 0)); }    
 	    if(type.BLUE_TOPAZ.isEnabled()){ addEssenceRecipe(Utils.getItem("gemBlueTopaz", EssenceConfig.blueTopaz), "EEE", "EXE", "EEE", 'E', new ItemStack(type.BLUE_TOPAZ.getCrop(), 1, 0)); }    

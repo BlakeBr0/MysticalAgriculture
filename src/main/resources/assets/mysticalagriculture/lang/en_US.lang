@@ -212,6 +212,9 @@ tile.ma.basalt_crop.name=Basalt Crop
 
 tile.ma.apatite_crop.name=Apatite Crop
 
+tile.ma.meteoric_iron_crop.name=Meteoric Iron Crop
+tile.ma.desh_crop.name=Desh Crop
+
 tile.ma.vinteum_crop.name=Vinteum Crop
 tile.ma.chimerite_crop.name=Chimerite Crop
 tile.ma.blue_topaz_crop.name=Blue Topaz Crop
@@ -452,6 +455,9 @@ item.ma.basalt_essence.name=Basalt Essence
 
 item.ma.apatite_essence.name=Apatite Essence
 
+item.ma.meteoric_iron_essence.name=Meteoric Iron Essence
+item.ma.desh_essence.name=Desh Essence
+
 item.ma.vinteum_essence.name=Vinteum Essence
 item.ma.chimerite_essence.name=Chimerite Essence
 item.ma.blue_topaz_essence.name=Blue Topaz Essence
@@ -584,6 +590,9 @@ item.ma.limestone_seeds.name=Limestone Seeds
 item.ma.basalt_seeds.name=Basalt Seeds
 
 item.ma.apatite_seeds.name=Apatite Seeds
+
+item.ma.meteoric_iron_seeds.name=Meteoric Iron Seeds
+item.ma.desh_seeds.name=Desh Seeds
 
 item.ma.vinteum_seeds.name=Vinteum Seeds
 item.ma.chimerite_seeds.name=Chimerite Seeds

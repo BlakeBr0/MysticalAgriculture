@@ -129,6 +129,9 @@ public class CropType {
 		
 		APATITE("apatite", ModConfig.confApatiteTier, ModConfig.confApatiteSeeds && ModChecker.FORESTRY),
 		
+		METEORIC_IRON("meteoric_iron", ModConfig.confMeteoricIronTier, ModConfig.confMeteoricIronSeeds && ModChecker.GALACTICRAFT),
+		DESH("desh", ModConfig.confDeshTier, ModConfig.confDeshSeeds && ModChecker.GALACTICRAFTPLANETS),
+		
 		VINTEUM("vinteum", ModConfig.confVinteumTier, ModConfig.confVinteumSeeds && ModChecker.AM2),
 		CHIMERITE("chimerite", ModConfig.confChimeriteTier, ModConfig.confChimeriteSeeds && ModChecker.AM2),
 		BLUE_TOPAZ("blue_topaz", ModConfig.confBlueTopazTier, ModConfig.confBlueTopazSeeds && ModChecker.AM2),

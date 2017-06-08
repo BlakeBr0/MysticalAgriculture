@@ -137,6 +137,9 @@ public class ModConfig {
 	
 	public static boolean confApatiteSeeds;
 	
+	public static boolean confMeteoricIronSeeds;
+	public static boolean confDeshSeeds;
+	
 	public static boolean confVinteumSeeds;
 	public static boolean confChimeriteSeeds;
 	public static boolean confBlueTopazSeeds;
@@ -261,6 +264,9 @@ public class ModConfig {
 	public static int confBasaltTier;
 	
 	public static int confApatiteTier;
+	
+	public static int confMeteoricIronTier;
+	public static int confDeshTier;
 	
 	public static int confVinteumTier;
 	public static int confChimeriteTier;
@@ -482,6 +488,9 @@ public class ModConfig {
 		
 		confApatiteSeeds = config.get(category, "apatite_seeds", true).getBoolean();
 		
+		confMeteoricIronSeeds = config.get(category, "meteoric_iron_seeds", true).getBoolean();
+		confDeshSeeds = config.get(category, "desh_seeds", true).getBoolean();
+		
 		confVinteumSeeds = config.get(category, "vinteum_seeds", true).getBoolean();
 		confChimeriteSeeds = config.get(category, "chimerite_seeds", true).getBoolean();
 		confBlueTopazSeeds = config.get(category, "blue_topaz_seeds", true).getBoolean();
@@ -620,6 +629,9 @@ public class ModConfig {
 		confBasaltTier = config.get(category, "basalt_tier", 2).getInt();
 		
 		confApatiteTier = config.get(category, "apatite_tier", 2).getInt();
+		
+		confMeteoricIronTier = config.get(category, "meteoric_iron_tier", 4).getInt();
+		confDeshTier = config.get(category, "desh_tier", 5).getInt();
 		
 		confVinteumTier = config.get(category, "vinteum_tier", 3).getInt();
 		confChimeriteTier = config.get(category, "chimerite_tier", 3).getInt();

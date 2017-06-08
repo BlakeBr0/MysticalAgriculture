@@ -19,6 +19,7 @@ public class ModChecker {
 	public static boolean IE = Loader.isModLoaded("immersiveengineering");
 	public static boolean AM2 = Loader.isModLoaded("arsmagica2");
 	public static boolean GALACTICRAFT = Loader.isModLoaded("galacticraftcore");
+	public static boolean GALACTICRAFTPLANETS = Loader.isModLoaded("galacticraftplanets");
 	public static boolean IC2 = Loader.isModLoaded("IC2") || Loader.isModLoaded("ic2");
 	public static boolean BOP = Loader.isModLoaded("BiomesOPlenty") || Loader.isModLoaded("biomesoplenty");
 	public static boolean FORESTRY = Loader.isModLoaded("forestry");
@@ -35,7 +36,7 @@ public class ModChecker {
 	public static boolean ZINC = OreDictionary.getOres("ingotZinc").size() > 0 || TECHREBORN || SUBSTRATUM || BASEMETALS;
 	public static boolean BRASS = OreDictionary.getOres("ingotBrass").size() > 0 || TECHREBORN || SUBSTRATUM || BASEMETALS;
 	public static boolean SILVER = OreDictionary.getOres("ingotSilver").size() > 0 || THERMAL || IC2 || IE || FORESTRY || TECHREBORN || SUBSTRATUM || BASEMETALS;
-	public static boolean LEAD = OreDictionary.getOres("ingotLead").size() > 0 || THERMAL || IC2 || IE || GALACTICRAFT || TECHREBORN || SUBSTRATUM || BASEMETALS;
+	public static boolean LEAD = OreDictionary.getOres("ingotLead").size() > 0 || THERMAL || IC2 || IE || GALACTICRAFTPLANETS || TECHREBORN || SUBSTRATUM || BASEMETALS;
 	public static boolean STEEL = OreDictionary.getOres("ingotSteel").size() > 0 || THERMAL || IC2 || IE || TECHREBORN || MEKANISM || SUBSTRATUM || BASEMETALS || BIGREACTORS;
 	public static boolean NICKEL = OreDictionary.getOres("ingotNickel").size() > 0 || THERMAL || IE || TECHREBORN || SUBSTRATUM;
 	public static boolean CONSTANTAN = OreDictionary.getOres("ingotConstantan").size() > 0 || THERMAL || IE || SUBSTRATUM;
@@ -43,7 +44,7 @@ public class ModChecker {
 	public static boolean INVAR = OreDictionary.getOres("ingotInvar").size() > 0 || THERMAL || SUBSTRATUM || BASEMETALS;
 	public static boolean MITHRIL = OreDictionary.getOres("ingotMithril").size() > 0 || THERMAL || BASEMETALS;
 	public static boolean TUNGSTEN = OreDictionary.getOres("ingotTungsten").size() > 0 || TECHREBORN;
-	public static boolean TITANIUM = OreDictionary.getOres("ingotTitanium").size() > 0 || TECHREBORN;
+	public static boolean TITANIUM = OreDictionary.getOres("ingotTitanium").size() > 0 || GALACTICRAFTPLANETS || TECHREBORN;
 	public static boolean CHROME = OreDictionary.getOres("ingotChrome").size() > 0 || TECHREBORN || SUBSTRATUM;
 	public static boolean PLATINUM = OreDictionary.getOres("ingotPlatinum").size() > 0 || THERMAL || SUBSTRATUM || BASEMETALS;
 	public static boolean IRIDIUM = OreDictionary.getOres("ingotIridium").size() > 0 || THERMAL || TECHREBORN;
