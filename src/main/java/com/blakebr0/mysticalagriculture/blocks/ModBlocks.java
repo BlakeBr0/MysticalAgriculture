@@ -149,18 +149,18 @@ public class ModBlocks {
 		
 		if(ModConfig.confEssenceFurnaces){
 			registerBlock(blockInferiumFurnace);
-			GameRegistry.register(blockInferiumFurnaceActive);
+			registerBlock(blockInferiumFurnaceActive);
 			registerBlock(blockPrudentiumFurnace);
-			GameRegistry.register(blockPrudentiumFurnaceActive);
+			registerBlock(blockPrudentiumFurnaceActive);
 			registerBlock(blockIntermediumFurnace);
-			GameRegistry.register(blockIntermediumFurnaceActive);
+			registerBlock(blockIntermediumFurnaceActive);
 			registerBlock(blockSuperiumFurnace);
-			GameRegistry.register(blockSuperiumFurnaceActive);
+			registerBlock(blockSuperiumFurnaceActive);
 			registerBlock(blockSupremiumFurnace);
-			GameRegistry.register(blockSupremiumFurnaceActive);
+			registerBlock(blockSupremiumFurnaceActive);
 			if(ModConfig.confUltimateFurnace){
 				registerBlock(blockUltimateFurnace);
-				GameRegistry.register(blockUltimateFurnaceActive);
+				registerBlock(blockUltimateFurnaceActive);
 			}
 		}
 				
@@ -239,12 +239,18 @@ public class ModBlocks {
 		
 		if(ModConfig.confEssenceFurnaces){
 			registerModel(blockInferiumFurnace);
+			registerModel(blockInferiumFurnaceActive);
 			registerModel(blockPrudentiumFurnace);
+			registerModel(blockPrudentiumFurnaceActive);
 			registerModel(blockIntermediumFurnace);
+			registerModel(blockIntermediumFurnaceActive);
 			registerModel(blockSuperiumFurnace);
+			registerModel(blockSuperiumFurnaceActive);
 			registerModel(blockSupremiumFurnace);
+			registerModel(blockSupremiumFurnaceActive);
 			if(ModConfig.confUltimateFurnace){
 				registerModel(blockUltimateFurnace);
+				registerModel(blockUltimateFurnaceActive);
 			}
 		}
 					
