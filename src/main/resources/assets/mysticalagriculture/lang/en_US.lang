@@ -145,8 +145,10 @@ tile.ma.wither_skeleton_crop.name=Wither Skeleton Crop
 
 tile.ma.rubber_crop.name=Rubber Crop
 tile.ma.silicon_crop.name=Silicon Crop
+tile.ma.sulfur_crop.name=Sulfur Crop
 tile.ma.aluminum_crop.name=Aluminum Crop
 tile.ma.copper_crop.name=Copper Crop
+tile.ma.saltpeter_crop.name=Saltpeter Crop
 tile.ma.tin_crop.name=Tin Crop
 tile.ma.bronze_crop.name=Bronze Crop
 tile.ma.zinc_crop.name=Zinc Crop
@@ -389,8 +391,10 @@ item.ma.wither_skeleton_essence.name=Wither Skeleton Essence
 
 item.ma.rubber_essence.name=Rubber Essence
 item.ma.silicon_essence.name=Silicon Essence
+item.ma.sulfur_essence.name=Sulfur Essence
 item.ma.aluminum_essence.name=Aluminum Essence
 item.ma.copper_essence.name=Copper Essence
+item.ma.saltpeter_essence.name=Saltpeter Essence
 item.ma.tin_essence.name=Tin Essence
 item.ma.bronze_essence.name=Bronze Essence
 item.ma.zinc_essence.name=Zinc Essence
@@ -526,8 +530,10 @@ item.ma.wither_skeleton_seeds.name=Wither Skeleton Seeds
 
 item.ma.rubber_seeds.name=Rubber Seeds
 item.ma.silicon_seeds.name=Silicon Seeds
+item.ma.sulfur_seeds.name=Sulfur Seeds
 item.ma.aluminum_seeds.name=Aluminum Seeds
 item.ma.copper_seeds.name=Copper Seeds
+item.ma.saltpeter_seeds.name=Saltpeter Seeds
 item.ma.tin_seeds.name=Tin Seeds
 item.ma.bronze_seeds.name=Bronze Seeds
 item.ma.zinc_seeds.name=Zinc Seeds

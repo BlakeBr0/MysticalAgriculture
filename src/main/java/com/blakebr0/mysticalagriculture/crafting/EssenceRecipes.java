@@ -175,8 +175,10 @@ public class EssenceRecipes {
 
 	    if(type.RUBBER.isEnabled()){ addEssenceRecipe(Utils.getItem("itemRubber", EssenceConfig.rubber), "EEE", "XXX", "XXX", 'E', new ItemStack(type.RUBBER.getCrop(), 1, 0)); }
 	    if(type.SILICON.isEnabled()){ addEssenceRecipe(Utils.getItem("itemSilicon", EssenceConfig.silicon), "EEE", "XXX", "XXX", 'E', new ItemStack(type.SILICON.getCrop(), 1, 0)); }
+	    if(type.SULFUR.isEnabled()){ addEssenceRecipe(Utils.getItem("dustSulfur", EssenceConfig.sulfur), "EEE", "XXX", "XXX", 'E', new ItemStack(type.SULFUR.getCrop(), 1, 0)); }
 	    if(type.ALUMINUM.isEnabled()){ addEssenceRecipe(Utils.getItem("ingotAluminum", EssenceConfig.aluminum), "EEE", "EXE", "EEE", 'E', new ItemStack(type.ALUMINUM.getCrop(), 1, 0)); }  
 	    if(type.COPPER.isEnabled()){ addEssenceRecipe(Utils.getItem("ingotCopper", EssenceConfig.copper), "EEE", "EXE", "EEE", 'E', new ItemStack(type.COPPER.getCrop(), 1, 0)); }
+	    if(type.SALTPETER.isEnabled()){ addEssenceRecipe(Utils.getItem("dustSaltpeter", EssenceConfig.saltpeter), "EEE", "XXX", "XXX", 'E', new ItemStack(type.SALTPETER.getCrop(), 1, 0)); }
 	    if(type.TIN.isEnabled()){ addEssenceRecipe(Utils.getItem("ingotTin", EssenceConfig.tin), "EEE", "EXE", "EEE", 'E', new ItemStack(type.TIN.getCrop(), 1, 0)); }
 	    if(type.BRONZE.isEnabled()){ addEssenceRecipe(Utils.getItem("ingotBronze", EssenceConfig.bronze), "EEE", "EXE", "EEE", 'E', new ItemStack(type.BRONZE.getCrop(), 1, 0)); }
 	    if(type.ZINC.isEnabled()){ addEssenceRecipe(Utils.getItem("ingotZinc", EssenceConfig.zinc), "EEE", "EXE", "EEE", 'E', new ItemStack(type.ZINC.getCrop(), 1, 0)); }

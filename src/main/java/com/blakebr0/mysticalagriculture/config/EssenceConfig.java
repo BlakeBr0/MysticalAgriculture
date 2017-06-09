@@ -101,8 +101,10 @@ public class EssenceConfig {
 	
 	public static int rubber;
 	public static int silicon;
+	public static int sulfur;
 	public static int aluminum;
 	public static int copper;
+	public static int saltpeter;
 	public static int tin;
 	public static int bronze;
 	public static int zinc;
@@ -301,8 +303,10 @@ public class EssenceConfig {
 		category = "OreDict Resources";
 		rubber = config.get(category, "rubber", 8).getInt();
 		silicon = config.get(category, "silicon", 8).getInt();
+		sulfur = config.get(category, "sulfur", 8).getInt();
 		aluminum = config.get(category, "aluminum", 8).getInt();
 		copper = config.get(category, "copper", 6).getInt();
+		saltpeter = config.get(category, "saltpeter", 5).getInt();
 		tin = config.get(category, "tin", 4).getInt();
 		bronze = config.get(category, "bronze", 4).getInt();
 		zinc = config.get(category, "zinc", 4).getInt();

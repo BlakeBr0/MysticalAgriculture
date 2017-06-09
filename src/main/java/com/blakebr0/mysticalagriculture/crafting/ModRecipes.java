@@ -489,8 +489,10 @@ public class ModRecipes {
 
 	    addSeedRecipe(type.RUBBER, "itemRubber");
 	    addSeedRecipe(type.SILICON, "itemSilicon");
+	    addSeedRecipe(type.SULFUR, "dustSulfur");
 	    addSeedRecipe(type.ALUMINUM, "ingotAluminum");
 	    addSeedRecipe(type.COPPER, "ingotCopper");
+	    addSeedRecipe(type.SALTPETER, "dustSaltpeter");
 	    addSeedRecipe(type.TIN, "ingotTin");
 	    addSeedRecipe(type.BRONZE, "ingotBronze");
 	    addSeedRecipe(type.ZINC, "ingotZinc");

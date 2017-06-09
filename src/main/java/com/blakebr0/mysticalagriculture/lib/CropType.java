@@ -61,8 +61,10 @@ public class CropType {
 		
 		RUBBER("rubber", ModConfig.confRubberTier, ModConfig.confRubberSeeds && ModChecker.RUBBER),
 		SILICON("silicon", ModConfig.confSiliconTier, ModConfig.confSiliconSeeds && ModChecker.SILICON),
+		SULFUR("sulfur", ModConfig.confSulfurTier, ModConfig.confSulfurSeeds && ModChecker.SULFUR),
 		ALUMINUM("aluminum", ModConfig.confAluminumTier, ModConfig.confAluminumSeeds && ModChecker.ALUMINUM),
 		COPPER("copper", ModConfig.confCopperTier, ModConfig.confCopperSeeds && ModChecker.COPPER),
+		SALTPETER("saltpeter", ModConfig.confSaltpeterTier, ModConfig.confSaltpeterSeeds && ModChecker.SALTPETER),
 		TIN("tin", ModConfig.confTinTier, ModConfig.confTinSeeds && ModChecker.TIN),
 		BRONZE("bronze", ModConfig.confBronzeTier, ModConfig.confBronzeSeeds && ModChecker.BRONZE),
 		ZINC("zinc", ModConfig.confZincTier, ModConfig.confZincSeeds && ModChecker.ZINC),

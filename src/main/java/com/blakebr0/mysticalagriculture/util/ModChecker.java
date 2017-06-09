@@ -22,6 +22,7 @@ public class ModChecker {
 	public static boolean GALACTICRAFTPLANETS = Loader.isModLoaded("galacticraftplanets");
 	public static boolean IC2 = Loader.isModLoaded("IC2") || Loader.isModLoaded("ic2");
 	public static boolean BOP = Loader.isModLoaded("BiomesOPlenty") || Loader.isModLoaded("biomesoplenty");
+	public static boolean RAILCRAFT = Loader.isModLoaded("railcraft");
 	public static boolean FORESTRY = Loader.isModLoaded("forestry");
 	public static boolean PIXELMON = Loader.isModLoaded("pixelmon");
 	public static boolean TECHREBORN = Loader.isModLoaded("techreborn");
@@ -30,8 +31,10 @@ public class ModChecker {
 	
 	public static boolean RUBBER = OreDictionary.getOres("itemRubber").size() > 0 || IC2 || TECHREBORN;
 	public static boolean SILICON = OreDictionary.getOres("itemSilicon").size() > 0 || ENDERIO || GALACTICRAFT || AE2 || RS;
+	public static boolean SULFUR = OreDictionary.getOres("dustSulfur").size() > 0 || THERMAL || RAILCRAFT || TECHREBORN || SUBSTRATUM;
 	public static boolean ALUMINUM = OreDictionary.getOres("ingotAluminum").size() > 0 || OreDictionary.getOres("ingotAluminium").size() > 0 || THERMAL || IE || GALACTICRAFT || TECHREBORN || PIXELMON || SUBSTRATUM || BASEMETALS;
 	public static boolean COPPER = OreDictionary.getOres("ingotCopper").size() > 0 || THERMAL || IC2 || IE || FORESTRY || TECHREBORN || MEKANISM || SUBSTRATUM || BASEMETALS;
+	public static boolean SALTPETER = OreDictionary.getOres("dustSaltpeter").size() > 0 || THERMAL || RAILCRAFT || TECHREBORN;
 	public static boolean TIN = OreDictionary.getOres("ingotTin").size() > 0 || THERMAL || IC2 || GALACTICRAFT || FORESTRY || TECHREBORN || MEKANISM || SUBSTRATUM || BASEMETALS;
 	public static boolean BRONZE = OreDictionary.getOres("ingotBronze").size() > 0 || THERMAL || IC2 || GALACTICRAFT || FORESTRY || TECHREBORN || MEKANISM || SUBSTRATUM || BASEMETALS;
 	public static boolean ZINC = OreDictionary.getOres("ingotZinc").size() > 0 || TECHREBORN || SUBSTRATUM || BASEMETALS;

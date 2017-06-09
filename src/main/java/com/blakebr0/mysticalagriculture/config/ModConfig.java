@@ -69,6 +69,8 @@ public class ModConfig {
 	
 	public static boolean confRubberSeeds;
 	public static boolean confSiliconSeeds;
+	public static boolean confSulfurSeeds;
+	public static boolean confSaltpeterSeeds;
 	public static boolean confAluminumSeeds;
 	public static boolean confCopperSeeds;
 	public static boolean confTinSeeds;
@@ -198,6 +200,8 @@ public class ModConfig {
 	
 	public static int confRubberTier;
 	public static int confSiliconTier;
+	public static int confSulfurTier;
+	public static int confSaltpeterTier;
 	public static int confAluminumTier;
 	public static int confCopperTier;
 	public static int confTinTier;
@@ -422,8 +426,10 @@ public class ModConfig {
 		config.addCustomCategoryComment(category, "Enable/Disable Mod Support seeds individually.");
 		confRubberSeeds = config.get(category, "rubber_seeds", true).getBoolean();
 		confSiliconSeeds = config.get(category, "silicon_seeds", true).getBoolean();
+		confSulfurSeeds = config.get(category, "sulfur_seeds", true).getBoolean();
 		confAluminumSeeds = config.get(category, "aluminum_seeds", true).getBoolean();
 		confCopperSeeds = config.get(category, "copper_seeds", true).getBoolean();
+		confSaltpeterSeeds = config.get(category, "saltpeter_seeds", true).getBoolean();
 		confTinSeeds = config.get(category, "tin_seeds", true).getBoolean();
 		confBronzeSeeds = config.get(category, "bronze_seeds", true).getBoolean();
 		confZincSeeds = config.get(category, "zinc_seeds", true).getBoolean();
@@ -565,8 +571,10 @@ public class ModConfig {
 				+ "\nTier 5: Supremium");
 		confRubberTier = config.get(category, "rubber_tier", 2).getInt();
 		confSiliconTier = config.get(category, "silicon_tier", 2).getInt();
+		confSulfurTier = config.get(category, "silicon_seeds", 2).getInt();
 		confAluminumTier = config.get(category, "aluminum_tier", 2).getInt();
 		confCopperTier = config.get(category, "copper_tier", 2).getInt();
+		confSaltpeterTier = config.get(category, "saltpeter_tier", 3).getInt();
 		confTinTier = config.get(category, "tin_tier", 3).getInt();
 		confBronzeTier = config.get(category, "bronze_tier", 3).getInt();
 		confZincTier = config.get(category, "zinc_tier", 3).getInt();
