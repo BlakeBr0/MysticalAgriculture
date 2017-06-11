@@ -1,0 +1,6 @@
+{
+    "parent": "block/cross",
+    "textures": {
+        "cross": "mysticalagriculture:blocks/meteoric_iron_crop"
+    }
+}

@@ -1,0 +1,9 @@
+{
+    "variants": {
+        "facing=up": { "model": "mysticalagriculture:miners_torch" },
+        "facing=east": { "model": "mysticalagriculture:miners_torch_wall" },
+        "facing=south": { "model": "mysticalagriculture:miners_torch_wall", "y": 90 },
+        "facing=west": { "model": "mysticalagriculture:miners_torch_wall", "y": 180 },
+        "facing=north": { "model": "mysticalagriculture:miners_torch_wall", "y": 270 }
+    }
+}

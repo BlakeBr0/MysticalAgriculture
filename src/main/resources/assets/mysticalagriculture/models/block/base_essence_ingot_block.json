@@ -1,0 +1,6 @@
+{
+    "parent": "block/cube_all",
+    "textures": {
+        "all": "mysticalagriculture:blocks/base_essence_ingot_block"
+    }
+}
