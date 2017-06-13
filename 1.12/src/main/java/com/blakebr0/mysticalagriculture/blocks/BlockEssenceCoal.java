@@ -87,7 +87,7 @@ public class BlockEssenceCoal extends BlockBase {
     
     @Override
     @SideOnly(Side.CLIENT)
-    public void addInformation(ItemStack stack, @Nullable World player, List<String> tooltip, ITooltipFlag advanced){
+    public void addInformation(ItemStack stack, @Nullable World world, List<String> tooltip, ITooltipFlag advanced){
     	String bt = null;
     	switch(stack.getMetadata()){
 		case 0:

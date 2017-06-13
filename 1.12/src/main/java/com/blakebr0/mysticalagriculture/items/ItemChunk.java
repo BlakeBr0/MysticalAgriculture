@@ -2,12 +2,15 @@ package com.blakebr0.mysticalagriculture.items;
 
 import java.util.List;
 
+import javax.annotation.Nullable;
+
 import com.blakebr0.mysticalagriculture.MysticalAgriculture;
 import com.blakebr0.mysticalagriculture.config.ModConfig;
 
-import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
@@ -25,7 +28,7 @@ public class ItemChunk extends Item {
 			
 	@Override
 	@SideOnly(Side.CLIENT)
-	public void addInformation(ItemStack stack, EntityPlayer player, List tooltip, boolean advanced){
+	public void addInformation(ItemStack stack, @Nullable World world, List tooltip, ITooltipFlag advanced){
 		switch(this.tier - 1){
         case 0:
         	tooltip.add("Tier: \u00A7e1");

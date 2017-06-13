@@ -7,6 +7,7 @@ import javax.annotation.Nullable;
 import com.blakebr0.mysticalagriculture.MysticalAgriculture;
 import com.blakebr0.mysticalagriculture.config.ModConfig;
 
+import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.IItemPropertyGetter;
@@ -48,7 +49,7 @@ public class ItemInfusionCrystal extends Item {
     
     @Override
     @SideOnly(Side.CLIENT)
-    public void addInformation(ItemStack stack, EntityPlayer player, List tooltip, boolean advanced){
+    public void addInformation(ItemStack stack, @Nullable World world, List tooltip, ITooltipFlag advanced){
     	int damage = stack.getMaxDamage() - stack.getItemDamage() + 1;
     	tooltip.add("Uses Left: \u00A7c" + damage);
     }

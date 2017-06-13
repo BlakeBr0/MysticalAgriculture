@@ -133,7 +133,7 @@ public class BlockTinkeringTable extends BlockBase implements ITileEntityProvide
     
     @Override
     @SideOnly(Side.CLIENT)
-    public void addInformation(ItemStack stack, @Nullable World player, List<String> tooltip, ITooltipFlag advanced){
+    public void addInformation(ItemStack stack, @Nullable World world, List<String> tooltip, ITooltipFlag advanced){
     	switch(stack.getMetadata()){
 		case 0:
 			tooltip.add("Material: \u00A7eInferium");

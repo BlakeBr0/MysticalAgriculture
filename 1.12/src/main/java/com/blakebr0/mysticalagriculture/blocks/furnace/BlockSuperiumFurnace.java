@@ -60,7 +60,7 @@ public class BlockSuperiumFurnace extends BlockContainer
     
 	@Override
 	@SideOnly(Side.CLIENT)
-	public void addInformation(ItemStack stack, @Nullable World player, List<String> tooltip, ITooltipFlag advanced){
+	public void addInformation(ItemStack stack, @Nullable World world, List<String> tooltip, ITooltipFlag advanced){
 		tooltip.add("Efficiency: \u00A7b+85%");
 	}
 

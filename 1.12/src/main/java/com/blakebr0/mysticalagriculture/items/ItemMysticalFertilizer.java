@@ -2,6 +2,8 @@ package com.blakebr0.mysticalagriculture.items;
 
 import java.util.List;
 
+import javax.annotation.Nullable;
+
 import com.blakebr0.mysticalagriculture.MysticalAgriculture;
 import com.blakebr0.mysticalagriculture.blocks.crop.BlockInferiumCrop;
 import com.blakebr0.mysticalagriculture.blocks.crop.BlockMysticalCrop;
@@ -15,6 +17,7 @@ import net.minecraft.block.BlockPlanks;
 import net.minecraft.block.IGrowable;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.renderer.color.IItemColor;
+import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.EnumDyeColor;
@@ -41,14 +44,14 @@ public class ItemMysticalFertilizer extends Item {
 	
 	@Override
 	@SideOnly(Side.CLIENT)
-	public void addInformation(ItemStack stack, EntityPlayer player, List tooltip, boolean advanced){
+	public void addInformation(ItemStack stack, @Nullable World world, List tooltip, ITooltipFlag advanced){
 		tooltip.add(new TextComponentTranslation("tooltip.ma.mystical_fertilizer").getFormattedText());
 	}
 	
-    public static boolean applyFertilizer(ItemStack stack, World world, BlockPos pos, EntityPlayer player){
+    public static boolean applyFertilizer(ItemStack stack, World world, BlockPos pos, EntityPlayer player, EnumHand hand){
         IBlockState state = world.getBlockState(pos);
 
-        int hook = net.minecraftforge.event.ForgeEventFactory.onApplyBonemeal(player, world, pos, state, stack);
+        int hook = net.minecraftforge.event.ForgeEventFactory.onApplyBonemeal(player, world, pos, state, stack, hand);
         if(hook != 0) return hook > 0;
 
     	if(state.getBlock() instanceof IGrowable){
@@ -79,7 +82,7 @@ public class ItemMysticalFertilizer extends Item {
         if(!stack.canPlayerEdit(worldIn.offset(hand), hand, itemstack)){
             return EnumActionResult.FAIL;
         } else {
-        	if (applyFertilizer(itemstack, playerIn, worldIn, stack)){
+        	if (applyFertilizer(itemstack, playerIn, worldIn, stack, pos)){
         		if (!playerIn.isRemote){
         			playerIn.playEvent(2005, worldIn, 0);
         		}
