@@ -1,0 +1,6 @@
+{
+    "parent": "block/cross",
+    "textures": {
+        "cross": "mysticalagriculture:blocks/blue_topaz_crop"
+    }
+}

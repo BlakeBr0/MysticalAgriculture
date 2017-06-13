@@ -1,0 +1,9 @@
+{
+    "variants": {
+        "variant=inferium": { "model": "mysticalagriculture:tinkering_table_inferium" },
+		"variant=prudentium": { "model": "mysticalagriculture:tinkering_table_prudentium" },
+		"variant=intermedium": { "model": "mysticalagriculture:tinkering_table_intermedium" },
+		"variant=superium": { "model": "mysticalagriculture:tinkering_table_superium" },
+		"variant=supremium": { "model": "mysticalagriculture:tinkering_table_supremium" }
+    }
+}

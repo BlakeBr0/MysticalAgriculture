@@ -1,0 +1,33 @@
+{
+    "parent": "block/block",
+    "elements": [
+        {   "from": [ 0, 0, 0 ],
+            "to": [ 16, 16, 16 ],
+            "faces": {
+                "down":  { "texture": "#t1", "cullface": "down" },
+                "up":    { "texture": "#t1", "cullface": "up" },
+                "north": { "texture": "#t1", "cullface": "north" },
+                "south": { "texture": "#t1", "cullface": "south" },
+                "west":  { "texture": "#t1", "cullface": "west" },
+                "east":  { "texture": "#t1", "cullface": "east" }
+            }
+        },
+		{   "from": [ 0.01, 0.01, 0.01 ],
+            "to": [ 15.99, 15.99, 15.99 ],
+            "faces": {
+               "down":  { "texture": "#t2", "cullface": "down" },
+                "up":    { "texture": "#t2", "cullface": "up" },
+                "north": { "texture": "#t2", "cullface": "north" },
+                "south": { "texture": "#t2", "cullface": "south" },
+                "west":  { "texture": "#t2", "cullface": "west" },
+                "east":  { "texture": "#t2", "cullface": "east" }
+ 
+            }
+        }
+		],
+	    "textures": {
+        "particle": "mysticalagriculture:blocks/mystical_machine_frame",
+        "t1": "mysticalagriculture:blocks/mystical_machine_frame",
+        "t2": "blocks/glowstone"
+    }
+}
