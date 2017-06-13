@@ -1,0 +1,6 @@
+{
+    "variants": {
+        "half=bottom,lul=in_2017": { "model": "mysticalagriculture:soulstone_brick" },
+        "half=top,lul=in_2017": { "model": "mysticalagriculture:soulstone_brick" }
+    }
+}

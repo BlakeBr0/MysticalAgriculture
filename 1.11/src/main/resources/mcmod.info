@@ -1,0 +1,16 @@
+[
+{
+  "modid": "mysticalagriculture",
+  "name": "Mystical Agriculture",
+  "description": "Adds Resource Crops, Armor, Tools, and other fun stuff!",
+  "version": "1.5.5",
+  "mcversion": "${mcversion}",
+  "url": "https://minecraft.curseforge.com/projects/mystical-agriculture",
+  "updateUrl": "",
+  "authorList": ["BlakeBr0"],
+  "credits": "Mark719 for Magical Crops, which this mod is based off of, as well as where the Growth Accelerator texture comes from.",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]

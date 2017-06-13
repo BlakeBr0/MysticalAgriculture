@@ -1,0 +1,6 @@
+{
+    "parent": "block/pane_noside_alt",
+    "textures": {
+        "pane": "mysticalagriculture:blocks/soul_glass"
+    }
+}
