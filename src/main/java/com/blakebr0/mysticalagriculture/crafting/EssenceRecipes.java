@@ -3,6 +3,7 @@ package com.blakebr0.mysticalagriculture.crafting;
 import com.blakebr0.mysticalagriculture.config.EssenceConfig;
 import com.blakebr0.mysticalagriculture.lib.CropType;
 import com.blakebr0.mysticalagriculture.lib.Parts;
+import com.blakebr0.mysticalagriculture.util.ModChecker;
 import com.blakebr0.mysticalagriculture.util.Utils;
 
 import net.minecraft.init.Blocks;
@@ -193,6 +194,7 @@ public class EssenceRecipes {
 	    if(type.MITHRIL.isEnabled()){ addEssenceRecipe(Utils.getItem("ingotMithril", EssenceConfig.mithril), "EEE", "EXE", "EEE", 'E', new ItemStack(type.MITHRIL.getCrop(), 1, 0)); }
 	    if(type.TUNGSTEN.isEnabled()){ addEssenceRecipe(Utils.getItem("ingotTungsten", EssenceConfig.tungsten), "EEE", "EXE", "EEE", 'E', new ItemStack(type.TUNGSTEN.getCrop(), 1, 0)); }
 	    if(type.TITANIUM.isEnabled()){ addEssenceRecipe(Utils.getItem("ingotTitanium", EssenceConfig.titanium), "EEE", "EXE", "EEE", 'E', new ItemStack(type.TITANIUM.getCrop(), 1, 0)); }
+	    if(type.URANIUM.isEnabled()){ addEssenceRecipe(Utils.getItem("ingotUranium", EssenceConfig.uranium), "EEE", "EXE", "EEE", 'E', new ItemStack(type.URANIUM.getCrop(), 1, 0)); }
 	    if(type.CHROME.isEnabled()){ addEssenceRecipe(Utils.getItem("ingotChrome", EssenceConfig.chrome), "EEE", "EXE", "EEE", 'E', new ItemStack(type.CHROME.getCrop(), 1, 0)); }
 	    if(type.PLATINUM.isEnabled()){ addEssenceRecipe(Utils.getItem("ingotPlatinum", EssenceConfig.platinum), "EEE", "EXE", "EEE", 'E', new ItemStack(type.PLATINUM.getCrop(), 1, 0)); }
 	    if(type.IRIDIUM.isEnabled()){ addEssenceRecipe(Utils.getItem("ingotIridium", EssenceConfig.iridium), "EEE", "EXE", "EEE", 'E', new ItemStack(type.IRIDIUM.getCrop(), 1, 0)); }

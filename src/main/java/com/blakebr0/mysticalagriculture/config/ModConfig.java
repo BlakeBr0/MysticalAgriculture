@@ -87,6 +87,7 @@ public class ModConfig {
 	public static boolean confMithrilSeeds;
 	public static boolean confTungstenSeeds;
 	public static boolean confTitaniumSeeds;
+	public static boolean confUraniumSeeds;
 	public static boolean confChromeSeeds;
 	public static boolean confPlatinumSeeds;
 	public static boolean confIridiumSeeds;
@@ -218,6 +219,7 @@ public class ModConfig {
 	public static int confMithrilTier;
 	public static int confTungstenTier;
 	public static int confTitaniumTier;
+	public static int confUraniumTier;
 	public static int confChromeTier;
 	public static int confPlatinumTier;
 	public static int confIridiumTier;
@@ -444,6 +446,7 @@ public class ModConfig {
 		confMithrilSeeds = config.get(category, "mithril_seeds", true).getBoolean();
 		confTungstenSeeds = config.get(category, "tungsten_seeds", true).getBoolean();
 		confTitaniumSeeds = config.get(category, "titanium_seeds", true).getBoolean();
+		confUraniumSeeds = config.get(category, "uranium_seeds", true).getBoolean();
 		confChromeSeeds = config.get(category, "chrome_seeds", true).getBoolean();
 		confPlatinumSeeds = config.get(category, "platinum_seeds", true).getBoolean();
 		confIridiumSeeds = config.get(category, "iridium_seeds", true).getBoolean();
@@ -589,6 +592,7 @@ public class ModConfig {
 		confMithrilTier = config.get(category, "mithril_tier", 4).getInt();
 		confTungstenTier = config.get(category, "tungsten_tier", 5).getInt();
 		confTitaniumTier = config.get(category, "titanium_tier", 5).getInt();
+		confUraniumTier = config.get(category, "uranium_tier", 5).getInt();
 		confChromeTier = config.get(category, "chrome_tier", 5).getInt();
 		confPlatinumTier = config.get(category, "platinum_tier", 5).getInt();
 		confIridiumTier = config.get(category, "iridium_tier", 5).getInt();

@@ -8,6 +8,7 @@ import com.blakebr0.mysticalagriculture.items.ItemWateringCan;
 import com.blakebr0.mysticalagriculture.items.ModItems;
 import com.blakebr0.mysticalagriculture.lib.CropType;
 import com.blakebr0.mysticalagriculture.lib.Parts;
+import com.blakebr0.mysticalagriculture.util.ModChecker;
 
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
@@ -507,6 +508,7 @@ public class ModRecipes {
 	    addSeedRecipe(type.MITHRIL, "ingotMithril");
 	    addSeedRecipe(type.TUNGSTEN, "ingotTungsten");
 	    addSeedRecipe(type.TITANIUM, "ingotTitanium");
+	    addSeedRecipe(type.URANIUM, "ingotUranium");
 	    addSeedRecipe(type.CHROME, "ingotChrome");
 	    addSeedRecipe(type.PLATINUM, "ingotPlatinum");
 	    addSeedRecipe(type.IRIDIUM, "ingotIridium");
@@ -544,6 +546,11 @@ public class ModRecipes {
 	    addSeedRecipe(type.MYSTICAL_FLOWER, new ItemStack(ModItems.itemMysticalFlowerCluster, 1, 0));
 	    addSeedRecipe(type.MANASTEEL, new ItemStack(Parts.itemBotaniaResources, 1, 0));
 	    addSeedRecipe(type.TERRASTEEL, new ItemStack(Parts.itemBotaniaResources, 1, 4));
+	    
+	    if(ModChecker.IC2){ // TODO: set up ic2 special case
+		    addSeedRecipe(type.URANIUM, "uran238");
+		    addSeedRecipe(type.IRIDIUM, "oreIridium");
+	    }
 	
 	    addSeedRecipe(type.OSMIUM, "ingotOsmium");
 	    addSeedRecipe(type.GLOWSTONE_INGOT, "ingotRefinedGlowstone");
