@@ -508,10 +508,10 @@ public class ModRecipes {
 	    addSeedRecipe(type.MITHRIL, "ingotMithril");
 	    addSeedRecipe(type.TUNGSTEN, "ingotTungsten");
 	    addSeedRecipe(type.TITANIUM, "ingotTitanium");
-	    addSeedRecipe(type.URANIUM, "ingotUranium");
+	    if(ModChecker.URANIUM){ addSeedRecipe(type.URANIUM, "ingotUranium"); }
 	    addSeedRecipe(type.CHROME, "ingotChrome");
 	    addSeedRecipe(type.PLATINUM, "ingotPlatinum");
-	    addSeedRecipe(type.IRIDIUM, "ingotIridium");
+	    if(ModChecker.IRIDIUM){ addSeedRecipe(type.IRIDIUM, "ingotIridium"); }
 
 	    addSeedRecipe(type.RUBY, "gemRuby");
 	    addSeedRecipe(type.SAPPHIRE, "gemSapphire");
@@ -547,7 +547,7 @@ public class ModRecipes {
 	    addSeedRecipe(type.MANASTEEL, new ItemStack(Parts.itemBotaniaResources, 1, 0));
 	    addSeedRecipe(type.TERRASTEEL, new ItemStack(Parts.itemBotaniaResources, 1, 4));
 	    
-	    if(ModChecker.IC2){ // TODO: set up ic2 special case
+	    if(ModChecker.IC2){
 		    addSeedRecipe(type.URANIUM, "uran238");
 		    addSeedRecipe(type.IRIDIUM, "oreIridium");
 	    }

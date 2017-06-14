@@ -79,10 +79,10 @@ public class CropType {
 		MITHRIL("mithril", ModConfig.confMithrilTier, ModConfig.confMithrilSeeds && ModChecker.MITHRIL),
 		TUNGSTEN("tungsten", ModConfig.confTungstenTier, ModConfig.confTungstenSeeds && ModChecker.TUNGSTEN),
 		TITANIUM("titanium", ModConfig.confTitaniumTier, ModConfig.confTitaniumSeeds && ModChecker.TITANIUM),
-		URANIUM("uranium", ModConfig.confUraniumTier, ModConfig.confUraniumSeeds && ModChecker.URANIUM),
+		URANIUM("uranium", ModConfig.confUraniumTier, ModConfig.confUraniumSeeds && (ModChecker.URANIUM || ModChecker.IC2)),
 		CHROME("chrome", ModConfig.confChromeTier, ModConfig.confChromeSeeds && ModChecker.CHROME),
 		PLATINUM("platinum", ModConfig.confPlatinumTier, ModConfig.confPlatinumSeeds && ModChecker.PLATINUM),
-		IRIDIUM("iridium", ModConfig.confIridiumTier, ModConfig.confIridiumSeeds && ModChecker.IRIDIUM),
+		IRIDIUM("iridium", ModConfig.confIridiumTier, ModConfig.confIridiumSeeds && (ModChecker.IRIDIUM || ModChecker.IC2)),
 		
 		RUBY("ruby", ModConfig.confRubyTier, ModConfig.confRubySeeds && ModChecker.RUBY),
 		SAPPHIRE("sapphire", ModConfig.confSapphireTier, ModConfig.confSapphireSeeds && ModChecker.SAPPHIRE),
