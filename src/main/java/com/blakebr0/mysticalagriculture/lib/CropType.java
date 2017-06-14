@@ -142,6 +142,8 @@ public class CropType {
 		MOONSTONE("moonstone", ModConfig.confMoonstoneTier, ModConfig.confMoonstoneSeeds && ModChecker.AM2),
 		SUNSTONE("sunstone", ModConfig.confSunstoneTier, ModConfig.confSunstoneSeeds && ModChecker.AM2),
 		
+		ENDER_BIOTITE("ender_biotite", ModConfig.confEnderBiotiteTier, ModConfig.confEnderBiotiteSeeds && ModChecker.QUARK),
+		
 		ENDER_AMETHYST("ender_amethyst", ModConfig.confEnderAmethystTier, ModConfig.confEnderAmethystSeeds && ModChecker.BOP),
 		
 		DRACONIUM("draconium", ModConfig.confDraconiumTier, ModConfig.confDraconiumSeeds && ModChecker.DRACONIC),

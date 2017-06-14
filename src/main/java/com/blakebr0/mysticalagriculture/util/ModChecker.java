@@ -22,6 +22,7 @@ public class ModChecker {
 	public static boolean GALACTICRAFTPLANETS = Loader.isModLoaded("galacticraftplanets");
 	public static boolean IC2 = Loader.isModLoaded("IC2") || Loader.isModLoaded("ic2");
 	public static boolean BOP = Loader.isModLoaded("BiomesOPlenty") || Loader.isModLoaded("biomesoplenty");
+	public static boolean QUARK = Loader.isModLoaded("Quark") || Loader.isModLoaded("quark");
 	public static boolean RAILCRAFT = Loader.isModLoaded("railcraft");
 	public static boolean FORESTRY = Loader.isModLoaded("forestry");
 	public static boolean PIXELMON = Loader.isModLoaded("pixelmon");

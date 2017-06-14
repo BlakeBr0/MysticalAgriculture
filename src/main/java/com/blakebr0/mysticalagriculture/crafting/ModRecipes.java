@@ -576,6 +576,8 @@ public class ModRecipes {
 	    addSeedRecipe(type.MOONSTONE, "gemMoonstone");
 	    addSeedRecipe(type.SUNSTONE, "gemSunstone");
 
+	    addSeedRecipe(type.ENDER_BIOTITE, "gemEnderBiotite");
+	    
 	    addSeedRecipe(type.ENDER_AMETHYST, new ItemStack(Parts.itemBOPGems, 1, 0));
 	    
 	    addSeedRecipe(type.DRACONIUM, "ingotDraconium");

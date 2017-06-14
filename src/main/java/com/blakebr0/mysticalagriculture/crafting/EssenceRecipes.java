@@ -277,6 +277,8 @@ public class EssenceRecipes {
 	    if(type.MOONSTONE.isEnabled()){ addEssenceRecipe(Utils.getItem("gemMoonstone", EssenceConfig.moonstone), "EEE", "EXE", "EEE", 'E', new ItemStack(type.MOONSTONE.getCrop(), 1, 0)); }    
 	    if(type.SUNSTONE.isEnabled()){ addEssenceRecipe(Utils.getItem("gemSunstone", EssenceConfig.sunstone), "EEE", "EXE", "EEE", 'E', new ItemStack(type.SUNSTONE.getCrop(), 1, 0)); }    
 	    
+	    if(type.ENDER_BIOTITE.isEnabled()){ addEssenceRecipe(Utils.getItem("gemEnderBiotite", EssenceConfig.enderBiotite), "EEE", "XEX", "EEE", 'E', new ItemStack(type.ENDER_BIOTITE.getCrop(), 1, 0)); }    
+	    
 	    if(type.ENDER_AMETHYST.isEnabled()){ addEssenceRecipe(new ItemStack(Parts.itemBOPGems, EssenceConfig.enderAmethyst, 0), "EEE", "EXE", "EEE", 'E', new ItemStack(type.ENDER_AMETHYST.getCrop(), 1, 0)); }    
 	    
 	    if(type.DRACONIUM.isEnabled()){ addEssenceRecipe(Utils.getItem("ingotDraconium", EssenceConfig.draconium), "EEE", "EXE", "EEE", 'E', new ItemStack(type.DRACONIUM.getCrop(), 1, 0)); }

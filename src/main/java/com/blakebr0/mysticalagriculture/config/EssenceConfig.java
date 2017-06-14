@@ -184,6 +184,8 @@ public class EssenceConfig {
 	public static int moonstone;
 	public static int sunstone;
 	
+	public static int enderBiotite;
+	
 	public static int enderAmethyst;
 	
 	public static int draconium;
@@ -402,6 +404,9 @@ public class EssenceConfig {
 		blueTopaz = config.get(category, "blue_topaz", 6).getInt();
 		moonstone = config.get(category, "moonstone", 3).getInt();
 		sunstone = config.get(category, "sunstone", 3).getInt();
+		
+		category = "Qyark";
+		enderBiotite = config.get(category, "biotite", 8).getInt();
  	
 		category = "Biomes 'O Plenty";
 		enderAmethyst = config.get(category, "ender_amethyst", 3).getInt();
