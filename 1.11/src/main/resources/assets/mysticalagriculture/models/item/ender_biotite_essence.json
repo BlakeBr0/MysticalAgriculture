@@ -1,0 +1,6 @@
+{
+  "parent":"item/generated",
+  "textures": {
+    "layer0":"mysticalagriculture:items/ender_biotite_essence"
+  }
+}
