@@ -24,6 +24,7 @@ public class Parts {
 	public static Item itemRSIngot;
 	public static Item itemAEMaterial;
 	public static Item itemGCPMars;
+	public static Item itemIC2MiscResource;
 	
 	public static void getParts(){
 		
@@ -122,6 +123,15 @@ public class Parts {
 	    	try {
 	    		Item item = getItem("galacticraftplanets:item_basic_mars");
 	    		itemGCPMars = item;
+	    	} catch(Throwable e){
+	    		e.printStackTrace();
+	    	}
+	    }
+	    
+	    if(ModChecker.IC2){
+	    	try {
+	    		Item item = getItem("IC2:misc_resource");
+	    		itemIC2MiscResource = item;
 	    	} catch(Throwable e){
 	    		e.printStackTrace();
 	    	}

@@ -549,7 +549,7 @@ public class ModRecipes {
 	    
 	    if(ModChecker.IC2){
 		    addSeedRecipe(type.URANIUM, "uran238");
-		    addSeedRecipe(type.IRIDIUM, "oreIridium");
+		    addSeedRecipe(type.IRIDIUM, new ItemStack(Parts.itemIC2MiscResource, 1, 1));
 	    }
 	
 	    addSeedRecipe(type.OSMIUM, "ingotOsmium");
