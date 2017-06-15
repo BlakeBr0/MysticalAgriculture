@@ -23,6 +23,7 @@ public class Parts {
 	public static Item itemBOPGems;
 	public static Item itemRSIngot;
 	public static Item itemAEMaterial;
+	public static Item itemGCPMars;
 	
 	public static void getParts(){
 		
@@ -115,6 +116,15 @@ public class Parts {
 	        } catch(Throwable e){
 	            e.printStackTrace();
 	        }
+	    }
+	    
+	    if(ModChecker.GALACTICRAFTPLANETS){
+	    	try {
+	    		Item item = getItem("galacticraftplanets:item_basic_mars");
+	    		itemGCPMars = item;
+	    	} catch(Throwable e){
+	    		e.printStackTrace();
+	    	}
 	    }
 	}
 

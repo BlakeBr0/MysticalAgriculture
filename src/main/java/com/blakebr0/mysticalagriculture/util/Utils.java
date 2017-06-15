@@ -12,7 +12,7 @@ import net.minecraft.util.text.TextFormatting;
 import net.minecraftforge.oredict.OreDictionary;
 
 public class Utils {
-	
+		
 	public static Random rand = new Random();
 
 	public static String localize(String string){
