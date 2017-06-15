@@ -18,7 +18,7 @@ public class MysticalAgriculture {
 	
 	public static final String MOD_ID = "mysticalagriculture";
 	public static final String NAME = "Mystical Agriculture";
-	public static final String VERSION = "1.5.5";
+	public static final String VERSION = "1.5.6";
 	public static final String GUI_FACTORY = "com.blakebr0.mysticalagriculture.config.GuiFactory";
 		
 	@Mod.Instance(MysticalAgriculture.MOD_ID)
