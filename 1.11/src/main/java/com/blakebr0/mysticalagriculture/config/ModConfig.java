@@ -87,6 +87,7 @@ public class ModConfig {
 	public static boolean confMithrilSeeds;
 	public static boolean confTungstenSeeds;
 	public static boolean confTitaniumSeeds;
+	public static boolean confUraniumSeeds;
 	public static boolean confChromeSeeds;
 	public static boolean confPlatinumSeeds;
 	public static boolean confIridiumSeeds;
@@ -148,6 +149,8 @@ public class ModConfig {
 	public static boolean confBlueTopazSeeds;
 	public static boolean confMoonstoneSeeds;
 	public static boolean confSunstoneSeeds;
+	
+	public static boolean confEnderBiotiteSeeds;
 	
 	public static boolean confEnderAmethystSeeds;
 	
@@ -218,6 +221,7 @@ public class ModConfig {
 	public static int confMithrilTier;
 	public static int confTungstenTier;
 	public static int confTitaniumTier;
+	public static int confUraniumTier;
 	public static int confChromeTier;
 	public static int confPlatinumTier;
 	public static int confIridiumTier;
@@ -280,6 +284,8 @@ public class ModConfig {
 	public static int confMoonstoneTier;
 	public static int confSunstoneTier;
 	
+	public static int confEnderBiotiteTier;
+	
 	public static int confEnderAmethystTier;
 	
 	public static int confDraconiumTier;
@@ -304,6 +310,7 @@ public class ModConfig {
 	public static int confAppleBuffDuration;
 	public static boolean confEssenceFurnaces;
 	public static boolean confUltimateFurnace;
+	public static boolean confBotaniaHornHarvesting;
 	public static boolean confEssenceCoal;
 	public static boolean confWateringCans;
 	
@@ -443,6 +450,7 @@ public class ModConfig {
 		confMithrilSeeds = config.get(category, "mithril_seeds", true).getBoolean();
 		confTungstenSeeds = config.get(category, "tungsten_seeds", true).getBoolean();
 		confTitaniumSeeds = config.get(category, "titanium_seeds", true).getBoolean();
+		confUraniumSeeds = config.get(category, "uranium_seeds", true).getBoolean();
 		confChromeSeeds = config.get(category, "chrome_seeds", true).getBoolean();
 		confPlatinumSeeds = config.get(category, "platinum_seeds", true).getBoolean();
 		confIridiumSeeds = config.get(category, "iridium_seeds", true).getBoolean();
@@ -504,6 +512,8 @@ public class ModConfig {
 		confBlueTopazSeeds = config.get(category, "blue_topaz_seeds", true).getBoolean();
 		confMoonstoneSeeds = config.get(category, "moonstone_seeds", true).getBoolean();
 		confSunstoneSeeds = config.get(category, "sunstone_seeds", true).getBoolean();
+		
+		confEnderBiotiteSeeds = config.get(category, "ender_biotite_seeds", true).getBoolean();
 		
 		confEnderAmethystSeeds = config.get(category, "ender_amethyst_seeds", true).getBoolean();
 	
@@ -588,6 +598,7 @@ public class ModConfig {
 		confMithrilTier = config.get(category, "mithril_tier", 4).getInt();
 		confTungstenTier = config.get(category, "tungsten_tier", 5).getInt();
 		confTitaniumTier = config.get(category, "titanium_tier", 5).getInt();
+		confUraniumTier = config.get(category, "uranium_tier", 5).getInt();
 		confChromeTier = config.get(category, "chrome_tier", 5).getInt();
 		confPlatinumTier = config.get(category, "platinum_tier", 5).getInt();
 		confIridiumTier = config.get(category, "iridium_tier", 5).getInt();
@@ -650,6 +661,8 @@ public class ModConfig {
 		confMoonstoneTier = config.get(category, "moonstone_tier", 5).getInt();
 		confSunstoneTier = config.get(category, "sunstone_tier", 5).getInt();
 		
+		confEnderBiotiteTier = config.get(category, "ender_biotite_tier", 3).getInt();
+		
 		confEnderAmethystTier = config.get(category, "ender_amethyst_tier", 5).getInt();
 		
 		confDraconiumTier = config.get(category, "draconium_tier", 5).getInt();
@@ -678,6 +691,7 @@ public class ModConfig {
 		confAppleBuffDuration = config.getInt("apple_buff_duration", category, 2, 1, 100, "Essence Apple buff durations in minutes.");
 		confEssenceFurnaces = config.getBoolean("essence_furnaces", category, true, "Essence Furnaces enabled?");
 		confUltimateFurnace = config.getBoolean("ultimate_furnace", category, true, "Ultimate Furnace enabled? Requires Essence Furnaces be enabled.");
+		confBotaniaHornHarvesting = config.getBoolean("botania_horn_harvesting", category, true, "Should the Horn of the Wild auto-replant crops?");
 		confEssenceCoal = config.getBoolean("essence_coal", category, true, "Essence Coal enabled?");
 		confWateringCans = config.getBoolean("watering_cans", category, true, "Should the essence Watering Cans be enabled?");
 		

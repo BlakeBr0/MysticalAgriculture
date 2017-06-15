@@ -4,7 +4,9 @@ import java.util.List;
 
 import com.blakebr0.mysticalagriculture.MysticalAgriculture;
 import com.blakebr0.mysticalagriculture.config.ModConfig;
+import com.blakebr0.mysticalagriculture.lib.Colors;
 import com.blakebr0.mysticalagriculture.lib.Tooltips;
+import com.blakebr0.mysticalagriculture.util.Utils;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.MobEffects;
@@ -75,12 +77,16 @@ public class ItemSupremiumApple extends ItemFood {
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void addInformation(ItemStack stack, EntityPlayer player, List tooltip, boolean advanced){
-		tooltip.add(Tooltips.GIVES_BUFFS);
 		int duration = ModConfig.confAppleBuffDuration;
-		tooltip.add("- " + Tooltips.ABSORPTION + " \u00A77(" + duration + ":00)");
-		tooltip.add("- " + Tooltips.SPEED + " \u00A77(" + duration + ":00)");
-		tooltip.add("- " + Tooltips.RESISTANCE + " \u00A77(" + duration + ":00)");
-		tooltip.add("- " + Tooltips.REGENERATION + " \u00A77(" + duration + ":00)");
-		tooltip.add("- " + Tooltips.STRENGTH + " \u00A77(" + duration + ":00)");
+		if(Utils.isShiftKeyDown()){
+			tooltip.add(Tooltips.GIVES_BUFFS);
+			tooltip.add("- " + Tooltips.ABSORPTION + Colors.GRAY + " (" + duration + ":00)");
+			tooltip.add("- " + Tooltips.SPEED + Colors.GRAY + " (" + duration + ":00)");
+			tooltip.add("- " + Tooltips.RESISTANCE + Colors.GRAY + " (" + duration + ":00)");
+			tooltip.add("- " + Tooltips.REGENERATION + Colors.GRAY + " (" + duration + ":00)");
+			tooltip.add("- " + Tooltips.STRENGTH + Colors.GRAY + " (" + duration + ":00)");
+		} else {
+			tooltip.add(Tooltips.HOLD_SHIFT_FOR_INFO);
+		}
 	}
 }

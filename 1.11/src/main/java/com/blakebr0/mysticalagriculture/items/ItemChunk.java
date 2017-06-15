@@ -4,6 +4,8 @@ import java.util.List;
 
 import com.blakebr0.mysticalagriculture.MysticalAgriculture;
 import com.blakebr0.mysticalagriculture.config.ModConfig;
+import com.blakebr0.mysticalagriculture.lib.Colors;
+import com.blakebr0.mysticalagriculture.lib.Tooltips;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
@@ -28,30 +30,30 @@ public class ItemChunk extends Item {
 	public void addInformation(ItemStack stack, EntityPlayer player, List tooltip, boolean advanced){
 		switch(this.tier - 1){
         case 0:
-        	tooltip.add("Tier: \u00A7e1");
-        	tooltip.add("Drop Chance: \u00A7e30%");
+        	tooltip.add(Tooltips.TIER + Colors.YELLOW + "1");
+        	tooltip.add(Tooltips.DROP_CHANCE + Colors.YELLOW + "30%");
             break;
         case 1:
-        	tooltip.add("Tier: \u00A7a2");
-    		tooltip.add("Drop Chance: \u00A7a25%");
+        	tooltip.add(Tooltips.TIER + Colors.GREEN + "2");
+    		tooltip.add(Tooltips.DROP_CHANCE + Colors.GREEN + "25%");
             break;
         case 2:
-        	tooltip.add("Tier: \u00A763");
-        	tooltip.add("Drop Chance: \u00A7620%");
+        	tooltip.add(Tooltips.TIER + Colors.GOLD + "3");
+        	tooltip.add(Tooltips.DROP_CHANCE + Colors.GOLD + "20%");
             break;
         case 3:
-        	tooltip.add("Tier: \u00A7b4");
-        	tooltip.add("Drop Chance: \u00A7b15%");
+        	tooltip.add(Tooltips.TIER + Colors.AQUA + "4");
+        	tooltip.add(Tooltips.DROP_CHANCE + Colors.AQUA + "15%");
             break;
         case 4:
         	if(stack.getItem() != ModItems.itemExperienceChunk){
-        		tooltip.add("Tier: \u00A7c5");
+        		tooltip.add(Tooltips.TIER + Colors.RED + "5");
         	}
-        	tooltip.add("Drop Chance: \u00A7c10%");
+        	tooltip.add(Tooltips.DROP_CHANCE + Colors.RED + "10%");
             break;
 		}
 		if(ModConfig.confCraftableChunks && stack.getItem() != ModItems.itemExperienceChunk){
-			tooltip.add("\u00A7oCraftable");
+			tooltip.add(Tooltips.CRAFTABLE);
 		}
 	}
 }

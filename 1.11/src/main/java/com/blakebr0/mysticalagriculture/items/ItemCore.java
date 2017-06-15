@@ -3,6 +3,7 @@ package com.blakebr0.mysticalagriculture.items;
 import java.util.List;
 
 import com.blakebr0.mysticalagriculture.MysticalAgriculture;
+import com.blakebr0.mysticalagriculture.lib.Tooltips;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
@@ -22,6 +23,6 @@ public class ItemCore extends Item {
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void addInformation(ItemStack stack, EntityPlayer player, List tooltip, boolean advanced){
-		tooltip.add("Can be re-claimed using a \u00A7cCore Remover\u00A77.");
+		tooltip.add(Tooltips.CORE_REMOVAL);
 	}
 }

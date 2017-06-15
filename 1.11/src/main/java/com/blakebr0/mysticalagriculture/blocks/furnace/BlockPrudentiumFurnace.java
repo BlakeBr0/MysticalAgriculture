@@ -5,6 +5,8 @@ import java.util.Random;
 
 import com.blakebr0.mysticalagriculture.MysticalAgriculture;
 import com.blakebr0.mysticalagriculture.blocks.ModBlocks;
+import com.blakebr0.mysticalagriculture.lib.Colors;
+import com.blakebr0.mysticalagriculture.lib.Tooltips;
 import com.blakebr0.mysticalagriculture.tileentity.TileEntityPrudentiumFurnace;
 
 import net.minecraft.block.BlockContainer;
@@ -37,6 +39,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
+// TODO: cleanup
 public class BlockPrudentiumFurnace extends BlockContainer
 {
     public static final PropertyDirection FACING = BlockHorizontal.FACING;
@@ -58,8 +61,7 @@ public class BlockPrudentiumFurnace extends BlockContainer
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void addInformation(ItemStack stack, EntityPlayer player, List tooltip, boolean advanced){
-		tooltip.add("Efficiency: \u00A7a+35%");
-		super.addInformation(stack, player, tooltip, advanced);
+		tooltip.add(Tooltips.EFFICIENCY + Colors.GREEN + "+35%");
 	}
 
     /**

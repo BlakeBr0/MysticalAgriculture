@@ -7,6 +7,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.registry.GameRegistry;
+import net.minecraftforge.fml.common.registry.GameRegistry.ItemStackHolder;
 import net.minecraftforge.oredict.OreDictionary;
 
 public class Parts {
@@ -22,6 +23,7 @@ public class Parts {
 	public static Item itemBOPGems;
 	public static Item itemRSIngot;
 	public static Item itemAEMaterial;
+	public static Item itemGCPMars;
 	
 	public static void getParts(){
 		
@@ -68,21 +70,21 @@ public class Parts {
 	    
 	    if(ModChecker.CHISEL){
 	        try {
-	            Item item = getItem("chisel:marble2");
+	            Item item = getItem("chisel:marbleextra");
 	            itemChiselMarble = item;
 	        } catch(Throwable e){
 	            e.printStackTrace();
 	        }
 	        
 	        try {
-	            Item item = getItem("chisel:limestone2");
+	            Item item = getItem("chisel:limestoneextra");
 	            itemChiselLimestone = item;
 	        } catch(Throwable e){
 	            e.printStackTrace();
 	        }
 	        
 	        try {
-	            Item item = getItem("chisel:basalt2");
+	            Item item = getItem("chisel:basaltextra");
 	            itemChiselBasalt = item;
 	        } catch(Throwable e){
 	            e.printStackTrace();
@@ -114,6 +116,15 @@ public class Parts {
 	        } catch(Throwable e){
 	            e.printStackTrace();
 	        }
+	    }
+	    
+	    if(ModChecker.GALACTICRAFTPLANETS){
+	    	try {
+	    		Item item = getItem("galacticraftplanets:item_basic_mars");
+	    		itemGCPMars = item;
+	    	} catch(Throwable e){
+	    		e.printStackTrace();
+	    	}
 	    }
 	}
 

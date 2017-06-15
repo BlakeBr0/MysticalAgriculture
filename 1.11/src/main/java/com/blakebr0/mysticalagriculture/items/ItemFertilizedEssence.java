@@ -6,6 +6,8 @@ import com.blakebr0.mysticalagriculture.MysticalAgriculture;
 import com.blakebr0.mysticalagriculture.blocks.crop.BlockInferiumCrop;
 import com.blakebr0.mysticalagriculture.blocks.crop.BlockMysticalCrop;
 import com.blakebr0.mysticalagriculture.config.ModConfig;
+import com.blakebr0.mysticalagriculture.lib.Colors;
+import com.blakebr0.mysticalagriculture.lib.Tooltips;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockCrops;
@@ -35,9 +37,9 @@ public class ItemFertilizedEssence extends Item {
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void addInformation(ItemStack stack, EntityPlayer player, List tooltip, boolean advanced){
-		tooltip.add("Bonemeal that works on Resource Crops.");
+		tooltip.add(Tooltips.FERTILIZED_ESSENCE);
 		int chance = ModConfig.confFertilizedEssenceChance;
-		if(ModConfig.confFertilizedEssenceChance > 0){ tooltip.add("Drop Chance: \u00A7d" + chance + "%"); }
+		if(ModConfig.confFertilizedEssenceChance > 0){ tooltip.add(Tooltips.DROP_CHANCE + Colors.LIGHT_PURPLE + chance + "%"); }
 	}
 	
     public static boolean applyFertilizer(ItemStack stack, World worldIn, BlockPos target, EntityPlayer player){

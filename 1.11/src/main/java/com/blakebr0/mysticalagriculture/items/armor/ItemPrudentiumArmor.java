@@ -5,6 +5,7 @@ import java.util.List;
 import com.blakebr0.mysticalagriculture.MysticalAgriculture;
 import com.blakebr0.mysticalagriculture.config.ModConfig;
 import com.blakebr0.mysticalagriculture.items.ModItems;
+import com.blakebr0.mysticalagriculture.lib.Colors;
 import com.blakebr0.mysticalagriculture.lib.Tooltips;
 import com.blakebr0.mysticalagriculture.util.Utils;
 
@@ -30,11 +31,11 @@ public class ItemPrudentiumArmor extends ItemArmor {
 	}
 		
 	@Override
-	@SideOnly(Side.CLIENT) // TODO: localize
+	@SideOnly(Side.CLIENT)
 	public void addInformation(ItemStack stack, EntityPlayer player, List tooltip, boolean advanced){
 		int damage = stack.getMaxDamage() - stack.getItemDamage();
-		tooltip.add(Tooltips.DURABILITY + "\u00A7a" + damage);
-		if(ModConfig.confSetBonuses){ tooltip.add(Tooltips.SET_BONUS + "\u00A7aWater Breathing"); }
+		tooltip.add(Tooltips.DURABILITY + Colors.GREEN + damage);
+		if(ModConfig.confSetBonuses){ tooltip.add(Tooltips.SET_BONUS + Colors.GREEN + Tooltips.WATER_BREATHING); }
 	}
 
 	@Override

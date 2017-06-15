@@ -3,6 +3,7 @@ package com.blakebr0.mysticalagriculture.crafting;
 import com.blakebr0.mysticalagriculture.config.EssenceConfig;
 import com.blakebr0.mysticalagriculture.lib.CropType;
 import com.blakebr0.mysticalagriculture.lib.Parts;
+import com.blakebr0.mysticalagriculture.util.ModChecker;
 import com.blakebr0.mysticalagriculture.util.Utils;
 
 import net.minecraft.init.Blocks;
@@ -193,9 +194,10 @@ public class EssenceRecipes {
 	    if(type.MITHRIL.isEnabled()){ addEssenceRecipe(Utils.getItem("ingotMithril", EssenceConfig.mithril), "EEE", "EXE", "EEE", 'E', new ItemStack(type.MITHRIL.getCrop(), 1, 0)); }
 	    if(type.TUNGSTEN.isEnabled()){ addEssenceRecipe(Utils.getItem("ingotTungsten", EssenceConfig.tungsten), "EEE", "EXE", "EEE", 'E', new ItemStack(type.TUNGSTEN.getCrop(), 1, 0)); }
 	    if(type.TITANIUM.isEnabled()){ addEssenceRecipe(Utils.getItem("ingotTitanium", EssenceConfig.titanium), "EEE", "EXE", "EEE", 'E', new ItemStack(type.TITANIUM.getCrop(), 1, 0)); }
+	    if(type.URANIUM.isEnabled() && ModChecker.URANIUM){ addEssenceRecipe(Utils.getItem("ingotUranium", EssenceConfig.uranium), "EEE", "EXE", "EEE", 'E', new ItemStack(type.URANIUM.getCrop(), 1, 0)); }
 	    if(type.CHROME.isEnabled()){ addEssenceRecipe(Utils.getItem("ingotChrome", EssenceConfig.chrome), "EEE", "EXE", "EEE", 'E', new ItemStack(type.CHROME.getCrop(), 1, 0)); }
 	    if(type.PLATINUM.isEnabled()){ addEssenceRecipe(Utils.getItem("ingotPlatinum", EssenceConfig.platinum), "EEE", "EXE", "EEE", 'E', new ItemStack(type.PLATINUM.getCrop(), 1, 0)); }
-	    if(type.IRIDIUM.isEnabled()){ addEssenceRecipe(Utils.getItem("ingotIridium", EssenceConfig.iridium), "EEE", "EXE", "EEE", 'E', new ItemStack(type.IRIDIUM.getCrop(), 1, 0)); }
+	    if(type.IRIDIUM.isEnabled() && ModChecker.IRIDIUM){ addEssenceRecipe(Utils.getItem("ingotIridium", EssenceConfig.iridium), "EEE", "EXE", "EEE", 'E', new ItemStack(type.IRIDIUM.getCrop(), 1, 0)); }
 
 	    if(type.RUBY.isEnabled()){ addEssenceRecipe(Utils.getItem("gemRuby", EssenceConfig.ruby), "EEE", "EXE", "EEE", 'E', new ItemStack(type.RUBY.getCrop(), 1, 0)); }
 	    if(type.SAPPHIRE.isEnabled()){ addEssenceRecipe(Utils.getItem("gemSapphire", EssenceConfig.sapphire), "EEE", "EXE", "EEE", 'E', new ItemStack(type.SAPPHIRE.getCrop(), 1, 0)); }
@@ -248,6 +250,9 @@ public class EssenceRecipes {
 	    if(type.MANASTEEL.isEnabled()){ addEssenceRecipe(new ItemStack(Parts.itemBotaniaResources, EssenceConfig.manasteel, 0), "EEE", "EXE", "EEE", 'E', new ItemStack(type.MANASTEEL.getCrop(), 1, 0)); }
 	    if(type.TERRASTEEL.isEnabled()){ addEssenceRecipe(new ItemStack(Parts.itemBotaniaResources, EssenceConfig.terrasteel, 4), "EEE", "EXE", "EEE", 'E', new ItemStack(type.TERRASTEEL.getCrop(), 1, 0)); }
    
+	    if(type.URANIUM.isEnabled() && ModChecker.IC2){ addEssenceRecipe(Utils.getItem("uran238", EssenceConfig.uranium238), "EEE", "EEE", "EEE", 'E', new ItemStack(type.URANIUM.getCrop(), 1, 0)); }
+	    if(type.IRIDIUM.isEnabled() && ModChecker.IC2){ addEssenceRecipe(Utils.getItem("oreIridium", EssenceConfig.iridiumOre), "EEE", "EEE", "EEE", 'E', new ItemStack(type.IRIDIUM.getCrop(), 1, 0)); }
+
 	    if(type.OSMIUM.isEnabled()){ addEssenceRecipe(Utils.getItem("ingotOsmium", EssenceConfig.osmium), "EEE", "EXE", "EEE", 'E', new ItemStack(type.OSMIUM.getCrop(), 1, 0)); }
 	    if(type.GLOWSTONE_INGOT.isEnabled()){ addEssenceRecipe(Utils.getItem("ingotRefinedGlowstone", EssenceConfig.glowstoneIngot), "EEE", "EXE", "EEE", 'E', new ItemStack(type.GLOWSTONE_INGOT.getCrop(), 1, 0)); }
 	    if(type.REFINED_OBSIDIAN.isEnabled()){ addEssenceRecipe(Utils.getItem("ingotRefinedObsidian", EssenceConfig.refinedObsidian), "EEE", "EXE", "EEE", 'E', new ItemStack(type.REFINED_OBSIDIAN.getCrop(), 1, 0)); }
@@ -264,13 +269,15 @@ public class EssenceRecipes {
 	    if(type.APATITE.isEnabled()){ addEssenceRecipe(Utils.getItem("gemApatite", EssenceConfig.apatite), "EEE", "XXX", "XXX", 'E', new ItemStack(type.APATITE.getCrop(), 1, 0)); }    
 
 	    if(type.METEORIC_IRON.isEnabled()){ addEssenceRecipe(Utils.getItem("ingotMeteoricIron", EssenceConfig.meteoricIron), "EEE", "EXE", "EEE", 'E', new ItemStack(type.METEORIC_IRON.getCrop(), 1, 0)); }
-	    if(type.DESH.isEnabled()){ addEssenceRecipe(Utils.getItem("ingotDesh", EssenceConfig.desh), "EEE", "EXE", "EEE", 'E', new ItemStack(type.DESH.getCrop(), 1, 0)); }
+	    if(type.DESH.isEnabled()){ addEssenceRecipe(new ItemStack(Parts.itemGCPMars, EssenceConfig.desh, 2), "EEE", "EXE", "EEE", 'E', new ItemStack(type.DESH.getCrop(), 1, 0)); }
 
 	    if(type.VINTEUM.isEnabled()){ addEssenceRecipe(Utils.getItem("dustVinteum", EssenceConfig.vinteum), "EEE", "EXE", "EEE", 'E', new ItemStack(type.VINTEUM.getCrop(), 1, 0)); }    
 	    if(type.CHIMERITE.isEnabled()){ addEssenceRecipe(Utils.getItem("gemChimerite", EssenceConfig.chimerite), "XEX", "EEE", "XEX", 'E', new ItemStack(type.CHIMERITE.getCrop(), 1, 0)); }    
 	    if(type.BLUE_TOPAZ.isEnabled()){ addEssenceRecipe(Utils.getItem("gemBlueTopaz", EssenceConfig.blueTopaz), "EEE", "EXE", "EEE", 'E', new ItemStack(type.BLUE_TOPAZ.getCrop(), 1, 0)); }    
 	    if(type.MOONSTONE.isEnabled()){ addEssenceRecipe(Utils.getItem("gemMoonstone", EssenceConfig.moonstone), "EEE", "EXE", "EEE", 'E', new ItemStack(type.MOONSTONE.getCrop(), 1, 0)); }    
 	    if(type.SUNSTONE.isEnabled()){ addEssenceRecipe(Utils.getItem("gemSunstone", EssenceConfig.sunstone), "EEE", "EXE", "EEE", 'E', new ItemStack(type.SUNSTONE.getCrop(), 1, 0)); }    
+	    
+	    if(type.ENDER_BIOTITE.isEnabled()){ addEssenceRecipe(Utils.getItem("gemEnderBiotite", EssenceConfig.enderBiotite), "EEE", "XEX", "EEE", 'E', new ItemStack(type.ENDER_BIOTITE.getCrop(), 1, 0)); }    
 	    
 	    if(type.ENDER_AMETHYST.isEnabled()){ addEssenceRecipe(new ItemStack(Parts.itemBOPGems, EssenceConfig.enderAmethyst, 0), "EEE", "EXE", "EEE", 'E', new ItemStack(type.ENDER_AMETHYST.getCrop(), 1, 0)); }    
 	    
@@ -290,3 +297,4 @@ public class EssenceRecipes {
 	    if(type.QUARTZ_ENRICHED_IRON.isEnabled()){ addEssenceRecipe(new ItemStack(Parts.itemRSIngot, EssenceConfig.quartzEnrichedIron, 0), "EEE", "EXE", "EEE", 'E', new ItemStack(type.QUARTZ_ENRICHED_IRON.getCrop(), 1, 0)); }
 	}
 }
+

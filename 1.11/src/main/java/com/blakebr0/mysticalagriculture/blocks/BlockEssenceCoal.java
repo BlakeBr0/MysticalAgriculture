@@ -2,6 +2,7 @@ package com.blakebr0.mysticalagriculture.blocks;
 
 import java.util.List;
 
+import com.blakebr0.mysticalagriculture.lib.Colors;
 import com.blakebr0.mysticalagriculture.lib.EssenceType;
 import com.blakebr0.mysticalagriculture.lib.Tooltips;
 
@@ -87,19 +88,19 @@ public class BlockEssenceCoal extends BlockBase {
     	String bt = null;
     	switch(stack.getMetadata()){
 		case 0:
-			bt = "\u00A7e1.5x";
+			bt = Colors.YELLOW + "1.5x";
 			break;
 		case 1:
-			bt = "\u00A7a3.0x";
+			bt = Colors.GREEN + "3.0x";
 			break;
 		case 2:
-			bt = "\u00A766.0x";
+			bt = Colors.GOLD + "6.0x";
 			break;
 		case 3: 
-			bt = "\u00A7b12.0x";
+			bt = Colors.AQUA + "12.0x";
 			break;
 		case 4:
-			bt = "\u00A7c24.0x";
+			bt = Colors.RED + "24.0x";
 			break;
     	}
     	tooltip.add(Tooltips.BURN_TIME + bt);

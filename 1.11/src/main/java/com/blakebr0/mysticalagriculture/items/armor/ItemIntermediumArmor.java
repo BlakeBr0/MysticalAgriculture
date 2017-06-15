@@ -6,6 +6,7 @@ import java.util.List;
 import com.blakebr0.mysticalagriculture.MysticalAgriculture;
 import com.blakebr0.mysticalagriculture.config.ModConfig;
 import com.blakebr0.mysticalagriculture.items.ModItems;
+import com.blakebr0.mysticalagriculture.lib.Colors;
 import com.blakebr0.mysticalagriculture.lib.Tooltips;
 import com.blakebr0.mysticalagriculture.util.Utils;
 
@@ -34,11 +35,11 @@ public class ItemIntermediumArmor extends ItemArmor {
 	}
 		
 	@Override
-	@SideOnly(Side.CLIENT) // TODO: localize
+	@SideOnly(Side.CLIENT)
 	public void addInformation(ItemStack stack, EntityPlayer player, List tooltip, boolean advanced){
 		int damage = stack.getMaxDamage() - stack.getItemDamage();
-		tooltip.add(Tooltips.DURABILITY + "\u00A76" + damage);
-		if(ModConfig.confSetBonuses){ tooltip.add(Tooltips.SET_BONUS + "\u00A76Step Assist"); }
+		tooltip.add(Tooltips.DURABILITY + Colors.GOLD + damage);
+		if(ModConfig.confSetBonuses){ tooltip.add(Tooltips.SET_BONUS + Colors.GOLD + Tooltips.STEP_ASSIST); }
 	}
 
 	@Override
@@ -69,7 +70,7 @@ public class ItemIntermediumArmor extends ItemArmor {
     	public static List<String> playersWithSet = new ArrayList<String>();
     	
     	public static String playerKey(EntityPlayer player) {
-    		return player.getGameProfile().getName() + ":" + player.world.isRemote;
+    		return player.getGameProfile().getName() + ":" + player.getEntityWorld().isRemote;
     	}
     	
     	@SubscribeEvent

@@ -4,6 +4,8 @@ import java.util.List;
 
 import com.blakebr0.mysticalagriculture.MysticalAgriculture;
 import com.blakebr0.mysticalagriculture.config.ModConfig;
+import com.blakebr0.mysticalagriculture.lib.Colors;
+import com.blakebr0.mysticalagriculture.lib.Tooltips;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
@@ -41,6 +43,6 @@ public class ItemMasterInfusionCrystal extends Item {
     @Override
     @SideOnly(Side.CLIENT)
     public void addInformation(ItemStack stack, EntityPlayer player, List tooltip, boolean advanced){
-    	tooltip.add("Uses Left: \u00A7cUnlimited");
+    	tooltip.add(Tooltips.USES_LEFT + Colors.RED + Tooltips.UNLIMITED);
     }
 }

@@ -7,6 +7,7 @@ import javax.annotation.Nullable;
 
 import com.blakebr0.mysticalagriculture.MysticalAgriculture;
 import com.blakebr0.mysticalagriculture.lib.EssenceType;
+import com.blakebr0.mysticalagriculture.lib.Tooltips;
 import com.blakebr0.mysticalagriculture.tileentity.TileEntityTinkeringTable;
 
 import net.minecraft.block.Block;
@@ -133,22 +134,24 @@ public class BlockTinkeringTable extends BlockBase implements ITileEntityProvide
     @Override
     @SideOnly(Side.CLIENT)
     public void addInformation(ItemStack stack, EntityPlayer player, List<String> tooltip, boolean advanced) {
+    	String mat = "";
     	switch(stack.getMetadata()){
 		case 0:
-			tooltip.add("Material: \u00A7eInferium");
+			mat = Tooltips.INFERIUM;
 			break;
 		case 1:
-			tooltip.add("Material: \u00A7aPrudentium");
+			mat = Tooltips.PRUDENTIUM;
 			break;
 		case 2:
-			tooltip.add("Material: \u00A76Intermedium");
+			mat = Tooltips.INTERMEDIUM;
 			break;
 		case 3: 
-			tooltip.add("Material: \u00A7bSuperium");
+			mat = Tooltips.SUPERIUM;
 			break;
 		case 4:
-			tooltip.add("Material: \u00A7cSupremium");
+			mat = Tooltips.SUPREMIUM;
 			break;
     	}
+		tooltip.add(Tooltips.MATERIAL + mat);
     }
 }

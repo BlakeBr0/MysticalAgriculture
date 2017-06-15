@@ -6,6 +6,7 @@ import java.util.List;
 import com.blakebr0.mysticalagriculture.MysticalAgriculture;
 import com.blakebr0.mysticalagriculture.config.ModConfig;
 import com.blakebr0.mysticalagriculture.items.ModItems;
+import com.blakebr0.mysticalagriculture.lib.Colors;
 import com.blakebr0.mysticalagriculture.lib.Tooltips;
 import com.blakebr0.mysticalagriculture.util.Utils;
 
@@ -36,11 +37,11 @@ public class ItemSuperiumArmor extends ItemArmor {
 	}
 		
 	@Override
-	@SideOnly(Side.CLIENT) // TODO: localize
+	@SideOnly(Side.CLIENT)
 	public void addInformation(ItemStack stack, EntityPlayer player, List tooltip, boolean advanced){
 		int damage = stack.getMaxDamage() - stack.getItemDamage();
-		tooltip.add(Tooltips.DURABILITY + "\u00A7b" + damage);
-		if(ModConfig.confSetBonuses){ tooltip.add(Tooltips.SET_BONUS + "\u00A7bNo Fall Damage"); }
+		tooltip.add(Tooltips.DURABILITY + Colors.AQUA + damage);
+		if(ModConfig.confSetBonuses){ tooltip.add(Tooltips.SET_BONUS + Colors.AQUA + Tooltips.NO_FALL_DAMAGE); }
 	}
 
 	@Override
@@ -72,7 +73,7 @@ public class ItemSuperiumArmor extends ItemArmor {
     	public static List<String> playersWithSet = new ArrayList<String>();
     	
     	public static String playerKey(EntityPlayer player){
-    		return player.getGameProfile().getName() + ":" + player.world.isRemote;
+    		return player.getGameProfile().getName() + ":" + player.getEntityWorld().isRemote;
     	}
     	
     	@SubscribeEvent

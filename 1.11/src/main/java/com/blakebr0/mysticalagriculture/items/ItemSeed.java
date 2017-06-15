@@ -4,6 +4,8 @@ import java.util.List;
 
 import com.blakebr0.mysticalagriculture.MysticalAgriculture;
 import com.blakebr0.mysticalagriculture.blocks.ModBlocks;
+import com.blakebr0.mysticalagriculture.lib.Colors;
+import com.blakebr0.mysticalagriculture.lib.Tooltips;
 
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
@@ -32,24 +34,24 @@ public class ItemSeed extends ItemSeeds {
         this.tier = tier;
 	}
 		
-    @Override
+	@Override
     @SideOnly(Side.CLIENT)
     public void addInformation(ItemStack stack, EntityPlayer player, List tooltip, boolean advanced){
         switch(this.tier - 1){
         case 0:
-        	tooltip.add("Tier: \u00A7e1");
+        	tooltip.add(Tooltips.TIER + Colors.YELLOW + "1");
             break;
         case 1:
-        	tooltip.add("Tier: \u00A7a2");
+        	tooltip.add(Tooltips.TIER + Colors.GREEN + "2");
             break;
         case 2:
-        	tooltip.add("Tier: \u00A763");
+        	tooltip.add(Tooltips.TIER + Colors.GOLD + "3");
             break;
         case 3:
-        	tooltip.add("Tier: \u00A7b4");
+        	tooltip.add(Tooltips.TIER + Colors.AQUA + "4");
             break;
         case 4:
-        	tooltip.add("Tier: \u00A7c5");
+        	tooltip.add(Tooltips.TIER + Colors.RED + "5");
             break;
         }
     }

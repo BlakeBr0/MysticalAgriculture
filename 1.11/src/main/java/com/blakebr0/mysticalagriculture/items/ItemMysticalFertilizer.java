@@ -6,6 +6,7 @@ import com.blakebr0.mysticalagriculture.MysticalAgriculture;
 import com.blakebr0.mysticalagriculture.blocks.crop.BlockInferiumCrop;
 import com.blakebr0.mysticalagriculture.blocks.crop.BlockMysticalCrop;
 import com.blakebr0.mysticalagriculture.config.ModConfig;
+import com.blakebr0.mysticalagriculture.lib.Tooltips;
 
 import akka.actor.FSM.State;
 import net.minecraft.block.Block;
@@ -42,7 +43,7 @@ public class ItemMysticalFertilizer extends Item {
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void addInformation(ItemStack stack, EntityPlayer player, List tooltip, boolean advanced){
-		tooltip.add(new TextComponentTranslation("tooltip.ma.mystical_fertilizer").getFormattedText());
+		tooltip.add(Tooltips.MYSTICAL_FERTILIZER);
 	}
 	
     public static boolean applyFertilizer(ItemStack stack, World world, BlockPos pos, EntityPlayer player){
