@@ -25,9 +25,9 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class BlockAccelerator extends BlockBase {
 	
-	public BlockAccelerator(String name, Material material, SoundType sound, float hardness, float resistance) {
+	public BlockAccelerator(String name, Material material, SoundType sound, float hardness, float resistance){
 		super(name, material, sound, hardness, resistance);
-		this.setTickRandomly(true);
+		this.setTickRandomly(false);
 	}
 	
 	@Override
@@ -35,17 +35,23 @@ public class BlockAccelerator extends BlockBase {
 	public void addInformation(ItemStack stack, @Nullable World player, List<String> tooltip, ITooltipFlag advanced){
 		tooltip.add(Tooltips.GROWTH_ACCELERATOR);
 	}
+	
+	@Override
+	public void onBlockAdded(World world, BlockPos pos, IBlockState state){
+		world.scheduleBlockUpdate(pos, state.getBlock(), ModConfig.confGrowthAcceleratorSpeed * 20, 1);
+		super.onBlockAdded(world, pos, state);
+	}
 
 	@Override
-	public void updateTick(World world, BlockPos pos, IBlockState state, Random rand) {
+	public void updateTick(World world, BlockPos pos, IBlockState state, Random rand){
 		if(!world.isRemote){
 			this.growCropsNearby(world, pos, state);
 		}
 	}
 
-	private void growCropsNearby(World world, BlockPos pos, IBlockState state) {
+	private void growCropsNearby(World world, BlockPos pos, IBlockState state){
 		Iterable<BlockPos> blocks = BlockPos.getAllInBox(pos.add(0, 0, 0), pos.add(0, 64, 0));
-		for(BlockPos aoePos : blocks) {
+		for(BlockPos aoePos : blocks){
 			IBlockState cropState = world.getBlockState(new BlockPos(aoePos));
 			Block cropBlock = cropState.getBlock();
 			

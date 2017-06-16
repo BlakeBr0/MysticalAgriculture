@@ -296,17 +296,12 @@ item.ma.crafting_intermedium_fert_core.name=§6Intermedium Fertilization Core
 item.ma.crafting_superium_fert_core.name=§bSuperium Fertilization Core
 item.ma.crafting_supremium_fert_core.name=§cSupremium Fertilization Core
 
-# INFUSION CRYSTALS
 item.ma.infusion_crystal.name=Infusion Crystal
 item.ma.master_infusion_crystal.name=§cMaster Infusion Crystal
-
 
 item.ma.mystical_fertilizer.name=§dMystical Fertilizer
 item.ma.fertilized_essence.name=§dFertilized Essence
 
-
-
-# ESSENCE APPLES
 item.ma.inferium_apple.name=§eInferium Apple
 item.ma.prudentium_apple.name=§aPrudentium Apple
 item.ma.intermedium_apple.name=§6Intermedium Apple
@@ -325,18 +320,7 @@ item.ma.watering_can_intermedium.name=§6Intermedium Watering Can
 item.ma.watering_can_superium.name=§bSuperium Watering Can
 item.ma.watering_can_supremium.name=§cSupremium Watering Can
 
-# CRAFTING SEEDS
-
-
-
-
-
-
 item.ma.soulium_dagger.name=§dSoulium Dagger
-
-
-
-
 
 # CHUNKS
 item.ma.tier1_mob_chunk.name=Tier 1 Mob Chunk

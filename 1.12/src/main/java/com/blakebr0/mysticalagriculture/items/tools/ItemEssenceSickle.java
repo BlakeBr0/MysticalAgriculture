@@ -5,6 +5,7 @@ import java.util.List;
 import javax.annotation.Nullable;
 
 import com.blakebr0.mysticalagriculture.MysticalAgriculture;
+import com.blakebr0.mysticalagriculture.items.ItemBase;
 import com.blakebr0.mysticalagriculture.items.ModItems;
 import com.blakebr0.mysticalagriculture.lib.Colors;
 import com.blakebr0.mysticalagriculture.lib.Tooltips;
@@ -21,7 +22,6 @@ import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.inventory.EntityEquipmentSlot;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Item.ToolMaterial;
 import net.minecraft.util.math.BlockPos;
@@ -31,26 +31,28 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.ForgeHooks;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import net.minecraftforge.oredict.OreDictionary;
 
-public class ItemEssenceSickle extends Item {
+public class ItemEssenceSickle extends ItemBase {
 	
 	public int range;
 	public ToolMaterial toolMaterial;
-	public Item repairMaterial;
+	public ItemStack repairMaterial;
 	public TextFormatting color;
 	
-	public ItemEssenceSickle(String name, int range, ToolMaterial material, Item repairMaterial, TextFormatting color){
-		this.setUnlocalizedName("ma." + name);
-		this.setRegistryName(name);
-		this.setCreativeTab(MysticalAgriculture.tabMysticalAgriculture);
+	public ItemEssenceSickle(String name, int range, ToolMaterial material, TextFormatting color){
+		super(name);
 		this.setMaxStackSize(1);
 		this.setMaxDamage(material.getMaxUses());
 		this.range = range;
 		this.toolMaterial = material;
-		this.repairMaterial = repairMaterial;
 		this.color = color;
 	}
 		
+	public void setRepairMaterial(ItemStack stack){
+		this.repairMaterial = stack.copy();
+	}
+	
 	@Override
     public float getStrVsBlock(ItemStack stack, IBlockState state){
         return (state.getMaterial() == Material.LEAVES || state.getMaterial() == Material.PLANTS || state.getMaterial() == Material.VINE) ? (this.toolMaterial.getEfficiencyOnProperMaterial() / 2) : super.getStrVsBlock(stack, state);
@@ -67,14 +69,14 @@ public class ItemEssenceSickle extends Item {
 	public void addInformation(ItemStack stack, @Nullable World player, List<String> tooltip, ITooltipFlag advanced){
 		int damage = stack.getMaxDamage() - stack.getItemDamage();
 		tooltip.add(Tooltips.DURABILITY + color + (damage > -1 ? damage : Tooltips.UNLIMITED));
-		if(repairMaterial == ModItems.itemSupremiumIngot){
+		if(repairMaterial == ModItems.itemCrafting.itemSupremiumIngot){
 			tooltip.add(Tooltips.CHARM_SLOT + Colors.RED + Tooltips.EMPTY);
 		}
 	}
 	
 	@Override
     public boolean getIsRepairable(ItemStack toRepair, ItemStack repair){
-        return repair.getItem() == repairMaterial;
+        return OreDictionary.itemMatches(repairMaterial, repair, false);
     }
 	
     public boolean harvest(ItemStack stack, int radius, World world, BlockPos pos, EntityPlayer player){
