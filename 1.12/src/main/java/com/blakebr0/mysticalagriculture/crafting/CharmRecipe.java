@@ -1,4 +1,4 @@
-package com.blakebr0.mysticalagriculture.crafting;
+/*package com.blakebr0.mysticalagriculture.crafting;
 
 import com.blakebr0.mysticalagriculture.items.armor.ItemSupremiumArmor;
 import com.blakebr0.mysticalagriculture.util.NBTHelper;
@@ -48,4 +48,4 @@ public class CharmRecipe extends ShapelessOreRecipe {
         
         return result;
     }
-}
+} */

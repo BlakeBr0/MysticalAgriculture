@@ -35,26 +35,26 @@ public class BlockMachineFrame extends Block {
 	}
 
 	@Override
-    public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing heldItem, float side, float hitX, float hitY){
-		if(playerIn.getHeldItemMainhand().isEmpty() && playerIn.isSneaking() && worldIn.getBlockState(pos).getBlock() == ModBlocks.blockGlowstoneLamp){
-			worldIn.setBlockState(pos, ModBlocks.blockMysticalMachineFrame.getDefaultState());
-			if(!worldIn.isRemote){
-				worldIn.spawnEntity(new EntityItem(worldIn, playerIn.posX, playerIn.posY, playerIn.posZ, new ItemStack(Blocks.GLOWSTONE)));
+    public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, EnumFacing heldItem, float side, float hitX, float hitY){
+		if(player.getHeldItemMainhand().isEmpty() && player.isSneaking() && world.getBlockState(pos).getBlock() == ModBlocks.blockGlowstoneLamp){
+			world.setBlockState(pos, ModBlocks.blockMysticalMachineFrame.getDefaultState());
+			if(!world.isRemote){
+				world.spawnEntity(new EntityItem(world, player.posX, player.posY, player.posZ, new ItemStack(Blocks.GLOWSTONE)));
 			}
 			return true;
 		}
 		
-		if(playerIn.getHeldItemMainhand() == null){
+		if(player.getHeldItemMainhand() == null){
 			return false;
 		}
-		if(playerIn.getHeldItemMainhand().getItem() == Item.getItemFromBlock(Blocks.GLOWSTONE)){
-			if(worldIn.getBlockState(pos).getBlock() != ModBlocks.blockGlowstoneLamp){
-				worldIn.setBlockState(pos, ModBlocks.blockGlowstoneLamp.getDefaultState());
-				playerIn.getHeldItemMainhand().shrink(1);
+		if(player.getHeldItemMainhand().getItem() == Item.getItemFromBlock(Blocks.GLOWSTONE)){
+			if(world.getBlockState(pos).getBlock() != ModBlocks.blockGlowstoneLamp){
+				world.setBlockState(pos, ModBlocks.blockGlowstoneLamp.getDefaultState());
+				player.getHeldItemMainhand().shrink(1);
 			}
 			return true;
 		}
-		return super.onBlockActivated(worldIn, pos, state, playerIn, hand, heldItem, side, hitX, hitY)
+		return super.onBlockActivated(world, pos, state, player, hand, heldItem, side, hitX, hitY)
 ;
 	}
 	

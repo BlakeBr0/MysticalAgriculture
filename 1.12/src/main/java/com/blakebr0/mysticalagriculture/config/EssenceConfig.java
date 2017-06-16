@@ -118,6 +118,7 @@ public class EssenceConfig {
 	public static int mithril;
 	public static int tungsten;
 	public static int titanium;
+	public static int uranium;
 	public static int chrome;
 	public static int platinum;
 	public static int iridium;
@@ -156,6 +157,9 @@ public class EssenceConfig {
 	public static int manasteel;
 	public static int terrasteel;
 	
+	public static int uranium238;
+	public static int iridiumOre;
+	
 	public static int osmium;
 	public static int glowstoneIngot;
 	public static int refinedObsidian;
@@ -179,6 +183,8 @@ public class EssenceConfig {
 	public static int blueTopaz;
 	public static int moonstone;
 	public static int sunstone;
+	
+	public static int enderBiotite;
 	
 	public static int enderAmethyst;
 	
@@ -321,6 +327,7 @@ public class EssenceConfig {
 		mithril = config.get(category, "mithril", 3).getInt();
 		tungsten = config.get(category, "tungsten", 2).getInt();
 		titanium = config.get(category, "titanium", 2).getInt();
+		uranium = config.get(category, "uranium", 2).getInt();
 		chrome = config.get(category, "chrome", 2).getInt();
 		platinum = config.get(category, "platinum", 2).getInt();
 		iridium = config.get(category, "iridium", 2).getInt();
@@ -364,6 +371,10 @@ public class EssenceConfig {
 		manasteel = config.get(category, "manasteel", 5).getInt();
 		terrasteel = config.get(category, "terrasteel", 2).getInt();
 		
+		category = "IC2";
+		uranium238 = config.get(category, "uranium_238", 4).getInt();
+		iridiumOre = config.get(category, "iridium_ore", 1).getInt();
+		
 		category = "Mekanism";
 		osmium = config.get(category, "osmium", 4).getInt();
 		glowstoneIngot = config.get(category, "glowstone_ingot", 3).getInt();
@@ -393,6 +404,9 @@ public class EssenceConfig {
 		blueTopaz = config.get(category, "blue_topaz", 6).getInt();
 		moonstone = config.get(category, "moonstone", 3).getInt();
 		sunstone = config.get(category, "sunstone", 3).getInt();
+		
+		category = "Qyark";
+		enderBiotite = config.get(category, "biotite", 8).getInt();
  	
 		category = "Biomes 'O Plenty";
 		enderAmethyst = config.get(category, "ender_amethyst", 3).getInt();

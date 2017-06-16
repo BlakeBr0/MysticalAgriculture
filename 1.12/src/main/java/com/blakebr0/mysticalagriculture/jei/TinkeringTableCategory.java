@@ -15,7 +15,7 @@ import mezz.jei.api.recipe.IRecipeWrapper;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.TextComponentTranslation;
-
+/*
 public class TinkeringTableCategory extends BlankRecipeCategory<IRecipeWrapper> {
 
     public static final String UID = "mysticalagriculture:tinkering_table_jei";
@@ -69,3 +69,4 @@ public class TinkeringTableCategory extends BlankRecipeCategory<IRecipeWrapper> 
         this.gridHelper.setInputStacks(stacks, inputs);
     }
 }
+*/

@@ -154,7 +154,7 @@ public class BlockSeedReprocessor extends BlockContainer {
                     EntityItem entityitem = new EntityItem(world, (double) ((float) pos.getX() + f), (double) ((float) pos.getY() + f1), (double) ((float) pos.getZ() + f2), new ItemStack(itemstack.getItem(), itemstack.getCount(), itemstack.getItemDamage()));
                     
                     if(itemstack.hasTagCompound()) {
-                    	entityitem.getEntityItem().setTagCompound((NBTTagCompound)itemstack.getTagCompound().copy());
+                    	entityitem.getItem().setTagCompound((NBTTagCompound)itemstack.getTagCompound().copy());
                     }
 
                     float f3 = 0.05F;

@@ -6,6 +6,8 @@ import javax.annotation.Nullable;
 
 import com.blakebr0.mysticalagriculture.MysticalAgriculture;
 import com.blakebr0.mysticalagriculture.config.ModConfig;
+import com.blakebr0.mysticalagriculture.lib.Colors;
+import com.blakebr0.mysticalagriculture.lib.Tooltips;
 
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.EntityLivingBase;
@@ -45,10 +47,10 @@ public class ItemSouliumDagger extends ItemSword {
 		
 	@Override
 	@SideOnly(Side.CLIENT)
-	public void addInformation(ItemStack stack, @Nullable World world, List<String> tooltip, ITooltipFlag advanced){
+	public void addInformation(ItemStack stack, @Nullable World player, List<String> tooltip, ITooltipFlag advanced){
 		int damage = stack.getMaxDamage() - stack.getItemDamage();
-		tooltip.add("Used to obtain \u00A7cMob Chunks\u00A77.");
-		tooltip.add("Durability: \u00A7d" + damage);
+		tooltip.add(Tooltips.SOULIUM_DAGGER);
+		tooltip.add(Tooltips.DURABILITY + Colors.LIGHT_PURPLE + damage);
 	}
 	
     public boolean getIsRepairable(ItemStack toRepair, ItemStack repair){

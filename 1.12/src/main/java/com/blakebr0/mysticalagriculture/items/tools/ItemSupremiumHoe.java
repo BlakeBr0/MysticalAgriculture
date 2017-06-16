@@ -2,6 +2,8 @@ package com.blakebr0.mysticalagriculture.items.tools;
 
 import java.util.List;
 
+import javax.annotation.Nullable;
+
 import com.blakebr0.mysticalagriculture.MysticalAgriculture;
 import com.blakebr0.mysticalagriculture.config.ModConfig;
 import com.blakebr0.mysticalagriculture.lib.Colors;
@@ -11,6 +13,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockDirt;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item.ToolMaterial;
@@ -39,10 +42,10 @@ public class ItemSupremiumHoe extends ItemEssenceHoe {
 	}
 	
 	@Override
-	@SideOnly(Side.CLIENT) // TODO: localize
-	public void addInformation(ItemStack stack, EntityPlayer player, List tooltip, boolean advanced){
+	@SideOnly(Side.CLIENT)
+	public void addInformation(ItemStack stack, @Nullable World player, List<String> tooltip, ITooltipFlag advanced){
 		int range = this.range + 2;
-		if(isSneakAbilityEnabled()){ tooltip.add("Hold " + Minecraft.getMinecraft().gameSettings.keyBindSneak.getDisplayName() +  " for " + Colors.RED + range + "x" + range + Colors.GRAY + "."); }
+		if(isSneakAbilityEnabled()){ tooltip.add(Tooltips.HOE_TOOLTIP[0] + " " + Colors.GRAY + Minecraft.getMinecraft().gameSettings.keyBindSneak.getDisplayName() +  " " + Tooltips.HOE_TOOLTIP[1] + " " + Colors.RED + range + "x" + range + Colors.GRAY + "."); }
 		tooltip.add(Tooltips.DURABILITY + Colors.RED + Tooltips.UNLIMITED);
 		tooltip.add(Tooltips.CHARM_SLOT + Colors.RED + Tooltips.EMPTY);
 	}

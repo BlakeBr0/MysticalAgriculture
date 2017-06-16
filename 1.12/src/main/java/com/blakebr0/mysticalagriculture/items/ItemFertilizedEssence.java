@@ -8,6 +8,8 @@ import com.blakebr0.mysticalagriculture.MysticalAgriculture;
 import com.blakebr0.mysticalagriculture.blocks.crop.BlockInferiumCrop;
 import com.blakebr0.mysticalagriculture.blocks.crop.BlockMysticalCrop;
 import com.blakebr0.mysticalagriculture.config.ModConfig;
+import com.blakebr0.mysticalagriculture.lib.Colors;
+import com.blakebr0.mysticalagriculture.lib.Tooltips;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockCrops;
@@ -37,10 +39,10 @@ public class ItemFertilizedEssence extends Item {
 	
 	@Override
 	@SideOnly(Side.CLIENT)
-	public void addInformation(ItemStack stack, @Nullable World world, List tooltip, ITooltipFlag advanced){
-		tooltip.add("Bonemeal that works on Resource Crops.");
+	public void addInformation(ItemStack stack, @Nullable World player, List<String> tooltip, ITooltipFlag advanced){
+		tooltip.add(Tooltips.FERTILIZED_ESSENCE);
 		int chance = ModConfig.confFertilizedEssenceChance;
-		if(ModConfig.confFertilizedEssenceChance > 0){ tooltip.add("Drop Chance: \u00A7d" + chance + "%"); }
+		if(ModConfig.confFertilizedEssenceChance > 0){ tooltip.add(Tooltips.DROP_CHANCE + Colors.LIGHT_PURPLE + chance + "%"); }
 	}
 	
     public static boolean applyFertilizer(ItemStack stack, World worldIn, BlockPos target, EntityPlayer player, EnumHand hand){
@@ -66,15 +68,15 @@ public class ItemFertilizedEssence extends Item {
     }
 	
     @Override
-    public EnumActionResult onItemUse(EntityPlayer stack, World playerIn, BlockPos worldIn, EnumHand pos, EnumFacing hand, float facing, float hitX, float hitY){
-        ItemStack itemstack = stack.getHeldItem(pos);
+    public EnumActionResult onItemUse(EntityPlayer player, World world, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ){
+        ItemStack stack = player.getHeldItem(hand);
 
-        if(!stack.canPlayerEdit(worldIn.offset(hand), hand, itemstack)){
+        if(!player.canPlayerEdit(pos.offset(facing), facing, stack)){
             return EnumActionResult.FAIL;
         } else {
-        	if(applyFertilizer(itemstack, playerIn, worldIn, stack, pos)){
-        		if(!playerIn.isRemote){
-        			playerIn.playEvent(2005, worldIn, 0);
+        	if (applyFertilizer(stack, world, pos, player, hand)){
+        		if (!world.isRemote){
+        			world.playEvent(2005, pos, 0);
         		}
         		return EnumActionResult.SUCCESS;
         	}

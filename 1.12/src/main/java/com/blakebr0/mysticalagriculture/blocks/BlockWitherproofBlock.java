@@ -5,6 +5,7 @@ import java.util.List;
 import javax.annotation.Nullable;
 
 import com.blakebr0.mysticalagriculture.MysticalAgriculture;
+import com.blakebr0.mysticalagriculture.lib.Tooltips;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
@@ -47,13 +48,13 @@ public class BlockWitherproofBlock extends Block {
 	}
 
 	@Override
-	public boolean canDropFromExplosion(Explosion p_149659_1_){
+	public boolean canDropFromExplosion(Explosion explosion){
 		return false;
 	}
 	  
 	@Override
 	@SideOnly(Side.CLIENT)
-	public void addInformation(ItemStack stack, @Nullable World world, List<String> tooltip, ITooltipFlag advanced){
-		tooltip.add("Blast Resistant");
+	public void addInformation(ItemStack stack, @Nullable World player, List<String> tooltip, ITooltipFlag advanced){
+		tooltip.add(Tooltips.BLAST_RESISTANT);
 	}
 }

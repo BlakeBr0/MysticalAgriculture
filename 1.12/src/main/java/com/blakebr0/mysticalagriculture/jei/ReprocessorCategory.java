@@ -10,13 +10,14 @@ import mezz.jei.api.gui.IGuiItemStackGroup;
 import mezz.jei.api.gui.IRecipeLayout;
 import mezz.jei.api.ingredients.IIngredients;
 import mezz.jei.api.recipe.BlankRecipeCategory;
+import mezz.jei.recipes.InternalRecipeRegistryPlugin;
 import net.minecraft.client.Minecraft;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.util.text.translation.I18n;
-
-public class ReprocessorCategory extends BlankRecipeCategory<ReprocessorWrapper> {
+/*
+public class ReprocessorCategory extends IRecipeCategory {
 	
     public static final String uid = "mysticalagriculture:reprocessor_jei";
 
@@ -59,3 +60,4 @@ public class ReprocessorCategory extends BlankRecipeCategory<ReprocessorWrapper>
         group.set(1, ingredients.getOutputs(ItemStack.class).get(0));
     }
 }
+*/

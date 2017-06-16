@@ -23,7 +23,7 @@ public class BlockSoulstoneWall extends BlockWall {
 	}
 	
 	@Override
-	public void getSubBlocks(CreativeTabs tab, NonNullList<ItemStack> list) {
+	public void getSubBlocks(CreativeTabs tab, NonNullList<ItemStack> list){
 		list.add(new ItemStack(this));
 	}
 }

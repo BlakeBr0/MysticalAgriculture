@@ -2,12 +2,10 @@ package com.blakebr0.mysticalagriculture.jei;
 
 import java.util.List;
 
-import com.blakebr0.mysticalagriculture.crafting.TinkeringTableRecipe;
-
 import mezz.jei.api.IJeiHelpers;
 import mezz.jei.api.recipe.IRecipeHandler;
 import mezz.jei.api.recipe.IRecipeWrapper;
-
+/*
 public class TinkeringTableHandler implements IRecipeHandler<TinkeringTableRecipe>{
 
     private IJeiHelpers helper;
@@ -50,4 +48,4 @@ public class TinkeringTableHandler implements IRecipeHandler<TinkeringTableRecip
 
         return inputCount > 0;
     }
-}
+} */

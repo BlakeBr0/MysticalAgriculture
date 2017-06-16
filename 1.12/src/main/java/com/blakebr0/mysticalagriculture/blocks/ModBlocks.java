@@ -17,7 +17,6 @@ import com.blakebr0.mysticalagriculture.blocks.soulstone.BlockSoulstoneSlab;
 import com.blakebr0.mysticalagriculture.blocks.soulstone.ItemBlockSoulstone;
 import com.blakebr0.mysticalagriculture.config.ModConfig;
 import com.blakebr0.mysticalagriculture.items.ModItems;
-import com.blakebr0.mysticalagriculture.jei.CompatJEI;
 import com.blakebr0.mysticalagriculture.lib.CropType;
 
 import net.minecraft.block.Block;
@@ -344,6 +343,6 @@ public class ModBlocks {
 	}
 	
 	public static void addJEIDescription(Block block){
-		CompatJEI.blocks.add(block);
+//		CompatJEI.blocks.add(block);
 	}
 }

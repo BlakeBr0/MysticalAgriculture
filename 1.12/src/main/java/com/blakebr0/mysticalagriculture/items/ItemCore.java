@@ -5,8 +5,10 @@ import java.util.List;
 import javax.annotation.Nullable;
 
 import com.blakebr0.mysticalagriculture.MysticalAgriculture;
+import com.blakebr0.mysticalagriculture.lib.Tooltips;
 
 import net.minecraft.client.util.ITooltipFlag;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
@@ -24,7 +26,7 @@ public class ItemCore extends Item {
 	
 	@Override
 	@SideOnly(Side.CLIENT)
-	public void addInformation(ItemStack stack, @Nullable World world, List tooltip, ITooltipFlag advanced){
-		tooltip.add("Can be re-claimed using a \u00A7cCore Remover\u00A77.");
+	public void addInformation(ItemStack stack, @Nullable World player, List<String> tooltip, ITooltipFlag advanced){
+		tooltip.add(Tooltips.CORE_REMOVAL);
 	}
 }

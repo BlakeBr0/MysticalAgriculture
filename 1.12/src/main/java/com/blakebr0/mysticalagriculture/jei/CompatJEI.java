@@ -21,7 +21,7 @@ import mezz.jei.api.recipe.transfer.IRecipeTransferRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-
+/*
 @JEIPlugin
 public class CompatJEI extends BlankModPlugin {
 
@@ -74,3 +74,4 @@ public class CompatJEI extends BlankModPlugin {
         return runtime;
     }
 }
+*/

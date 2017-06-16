@@ -50,7 +50,7 @@ public class MobDrops {
     	
         EntityLivingBase attacked = event.getEntityLiving();
         DamageSource source = event.getSource();
-        Entity entity = source.getEntity();
+        Entity entity = source.getTrueSource();
         List<EntityItem> drops = event.getDrops();
         
         if(entity != null && entity instanceof EntityPlayer){

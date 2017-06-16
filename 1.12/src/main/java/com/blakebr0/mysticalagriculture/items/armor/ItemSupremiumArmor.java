@@ -3,13 +3,17 @@ package com.blakebr0.mysticalagriculture.items.armor;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.annotation.Nullable;
+
 import com.blakebr0.mysticalagriculture.MysticalAgriculture;
 import com.blakebr0.mysticalagriculture.config.ModConfig;
 import com.blakebr0.mysticalagriculture.items.ModItems;
+import com.blakebr0.mysticalagriculture.lib.Colors;
 import com.blakebr0.mysticalagriculture.lib.Tooltips;
 import com.blakebr0.mysticalagriculture.util.Utils;
 
 import net.minecraft.block.material.Material;
+import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -36,12 +40,12 @@ public class ItemSupremiumArmor extends ItemArmor {
 	}
 	
 	@Override
-	@SideOnly(Side.CLIENT) // TODO: localize
-	public void addInformation(ItemStack stack, EntityPlayer player, List tooltip, boolean advanced){
+	@SideOnly(Side.CLIENT)
+	public void addInformation(ItemStack stack, @Nullable World player, List<String> tooltip, ITooltipFlag advanced){
 		int damage = stack.getMaxDamage() - stack.getItemDamage();
-		tooltip.add(Tooltips.DURABILITY + "\u00A7c" + damage);
-		if(ModConfig.confSupremiumFlight){ tooltip.add(Tooltips.SET_BONUS + "\u00A7cFlight"); }
-		tooltip.add("Charm Slot: \u00A7c\u00A7oEmpty");
+		tooltip.add(Tooltips.DURABILITY + Colors.RED + damage);
+		if(ModConfig.confSupremiumFlight){ tooltip.add(Tooltips.SET_BONUS + Colors.RED + Tooltips.FLIGHT); }
+		tooltip.add(Tooltips.CHARM_SLOT + Colors.RED + Tooltips.EMPTY);
 	}
 		
 	@Override
@@ -78,7 +82,7 @@ public class ItemSupremiumArmor extends ItemArmor {
     	public static List<String> playersWithSet = new ArrayList<String>();
     	
     	public static String playerKey(EntityPlayer player) {
-    		return player.getGameProfile().getName() + ":" + player.world.isRemote;
+    		return player.getGameProfile().getName() + ":" + player.getEntityWorld().isRemote;
     	}
     	
     	@SubscribeEvent
@@ -104,13 +108,13 @@ public class ItemSupremiumArmor extends ItemArmor {
     								* (sneaking ? 0.1f : 1.0f); 
     							
     							if (player.moveForward > 0f) {
-    								player.moveRelative(0f, 1f, speed);
+    								player.func_191958_b(0f, 0f, 1f, speed);
     							} else if (player.moveForward < 0f) {
-    								player.moveRelative(0f, 1f, -speed * 0.3f);
+    								player.func_191958_b(0f, 0f, 1f, -speed * 0.3f);
     							}
     							
     							if (player.moveStrafing != 0f) {
-    								player.moveRelative(1f, 0f, speed * 0.5f * Math.signum(player.moveStrafing));
+    								player.func_191958_b(1f, 0f, 0f, speed * 0.5f * Math.signum(player.moveStrafing));
     							}
     						}
 						}

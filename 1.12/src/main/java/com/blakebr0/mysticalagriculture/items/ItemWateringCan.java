@@ -3,6 +3,8 @@ package com.blakebr0.mysticalagriculture.items;
 import java.util.List;
 import java.util.Random;
 
+import javax.annotation.Nullable;
+
 import com.blakebr0.mysticalagriculture.lib.Tooltips;
 import com.blakebr0.mysticalagriculture.util.Utils;
 
@@ -10,6 +12,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockFarmland;
 import net.minecraft.block.IGrowable;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
@@ -123,7 +126,7 @@ public class ItemWateringCan extends ItemMeta {
         
     @Override
     @SideOnly(Side.CLIENT)
-    public void addInformation(ItemStack stack, EntityPlayer player, List<String> tooltip, boolean advanced){
+    public void addInformation(ItemStack stack, @Nullable World player, List<String> tooltip, ITooltipFlag advanced){
     	int meta = stack.getMetadata();
     	int range = (meta * 2 + 1);
     	tooltip.add(Tooltips.RANGE + Utils.getColorFromMeta(meta) + range + "x" + range);

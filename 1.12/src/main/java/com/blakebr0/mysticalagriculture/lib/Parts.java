@@ -7,6 +7,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.registry.GameRegistry;
+import net.minecraftforge.fml.common.registry.GameRegistry.ItemStackHolder;
 import net.minecraftforge.oredict.OreDictionary;
 
 public class Parts {
@@ -22,6 +23,9 @@ public class Parts {
 	public static Item itemBOPGems;
 	public static Item itemRSIngot;
 	public static Item itemAEMaterial;
+	public static Item itemGCPMars;
+	public static Item itemIC2MiscResource;
+	public static Item itemIC2Nuclear;
 	
 	public static void getParts(){
 		
@@ -114,6 +118,31 @@ public class Parts {
 	        } catch(Throwable e){
 	            e.printStackTrace();
 	        }
+	    }
+	    
+	    if(ModChecker.GALACTICRAFTPLANETS){
+	    	try {
+	    		Item item = getItem("galacticraftplanets:item_basic_mars");
+	    		itemGCPMars = item;
+	    	} catch(Throwable e){
+	    		e.printStackTrace();
+	    	}
+	    }
+	    
+	    if(ModChecker.IC2){
+	    	try {
+	    		Item item = getItem("ic2:misc_resource");
+	    		itemIC2MiscResource = item;
+	    	} catch(Throwable e){
+	    		e.printStackTrace();
+	    	}
+	    	
+	    	try {
+	    		Item item = getItem("ic2:nuclear");
+	    		itemIC2Nuclear = item;
+	    	} catch(Throwable e){
+	    		e.printStackTrace();
+	    	}
 	    }
 	}
 

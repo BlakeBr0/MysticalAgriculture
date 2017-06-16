@@ -7,6 +7,8 @@ import javax.annotation.Nullable;
 
 import com.blakebr0.mysticalagriculture.MysticalAgriculture;
 import com.blakebr0.mysticalagriculture.blocks.ModBlocks;
+import com.blakebr0.mysticalagriculture.lib.Colors;
+import com.blakebr0.mysticalagriculture.lib.Tooltips;
 import com.blakebr0.mysticalagriculture.tileentity.TileEntityUltimateFurnace;
 
 import net.minecraft.block.BlockContainer;
@@ -40,6 +42,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
+// TODO: cleanup
 public class BlockUltimateFurnace extends BlockContainer
 {
     public static final PropertyDirection FACING = BlockHorizontal.FACING;
@@ -60,8 +63,8 @@ public class BlockUltimateFurnace extends BlockContainer
 
 	@Override
 	@SideOnly(Side.CLIENT)
-	public void addInformation(ItemStack stack, @Nullable World world, List<String> tooltip, ITooltipFlag advanced){
-		tooltip.add("Efficiency: \u00A78+9001%");
+	public void addInformation(ItemStack stack, @Nullable World player, List<String> tooltip, ITooltipFlag advanced){
+		tooltip.add(Tooltips.EFFICIENCY + Colors.DARK_GRAY + "+9001%");
 	}
     
     /**

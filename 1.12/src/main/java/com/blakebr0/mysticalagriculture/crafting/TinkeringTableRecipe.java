@@ -1,4 +1,4 @@
-package com.blakebr0.mysticalagriculture.crafting;
+/*package com.blakebr0.mysticalagriculture.crafting;
 
 import net.minecraft.block.Block;
 import net.minecraft.inventory.InventoryCrafting;
@@ -254,4 +254,4 @@ public class TinkeringTableRecipe implements IRecipe {
     public Object[] getInput() {
         return this.input;
     }
-}
+} */

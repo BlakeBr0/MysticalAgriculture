@@ -8,6 +8,7 @@ import com.blakebr0.mysticalagriculture.items.ItemWateringCan;
 import com.blakebr0.mysticalagriculture.items.ModItems;
 import com.blakebr0.mysticalagriculture.lib.CropType;
 import com.blakebr0.mysticalagriculture.lib.Parts;
+import com.blakebr0.mysticalagriculture.util.ModChecker;
 
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
@@ -88,11 +89,11 @@ public class ModRecipes {
 	}
 	
 	public static void addShapedRecipe(ItemStack output, Object... input){
-		GameRegistry.addRecipe(new ShapedOreRecipe(output, input));
+//		GameRegistry.addRecipe(new ShapedOreRecipe(output, input));
 	}
 	
 	public static void addShapelessRecipe(ItemStack output, Object... input){
-		GameRegistry.addRecipe(new ShapelessOreRecipe(output, input));
+	//	GameRegistry.addRecipe(new ShapelessOreRecipe(output, input));
 	}
 	
 	public static void addSeedRecipe(CropType.Type type, Object input){
@@ -108,15 +109,15 @@ public class ModRecipes {
 	}
 	
 	public static void addCharmRecipe(ItemStack output, Object... input){
-		GameRegistry.addRecipe(new CharmRecipe(output, input));
+//		GameRegistry.addRecipe(new CharmRecipe(output, input));
 	}
 	
 	public static void addSmeltingRecipe(ItemStack input, ItemStack output, float xp){
-		GameRegistry.addSmelting(input, output, xp);
+	//	GameRegistry.addSmelting(input, output, xp);
 	}
 	
 	public static void addTinkeringRecipe(ItemStack output, ItemStack input, ItemStack input2){
-		TinkeringTableManager.getInstance().addRecipe(output, 
+/*		TinkeringTableManager.getInstance().addRecipe(output, 
 				"ACE", 
 				"PEP", 
 				"EPE",
@@ -124,11 +125,11 @@ public class ModRecipes {
 				'C', input2,
 				'E', new ItemStack(ModItems.itemSupremiumEssence, 1, 0),
 				'P', new ItemStack(ModItems.itemProsperityShard, 1, 0));
-	}
+*/	}
 	
 	public static void initRecipes(){
 		
-	    addShapedRecipe(new ItemStack(ModBlocks.blockInferium, 1, 0), "EEE", "EEE", "EEE", 'E', new ItemStack(ModItems.itemInferiumEssence, 1, 0));
+/*	    addShapedRecipe(new ItemStack(ModBlocks.blockInferium, 1, 0), "EEE", "EEE", "EEE", 'E', new ItemStack(ModItems.itemInferiumEssence, 1, 0));
 	    addShapedRecipe(new ItemStack(ModBlocks.blockPrudentium, 1, 0), "EEE", "EEE", "EEE", 'E', new ItemStack(ModItems.itemPrudentiumEssence, 1, 0));
 	    addShapedRecipe(new ItemStack(ModBlocks.blockIntermedium, 1, 0), "EEE", "EEE", "EEE", 'E', new ItemStack(ModItems.itemIntermediumEssence, 1, 0));
 	    addShapedRecipe(new ItemStack(ModBlocks.blockSuperium, 1, 0), "EEE", "EEE", "EEE", 'E', new ItemStack(ModItems.itemSuperiumEssence, 1, 0));
@@ -507,9 +508,10 @@ public class ModRecipes {
 	    addSeedRecipe(type.MITHRIL, "ingotMithril");
 	    addSeedRecipe(type.TUNGSTEN, "ingotTungsten");
 	    addSeedRecipe(type.TITANIUM, "ingotTitanium");
+	    if(ModChecker.URANIUM){ addSeedRecipe(type.URANIUM, "ingotUranium"); }
 	    addSeedRecipe(type.CHROME, "ingotChrome");
 	    addSeedRecipe(type.PLATINUM, "ingotPlatinum");
-	    addSeedRecipe(type.IRIDIUM, "ingotIridium");
+	    if(ModChecker.IRIDIUM){ addSeedRecipe(type.IRIDIUM, "ingotIridium"); }
 
 	    addSeedRecipe(type.RUBY, "gemRuby");
 	    addSeedRecipe(type.SAPPHIRE, "gemSapphire");
@@ -544,6 +546,11 @@ public class ModRecipes {
 	    addSeedRecipe(type.MYSTICAL_FLOWER, new ItemStack(ModItems.itemMysticalFlowerCluster, 1, 0));
 	    addSeedRecipe(type.MANASTEEL, new ItemStack(Parts.itemBotaniaResources, 1, 0));
 	    addSeedRecipe(type.TERRASTEEL, new ItemStack(Parts.itemBotaniaResources, 1, 4));
+	    
+	    if(ModChecker.IC2){
+		    addSeedRecipe(type.URANIUM, new ItemStack(Parts.itemIC2Nuclear, 1, 2));
+		    addSeedRecipe(type.IRIDIUM, new ItemStack(Parts.itemIC2MiscResource, 1, 1));
+	    }
 	
 	    addSeedRecipe(type.OSMIUM, "ingotOsmium");
 	    addSeedRecipe(type.GLOWSTONE_INGOT, "ingotRefinedGlowstone");
@@ -569,6 +576,8 @@ public class ModRecipes {
 	    addSeedRecipe(type.MOONSTONE, "gemMoonstone");
 	    addSeedRecipe(type.SUNSTONE, "gemSunstone");
 
+	    addSeedRecipe(type.ENDER_BIOTITE, "gemEnderBiotite");
+	    
 	    addSeedRecipe(type.ENDER_AMETHYST, new ItemStack(Parts.itemBOPGems, 1, 0));
 	    
 	    addSeedRecipe(type.DRACONIUM, "ingotDraconium");
@@ -900,5 +909,6 @@ public class ModRecipes {
 			addCharmRecipe(new ItemStack(ModItems.itemSupremiumBoots), new ItemStack(ModItems.itemSupremiumBootsFire, 1, OreDictionary.WILDCARD_VALUE));
 			addCharmRecipe(new ItemStack(ModItems.itemSupremiumBoots), new ItemStack(ModItems.itemSupremiumBootsResistance, 1, OreDictionary.WILDCARD_VALUE));
 	    }
-	}
+*/	}
 }
+

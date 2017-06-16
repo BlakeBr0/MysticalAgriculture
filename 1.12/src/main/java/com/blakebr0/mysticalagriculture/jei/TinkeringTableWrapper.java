@@ -3,14 +3,12 @@ package com.blakebr0.mysticalagriculture.jei;
 import java.util.Arrays;
 import java.util.List;
 
-import com.blakebr0.mysticalagriculture.crafting.TinkeringTableRecipe;
-
 import mezz.jei.api.IJeiHelpers;
 import mezz.jei.api.ingredients.IIngredients;
 import mezz.jei.api.recipe.BlankRecipeWrapper;
 import mezz.jei.api.recipe.IStackHelper;
 import net.minecraft.item.ItemStack;
-
+/*
 public class TinkeringTableWrapper extends BlankRecipeWrapper {
 
     private final TinkeringTableRecipe recipe;
@@ -39,4 +37,4 @@ public class TinkeringTableWrapper extends BlankRecipeWrapper {
         ingredients.setInputLists(ItemStack.class, inputs);
         ingredients.setOutput(ItemStack.class, output);
     }
-}
+} */

@@ -19,11 +19,11 @@ public class TinkeringTableManager {
 	   return INSTANCE;
    }
 
-   public TinkeringTableRecipe addRecipe(ItemStack result, Object... recipe){
+/*   public TinkeringTableRecipe addRecipe(ItemStack result, Object... recipe){
 	   TinkeringTableRecipe craft = new TinkeringTableRecipe(result, recipe);
        this.recipes.add(craft);
        return craft;
-   }
+	}*/
 
    public ItemStack findMatchingRecipe(InventoryCrafting grid, World world) {
        int i = 0;

@@ -84,7 +84,7 @@ public class ItemMeta extends ItemBase {
 	}
 	
 	@Override
-	public void addInformation(ItemStack stack, @Nullable World world, List tooltip, ITooltipFlag advanced){
+	public void addInformation(ItemStack stack, @Nullable World player, List<String> tooltip, ITooltipFlag advanced){
 		int i = stack.getMetadata();
 		if(items.containsKey(i)){
 			MetaItem item = items.get(i);

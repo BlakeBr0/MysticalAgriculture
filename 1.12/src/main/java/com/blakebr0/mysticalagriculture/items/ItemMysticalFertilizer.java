@@ -8,6 +8,7 @@ import com.blakebr0.mysticalagriculture.MysticalAgriculture;
 import com.blakebr0.mysticalagriculture.blocks.crop.BlockInferiumCrop;
 import com.blakebr0.mysticalagriculture.blocks.crop.BlockMysticalCrop;
 import com.blakebr0.mysticalagriculture.config.ModConfig;
+import com.blakebr0.mysticalagriculture.lib.Tooltips;
 
 import akka.actor.FSM.State;
 import net.minecraft.block.Block;
@@ -44,8 +45,8 @@ public class ItemMysticalFertilizer extends Item {
 	
 	@Override
 	@SideOnly(Side.CLIENT)
-	public void addInformation(ItemStack stack, @Nullable World world, List tooltip, ITooltipFlag advanced){
-		tooltip.add(new TextComponentTranslation("tooltip.ma.mystical_fertilizer").getFormattedText());
+	public void addInformation(ItemStack stack, @Nullable World player, List<String> tooltip, ITooltipFlag advanced){
+		tooltip.add(Tooltips.MYSTICAL_FERTILIZER);
 	}
 	
     public static boolean applyFertilizer(ItemStack stack, World world, BlockPos pos, EntityPlayer player, EnumHand hand){
@@ -76,15 +77,15 @@ public class ItemMysticalFertilizer extends Item {
     }
     
     @Override
-    public EnumActionResult onItemUse(EntityPlayer stack, World playerIn, BlockPos worldIn, EnumHand pos, EnumFacing hand, float facing, float hitX, float hitY){
-        ItemStack itemstack = stack.getHeldItem(pos);
+    public EnumActionResult onItemUse(EntityPlayer player, World world, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ){
+        ItemStack stack = player.getHeldItem(hand);
 
-        if(!stack.canPlayerEdit(worldIn.offset(hand), hand, itemstack)){
+        if(!player.canPlayerEdit(pos.offset(facing), facing, stack)){
             return EnumActionResult.FAIL;
         } else {
-        	if (applyFertilizer(itemstack, playerIn, worldIn, stack, pos)){
-        		if (!playerIn.isRemote){
-        			playerIn.playEvent(2005, worldIn, 0);
+        	if (applyFertilizer(stack, world, pos, player, hand)){
+        		if (!world.isRemote){
+        			world.playEvent(2005, pos, 0);
         		}
         		return EnumActionResult.SUCCESS;
         	}

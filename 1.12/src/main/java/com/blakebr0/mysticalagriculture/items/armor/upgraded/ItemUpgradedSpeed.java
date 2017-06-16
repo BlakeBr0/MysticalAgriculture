@@ -3,12 +3,17 @@ package com.blakebr0.mysticalagriculture.items.armor.upgraded;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.annotation.Nullable;
+
 import com.blakebr0.mysticalagriculture.MysticalAgriculture;
 import com.blakebr0.mysticalagriculture.config.ModConfig;
 import com.blakebr0.mysticalagriculture.items.ModItems;
 import com.blakebr0.mysticalagriculture.items.armor.ItemSupremiumArmor;
+import com.blakebr0.mysticalagriculture.lib.Colors;
+import com.blakebr0.mysticalagriculture.lib.Tooltips;
 
 import net.minecraft.block.material.Material;
+import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.MobEffects;
 import net.minecraft.inventory.EntityEquipmentSlot;
@@ -29,12 +34,12 @@ public class ItemUpgradedSpeed extends ItemSupremiumArmor {
 	}
 	
 	@Override
-	@SideOnly(Side.CLIENT) // TODO: localize
-	public void addInformation(ItemStack stack, EntityPlayer player, List tooltip, boolean advanced){
+	@SideOnly(Side.CLIENT)
+	public void addInformation(ItemStack stack, @Nullable World player, List<String> tooltip, ITooltipFlag advanced){
 		int damage = stack.getMaxDamage() - stack.getItemDamage();
-		tooltip.add("Durability: \u00A7c" + damage);
-		if(ModConfig.confSupremiumFlight){ tooltip.add("Set Bonus: \u00A7cFlight"); }
-		tooltip.add("Charm Slot: \u00A7cSpeed");
+		tooltip.add(Tooltips.DURABILITY + Colors.RED + damage);
+		if(ModConfig.confSupremiumFlight){ tooltip.add(Tooltips.SET_BONUS + Colors.RED + Tooltips.FLIGHT); }
+		tooltip.add(Tooltips.CHARM_SLOT + Colors.RED + Tooltips.SPEED_YES);
 	}
 	
 	@Override
@@ -67,7 +72,7 @@ public class ItemUpgradedSpeed extends ItemSupremiumArmor {
     	public static List<String> playersWithSpeed = new ArrayList<String>();
     	
     	public static String playerKey(EntityPlayer player) {
-    		return player.getGameProfile().getName() + ":" + player.world.isRemote;
+    		return player.getGameProfile().getName() + ":" + player.getEntityWorld().isRemote;
     	}
     	
     	public static boolean playerHasSet(EntityPlayer entity) {
@@ -101,13 +106,13 @@ public class ItemUpgradedSpeed extends ItemSupremiumArmor {
 								* (!sprinting ? 0.6F : 1.2F);
 							
 							if (player.moveForward > 0f) {
-								player.moveRelative(0f, 1f, speed);
+								player.func_191958_b(0f, 0f, 1f, speed);
 							} else if (player.moveForward < 0f) {
-								player.moveRelative(0f, 1f, -speed * 0.3f);
+								player.func_191958_b(0f, 0f, 1f, -speed * 0.3f);
 							}
 							
 							if (player.moveStrafing != 0f) {
-								player.moveRelative(1f, 0f, speed * 0.5f * Math.signum(player.moveStrafing));
+								player.func_191958_b(1f, 0f, 0f, speed * 0.5f * Math.signum(player.moveStrafing));
 							}
 						}
     				} else {

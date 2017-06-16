@@ -6,6 +6,7 @@ import java.util.Random;
 import javax.annotation.Nullable;
 
 import com.blakebr0.mysticalagriculture.config.ModConfig;
+import com.blakebr0.mysticalagriculture.lib.Tooltips;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.IGrowable;
@@ -31,8 +32,8 @@ public class BlockAccelerator extends BlockBase {
 	
 	@Override
 	@SideOnly(Side.CLIENT)
-	public void addInformation(ItemStack stack, @Nullable World world, List<String> tooltip, ITooltipFlag advanced){
-		tooltip.add(new TextComponentTranslation("tooltip.ma.growth_accelerator").getFormattedText());
+	public void addInformation(ItemStack stack, @Nullable World player, List<String> tooltip, ITooltipFlag advanced){
+		tooltip.add(Tooltips.GROWTH_ACCELERATOR);
 	}
 
 	@Override
@@ -52,7 +53,7 @@ public class BlockAccelerator extends BlockBase {
 				world.scheduleBlockUpdate(new BlockPos(aoePos), cropBlock, ModConfig.confGrowthAcceleratorSpeed * 20, 1);
 				cropBlock.updateTick(world, new BlockPos(aoePos), cropState, world.rand);
 			}
-		}	
+		}
 		world.scheduleBlockUpdate(pos, state.getBlock(), ModConfig.confGrowthAcceleratorSpeed * 20, 1);
 	}
 }

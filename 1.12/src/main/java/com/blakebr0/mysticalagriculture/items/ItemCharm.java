@@ -9,6 +9,7 @@ import com.blakebr0.mysticalagriculture.lib.Tooltips;
 import com.blakebr0.mysticalagriculture.util.Utils;
 
 import net.minecraft.client.util.ITooltipFlag;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
@@ -27,7 +28,7 @@ public class ItemCharm extends ItemBase {
 	
 	@Override
 	@SideOnly(Side.CLIENT)
-	public void addInformation(ItemStack stack, @Nullable World world, List tooltip, ITooltipFlag advanced){
+	public void addInformation(ItemStack stack, @Nullable World player, List<String> tooltip, ITooltipFlag advanced){
 		if(Utils.isShiftKeyDown()){
 			tooltip.add(Tooltips.DESCRIPTION);
 			tooltip.add(Utils.localize(desc));

@@ -22,6 +22,7 @@ public class ModChecker {
 	public static boolean GALACTICRAFTPLANETS = Loader.isModLoaded("galacticraftplanets");
 	public static boolean IC2 = Loader.isModLoaded("IC2") || Loader.isModLoaded("ic2");
 	public static boolean BOP = Loader.isModLoaded("BiomesOPlenty") || Loader.isModLoaded("biomesoplenty");
+	public static boolean QUARK = Loader.isModLoaded("Quark") || Loader.isModLoaded("quark");
 	public static boolean RAILCRAFT = Loader.isModLoaded("railcraft");
 	public static boolean FORESTRY = Loader.isModLoaded("forestry");
 	public static boolean PIXELMON = Loader.isModLoaded("pixelmon");
@@ -49,6 +50,7 @@ public class ModChecker {
 	public static boolean MITHRIL = OreDictionary.getOres("ingotMithril").size() > 0 || THERMAL || BASEMETALS;
 	public static boolean TUNGSTEN = OreDictionary.getOres("ingotTungsten").size() > 0 || TECHREBORN;
 	public static boolean TITANIUM = OreDictionary.getOres("ingotTitanium").size() > 0 || GALACTICRAFTPLANETS || TECHREBORN;
+	public static boolean URANIUM = OreDictionary.getOres("ingotUranium").size() > 0 || IE || TECHREBORN;
 	public static boolean CHROME = OreDictionary.getOres("ingotChrome").size() > 0 || TECHREBORN || SUBSTRATUM;
 	public static boolean PLATINUM = OreDictionary.getOres("ingotPlatinum").size() > 0 || THERMAL || SUBSTRATUM || BASEMETALS;
 	public static boolean IRIDIUM = OreDictionary.getOres("ingotIridium").size() > 0 || THERMAL || TECHREBORN;
