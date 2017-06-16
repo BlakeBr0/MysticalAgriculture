@@ -70,8 +70,10 @@ public class ItemMeta extends ItemBase {
 	
 	@Override
 	public void getSubItems(CreativeTabs tab, NonNullList<ItemStack> stacks){
-		for(int meta : metas){
-			stacks.add(new ItemStack(this, 1, meta));	
+		if(isInCreativeTab(tab)){
+			for(int meta : metas){
+				stacks.add(new ItemStack(this, 1, meta));	
+			}
 		}
 	}
 

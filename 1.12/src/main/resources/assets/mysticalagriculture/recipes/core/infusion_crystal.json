@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "PEP",
+    "EDE",
+    "PEP"
+  ],
+  "key": {
+    "P": {
+      "item": "mysticalagriculture:prosperity_shard"
+    },
+    "E": {
+      "item": "mysticalagriculture:inferium_essence"
+    },
+    "D": {
+      "type": "forge:ore_dict",
+      "ore": "gemDiamond"
+    }
+  },
+  "result": {
+    "item": "mysticalagriculture:infusion_crystal"
+  }
+}
