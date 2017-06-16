@@ -13,7 +13,6 @@ import com.blakebr0.mysticalagriculture.lib.Tooltips;
 
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Item.ToolMaterial;
 import net.minecraft.util.text.TextFormatting;
@@ -24,8 +23,8 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class ItemSwordStrength extends ItemEssenceSword {
 	    	
-	public ItemSwordStrength(String name, ToolMaterial material, Item repairMaterial, TextFormatting color){
-		super(name, material, repairMaterial, color);
+	public ItemSwordStrength(String name, ToolMaterial material, TextFormatting color){
+		super(name, material, color);
 	}
 	
 	@Override

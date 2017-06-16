@@ -23,7 +23,6 @@ import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.inventory.EntityEquipmentSlot;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Item.ToolMaterial;
 import net.minecraft.util.DamageSource;
@@ -37,22 +36,26 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.IPlantable;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import net.minecraftforge.oredict.OreDictionary;
 
 public class ItemEssenceScythe extends ItemBase {
 
 	public int range;
 	public ToolMaterial toolMaterial;
-	public Item repairMaterial;
+	public ItemStack repairMaterial;
 	public TextFormatting color;
 	
-	public ItemEssenceScythe(String name, int range, ToolMaterial material, Item repairMaterial, TextFormatting color){
+	public ItemEssenceScythe(String name, int range, ToolMaterial material, TextFormatting color){
 		super(name);
 		this.setMaxStackSize(1);
 		this.setMaxDamage(material.getMaxUses());
 		this.range = range;
 		this.toolMaterial = material;
-		this.repairMaterial = repairMaterial;
 		this.color = color;
+	}
+	
+	public void setRepairMaterial(ItemStack stack){
+		this.repairMaterial = stack.copy();
 	}
 	
 	@Override
@@ -60,14 +63,14 @@ public class ItemEssenceScythe extends ItemBase {
 	public void addInformation(ItemStack stack, @Nullable World player, List<String> tooltip, ITooltipFlag advanced){
 		int damage = stack.getMaxDamage() - stack.getItemDamage();
 		tooltip.add(Tooltips.DURABILITY + color + (damage > -1 ? damage : Tooltips.UNLIMITED));
-		if(repairMaterial == ModItems.itemSupremiumIngot){
+		if(repairMaterial == ModItems.itemCrafting.itemSupremiumIngot){
 			tooltip.add(Tooltips.CHARM_SLOT + Colors.RED + Tooltips.EMPTY);
 		}
 	}
 	
 	@Override
     public boolean getIsRepairable(ItemStack toRepair, ItemStack repair){
-        return repair.getItem() == repairMaterial;
+        return OreDictionary.itemMatches(repairMaterial, repair, false);
     }
 	
 	@Override

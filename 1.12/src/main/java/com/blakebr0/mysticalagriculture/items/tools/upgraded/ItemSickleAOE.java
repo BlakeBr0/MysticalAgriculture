@@ -11,7 +11,6 @@ import com.blakebr0.mysticalagriculture.lib.Tooltips;
 
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
@@ -20,8 +19,8 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class ItemSickleAOE extends ItemEssenceSickle {
 
-	public ItemSickleAOE(String name, int range, ToolMaterial material, Item repairMaterial, TextFormatting color){
-		super(name, range, material, repairMaterial, color);
+	public ItemSickleAOE(String name, int range, ToolMaterial material, TextFormatting color){
+		super(name, range, material, color);
 	}
 
 	@Override

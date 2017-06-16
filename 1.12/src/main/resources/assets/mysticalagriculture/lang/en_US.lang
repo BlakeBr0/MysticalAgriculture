@@ -23,6 +23,7 @@ tile.ma.coal_block_intermedium.name=§6Block of Intermedium Coal
 tile.ma.coal_block_superium.name=§bBlock of Superium Coal
 tile.ma.coal_block_supremium.name=§cBlock of Supremium Coal
 
+# SOULSTONE
 tile.ma.soulstone_smooth.name=Soulstone
 tile.ma.soulstone_cobbled.name=Cobbled Soulstone
 tile.ma.soulstone_polished.name=Polished Soulstone
@@ -240,30 +241,70 @@ tile.ma.constantan_crop.name=Constantan Crop
 
 tile.ma.miners_torch.name=Miner's Torch
 
-# BASE ESSENCES
-item.ma.inferium_essence.name=§eInferium Essence
-item.ma.prudentium_essence.name=§aPrudentium Essence
-item.ma.intermedium_essence.name=§6Intermedium Essence
-item.ma.superium_essence.name=§bSuperium Essence
-item.ma.supremium_essence.name=§cSupremium Essence
+# CRAFTING ITEMS
+item.ma.crafting_inferium_essence.name=§eInferium Essence
+item.ma.crafting_prudentium_essence.name=§aPrudentium Essence
+item.ma.crafting_intermedium_essence.name=§6Intermedium Essence
+item.ma.crafting_superium_essence.name=§bSuperium Essence
+item.ma.crafting_supremium_essence.name=§cSupremium Essence
+
+item.ma.crafting_prosperity_shard.name=Prosperity Shard
+
+item.ma.crafting_nature_cluster.name=Nature Cluster
+item.ma.crafting_dye_cluster.name=Dye Cluster
+item.ma.crafting_nether_cluster.name=Nether Cluster
+item.ma.crafting_end_cluster.name=End Cluster
+item.ma.crafting_mystical_flower_cluster.name=Mystical Flower Cluster
+
+item.ma.crafting_blank_record.name=Blank Record
+
+item.ma.crafting_base_crafting_seed.name=Base Crafting Seed
+item.ma.crafting_tier1_crafting_seed.name=Tier 1 Crafting Seed
+item.ma.crafting_tier2_crafting_seed.name=Tier 2 Crafting Seed
+item.ma.crafting_tier3_crafting_seed.name=Tier 3 Crafting Seed
+item.ma.crafting_tier4_crafting_seed.name=Tier 4 Crafting Seed
+item.ma.crafting_tier5_crafting_seed.name=Tier 5 Crafting Seed
+
+item.ma.crafting_mystical_tool_rod.name=Mystical Tool Rod
+item.ma.crafting_mystical_bowstring.name=Mystical Bowstring
+item.ma.crafting_mystical_fletching.name=Mystical Fletching
+
+item.ma.crafting_soul_dust.name=Soul Dust
+item.ma.crafting_soulium_dust.name=§dSoulium Dust
+
+item.ma.crafting_base_essence_ingot.name=Base Essence Ingot
+item.ma.crafting_inferium_ingot.name=§eInferium Ingot
+item.ma.crafting_prudentium_ingot.name=§aPrudentium Ingot
+item.ma.crafting_intermedium_ingot.name=§6Intermedium Ingot
+item.ma.crafting_superium_ingot.name=§bSuperium Ingot
+item.ma.crafting_supremium_ingot.name=§cSupremium Ingot
+item.ma.crafting_soulium_ingot.name=§dSoulium Ingot
+
+item.ma.crafting_base_essence_nugget.name=Base Essence Nugget
+item.ma.crafting_inferium_nugget.name=§eInferium Nugget
+item.ma.crafting_prudentium_nugget.name=§aPrudentium Nugget
+item.ma.crafting_intermedium_nugget.name=§6Intermedium Nugget
+item.ma.crafting_superium_nugget.name=§bSuperium Nugget
+item.ma.crafting_supremium_nugget.name=§cSupremium Nugget
+item.ma.crafting_soulium_nugget.name=§dSoulium Nugget
+
+item.ma.crafting_theoretical_water.name=Theoretical Infinite Water Source
+
+item.ma.crafting_inferium_fert_core.name=§eInferium Fertilization Core
+item.ma.crafting_prudentium_fert_core.name=§aPrudentium Fertilization Core
+item.ma.crafting_intermedium_fert_core.name=§6Intermedium Fertilization Core
+item.ma.crafting_superium_fert_core.name=§bSuperium Fertilization Core
+item.ma.crafting_supremium_fert_core.name=§cSupremium Fertilization Core
 
 # INFUSION CRYSTALS
 item.ma.infusion_crystal.name=Infusion Crystal
 item.ma.master_infusion_crystal.name=§cMaster Infusion Crystal
 
-item.ma.prosperity_shard.name=Prosperity Shard
 
 item.ma.mystical_fertilizer.name=§dMystical Fertilizer
 item.ma.fertilized_essence.name=§dFertilized Essence
 
-# CLUSTERS
-item.ma.nature_cluster.name=Nature Cluster
-item.ma.dye_cluster.name=Dye Cluster
-item.ma.nether_cluster.name=Nether Cluster
-item.ma.end_cluster.name=End Cluster
-item.ma.mystical_flower_cluster.name=Mystical Flower Cluster
 
-item.ma.blank_record.name=Blank Record
 
 # ESSENCE APPLES
 item.ma.inferium_apple.name=§eInferium Apple
@@ -285,44 +326,17 @@ item.ma.watering_can_superium.name=§bSuperium Watering Can
 item.ma.watering_can_supremium.name=§cSupremium Watering Can
 
 # CRAFTING SEEDS
-item.ma.base_crafting_seed.name=Base Crafting Seed
-item.ma.tier1_crafting_seed.name=Tier 1 Crafting Seed
-item.ma.tier2_crafting_seed.name=Tier 2 Crafting Seed
-item.ma.tier3_crafting_seed.name=Tier 3 Crafting Seed
-item.ma.tier4_crafting_seed.name=Tier 4 Crafting Seed
-item.ma.tier5_crafting_seed.name=Tier 5 Crafting Seed
 
-item.ma.mystical_tool_rod.name=Mystical Tool Rod
-item.ma.mystical_bowstring.name=Mystical Bowstring
-item.ma.mystical_fletching.name=Mystical Fletching
 
-item.ma.base_essence_ingot.name=Base Essence Ingot
-item.ma.inferium_ingot.name=§eInferium Ingot
-item.ma.prudentium_ingot.name=§aPrudentium Ingot
-item.ma.intermedium_ingot.name=§6Intermedium Ingot
-item.ma.superium_ingot.name=§bSuperium Ingot
-item.ma.supremium_ingot.name=§cSupremium Ingot
 
-item.ma.soul_dust.name=Soul Dust
-item.ma.soulium_dust.name=§dSoulium Dust
-item.ma.soulium_ingot.name=§dSoulium Ingot
+
+
+
 item.ma.soulium_dagger.name=§dSoulium Dagger
 
-item.ma.nugget_base_essence.name=Base Essence Nugget
-item.ma.nugget_inferium.name=§eInferium Nugget
-item.ma.nugget_prudentium.name=§aPrudentium Nugget
-item.ma.nugget_intermedium.name=§6Intermedium Nugget
-item.ma.nugget_superium.name=§bSuperium Nugget
-item.ma.nugget_supremium.name=§cSupremium Nugget
-item.ma.nugget_soulium.name=§dSoulium Nugget
 
-item.ma.crafting_theoretical_water.name=Theoretical Infinite Water Source
 
-item.ma.crafting_inferium_fert_core.name=§eInferium Fertilization Core
-item.ma.crafting_prudentium_fert_core.name=§aPrudentium Fertilization Core
-item.ma.crafting_intermedium_fert_core.name=§6Intermedium Fertilization Core
-item.ma.crafting_superium_fert_core.name=§bSuperium Fertilization Core
-item.ma.crafting_supremium_fert_core.name=§cSupremium Fertilization Core
+
 
 # CHUNKS
 item.ma.tier1_mob_chunk.name=Tier 1 Mob Chunk

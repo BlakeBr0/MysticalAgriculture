@@ -16,8 +16,6 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
-import net.minecraft.item.Item.ToolMaterial;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumFacing;
@@ -32,9 +30,13 @@ public class ItemSupremiumHoe extends ItemEssenceHoe {
 	
 	public int range;
 	
-	public ItemSupremiumHoe(String name, ToolMaterial material, int range, Item repairMaterial, TextFormatting color){
-		super(name, material, repairMaterial, color);
+	public ItemSupremiumHoe(String name, ToolMaterial material, int range, TextFormatting color){
+		super(name, material, color);
 		this.range = range;
+	}
+	
+	public void setRepairMaterial(ItemStack stack){
+		this.repairMaterial = stack.copy();
 	}
 
 	public boolean isSneakAbilityEnabled(){

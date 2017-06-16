@@ -23,8 +23,8 @@ public class MysticalAgriculture {
 	@Mod.Instance(MysticalAgriculture.MOD_ID)
 	public static MysticalAgriculture INSTANCE;
 	
-	@SidedProxy(clientSide="com.blakebr0.mysticalagriculture.proxy.ClientProxy",
-				serverSide="com.blakebr0.mysticalagriculture.proxy.ServerProxy")
+	@SidedProxy(clientSide = "com.blakebr0.mysticalagriculture.proxy.ClientProxy",
+				serverSide = "com.blakebr0.mysticalagriculture.proxy.ServerProxy")
 	
 	public static CommonProxy proxy;
 		
@@ -46,7 +46,7 @@ public class MysticalAgriculture {
 	public static CreativeTabs tabMysticalAgriculture = new CreativeTabs("tabMysticalAgriculture"){
 		@Override
 		public ItemStack getTabIconItem(){
-			return new ItemStack(ModItems.itemSupremiumEssence, 1, 0);
+			return ModItems.itemCrafting.itemSupremiumEssence;
 		}
 	};
 }

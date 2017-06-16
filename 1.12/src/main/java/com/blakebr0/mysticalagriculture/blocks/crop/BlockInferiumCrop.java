@@ -25,7 +25,7 @@ public class BlockInferiumCrop extends BlockMysticalCrop {
     
     @Override
     protected Item getCrop() {
-    	return ModItems.itemInferiumEssence;
+    	return ModItems.itemCrafting;
     }
     
     @Override

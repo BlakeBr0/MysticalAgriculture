@@ -138,19 +138,19 @@ public class MobDrops {
         }
         	
         if(event.getEntity() instanceof EntityMob){            	
-        	drop(attacked, ModItems.itemInferiumEssence, 1, getChance(ModConfig.confHostileDropChance), drops);
+        	drop(attacked, ModItems.itemCrafting, 1, 0, getChance(ModConfig.confHostileDropChance), drops);
         }
         	
         if(event.getEntity() instanceof EntityAnimal){            	
-        	drop(attacked, ModItems.itemInferiumEssence, 1, getChance(ModConfig.confPassiveDropChance), drops);
+        	drop(attacked, ModItems.itemCrafting, 1, 0, getChance(ModConfig.confPassiveDropChance), drops);
         }  
             	
         if(event.getEntity() instanceof EntityWither){            	
-        	drop(attacked, ModItems.itemSupremiumEssence, ModConfig.confWitherSupremium, ModConfig.confWitherSupremium, drops);
+        	drop(attacked, ModItems.itemCrafting, ModConfig.confWitherSupremium, 4, ModConfig.confWitherSupremium, drops);
         } 
         	
-        if(event.getEntity() instanceof EntityDragon){        	
-        	drop(attacked, ModItems.itemSupremiumEssence, ModConfig.confDragonSupremium, ModConfig.confDragonSupremium, drops);
+        if(event.getEntity() instanceof EntityDragon){
+        	drop(attacked, ModItems.itemCrafting, ModConfig.confDragonSupremium, 4, ModConfig.confDragonSupremium, drops);
         }
     }
     

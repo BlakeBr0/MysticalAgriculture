@@ -12,7 +12,6 @@ import com.blakebr0.mysticalagriculture.lib.Tooltips;
 
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
@@ -21,8 +20,8 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class ItemBowQuickDraw extends ItemEssenceBow {
 
-	public ItemBowQuickDraw(String name, ToolMaterial material, float drawSpeed, Item repairMaterial, TextFormatting color) {
-		super(name, material, drawSpeed, repairMaterial, color);
+	public ItemBowQuickDraw(String name, ToolMaterial material, float drawSpeed, TextFormatting color) {
+		super(name, material, drawSpeed, color);
 	}
 
 	@Override

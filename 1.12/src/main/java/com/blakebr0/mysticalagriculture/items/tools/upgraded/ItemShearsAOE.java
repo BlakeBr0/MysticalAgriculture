@@ -17,7 +17,6 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Enchantments;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.stats.StatList;
 import net.minecraft.util.EnumHand;
@@ -30,8 +29,8 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class ItemShearsAOE extends ItemEssenceShears {
 
-	public ItemShearsAOE(String name, ToolMaterial material, Item repairMaterial, TextFormatting color) {
-		super(name, material, repairMaterial, color);
+	public ItemShearsAOE(String name, ToolMaterial material, TextFormatting color) {
+		super(name, material, color);
 	}
 
 	@Override

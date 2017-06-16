@@ -13,9 +13,7 @@ import com.blakebr0.mysticalagriculture.lib.Tooltips;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.Item.ToolMaterial;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
@@ -23,8 +21,8 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class ItemHoeAOE extends ItemSupremiumHoe {
 
-	public ItemHoeAOE(String name, ToolMaterial material, int range, Item repairMaterial, TextFormatting color) {
-		super(name, material, range, repairMaterial, color);
+	public ItemHoeAOE(String name, ToolMaterial material, int range, TextFormatting color) {
+		super(name, material, range, color);
 	}
 	
 	@Override

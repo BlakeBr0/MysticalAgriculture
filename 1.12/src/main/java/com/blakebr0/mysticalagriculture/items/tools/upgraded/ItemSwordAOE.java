@@ -16,7 +16,6 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.SoundEvents;
-import net.minecraft.item.Item;
 import net.minecraft.item.Item.ToolMaterial;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.DamageSource;
@@ -29,8 +28,8 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class ItemSwordAOE extends ItemEssenceSword {
 	    
-	public ItemSwordAOE(String name, ToolMaterial material, Item repairMaterial, TextFormatting color){
-		super(name, material, repairMaterial, color);
+	public ItemSwordAOE(String name, ToolMaterial material, TextFormatting color){
+		super(name, material, color);
 	}
 		
 	@Override

@@ -20,9 +20,7 @@ import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.Item.ToolMaterial;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.util.text.TextFormatting;
@@ -35,8 +33,8 @@ public class ItemAxeAOE extends ItemEssenceAxe {
 	
 	public static List<Material> acceptedMaterials = new ArrayList<Material>();
 	
-	public ItemAxeAOE(String name, ToolMaterial material, Item repairMaterial, float damage, TextFormatting color){
-		super(name, material, repairMaterial, damage, color);
+	public ItemAxeAOE(String name, ToolMaterial material, float damage, TextFormatting color){
+		super(name, material, damage, color);
 		this.initAcceptedMaterials();
 	}
     

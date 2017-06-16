@@ -18,7 +18,6 @@ import net.minecraft.entity.projectile.EntityArrow;
 import net.minecraft.init.Enchantments;
 import net.minecraft.init.Items;
 import net.minecraft.init.SoundEvents;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemArrow;
 import net.minecraft.item.ItemStack;
 import net.minecraft.stats.StatList;
@@ -30,8 +29,8 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class ItemBowTripleShot extends ItemEssenceBow {
 
-	public ItemBowTripleShot(String name, ToolMaterial material, float drawSpeed, Item repairMaterial, TextFormatting color){
-		super(name, material, drawSpeed, repairMaterial, color);
+	public ItemBowTripleShot(String name, ToolMaterial material, float drawSpeed, TextFormatting color){
+		super(name, material, drawSpeed, color);
 	}
 
 	@Override

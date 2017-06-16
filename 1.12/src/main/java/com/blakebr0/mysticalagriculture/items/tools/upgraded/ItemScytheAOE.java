@@ -24,9 +24,7 @@ import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.inventory.EntityEquipmentSlot;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.Item.ToolMaterial;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumFacing;
@@ -38,22 +36,26 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.IPlantable;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import net.minecraftforge.oredict.OreDictionary;
 
 public class ItemScytheAOE extends ItemBase {
 
 	public int range;
 	public ToolMaterial toolMaterial;
-	public Item repairMaterial;
+	public ItemStack repairMaterial;
 	public TextFormatting color;
 	
-	public ItemScytheAOE(String name, int range, ToolMaterial material, Item repairMaterial, TextFormatting color){
+	public ItemScytheAOE(String name, int range, ToolMaterial material, TextFormatting color){
 		super(name);
 		this.setMaxStackSize(1);
 		this.setMaxDamage(material.getMaxUses());
 		this.range = range;
 		this.toolMaterial = material;
-		this.repairMaterial = repairMaterial;
 		this.color = color;
+	}
+	
+	public void setRepairMaterial(ItemStack stack){
+		this.repairMaterial = stack.copy();
 	}
 	
 	@Override
@@ -76,7 +78,7 @@ public class ItemScytheAOE extends ItemBase {
 	
 	@Override
     public boolean getIsRepairable(ItemStack toRepair, ItemStack repair){
-        return repair.getItem() == repairMaterial;
+        return OreDictionary.itemMatches(repairMaterial, repair, false);
     }
 	
 	@Override

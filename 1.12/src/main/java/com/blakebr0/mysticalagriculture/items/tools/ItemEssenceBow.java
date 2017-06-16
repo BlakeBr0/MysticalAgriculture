@@ -18,7 +18,6 @@ import net.minecraft.init.Enchantments;
 import net.minecraft.init.Items;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.item.IItemPropertyGetter;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemArrow;
 import net.minecraft.item.ItemBow;
 import net.minecraft.item.ItemStack;
@@ -31,23 +30,23 @@ import net.minecraft.world.World;
 import net.minecraftforge.client.event.FOVUpdateEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import net.minecraftforge.oredict.OreDictionary;
 
 public class ItemEssenceBow extends ItemBow {
 
-	public Item repairMaterial;
+	public ItemStack repairMaterial;
 	public ToolMaterial toolMaterial;
 	public float damage;
 	public float drawSpeed;
 	public TextFormatting color;
 	
-	public ItemEssenceBow(String name, ToolMaterial material, float drawSpeed, Item repairMaterial, TextFormatting color){
+	public ItemEssenceBow(String name, ToolMaterial material, float drawSpeed, TextFormatting color){
 		this.setUnlocalizedName("ma." + name);
 		this.setRegistryName(name);
 		this.setCreativeTab(MysticalAgriculture.tabMysticalAgriculture);
 		this.toolMaterial = material;
 		this.damage = material.getDamageVsEntity() / 4;
 		this.drawSpeed = drawSpeed;
-		this.repairMaterial = repairMaterial;
 		this.color = color;
 		this.setMaxStackSize(1);
 		this.setMaxDamage(material.getMaxUses());
@@ -71,6 +70,10 @@ public class ItemEssenceBow extends ItemBow {
         });
 	}
 	
+	public void setRepairMaterial(ItemStack stack){
+		this.repairMaterial = stack.copy();
+	}
+	
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void addInformation(ItemStack stack, @Nullable World player, List<String> tooltip, ITooltipFlag advanced){
@@ -78,14 +81,14 @@ public class ItemEssenceBow extends ItemBow {
 		tooltip.add(Tooltips.DURABILITY + color + (damage > -1 ? damage : Tooltips.UNLIMITED));
 		tooltip.add(Tooltips.DAMAGE + color + "+" + this.damage);
 		tooltip.add(Tooltips.DRAW_SPEED + color +  "+" + (int)(this.drawSpeed * 100) + "%");
-		if(repairMaterial == ModItems.itemSupremiumIngot){
+		if(repairMaterial == ModItems.itemCrafting.itemSupremiumIngot){
 			tooltip.add(Tooltips.CHARM_SLOT + Colors.RED + Tooltips.EMPTY);
 		}
 	}
 	
 	@Override
     public boolean getIsRepairable(ItemStack toRepair, ItemStack repair){
-        return repair.getItem() == repairMaterial;
+        return OreDictionary.itemMatches(repairMaterial, repair, false);
     }
 	
 	public float getDrawSpeed(){

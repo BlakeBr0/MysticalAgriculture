@@ -14,10 +14,8 @@ import com.blakebr0.mysticalagriculture.lib.Tooltips;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemPickaxe;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.Item.ToolMaterial;
 import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
@@ -30,15 +28,14 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class ItemPickaxeMinersVision extends ItemPickaxe {
 	    
-	public Item repairMaterial;
+	public ItemStack repairMaterial;
 	public TextFormatting color;
 	
-	public ItemPickaxeMinersVision(String name, ToolMaterial material, Item repairMaterial, TextFormatting color){
+	public ItemPickaxeMinersVision(String name, ToolMaterial material, TextFormatting color){
 		super(material);
 		this.setUnlocalizedName("ma." + name);
 		this.setRegistryName(name);
 		this.setCreativeTab(MysticalAgriculture.tabMysticalAgriculture);
-		this.repairMaterial = repairMaterial;
 		this.color = color;
 	}
 		
