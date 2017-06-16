@@ -1,7 +1,5 @@
 package com.blakebr0.mysticalagriculture.blocks;
 
-import com.blakebr0.mysticalagriculture.lib.EssenceType.Type;
-
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
@@ -25,6 +23,7 @@ public class BlockIngotStorage extends BlockBase {
 	
 	public BlockIngotStorage(){
 		super("ingot_storage", Material.IRON, SoundType.METAL, 5.0F, 8.0F);
+        this.setDefaultState(this.blockState.getBaseState().withProperty(VARIANT, Type.BASE_ESSENCE));
 	}
 
     @Override

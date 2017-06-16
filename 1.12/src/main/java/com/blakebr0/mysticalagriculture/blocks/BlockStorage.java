@@ -1,7 +1,5 @@
 package com.blakebr0.mysticalagriculture.blocks;
 
-import com.blakebr0.mysticalagriculture.lib.EssenceType.Type;
-
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
@@ -25,6 +23,7 @@ public class BlockStorage extends BlockBase {
 	
 	public BlockStorage(){
 		super("storage", Material.ROCK, SoundType.STONE, 4.0F, 6.0F);
+        this.setDefaultState(this.blockState.getBaseState().withProperty(VARIANT, Type.INFERIUM));
 	}
 
     @Override
