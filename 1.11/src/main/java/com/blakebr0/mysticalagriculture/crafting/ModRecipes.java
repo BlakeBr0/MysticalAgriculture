@@ -548,7 +548,7 @@ public class ModRecipes {
 	    addSeedRecipe(type.TERRASTEEL, new ItemStack(Parts.itemBotaniaResources, 1, 4));
 	    
 	    if(ModChecker.IC2){
-		    addSeedRecipe(type.URANIUM, "uran238");
+		    addSeedRecipe(type.URANIUM, new ItemStack(Parts.itemIC2Nuclear, 1, 2));
 		    addSeedRecipe(type.IRIDIUM, new ItemStack(Parts.itemIC2MiscResource, 1, 1));
 	    }
 	

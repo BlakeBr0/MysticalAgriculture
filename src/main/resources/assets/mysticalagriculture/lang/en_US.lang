@@ -225,7 +225,7 @@ tile.ma.blue_topaz_crop.name=Blue Topaz Crop
 tile.ma.moonstone_crop.name=Moonstone Crop
 tile.ma.sunstone_crop.name=Sunstone Crop
 
-tile.ma.ender_biotite_crop.name=Biotite Crop
+tile.ma.ender_biotite_crop.name=Ender Biotite Crop
 
 tile.ma.ender_amethyst_crop.name=Ender Amethyst Crop
 
@@ -474,7 +474,7 @@ item.ma.blue_topaz_essence.name=Blue Topaz Essence
 item.ma.moonstone_essence.name=Moonstone Essence
 item.ma.sunstone_essence.name=Sunstone Essence
 
-item.ma.ender_biotite_essence.name=Biotite Essence
+item.ma.ender_biotite_essence.name=Ender Biotite Essence
 
 item.ma.ender_amethyst_essence.name=Ender Amethyst Essence
 
@@ -616,7 +616,7 @@ item.ma.blue_topaz_seeds.name=Blue Topaz Seeds
 item.ma.moonstone_seeds.name=Moonstone Seeds
 item.ma.sunstone_seeds.name=Sunstone Seeds
 
-item.ma.ender_biotite_seeds.name=Biotite Seeds
+item.ma.ender_biotite_seeds.name=Ender Biotite Seeds
 
 item.ma.ender_amethyst_seeds.name=Ender Amethyst Seeds
 

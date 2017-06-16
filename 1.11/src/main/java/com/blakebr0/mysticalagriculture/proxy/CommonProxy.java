@@ -64,7 +64,7 @@ public class CommonProxy {
 	}
 	
 	public void init(FMLInitializationEvent e){
-//		FMLInterModComms.sendMessage("Waila", "register", "com.blakebr0.mysticalagriculture.util.WailaDataProvider.callbackRegister");
+		//FMLInterModComms.sendMessage("waila", "register", "com.blakebr0.mysticalagriculture.util.WailaDataProvider.callbackRegister");
 		
 		ModTileEntities.initTileEntities();
 

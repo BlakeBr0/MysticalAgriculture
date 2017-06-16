@@ -251,7 +251,7 @@ public class EssenceRecipes {
 	    if(type.TERRASTEEL.isEnabled()){ addEssenceRecipe(new ItemStack(Parts.itemBotaniaResources, EssenceConfig.terrasteel, 4), "EEE", "EXE", "EEE", 'E', new ItemStack(type.TERRASTEEL.getCrop(), 1, 0)); }
    
 	    if(type.URANIUM.isEnabled() && ModChecker.IC2){ addEssenceRecipe(Utils.getItem("uran238", EssenceConfig.uranium238), "EEE", "EEE", "EEE", 'E', new ItemStack(type.URANIUM.getCrop(), 1, 0)); }
-	    if(type.IRIDIUM.isEnabled() && ModChecker.IC2){ addEssenceRecipe(new ItemStack(Parts.itemIC2MiscResource, 1, 1), "EEE", "EEE", "EEE", 'E', new ItemStack(type.IRIDIUM.getCrop(), 1, 0)); }
+	    if(type.IRIDIUM.isEnabled() && ModChecker.IC2){ addEssenceRecipe(new ItemStack(Parts.itemIC2MiscResource, EssenceConfig.iridiumOre, 1), "EEE", "EEE", "EEE", 'E', new ItemStack(type.IRIDIUM.getCrop(), 1, 0)); }
 
 	    if(type.OSMIUM.isEnabled()){ addEssenceRecipe(Utils.getItem("ingotOsmium", EssenceConfig.osmium), "EEE", "EXE", "EEE", 'E', new ItemStack(type.OSMIUM.getCrop(), 1, 0)); }
 	    if(type.GLOWSTONE_INGOT.isEnabled()){ addEssenceRecipe(Utils.getItem("ingotRefinedGlowstone", EssenceConfig.glowstoneIngot), "EEE", "EXE", "EEE", 'E', new ItemStack(type.GLOWSTONE_INGOT.getCrop(), 1, 0)); }

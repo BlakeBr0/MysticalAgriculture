@@ -25,6 +25,7 @@ public class Parts {
 	public static Item itemAEMaterial;
 	public static Item itemGCPMars;
 	public static Item itemIC2MiscResource;
+	public static Item itemIC2Nuclear;
 	
 	public static void getParts(){
 		
@@ -130,8 +131,15 @@ public class Parts {
 	    
 	    if(ModChecker.IC2){
 	    	try {
-	    		Item item = getItem("IC2:misc_resource");
+	    		Item item = getItem("ic2:misc_resource");
 	    		itemIC2MiscResource = item;
+	    	} catch(Throwable e){
+	    		e.printStackTrace();
+	    	}
+	    	
+	    	try {
+	    		Item item = getItem("ic2:nuclear");
+	    		itemIC2Nuclear = item;
 	    	} catch(Throwable e){
 	    		e.printStackTrace();
 	    	}
