@@ -148,18 +148,18 @@ public class ModBlocks {
 		
 		if(ModConfig.confEssenceFurnaces){
 			registerBlock(blockInferiumFurnace);
-			registerBlock(blockInferiumFurnaceActive);
+			registerBlock(blockInferiumFurnaceActive, false);
 			registerBlock(blockPrudentiumFurnace);
-			registerBlock(blockPrudentiumFurnaceActive);
+			registerBlock(blockPrudentiumFurnaceActive, false);
 			registerBlock(blockIntermediumFurnace);
-			registerBlock(blockIntermediumFurnaceActive);
+			registerBlock(blockIntermediumFurnaceActive, false);
 			registerBlock(blockSuperiumFurnace);
-			registerBlock(blockSuperiumFurnaceActive);
+			registerBlock(blockSuperiumFurnaceActive, false);
 			registerBlock(blockSupremiumFurnace);
-			registerBlock(blockSupremiumFurnaceActive);
+			registerBlock(blockSupremiumFurnaceActive, false);
 			if(ModConfig.confUltimateFurnace){
 				registerBlock(blockUltimateFurnace);
-				registerBlock(blockUltimateFurnaceActive);
+				registerBlock(blockUltimateFurnaceActive, false);
 			}
 		}
 				
@@ -238,18 +238,12 @@ public class ModBlocks {
 		
 		if(ModConfig.confEssenceFurnaces){
 			registerModel(blockInferiumFurnace);
-			registerModel(blockInferiumFurnaceActive);
 			registerModel(blockPrudentiumFurnace);
-			registerModel(blockPrudentiumFurnaceActive);
 			registerModel(blockIntermediumFurnace);
-			registerModel(blockIntermediumFurnaceActive);
 			registerModel(blockSuperiumFurnace);
-			registerModel(blockSuperiumFurnaceActive);
 			registerModel(blockSupremiumFurnace);
-			registerModel(blockSupremiumFurnaceActive);
 			if(ModConfig.confUltimateFurnace){
 				registerModel(blockUltimateFurnace);
-				registerModel(blockUltimateFurnaceActive);
 			}
 		}
 					
@@ -294,8 +288,14 @@ public class ModBlocks {
 	}
 	
 	public static void registerBlock(Block block){
+		registerBlock(block, true);
+	}
+	
+	public static void registerBlock(Block block, boolean itemBlock){
 		GameRegistry.register(block);
-		GameRegistry.register(new ItemBlock(block).setRegistryName(block.getRegistryName()));
+		if(itemBlock){
+			GameRegistry.register(new ItemBlock(block).setRegistryName(block.getRegistryName()));
+		}
 	}
 	
 	public static void registerBlock(Block block, ItemBlock itemBlock){
