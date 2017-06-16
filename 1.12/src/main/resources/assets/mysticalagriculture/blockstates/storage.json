@@ -1,0 +1,10 @@
+{
+    "variants": {
+        "variant=inferium": { "model": "mysticalagriculture:storage_inferium" },
+		"variant=prudentium": { "model": "mysticalagriculture:storage_prudentium" },
+		"variant=intermedium": { "model": "mysticalagriculture:storage_intermedium" },
+		"variant=superium": { "model": "mysticalagriculture:storage_superium" },
+		"variant=supremium": { "model": "mysticalagriculture:storage_supremium" },
+		"variant=prosperity": { "model": "mysticalagriculture:storage_prosperity" }
+    }
+}

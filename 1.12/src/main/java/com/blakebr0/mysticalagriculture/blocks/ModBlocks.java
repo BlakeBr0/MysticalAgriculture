@@ -35,22 +35,8 @@ import net.minecraftforge.oredict.OreDictionary;
 
 public class ModBlocks {
 		
-	public static BlockBase blockInferium = new BlockBase("inferium_block", Material.ROCK, SoundType.STONE, 4.0F, 6.0F);
-	public static BlockBase blockPrudentium = new BlockBase("prudentium_block", Material.ROCK, SoundType.STONE, 4.0F, 6.0F);
-	public static BlockBase blockIntermedium = new BlockBase("intermedium_block", Material.ROCK, SoundType.STONE, 4.0F, 6.0F);
-	public static BlockBase blockSuperium = new BlockBase("superium_block", Material.ROCK, SoundType.STONE, 4.0F, 6.0F);
-	public static BlockBase blockSupremium = new BlockBase("supremium_block", Material.ROCK, SoundType.STONE, 4.0F, 6.0F);
-	
-	public static BlockBase blockProsperity = new BlockBase("prosperity_block", Material.ROCK, SoundType.STONE, 4.0F, 6.0F);
-	
-	public static BlockBase blockBaseEssenceIngot = new BlockBase("base_essence_ingot_block", Material.IRON, SoundType.METAL, 5.0F, 8.0F);
-	public static BlockBase blockInferiumIngot = new BlockBase("inferium_ingot_block", Material.IRON, SoundType.METAL, 5.0F, 8.0F);
-	public static BlockBase blockPrudentiumIngot = new BlockBase("prudentium_ingot_block", Material.IRON, SoundType.METAL, 5.0F, 8.0F);
-	public static BlockBase blockIntermediumIngot = new BlockBase("intermedium_ingot_block", Material.IRON, SoundType.METAL, 5.0F, 8.0F);
-	public static BlockBase blockSuperiumIngot = new BlockBase("superium_ingot_block", Material.IRON, SoundType.METAL, 5.0F, 8.0F);
-	public static BlockBase blockSupremiumIngot = new BlockBase("supremium_ingot_block", Material.IRON, SoundType.METAL, 5.0F, 8.0F);
-	public static BlockBase blockSouliumIngot = new BlockBase("soulium_ingot_block", Material.IRON, SoundType.METAL, 5.0F, 8.0F);
-	
+	public static BlockStorage blockStorage = new BlockStorage();
+	public static BlockIngotStorage blockIngotStorage = new BlockIngotStorage();	
 	public static BlockEssenceCoal blockEssenceCoal = new BlockEssenceCoal();
 	
 	public static BlockSoulstone blockSoulstone = new BlockSoulstone();
@@ -109,23 +95,9 @@ public class ModBlocks {
 	public static BlockMinersTorch blockMinersTorch = new BlockMinersTorch();
 		
 	public static void initBlocks(){
-								
-		registerBlock(blockInferium);
-		registerBlock(blockPrudentium);
-		registerBlock(blockIntermedium);
-		registerBlock(blockSuperium);
-		registerBlock(blockSupremium);
-		
-		registerBlock(blockProsperity);
-		
-		registerBlock(blockBaseEssenceIngot);
-		registerBlock(blockInferiumIngot);
-		registerBlock(blockPrudentiumIngot);
-		registerBlock(blockIntermediumIngot);
-		registerBlock(blockSuperiumIngot);
-		registerBlock(blockSupremiumIngot);
-		registerBlock(blockSouliumIngot);
-		
+							
+		blockStorage.init();
+		blockIngotStorage.init();		
 		blockEssenceCoal.init();
 		
 		registerBlock(blockSoulstone, new ItemBlockSoulstone(blockSoulstone));
@@ -206,22 +178,8 @@ public class ModBlocks {
 	@SideOnly(Side.CLIENT)
 	public static void initModels(){
 		
-		registerModel(blockInferium);
-		registerModel(blockPrudentium);
-		registerModel(blockIntermedium);
-		registerModel(blockSuperium);
-		registerModel(blockSupremium);
-		
-		registerModel(blockProsperity);
-		
-		registerModel(blockBaseEssenceIngot);
-		registerModel(blockInferiumIngot);
-		registerModel(blockPrudentiumIngot);
-		registerModel(blockIntermediumIngot);
-		registerModel(blockSuperiumIngot);
-		registerModel(blockSupremiumIngot);
-		registerModel(blockSouliumIngot);
-		
+		blockStorage.initModels();
+		blockIngotStorage.initModels();
 		blockEssenceCoal.initModels();
 		
 		blockSoulstone.initModels();
@@ -309,23 +267,6 @@ public class ModBlocks {
 	}
 	
 	public static void initOreDict(){
-		OreDictionary.registerOre("blockInferium", blockInferium);
-		OreDictionary.registerOre("blockPrudentium", blockPrudentium);
-		OreDictionary.registerOre("blockIntermedium", blockIntermedium);
-		OreDictionary.registerOre("blockSuperium", blockSuperium);
-		OreDictionary.registerOre("blockSupremium", blockSupremium);
-		
-		OreDictionary.registerOre("blockProsperityShard", blockProsperity);
-		
-		OreDictionary.registerOre("blockBaseEssenceIngot", blockBaseEssenceIngot);
-		OreDictionary.registerOre("blockInferiumIngot", blockInferiumIngot);
-		OreDictionary.registerOre("blockPrudentiumIngot", blockPrudentiumIngot);
-		OreDictionary.registerOre("blockIntermediumIngot", blockIntermediumIngot);
-		OreDictionary.registerOre("blockSuperiumIngot", blockSuperiumIngot);
-		OreDictionary.registerOre("blockSupremiumIngot", blockSupremiumIngot);
-		
-		OreDictionary.registerOre("blockSouliumIngot", blockSouliumIngot);
-		
 		OreDictionary.registerOre("oreProsperity", blockProsperityOre);
 		OreDictionary.registerOre("oreNetherProsperity", blockProsperityOreNether);
 		OreDictionary.registerOre("oreEndProsperity", blockProsperityOreEnd);

@@ -9,6 +9,12 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 
 public class ItemCrafting extends ItemMeta {
 
+	public static ItemStack itemInferiumEssence;
+	public static ItemStack itemPrudentiumEssence;
+	public static ItemStack itemIntermediumEssence;
+	public static ItemStack itemSuperiumEssence;
+	public static ItemStack itemSupremiumEssence;
+	
 	public static ItemStack itemTheoreticalWater;
 	
 	public static ItemStack itemInferiumFertCore;
@@ -24,6 +30,12 @@ public class ItemCrafting extends ItemMeta {
 	@Override
 	public void init(){
 		GameRegistry.register(this);
+		
+		itemInferiumEssence = addItem(0, "inferium_essence", "essenceInferium");
+		itemPrudentiumEssence = addItem(1, "prudentium_essence", "essencePrudentium");
+		itemIntermediumEssence = addItem(2, "intermedium_essence", "essenceIntermedium");
+		itemSuperiumEssence = addItem(3, "superium_essence", "essenceSuperium");
+		itemSupremiumEssence = addItem(4, "supremium_essence", "essenceSupremium");
 		
 		itemTheoreticalWater = addItem(48, "theoretical_water", ModConfig.confWateringCans);
 		

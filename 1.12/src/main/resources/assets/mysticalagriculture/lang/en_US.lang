@@ -2,28 +2,26 @@
 itemGroup.tabMysticalAgriculture=Mystical Agriculture
 
 # STORAGE BLOCKS
-tile.ma.inferium_block.name=§eInferium Block
-tile.ma.prudentium_block.name=§aPrudentium Block
-tile.ma.intermedium_block.name=§6Intermedium Block
-tile.ma.superium_block.name=§bSuperium Block
-tile.ma.supremium_block.name=§cSupremium Block
+tile.ma.storage_inferium.name=§eBlock of Inferium Essence
+tile.ma.storage_prudentium.name=§aBlock of Prudentium Essence
+tile.ma.storage_intermedium.name=§6Block of Intermedium Essence
+tile.ma.storage_superium.name=§bBlock of Superium Essence
+tile.ma.storage_supremium.name=§cBlock of Supremium Essence
+tile.ma.storage_prosperity.name=Block of Prosperity
 
-tile.ma.prosperity_block.name=Prosperity Block
+tile.ma.ingot_storage_base_essence.name=Block of Base Essence
+tile.ma.ingot_storage_inferium.name=§eBlock of Inferium
+tile.ma.ingot_storage_prudentium.name=§aBlock of Prudentium
+tile.ma.ingot_storage_intermedium.name=§6Block of Intermedium
+tile.ma.ingot_storage_superium.name=§bBlock of Superium
+tile.ma.ingot_storage_supremium.name=§cBlock of Supremium
+tile.ma.ingot_storage_soulium.name=§dBlock of Soulium
 
-tile.ma.base_essence_ingot_block.name=Base Essence Ingot Block
-tile.ma.inferium_ingot_block.name=§eInferium Ingot Block
-tile.ma.prudentium_ingot_block.name=§aPrudentium Ingot Block
-tile.ma.intermedium_ingot_block.name=§6Intermedium Ingot Block
-tile.ma.superium_ingot_block.name=§bSuperium Ingot Block
-tile.ma.supremium_ingot_block.name=§cSupremium Ingot Block
-
-tile.ma.soulium_ingot_block.name=§dSoulium Ingot Block
-
-tile.ma.coal_block_inferium.name=§eInferium Coal Block
-tile.ma.coal_block_prudentium.name=§aPrudentium Coal Block
-tile.ma.coal_block_intermedium.name=§6Intermedium Coal Block
-tile.ma.coal_block_superium.name=§bSuperium Coal Block
-tile.ma.coal_block_supremium.name=§cSupremium Coal Block
+tile.ma.coal_block_inferium.name=§eBlock of Inferium Coal
+tile.ma.coal_block_prudentium.name=§aBlock of Prudentium Coal
+tile.ma.coal_block_intermedium.name=§6Block of Intermedium Coal
+tile.ma.coal_block_superium.name=§bBlock of Superium Coal
+tile.ma.coal_block_supremium.name=§cBlock of Supremium Coal
 
 tile.ma.soulstone_smooth.name=Soulstone
 tile.ma.soulstone_cobbled.name=Cobbled Soulstone
