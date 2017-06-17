@@ -24,6 +24,7 @@ import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemArmor.ArmorMaterial;
 import net.minecraft.potion.PotionEffect;
+import net.minecraft.util.IStringSerializable;
 import net.minecraft.world.World;
 import net.minecraftforge.event.entity.living.LivingEvent.LivingUpdateEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
@@ -63,7 +64,7 @@ public class ItemSupremiumArmor extends ItemArmor implements IRepairMaterial {
 	}
 	
 	@Override
-	public int getItemEnchantability() {
+	public int getItemEnchantability(){
 		return 0;
 	}
 
@@ -89,6 +90,32 @@ public class ItemSupremiumArmor extends ItemArmor implements IRepairMaterial {
 		ItemStack feet = player.getItemStackFromSlot(EntityEquipmentSlot.FEET);
 		
 		return head != null && head.getItem() instanceof ItemSupremiumArmor && chest != null && chest.getItem() instanceof ItemSupremiumArmor && legs != null && legs.getItem() instanceof ItemSupremiumArmor && feet != null && feet.getItem() instanceof ItemSupremiumArmor;
+	}
+	
+	public static enum ArmorType implements IStringSerializable {
+		
+		ABSORPTION(0, "absorption");
+		
+		private final int index;
+		private final String name;
+		
+		ArmorType(int index, String name){
+			this.index = index;
+			this.name = name;
+		}
+		
+		public int getIndex(){
+			return index;
+		}
+
+		@Override
+		public String getName(){
+			return name;
+		}
+		
+		public String getLocalizedName(){
+			return Utils.localize("tooltip.ma." + getName());
+		}
 	}
     
     public static class AbilityHandler {

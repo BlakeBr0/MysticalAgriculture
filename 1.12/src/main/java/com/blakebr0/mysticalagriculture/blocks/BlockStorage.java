@@ -16,6 +16,7 @@ import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import net.minecraftforge.oredict.OreDictionary;
 
 public class BlockStorage extends BlockBase {
 
@@ -30,6 +31,13 @@ public class BlockStorage extends BlockBase {
     public void init(){
     	GameRegistry.register(this);
     	GameRegistry.register(new ItemBlockStorage(this).setRegistryName(getRegistryName()));
+    	
+    	OreDictionary.registerOre("blockInferiumEssence", new ItemStack(this, 1, 0));
+    	OreDictionary.registerOre("blockPrudentiumEssence", new ItemStack(this, 1, 1));
+    	OreDictionary.registerOre("blockIntermediumEssence", new ItemStack(this, 1, 2));
+    	OreDictionary.registerOre("blockSuperiumEssence", new ItemStack(this, 1, 3));
+    	OreDictionary.registerOre("blockSupremiumEssence", new ItemStack(this, 1, 4));
+    	OreDictionary.registerOre("blockProsperity", new ItemStack(this, 1, 5));
     }
 
     @Override

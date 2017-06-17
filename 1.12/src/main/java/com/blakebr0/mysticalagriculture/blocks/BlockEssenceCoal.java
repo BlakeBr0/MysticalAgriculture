@@ -27,6 +27,7 @@ import net.minecraftforge.fml.common.IFuelHandler;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import net.minecraftforge.oredict.OreDictionary;
 
 public class BlockEssenceCoal extends BlockBase {
 	
@@ -48,7 +49,13 @@ public class BlockEssenceCoal extends BlockBase {
     	GameRegistry.register(this);
     	GameRegistry.register(new ItemBlockEssenceCoal(this).setRegistryName(getRegistryName()));
     	
-        GameRegistry.registerFuelHandler(new FuelHander()); 	
+        GameRegistry.registerFuelHandler(new FuelHander());
+        
+        OreDictionary.registerOre("blockInferiumCoal", new ItemStack(this, 1, 0));
+        OreDictionary.registerOre("blockPrudentiumCoal", new ItemStack(this, 1, 1));
+        OreDictionary.registerOre("blockIntermediumCoal", new ItemStack(this, 1, 2));
+        OreDictionary.registerOre("blockSuperiumCoal", new ItemStack(this, 1, 3));
+        OreDictionary.registerOre("blockSupremiumCoal", new ItemStack(this, 1, 4));
     }
 
     @Override
