@@ -377,7 +377,7 @@ public class ModConfig {
 		confHostileDropChance = config.getInt("hostile_drop_chance", category, 20, 0, 100, "Percentage chance for a hostile mob when killed to drop an Inferium Essence.");
 		confPassiveDropChance = config.getInt("passive_drop_chance", category, 20, 0, 100, "Percentage chance for a passive mob when killed to drop an Inferium Essence.");
 		confGrowthAccelerator = config.getBoolean("growth_accelerator", category, true, "Enable Growth Accelerators?");
-		confGrowthAcceleratorSpeed = config.getInt("growth_accelerator_speed", category, 10, 1, 3600, "Amount of seconds between each growth tick attempt.");
+		confGrowthAcceleratorSpeed = config.getInt("growth_accelerator_speed", category, 6, 1, 3600, "Amount of seconds between each growth tick attempt.");
 		confCraftableChunks = config.getBoolean("craftable_chunks", category, true, "Should you be able to craft mob chunks?");
 		confHarderIngots = config.getBoolean("harder_ingots", category, false, "Makes the Essence Ingots require 4 essence each instead of 2.");
 		confWitherproofBlocks = config.getBoolean("witherproof_blocks", category, true, "Enable the Witherproof Block and Glass?");
