@@ -1,5 +1,5 @@
 {
-  "type": "minecraft:crafting_shaped",
+  "type": "forge:ore_shaped",
   "pattern": [
     "PEP",
     "EDE",
@@ -7,10 +7,12 @@
   ],
   "key": {
     "P": {
-      "item": "mysticalagriculture:prosperity_shard"
+      "item": "mysticalagriculture:crafting",
+	  "data": 5
     },
     "E": {
-      "item": "mysticalagriculture:inferium_essence"
+      "item": "mysticalagriculture:crafting",
+	  "data": 0
     },
     "D": {
       "type": "forge:ore_dict",

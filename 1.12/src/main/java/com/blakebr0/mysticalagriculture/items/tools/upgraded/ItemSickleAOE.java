@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.annotation.Nullable;
 
+import com.blakebr0.mysticalagriculture.config.ModConfig;
 import com.blakebr0.mysticalagriculture.items.ModItems;
 import com.blakebr0.mysticalagriculture.items.tools.ItemEssenceSickle;
 import com.blakebr0.mysticalagriculture.lib.Colors;
@@ -22,6 +23,16 @@ public class ItemSickleAOE extends ItemEssenceSickle {
 	public ItemSickleAOE(String name, int range, ToolMaterial material, TextFormatting color){
 		super(name, range, material, color);
 	}
+	
+	@Override
+    public ItemStack getContainerItem(ItemStack stack){
+        return ModItems.itemCharm.itemCharmReapingAOE;
+    }
+
+    @Override
+    public boolean hasContainerItem(ItemStack stack){
+        return ModConfig.confCharmReturn;
+    }
 
 	@Override
 	@SideOnly(Side.CLIENT)

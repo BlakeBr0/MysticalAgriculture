@@ -323,31 +323,31 @@ item.ma.watering_can_supremium.name=§cSupremium Watering Can
 item.ma.soulium_dagger.name=§dSoulium Dagger
 
 # CHUNKS
-item.ma.tier1_mob_chunk.name=Tier 1 Mob Chunk
-item.ma.tier2_mob_chunk.name=Tier 2 Mob Chunk
-item.ma.tier3_mob_chunk.name=Tier 3 Mob Chunk
-item.ma.tier4_mob_chunk.name=Tier 4 Mob Chunk
-item.ma.tier5_mob_chunk.name=Tier 5 Mob Chunk
+item.ma.chunk_tier1_mob_chunk.name=Tier 1 Mob Chunk
+item.ma.chunk_tier2_mob_chunk.name=Tier 2 Mob Chunk
+item.ma.chunk_tier3_mob_chunk.name=Tier 3 Mob Chunk
+item.ma.chunk_tier4_mob_chunk.name=Tier 4 Mob Chunk
+item.ma.chunk_tier5_mob_chunk.name=Tier 5 Mob Chunk
 
-item.ma.experience_chunk.name=Experience Chunk
-item.ma.zombie_chunk.name=Zombie Chunk
-item.ma.pig_chunk.name=Pig Chunk
-item.ma.chicken_chunk.name=Chicken Chunk
-item.ma.cow_chunk.name=Cow Chunk
-item.ma.sheep_chunk.name=Sheep Chunk
-item.ma.slime_chunk.name=Slime Chunk
-item.ma.skeleton_chunk.name=Skeleton Chunk
-item.ma.creeper_chunk.name=Creeper Chunk
-item.ma.spider_chunk.name=Spider Chunk
-item.ma.rabbit_chunk.name=Rabbit Chunk
-item.ma.guardian_chunk.name=Guardian Chunk
-item.ma.blaze_chunk.name=Blaze Chunk
-item.ma.ghast_chunk.name=Ghast Chunk
-item.ma.enderman_chunk.name=Enderman Chunk
-item.ma.wither_skeleton_chunk.name=Wither Skeleton Chunk
-item.ma.blizz_chunk.name=Blizz Chunk
-item.ma.blitz_chunk.name=Blitz Chunk
-item.ma.basalz_chunk.name=Basalz Chunk
+item.ma.chunk_experience_chunk.name=Experience Chunk
+item.ma.chunk_zombie_chunk.name=Zombie Chunk
+item.ma.chunk_pig_chunk.name=Pig Chunk
+item.ma.chunk_chicken_chunk.name=Chicken Chunk
+item.ma.chunk_cow_chunk.name=Cow Chunk
+item.ma.chunk_sheep_chunk.name=Sheep Chunk
+item.ma.chunk_slime_chunk.name=Slime Chunk
+item.ma.chunk_skeleton_chunk.name=Skeleton Chunk
+item.ma.chunk_creeper_chunk.name=Creeper Chunk
+item.ma.chunk_spider_chunk.name=Spider Chunk
+item.ma.chunk_rabbit_chunk.name=Rabbit Chunk
+item.ma.chunk_guardian_chunk.name=Guardian Chunk
+item.ma.chunk_blaze_chunk.name=Blaze Chunk
+item.ma.chunk_ghast_chunk.name=Ghast Chunk
+item.ma.chunk_enderman_chunk.name=Enderman Chunk
+item.ma.chunk_wither_skeleton_chunk.name=Wither Skeleton Chunk
+item.ma.chunk_blizz_chunk.name=Blizz Chunk
+item.ma.chunk_blitz_chunk.name=Blitz Chunk
+item.ma.chunk_basalz_chunk.name=Basalz Chunk
 
 # RESOURCE ESSENCES
 item.ma.stone_essence.name=Stone Essence
@@ -630,18 +630,23 @@ item.ma.constantan_seeds.name=Constantan Seeds
 # GEAR ITEMS
 item.ma.core_remover.name=§cCore Remover
 
-# CORES
-item.ma.inferium_tool_core.name=§eInferium Tool Core
-item.ma.prudentium_tool_core.name=§aPrudentium Tool Core
-item.ma.intermedium_tool_core.name=§6Intermedium Tool Core
-item.ma.superium_tool_core.name=§bSuperium Tool Core
-item.ma.supremium_tool_core.name=§cSupremium Tool Core
+item.ma.gear_inferium_tool_core.name=§eInferium Tool Core
+item.ma.gear_prudentium_tool_core.name=§aPrudentium Tool Core
+item.ma.gear_intermedium_tool_core.name=§6Intermedium Tool Core
+item.ma.gear_superium_tool_core.name=§bSuperium Tool Core
+item.ma.gear_supremium_tool_core.name=§cSupremium Tool Core
 
-item.ma.inferium_armor_core.name=§eInferium Armor Core
-item.ma.prudentium_armor_core.name=§aPrudentium Armor Core
-item.ma.intermedium_armor_core.name=§6Intermedium Armor Core
-item.ma.superium_armor_core.name=§bSuperium Armor Core
-item.ma.supremium_armor_core.name=§cSupremium Armor Core
+item.ma.gear_inferium_armor_core.name=§eInferium Armor Core
+item.ma.gear_prudentium_armor_core.name=§aPrudentium Armor Core
+item.ma.gear_intermedium_armor_core.name=§6Intermedium Armor Core
+item.ma.gear_superium_armor_core.name=§bSuperium Armor Core
+item.ma.gear_supremium_armor_core.name=§cSupremium Armor Core
+
+item.ma.gear_inferium_arrow_head.name=§eInferium Arrow Head
+item.ma.gear_prudentium_arrow_head.name=§aPrudentium Arrow Head
+item.ma.gear_intermedium_arrow_head.name=§6Intermedium Arrow Head
+item.ma.gear_superium_arrow_head.name=§bSuperium Arrow Head
+item.ma.gear_supremium_arrow_head.name=§cSupremium Arrow Head
 
 # CHARMS
 item.ma.charm_blank.name=Blank Charm
@@ -651,7 +656,7 @@ item.ma.charm_wither.name=Charm: Wither Resistance
 item.ma.charm_antivenom.name=Charm: Antivenom
 item.ma.charm_fire.name=Charm: Fire Resistance
 item.ma.charm_resistance.name=Charm: Resistance
-item.ma.charm_strength1.name=Charm: Strength
+item.ma.charm_strength.name=Charm: Strength
 item.ma.charm_strength2.name=Charm: Strength 2
 item.ma.charm_speed.name=Charm: Speed
 item.ma.charm_jump.name=Charm: Jump Boost
@@ -665,12 +670,6 @@ item.ma.charm_tilling_aoe.name=Charm: Tilling AOE
 item.ma.charm_shearing_aoe.name=Charm: Shearing AOE
 item.ma.charm_reaping_aoe.name=Charm: Reaping AOE
 item.ma.charm_scything_aoe.name=Charm: Scything AOE
-
-item.ma.arrow_head_inferium.name=§eInferium Arrow Head
-item.ma.arrow_head_prudentium.name=§aPrudentium Arrow Head
-item.ma.arrow_head_intermedium.name=§6Intermedium Arrow Head
-item.ma.arrow_head_superium.name=§bSuperium Arrow Head
-item.ma.arrow_head_supremium.name=§cSupremium Arrow Head
 
 item.ma.inferium_arrow.name=§eInferium Arrow
 item.ma.prudentium_arrow.name=§aPrudentium Arrow
@@ -731,29 +730,17 @@ item.ma.supremium_scythe.name=§cSupremium Scythe
 
 item.ma.supremium_sword_strength1.name=§cSupremium Sword
 item.ma.supremium_sword_strength2.name=§cSupremium Sword
-
 item.ma.supremium_sword_aoe.name=§cSupremium Sword
-
 item.ma.supremium_pickaxe_aoe.name=§cSupremium Pickaxe
-
 item.ma.supremium_pickaxe_miners.name=§cSupremium Pickaxe
-
 item.ma.supremium_shovel_aoe.name=§cSupremium Shovel
-
 item.ma.supremium_axe_aoe.name=§cSupremium Axe
-
 item.ma.supremium_hoe_aoe.name=§cSupremium Hoe
-
 item.ma.supremium_shears_rainbow.name=§cSupremium Shears
-
 item.ma.supremium_shears_aoe.name=§cSupremium Shears
-
 item.ma.supremium_bow_quick.name=§cSupremium Bow
-
 item.ma.supremium_bow_triple.name=§cSupremium Bow
-
 item.ma.supremium_sickle_aoe.name=§cSupremium Sickle
-
 item.ma.supremium_scythe_aoe.name=§cSupremium Scythe
 
 # ARMOR
@@ -899,8 +886,9 @@ desc.ma.charm_absorption=Gives 10 Absorption hearts every 8 minutes.
 desc.ma.charm_wither=Prevents you from getting the Wither effect.
 desc.ma.charm_antivenom=Prevents you from getting the Poison effect.
 desc.ma.charm_fire=Prevents you from taking fire/lava damage.
-desc.ma.charm_resistance=Lowers damage taken by 20%.
+desc.ma.charm_resistance=Lowers damage taken by 20 percent.
 desc.ma.charm_strength=Increases your attack damage.
+desc.ma.charm_strength2=Increases your attack damage.
 desc.ma.charm_speed=Increases your movement speed.
 desc.ma.charm_jump=Increases your jump height.
 desc.ma.charm_miners_vision=Allows your tool to place unlimited light sources.

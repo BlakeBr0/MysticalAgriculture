@@ -40,7 +40,7 @@ public class ItemUpgradedAbsorption extends ItemSupremiumArmor {
 	
 	@Override
     public ItemStack getContainerItem(ItemStack itemstack){
-        return new ItemStack(ModItems.itemCharmAbsorption, 1, 0);
+        return ModItems.itemCharm.itemCharmAbsorption;
     }
 
     @Override
@@ -63,6 +63,6 @@ public class ItemUpgradedAbsorption extends ItemSupremiumArmor {
 	
 	@Override
     public boolean getIsRepairable(ItemStack toRepair, ItemStack repair){
-        return repair.getItem() == ModItems.itemSupremiumIngot;
+        return repair == ModItems.itemCrafting.itemSupremiumIngot;
     }
 }

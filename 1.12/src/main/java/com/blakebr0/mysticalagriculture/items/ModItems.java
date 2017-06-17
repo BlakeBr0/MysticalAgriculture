@@ -92,31 +92,7 @@ public class ModItems {
 
 	public static ItemSouliumDagger itemSouliumDagger = new ItemSouliumDagger("soulium_dagger", ModToolMaterials.SOULIUM);
 		
-	public static ItemBase itemTier1MobChunk = new ItemBase("tier1_mob_chunk");
-	public static ItemBase itemTier2MobChunk = new ItemBase("tier2_mob_chunk");
-	public static ItemBase itemTier3MobChunk = new ItemBase("tier3_mob_chunk");
-	public static ItemBase itemTier4MobChunk = new ItemBase("tier4_mob_chunk");
-	public static ItemBase itemTier5MobChunk = new ItemBase("tier5_mob_chunk");
-	
-	public static ItemChunk itemExperienceChunk = new ItemChunk("experience_chunk", 5);
-	public static ItemChunk itemZombieChunk = new ItemChunk("zombie_chunk", type.ZOMBIE.getTier());
-	public static ItemChunk itemPigChunk = new ItemChunk("pig_chunk", type.PIG.getTier());
-	public static ItemChunk itemChickenChunk = new ItemChunk("chicken_chunk", type.CHICKEN.getTier());
-	public static ItemChunk itemCowChunk = new ItemChunk("cow_chunk", type.COW.getTier());
-	public static ItemChunk itemSheepChunk = new ItemChunk("sheep_chunk", type.SHEEP.getTier());
-	public static ItemChunk itemSlimeChunk = new ItemChunk("slime_chunk", type.SLIME.getTier());
-	public static ItemChunk itemSkeletonChunk = new ItemChunk("skeleton_chunk", type.SKELETON.getTier());
-	public static ItemChunk itemCreeperChunk = new ItemChunk("creeper_chunk", type.CREEPER.getTier());
-	public static ItemChunk itemSpiderChunk = new ItemChunk("spider_chunk", type.SPIDER.getTier());
-	public static ItemChunk itemRabbitChunk = new ItemChunk("rabbit_chunk", type.RABBIT.getTier());
-	public static ItemChunk itemGuardianChunk = new ItemChunk("guardian_chunk", type.GUARDIAN.getTier());
-	public static ItemChunk itemBlazeChunk = new ItemChunk("blaze_chunk", type.BLAZE.getTier());
-	public static ItemChunk itemGhastChunk = new ItemChunk("ghast_chunk", type.GHAST.getTier());
-	public static ItemChunk itemEndermanChunk = new ItemChunk("enderman_chunk", type.ENDERMAN.getTier());
-	public static ItemChunk itemWitherSkeletonChunk = new ItemChunk("wither_skeleton_chunk", type.WITHER_SKELETON.getTier());
-	public static ItemChunk itemBlizzChunk = new ItemChunk("blizz_chunk", type.BLIZZ.getTier());
-	public static ItemChunk itemBlitzChunk = new ItemChunk("blitz_chunk", type.BLITZ.getTier());
-	public static ItemChunk itemBasalzChunk = new ItemChunk("basalz_chunk", type.BASALZ.getTier());
+	public static ItemChunk itemChunk = new ItemChunk();
 		
 	public static ItemSeed itemTier1InferiumSeeds = new ItemSeed("tier1_inferium_seeds", ModBlocks.blockTier1InferiumCrop, 1);
 	public static ItemSeed itemTier2InferiumSeeds = new ItemSeed("tier2_inferium_seeds", ModBlocks.blockTier2InferiumCrop, 2);
@@ -126,41 +102,9 @@ public class ModItems {
 			
 	public static ItemCoreRemover itemCoreRemover = new ItemCoreRemover("core_remover");
 	
-	public static ItemCore itemInferiumToolCore = new ItemCore("inferium_tool_core");
-	public static ItemCore itemPrudentiumToolCore = new ItemCore("prudentium_tool_core");
-	public static ItemCore itemIntermediumToolCore = new ItemCore("intermedium_tool_core");
-	public static ItemCore itemSuperiumToolCore = new ItemCore("superium_tool_core");
-	public static ItemCore itemSupremiumToolCore = new ItemCore("supremium_tool_core");
-	
-	public static ItemCore itemInferiumArmorCore = new ItemCore("inferium_armor_core");
-	public static ItemCore itemPrudentiumArmorCore = new ItemCore("prudentium_armor_core");
-	public static ItemCore itemIntermediumArmorCore = new ItemCore("intermedium_armor_core");
-	public static ItemCore itemSuperiumArmorCore = new ItemCore("superium_armor_core");
-	public static ItemCore itemSupremiumArmorCore = new ItemCore("supremium_armor_core");
+	public static ItemGear itemGear = new ItemGear();
 
-	public static ItemBase itemCharmBlank = new ItemBase("charm_blank");
-	public static ItemCharm itemCharmNightvision = new ItemCharm("charm_nightvision", "desc.ma.charm_nightvision", new Applicable[]{ Applicable.HELMET });
-	public static ItemCharm itemCharmAbsorption = new ItemCharm("charm_absorption", "desc.ma.charm_absorption", new Applicable[]{ Applicable.HELMET, Applicable.CHESTPLATE, Applicable.LEGGINGS, Applicable.BOOTS });
-	public static ItemCharm itemCharmWither = new ItemCharm("charm_wither", "desc.ma.charm_wither", new Applicable[]{ Applicable.HELMET, Applicable.CHESTPLATE, Applicable.LEGGINGS, Applicable.BOOTS });
-	public static ItemCharm itemCharmAntivenom = new ItemCharm("charm_antivenom", "desc.ma.charm_antivenom", new Applicable[]{ Applicable.HELMET, Applicable.CHESTPLATE, Applicable.LEGGINGS, Applicable.BOOTS });
-	public static ItemCharm itemCharmFire = new ItemCharm("charm_fire", "desc.ma.charm_fire", new Applicable[]{ Applicable.HELMET, Applicable.CHESTPLATE, Applicable.LEGGINGS, Applicable.BOOTS });
-	public static ItemCharm itemCharmResistance = new ItemCharm("charm_resistance", "desc.ma.charm_resistance", new Applicable[]{ Applicable.HELMET, Applicable.CHESTPLATE, Applicable.LEGGINGS, Applicable.BOOTS });
-	public static ItemCharm itemCharmStrength = new ItemCharm("charm_strength1", "desc.ma.charm_strength", new Applicable[]{ Applicable.CHESTPLATE, Applicable.SWORD });
-	public static ItemCharm itemCharmStrength2 = new ItemCharm("charm_strength2", "desc.ma.charm_strength", new Applicable[]{ Applicable.SWORD });
-	public static ItemCharm itemCharmSpeed = new ItemCharm("charm_speed", "desc.ma.charm_speed", new Applicable[]{ Applicable.LEGGINGS });
-	public static ItemCharm itemCharmJump = new ItemCharm("charm_jump", "desc.ma.charm_jump", new Applicable[]{ Applicable.BOOTS });
-	public static ItemCharm itemCharmMinersVision = new ItemCharm("charm_miners_vision", "desc.ma.charm_miners_vision", new Applicable[]{ Applicable.PICKAXE });
-	public static ItemCharm itemCharmRainbow = new ItemCharm("charm_rainbow", "desc.ma.charm_rainbow", new Applicable[]{ Applicable.SHEARS });
-	public static ItemCharm itemCharmQuickDraw = new ItemCharm("charm_quick_draw", "desc.ma.charm_quick_draw", new Applicable[]{ Applicable.BOW });
-	public static ItemCharm itemCharmTripleShot = new ItemCharm("charm_triple_shot", "desc.ma.charm_triple_shot", new Applicable[]{ Applicable.BOW });
-	public static ItemCharm itemCharmMiningAOE = new ItemCharm("charm_mining_aoe", "desc.ma.charm_mining_aoe", new Applicable[]{ Applicable.PICKAXE, Applicable.SHOVEL, Applicable.AXE });
-	public static ItemCharm itemCharmAttackAOE = new ItemCharm("charm_attack_aoe", "desc.ma.charm_attack_aoe", new Applicable[]{ Applicable.SWORD });
-	public static ItemCharm itemCharmTillingAOE = new ItemCharm("charm_tilling_aoe", "desc.ma.charm_tilling_aoe", new Applicable[]{ Applicable.HOE });
-	public static ItemCharm itemCharmShearingAOE = new ItemCharm("charm_shearing_aoe", "desc.ma.charm_shearing_aoe", new Applicable[]{ Applicable.SHEARS });
-	public static ItemCharm itemCharmReapingAOE = new ItemCharm("charm_reaping_aoe", "desc.ma.charm_reaping_aoe", new Applicable[]{ Applicable.SICKLE });
-	public static ItemCharm itemCharmScythingAOE = new ItemCharm("charm_scything_aoe", "desc.ma.charm_scything_aoe", new Applicable[]{ Applicable.SCYTHE });
-	
-	public static ItemArrowHead itemArrowHead = new ItemArrowHead();
+	public static ItemCharm itemCharm = new ItemCharm();
 	
 	public static ItemInferiumArrow itemInferiumArrow = new ItemInferiumArrow("inferium_arrow");
 	public static ItemPrudentiumArrow itemPrudentiumArrow = new ItemPrudentiumArrow("prudentium_arrow");
@@ -220,29 +164,17 @@ public class ModItems {
 	
 	public static ItemSwordStrength itemSupremiumSwordStrength = new ItemSwordStrength("supremium_sword_strength1", ModToolMaterials.SUPREMIUM_STRENGTH1, TextFormatting.RED);
 	public static ItemSwordStrength itemSupremiumSwordStrength2 = new ItemSwordStrength("supremium_sword_strength2", ModToolMaterials.SUPREMIUM_STRENGTH2, TextFormatting.RED);
-
 	public static ItemSwordAOE itemSupremiumSwordAOE = new ItemSwordAOE("supremium_sword_aoe", ModToolMaterials.SUPREMIUM_AOE, TextFormatting.RED);
-
 	public static ItemPickaxeMinersVision itemSupremiumPickaxeMinersVision = new ItemPickaxeMinersVision("supremium_pickaxe_miners", ModToolMaterials.SUPREMIUM, TextFormatting.RED);
-
 	public static ItemPickaxeAOE itemSupremiumPickaxeAOE = new ItemPickaxeAOE("supremium_pickaxe_aoe", ModToolMaterials.SUPREMIUM_AOE, TextFormatting.RED);
-
 	public static ItemShovelAOE itemSupremiumShovelAOE = new ItemShovelAOE("supremium_shovel_aoe", ModToolMaterials.SUPREMIUM_AOE, TextFormatting.RED);
-	
 	public static ItemAxeAOE itemSupremiumAxeAOE = new ItemAxeAOE("supremium_axe_aoe", ModToolMaterials.SUPREMIUM_AOE, 19.0F, TextFormatting.RED);
-	
 	public static ItemHoeAOE itemSupremiumHoeAOE = new ItemHoeAOE("supremium_hoe_aoe", ModToolMaterials.SUPREMIUM_AOE, 3, TextFormatting.RED);
-	
 	public static ItemShearsRainbow itemSupremiumShearsRainbow = new ItemShearsRainbow("supremium_shears_rainbow", ModToolMaterials.SUPREMIUM, TextFormatting.RED);
-	
 	public static ItemShearsAOE itemSupremiumShearsAOE = new ItemShearsAOE("supremium_shears_aoe", ModToolMaterials.SUPREMIUM_AOE, TextFormatting.RED);
-	
 	public static ItemBowQuickDraw itemSupremiumBowQuickDraw = new ItemBowQuickDraw("supremium_bow_quick", ModToolMaterials.SUPREMIUM, 1.50F, TextFormatting.RED);
-	
 	public static ItemBowTripleShot itemSupremiumBowTripleShot = new ItemBowTripleShot("supremium_bow_triple", ModToolMaterials.SUPREMIUM, 0.40F, TextFormatting.RED);
-	
 	public static ItemSickleAOE itemSupremiumSickleAOE = new ItemSickleAOE("supremium_sickle_aoe", 3, ModToolMaterials.SUPREMIUM_AOE, TextFormatting.RED);
-	
 	public static ItemScytheAOE itemSupremiumScytheAOE = new ItemScytheAOE("supremium_scythe_aoe", 2, ModToolMaterials.SUPREMIUM_AOE, TextFormatting.RED);
 	
 	public static ItemInferiumArmor itemInferiumHelmet = new ItemInferiumArmor("inferium_helmet", ModToolMaterials.INFERIUM_ARMOR, 0, EntityEquipmentSlot.HEAD);
@@ -322,31 +254,7 @@ public class ModItems {
 
 		registerItem(itemSouliumDagger);
 								
-		registerItem(itemTier1MobChunk);
-		registerItem(itemTier2MobChunk);
-		registerItem(itemTier3MobChunk);
-		registerItem(itemTier4MobChunk);
-		registerItem(itemTier5MobChunk);
-		
-		registerItem(itemExperienceChunk);
-		if(type.ZOMBIE.isEnabled()){ registerItem(itemZombieChunk); }
-		if(type.PIG.isEnabled()){ registerItem(itemPigChunk); }
-		if(type.CHICKEN.isEnabled()){ registerItem(itemChickenChunk); }
-		if(type.COW.isEnabled()){ registerItem(itemCowChunk); }
-		if(type.SHEEP.isEnabled()){ registerItem(itemSheepChunk); }
-		if(type.SLIME.isEnabled()){ registerItem(itemSlimeChunk); }
-		if(type.SKELETON.isEnabled()){ registerItem(itemSkeletonChunk); }
-		if(type.CREEPER.isEnabled()){ registerItem(itemCreeperChunk); }
-		if(type.SPIDER.isEnabled()){ registerItem(itemSpiderChunk); } 
-		if(type.RABBIT.isEnabled()){ registerItem(itemRabbitChunk); }
-		if(type.GUARDIAN.isEnabled()){ registerItem(itemGuardianChunk); }
-		if(type.BLAZE.isEnabled()){ registerItem(itemBlazeChunk); }
-		if(type.GHAST.isEnabled()){ registerItem(itemGhastChunk); }
-		if(type.ENDERMAN.isEnabled()){ registerItem(itemEndermanChunk); }
-		if(type.WITHER_SKELETON.isEnabled()){ registerItem(itemWitherSkeletonChunk); }
-		if(type.BLIZZ.isEnabled()){ registerItem(itemBlizzChunk); }
-		if(type.BLITZ.isEnabled()){ registerItem(itemBlitzChunk); }
-		if(type.BASALZ.isEnabled()){ registerItem(itemBasalzChunk); }
+		itemChunk.init();
 		
 		for(CropType.Type type : CropType.Type.values()){
 			if(type.isEnabled()){
@@ -370,44 +278,10 @@ public class ModItems {
 		if(ModConfig.confGearModuleOverride){
 			registerItem(itemCoreRemover);
 
-			registerItem(itemInferiumToolCore);
-			registerItem(itemPrudentiumToolCore);
-			registerItem(itemIntermediumToolCore);
-			registerItem(itemSuperiumToolCore);
-			registerItem(itemSupremiumToolCore);
+			itemGear.init();
 			
-			registerItem(itemInferiumArmorCore);
-			registerItem(itemPrudentiumArmorCore);
-			registerItem(itemIntermediumArmorCore);
-			registerItem(itemSuperiumArmorCore);
-			registerItem(itemSupremiumArmorCore);
-			
-			registerItem(itemCharmBlank);
-			registerItem(itemCharmNightvision);
-			registerItem(itemCharmAbsorption);
-			registerItem(itemCharmWither);
-			registerItem(itemCharmAntivenom);
-			registerItem(itemCharmFire);
-			registerItem(itemCharmResistance);
-			registerItem(itemCharmStrength);
-			registerItem(itemCharmStrength2);
-			registerItem(itemCharmSpeed);
-			registerItem(itemCharmJump);
-			registerItem(itemCharmMinersVision);
-			registerItem(itemCharmRainbow);
-			registerItem(itemCharmQuickDraw);
-			registerItem(itemCharmTripleShot);
-			if(ModConfig.confAOECharms){
-				registerItem(itemCharmMiningAOE);
-				registerItem(itemCharmAttackAOE);
-				registerItem(itemCharmTillingAOE);
-				registerItem(itemCharmShearingAOE);
-				registerItem(itemCharmReapingAOE);
-				registerItem(itemCharmScythingAOE);
-			}
-			
-			itemArrowHead.init();
-			
+			itemCharm.init();
+						
 			registerItem(itemInferiumArrow);
 			registerItem(itemPrudentiumArrow);
 			registerItem(itemIntermediumArrow);
@@ -465,31 +339,19 @@ public class ModItems {
 			registerItem(itemSupremiumScythe);
 
 			registerItem(itemSupremiumSwordStrength);
-			registerItem(itemSupremiumSwordStrength2);
-			
-			if(ModConfig.confAOECharms){ registerItem(itemSupremiumSwordAOE); }
-			
-			registerItem(itemSupremiumPickaxeMinersVision);
-			
-			if(ModConfig.confAOECharms){ registerItem(itemSupremiumPickaxeAOE); }
-			
-			if(ModConfig.confAOECharms){ registerItem(itemSupremiumShovelAOE); }
-			
-			if(ModConfig.confAOECharms){ registerItem(itemSupremiumAxeAOE); }
-			
-			if(ModConfig.confAOECharms){ registerItem(itemSupremiumHoeAOE); }
-			
-			registerItem(itemSupremiumShearsRainbow);
-			
-			if(ModConfig.confAOECharms){ registerItem(itemSupremiumShearsAOE); }
-			
-			registerItem(itemSupremiumBowQuickDraw);
-			
-			registerItem(itemSupremiumBowTripleShot);
-						
-			if(ModConfig.confAOECharms){ registerItem(itemSupremiumSickleAOE); }
-			
-			if(ModConfig.confAOECharms){ registerItem(itemSupremiumScytheAOE); }
+			registerItem(itemSupremiumSwordStrength2);			
+			registerItem(itemSupremiumSwordAOE);		
+			registerItem(itemSupremiumPickaxeMinersVision);		
+			registerItem(itemSupremiumPickaxeAOE);		
+			registerItem(itemSupremiumShovelAOE);		
+			registerItem(itemSupremiumAxeAOE);		
+			registerItem(itemSupremiumHoeAOE);
+			registerItem(itemSupremiumShearsRainbow);		
+			registerItem(itemSupremiumShearsAOE);		
+			registerItem(itemSupremiumBowQuickDraw);		
+			registerItem(itemSupremiumBowTripleShot);					
+			registerItem(itemSupremiumSickleAOE);			
+			registerItem(itemSupremiumScytheAOE);
 			
 	        registerItem(itemInferiumHelmet);
 	        registerItem(itemInferiumChestplate);
@@ -573,31 +435,7 @@ public class ModItems {
 
 		registerModel(itemSouliumDagger);
 					
-		registerModel(itemTier1MobChunk);
-		registerModel(itemTier2MobChunk);
-		registerModel(itemTier3MobChunk);
-		registerModel(itemTier4MobChunk);
-		registerModel(itemTier5MobChunk);
-		
-		registerModel(itemExperienceChunk);
-		if(type.ZOMBIE.isEnabled()){ registerModel(itemZombieChunk); }
-		if(type.PIG.isEnabled()){ registerModel(itemPigChunk); }
-		if(type.CHICKEN.isEnabled()){ registerModel(itemChickenChunk); }
-		if(type.COW.isEnabled()){ registerModel(itemCowChunk); }
-		if(type.SHEEP.isEnabled()){ registerModel(itemSheepChunk); }
-		if(type.SLIME.isEnabled()){ registerModel(itemSlimeChunk); }
-		if(type.SKELETON.isEnabled()){ registerModel(itemSkeletonChunk); }
-		if(type.CREEPER.isEnabled()){ registerModel(itemCreeperChunk); }
-		if(type.SPIDER.isEnabled()){ registerModel(itemSpiderChunk); } 
-		if(type.RABBIT.isEnabled()){ registerModel(itemRabbitChunk); }
-		if(type.GUARDIAN.isEnabled()){ registerModel(itemGuardianChunk); }
-		if(type.BLAZE.isEnabled()){ registerModel(itemBlazeChunk); }
-		if(type.GHAST.isEnabled()){ registerModel(itemGhastChunk); }
-		if(type.ENDERMAN.isEnabled()){ registerModel(itemEndermanChunk); }
-		if(type.WITHER_SKELETON.isEnabled()){ registerModel(itemWitherSkeletonChunk); }
-		if(type.BLIZZ.isEnabled()){ registerModel(itemBlizzChunk); }
-		if(type.BLITZ.isEnabled()){ registerModel(itemBlitzChunk); }
-		if(type.BASALZ.isEnabled()){ registerModel(itemBasalzChunk); }
+		itemChunk.initModels();
 		
 		for(CropType.Type type : CropType.Type.values()){
 			if(type.isEnabled()){
@@ -620,43 +458,9 @@ public class ModItems {
 		if(ModConfig.confGearModuleOverride){
 			registerModel(itemCoreRemover);
 
-			registerModel(itemInferiumToolCore);
-			registerModel(itemPrudentiumToolCore);
-			registerModel(itemIntermediumToolCore);
-			registerModel(itemSuperiumToolCore);
-			registerModel(itemSupremiumToolCore);
+			itemGear.initModels();
 			
-			registerModel(itemInferiumArmorCore);
-			registerModel(itemPrudentiumArmorCore);
-			registerModel(itemIntermediumArmorCore);
-			registerModel(itemSuperiumArmorCore);
-			registerModel(itemSupremiumArmorCore);
-			
-			registerModel(itemCharmBlank);
-			registerModel(itemCharmNightvision);
-			registerModel(itemCharmAbsorption);
-			registerModel(itemCharmWither);
-			registerModel(itemCharmAntivenom);
-			registerModel(itemCharmFire);
-			registerModel(itemCharmResistance);
-			registerModel(itemCharmStrength);
-			registerModel(itemCharmStrength2);
-			registerModel(itemCharmSpeed);
-			registerModel(itemCharmJump);
-			registerModel(itemCharmMinersVision);
-			registerModel(itemCharmRainbow);
-			registerModel(itemCharmQuickDraw);
-			registerModel(itemCharmTripleShot);
-			if(ModConfig.confAOECharms){
-				registerModel(itemCharmMiningAOE);
-				registerModel(itemCharmAttackAOE);
-				registerModel(itemCharmTillingAOE);
-				registerModel(itemCharmShearingAOE);
-				registerModel(itemCharmReapingAOE);
-				registerModel(itemCharmScythingAOE);
-			}
-			
-			itemArrowHead.initModels();
+			itemCharm.initModels();
 			
 			registerModel(itemInferiumArrow);
 			registerModel(itemPrudentiumArrow);
@@ -715,31 +519,19 @@ public class ModItems {
 			registerModel(itemSupremiumScythe);
 
 			registerModel(itemSupremiumSwordStrength);
-			registerModel(itemSupremiumSwordStrength2);
-			
-			if(ModConfig.confAOECharms){ registerModel(itemSupremiumSwordAOE); }
-			
-			registerModel(itemSupremiumPickaxeMinersVision);
-			
-			if(ModConfig.confAOECharms){ registerModel(itemSupremiumPickaxeAOE); }
-			
-			if(ModConfig.confAOECharms){ registerModel(itemSupremiumShovelAOE); }
-			
-			if(ModConfig.confAOECharms){ registerModel(itemSupremiumAxeAOE); }
-			
-			if(ModConfig.confAOECharms){ registerModel(itemSupremiumHoeAOE); }
-			
-			registerModel(itemSupremiumShearsRainbow);
-	
-			if(ModConfig.confAOECharms){ registerModel(itemSupremiumShearsAOE); }
-
+			registerModel(itemSupremiumSwordStrength2);			
+			registerModel(itemSupremiumSwordAOE);			
+			registerModel(itemSupremiumPickaxeMinersVision);			
+			registerModel(itemSupremiumPickaxeAOE);			
+			registerModel(itemSupremiumShovelAOE);			
+			registerModel(itemSupremiumAxeAOE);
+			registerModel(itemSupremiumHoeAOE);			
+			registerModel(itemSupremiumShearsRainbow);	
+			registerModel(itemSupremiumShearsAOE);
 			registerModel(itemSupremiumBowQuickDraw);
-			
 			registerModel(itemSupremiumBowTripleShot);
-			
-			if(ModConfig.confAOECharms){ registerModel(itemSupremiumSickleAOE); }
-			
-			if(ModConfig.confAOECharms){ registerModel(itemSupremiumScytheAOE); }
+			registerModel(itemSupremiumSickleAOE);
+			registerModel(itemSupremiumScytheAOE);
 			
 	        registerModel(itemInferiumHelmet);
 	        registerModel(itemInferiumChestplate);

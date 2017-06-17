@@ -26,7 +26,7 @@ public class ItemBowQuickDraw extends ItemEssenceBow {
 
 	@Override
     public ItemStack getContainerItem(ItemStack itemstack){
-        return new ItemStack(ModItems.itemCharmQuickDraw, 1, 0);
+        return ModItems.itemCharm.itemCharmQuickDraw;
     }
 
     @Override

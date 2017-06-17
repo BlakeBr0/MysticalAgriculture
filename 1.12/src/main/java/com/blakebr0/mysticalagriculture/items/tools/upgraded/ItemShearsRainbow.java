@@ -5,6 +5,7 @@ import java.util.Random;
 
 import javax.annotation.Nullable;
 
+import com.blakebr0.mysticalagriculture.config.ModConfig;
 import com.blakebr0.mysticalagriculture.items.ModItems;
 import com.blakebr0.mysticalagriculture.items.tools.ItemEssenceShears;
 import com.blakebr0.mysticalagriculture.lib.Colors;
@@ -41,6 +42,16 @@ public class ItemShearsRainbow extends ItemEssenceShears {
 		tooltip.add(Tooltips.DURABILITY + Colors.RED + Tooltips.UNLIMITED);
 		tooltip.add(Tooltips.CHARM_SLOT + Colors.RED + Tooltips.RAINBOW);
 	}
+	
+	@Override
+    public ItemStack getContainerItem(ItemStack stack){
+        return ModItems.itemCharm.itemCharmRainbow;
+    }
+
+    @Override
+    public boolean hasContainerItem(ItemStack stack){
+        return ModConfig.confCharmReturn;
+    }
 	
     @Override
     public boolean itemInteractionForEntity(ItemStack itemstack, EntityPlayer player, EntityLivingBase entity, EnumHand hand){

@@ -45,7 +45,7 @@ public class ItemBowTripleShot extends ItemEssenceBow {
 
 	@Override
     public ItemStack getContainerItem(ItemStack itemstack){
-        return new ItemStack(ModItems.itemCharmTripleShot, 1, 0);
+        return ModItems.itemCharm.itemCharmTripleShot;
     }
 
     @Override

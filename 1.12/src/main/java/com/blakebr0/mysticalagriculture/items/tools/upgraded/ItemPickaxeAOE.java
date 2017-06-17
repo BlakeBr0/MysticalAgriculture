@@ -45,7 +45,7 @@ public class ItemPickaxeAOE extends ItemEssencePickaxe {
 	
 	@Override
     public ItemStack getContainerItem(ItemStack itemstack){
-        return new ItemStack(ModItems.itemCharmMiningAOE, 1, 0);
+        return ModItems.itemCharm.itemCharmMiningAOE;
     }
 
     @Override

@@ -67,8 +67,8 @@ public class ItemScytheAOE extends ItemBase {
 	}
 	
 	@Override
-    public ItemStack getContainerItem(ItemStack itemstack){
-        return new ItemStack(ModItems.itemCharmScythingAOE, 1, 0);
+    public ItemStack getContainerItem(ItemStack stack){
+        return ModItems.itemCharm.itemCharmScythingAOE;
     }
 
     @Override

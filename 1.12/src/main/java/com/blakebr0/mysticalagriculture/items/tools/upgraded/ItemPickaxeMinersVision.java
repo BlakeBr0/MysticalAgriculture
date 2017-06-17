@@ -48,7 +48,7 @@ public class ItemPickaxeMinersVision extends ItemPickaxe {
 	
 	@Override
     public ItemStack getContainerItem(ItemStack itemstack){
-        return new ItemStack(ModItems.itemCharmMinersVision, 1, 0);
+        return ModItems.itemCharm.itemCharmMinersVision;
     }
 
     @Override

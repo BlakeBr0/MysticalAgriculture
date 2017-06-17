@@ -304,7 +304,6 @@ public class ModConfig {
 	public static boolean confHarderIngots;
 	public static boolean confCharmReturn;
 	public static boolean confSneakHoeAOE;
-	public static boolean confAOECharms;
 	
 	public static boolean confEssenceApples;
 	public static int confAppleBuffDuration;
@@ -683,7 +682,6 @@ public class ModConfig {
 		confHarderIngots = config.getBoolean("harder_ingots", category, false, "Makes the Essence Ingots require 4 essence each instead of 2.");
 		confCharmReturn = config.getBoolean("charm_return", category, true, "Should uncrafting an upgraded armor/tool give back the charm?");
 		confSneakHoeAOE = config.getBoolean("sneak_hoe_aoe", category, true, "Should the Supremium Hoe till a 3x3 while sneaking?");
-		confAOECharms = config.getBoolean("aoe_charms", category, true, "Should the 3x3 mining upgraded Supremium Tools be enabled?");
 		
 		category = "Fun Stuff";
 		config.addCustomCategoryComment(category, "Fun things made with essences. Sometimes.");

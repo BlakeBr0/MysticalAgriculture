@@ -41,7 +41,7 @@ public class ItemSwordAOE extends ItemEssenceSword {
 	
 	@Override
     public ItemStack getContainerItem(ItemStack itemstack){
-        return new ItemStack(ModItems.itemCharmAttackAOE, 1, 0);
+        return ModItems.itemCharm.itemCharmAttackAOE;
     }
 
     @Override

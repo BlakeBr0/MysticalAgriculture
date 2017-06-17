@@ -40,7 +40,7 @@ public class ItemUpgradedNightvision extends ItemSupremiumArmor {
 	
 	@Override
     public ItemStack getContainerItem(ItemStack itemstack){
-        return new ItemStack(ModItems.itemCharmNightvision, 1, 0);
+        return ModItems.itemCharm.itemCharmNightvision;
     }
 
     @Override
@@ -61,6 +61,6 @@ public class ItemUpgradedNightvision extends ItemSupremiumArmor {
 
     @Override
     public boolean getIsRepairable(ItemStack toRepair, ItemStack repair){
-        return repair.getItem() == ModItems.itemSupremiumIngot;
+        return repair == ModItems.itemCrafting.itemSupremiumIngot;
     }
 }
