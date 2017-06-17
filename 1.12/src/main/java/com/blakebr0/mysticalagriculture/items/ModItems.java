@@ -276,6 +276,7 @@ public class ModItems {
 		}
 		
 		if(ModConfig.confGearModuleOverride){
+			
 			registerItem(itemCoreRemover);
 
 			itemGear.init();
@@ -456,6 +457,7 @@ public class ModItems {
 		}
 		
 		if(ModConfig.confGearModuleOverride){
+			
 			registerModel(itemCoreRemover);
 
 			itemGear.initModels();

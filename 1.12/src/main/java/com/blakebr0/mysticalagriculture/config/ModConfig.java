@@ -379,6 +379,7 @@ public class ModConfig {
 		confGrowthAccelerator = config.getBoolean("growth_accelerator", category, true, "Enable Growth Accelerators?");
 		confGrowthAcceleratorSpeed = config.getInt("growth_accelerator_speed", category, 10, 1, 3600, "Amount of seconds between each growth tick attempt.");
 		confCraftableChunks = config.getBoolean("craftable_chunks", category, true, "Should you be able to craft mob chunks?");
+		confHarderIngots = config.getBoolean("harder_ingots", category, false, "Makes the Essence Ingots require 4 essence each instead of 2.");
 		confWitherproofBlocks = config.getBoolean("witherproof_blocks", category, true, "Enable the Witherproof Block and Glass?");
 		confWitherSupremium = config.getInt("wither_supremium", category, 2, 0, 64, "Amount of Supremium Essence the Wither should drop when killed.");
 		confDragonSupremium = config.getInt("dragon_supremium", category, 4, 0, 64, "Amount of Supremium Essence the Ender Dragon should drop when killed.");
@@ -679,7 +680,6 @@ public class ModConfig {
 		confSupremiumFlight = config.getBoolean("supremium_flight", category, true, "Wearing a full set of Supremium Armor gives flight.");
 		confSetBonuses = config.getBoolean("set_bonuses", category, true, "Should Prudentium+ armor give set bonuses? This does not affect the Supremium Flight option.");
 		confRemoverDurability = config.getInt("remover_durability", category, 4, 1, 25000, "The durability of the Core Remover.");
-		confHarderIngots = config.getBoolean("harder_ingots", category, false, "Makes the Essence Ingots require 4 essence each instead of 2.");
 		confCharmReturn = config.getBoolean("charm_return", category, true, "Should uncrafting an upgraded armor/tool give back the charm?");
 		confSneakHoeAOE = config.getBoolean("sneak_hoe_aoe", category, true, "Should the Supremium Hoe till a 3x3 while sneaking?");
 		
