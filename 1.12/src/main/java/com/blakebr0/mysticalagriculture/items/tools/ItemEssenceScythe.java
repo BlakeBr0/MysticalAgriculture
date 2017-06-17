@@ -8,6 +8,7 @@ import com.blakebr0.mysticalagriculture.MysticalAgriculture;
 import com.blakebr0.mysticalagriculture.items.ItemBase;
 import com.blakebr0.mysticalagriculture.items.ModItems;
 import com.blakebr0.mysticalagriculture.lib.Colors;
+import com.blakebr0.mysticalagriculture.lib.IRepairMaterial;
 import com.blakebr0.mysticalagriculture.lib.Tooltips;
 import com.blakebr0.mysticalagriculture.util.Utils;
 import com.google.common.collect.Multimap;
@@ -38,7 +39,7 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraftforge.oredict.OreDictionary;
 
-public class ItemEssenceScythe extends ItemBase {
+public class ItemEssenceScythe extends ItemBase implements IRepairMaterial {
 
 	public int range;
 	public ToolMaterial toolMaterial;
@@ -54,10 +55,6 @@ public class ItemEssenceScythe extends ItemBase {
 		this.color = color;
 	}
 	
-	public void setRepairMaterial(ItemStack stack){
-		this.repairMaterial = stack.copy();
-	}
-	
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void addInformation(ItemStack stack, @Nullable World player, List<String> tooltip, ITooltipFlag advanced){
@@ -70,8 +67,18 @@ public class ItemEssenceScythe extends ItemBase {
 	
 	@Override
     public boolean getIsRepairable(ItemStack toRepair, ItemStack repair){
-        return OreDictionary.itemMatches(repairMaterial, repair, false);
+        return OreDictionary.itemMatches(getRepairMaterial(), repair, false);
     }
+
+	@Override
+	public void setRepairMaterial(ItemStack stack){
+		repairMaterial = stack;
+	}
+
+	@Override
+	public ItemStack getRepairMaterial(){
+		return repairMaterial;
+	}
 	
 	@Override
 	public EnumActionResult onItemUse(EntityPlayer player, World world, BlockPos pos, EnumHand hand, EnumFacing face, float hitX, float hitY, float hitZ){

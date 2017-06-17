@@ -8,6 +8,7 @@ import com.blakebr0.mysticalagriculture.MysticalAgriculture;
 import com.blakebr0.mysticalagriculture.config.ModConfig;
 import com.blakebr0.mysticalagriculture.items.ModItems;
 import com.blakebr0.mysticalagriculture.lib.Colors;
+import com.blakebr0.mysticalagriculture.lib.IRepairMaterial;
 import com.blakebr0.mysticalagriculture.lib.Tooltips;
 import com.blakebr0.mysticalagriculture.util.Utils;
 
@@ -22,8 +23,11 @@ import net.minecraft.item.ItemArmor.ArmorMaterial;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import net.minecraftforge.oredict.OreDictionary;
 
-public class ItemPrudentiumArmor extends ItemArmor {
+public class ItemPrudentiumArmor extends ItemArmor implements IRepairMaterial {
+	
+	private ItemStack repairMaterial;
 
 	public ItemPrudentiumArmor(String name, ArmorMaterial material, int index, EntityEquipmentSlot slot){
 		super(material, index, slot);
@@ -52,8 +56,18 @@ public class ItemPrudentiumArmor extends ItemArmor {
 	
 	@Override
     public boolean getIsRepairable(ItemStack toRepair, ItemStack repair){
-        return repair.getItem() == ModItems.itemPrudentiumIngot;
+        return OreDictionary.itemMatches(getRepairMaterial(), repair, false);
     }
+
+	@Override
+	public void setRepairMaterial(ItemStack stack){
+		repairMaterial = stack;
+	}
+
+	@Override
+	public ItemStack getRepairMaterial(){
+		return repairMaterial;
+	}
 	
 	public static boolean isFullSet(EntityPlayer player){		
 		ItemStack head = player.getItemStackFromSlot(EntityEquipmentSlot.HEAD);

@@ -8,6 +8,7 @@ import com.blakebr0.mysticalagriculture.MysticalAgriculture;
 import com.blakebr0.mysticalagriculture.items.ItemBase;
 import com.blakebr0.mysticalagriculture.items.ModItems;
 import com.blakebr0.mysticalagriculture.lib.Colors;
+import com.blakebr0.mysticalagriculture.lib.IRepairMaterial;
 import com.blakebr0.mysticalagriculture.lib.Tooltips;
 import com.blakebr0.mysticalagriculture.util.ToolTools;
 import com.blakebr0.mysticalagriculture.util.Utils;
@@ -33,7 +34,7 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraftforge.oredict.OreDictionary;
 
-public class ItemEssenceSickle extends ItemBase {
+public class ItemEssenceSickle extends ItemBase implements IRepairMaterial {
 	
 	public int range;
 	public ToolMaterial toolMaterial;
@@ -47,10 +48,6 @@ public class ItemEssenceSickle extends ItemBase {
 		this.range = range;
 		this.toolMaterial = material;
 		this.color = color;
-	}
-		
-	public void setRepairMaterial(ItemStack stack){
-		this.repairMaterial = stack.copy();
 	}
 	
 	@Override
@@ -76,8 +73,18 @@ public class ItemEssenceSickle extends ItemBase {
 	
 	@Override
     public boolean getIsRepairable(ItemStack toRepair, ItemStack repair){
-        return OreDictionary.itemMatches(repairMaterial, repair, false);
+        return OreDictionary.itemMatches(getRepairMaterial(), repair, false);
     }
+
+	@Override
+	public void setRepairMaterial(ItemStack stack){
+		repairMaterial = stack;
+	}
+
+	@Override
+	public ItemStack getRepairMaterial(){
+		return repairMaterial;
+	}
 	
     public boolean harvest(ItemStack stack, int radius, World world, BlockPos pos, EntityPlayer player){
         

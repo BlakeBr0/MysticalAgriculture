@@ -34,10 +34,6 @@ public class ItemSupremiumHoe extends ItemEssenceHoe {
 		super(name, material, color);
 		this.range = range;
 	}
-	
-	public void setRepairMaterial(ItemStack stack){
-		this.repairMaterial = stack.copy();
-	}
 
 	public boolean isSneakAbilityEnabled(){
 		return ModConfig.confSneakHoeAOE;

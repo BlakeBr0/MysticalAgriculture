@@ -7,6 +7,7 @@ import javax.annotation.Nullable;
 import com.blakebr0.mysticalagriculture.MysticalAgriculture;
 import com.blakebr0.mysticalagriculture.items.ModItems;
 import com.blakebr0.mysticalagriculture.lib.Colors;
+import com.blakebr0.mysticalagriculture.lib.IRepairMaterial;
 import com.blakebr0.mysticalagriculture.lib.Tooltips;
 
 import net.minecraft.client.util.ITooltipFlag;
@@ -18,8 +19,11 @@ import net.minecraft.item.ItemArmor.ArmorMaterial;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import net.minecraftforge.oredict.OreDictionary;
 
-public class ItemInferiumArmor extends ItemArmor {
+public class ItemInferiumArmor extends ItemArmor implements IRepairMaterial {
+	
+	private ItemStack repairMaterial;
 
 	public ItemInferiumArmor(String name, ArmorMaterial material, int index, EntityEquipmentSlot slot){
 		super(material, index, slot);
@@ -38,6 +42,16 @@ public class ItemInferiumArmor extends ItemArmor {
 
 	@Override
     public boolean getIsRepairable(ItemStack toRepair, ItemStack repair){
-        return repair.getItem() == ModItems.itemInferiumIngot;
+        return OreDictionary.itemMatches(getRepairMaterial(), repair, false);
     }
+
+	@Override
+	public void setRepairMaterial(ItemStack stack){
+		repairMaterial = stack;
+	}
+
+	@Override
+	public ItemStack getRepairMaterial(){
+		return repairMaterial;
+	}
 }

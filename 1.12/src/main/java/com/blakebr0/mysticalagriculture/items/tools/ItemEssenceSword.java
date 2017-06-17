@@ -7,6 +7,7 @@ import javax.annotation.Nullable;
 import com.blakebr0.mysticalagriculture.MysticalAgriculture;
 import com.blakebr0.mysticalagriculture.items.ModItems;
 import com.blakebr0.mysticalagriculture.lib.Colors;
+import com.blakebr0.mysticalagriculture.lib.IRepairMaterial;
 import com.blakebr0.mysticalagriculture.lib.Tooltips;
 
 import net.minecraft.client.util.ITooltipFlag;
@@ -20,7 +21,7 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraftforge.oredict.OreDictionary;
 
-public class ItemEssenceSword extends ItemSword {
+public class ItemEssenceSword extends ItemSword implements IRepairMaterial {
 	    
 	public ItemStack repairMaterial;
 	public TextFormatting color;
@@ -31,10 +32,6 @@ public class ItemEssenceSword extends ItemSword {
 		this.setRegistryName(name);
 		this.setCreativeTab(MysticalAgriculture.tabMysticalAgriculture);
 		this.color = color;
-	}
-	
-	public void setRepairMaterial(ItemStack stack){
-		this.repairMaterial = stack.copy();
 	}
 		
 	@Override
@@ -49,6 +46,16 @@ public class ItemEssenceSword extends ItemSword {
 	
 	@Override
     public boolean getIsRepairable(ItemStack toRepair, ItemStack repair){
-        return OreDictionary.itemMatches(repairMaterial, repair, false);
+        return OreDictionary.itemMatches(getRepairMaterial(), repair, false);
     }
+
+	@Override
+	public void setRepairMaterial(ItemStack stack){
+		repairMaterial = stack;
+	}
+
+	@Override
+	public ItemStack getRepairMaterial(){
+		return repairMaterial;
+	}
 }

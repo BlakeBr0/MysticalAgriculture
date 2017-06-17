@@ -55,12 +55,14 @@ import com.blakebr0.mysticalagriculture.items.tools.upgraded.ItemSickleAOE;
 import com.blakebr0.mysticalagriculture.items.tools.upgraded.ItemSwordAOE;
 import com.blakebr0.mysticalagriculture.items.tools.upgraded.ItemSwordStrength;
 import com.blakebr0.mysticalagriculture.lib.CropType;
+import com.blakebr0.mysticalagriculture.lib.IRepairMaterial;
 import com.blakebr0.mysticalagriculture.lib.ModToolMaterials;
 import com.blakebr0.mysticalagriculture.util.ModChecker;
 
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fml.common.registry.GameRegistry;
@@ -289,55 +291,55 @@ public class ModItems {
 			registerItem(itemSuperiumArrow);
 			registerItem(itemSupremiumArrow);
 			
-			registerItem(itemInferiumSword);
-			registerItem(itemInferiumPickaxe);
-			registerItem(itemInferiumShovel);
-			registerItem(itemInferiumAxe);
-			registerItem(itemInferiumHoe);
-			registerItem(itemInferiumShears);
-			registerItem(itemInferiumBow);
-			registerItem(itemInferiumSickle);
-			registerItem(itemInferiumScythe);
+			registerWithRepairMaterial(itemInferiumSword, ModItems.itemCrafting.itemInferiumIngot);
+			registerWithRepairMaterial(itemInferiumPickaxe, ModItems.itemCrafting.itemInferiumIngot);
+			registerWithRepairMaterial(itemInferiumShovel, ModItems.itemCrafting.itemInferiumIngot);
+			registerWithRepairMaterial(itemInferiumAxe, ModItems.itemCrafting.itemInferiumIngot);
+			registerWithRepairMaterial(itemInferiumHoe, ModItems.itemCrafting.itemInferiumIngot);
+			registerWithRepairMaterial(itemInferiumShears, ModItems.itemCrafting.itemInferiumIngot);
+			registerWithRepairMaterial(itemInferiumBow, ModItems.itemCrafting.itemInferiumIngot);
+			registerWithRepairMaterial(itemInferiumSickle, ModItems.itemCrafting.itemInferiumIngot);
+			registerWithRepairMaterial(itemInferiumScythe, ModItems.itemCrafting.itemInferiumIngot);
 			
-			registerItem(itemPrudentiumSword);
-			registerItem(itemPrudentiumPickaxe);
-			registerItem(itemPrudentiumShovel);
-			registerItem(itemPrudentiumAxe);
-			registerItem(itemPrudentiumHoe);
-			registerItem(itemPrudentiumShears);
-			registerItem(itemPrudentiumBow);
-			registerItem(itemPrudentiumSickle);
-			registerItem(itemPrudentiumScythe);
+			registerWithRepairMaterial(itemPrudentiumSword, ModItems.itemCrafting.itemPrudentiumIngot);
+			registerWithRepairMaterial(itemPrudentiumPickaxe, ModItems.itemCrafting.itemPrudentiumIngot);
+			registerWithRepairMaterial(itemPrudentiumShovel, ModItems.itemCrafting.itemPrudentiumIngot);
+			registerWithRepairMaterial(itemPrudentiumAxe, ModItems.itemCrafting.itemPrudentiumIngot);
+			registerWithRepairMaterial(itemPrudentiumHoe, ModItems.itemCrafting.itemPrudentiumIngot);
+			registerWithRepairMaterial(itemPrudentiumShears, ModItems.itemCrafting.itemPrudentiumIngot);
+			registerWithRepairMaterial(itemPrudentiumBow, ModItems.itemCrafting.itemPrudentiumIngot);
+			registerWithRepairMaterial(itemPrudentiumSickle, ModItems.itemCrafting.itemPrudentiumIngot);
+			registerWithRepairMaterial(itemPrudentiumScythe, ModItems.itemCrafting.itemPrudentiumIngot);
 		
-			registerItem(itemIntermediumSword);
-			registerItem(itemIntermediumPickaxe);
-			registerItem(itemIntermediumShovel);
-			registerItem(itemIntermediumAxe);
-			registerItem(itemIntermediumHoe);
-			registerItem(itemIntermediumShears);
-			registerItem(itemIntermediumBow);
-			registerItem(itemIntermediumSickle);
-			registerItem(itemIntermediumScythe);
+			registerWithRepairMaterial(itemIntermediumSword, ModItems.itemCrafting.itemIntermediumIngot);
+			registerWithRepairMaterial(itemIntermediumPickaxe, ModItems.itemCrafting.itemIntermediumIngot);
+			registerWithRepairMaterial(itemIntermediumShovel, ModItems.itemCrafting.itemIntermediumIngot);
+			registerWithRepairMaterial(itemIntermediumAxe, ModItems.itemCrafting.itemIntermediumIngot);
+			registerWithRepairMaterial(itemIntermediumHoe, ModItems.itemCrafting.itemIntermediumIngot);
+			registerWithRepairMaterial(itemIntermediumShears, ModItems.itemCrafting.itemIntermediumIngot);
+			registerWithRepairMaterial(itemIntermediumBow, ModItems.itemCrafting.itemIntermediumIngot);
+			registerWithRepairMaterial(itemIntermediumSickle, ModItems.itemCrafting.itemIntermediumIngot);
+			registerWithRepairMaterial(itemIntermediumScythe, ModItems.itemCrafting.itemIntermediumIngot);
 	
-			registerItem(itemSuperiumSword);
-			registerItem(itemSuperiumPickaxe);
-			registerItem(itemSuperiumShovel);
-			registerItem(itemSuperiumAxe);
-			registerItem(itemSuperiumHoe);
-			registerItem(itemSuperiumShears);
-			registerItem(itemSuperiumBow);
-			registerItem(itemSuperiumSickle);
-			registerItem(itemSuperiumScythe);
+			registerWithRepairMaterial(itemSuperiumSword, ModItems.itemCrafting.itemSuperiumIngot);
+			registerWithRepairMaterial(itemSuperiumPickaxe, ModItems.itemCrafting.itemSuperiumIngot);
+			registerWithRepairMaterial(itemSuperiumShovel, ModItems.itemCrafting.itemSuperiumIngot);
+			registerWithRepairMaterial(itemSuperiumAxe, ModItems.itemCrafting.itemSuperiumIngot);
+			registerWithRepairMaterial(itemSuperiumHoe, ModItems.itemCrafting.itemSuperiumIngot);
+			registerWithRepairMaterial(itemSuperiumShears, ModItems.itemCrafting.itemSuperiumIngot);
+			registerWithRepairMaterial(itemSuperiumBow, ModItems.itemCrafting.itemSuperiumIngot);
+			registerWithRepairMaterial(itemSuperiumSickle, ModItems.itemCrafting.itemSuperiumIngot);
+			registerWithRepairMaterial(itemSuperiumScythe, ModItems.itemCrafting.itemSuperiumIngot);
 
-			registerItem(itemSupremiumSword);
-			registerItem(itemSupremiumPickaxe);
-			registerItem(itemSupremiumShovel);
-			registerItem(itemSupremiumAxe);
-			registerItem(itemSupremiumHoe);
-			registerItem(itemSupremiumShears);
-			registerItem(itemSupremiumBow);
-			registerItem(itemSupremiumSickle);
-			registerItem(itemSupremiumScythe);
+			registerWithRepairMaterial(itemSupremiumSword, ModItems.itemCrafting.itemSupremiumIngot);
+			registerWithRepairMaterial(itemSupremiumPickaxe, ModItems.itemCrafting.itemSupremiumIngot);
+			registerWithRepairMaterial(itemSupremiumShovel, ModItems.itemCrafting.itemSupremiumIngot);
+			registerWithRepairMaterial(itemSupremiumAxe, ModItems.itemCrafting.itemSupremiumIngot);
+			registerWithRepairMaterial(itemSupremiumHoe, ModItems.itemCrafting.itemSupremiumIngot);
+			registerWithRepairMaterial(itemSupremiumShears, ModItems.itemCrafting.itemSupremiumIngot);
+			registerWithRepairMaterial(itemSupremiumBow, ModItems.itemCrafting.itemSupremiumIngot);
+			registerWithRepairMaterial(itemSupremiumSickle, ModItems.itemCrafting.itemSupremiumIngot);
+			registerWithRepairMaterial(itemSupremiumScythe, ModItems.itemCrafting.itemSupremiumIngot);
 
 			registerItem(itemSupremiumSwordStrength);
 			registerItem(itemSupremiumSwordStrength2);			
@@ -354,30 +356,30 @@ public class ModItems {
 			registerItem(itemSupremiumSickleAOE);			
 			registerItem(itemSupremiumScytheAOE);
 			
-	        registerItem(itemInferiumHelmet);
-	        registerItem(itemInferiumChestplate);
-	        registerItem(itemInferiumLeggings);
-	        registerItem(itemInferiumBoots);
+	        registerWithRepairMaterial(itemInferiumHelmet, ModItems.itemCrafting.itemInferiumIngot);
+	        registerWithRepairMaterial(itemInferiumChestplate, ModItems.itemCrafting.itemInferiumIngot);
+	        registerWithRepairMaterial(itemInferiumLeggings, ModItems.itemCrafting.itemInferiumIngot);
+	        registerWithRepairMaterial(itemInferiumBoots, ModItems.itemCrafting.itemInferiumIngot);
 	        
-	        registerItem(itemPrudentiumHelmet);
-	        registerItem(itemPrudentiumChestplate);
-	        registerItem(itemPrudentiumLeggings);
-	        registerItem(itemPrudentiumBoots);
+	        registerWithRepairMaterial(itemPrudentiumHelmet, ModItems.itemCrafting.itemPrudentiumIngot);
+	        registerWithRepairMaterial(itemPrudentiumChestplate, ModItems.itemCrafting.itemPrudentiumIngot);
+	        registerWithRepairMaterial(itemPrudentiumLeggings, ModItems.itemCrafting.itemPrudentiumIngot);
+	        registerWithRepairMaterial(itemPrudentiumBoots, ModItems.itemCrafting.itemPrudentiumIngot);
 	        
-	        registerItem(itemIntermediumHelmet);
-	    	registerItem(itemIntermediumChestplate); 
-	    	registerItem(itemIntermediumLeggings);
-	    	registerItem(itemIntermediumBoots);
+	        registerWithRepairMaterial(itemIntermediumHelmet, ModItems.itemCrafting.itemIntermediumIngot);
+	        registerWithRepairMaterial(itemIntermediumChestplate, ModItems.itemCrafting.itemIntermediumIngot); 
+	    	registerWithRepairMaterial(itemIntermediumLeggings, ModItems.itemCrafting.itemIntermediumIngot);
+	    	registerWithRepairMaterial(itemIntermediumBoots, ModItems.itemCrafting.itemIntermediumIngot);
 	    	
-	        registerItem(itemSuperiumHelmet);
-	        registerItem(itemSuperiumChestplate);
-	        registerItem(itemSuperiumLeggings);
-	        registerItem(itemSuperiumBoots);
+	    	registerWithRepairMaterial(itemSuperiumHelmet, ModItems.itemCrafting.itemSuperiumIngot);
+	        registerWithRepairMaterial(itemSuperiumChestplate, ModItems.itemCrafting.itemSuperiumIngot);
+	        registerWithRepairMaterial(itemSuperiumLeggings, ModItems.itemCrafting.itemSuperiumIngot);
+	        registerWithRepairMaterial(itemSuperiumBoots, ModItems.itemCrafting.itemSuperiumIngot);
 	        
-	        registerItem(itemSupremiumHelmet);
-	        registerItem(itemSupremiumChestplate);
-	        registerItem(itemSupremiumLeggings);
-	        registerItem(itemSupremiumBoots);
+	        registerWithRepairMaterial(itemSupremiumHelmet, ModItems.itemCrafting.itemSupremiumIngot);
+	        registerWithRepairMaterial(itemSupremiumChestplate, ModItems.itemCrafting.itemSupremiumIngot);
+	        registerWithRepairMaterial(itemSupremiumLeggings, ModItems.itemCrafting.itemSupremiumIngot);
+	        registerWithRepairMaterial(itemSupremiumBoots, ModItems.itemCrafting.itemSupremiumIngot);
 	        
 	        registerItem(itemSupremiumHelmetNightvision);
 	        registerItem(itemSupremiumHelmetAbsorption);
@@ -406,8 +408,6 @@ public class ModItems {
 	        registerItem(itemSupremiumBootsAntivenom);
 	        registerItem(itemSupremiumBootsFire);
 	        registerItem(itemSupremiumBootsResistance);
-	        
-	        setRepairMaterials();
 		}
 	}
 	
@@ -589,89 +589,16 @@ public class ModItems {
 	        registerModel(itemSupremiumBootsResistance);		
 		}
 	}
-	
-	// TODO: redo this to be less shitty
-	public static void setRepairMaterials(){
-		itemInferiumSword.setRepairMaterial(ModItems.itemCrafting.itemInferiumIngot);
-		itemInferiumPickaxe.setRepairMaterial(ModItems.itemCrafting.itemInferiumIngot);
-		itemInferiumShovel.setRepairMaterial(ModItems.itemCrafting.itemInferiumIngot);
-		itemInferiumAxe.setRepairMaterial(ModItems.itemCrafting.itemInferiumIngot);
-		itemInferiumHoe.setRepairMaterial(ModItems.itemCrafting.itemInferiumIngot);
-		itemInferiumShears.setRepairMaterial(ModItems.itemCrafting.itemInferiumIngot);
-		itemInferiumBow.setRepairMaterial(ModItems.itemCrafting.itemInferiumIngot);
-		itemInferiumSickle.setRepairMaterial(ModItems.itemCrafting.itemInferiumIngot);
-		itemInferiumScythe.setRepairMaterial(ModItems.itemCrafting.itemInferiumIngot);
-		
-		itemPrudentiumSword.setRepairMaterial(ModItems.itemCrafting.itemPrudentiumIngot);
-		itemPrudentiumPickaxe.setRepairMaterial(ModItems.itemCrafting.itemPrudentiumIngot);
-		itemPrudentiumShovel.setRepairMaterial(ModItems.itemCrafting.itemPrudentiumIngot);
-		itemPrudentiumAxe.setRepairMaterial(ModItems.itemCrafting.itemPrudentiumIngot);
-		itemPrudentiumHoe.setRepairMaterial(ModItems.itemCrafting.itemPrudentiumIngot);
-		itemPrudentiumShears.setRepairMaterial(ModItems.itemCrafting.itemPrudentiumIngot);
-		itemPrudentiumBow.setRepairMaterial(ModItems.itemCrafting.itemPrudentiumIngot);
-		itemPrudentiumSickle.setRepairMaterial(ModItems.itemCrafting.itemPrudentiumIngot);
-		itemPrudentiumScythe.setRepairMaterial(ModItems.itemCrafting.itemPrudentiumIngot);
-		
-		itemIntermediumSword.setRepairMaterial(ModItems.itemCrafting.itemIntermediumIngot);
-		itemIntermediumPickaxe.setRepairMaterial(ModItems.itemCrafting.itemIntermediumIngot);
-		itemIntermediumShovel.setRepairMaterial(ModItems.itemCrafting.itemIntermediumIngot);
-		itemIntermediumAxe.setRepairMaterial(ModItems.itemCrafting.itemIntermediumIngot);
-		itemIntermediumHoe.setRepairMaterial(ModItems.itemCrafting.itemIntermediumIngot);
-		itemIntermediumShears.setRepairMaterial(ModItems.itemCrafting.itemIntermediumIngot);
-		itemIntermediumBow.setRepairMaterial(ModItems.itemCrafting.itemIntermediumIngot);
-		itemIntermediumSickle.setRepairMaterial(ModItems.itemCrafting.itemIntermediumIngot);
-		itemIntermediumScythe.setRepairMaterial(ModItems.itemCrafting.itemIntermediumIngot);
-		
-		itemSuperiumSword.setRepairMaterial(ModItems.itemCrafting.itemSuperiumIngot);
-		itemSuperiumPickaxe.setRepairMaterial(ModItems.itemCrafting.itemSuperiumIngot);
-		itemSuperiumShovel.setRepairMaterial(ModItems.itemCrafting.itemSuperiumIngot);
-		itemSuperiumAxe.setRepairMaterial(ModItems.itemCrafting.itemSuperiumIngot);
-		itemSuperiumHoe.setRepairMaterial(ModItems.itemCrafting.itemSuperiumIngot);
-		itemSuperiumShears.setRepairMaterial(ModItems.itemCrafting.itemSuperiumIngot);
-		itemSuperiumBow.setRepairMaterial(ModItems.itemCrafting.itemSuperiumIngot);
-		itemSuperiumSickle.setRepairMaterial(ModItems.itemCrafting.itemSuperiumIngot);
-		itemSuperiumScythe.setRepairMaterial(ModItems.itemCrafting.itemSuperiumIngot);
-		
-		itemSupremiumSword.setRepairMaterial(ModItems.itemCrafting.itemSupremiumIngot);
-		itemSupremiumPickaxe.setRepairMaterial(ModItems.itemCrafting.itemSupremiumIngot);
-		itemSupremiumShovel.setRepairMaterial(ModItems.itemCrafting.itemSupremiumIngot);
-		itemSupremiumAxe.setRepairMaterial(ModItems.itemCrafting.itemSupremiumIngot);
-		itemSupremiumHoe.setRepairMaterial(ModItems.itemCrafting.itemSupremiumIngot);
-		itemSupremiumShears.setRepairMaterial(ModItems.itemCrafting.itemSupremiumIngot);
-		itemSupremiumBow.setRepairMaterial(ModItems.itemCrafting.itemSupremiumIngot);
-		itemSupremiumSickle.setRepairMaterial(ModItems.itemCrafting.itemSupremiumIngot);
-		itemSupremiumScythe.setRepairMaterial(ModItems.itemCrafting.itemSupremiumIngot);
-		
-		itemSupremiumSwordStrength.setRepairMaterial(ModItems.itemCrafting.itemSupremiumIngot);
-		itemSupremiumSwordStrength2.setRepairMaterial(ModItems.itemCrafting.itemSupremiumIngot);
-		
-		itemSupremiumSwordAOE.setRepairMaterial(ModItems.itemCrafting.itemSupremiumIngot);
-		
-//		itemSupremiumPickaxeMinersVision.setRepairMaterial(ModItems.itemCrafting.itemSupremiumIngot);
-		
-		itemSupremiumPickaxeAOE.setRepairMaterial(ModItems.itemCrafting.itemSupremiumIngot);
-		
-		itemSupremiumShovelAOE.setRepairMaterial(ModItems.itemCrafting.itemSupremiumIngot);
-		
-		itemSupremiumAxeAOE.setRepairMaterial(ModItems.itemCrafting.itemSupremiumIngot);
-		
-		itemSupremiumHoeAOE.setRepairMaterial(ModItems.itemCrafting.itemSupremiumIngot);
-		
-		itemSupremiumShearsRainbow.setRepairMaterial(ModItems.itemCrafting.itemSupremiumIngot);
-
-		itemSupremiumShearsAOE.setRepairMaterial(ModItems.itemCrafting.itemSupremiumIngot);
-
-		itemSupremiumBowQuickDraw.setRepairMaterial(ModItems.itemCrafting.itemSupremiumIngot);
-		
-		itemSupremiumBowTripleShot.setRepairMaterial(ModItems.itemCrafting.itemSupremiumIngot);
-		
-		itemSupremiumSickleAOE.setRepairMaterial(ModItems.itemCrafting.itemSupremiumIngot);
-		
-		itemSupremiumScytheAOE.setRepairMaterial(ModItems.itemCrafting.itemSupremiumIngot);
-	}
 		
 	public static void registerItem(Item item){
 		GameRegistry.register(item);
+	}
+	
+	public static void registerWithRepairMaterial(Item item, ItemStack stack){
+		registerItem(item);
+		if(item instanceof IRepairMaterial){
+			((IRepairMaterial)item).setRepairMaterial(stack);
+		}
 	}
 	
 	@SideOnly(Side.CLIENT)
