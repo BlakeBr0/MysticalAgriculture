@@ -22,6 +22,7 @@ import net.minecraft.init.MobEffects;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.item.ItemArmor.ArmorMaterial;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.IStringSerializable;
@@ -50,7 +51,16 @@ public class ItemSupremiumArmor extends ItemArmor implements IRepairMaterial {
 		int damage = stack.getMaxDamage() - stack.getItemDamage();
 		tooltip.add(Tooltips.DURABILITY + Colors.RED + damage);
 		if(ModConfig.confSupremiumFlight){ tooltip.add(Tooltips.SET_BONUS + Colors.RED + Tooltips.FLIGHT); }
-		tooltip.add(Tooltips.CHARM_SLOT + Colors.RED + Tooltips.EMPTY);
+		NBTTagCompound tag = stack.getTagCompound();
+		if(tag != null){
+			if(tag.hasKey(ArmorType.ARMOR_TYPE)){
+				tooltip.add(Tooltips.CHARM_SLOT + Colors.RED + ArmorType.byIndex(tag.getInteger(ArmorType.ARMOR_TYPE)).getLocalizedName());
+			} else {
+				tooltip.add(Tooltips.CHARM_SLOT + Colors.RED + Tooltips.EMPTY);
+			}
+		} else {
+			tooltip.add(Tooltips.CHARM_SLOT + Colors.RED + Tooltips.EMPTY);
+		}
 	}
 		
 	@Override
@@ -91,33 +101,7 @@ public class ItemSupremiumArmor extends ItemArmor implements IRepairMaterial {
 		
 		return head != null && head.getItem() instanceof ItemSupremiumArmor && chest != null && chest.getItem() instanceof ItemSupremiumArmor && legs != null && legs.getItem() instanceof ItemSupremiumArmor && feet != null && feet.getItem() instanceof ItemSupremiumArmor;
 	}
-	
-	public static enum ArmorType implements IStringSerializable {
-		
-		ABSORPTION(0, "absorption");
-		
-		private final int index;
-		private final String name;
-		
-		ArmorType(int index, String name){
-			this.index = index;
-			this.name = name;
-		}
-		
-		public int getIndex(){
-			return index;
-		}
-
-		@Override
-		public String getName(){
-			return name;
-		}
-		
-		public String getLocalizedName(){
-			return Utils.localize("tooltip.ma." + getName());
-		}
-	}
-    
+	    
     public static class AbilityHandler {
     	
     	public static List<String> playersWithSet = new ArrayList<String>();

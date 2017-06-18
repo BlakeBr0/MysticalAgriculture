@@ -39,7 +39,7 @@ public class ItemEssenceSword extends ItemSword implements IRepairMaterial {
 	public void addInformation(ItemStack stack, @Nullable World player, List<String> tooltip, ITooltipFlag advanced){
 		int damage = stack.getMaxDamage() - stack.getItemDamage();
 		tooltip.add(Tooltips.DURABILITY + color + (damage > -1 ? damage : Tooltips.UNLIMITED));
-		if(repairMaterial == ModItems.itemCrafting.itemSupremiumIngot){
+		if(OreDictionary.itemMatches(getRepairMaterial(), ModItems.itemCrafting.itemSupremiumIngot, false)){
 			tooltip.add(Tooltips.CHARM_SLOT + Colors.RED + Tooltips.EMPTY);
 		}
 	}

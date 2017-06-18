@@ -27,7 +27,7 @@ public class BlockInferiumOre extends BlockBase {
     @Nullable
     @Override
     public Item getItemDropped(IBlockState state, Random rand, int fortune){
-        return ModItems.itemInferiumEssence;
+        return ModItems.itemCrafting;
     }
 
     @Override

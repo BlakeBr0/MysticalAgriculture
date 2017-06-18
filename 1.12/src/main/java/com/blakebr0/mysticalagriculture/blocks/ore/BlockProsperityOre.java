@@ -27,7 +27,7 @@ public class BlockProsperityOre extends BlockBase {
     @Nullable
     @Override
     public Item getItemDropped(IBlockState state, Random rand, int fortune){
-        return ModItems.itemProsperityShard;
+        return ModItems.itemCrafting;
     }
 
     @Override
@@ -91,6 +91,6 @@ public class BlockProsperityOre extends BlockBase {
 
     @Override
     public int damageDropped(IBlockState state){
-        return 0;
+        return 5;
     }
 }

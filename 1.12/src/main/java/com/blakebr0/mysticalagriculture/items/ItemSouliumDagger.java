@@ -35,6 +35,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.util.EnumHelper;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import net.minecraftforge.oredict.OreDictionary;
 
 public class ItemSouliumDagger extends ItemSword {
 	    
@@ -54,6 +55,6 @@ public class ItemSouliumDagger extends ItemSword {
 	}
 	
     public boolean getIsRepairable(ItemStack toRepair, ItemStack repair){
-        return repair.getItem() == ModItems.itemSouliumIngot;
+    	return OreDictionary.itemMatches(ModItems.itemCrafting.itemSouliumIngot, repair, false);
     }
 }

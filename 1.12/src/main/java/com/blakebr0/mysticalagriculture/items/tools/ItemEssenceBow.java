@@ -78,7 +78,7 @@ public class ItemEssenceBow extends ItemBow implements IRepairMaterial {
 		tooltip.add(Tooltips.DURABILITY + color + (damage > -1 ? damage : Tooltips.UNLIMITED));
 		tooltip.add(Tooltips.DAMAGE + color + "+" + this.damage);
 		tooltip.add(Tooltips.DRAW_SPEED + color +  "+" + (int)(this.drawSpeed * 100) + "%");
-		if(repairMaterial == ModItems.itemCrafting.itemSupremiumIngot){
+		if(OreDictionary.itemMatches(getRepairMaterial(), ModItems.itemCrafting.itemSupremiumIngot, false)){
 			tooltip.add(Tooltips.CHARM_SLOT + Colors.RED + Tooltips.EMPTY);
 		}
 	}
