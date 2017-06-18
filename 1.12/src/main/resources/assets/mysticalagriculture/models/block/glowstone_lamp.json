@@ -15,7 +15,7 @@
 		{   "from": [ 0.01, 0.01, 0.01 ],
             "to": [ 15.99, 15.99, 15.99 ],
             "faces": {
-               "down":  { "texture": "#t2", "cullface": "down" },
+                "down":  { "texture": "#t2", "cullface": "down" },
                 "up":    { "texture": "#t2", "cullface": "up" },
                 "north": { "texture": "#t2", "cullface": "north" },
                 "south": { "texture": "#t2", "cullface": "south" },

@@ -2,6 +2,7 @@ package com.blakebr0.mysticalagriculture.blocks.ore;
 
 import java.util.Random;
 
+import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
 import com.blakebr0.mysticalagriculture.blocks.BlockBase;
@@ -13,10 +14,13 @@ import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.BlockRenderLayer;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class BlockProsperityOre extends BlockBase {
 
@@ -83,6 +87,13 @@ public class BlockProsperityOre extends BlockBase {
         }
         return 0;
     }
+    
+	@Nonnull
+	@Override
+	@SideOnly(Side.CLIENT)
+	public BlockRenderLayer getBlockLayer(){
+		return BlockRenderLayer.CUTOUT_MIPPED;
+	}
 
     @Override
     public ItemStack getItem(World world, BlockPos pos, IBlockState state){

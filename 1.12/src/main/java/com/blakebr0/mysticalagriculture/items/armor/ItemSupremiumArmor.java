@@ -133,13 +133,13 @@ public class ItemSupremiumArmor extends ItemArmor implements IRepairMaterial {
     								* (sneaking ? 0.1f : 1.0f); 
     							
     							if (player.moveForward > 0f) {
-    								player.func_191958_b(0f, 0f, 1f, speed);
+    								player.moveRelative(0f, 0f, 1f, speed);
     							} else if (player.moveForward < 0f) {
-    								player.func_191958_b(0f, 0f, 1f, -speed * 0.3f);
+    								player.moveRelative(0f, 0f, 1f, -speed * 0.3f);
     							}
     							
     							if (player.moveStrafing != 0f) {
-    								player.func_191958_b(1f, 0f, 0f, speed * 0.5f * Math.signum(player.moveStrafing));
+    								player.moveRelative(1f, 0f, 0f, speed * 0.5f * Math.signum(player.moveStrafing));
     							}
     						}
 						}

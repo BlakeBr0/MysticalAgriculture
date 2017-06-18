@@ -106,13 +106,13 @@ public class ItemUpgradedSpeed extends ItemSupremiumArmor {
 								* (!sprinting ? 0.6F : 1.2F);
 							
 							if (player.moveForward > 0f) {
-								player.func_191958_b(0f, 0f, 1f, speed);
+								player.moveRelative(0f, 0f, 1f, speed);
 							} else if (player.moveForward < 0f) {
-								player.func_191958_b(0f, 0f, 1f, -speed * 0.3f);
+								player.moveRelative(0f, 0f, 1f, -speed * 0.3f);
 							}
 							
 							if (player.moveStrafing != 0f) {
-								player.func_191958_b(1f, 0f, 0f, speed * 0.5f * Math.signum(player.moveStrafing));
+								player.moveRelative(1f, 0f, 0f, speed * 0.5f * Math.signum(player.moveStrafing));
 							}
 						}
     				} else {
