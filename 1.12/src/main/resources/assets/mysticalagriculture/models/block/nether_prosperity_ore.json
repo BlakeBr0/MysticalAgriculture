@@ -1,6 +1,6 @@
 {
     "textures": {
-        "particle": "mysticalagriculture:blocks/prosperity_ore",
+        "particle": "minecraft:blocks/netherrack",
         "overlay": "mysticalagriculture:blocks/prosperity_ore",
 		"all": "minecraft:blocks/netherrack"
     },

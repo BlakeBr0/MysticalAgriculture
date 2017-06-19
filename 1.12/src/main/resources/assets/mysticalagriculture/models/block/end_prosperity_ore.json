@@ -1,6 +1,6 @@
 {
     "textures": {
-        "particle": "mysticalagriculture:blocks/prosperity_ore",
+        "particle": "minecraft:blocks/end_stone",
         "overlay": "mysticalagriculture:blocks/prosperity_ore",
 		"all": "minecraft:blocks/end_stone"
     },
