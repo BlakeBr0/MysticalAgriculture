@@ -131,7 +131,7 @@ public class ModRecipes {
 				'P', new ItemStack(ModItems.itemProsperityShard, 1, 0));
 */	}
 	
-    private static ResourceLocation getRecipeLocation(ItemStack output){
+    public static ResourceLocation getRecipeLocation(ItemStack output){
     	String namespace = Loader.instance().activeModContainer().getModId();
         ResourceLocation baseLoc = new ResourceLocation(namespace, output.getItem().getRegistryName().getResourcePath());
         ResourceLocation recipeLoc = baseLoc;

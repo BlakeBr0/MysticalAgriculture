@@ -18,7 +18,7 @@ public class EssenceRecipes {
 	
 	public static void addEssenceRecipe(ItemStack output, Object... input){
 		if(!output.isEmpty() && output.getCount() > 0){
-//			GameRegistry.addRecipe(new ShapedOreRecipe(output, input).setMirrored(false));
+			GameRegistry.register(new ShapedOreRecipe(ModRecipes.EMPTY_GROUP, output, input).setMirrored(false), ModRecipes.getRecipeLocation(output));
 		}
 	}
 	
@@ -31,7 +31,7 @@ public class EssenceRecipes {
 		
 	public static void init(){
 		
-/*		addEssenceRecipe(new ItemStack(Blocks.COBBLESTONE, EssenceConfig.cobblestone, 0), "EEE", "EXE", "EEE", 'E', new ItemStack(type.STONE.getCrop(), 1, 0));
+		addEssenceRecipe(new ItemStack(Blocks.COBBLESTONE, EssenceConfig.cobblestone, 0), "EEE", "EXE", "EEE", 'E', new ItemStack(type.STONE.getCrop(), 1, 0));
 		addEssenceRecipe(new ItemStack(Blocks.STONE, EssenceConfig.stone, 0), "EEE", "EEE", "EEE", 'E', new ItemStack(type.STONE.getCrop(), 1, 0));
 		addEssenceRecipe(new ItemStack(Blocks.STONE, EssenceConfig.granite, 1), "XEX", "EQE", "XEX", 'E', new ItemStack(type.STONE.getCrop(), 1, 0), 'Q', new ItemStack(type.NETHER_QUARTZ.getCrop(), 1, 0));
 		addEssenceRecipe(new ItemStack(Blocks.STONE, EssenceConfig.diorite, 3), "XQX", "EEE", "XEX", 'E', new ItemStack(type.STONE.getCrop(), 1, 0), 'Q', new ItemStack(type.NETHER_QUARTZ.getCrop(), 1, 0));
@@ -295,6 +295,6 @@ public class EssenceRecipes {
 	    if(type.FLUIX.isEnabled()){ addEssenceRecipe(Utils.getItem("crystalFluix", EssenceConfig.fluix), "EEE", "EXE", "EEE", 'E', new ItemStack(type.FLUIX.getCrop(), 1, 0)); }
 
 	    if(type.QUARTZ_ENRICHED_IRON.isEnabled()){ addEssenceRecipe(new ItemStack(Parts.itemRSIngot, EssenceConfig.quartzEnrichedIron, 0), "EEE", "EXE", "EEE", 'E', new ItemStack(type.QUARTZ_ENRICHED_IRON.getCrop(), 1, 0)); }
-*/	}
+	}
 }
 
