@@ -79,6 +79,8 @@ public class ModItems {
 	public static ItemInfusionCrystal itemInfusionCrystal = new ItemInfusionCrystal("infusion_crystal");
 	public static ItemMasterInfusionCrystal itemInfusionCrystalMaster = new ItemMasterInfusionCrystal("master_infusion_crystal");
 		
+	public static ItemCoreRemover itemCoreRemover = new ItemCoreRemover("core_remover");
+	
 	public static ItemFertilizedEssence itemFertilizedEssence = new ItemFertilizedEssence("fertilized_essence");
 	public static ItemMysticalFertilizer itemMysticalFertilizer = new ItemMysticalFertilizer("mystical_fertilizer");
 	
@@ -101,9 +103,7 @@ public class ModItems {
 	public static ItemSeed itemTier3InferiumSeeds = new ItemSeed("tier3_inferium_seeds", ModBlocks.blockTier3InferiumCrop, 3);
 	public static ItemSeed itemTier4InferiumSeeds = new ItemSeed("tier4_inferium_seeds", ModBlocks.blockTier4InferiumCrop, 4);
 	public static ItemSeed itemTier5InferiumSeeds = new ItemSeed("tier5_inferium_seeds", ModBlocks.blockTier5InferiumCrop, 5); 
-			
-	public static ItemCoreRemover itemCoreRemover = new ItemCoreRemover("core_remover");
-	
+				
 	public static ItemGear itemGear = new ItemGear();
 
 	public static ItemCharm itemCharm = new ItemCharm();
@@ -239,6 +239,8 @@ public class ModItems {
 		registerItem(itemInfusionCrystal);
 		registerItem(itemInfusionCrystalMaster);
 		
+		registerItem(itemCoreRemover);
+		
 		if(ModConfig.confFertilizedEssence){ registerItem(itemFertilizedEssence); }
 		if(ModConfig.confMysticalFertilizer){ registerItem(itemMysticalFertilizer); }
 		
@@ -279,8 +281,6 @@ public class ModItems {
 		
 		if(ModConfig.confGearModuleOverride){
 			
-			registerItem(itemCoreRemover);
-
 			itemGear.init();
 			
 			itemCharm.init();
@@ -419,6 +419,8 @@ public class ModItems {
 		registerModel(itemInfusionCrystal);
 		registerModel(itemInfusionCrystalMaster);
 		
+		registerModel(itemCoreRemover);
+		
 		if(ModConfig.confFertilizedEssence){ registerModel(itemFertilizedEssence); }
 		if(ModConfig.confMysticalFertilizer){ registerModel(itemMysticalFertilizer); }
 		
@@ -458,8 +460,6 @@ public class ModItems {
 		
 		if(ModConfig.confGearModuleOverride){
 			
-			registerModel(itemCoreRemover);
-
 			itemGear.initModels();
 			
 			itemCharm.initModels();

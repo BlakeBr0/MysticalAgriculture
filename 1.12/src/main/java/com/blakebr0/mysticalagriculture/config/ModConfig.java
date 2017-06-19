@@ -16,6 +16,7 @@ public class ModConfig {
 	public static int confSeedChance;
 	public static int confEssenceChance;
 	public static int confCrystalDurability;
+	public static int confRemoverDurability;
 	public static int confHostileDropChance;
 	public static int confPassiveDropChance;
 	public static boolean confGrowthAccelerator;
@@ -300,7 +301,6 @@ public class ModConfig {
 	public static boolean confGearModuleOverride;
 	public static boolean confSupremiumFlight;
 	public static boolean confSetBonuses;
-	public static int confRemoverDurability;
 	public static boolean confHarderIngots;
 	public static boolean confCharmReturn;
 	public static boolean confSneakHoeAOE;
@@ -374,6 +374,7 @@ public class ModConfig {
 		confSeedChance = config.getInt("seed_chance", category, 10, 0, 100, "Percentage chance of a second seed dropping.");
 		confEssenceChance = config.getInt("essence_chance", category, 5, 0, 100, "Percentage chance of a second essence dropping.");
 		confCrystalDurability = config.getInt("crystal_durability", category, 1000, 1, 25000, "The durability of the basic Infusion Crystal.");
+		confRemoverDurability = config.getInt("remover_durability", category, 4, 1, 25000, "The durability of the Core Remover.");
 		confHostileDropChance = config.getInt("hostile_drop_chance", category, 20, 0, 100, "Percentage chance for a hostile mob when killed to drop an Inferium Essence.");
 		confPassiveDropChance = config.getInt("passive_drop_chance", category, 20, 0, 100, "Percentage chance for a passive mob when killed to drop an Inferium Essence.");
 		confGrowthAccelerator = config.getBoolean("growth_accelerator", category, true, "Enable Growth Accelerators?");
@@ -679,7 +680,6 @@ public class ModConfig {
 		confGearModuleOverride = config.getBoolean("$gear_module_override", category, true, "Gear Module enabled?");
 		confSupremiumFlight = config.getBoolean("supremium_flight", category, true, "Wearing a full set of Supremium Armor gives flight.");
 		confSetBonuses = config.getBoolean("set_bonuses", category, true, "Should Prudentium+ armor give set bonuses? This does not affect the Supremium Flight option.");
-		confRemoverDurability = config.getInt("remover_durability", category, 4, 1, 25000, "The durability of the Core Remover.");
 		confCharmReturn = config.getBoolean("charm_return", category, true, "Should uncrafting an upgraded armor/tool give back the charm?");
 		confSneakHoeAOE = config.getBoolean("sneak_hoe_aoe", category, true, "Should the Supremium Hoe till a 3x3 while sneaking?");
 		

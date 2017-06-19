@@ -252,6 +252,8 @@ public class ModRecipes {
 		addShapedRecipe(new ItemStack(ModItems.itemInfusionCrystal, 1, 0), "SES", "EDE", "SES", 'E', ModItems.itemCrafting.itemInferiumEssence, 'D', "gemDiamond", 'S', ModItems.itemCrafting.itemProsperityShard);
 		addShapedRecipe(new ItemStack(ModItems.itemInfusionCrystalMaster, 1, 0), "SES", "EDE", "SES", 'E', ModItems.itemCrafting.itemSupremiumEssence, 'D', "gemDiamond", 'S', ModItems.itemCrafting.itemProsperityShard);
   
+	    addShapedRecipe(new ItemStack(ModItems.itemCoreRemover, 1, 0), "IOI", "ODO", "IOI", 'I', "ingotIron", 'O', new ItemStack(Blocks.OBSIDIAN, 1, 0), 'D', "gemDiamond");
+		
 	    if(ModConfig.confMysticalFertilizer){
 	    	addShapedRecipe(new ItemStack(ModItems.itemMysticalFertilizer, 3, 0), "SES", "EDE", "SES", 'E', ModItems.itemCrafting.itemInferiumEssence, 'D', "gemDiamond", 'S', new ItemStack(Items.DYE, 1, 15));	
 	    	if(ModConfig.confFertilizedEssence){
@@ -611,8 +613,6 @@ public class ModRecipes {
 	    	    
 	    if(ModConfig.confGearModuleOverride){
 	    	
-		    addShapedRecipe(new ItemStack(ModItems.itemCoreRemover, 1, 0), "IOI", "ODO", "IOI", 'I', "ingotIron", 'O', new ItemStack(Blocks.OBSIDIAN, 1, 0), 'D', "gemDiamond");
-
 		    addShapedRecipe(new ItemStack(ModItems.itemGear, 1, 0), "MLM", "EIE", "MEM", 'I', ModItems.itemCrafting.itemBaseEssenceIngot, 'M', ModItems.itemCrafting.itemInferiumEssence, 'L', new ItemStack(Items.GOLD_INGOT, 1, 0), 'E', new ItemStack(Items.FLINT, 1, 0));
 		    addShapedRecipe(new ItemStack(ModItems.itemGear, 1, 1), "MLM", "EIE", "MEM", 'I', ModItems.itemGear.itemInferiumToolCore, 'M', ModItems.itemCrafting.itemPrudentiumEssence, 'L', new ItemStack(Blocks.LAPIS_BLOCK, 1, 0), 'E', new ItemStack(Items.GOLD_INGOT, 1, 0));
 		    addShapedRecipe(new ItemStack(ModItems.itemGear, 1, 2), "MLM", "EIE", "MEM", 'I', ModItems.itemGear.itemPrudentiumToolCore, 'M', ModItems.itemCrafting.itemIntermediumEssence, 'L', new ItemStack(Blocks.GOLD_BLOCK, 1, 0), 'E', new ItemStack(Items.DIAMOND, 1, 0));
