@@ -25,27 +25,27 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 
 public class ItemEssenceCoal extends ItemMeta {
 
-	public static ItemStack inferium;
-	public static ItemStack prudentium;
-	public static ItemStack intermedium;
-	public static ItemStack superium;
-	public static ItemStack supremium;
+	public static ItemStack itemInferiumCoal;
+	public static ItemStack itemPrudentiumCoal;
+	public static ItemStack itemIntermediumCoal;
+	public static ItemStack itemSuperiumCoal;
+	public static ItemStack itemSupremiumCoal;
 	
 	public ItemEssenceCoal(){
 		super("coal");
 	}
 	
 	@Override
-	public void init() {
+	public void init(){
 		GameRegistry.register(this);
 				
-		inferium = addItem(0, "inferium", "coalInferium");
-		prudentium = addItem(1, "prudentium", "coalPrudentium");
-		intermedium = addItem(2, "intermedium", "coalIntermedium");
-		superium = addItem(3, "superium", "coalSuperium");
-		supremium = addItem(4, "supremium", "coalSupremium");
+		itemInferiumCoal = addItem(0, "inferium", "coalInferium");
+		itemPrudentiumCoal = addItem(1, "prudentium", "coalPrudentium");
+		itemIntermediumCoal = addItem(2, "intermedium", "coalIntermedium");
+		itemSuperiumCoal = addItem(3, "superium", "coalSuperium");
+		itemSupremiumCoal = addItem(4, "supremium", "coalSupremium");
 		
-		GameRegistry.registerFuelHandler(new FuelHander());
+		GameRegistry.registerFuelHandler(new FuelHandler());
 	}
     
     @Override
@@ -72,7 +72,7 @@ public class ItemEssenceCoal extends ItemMeta {
     	tooltip.add(Tooltips.BURN_TIME + bt);
     }
     
-    public class FuelHander implements IFuelHandler {
+    public class FuelHandler implements IFuelHandler {
 
 		@Override
 		public int getBurnTime(ItemStack stack){
