@@ -22,13 +22,13 @@ import com.blakebr0.mysticalagriculture.util.NBTHelper;
 
 import java.util.*;
 
-public class TinkeringTableRecipe extends ShapedOreRecipe {
+public class UpgradeRecipe extends ShapedOreRecipe {
 
     private final Item resultItem;
     private final int resultMeta;
     private final int type;
 
-    public TinkeringTableRecipe(ItemStack result, int type, Object... recipe){
+    public UpgradeRecipe(ItemStack result, int type, Object... recipe){
 		super(new ResourceLocation("", ""), result, recipe);
 		this.resultItem = result.getItem();
 		this.resultMeta = result.getMetadata();
@@ -37,12 +37,9 @@ public class TinkeringTableRecipe extends ShapedOreRecipe {
 	}
 
     @Override
-    public ItemStack getCraftingResult(InventoryCrafting inventoryCrafting) {        
+    public ItemStack getCraftingResult(InventoryCrafting inventoryCrafting){        
         ItemStack result = new ItemStack((Item)this.resultItem, 1, this.resultMeta);
-        NBTTagCompound tag = result.getTagCompound();
-        if(tag == null){
-        	tag = new NBTTagCompound();
-        }
+        NBTTagCompound tag = NBTHelper.getDataMap(result);
     	tag.setInteger(ArmorType.ARMOR_TYPE, type);
     	result.setTagCompound(tag);
         return result;
@@ -50,11 +47,8 @@ public class TinkeringTableRecipe extends ShapedOreRecipe {
     
     @Override
     public ItemStack getRecipeOutput(){
-        ItemStack result = new ItemStack((Item) this.resultItem, 1, this.resultMeta);
-        NBTTagCompound tag = result.getTagCompound();
-        if(tag == null){
-        	tag = new NBTTagCompound();
-        }
+        ItemStack result = new ItemStack((Item)this.resultItem, 1, this.resultMeta);
+        NBTTagCompound tag = NBTHelper.getDataMap(result);
     	tag.setInteger(ArmorType.ARMOR_TYPE, type);
     	result.setTagCompound(tag);
     	return result;

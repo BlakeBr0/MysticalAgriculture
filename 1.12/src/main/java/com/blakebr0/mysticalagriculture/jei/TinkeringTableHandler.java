@@ -2,11 +2,13 @@ package com.blakebr0.mysticalagriculture.jei;
 
 import java.util.List;
 
+import com.blakebr0.mysticalagriculture.crafting.UpgradeRecipe;
+
 import mezz.jei.api.IJeiHelpers;
 import mezz.jei.api.recipe.IRecipeHandler;
 import mezz.jei.api.recipe.IRecipeWrapper;
-/*
-public class TinkeringTableHandler implements IRecipeHandler<TinkeringTableRecipe>{
+
+public class TinkeringTableHandler implements IRecipeHandler<UpgradeRecipe>{
 
     private IJeiHelpers helper;
 
@@ -15,26 +17,26 @@ public class TinkeringTableHandler implements IRecipeHandler<TinkeringTableRecip
     }
 
     @Override
-    public Class<TinkeringTableRecipe> getRecipeClass() {
-        return TinkeringTableRecipe.class;
+    public Class<UpgradeRecipe> getRecipeClass() {
+        return UpgradeRecipe.class;
     }
 
     @Override
-    public String getRecipeCategoryUid(TinkeringTableRecipe recipe) {
+    public String getRecipeCategoryUid(UpgradeRecipe recipe) {
         return TinkeringTableCategory.UID;
     }
 
     @Override
-    public IRecipeWrapper getRecipeWrapper(TinkeringTableRecipe recipe) {
+    public IRecipeWrapper getRecipeWrapper(UpgradeRecipe recipe) {
         return new TinkeringTableWrapper(this.helper, recipe);
     }
 
     @Override
-    public boolean isRecipeValid(TinkeringTableRecipe recipe) {
+    public boolean isRecipeValid(UpgradeRecipe recipe) {
         if(recipe.getRecipeOutput() == null)
             return false;
         int inputCount = 0;
-        for (Object input : recipe.getInput()) {
+        for (Object input : recipe.getIngredients()) {
             if(input != null) {
                 if(input instanceof List && ((List) input).isEmpty())
                 {
@@ -48,4 +50,4 @@ public class TinkeringTableHandler implements IRecipeHandler<TinkeringTableRecip
 
         return inputCount > 0;
     }
-} */
+}

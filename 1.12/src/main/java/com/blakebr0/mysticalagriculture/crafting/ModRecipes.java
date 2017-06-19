@@ -120,6 +120,17 @@ public class ModRecipes {
 		GameRegistry.addSmelting(input, output, xp);
 	}
 	
+	public static void addUpgradeRecipe(ItemStack output, ItemStack input, int type){
+		TinkeringTableManager.getInstance().addUpgradeRecipe(output, type,
+				"ACE", 
+				"PEP", 
+				"EPE",
+				'A', output,
+				'C', input,
+				'E', ModItems.itemCrafting.itemSupremiumEssence,
+				'P', ModItems.itemCrafting.itemProsperityShard);
+	}
+	
 	public static void addTinkeringRecipe(ItemStack output, ItemStack input, ItemStack input2){
 /*		TinkeringTableManager.getInstance().addRecipe(output, 
 				"ACE", 
@@ -149,7 +160,7 @@ public class ModRecipes {
 		// TODO: removeeeeeeee
 		GameRegistry.register(new CharmRecipe(new ItemStack(Items.DIAMOND), new ItemStack(ModItems.itemSupremiumChestplate)), new ResourceLocation("test"));
 		
-		GameRegistry.register(new TinkeringTableRecipe(new ItemStack(ModItems.itemSupremiumChestplate), ArmorType.ABSORPTION.getIndex(), "CX ", "   ", "   ", 'C', new ItemStack(ModItems.itemSupremiumChestplate), 'X', "gemDiamond"), new ResourceLocation("pogchamp"));
+		GameRegistry.register(new UpgradeRecipe(new ItemStack(ModItems.itemSupremiumChestplate), ArmorType.ABSORPTION.getIndex(), "CX ", "   ", "   ", 'C', new ItemStack(ModItems.itemSupremiumChestplate), 'X', "gemDiamond"), new ResourceLocation("pogchamp"));
 		
 	    addShapedRecipe(new ItemStack(ModBlocks.blockStorage, 1, 0), "EEE", "EEE", "EEE", 'E', ModItems.itemCrafting.itemInferiumEssence);
 	    addShapedRecipe(new ItemStack(ModBlocks.blockStorage, 1, 1), "EEE", "EEE", "EEE", 'E', ModItems.itemCrafting.itemPrudentiumEssence);
@@ -816,7 +827,35 @@ public class ModRecipes {
 			addShapelessRecipe(new ItemStack(ModItems.itemGear, 1, 9), new ItemStack(ModItems.itemSupremiumChestplate, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(ModItems.itemCoreRemover, 1, OreDictionary.WILDCARD_VALUE));
 			addShapelessRecipe(new ItemStack(ModItems.itemGear, 1, 9), new ItemStack(ModItems.itemSupremiumLeggings, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(ModItems.itemCoreRemover, 1, OreDictionary.WILDCARD_VALUE));
 			addShapelessRecipe(new ItemStack(ModItems.itemGear, 1, 9), new ItemStack(ModItems.itemSupremiumBoots, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(ModItems.itemCoreRemover, 1, OreDictionary.WILDCARD_VALUE));
+			
+			addUpgradeRecipe(new ItemStack(ModItems.itemSupremiumHelmet), ModItems.itemCharm.itemCharmNightvision, ArmorType.NIGHT_VISION.getIndex());
+			addUpgradeRecipe(new ItemStack(ModItems.itemSupremiumHelmet), ModItems.itemCharm.itemCharmAbsorption, ArmorType.ABSORPTION.getIndex());
+			addUpgradeRecipe(new ItemStack(ModItems.itemSupremiumHelmet), ModItems.itemCharm.itemCharmWither, ArmorType.WITHER_RESISTANCE.getIndex());
+			addUpgradeRecipe(new ItemStack(ModItems.itemSupremiumHelmet), ModItems.itemCharm.itemCharmAntivenom, ArmorType.ANTIVENOM.getIndex());
+			addUpgradeRecipe(new ItemStack(ModItems.itemSupremiumHelmet), ModItems.itemCharm.itemCharmFire, ArmorType.FIRE_RESISTANCE.getIndex());
+			addUpgradeRecipe(new ItemStack(ModItems.itemSupremiumHelmet), ModItems.itemCharm.itemCharmResistance, ArmorType.RESISTANCE.getIndex());
 
+			addUpgradeRecipe(new ItemStack(ModItems.itemSupremiumChestplate), ModItems.itemCharm.itemCharmStrength, ArmorType.STRENGTH.getIndex());
+			addUpgradeRecipe(new ItemStack(ModItems.itemSupremiumChestplate), ModItems.itemCharm.itemCharmAbsorption, ArmorType.ABSORPTION.getIndex());
+			addUpgradeRecipe(new ItemStack(ModItems.itemSupremiumChestplate), ModItems.itemCharm.itemCharmWither, ArmorType.WITHER_RESISTANCE.getIndex());
+			addUpgradeRecipe(new ItemStack(ModItems.itemSupremiumChestplate), ModItems.itemCharm.itemCharmAntivenom, ArmorType.ANTIVENOM.getIndex());
+			addUpgradeRecipe(new ItemStack(ModItems.itemSupremiumChestplate), ModItems.itemCharm.itemCharmFire, ArmorType.FIRE_RESISTANCE.getIndex());
+			addUpgradeRecipe(new ItemStack(ModItems.itemSupremiumChestplate), ModItems.itemCharm.itemCharmResistance, ArmorType.RESISTANCE.getIndex());
+			
+			addUpgradeRecipe(new ItemStack(ModItems.itemSupremiumLeggings), ModItems.itemCharm.itemCharmSpeed, ArmorType.SPEED.getIndex());
+			addUpgradeRecipe(new ItemStack(ModItems.itemSupremiumLeggings), ModItems.itemCharm.itemCharmAbsorption, ArmorType.ABSORPTION.getIndex());
+			addUpgradeRecipe(new ItemStack(ModItems.itemSupremiumLeggings), ModItems.itemCharm.itemCharmWither, ArmorType.WITHER_RESISTANCE.getIndex());
+			addUpgradeRecipe(new ItemStack(ModItems.itemSupremiumLeggings), ModItems.itemCharm.itemCharmAntivenom, ArmorType.ANTIVENOM.getIndex());
+			addUpgradeRecipe(new ItemStack(ModItems.itemSupremiumLeggings), ModItems.itemCharm.itemCharmFire, ArmorType.FIRE_RESISTANCE.getIndex());
+			addUpgradeRecipe(new ItemStack(ModItems.itemSupremiumLeggings), ModItems.itemCharm.itemCharmResistance, ArmorType.RESISTANCE.getIndex());
+			
+			addUpgradeRecipe(new ItemStack(ModItems.itemSupremiumBoots), ModItems.itemCharm.itemCharmJump, ArmorType.JUMP.getIndex());
+			addUpgradeRecipe(new ItemStack(ModItems.itemSupremiumBoots), ModItems.itemCharm.itemCharmAbsorption, ArmorType.ABSORPTION.getIndex());
+			addUpgradeRecipe(new ItemStack(ModItems.itemSupremiumBoots), ModItems.itemCharm.itemCharmWither, ArmorType.WITHER_RESISTANCE.getIndex());
+			addUpgradeRecipe(new ItemStack(ModItems.itemSupremiumBoots), ModItems.itemCharm.itemCharmAntivenom, ArmorType.ANTIVENOM.getIndex());
+			addUpgradeRecipe(new ItemStack(ModItems.itemSupremiumBoots), ModItems.itemCharm.itemCharmFire, ArmorType.FIRE_RESISTANCE.getIndex());
+			addUpgradeRecipe(new ItemStack(ModItems.itemSupremiumBoots), ModItems.itemCharm.itemCharmResistance, ArmorType.RESISTANCE.getIndex());
+			
 /*			addTinkeringRecipe(new ItemStack(ModItems.itemSupremiumSwordStrength), new ItemStack(ModItems.itemSupremiumSword, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(ModItems.itemCharmStrength, 1, 0));
 			addTinkeringRecipe(new ItemStack(ModItems.itemSupremiumSwordStrength2), new ItemStack(ModItems.itemSupremiumSword, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(ModItems.itemCharmStrength2, 1, 0));
 
@@ -844,34 +883,8 @@ public class ModRecipes {
 
 			if(ModConfig.confAOECharms){ addTinkeringRecipe(new ItemStack(ModItems.itemSupremiumScytheAOE), new ItemStack(ModItems.itemSupremiumScythe, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(ModItems.itemCharmScythingAOE, 1, 0)); }
 
-			addTinkeringRecipe(new ItemStack(ModItems.itemSupremiumHelmetNightvision), new ItemStack(ModItems.itemSupremiumHelmet, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(ModItems.itemCharmNightvision, 1, 0));
-			addTinkeringRecipe(new ItemStack(ModItems.itemSupremiumHelmetAbsorption), new ItemStack(ModItems.itemSupremiumHelmet, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(ModItems.itemCharmAbsorption, 1, 0));
-			addTinkeringRecipe(new ItemStack(ModItems.itemSupremiumHelmetWither), new ItemStack(ModItems.itemSupremiumHelmet, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(ModItems.itemCharmWither, 1, 0));
-			addTinkeringRecipe(new ItemStack(ModItems.itemSupremiumHelmetAntivenom), new ItemStack(ModItems.itemSupremiumHelmet, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(ModItems.itemCharmAntivenom, 1, 0));
-			addTinkeringRecipe(new ItemStack(ModItems.itemSupremiumHelmetFire), new ItemStack(ModItems.itemSupremiumHelmet, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(ModItems.itemCharmFire, 1, 0));
-			addTinkeringRecipe(new ItemStack(ModItems.itemSupremiumHelmetResistance), new ItemStack(ModItems.itemSupremiumHelmet, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(ModItems.itemCharmResistance, 1, 0));
 
-			addTinkeringRecipe(new ItemStack(ModItems.itemSupremiumChestplateStrength), new ItemStack(ModItems.itemSupremiumChestplate, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(ModItems.itemCharmStrength, 1, 0));
-			addTinkeringRecipe(new ItemStack(ModItems.itemSupremiumChestplateAbsorption), new ItemStack(ModItems.itemSupremiumChestplate, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(ModItems.itemCharmAbsorption, 1, 0));
-			addTinkeringRecipe(new ItemStack(ModItems.itemSupremiumChestplateWither), new ItemStack(ModItems.itemSupremiumChestplate, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(ModItems.itemCharmWither, 1, 0));
-			addTinkeringRecipe(new ItemStack(ModItems.itemSupremiumChestplateAntivenom), new ItemStack(ModItems.itemSupremiumChestplate, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(ModItems.itemCharmAntivenom, 1, 0));
-			addTinkeringRecipe(new ItemStack(ModItems.itemSupremiumChestplateFire), new ItemStack(ModItems.itemSupremiumChestplate, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(ModItems.itemCharmFire, 1, 0));
-			addTinkeringRecipe(new ItemStack(ModItems.itemSupremiumChestplateResistance), new ItemStack(ModItems.itemSupremiumChestplate, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(ModItems.itemCharmResistance, 1, 0));
 
-			addTinkeringRecipe(new ItemStack(ModItems.itemSupremiumLeggingsSpeed), new ItemStack(ModItems.itemSupremiumLeggings, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(ModItems.itemCharmSpeed, 1, 0));
-			addTinkeringRecipe(new ItemStack(ModItems.itemSupremiumLeggingsAbsorption), new ItemStack(ModItems.itemSupremiumLeggings, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(ModItems.itemCharmAbsorption, 1, 0));
-			addTinkeringRecipe(new ItemStack(ModItems.itemSupremiumLeggingsWither), new ItemStack(ModItems.itemSupremiumLeggings, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(ModItems.itemCharmWither, 1, 0));
-			addTinkeringRecipe(new ItemStack(ModItems.itemSupremiumLeggingsAntivenom), new ItemStack(ModItems.itemSupremiumLeggings, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(ModItems.itemCharmAntivenom, 1, 0));
-			addTinkeringRecipe(new ItemStack(ModItems.itemSupremiumLeggingsFire), new ItemStack(ModItems.itemSupremiumLeggings, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(ModItems.itemCharmFire, 1, 0));
-			addTinkeringRecipe(new ItemStack(ModItems.itemSupremiumLeggingsResistance), new ItemStack(ModItems.itemSupremiumLeggings, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(ModItems.itemCharmResistance, 1, 0));
-
-			addTinkeringRecipe(new ItemStack(ModItems.itemSupremiumBootsJump), new ItemStack(ModItems.itemSupremiumBoots, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(ModItems.itemCharmJump, 1, 0));
-			addTinkeringRecipe(new ItemStack(ModItems.itemSupremiumBootsAbsorption), new ItemStack(ModItems.itemSupremiumBoots, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(ModItems.itemCharmAbsorption, 1, 0));
-			addTinkeringRecipe(new ItemStack(ModItems.itemSupremiumBootsWither), new ItemStack(ModItems.itemSupremiumBoots, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(ModItems.itemCharmWither, 1, 0));
-			addTinkeringRecipe(new ItemStack(ModItems.itemSupremiumBootsAntivenom), new ItemStack(ModItems.itemSupremiumBoots, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(ModItems.itemCharmAntivenom, 1, 0));
-			addTinkeringRecipe(new ItemStack(ModItems.itemSupremiumBootsFire), new ItemStack(ModItems.itemSupremiumBoots, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(ModItems.itemCharmFire, 1, 0));
-			addTinkeringRecipe(new ItemStack(ModItems.itemSupremiumBootsResistance), new ItemStack(ModItems.itemSupremiumBoots, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(ModItems.itemCharmResistance, 1, 0));
-		
 			addCharmRecipe(new ItemStack(ModItems.itemSupremiumSword), new ItemStack(ModItems.itemSupremiumSwordStrength, 1, OreDictionary.WILDCARD_VALUE));
 			addCharmRecipe(new ItemStack(ModItems.itemSupremiumSword), new ItemStack(ModItems.itemSupremiumSwordStrength2, 1, OreDictionary.WILDCARD_VALUE));
 

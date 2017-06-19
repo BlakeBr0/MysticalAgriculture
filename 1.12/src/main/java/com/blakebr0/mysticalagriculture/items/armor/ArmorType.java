@@ -9,7 +9,7 @@ public enum ArmorType implements IStringSerializable {
 	ABSORPTION(0, "absorption"),
 	WITHER_RESISTANCE(1, "wither_resistance"),
 	ANTIVENOM(2, "antivenom"),
-	FIRE(3, "fire"),
+	FIRE_RESISTANCE(3, "fire_resistance"),
 	RESISTANCE(4, "resistance"),
 	
 	NIGHT_VISION(5, "night_vision"),

@@ -24,6 +24,12 @@ public class TinkeringTableManager {
        this.recipes.add(craft);
        return craft;
 	}*/
+   
+   public UpgradeRecipe addUpgradeRecipe(ItemStack result, int type, Object... recipe){
+	   UpgradeRecipe ur = new UpgradeRecipe(result, type, recipe);
+	   this.getRecipeList().add(ur);
+	   return ur;
+   }
 
    public ItemStack findMatchingRecipe(InventoryCrafting grid, World world) {
        int i = 0;

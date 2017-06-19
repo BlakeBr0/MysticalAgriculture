@@ -11,6 +11,7 @@ import com.blakebr0.mysticalagriculture.items.ModItems;
 import com.blakebr0.mysticalagriculture.lib.Colors;
 import com.blakebr0.mysticalagriculture.lib.IRepairMaterial;
 import com.blakebr0.mysticalagriculture.lib.Tooltips;
+import com.blakebr0.mysticalagriculture.util.NBTHelper;
 import com.blakebr0.mysticalagriculture.util.Utils;
 
 import net.minecraft.block.material.Material;
@@ -51,13 +52,9 @@ public class ItemSupremiumArmor extends ItemArmor implements IRepairMaterial {
 		int damage = stack.getMaxDamage() - stack.getItemDamage();
 		tooltip.add(Tooltips.DURABILITY + Colors.RED + damage);
 		if(ModConfig.confSupremiumFlight){ tooltip.add(Tooltips.SET_BONUS + Colors.RED + Tooltips.FLIGHT); }
-		NBTTagCompound tag = stack.getTagCompound();
-		if(tag != null){
-			if(tag.hasKey(ArmorType.ARMOR_TYPE)){
-				tooltip.add(Tooltips.CHARM_SLOT + Colors.RED + ArmorType.byIndex(tag.getInteger(ArmorType.ARMOR_TYPE)).getLocalizedName());
-			} else {
-				tooltip.add(Tooltips.CHARM_SLOT + Colors.RED + Tooltips.EMPTY);
-			}
+		NBTTagCompound tag = NBTHelper.getDataMap(stack);
+		if(tag.hasKey(ArmorType.ARMOR_TYPE)){
+			tooltip.add(Tooltips.CHARM_SLOT + Colors.RED + ArmorType.byIndex(tag.getInteger(ArmorType.ARMOR_TYPE)).getLocalizedName());
 		} else {
 			tooltip.add(Tooltips.CHARM_SLOT + Colors.RED + Tooltips.EMPTY);
 		}
