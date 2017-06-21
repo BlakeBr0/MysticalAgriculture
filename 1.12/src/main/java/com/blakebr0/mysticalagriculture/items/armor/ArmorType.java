@@ -2,20 +2,67 @@ package com.blakebr0.mysticalagriculture.items.armor;
 
 import com.blakebr0.mysticalagriculture.util.Utils;
 
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.MobEffects;
+import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.IStringSerializable;
+import net.minecraft.world.World;
 
 public enum ArmorType implements IStringSerializable {
 	
-	ABSORPTION(0, "absorption"),
-	WITHER_RESISTANCE(1, "wither_resistance"),
-	ANTIVENOM(2, "antivenom"),
-	FIRE_RESISTANCE(3, "fire_resistance"),
-	RESISTANCE(4, "resistance"),
+	ABSORPTION(0, "absorption"){
+		@Override
+		public void getSpecialAbility(World world, EntityPlayer player){
+			if(player.getActivePotionEffect(MobEffects.ABSORPTION) == null){
+				player.addPotionEffect(new PotionEffect(MobEffects.ABSORPTION, 9600, 4, true, false));
+			}
+		}
+	},
+	WITHER_RESISTANCE(1, "wither_resistance"){
+		@Override
+		public void getSpecialAbility(World world, EntityPlayer player){
+			player.removePotionEffect(MobEffects.WITHER);
+		}
+	},
+	ANTIVENOM(2, "antivenom"){
+		@Override
+		public void getSpecialAbility(World world, EntityPlayer player){
+			player.removePotionEffect(MobEffects.POISON);
+		}
+	},
+	FIRE_RESISTANCE(3, "fire_resistance"){
+		@Override
+		public void getSpecialAbility(World world, EntityPlayer player){
+			player.addPotionEffect(new PotionEffect(MobEffects.FIRE_RESISTANCE, 5, 0, true, false));
+			player.extinguish();
+		}
+	},
+	RESISTANCE(4, "resistance"){
+		@Override
+		public void getSpecialAbility(World world, EntityPlayer player){
+			player.addPotionEffect(new PotionEffect(MobEffects.RESISTANCE, 5, 0, true, false));
+		}
+	},
 	
-	NIGHT_VISION(5, "night_vision"),
-	STRENGTH(6, "strength"),
+	NIGHT_VISION(5, "night_vision"){
+		@Override
+		public void getSpecialAbility(World world, EntityPlayer player){
+			player.addPotionEffect(new PotionEffect(MobEffects.NIGHT_VISION, 240, 0, true, false));
+		}
+	},
+	STRENGTH(6, "strength"){
+		@Override
+		public void getSpecialAbility(World world, EntityPlayer player){
+			player.addPotionEffect(new PotionEffect(MobEffects.STRENGTH, 5, 0, true, false));
+		}
+	},
 	SPEED(7, "speed"),
-	JUMP(8, "jump");
+	JUMP(8, "jump"){
+		@Override
+		public void getSpecialAbility(World world, EntityPlayer player){
+			player.addPotionEffect(new PotionEffect(MobEffects.JUMP_BOOST, 5, 3, true, false));
+		}
+	};
 	
 	public static final String ARMOR_TYPE = "ArmorType";
 	
@@ -39,6 +86,10 @@ public enum ArmorType implements IStringSerializable {
 	
 	public String getLocalizedName(){
 		return Utils.localize("tooltip.ma." + getName());
+	}
+	
+	public void getSpecialAbility(World world, EntityPlayer player){
+		
 	}
 	
     public static ArmorType byIndex(int index){

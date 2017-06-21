@@ -75,6 +75,6 @@ public class ItemPrudentiumArmor extends ItemArmor implements IRepairMaterial {
 		ItemStack legs = player.getItemStackFromSlot(EntityEquipmentSlot.LEGS);
 		ItemStack feet = player.getItemStackFromSlot(EntityEquipmentSlot.FEET);
 		
-		return head != null && head.getItem() instanceof ItemPrudentiumArmor && chest != null && chest.getItem() instanceof ItemPrudentiumArmor && legs != null && legs.getItem() instanceof ItemPrudentiumArmor && feet != null && feet.getItem() instanceof ItemPrudentiumArmor;
+		return !head.isEmpty() && head.getItem() instanceof ItemPrudentiumArmor && !chest.isEmpty() && chest.getItem() instanceof ItemPrudentiumArmor && !legs.isEmpty() && legs.getItem() instanceof ItemPrudentiumArmor && !feet.isEmpty() && feet.getItem() instanceof ItemPrudentiumArmor;
 	}
 }
