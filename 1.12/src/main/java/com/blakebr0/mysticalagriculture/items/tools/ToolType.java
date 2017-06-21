@@ -7,7 +7,7 @@ import net.minecraft.util.IStringSerializable;
 public enum ToolType implements IStringSerializable {
 	
 	STRENGTH(0, "strength"),
-	STRENGTH_2(1, "strength"),
+	STRENGTH_2(1, "strength2"),
 	MINERS_VISION(2, "miners_vision"),
 	RAINBOW(3, "rainbow"),
 	QUICK_DRAW(4, "quick_draw"),

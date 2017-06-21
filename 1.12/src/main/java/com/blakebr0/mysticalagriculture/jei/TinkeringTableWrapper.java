@@ -26,7 +26,7 @@ public class TinkeringTableWrapper implements IRecipeWrapper {
         IStackHelper helper = this.helper.getStackHelper();
         ItemStack output = recipe.getRecipeOutput();
 
-        List<List<ItemStack>> inputs = helper.expandRecipeItemStackInputs(Arrays.asList(recipe.getIngredients()));
+        List<List<ItemStack>> inputs = helper.expandRecipeItemStackInputs(recipe.getIngredients());
 
         ingredients.setInputLists(ItemStack.class, inputs);
         ingredients.setOutput(ItemStack.class, output);

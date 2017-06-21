@@ -54,7 +54,7 @@ public class EssenceRecipes {
 	    addEssenceRecipe(new ItemStack(Blocks.MELON_BLOCK, EssenceConfig.melon, 0), "EEE", "EEE", "EEE", 'E', new ItemStack(type.NATURE.getCrop(), 1, 0));
 	    addEssenceRecipe(new ItemStack(Items.WHEAT, EssenceConfig.wheat, 0), "EEE", "   ", "   ", 'E', new ItemStack(type.NATURE.getCrop(), 1, 0));
 	    addEssenceRecipe(new ItemStack(Items.POTATO, EssenceConfig.potato, 0), "E E", " E ", "   ", 'E', new ItemStack(type.NATURE.getCrop(), 1, 0));
-	    addEssenceRecipe(new ItemStack(Items.POISONOUS_POTATO, EssenceConfig.poisonousPotato, 0), "PE ", "XXX", "XXX", 'E', new ItemStack(type.NATURE.getCrop(), 1, 0), 'P', new ItemStack(Items.POTATO, 1, 0));
+	    addEssenceRecipe(new ItemStack(Items.POISONOUS_POTATO, EssenceConfig.poisonousPotato, 0), "PE ", "   ", "   ", 'E', new ItemStack(type.NATURE.getCrop(), 1, 0), 'P', new ItemStack(Items.POTATO, 1, 0));
 	    addEssenceRecipe(new ItemStack(Items.CARROT, EssenceConfig.carrot, 0), "   ", "E E", "  E", 'E', new ItemStack(type.NATURE.getCrop(), 1, 0));
 	    addEssenceRecipe(new ItemStack(Items.BEETROOT, EssenceConfig.beetroot, 0), "E  ", "  E", "E  ", 'E', new ItemStack(type.NATURE.getCrop(), 1, 0));
 	    addEssenceRecipe(new ItemStack(Blocks.WATERLILY, EssenceConfig.lilypad, 0), "EEE", "EEE", " E ", 'E', new ItemStack(type.NATURE.getCrop(), 1, 0));
@@ -64,12 +64,12 @@ public class EssenceRecipes {
 	    addEssenceRecipe(new ItemStack(Blocks.MOSSY_COBBLESTONE, EssenceConfig.mossyCobblestone, 0), "E E", " N ", "E E", 'E', new ItemStack(type.STONE.getCrop(), 1, 0), 'N', new ItemStack(type.NATURE.getCrop(), 1, 0));
 	    addEssenceRecipe(new ItemStack(Blocks.STONEBRICK, EssenceConfig.mossyStonebrick, 1), " E ", "ENE", " E ", 'E', new ItemStack(type.STONE.getCrop(), 1, 0), 'N', new ItemStack(type.NATURE.getCrop(), 1, 0));   
 
-	    addEssenceRecipe(new ItemStack(Blocks.LOG, EssenceConfig.wood, 0), "EEE", "XXX", "XXX", 'E', new ItemStack(type.WOOD.getCrop(), 1, 0));
-	    addEssenceRecipe(new ItemStack(Blocks.LOG, EssenceConfig.wood, 1), "XXX", "EEE", "XXX", 'E', new ItemStack(type.WOOD.getCrop(), 1, 0));
-	    addEssenceRecipe(new ItemStack(Blocks.LOG, EssenceConfig.wood, 2), "EXX", "XEX", "XXE", 'E', new ItemStack(type.WOOD.getCrop(), 1, 0));
-	    addEssenceRecipe(new ItemStack(Blocks.LOG, EssenceConfig.wood, 3), "EXX", "EXX", "EXX", 'E', new ItemStack(type.WOOD.getCrop(), 1, 0));
-	    addEssenceRecipe(new ItemStack(Blocks.LOG2, EssenceConfig.wood, 0), "XEX", "XEX", "XEX", 'E', new ItemStack(type.WOOD.getCrop(), 1, 0));
-	    addEssenceRecipe(new ItemStack(Blocks.LOG2, EssenceConfig.wood, 1), "XEX", "XEX", "EXX", 'E', new ItemStack(type.WOOD.getCrop(), 1, 0));
+	    addEssenceRecipe(new ItemStack(Blocks.LOG, EssenceConfig.wood, 0), "EEE", "   ", "   ", 'E', new ItemStack(type.WOOD.getCrop(), 1, 0));
+	    addEssenceRecipe(new ItemStack(Blocks.LOG, EssenceConfig.wood, 1), "   ", "EEE", "   ", 'E', new ItemStack(type.WOOD.getCrop(), 1, 0));
+	    addEssenceRecipe(new ItemStack(Blocks.LOG, EssenceConfig.wood, 2), "E  ", " E ", "  E", 'E', new ItemStack(type.WOOD.getCrop(), 1, 0));
+	    addEssenceRecipe(new ItemStack(Blocks.LOG, EssenceConfig.wood, 3), "E  ", "E  ", "E  ", 'E', new ItemStack(type.WOOD.getCrop(), 1, 0));
+	    addEssenceRecipe(new ItemStack(Blocks.LOG2, EssenceConfig.wood, 0), " E ", " E ", " E ", 'E', new ItemStack(type.WOOD.getCrop(), 1, 0));
+	    addEssenceRecipe(new ItemStack(Blocks.LOG2, EssenceConfig.wood, 1), " E ", " E ", "E  ", 'E', new ItemStack(type.WOOD.getCrop(), 1, 0));
 
 	    addEssenceRecipe(new ItemStack(Blocks.SAPLING, EssenceConfig.sapling, 0), "EFE", "   ", "   ", 'E', new ItemStack(type.WOOD.getCrop(), 1, 0), 'F', new ItemStack(type.NATURE.getCrop(), 1, 0));
 	    addEssenceRecipe(new ItemStack(Blocks.SAPLING, EssenceConfig.sapling, 1), "   ", "EFE", "   ", 'E', new ItemStack(type.WOOD.getCrop(), 1, 0), 'F', new ItemStack(type.NATURE.getCrop(), 1, 0));
@@ -287,10 +287,10 @@ public class EssenceRecipes {
 
 	    if(type.CERTUS_QUARTZ.isEnabled()){ 
 	    	addEssenceRecipe(Utils.getItem("crystalCertusQuartz", EssenceConfig.certusQuartz), "EEE", "E E", "EEE", 'E', new ItemStack(type.CERTUS_QUARTZ.getCrop(), 1, 0)); 
-	    	addEssenceRecipe(new ItemStack(Parts.itemAEMaterial, EssenceConfig.press, 13), "EEE", "E E", "EEE", 'X', new ItemStack(Parts.itemAEMaterial, 1, 10), 'E', new ItemStack(type.CERTUS_QUARTZ.getCrop(), 1, 0));
-	    	addEssenceRecipe(new ItemStack(Parts.itemAEMaterial, EssenceConfig.press, 14), "EEE", "E E", "EEE", 'X', "gemDiamond", 'E', new ItemStack(type.CERTUS_QUARTZ.getCrop(), 1, 0));
-	    	addEssenceRecipe(new ItemStack(Parts.itemAEMaterial, EssenceConfig.press, 15), "EEE", "E E", "EEE", 'X', "ingotGold", 'E', new ItemStack(type.CERTUS_QUARTZ.getCrop(), 1, 0));
-	    	addEssenceRecipe(new ItemStack(Parts.itemAEMaterial, EssenceConfig.press, 19), "EEE", "E E", "EEE", 'X', "itemSilicon", 'E', new ItemStack(type.CERTUS_QUARTZ.getCrop(), 1, 0));
+	    	addEssenceRecipe(new ItemStack(Parts.itemAEMaterial, EssenceConfig.press, 13), "EEE", "EXE", "EEE", 'X', new ItemStack(Parts.itemAEMaterial, 1, 10), 'E', new ItemStack(type.CERTUS_QUARTZ.getCrop(), 1, 0));
+	    	addEssenceRecipe(new ItemStack(Parts.itemAEMaterial, EssenceConfig.press, 14), "EEE", "EXE", "EEE", 'X', "gemDiamond", 'E', new ItemStack(type.CERTUS_QUARTZ.getCrop(), 1, 0));
+	    	addEssenceRecipe(new ItemStack(Parts.itemAEMaterial, EssenceConfig.press, 15), "EEE", "EXE", "EEE", 'X', "ingotGold", 'E', new ItemStack(type.CERTUS_QUARTZ.getCrop(), 1, 0));
+	    	addEssenceRecipe(new ItemStack(Parts.itemAEMaterial, EssenceConfig.press, 19), "EEE", "EXE", "EEE", 'X', "itemSilicon", 'E', new ItemStack(type.CERTUS_QUARTZ.getCrop(), 1, 0));
 	    }
 	    if(type.FLUIX.isEnabled()){ addEssenceRecipe(Utils.getItem("crystalFluix", EssenceConfig.fluix), "EEE", "E E", "EEE", 'E', new ItemStack(type.FLUIX.getCrop(), 1, 0)); }
 

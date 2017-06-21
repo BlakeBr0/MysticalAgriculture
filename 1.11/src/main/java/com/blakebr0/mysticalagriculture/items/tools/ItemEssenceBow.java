@@ -58,7 +58,7 @@ public class ItemEssenceBow extends ItemBow {
                     return 0.0F;
                 } else {
                     ItemStack itemstack = entity.getActiveItemStack();
-                    return itemstack != null && itemstack.getItem() instanceof ItemEssenceBow ? (float)(stack.getMaxItemUseDuration() - entity.getItemInUseCount()) * getDrawSpeed() / 20.0F : 0.0F;
+                    return !itemstack.isEmpty() && itemstack.getItem() instanceof ItemEssenceBow ? (float)(stack.getMaxItemUseDuration() - entity.getItemInUseCount()) * getDrawSpeed() / 20.0F : 0.0F;
                 }
             }
         });
@@ -103,7 +103,7 @@ public class ItemEssenceBow extends ItemBow {
 					return itemstack;
 				}
 			}
-			return null;
+			return ItemStack.EMPTY;
 		}
 	}
 	
@@ -115,11 +115,11 @@ public class ItemEssenceBow extends ItemBow {
             ItemStack itemstack = this.findAmmo(entityplayer);
 
             int i = (int)((this.getMaxItemUseDuration(stack) - timeLeft) * getDrawSpeed());
-            i = net.minecraftforge.event.ForgeEventFactory.onArrowLoose(stack, world, (EntityPlayer)entityLiving, i, itemstack != null || flag);
+            i = net.minecraftforge.event.ForgeEventFactory.onArrowLoose(stack, world, (EntityPlayer)entityLiving, i, !itemstack.isEmpty() || flag);
             if(i < 0) return;
 
-            if(itemstack != null || flag){
-                if(itemstack == null){
+            if(!itemstack.isEmpty() || flag){
+                if(itemstack.isEmpty()){
                     itemstack = new ItemStack(Items.ARROW);
                 }
 

@@ -8,6 +8,7 @@ import com.blakebr0.mysticalagriculture.MysticalAgriculture;
 import com.blakebr0.mysticalagriculture.config.ModConfig;
 import com.blakebr0.mysticalagriculture.lib.Colors;
 import com.blakebr0.mysticalagriculture.lib.Tooltips;
+import com.blakebr0.mysticalagriculture.util.NBTHelper;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockDirt;
@@ -17,6 +18,7 @@ import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
@@ -45,7 +47,12 @@ public class ItemSupremiumHoe extends ItemEssenceHoe {
 		int range = this.range + 2;
 		if(isSneakAbilityEnabled()){ tooltip.add(Tooltips.HOE_TOOLTIP[0] + " " + Colors.GRAY + Minecraft.getMinecraft().gameSettings.keyBindSneak.getDisplayName() +  " " + Tooltips.HOE_TOOLTIP[1] + " " + Colors.RED + range + "x" + range + Colors.GRAY + "."); }
 		tooltip.add(Tooltips.DURABILITY + Colors.RED + Tooltips.UNLIMITED);
-		tooltip.add(Tooltips.CHARM_SLOT + Colors.RED + Tooltips.EMPTY);
+		NBTTagCompound tag = NBTHelper.getDataMap(stack);
+		if(tag.hasKey(ToolType.TOOL_TYPE)){
+			tooltip.add(Tooltips.CHARM_SLOT + Colors.RED + ToolType.byIndex(tag.getInteger(ToolType.TOOL_TYPE)).getLocalizedName());
+		} else {
+			tooltip.add(Tooltips.CHARM_SLOT + Colors.RED + Tooltips.EMPTY);
+		}
 	}
 	
 	@Override

@@ -59,12 +59,12 @@ public class ItemBowTripleShot extends ItemEssenceBow {
             ItemStack itemstack = this.findAmmo(entityplayer);
 
             int i = (int)((this.getMaxItemUseDuration(stack) - timeLeft) * getDrawSpeed());
-            i = net.minecraftforge.event.ForgeEventFactory.onArrowLoose(stack, world, (EntityPlayer)entityLiving, i, itemstack != null || flag);
+            i = net.minecraftforge.event.ForgeEventFactory.onArrowLoose(stack, world, (EntityPlayer)entityLiving, i, !itemstack.isEmpty() || flag);
             if(i < 0) return;
             
             for(int xd = 0; xd < 3; xd++){
-                if(itemstack != null || flag){
-                    if(itemstack == null){
+                if(!itemstack.isEmpty() || flag){
+                    if(itemstack.isEmpty()){
                         itemstack = new ItemStack(Items.ARROW);
                     }
 

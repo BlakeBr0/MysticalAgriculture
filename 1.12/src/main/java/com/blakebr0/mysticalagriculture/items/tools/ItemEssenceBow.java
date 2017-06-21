@@ -9,6 +9,7 @@ import com.blakebr0.mysticalagriculture.items.ModItems;
 import com.blakebr0.mysticalagriculture.lib.Colors;
 import com.blakebr0.mysticalagriculture.lib.IRepairMaterial;
 import com.blakebr0.mysticalagriculture.lib.Tooltips;
+import com.blakebr0.mysticalagriculture.util.NBTHelper;
 
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.enchantment.EnchantmentHelper;
@@ -22,6 +23,7 @@ import net.minecraft.item.IItemPropertyGetter;
 import net.minecraft.item.ItemArrow;
 import net.minecraft.item.ItemBow;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.stats.StatList;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.ResourceLocation;
@@ -59,7 +61,7 @@ public class ItemEssenceBow extends ItemBow implements IRepairMaterial {
                     return 0.0F;
                 } else {
                     ItemStack itemstack = entity.getActiveItemStack();
-                    return itemstack != null && itemstack.getItem() instanceof ItemEssenceBow ? (float)(stack.getMaxItemUseDuration() - entity.getItemInUseCount()) * getDrawSpeed() / 20.0F : 0.0F;
+                    return !itemstack.isEmpty() && itemstack.getItem() instanceof ItemEssenceBow ? (float)(stack.getMaxItemUseDuration() - entity.getItemInUseCount()) * getDrawSpeed() / 20.0F : 0.0F;
                 }
             }
         });
@@ -79,7 +81,12 @@ public class ItemEssenceBow extends ItemBow implements IRepairMaterial {
 		tooltip.add(Tooltips.DAMAGE + color + "+" + this.damage);
 		tooltip.add(Tooltips.DRAW_SPEED + color +  "+" + (int)(this.drawSpeed * 100) + "%");
 		if(OreDictionary.itemMatches(getRepairMaterial(), ModItems.itemCrafting.itemSupremiumIngot, false)){
-			tooltip.add(Tooltips.CHARM_SLOT + Colors.RED + Tooltips.EMPTY);
+			NBTTagCompound tag = NBTHelper.getDataMap(stack);
+			if(tag.hasKey(ToolType.TOOL_TYPE)){
+				tooltip.add(Tooltips.CHARM_SLOT + Colors.RED + ToolType.byIndex(tag.getInteger(ToolType.TOOL_TYPE)).getLocalizedName());
+			} else {
+				tooltip.add(Tooltips.CHARM_SLOT + Colors.RED + Tooltips.EMPTY);
+			}
 		}
 	}
 	
@@ -114,7 +121,7 @@ public class ItemEssenceBow extends ItemBow implements IRepairMaterial {
 					return itemstack;
 				}
 			}
-			return null;
+			return ItemStack.EMPTY;
 		}
 	}
 	
@@ -126,11 +133,11 @@ public class ItemEssenceBow extends ItemBow implements IRepairMaterial {
             ItemStack itemstack = this.findAmmo(entityplayer);
 
             int i = (int)((this.getMaxItemUseDuration(stack) - timeLeft) * getDrawSpeed());
-            i = net.minecraftforge.event.ForgeEventFactory.onArrowLoose(stack, world, (EntityPlayer)entityLiving, i, itemstack != null || flag);
+            i = net.minecraftforge.event.ForgeEventFactory.onArrowLoose(stack, world, (EntityPlayer)entityLiving, i, !itemstack.isEmpty() || flag);
             if(i < 0) return;
 
-            if(itemstack != null || flag){
-                if(itemstack == null){
+            if(!itemstack.isEmpty() || flag){
+                if(itemstack.isEmpty()){
                     itemstack = new ItemStack(Items.ARROW);
                 }
 

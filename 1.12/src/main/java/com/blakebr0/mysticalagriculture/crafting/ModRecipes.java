@@ -5,6 +5,7 @@ import com.blakebr0.mysticalagriculture.config.EssenceConfig;
 import com.blakebr0.mysticalagriculture.config.ModConfig;
 import com.blakebr0.mysticalagriculture.items.ModItems;
 import com.blakebr0.mysticalagriculture.items.armor.ArmorType;
+import com.blakebr0.mysticalagriculture.items.tools.ToolType;
 import com.blakebr0.mysticalagriculture.lib.CropType;
 import com.blakebr0.mysticalagriculture.lib.Parts;
 import com.blakebr0.mysticalagriculture.util.ModChecker;
@@ -158,7 +159,7 @@ public class ModRecipes {
 	
 	public static void initRecipes(){
 		// TODO: removeeeeeeee
-		GameRegistry.register(new CharmRecipe(new ItemStack(Items.DIAMOND), new ItemStack(ModItems.itemSupremiumChestplate)), new ResourceLocation("test"));
+		GameRegistry.register(new CharmRemovalRecipe(new ItemStack(Items.DIAMOND), new ItemStack(ModItems.itemSupremiumChestplate)), new ResourceLocation("test"));
 		
 		GameRegistry.register(new UpgradeRecipe(new ItemStack(ModItems.itemSupremiumChestplate), ArmorType.ABSORPTION.getIndex(), "CX ", "   ", "   ", 'C', new ItemStack(ModItems.itemSupremiumChestplate), 'X', "gemDiamond"), new ResourceLocation("pogchamp"));
 		
@@ -828,6 +829,21 @@ public class ModRecipes {
 			addShapelessRecipe(new ItemStack(ModItems.itemGear, 1, 9), new ItemStack(ModItems.itemSupremiumLeggings, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(ModItems.itemCoreRemover, 1, OreDictionary.WILDCARD_VALUE));
 			addShapelessRecipe(new ItemStack(ModItems.itemGear, 1, 9), new ItemStack(ModItems.itemSupremiumBoots, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(ModItems.itemCoreRemover, 1, OreDictionary.WILDCARD_VALUE));
 			
+			addUpgradeRecipe(new ItemStack(ModItems.itemSupremiumSword), ModItems.itemCharm.itemCharmStrength, ToolType.STRENGTH.getIndex());
+			addUpgradeRecipe(new ItemStack(ModItems.itemSupremiumSword), ModItems.itemCharm.itemCharmStrength2, ToolType.STRENGTH_2.getIndex());
+			addUpgradeRecipe(new ItemStack(ModItems.itemSupremiumSword), ModItems.itemCharm.itemCharmAttackAOE, ToolType.ATTACK_AOE.getIndex());
+			addUpgradeRecipe(new ItemStack(ModItems.itemSupremiumPickaxe), ModItems.itemCharm.itemCharmMinersVision, ToolType.MINERS_VISION.getIndex());
+			addUpgradeRecipe(new ItemStack(ModItems.itemSupremiumPickaxe), ModItems.itemCharm.itemCharmMiningAOE, ToolType.MINING_AOE.getIndex());
+			addUpgradeRecipe(new ItemStack(ModItems.itemSupremiumShovel), ModItems.itemCharm.itemCharmMiningAOE, ToolType.MINING_AOE.getIndex());
+			addUpgradeRecipe(new ItemStack(ModItems.itemSupremiumAxe), ModItems.itemCharm.itemCharmMiningAOE, ToolType.MINING_AOE.getIndex());
+			addUpgradeRecipe(new ItemStack(ModItems.itemSupremiumHoe), ModItems.itemCharm.itemCharmTillingAOE, ToolType.TILLING_AOE.getIndex());
+			addUpgradeRecipe(new ItemStack(ModItems.itemSupremiumShears), ModItems.itemCharm.itemCharmRainbow, ToolType.RAINBOW.getIndex());
+			addUpgradeRecipe(new ItemStack(ModItems.itemSupremiumShears), ModItems.itemCharm.itemCharmShearingAOE, ToolType.SHEARING_AOE.getIndex());
+			addUpgradeRecipe(new ItemStack(ModItems.itemSupremiumBow), ModItems.itemCharm.itemCharmQuickDraw, ToolType.QUICK_DRAW.getIndex());
+			addUpgradeRecipe(new ItemStack(ModItems.itemSupremiumBow), ModItems.itemCharm.itemCharmTripleShot, ToolType.TRIPLE_SHOT.getIndex());
+			addUpgradeRecipe(new ItemStack(ModItems.itemSupremiumSickle), ModItems.itemCharm.itemCharmReapingAOE, ToolType.REAPING_AOE.getIndex());
+			addUpgradeRecipe(new ItemStack(ModItems.itemSupremiumScythe), ModItems.itemCharm.itemCharmScythingAOE, ToolType.SCYTHING_AOE.getIndex());
+
 			addUpgradeRecipe(new ItemStack(ModItems.itemSupremiumHelmet), ModItems.itemCharm.itemCharmNightvision, ArmorType.NIGHT_VISION.getIndex());
 			addUpgradeRecipe(new ItemStack(ModItems.itemSupremiumHelmet), ModItems.itemCharm.itemCharmAbsorption, ArmorType.ABSORPTION.getIndex());
 			addUpgradeRecipe(new ItemStack(ModItems.itemSupremiumHelmet), ModItems.itemCharm.itemCharmWither, ArmorType.WITHER_RESISTANCE.getIndex());
@@ -857,18 +873,6 @@ public class ModRecipes {
 			addUpgradeRecipe(new ItemStack(ModItems.itemSupremiumBoots), ModItems.itemCharm.itemCharmResistance, ArmorType.RESISTANCE.getIndex());
 			
 /*			addTinkeringRecipe(new ItemStack(ModItems.itemSupremiumSwordStrength), new ItemStack(ModItems.itemSupremiumSword, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(ModItems.itemCharmStrength, 1, 0));
-			addTinkeringRecipe(new ItemStack(ModItems.itemSupremiumSwordStrength2), new ItemStack(ModItems.itemSupremiumSword, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(ModItems.itemCharmStrength2, 1, 0));
-
-			if(ModConfig.confAOECharms){ addTinkeringRecipe(new ItemStack(ModItems.itemSupremiumSwordAOE), new ItemStack(ModItems.itemSupremiumSword, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(ModItems.itemCharmAttackAOE, 1, 0)); }
-
-			addTinkeringRecipe(new ItemStack(ModItems.itemSupremiumPickaxeMinersVision), new ItemStack(ModItems.itemSupremiumPickaxe, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(ModItems.itemCharmMinersVision, 1, 0));
-			
-			if(ModConfig.confAOECharms){ addTinkeringRecipe(new ItemStack(ModItems.itemSupremiumPickaxeAOE), new ItemStack(ModItems.itemSupremiumPickaxe, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(ModItems.itemCharmMiningAOE, 1, 0)); }
-			
-			if(ModConfig.confAOECharms){ addTinkeringRecipe(new ItemStack(ModItems.itemSupremiumShovelAOE), new ItemStack(ModItems.itemSupremiumShovel, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(ModItems.itemCharmMiningAOE, 1, 0)); }
-			
-			if(ModConfig.confAOECharms){ addTinkeringRecipe(new ItemStack(ModItems.itemSupremiumAxeAOE), new ItemStack(ModItems.itemSupremiumAxe, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(ModItems.itemCharmMiningAOE, 1, 0)); }
-			
 			if(ModConfig.confAOECharms){ addTinkeringRecipe(new ItemStack(ModItems.itemSupremiumHoeAOE), new ItemStack(ModItems.itemSupremiumHoe, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(ModItems.itemCharmTillingAOE, 1, 0)); }
 
 			addTinkeringRecipe(new ItemStack(ModItems.itemSupremiumShearsRainbow), new ItemStack(ModItems.itemSupremiumShears, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(ModItems.itemCharmRainbow, 1, 0));

@@ -3,6 +3,7 @@ package com.blakebr0.mysticalagriculture.crafting;
 import net.minecraft.block.Block;
 import net.minecraft.inventory.InventoryCrafting;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.item.crafting.ShapedRecipes;
@@ -18,6 +19,7 @@ import javax.annotation.Nonnull;
 
 import com.blakebr0.mysticalagriculture.items.armor.ArmorType;
 import com.blakebr0.mysticalagriculture.items.armor.ItemSupremiumArmor;
+import com.blakebr0.mysticalagriculture.items.tools.ToolType;
 import com.blakebr0.mysticalagriculture.util.NBTHelper;
 
 import java.util.*;
@@ -40,7 +42,11 @@ public class UpgradeRecipe extends ShapedOreRecipe {
     public ItemStack getCraftingResult(InventoryCrafting inventoryCrafting){        
         ItemStack result = new ItemStack((Item)this.resultItem, 1, this.resultMeta);
         NBTTagCompound tag = NBTHelper.getDataMap(result);
-    	tag.setInteger(ArmorType.ARMOR_TYPE, type);
+        if(this.resultItem instanceof ItemArmor){
+        	tag.setInteger(ArmorType.ARMOR_TYPE, type);
+        } else {
+        	tag.setInteger(ToolType.TOOL_TYPE, type);
+        }
     	result.setTagCompound(tag);
         return result;
     }
@@ -49,7 +55,11 @@ public class UpgradeRecipe extends ShapedOreRecipe {
     public ItemStack getRecipeOutput(){
         ItemStack result = new ItemStack((Item)this.resultItem, 1, this.resultMeta);
         NBTTagCompound tag = NBTHelper.getDataMap(result);
-    	tag.setInteger(ArmorType.ARMOR_TYPE, type);
+        if(this.resultItem instanceof ItemArmor){
+        	tag.setInteger(ArmorType.ARMOR_TYPE, type);
+        } else {
+        	tag.setInteger(ToolType.TOOL_TYPE, type);
+        }
     	result.setTagCompound(tag);
     	return result;
     }

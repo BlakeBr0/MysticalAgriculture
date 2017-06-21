@@ -842,6 +842,7 @@ tooltip.ma.no_fall_damage=No Fall Damage
 tooltip.ma.flight=Flight
 tooltip.ma.wither_resistance=Wither Resistance
 tooltip.ma.strength=Strength
+tooltip.ma.strength2=Strength 2
 tooltip.ma.speed=Speed
 tooltip.ma.resistance=Resistance
 tooltip.ma.night_vision=Night Vision
