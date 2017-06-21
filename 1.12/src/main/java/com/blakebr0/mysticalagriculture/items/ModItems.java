@@ -17,20 +17,11 @@ import com.blakebr0.mysticalagriculture.items.armor.ItemIntermediumArmor;
 import com.blakebr0.mysticalagriculture.items.armor.ItemPrudentiumArmor;
 import com.blakebr0.mysticalagriculture.items.armor.ItemSuperiumArmor;
 import com.blakebr0.mysticalagriculture.items.armor.ItemSupremiumArmor;
-import com.blakebr0.mysticalagriculture.items.armor.upgraded.ItemUpgradedAntivenom;
-import com.blakebr0.mysticalagriculture.items.armor.upgraded.ItemUpgradedNightvision;
-import com.blakebr0.mysticalagriculture.items.armor.upgraded.ItemUpgradedWither;
 import com.blakebr0.mysticalagriculture.items.arrow.ItemInferiumArrow;
 import com.blakebr0.mysticalagriculture.items.arrow.ItemIntermediumArrow;
 import com.blakebr0.mysticalagriculture.items.arrow.ItemPrudentiumArrow;
 import com.blakebr0.mysticalagriculture.items.arrow.ItemSuperiumArrow;
 import com.blakebr0.mysticalagriculture.items.arrow.ItemSupremiumArrow;
-import com.blakebr0.mysticalagriculture.items.armor.upgraded.ItemUpgradedJump;
-import com.blakebr0.mysticalagriculture.items.armor.upgraded.ItemUpgradedFire;
-import com.blakebr0.mysticalagriculture.items.armor.upgraded.ItemUpgradedResistance;
-import com.blakebr0.mysticalagriculture.items.armor.upgraded.ItemUpgradedSpeed;
-import com.blakebr0.mysticalagriculture.items.armor.upgraded.ItemUpgradedStrength;
-import com.blakebr0.mysticalagriculture.items.armor.upgraded.ItemUpgradedAbsorption;
 import com.blakebr0.mysticalagriculture.items.tools.ItemEssenceAxe;
 import com.blakebr0.mysticalagriculture.items.tools.ItemEssenceBow;
 import com.blakebr0.mysticalagriculture.items.tools.ItemEssenceHoe;
@@ -203,35 +194,7 @@ public class ModItems {
 	public static ItemSupremiumArmor itemSupremiumChestplate = new ItemSupremiumArmor("supremium_chestplate", ModToolMaterials.SUPREMIUM_ARMOR, 0, EntityEquipmentSlot.CHEST);
 	public static ItemSupremiumArmor itemSupremiumLeggings = new ItemSupremiumArmor("supremium_leggings", ModToolMaterials.SUPREMIUM_ARMOR, 0, EntityEquipmentSlot.LEGS);
 	public static ItemSupremiumArmor itemSupremiumBoots = new ItemSupremiumArmor("supremium_boots", ModToolMaterials.SUPREMIUM_ARMOR, 0, EntityEquipmentSlot.FEET);
-	
-	public static ItemUpgradedNightvision itemSupremiumHelmetNightvision = new ItemUpgradedNightvision("supremium_helmet_nightvision", ModToolMaterials.SUPREMIUM_ARMOR, 0, EntityEquipmentSlot.HEAD);
-	public static ItemUpgradedAbsorption itemSupremiumHelmetAbsorption = new ItemUpgradedAbsorption("supremium_helmet_absorption", ModToolMaterials.SUPREMIUM_ARMOR, 0, EntityEquipmentSlot.HEAD);
-	public static ItemUpgradedWither itemSupremiumHelmetWither = new ItemUpgradedWither("supremium_helmet_wither", ModToolMaterials.SUPREMIUM_ARMOR, 0, EntityEquipmentSlot.HEAD);
-	public static ItemUpgradedAntivenom itemSupremiumHelmetAntivenom = new ItemUpgradedAntivenom("supremium_helmet_antivenom", ModToolMaterials.SUPREMIUM_ARMOR, 0, EntityEquipmentSlot.HEAD);
-	public static ItemUpgradedFire itemSupremiumHelmetFire = new ItemUpgradedFire("supremium_helmet_fire", ModToolMaterials.SUPREMIUM_ARMOR, 0, EntityEquipmentSlot.HEAD);	
-	public static ItemUpgradedResistance itemSupremiumHelmetResistance = new ItemUpgradedResistance("supremium_helmet_resistance", ModToolMaterials.SUPREMIUM_ARMOR, 0, EntityEquipmentSlot.HEAD);
-	
-	public static ItemUpgradedStrength itemSupremiumChestplateStrength = new ItemUpgradedStrength("supremium_chestplate_strength", ModToolMaterials.SUPREMIUM_ARMOR, 0, EntityEquipmentSlot.CHEST);
-	public static ItemUpgradedAbsorption itemSupremiumChestplateAbsorption = new ItemUpgradedAbsorption("supremium_chestplate_absorption", ModToolMaterials.SUPREMIUM_ARMOR, 0, EntityEquipmentSlot.CHEST);
-	public static ItemUpgradedWither itemSupremiumChestplateWither = new ItemUpgradedWither("supremium_chestplate_wither", ModToolMaterials.SUPREMIUM_ARMOR, 0, EntityEquipmentSlot.CHEST);
-	public static ItemUpgradedAntivenom itemSupremiumChestplateAntivenom = new ItemUpgradedAntivenom("supremium_chestplate_antivenom", ModToolMaterials.SUPREMIUM_ARMOR, 0, EntityEquipmentSlot.CHEST);
-	public static ItemUpgradedFire itemSupremiumChestplateFire = new ItemUpgradedFire("supremium_chestplate_fire", ModToolMaterials.SUPREMIUM_ARMOR, 0, EntityEquipmentSlot.CHEST);
-	public static ItemUpgradedResistance itemSupremiumChestplateResistance = new ItemUpgradedResistance("supremium_chestplate_resistance", ModToolMaterials.SUPREMIUM_ARMOR, 0, EntityEquipmentSlot.CHEST);
-	
-	public static ItemUpgradedSpeed itemSupremiumLeggingsSpeed = new ItemUpgradedSpeed("supremium_leggings_speed", ModToolMaterials.SUPREMIUM_ARMOR, 0, EntityEquipmentSlot.LEGS);
-	public static ItemUpgradedAbsorption itemSupremiumLeggingsAbsorption = new ItemUpgradedAbsorption("supremium_leggings_absorption", ModToolMaterials.SUPREMIUM_ARMOR, 0, EntityEquipmentSlot.LEGS);
-	public static ItemUpgradedWither itemSupremiumLeggingsWither = new ItemUpgradedWither("supremium_leggings_wither", ModToolMaterials.SUPREMIUM_ARMOR, 0, EntityEquipmentSlot.LEGS);
-	public static ItemUpgradedAntivenom itemSupremiumLeggingsAntivenom = new ItemUpgradedAntivenom("supremium_leggings_antivenom", ModToolMaterials.SUPREMIUM_ARMOR, 0, EntityEquipmentSlot.LEGS);
-	public static ItemUpgradedFire itemSupremiumLeggingsFire = new ItemUpgradedFire("supremium_leggings_fire", ModToolMaterials.SUPREMIUM_ARMOR, 0, EntityEquipmentSlot.LEGS);	
-	public static ItemUpgradedResistance itemSupremiumLeggingsResistance = new ItemUpgradedResistance("supremium_leggings_resistance", ModToolMaterials.SUPREMIUM_ARMOR, 0, EntityEquipmentSlot.LEGS);
-	
-	public static ItemUpgradedJump itemSupremiumBootsJump = new ItemUpgradedJump("supremium_boots_jump", ModToolMaterials.SUPREMIUM_ARMOR, 0, EntityEquipmentSlot.FEET);
-	public static ItemUpgradedAbsorption itemSupremiumBootsAbsorption = new ItemUpgradedAbsorption("supremium_boots_absorption", ModToolMaterials.SUPREMIUM_ARMOR, 0, EntityEquipmentSlot.FEET);
-	public static ItemUpgradedWither itemSupremiumBootsWither = new ItemUpgradedWither("supremium_boots_wither", ModToolMaterials.SUPREMIUM_ARMOR, 0, EntityEquipmentSlot.FEET);
-	public static ItemUpgradedAntivenom itemSupremiumBootsAntivenom = new ItemUpgradedAntivenom("supremium_boots_antivenom", ModToolMaterials.SUPREMIUM_ARMOR, 0, EntityEquipmentSlot.FEET);
-	public static ItemUpgradedFire itemSupremiumBootsFire = new ItemUpgradedFire("supremium_boots_fire", ModToolMaterials.SUPREMIUM_ARMOR, 0, EntityEquipmentSlot.FEET);
-	public static ItemUpgradedResistance itemSupremiumBootsResistance = new ItemUpgradedResistance("supremium_boots_resistance", ModToolMaterials.SUPREMIUM_ARMOR, 0, EntityEquipmentSlot.FEET);
-		
+			
 	public static void initItems(){
 
 		itemCrafting.init();
@@ -380,34 +343,6 @@ public class ModItems {
 	        registerWithRepairMaterial(itemSupremiumChestplate, ModItems.itemCrafting.itemSupremiumIngot);
 	        registerWithRepairMaterial(itemSupremiumLeggings, ModItems.itemCrafting.itemSupremiumIngot);
 	        registerWithRepairMaterial(itemSupremiumBoots, ModItems.itemCrafting.itemSupremiumIngot);
-	        
-	        registerItem(itemSupremiumHelmetNightvision);
-	        registerItem(itemSupremiumHelmetAbsorption);
-	        registerItem(itemSupremiumHelmetWither);
-	        registerItem(itemSupremiumHelmetAntivenom);
-	        registerItem(itemSupremiumHelmetFire);
-	        registerItem(itemSupremiumHelmetResistance);
-	        
-	        registerItem(itemSupremiumChestplateStrength);
-	        registerItem(itemSupremiumChestplateAbsorption);
-	        registerItem(itemSupremiumChestplateWither);
-	        registerItem(itemSupremiumChestplateAntivenom);
-	        registerItem(itemSupremiumChestplateFire);
-	        registerItem(itemSupremiumChestplateResistance);
-	        
-	        registerItem(itemSupremiumLeggingsSpeed);
-	        registerItem(itemSupremiumLeggingsAbsorption);
-	        registerItem(itemSupremiumLeggingsWither);
-	        registerItem(itemSupremiumLeggingsAntivenom);
-	        registerItem(itemSupremiumLeggingsFire);
-	        registerItem(itemSupremiumLeggingsResistance);
-	        
-	        registerItem(itemSupremiumBootsJump);
-	        registerItem(itemSupremiumBootsAbsorption);
-	        registerItem(itemSupremiumBootsWither);
-	        registerItem(itemSupremiumBootsAntivenom);
-	        registerItem(itemSupremiumBootsFire);
-	        registerItem(itemSupremiumBootsResistance);
 		}
 	}
 	
@@ -558,35 +493,7 @@ public class ModItems {
 	        registerModel(itemSupremiumHelmet);
 	        registerModel(itemSupremiumChestplate);
 	        registerModel(itemSupremiumLeggings);
-	        registerModel(itemSupremiumBoots);
-	        
-	        registerModel(itemSupremiumHelmetNightvision);
-	        registerModel(itemSupremiumHelmetAbsorption);
-	        registerModel(itemSupremiumHelmetWither);
-	        registerModel(itemSupremiumHelmetAntivenom);
-	        registerModel(itemSupremiumHelmetFire);
-	        registerModel(itemSupremiumHelmetResistance);
-	        
-	        registerModel(itemSupremiumChestplateStrength);
-	        registerModel(itemSupremiumChestplateAbsorption);
-	        registerModel(itemSupremiumChestplateWither);
-	        registerModel(itemSupremiumChestplateAntivenom);
-	        registerModel(itemSupremiumChestplateFire);
-	        registerModel(itemSupremiumChestplateResistance);
-	        
-	        registerModel(itemSupremiumLeggingsSpeed);
-	        registerModel(itemSupremiumLeggingsAbsorption);
-	        registerModel(itemSupremiumLeggingsWither);
-	        registerModel(itemSupremiumLeggingsAntivenom);
-	        registerModel(itemSupremiumLeggingsFire);
-	        registerModel(itemSupremiumLeggingsResistance);
-	        
-	        registerModel(itemSupremiumBootsJump);
-	        registerModel(itemSupremiumBootsAbsorption);
-	        registerModel(itemSupremiumBootsWither);
-	        registerModel(itemSupremiumBootsAntivenom);
-	        registerModel(itemSupremiumBootsFire);
-	        registerModel(itemSupremiumBootsResistance);		
+	        registerModel(itemSupremiumBoots);	
 		}
 	}
 		
