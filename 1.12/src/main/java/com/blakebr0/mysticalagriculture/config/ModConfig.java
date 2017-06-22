@@ -3,6 +3,7 @@ package com.blakebr0.mysticalagriculture.config;
 import java.io.File;
 
 import com.blakebr0.mysticalagriculture.MysticalAgriculture;
+import com.blakebr0.mysticalagriculture.lib.CropType;
 
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.fml.client.event.ConfigChangedEvent;
@@ -388,293 +389,22 @@ public class ModConfig {
 		confFertilizedEssenceChance = config.getInt("fertilized_essence_chance", category, 5, 0, 100, "Percentage chance that a Resource Crop will drop a Fertilized Essence when harvested.");
 		confMysticalFertilizer = config.getBoolean("mystical_fertilizer", category, true, "Enable Mystical Fertilizer?");
 		confSeedReprocessor = config.getBoolean("seed_reprocessor", category, true, "Should the Seed Reprocessor be enabled?");
-
+		
 		category = "Seeds";
 		config.addCustomCategoryComment(category, "Enable/Disable seeds individually.");
-		confStoneSeeds = config.get(category, "stone_seeds", true).getBoolean();
-		confDirtSeeds = config.get(category, "dirt_seeds", true).getBoolean();
-		confNatureSeeds = config.get(category, "nature_seeds", true).getBoolean();
-		confWoodSeeds = config.get(category, "wood_seeds", true).getBoolean();
-		confWaterSeeds = config.get(category, "water_seeds", true).getBoolean();
-		confIceSeeds = config.get(category, "ice_seeds", true).getBoolean();
-		confFireSeeds = config.get(category, "fire_seeds", true).getBoolean();
-		confDyeSeeds = config.get(category, "dye_seeds", true).getBoolean();
-		confNetherSeeds = config.get(category, "nether_seeds", true).getBoolean();
-		confCoalSeeds = config.get(category, "coal_seeds", true).getBoolean();
-		confIronSeeds = config.get(category, "iron_seeds", true).getBoolean();
-		confNetherQuartzSeeds = config.get(category, "nether_quartz_seeds", true).getBoolean();
-		confGlowstoneSeeds = config.get(category, "glowstone_seeds", true).getBoolean();
-		confObsidianSeeds = config.get(category, "obsidian_seeds", true).getBoolean();
-		confRedstoneSeeds = config.get(category, "redstone_seeds", true).getBoolean();
-		confGoldSeeds = config.get(category, "gold_seeds", true).getBoolean();
-		confLapisLazuliSeeds = config.get(category, "lapis_lazuli_seeds", true).getBoolean();
-		confEndSeeds = config.get(category, "end_seeds", true).getBoolean();
-		confExperienceSeeds = config.get(category, "experience_seeds", true).getBoolean();
-		confDiamondSeeds = config.get(category, "diamond_seeds", true).getBoolean();
-		confEmeraldSeeds = config.get(category, "emerald_seeds", true).getBoolean();
 		
-		confZombieSeeds = config.get(category, "zombie_seeds", true).getBoolean();
-		confPigSeeds = config.get(category, "pig_seeds", true).getBoolean();
-		confChickenSeeds = config.get(category, "chicken_seeds", true).getBoolean();
-		confCowSeeds = config.get(category, "cow_seeds", true).getBoolean();
-		confSheepSeeds = config.get(category, "sheep_seeds", true).getBoolean();
-		confSlimeSeeds = config.get(category, "slime_seeds", true).getBoolean();
-		confSkeletonSeeds = config.get(category, "skeleton_seeds", true).getBoolean();
-		confCreeperSeeds = config.get(category, "creeper_seeds", true).getBoolean();
-		confSpiderSeeds = config.get(category, "spider_seeds", true).getBoolean();
-		confRabbitSeeds = config.get(category, "rabbit_seeds", true).getBoolean();
-		confGuardianSeeds = config.get(category, "guardian_seeds", true).getBoolean();
-		confBlazeSeeds = config.get(category, "blaze_seeds", true).getBoolean();
-		confGhastSeeds = config.get(category, "ghast_seeds", true).getBoolean();
-		confEndermanSeeds = config.get(category, "enderman_seeds", true).getBoolean();
-		confWitherSkeletonSeeds = config.get(category, "wither_skeleton_seeds", true).getBoolean();
-			
-		category = "Mod Support Seeds";
-		config.addCustomCategoryComment(category, "Enable/Disable Mod Support seeds individually.");
-		confRubberSeeds = config.get(category, "rubber_seeds", true).getBoolean();
-		confSiliconSeeds = config.get(category, "silicon_seeds", true).getBoolean();
-		confSulfurSeeds = config.get(category, "sulfur_seeds", true).getBoolean();
-		confAluminumSeeds = config.get(category, "aluminum_seeds", true).getBoolean();
-		confCopperSeeds = config.get(category, "copper_seeds", true).getBoolean();
-		confSaltpeterSeeds = config.get(category, "saltpeter_seeds", true).getBoolean();
-		confTinSeeds = config.get(category, "tin_seeds", true).getBoolean();
-		confBronzeSeeds = config.get(category, "bronze_seeds", true).getBoolean();
-		confZincSeeds = config.get(category, "zinc_seeds", true).getBoolean();
-		confBrassSeeds = config.get(category, "brass_seeds", true).getBoolean();
-		confSilverSeeds = config.get(category, "silver_seeds", true).getBoolean();
-		confLeadSeeds = config.get(category, "lead_seeds", true).getBoolean();
-		confSteelSeeds = config.get(category, "steel_seeds", true).getBoolean();
-		confNickelSeeds = config.get(category, "nickel_seeds", true).getBoolean();
-		confConstantanSeeds = config.get(category, "constantan_seeds", true).getBoolean();
-		confElectrumSeeds = config.get(category, "electrum_seeds", true).getBoolean();
-		confInvarSeeds = config.get(category, "invar_seeds", true).getBoolean();
-		confMithrilSeeds = config.get(category, "mithril_seeds", true).getBoolean();
-		confTungstenSeeds = config.get(category, "tungsten_seeds", true).getBoolean();
-		confTitaniumSeeds = config.get(category, "titanium_seeds", true).getBoolean();
-		confUraniumSeeds = config.get(category, "uranium_seeds", true).getBoolean();
-		confChromeSeeds = config.get(category, "chrome_seeds", true).getBoolean();
-		confPlatinumSeeds = config.get(category, "platinum_seeds", true).getBoolean();
-		confIridiumSeeds = config.get(category, "iridium_seeds", true).getBoolean();
-		
-		confRubySeeds = config.get(category, "ruby_seeds", true).getBoolean();
-		confSapphireSeeds = config.get(category, "sapphire_seeds", true).getBoolean();
-		confPeridotSeeds = config.get(category, "peridot_seeds", true).getBoolean();
-		confAmberSeeds = config.get(category, "amber_seeds", true).getBoolean();
-		confTopazSeeds = config.get(category, "topaz_seeds", true).getBoolean();
-		confMalachiteSeeds = config.get(category, "malachite_seeds", true).getBoolean();
-		confTanzaniteSeeds = config.get(category, "tanzanite_seeds", true).getBoolean();
-		
-		confBlizzSeeds = config.get(category, "blizz_seeds", true).getBoolean();
-		confBlitzSeeds = config.get(category, "blitz_seeds", true).getBoolean();
-		confBasalzSeeds = config.get(category, "basalz_seeds", true).getBoolean();
-		confSignalumSeeds = config.get(category, "signalum_seeds", true).getBoolean();
-		confLumiumSeeds = config.get(category, "lumium_seeds", true).getBoolean();
-		confEnderiumSeeds = config.get(category, "enderium_seeds", true).getBoolean();
-		
-		confAluminumBrassSeeds = config.get(category, "aluminum_brass_seeds", true).getBoolean();
-		confKnightslimeSeeds = config.get(category, "knightslime_seeds", true).getBoolean();
-		confArditeSeeds = config.get(category, "ardite_seeds", true).getBoolean();
-		confCobaltSeeds = config.get(category, "cobalt_seeds", true).getBoolean();
-		confManyullynSeeds = config.get(category, "manyullyn_seeds", true).getBoolean();
-		
-		confElectricalSteelSeeds = config.get(category, "electrical_steel_seeds", true).getBoolean();
-		confRedstoneAlloySeeds = config.get(category, "redstone_alloy_seeds", true).getBoolean();
-		confConductiveIronSeeds = config.get(category, "conductive_iron_seeds", true).getBoolean();
-		confSoulariumSeeds = config.get(category, "soularium_seeds", true).getBoolean();
-		confDarkSteelSeeds = config.get(category, "dark_steel_seeds", true).getBoolean();
-		confPulsatingIronSeeds = config.get(category, "pulsating_iron_seeds", true).getBoolean();
-		confEnergeticAlloySeeds = config.get(category, "energetic_alloy_seeds", true).getBoolean();
-		confVibrantAlloySeeds = config.get(category, "vibrant_alloy_seeds", true).getBoolean();
-
-		confMysticalFlowerSeeds = config.get(category, "mystical_flower_seeds", true).getBoolean();
-		confManasteelSeeds = config.get(category, "manasteel_seeds", true).getBoolean();
-		confTerrasteelSeeds = config.get(category, "terrasteel_seeds", true).getBoolean();
-		
-		confOsmiumSeeds = config.get(category, "osmium_seeds", true).getBoolean();
-		confGlowstoneIngotSeeds = config.get(category, "glowstone_ingot_seeds", true).getBoolean();
-		confRefinedObsidianSeeds = config.get(category, "refined_obsidian_seeds", true).getBoolean();
-		
-		confAquariumSeeds = config.get(category, "aquarium_seeds", true).getBoolean();
-		confColdIronSeeds = config.get(category, "cold_iron_seeds", true).getBoolean();
-		confStarSteelSeeds = config.get(category, "star_steel_seeds", true).getBoolean();
-		confAdamantineSeeds = config.get(category, "adamantine_seeds", true).getBoolean();
-		
-		confMarbleSeeds = config.get(category, "marble_seeds", true).getBoolean();
-		confLimestoneSeeds = config.get(category, "limestone_seeds", true).getBoolean();
-		confBasaltSeeds = config.get(category, "basalt_seeds", true).getBoolean();
-		
-		confApatiteSeeds = config.get(category, "apatite_seeds", true).getBoolean();
-		
-		confMeteoricIronSeeds = config.get(category, "meteoric_iron_seeds", true).getBoolean();
-		confDeshSeeds = config.get(category, "desh_seeds", true).getBoolean();
-		
-		confVinteumSeeds = config.get(category, "vinteum_seeds", true).getBoolean();
-		confChimeriteSeeds = config.get(category, "chimerite_seeds", true).getBoolean();
-		confBlueTopazSeeds = config.get(category, "blue_topaz_seeds", true).getBoolean();
-		confMoonstoneSeeds = config.get(category, "moonstone_seeds", true).getBoolean();
-		confSunstoneSeeds = config.get(category, "sunstone_seeds", true).getBoolean();
-		
-		confEnderBiotiteSeeds = config.get(category, "ender_biotite_seeds", true).getBoolean();
-		
-		confEnderAmethystSeeds = config.get(category, "ender_amethyst_seeds", true).getBoolean();
-	
-		confDraconiumSeeds = config.get(category, "draconium_seeds", true).getBoolean();
-		
-		confYelloriumSeeds = config.get(category, "yellorium_seeds", true).getBoolean();
-		
-		confCertusQuartzSeeds = config.get(category, "certus_quartz_seeds", true).getBoolean();
-		confFluixSeeds = config.get(category, "fluix_seeds", true).getBoolean();
-		
-		confQuartzEnrichedIronSeeds = config.get(category, "quartz_enriched_iron_seeds", true).getBoolean();
-		
-		category = "Seed Tiers";
+		category = "Tiers";
 		config.addCustomCategoryComment(category, "Set the tiers of each seed. The tier affects the recipe and the tooltip."
 				+ "\nTier 1: Inferium"
 				+ "\nTier 2: Prudentium"
 				+ "\nTier 3: Intermedium"
 				+ "\nTier 4: Superium"
 				+ "\nTier 5: Supremium");
-		confStoneTier = config.get(category, "stone_tier", 1).getInt();
-		confDirtTier = config.get(category, "dirt_tier", 1).getInt();
-		confNatureTier = config.get(category, "nature_tier", 1).getInt();
-		confWoodTier = config.get(category, "wood_tier", 1).getInt();
-		confWaterTier = config.get(category, "water_tier", 1).getInt();
-		confIceTier = config.get(category, "ice_tier", 1).getInt();
-		confFireTier = config.get(category, "fire_tier", 2).getInt();
-		confDyeTier = config.get(category, "dye_tier", 2).getInt();
-		confNetherTier = config.get(category, "nether_tier", 2).getInt();
-		confCoalTier = config.get(category, "coal_tier", 2).getInt();
-		confIronTier = config.get(category, "iron_tier", 3).getInt();
-		confNetherQuartzTier = config.get(category, "nether_quartz_tier", 3).getInt();
-		confGlowstoneTier = config.get(category, "glowstone_tier", 3).getInt();
-		confRedstoneTier = config.get(category, "redstone_tier", 3).getInt();
-		confObsidianTier = config.get(category, "obsidian_tier", 3).getInt();
-		confGoldTier = config.get(category, "gold_tier", 4).getInt();
-		confLapisLazuliTier = config.get(category, "lapis_lazuli_tier", 4).getInt();
-		confEndTier = config.get(category, "end_tier", 4).getInt();
-		confExperienceTier = config.get(category, "experience_tier", 4).getInt();
-		confDiamondTier = config.get(category, "diamond_tier", 5).getInt();
-		confEmeraldTier = config.get(category, "emerald_tier", 5).getInt();
 
-		confZombieTier = config.get(category, "zombie_tier", 1).getInt();
-		confPigTier = config.get(category, "pig_tier", 2).getInt();
-		confChickenTier = config.get(category, "chicken_tier", 2).getInt();
-		confCowTier = config.get(category, "cow_tier", 2).getInt();
-		confSheepTier = config.get(category, "sheep_tier", 2).getInt();
-		confSlimeTier = config.get(category, "slime_tier", 2).getInt();
-		confSkeletonTier = config.get(category, "skeleton_tier", 3).getInt();
-		confCreeperTier = config.get(category, "creeper_tier", 3).getInt();
-		confSpiderTier = config.get(category, "spider_tier", 3).getInt();
-		confRabbitTier = config.get(category, "rabbit_tier", 3).getInt();
-		confGuardianTier = config.get(category, "guardian_tier", 3).getInt();
-		confBlazeTier = config.get(category, "blaze_tier", 4).getInt();
-		confGhastTier = config.get(category, "ghast_tier", 4).getInt();
-		confEndermanTier = config.get(category, "enderman_tier", 4).getInt();
-		confWitherSkeletonTier = config.get(category, "wither_skeleton_tier", 5).getInt();
-
-		category = "Mod Support Seed Tiers";
-		config.addCustomCategoryComment(category, "Set the tiers of each seed. The tier affects the recipe and the tooltip."
-				+ "\nTier 1: Inferium"
-				+ "\nTier 2: Prudentium"
-				+ "\nTier 3: Intermedium"
-				+ "\nTier 4: Superium"
-				+ "\nTier 5: Supremium");
-		confRubberTier = config.get(category, "rubber_tier", 2).getInt();
-		confSiliconTier = config.get(category, "silicon_tier", 2).getInt();
-		confSulfurTier = config.get(category, "silicon_seeds", 2).getInt();
-		confAluminumTier = config.get(category, "aluminum_tier", 2).getInt();
-		confCopperTier = config.get(category, "copper_tier", 2).getInt();
-		confSaltpeterTier = config.get(category, "saltpeter_tier", 3).getInt();
-		confTinTier = config.get(category, "tin_tier", 3).getInt();
-		confBronzeTier = config.get(category, "bronze_tier", 3).getInt();
-		confZincTier = config.get(category, "zinc_tier", 3).getInt();
-		confBrassTier = config.get(category, "brass_tier", 3).getInt();
-		confSilverTier = config.get(category, "silver_tier", 3).getInt();
-		confLeadTier = config.get(category, "lead_tier", 3).getInt();
-		confSteelTier = config.get(category, "steels_tier", 4).getInt();
-		confNickelTier = config.get(category, "nickel_tier", 4).getInt();
-		confConstantanTier = config.get(category, "constantan_tier", 4).getInt();
-		confElectrumTier = config.get(category, "electrum_tier", 4).getInt();
-		confInvarTier = config.get(category, "invar_tier", 4).getInt();
-		confMithrilTier = config.get(category, "mithril_tier", 4).getInt();
-		confTungstenTier = config.get(category, "tungsten_tier", 5).getInt();
-		confTitaniumTier = config.get(category, "titanium_tier", 5).getInt();
-		confUraniumTier = config.get(category, "uranium_tier", 5).getInt();
-		confChromeTier = config.get(category, "chrome_tier", 5).getInt();
-		confPlatinumTier = config.get(category, "platinum_tier", 5).getInt();
-		confIridiumTier = config.get(category, "iridium_tier", 5).getInt();
+		for(CropType.Type type : CropType.Type.values()){
+			type.configure(config);
+		}
 		
-		confRubyTier = config.get(category, "ruby_tier", 4).getInt();
-		confSapphireTier = config.get(category, "sapphire", 4).getInt();
-		confPeridotTier = config.get(category, "peridot_tier", 4).getInt();
-		confAmberTier = config.get(category, "amber_tier", 4).getInt();
-		confTopazTier = config.get(category, "topaz_tier", 4).getInt();
-		confMalachiteTier = config.get(category, "malachite_tier", 4).getInt();
-		confTanzaniteTier = config.get(category, "tanzanite_tier", 4).getInt();
-		
-		confBlizzTier = config.get(category, "blizz_tier", 3).getInt();
-		confBlitzTier = config.get(category, "blitz_tier", 3).getInt();
-		confBasalzTier = config.get(category, "basalz_tier", 3).getInt();
-		confSignalumTier = config.get(category, "signalum_tier", 4).getInt();
-		confLumiumTier = config.get(category, "lumium_tier", 4).getInt();
-		confEnderiumTier = config.get(category, "enderium_tier", 5).getInt();
-
-		confAluminumBrassTier = config.get(category, "aluminum_brass_tier", 2).getInt();
-		confKnightslimeTier = config.get(category, "knightslime_tier", 3).getInt();
-		confArditeTier = config.get(category, "ardite_tier", 3).getInt();
-		confCobaltTier = config.get(category, "cobalt_tier", 4).getInt();
-		confManyullynTier = config.get(category, "manyullyn_tier", 5).getInt();
-		
-		confElectricalSteelTier = config.get(category, "electrical_steel_tier", 3).getInt();
-		confRedstoneAlloyTier = config.get(category, "redstone_alloy_tier", 3).getInt();
-		confConductiveIronTier = config.get(category, "conductive_iron_tier", 3).getInt();
-		confSoulariumTier = config.get(category, "soularium_tier", 4).getInt();
-		confDarkSteelTier = config.get(category, "dark_steel_tier", 4).getInt();
-		confPulsatingIronTier = config.get(category, "pulsating_iron_tier", 4).getInt();
-		confEnergeticAlloyTier = config.get(category, "energetic_alloy_tier", 4).getInt();
-		confVibrantAlloyTier = config.get(category, "vibrant_alloy_tier", 5).getInt();
-
-		confMysticalFlowerTier = config.get(category, "mystical_flower_tier", 2).getInt();
-		confManasteelTier = config.get(category, "manasteel_tier", 3).getInt();
-		confTerrasteelTier = config.get(category, "terrasteel_tier", 5).getInt();
-
-		confOsmiumTier = config.get(category, "osmium_tier", 4).getInt();
-		confGlowstoneIngotTier = config.get(category, "glowstone_ingot_tier", 4).getInt();
-		confRefinedObsidianTier = config.get(category, "refined_obsidian_tier", 5).getInt();
-		
-		confAquariumTier = config.get(category, "aquarium_tier", 3).getInt();
-		confColdIronTier = config.get(category, "cold_iron_tier", 3).getInt();
-		confStarSteelTier = config.get(category, "star_steel_tier", 4).getInt();
-		confAdamantineTier = config.get(category, "adamantine_tier", 5).getInt();
-		
-		confMarbleTier = config.get(category, "marble_tier", 2).getInt();
-		confLimestoneTier = config.get(category, "limestone_tier", 2).getInt();
-		confBasaltTier = config.get(category, "basalt_tier", 2).getInt();
-		
-		confApatiteTier = config.get(category, "apatite_tier", 2).getInt();
-		
-		confMeteoricIronTier = config.get(category, "meteoric_iron_tier", 4).getInt();
-		confDeshTier = config.get(category, "desh_tier", 5).getInt();
-		
-		confVinteumTier = config.get(category, "vinteum_tier", 3).getInt();
-		confChimeriteTier = config.get(category, "chimerite_tier", 3).getInt();
-		confBlueTopazTier = config.get(category, "blue_topaz_tier", 3).getInt();
-		confMoonstoneTier = config.get(category, "moonstone_tier", 5).getInt();
-		confSunstoneTier = config.get(category, "sunstone_tier", 5).getInt();
-		
-		confEnderBiotiteTier = config.get(category, "ender_biotite_tier", 3).getInt();
-		
-		confEnderAmethystTier = config.get(category, "ender_amethyst_tier", 5).getInt();
-		
-		confDraconiumTier = config.get(category, "draconium_tier", 5).getInt();
-		
-		confYelloriumTier = config.get(category, "yellorium_tier", 5).getInt();
-		
-		confCertusQuartzTier = config.get(category, "certus_quartz_tier", 3).getInt();
-		confFluixTier = config.get(category, "fluix_tier", 4).getInt();
-		
-		confQuartzEnrichedIronTier = config.get(category, "quartz_enriched_iron_tier", 3).getInt();
-				
 		category = "Gear";
 		config.addCustomCategoryComment(category, "Settings for the Mystical Agriculture: Gear module.");
 		confGearModuleOverride = config.getBoolean("$gear_module_override", category, true, "Gear Module enabled?");

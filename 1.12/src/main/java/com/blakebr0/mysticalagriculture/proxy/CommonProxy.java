@@ -49,6 +49,10 @@ public class CommonProxy {
 		EssenceConfig.init(new File(e.getModConfigurationDirectory(), "mysticalagriculture_recipes.cfg"));
 		MinecraftForge.EVENT_BUS.register(new ModConfig());
 		MinecraftForge.EVENT_BUS.register(new EssenceConfig());
+
+		for(CropType.Type type : CropType.Type.values()){
+			type.declare();
+		}
 		
 		ModBlocks.initBlocks();
 	    ModItems.initItems();
