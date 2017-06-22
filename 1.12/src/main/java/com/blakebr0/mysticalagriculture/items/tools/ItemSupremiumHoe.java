@@ -28,6 +28,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
+// TODO: clean up hoes, aoe hoe
 public class ItemSupremiumHoe extends ItemEssenceHoe {
 	
 	public int range;

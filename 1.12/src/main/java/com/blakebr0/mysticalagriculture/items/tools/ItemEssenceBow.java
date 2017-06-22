@@ -35,6 +35,7 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraftforge.oredict.OreDictionary;
 
+// TODO: quickdraw bow
 public class ItemEssenceBow extends ItemBow implements IRepairMaterial {
 
 	public ItemStack repairMaterial;

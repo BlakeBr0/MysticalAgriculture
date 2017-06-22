@@ -88,7 +88,6 @@ public class CommonProxy {
 		}
 	
 		ModBlocks.initOreDict();
-		ModItems.initOreDict();
 		
 		Parts.getParts();
 //		RecipeSorter.register("mysticalagriculture:charm_recipe", CharmRecipe.class, Category.SHAPELESS, "after:forge:shapelessore");

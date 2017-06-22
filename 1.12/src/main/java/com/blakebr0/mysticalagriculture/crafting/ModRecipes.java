@@ -159,7 +159,7 @@ public class ModRecipes {
 	
 	public static void initRecipes(){
 		// TODO: removeeeeeeee
-		GameRegistry.register(new CharmRemovalRecipe(new ItemStack(Items.DIAMOND), new ItemStack(ModItems.itemSupremiumChestplate)), new ResourceLocation("test"));
+		GameRegistry.register(new CharmRemovalRecipe(new ItemStack(Items.DIAMOND), new ItemStack(ModItems.itemSupremiumPickaxe)), new ResourceLocation("test"));
 		
 		GameRegistry.register(new UpgradeRecipe(new ItemStack(ModItems.itemSupremiumChestplate), ArmorType.ABSORPTION.getIndex(), "CX ", "   ", "   ", 'C', new ItemStack(ModItems.itemSupremiumChestplate), 'X', "gemDiamond"), new ResourceLocation("pogchamp"));
 		

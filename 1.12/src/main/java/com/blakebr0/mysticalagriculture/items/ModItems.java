@@ -32,18 +32,11 @@ import com.blakebr0.mysticalagriculture.items.tools.ItemEssenceShovel;
 import com.blakebr0.mysticalagriculture.items.tools.ItemEssenceSickle;
 import com.blakebr0.mysticalagriculture.items.tools.ItemEssenceSword;
 import com.blakebr0.mysticalagriculture.items.tools.ItemSupremiumHoe;
-import com.blakebr0.mysticalagriculture.items.tools.upgraded.ItemAxeAOE;
-import com.blakebr0.mysticalagriculture.items.tools.upgraded.ItemBowQuickDraw;
 import com.blakebr0.mysticalagriculture.items.tools.upgraded.ItemBowTripleShot;
-import com.blakebr0.mysticalagriculture.items.tools.upgraded.ItemHoeAOE;
-import com.blakebr0.mysticalagriculture.items.tools.upgraded.ItemPickaxeAOE;
-import com.blakebr0.mysticalagriculture.items.tools.upgraded.ItemPickaxeMinersVision;
 import com.blakebr0.mysticalagriculture.items.tools.upgraded.ItemScytheAOE;
 import com.blakebr0.mysticalagriculture.items.tools.upgraded.ItemShearsAOE;
 import com.blakebr0.mysticalagriculture.items.tools.upgraded.ItemShearsRainbow;
-import com.blakebr0.mysticalagriculture.items.tools.upgraded.ItemShovelAOE;
 import com.blakebr0.mysticalagriculture.items.tools.upgraded.ItemSickleAOE;
-import com.blakebr0.mysticalagriculture.items.tools.upgraded.ItemSwordAOE;
 import com.blakebr0.mysticalagriculture.items.tools.upgraded.ItemSwordStrength;
 import com.blakebr0.mysticalagriculture.lib.CropType;
 import com.blakebr0.mysticalagriculture.lib.IRepairMaterial;
@@ -157,15 +150,8 @@ public class ModItems {
 	
 	public static ItemSwordStrength itemSupremiumSwordStrength = new ItemSwordStrength("supremium_sword_strength1", ModToolMaterials.SUPREMIUM_STRENGTH1, TextFormatting.RED);
 	public static ItemSwordStrength itemSupremiumSwordStrength2 = new ItemSwordStrength("supremium_sword_strength2", ModToolMaterials.SUPREMIUM_STRENGTH2, TextFormatting.RED);
-	public static ItemSwordAOE itemSupremiumSwordAOE = new ItemSwordAOE("supremium_sword_aoe", ModToolMaterials.SUPREMIUM_AOE, TextFormatting.RED);
-	public static ItemPickaxeMinersVision itemSupremiumPickaxeMinersVision = new ItemPickaxeMinersVision("supremium_pickaxe_miners", ModToolMaterials.SUPREMIUM, TextFormatting.RED);
-	public static ItemPickaxeAOE itemSupremiumPickaxeAOE = new ItemPickaxeAOE("supremium_pickaxe_aoe", ModToolMaterials.SUPREMIUM_AOE, TextFormatting.RED);
-	public static ItemShovelAOE itemSupremiumShovelAOE = new ItemShovelAOE("supremium_shovel_aoe", ModToolMaterials.SUPREMIUM_AOE, TextFormatting.RED);
-	public static ItemAxeAOE itemSupremiumAxeAOE = new ItemAxeAOE("supremium_axe_aoe", ModToolMaterials.SUPREMIUM_AOE, 19.0F, TextFormatting.RED);
-	public static ItemHoeAOE itemSupremiumHoeAOE = new ItemHoeAOE("supremium_hoe_aoe", ModToolMaterials.SUPREMIUM_AOE, 3, TextFormatting.RED);
 	public static ItemShearsRainbow itemSupremiumShearsRainbow = new ItemShearsRainbow("supremium_shears_rainbow", ModToolMaterials.SUPREMIUM, TextFormatting.RED);
 	public static ItemShearsAOE itemSupremiumShearsAOE = new ItemShearsAOE("supremium_shears_aoe", ModToolMaterials.SUPREMIUM_AOE, TextFormatting.RED);
-	public static ItemBowQuickDraw itemSupremiumBowQuickDraw = new ItemBowQuickDraw("supremium_bow_quick", ModToolMaterials.SUPREMIUM, 1.50F, TextFormatting.RED);
 	public static ItemBowTripleShot itemSupremiumBowTripleShot = new ItemBowTripleShot("supremium_bow_triple", ModToolMaterials.SUPREMIUM, 0.40F, TextFormatting.RED);
 	public static ItemSickleAOE itemSupremiumSickleAOE = new ItemSickleAOE("supremium_sickle_aoe", 3, ModToolMaterials.SUPREMIUM_AOE, TextFormatting.RED);
 	public static ItemScytheAOE itemSupremiumScytheAOE = new ItemScytheAOE("supremium_scythe_aoe", 2, ModToolMaterials.SUPREMIUM_AOE, TextFormatting.RED);
@@ -306,15 +292,8 @@ public class ModItems {
 
 			registerItem(itemSupremiumSwordStrength);
 			registerItem(itemSupremiumSwordStrength2);			
-			registerItem(itemSupremiumSwordAOE);		
-			registerItem(itemSupremiumPickaxeMinersVision);		
-			registerItem(itemSupremiumPickaxeAOE);		
-			registerItem(itemSupremiumShovelAOE);		
-			registerItem(itemSupremiumAxeAOE);		
-			registerItem(itemSupremiumHoeAOE);
 			registerItem(itemSupremiumShearsRainbow);		
 			registerItem(itemSupremiumShearsAOE);		
-			registerItem(itemSupremiumBowQuickDraw);		
 			registerItem(itemSupremiumBowTripleShot);					
 			registerItem(itemSupremiumSickleAOE);			
 			registerItem(itemSupremiumScytheAOE);
@@ -457,15 +436,8 @@ public class ModItems {
 
 			registerModel(itemSupremiumSwordStrength);
 			registerModel(itemSupremiumSwordStrength2);			
-			registerModel(itemSupremiumSwordAOE);			
-			registerModel(itemSupremiumPickaxeMinersVision);			
-			registerModel(itemSupremiumPickaxeAOE);			
-			registerModel(itemSupremiumShovelAOE);			
-			registerModel(itemSupremiumAxeAOE);
-			registerModel(itemSupremiumHoeAOE);			
 			registerModel(itemSupremiumShearsRainbow);	
 			registerModel(itemSupremiumShearsAOE);
-			registerModel(itemSupremiumBowQuickDraw);
 			registerModel(itemSupremiumBowTripleShot);
 			registerModel(itemSupremiumSickleAOE);
 			registerModel(itemSupremiumScytheAOE);
@@ -511,9 +483,5 @@ public class ModItems {
 	@SideOnly(Side.CLIENT)
 	public static void registerModel(Item item){
 		ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(MysticalAgriculture.MOD_ID + ":" + item.getUnlocalizedName().substring(8), "inventory")); 
-	}
-
-	public static void initOreDict(){
-
 	}
 }

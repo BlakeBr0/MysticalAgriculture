@@ -12,10 +12,15 @@ import com.blakebr0.mysticalagriculture.lib.Tooltips;
 import com.blakebr0.mysticalagriculture.util.NBTHelper;
 
 import net.minecraft.client.util.ITooltipFlag;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.SoundEvents;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemSword;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.util.DamageSource;
+import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.EnumHelper;
@@ -65,4 +70,27 @@ public class ItemEssenceSword extends ItemSword implements IRepairMaterial {
 	public ItemStack getRepairMaterial(){
 		return repairMaterial;
 	}
+	
+    @Override
+    public boolean onLeftClickEntity(ItemStack stack, EntityPlayer player, Entity entity){
+		NBTTagCompound tag = NBTHelper.getDataMap(stack);
+		if(tag.hasKey(ToolType.TOOL_TYPE)){
+			if(tag.getInteger(ToolType.TOOL_TYPE) == ToolType.ATTACK_AOE.getIndex()){
+		    	if(player.getCooledAttackStrength(0.5F) >= 0.95F){
+		    		List<EntityLivingBase> entities = player.getEntityWorld().getEntitiesWithinAABB(EntityLivingBase.class, entity.getEntityBoundingBox().grow(1.5D, 0.25D, 1.5D));
+
+		            for(EntityLivingBase aoeEntity : entities) {
+		                if(aoeEntity != player && aoeEntity != entity && !player.isOnSameTeam(entity)) {
+		                    aoeEntity.knockBack(player, 0.4F, (double) MathHelper.sin(player.rotationYaw * 0.017453292F), (double)(-MathHelper.cos(player.rotationYaw * 0.017453292F)));
+		                    aoeEntity.attackEntityFrom(DamageSource.causePlayerDamage(player), 13.0F);
+		                }
+		            }
+
+		            player.getEntityWorld().playSound(null, player.posX, player.posY, player.posZ, SoundEvents.ENTITY_PLAYER_ATTACK_SWEEP, player.getSoundCategory(), 1.0F, 1.0F);
+		            player.spawnSweepParticles();
+		    	}
+			}
+		}
+    	return super.onLeftClickEntity(stack, player, entity);
+    }
 }
