@@ -70,8 +70,6 @@ public class ItemCrafting extends ItemMeta {
 	
 	@Override
 	public void init(){
-		GameRegistry.register(this);
-		
 		itemInferiumEssence = addItem(0, "inferium_essence", "essenceInferium");
 		itemPrudentiumEssence = addItem(1, "prudentium_essence", "essencePrudentium");
 		itemIntermediumEssence = addItem(2, "intermedium_essence", "essenceIntermedium");

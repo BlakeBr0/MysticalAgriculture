@@ -31,16 +31,15 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class BlockWitherproofGlass extends BlockGlass {
 	
-	public BlockWitherproofGlass(String name, Material material, SoundType sound, float hardness, float resistance, String tool, int level) {
-		super(material, false);
+	public BlockWitherproofGlass(){
+		super(Material.GLASS, false);
 		this.setCreativeTab(MysticalAgriculture.tabMysticalAgriculture);
-		this.setSoundType(sound);
-		this.setUnlocalizedName("ma." + name);
-		this.setRegistryName(name);
-		this.setHardness(hardness);
-		this.setResistance(resistance);
-		this.setHarvestLevel(tool, level);
-	} 
+		this.setSoundType(SoundType.GLASS);
+		this.setUnlocalizedName("ma.witherproof_glass");
+		this.setHardness(20.0F);
+		this.setResistance(1800.0F);
+		this.setHarvestLevel("pickaxe", 1);
+	}
 	
 	@Override
 	public boolean canEntityDestroy(IBlockState state, IBlockAccess world, BlockPos pos, Entity entity){

@@ -25,8 +25,8 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class BlockAccelerator extends BlockBase {
 	
-	public BlockAccelerator(String name, Material material, SoundType sound, float hardness, float resistance){
-		super(name, material, sound, hardness, resistance);
+	public BlockAccelerator(){
+		super("growth_accelerator", Material.ROCK, SoundType.STONE, 5.0F, 8.0F);
 		this.setTickRandomly(false);
 	}
 	

@@ -38,7 +38,7 @@ public class ItemEssenceShovel extends ItemSpade implements IRepairMaterial {
 	public ItemEssenceShovel(String name, ToolMaterial material, TextFormatting color){
 		super(material);
 		this.setUnlocalizedName("ma." + name);
-		this.setRegistryName(name);
+		super.setRegistryName(name);
 		this.setCreativeTab(MysticalAgriculture.tabMysticalAgriculture);
 		this.color = color;
 	}

@@ -26,7 +26,7 @@ repositories {
 }
 
 minecraft {
-    version = "1.12-14.21.0.2334"
+    version = "1.12-14.21.0.2359"
     runDir = "run"
     
     // the mappings can be changed at any time, and must be in the following format.
@@ -34,13 +34,13 @@ minecraft {
     // stable_#            stables are built at the discretion of the MCP team.
     // Use non-default mappings at your own risk. they may not always work.
     // simply re-run your setup task after changing the mappings to update your workspace.
-    mappings = "snapshot_20170617"
+    mappings = "snapshot_20170624"
     makeObfSourceJar = false // an Srg named sources jar is made by default. uncomment this to disable.
 }
 
 dependencies {
-	deobfCompile "mezz.jei:jei_1.12:4.6.0.61:api"
-	runtime "mezz.jei:jei_1.12:4.6.0.61"
+	deobfCompile "mezz.jei:jei_1.12:4.7.0.67:api"
+	runtime "mezz.jei:jei_1.12:4.7.0.67"
 }
 
 processResources {

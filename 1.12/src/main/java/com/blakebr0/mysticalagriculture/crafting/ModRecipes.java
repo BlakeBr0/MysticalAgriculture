@@ -20,7 +20,7 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.oredict.OreDictionary;
 import net.minecraftforge.oredict.ShapedOreRecipe;
 import net.minecraftforge.oredict.ShapelessOreRecipe;
-
+/*
 public class ModRecipes {
 	
 	private static CropType.Type type;
@@ -94,11 +94,11 @@ public class ModRecipes {
 	}
 	
 	public static void addShapedRecipe(ItemStack output, Object... input){
-		GameRegistry.register(new ShapedOreRecipe(EMPTY_GROUP, output, input), getRecipeLocation(output));
+//		GameRegistry.register(new ShapedOreRecipe(EMPTY_GROUP, output, input), getRecipeLocation(output));
 	}
 	
 	public static void addShapelessRecipe(ItemStack output, Object... input){
-		GameRegistry.register(new ShapelessOreRecipe(EMPTY_GROUP, output, input), getRecipeLocation(output));
+//		GameRegistry.register(new ShapelessOreRecipe(EMPTY_GROUP, output, input), getRecipeLocation(output));
 	}
 	
 	public static void addSeedRecipe(CropType.Type type, Object input){
@@ -133,7 +133,7 @@ public class ModRecipes {
 	}
 	
 	public static void addTinkeringRecipe(ItemStack output, ItemStack input, ItemStack input2){
-/*		TinkeringTableManager.getInstance().addRecipe(output, 
+		TinkeringTableManager.getInstance().addRecipe(output, 
 				"ACE", 
 				"PEP", 
 				"EPE",
@@ -141,7 +141,7 @@ public class ModRecipes {
 				'C', input2,
 				'E', new ItemStack(ModItems.itemSupremiumEssence, 1, 0),
 				'P', new ItemStack(ModItems.itemProsperityShard, 1, 0));
-*/	}
+	}
 	
     public static ResourceLocation getRecipeLocation(ItemStack output){
     	String namespace = Loader.instance().activeModContainer().getModId();
@@ -159,9 +159,9 @@ public class ModRecipes {
 	
 	public static void initRecipes(){
 		// TODO: removeeeeeeee
-		GameRegistry.register(new CharmRemovalRecipe(new ItemStack(Items.DIAMOND), new ItemStack(ModItems.itemSupremiumPickaxe)), new ResourceLocation("test"));
+//		GameRegistry.register(new CharmRemovalRecipe(new ItemStack(Items.DIAMOND), new ItemStack(ModItems.itemSupremiumPickaxe)), new ResourceLocation("test"));
 		
-		GameRegistry.register(new UpgradeRecipe(new ItemStack(ModItems.itemSupremiumChestplate), ArmorType.ABSORPTION.getIndex(), "CX ", "   ", "   ", 'C', new ItemStack(ModItems.itemSupremiumChestplate), 'X', "gemDiamond"), new ResourceLocation("pogchamp"));
+//		GameRegistry.register(new UpgradeRecipe(new ItemStack(ModItems.itemSupremiumChestplate), ArmorType.ABSORPTION.getIndex(), "CX ", "   ", "   ", 'C', new ItemStack(ModItems.itemSupremiumChestplate), 'X', "gemDiamond"), new ResourceLocation("pogchamp"));
 		
 	    addShapedRecipe(new ItemStack(ModBlocks.blockStorage, 1, 0), "EEE", "EEE", "EEE", 'E', ModItems.itemCrafting.itemInferiumEssence);
 	    addShapedRecipe(new ItemStack(ModBlocks.blockStorage, 1, 1), "EEE", "EEE", "EEE", 'E', ModItems.itemCrafting.itemPrudentiumEssence);
@@ -872,7 +872,7 @@ public class ModRecipes {
 			addUpgradeRecipe(new ItemStack(ModItems.itemSupremiumBoots), ModItems.itemCharm.itemCharmFire, ArmorType.FIRE_RESISTANCE.getIndex());
 			addUpgradeRecipe(new ItemStack(ModItems.itemSupremiumBoots), ModItems.itemCharm.itemCharmResistance, ArmorType.RESISTANCE.getIndex());
 			
-/*			addTinkeringRecipe(new ItemStack(ModItems.itemSupremiumSwordStrength), new ItemStack(ModItems.itemSupremiumSword, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(ModItems.itemCharmStrength, 1, 0));
+			addTinkeringRecipe(new ItemStack(ModItems.itemSupremiumSwordStrength), new ItemStack(ModItems.itemSupremiumSword, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(ModItems.itemCharmStrength, 1, 0));
 			if(ModConfig.confAOECharms){ addTinkeringRecipe(new ItemStack(ModItems.itemSupremiumHoeAOE), new ItemStack(ModItems.itemSupremiumHoe, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(ModItems.itemCharmTillingAOE, 1, 0)); }
 
 			addTinkeringRecipe(new ItemStack(ModItems.itemSupremiumShearsRainbow), new ItemStack(ModItems.itemSupremiumShears, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(ModItems.itemCharmRainbow, 1, 0));
@@ -943,7 +943,7 @@ public class ModRecipes {
 			addCharmRecipe(new ItemStack(ModItems.itemSupremiumBoots), new ItemStack(ModItems.itemSupremiumBootsAntivenom, 1, OreDictionary.WILDCARD_VALUE));
 			addCharmRecipe(new ItemStack(ModItems.itemSupremiumBoots), new ItemStack(ModItems.itemSupremiumBootsFire, 1, OreDictionary.WILDCARD_VALUE));
 			addCharmRecipe(new ItemStack(ModItems.itemSupremiumBoots), new ItemStack(ModItems.itemSupremiumBootsResistance, 1, OreDictionary.WILDCARD_VALUE));
-*/	    }
+	    }
 	}
 }
-
+*/

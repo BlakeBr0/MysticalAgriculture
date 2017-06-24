@@ -7,7 +7,6 @@ import com.blakebr0.mysticalagriculture.blocks.ModBlocks;
 import com.blakebr0.mysticalagriculture.config.EssenceConfig;
 import com.blakebr0.mysticalagriculture.config.ModConfig;
 import com.blakebr0.mysticalagriculture.crafting.EssenceRecipes;
-import com.blakebr0.mysticalagriculture.crafting.ModRecipes;
 import com.blakebr0.mysticalagriculture.crafting.ReprocessorManager;
 import com.blakebr0.mysticalagriculture.crafting.ReprocessorRecipe;
 import com.blakebr0.mysticalagriculture.crafting.TinkeringTableManager;
@@ -23,6 +22,7 @@ import com.blakebr0.mysticalagriculture.items.armor.upgraded.ItemUpgradedSpeed;
 import com.blakebr0.mysticalagriculture.items.tools.ItemEssenceBow;
 import com.blakebr0.mysticalagriculture.lib.CropType;
 import com.blakebr0.mysticalagriculture.lib.Parts;
+import com.blakebr0.mysticalagriculture.registry.MysticalRegistry;
 import com.blakebr0.mysticalagriculture.tileentity.ModTileEntities;
 import com.blakebr0.mysticalagriculture.util.ModChecker;
 import com.blakebr0.mysticalagriculture.world.OreGeneration;
@@ -51,14 +51,16 @@ public class CommonProxy {
 		MinecraftForge.EVENT_BUS.register(new EssenceConfig());
 
 		for(CropType.Type type : CropType.Type.values()){
-			type.declare();
+//			type.declare();
 		}
 		
-		ModBlocks.initBlocks();
+		ModBlocks.init();
 	    ModItems.initItems();
-	    CropType.init();
+//	    CropType.init();
 	    ModEntities.init();
 
+	    MinecraftForge.EVENT_BUS.register(new MysticalRegistry());
+	    
 	    MinecraftForge.EVENT_BUS.register(new BowZoomHandler());
 	    MinecraftForge.EVENT_BUS.register(new ItemIntermediumArmor.AbilityHandler());
 	    MinecraftForge.EVENT_BUS.register(new ItemSuperiumArmor.AbilityHandler());
@@ -72,12 +74,12 @@ public class CommonProxy {
 		ModTileEntities.initTileEntities();
 
 		if(ModConfig.confSeedReprocessor){
-			ReprocessorManager.addRecipe(new ItemStack(ModItems.itemCrafting, 1, 0), new ItemStack(ModItems.itemTier1InferiumSeeds, 1, 0));
+/*			ReprocessorManager.addRecipe(new ItemStack(ModItems.itemCrafting, 1, 0), new ItemStack(ModItems.itemTier1InferiumSeeds, 1, 0));
 			ReprocessorManager.addRecipe(new ItemStack(ModItems.itemCrafting, 2, 0), new ItemStack(ModItems.itemTier2InferiumSeeds, 1, 0));
 			ReprocessorManager.addRecipe(new ItemStack(ModItems.itemCrafting, 3, 0), new ItemStack(ModItems.itemTier3InferiumSeeds, 1, 0));
 			ReprocessorManager.addRecipe(new ItemStack(ModItems.itemCrafting, 4, 0), new ItemStack(ModItems.itemTier4InferiumSeeds, 1, 0));
 			ReprocessorManager.addRecipe(new ItemStack(ModItems.itemCrafting, 5, 0), new ItemStack(ModItems.itemTier5InferiumSeeds, 1, 0));	
-		}
+	*/	}
 		
 		for(CropType.Type type : CropType.Type.values()){
 			if(type.isEnabled()){
@@ -96,7 +98,7 @@ public class CommonProxy {
 		Parts.getParts();
 //		RecipeSorter.register("mysticalagriculture:charm_recipe", CharmRecipe.class, Category.SHAPELESS, "after:forge:shapelessore");
 		
-		ModRecipes.initRecipes();
+	//	ModRecipes.initRecipes();
 		EssenceRecipes.init();
 		
 	    GameRegistry.registerWorldGenerator(new OreGeneration(), 0);

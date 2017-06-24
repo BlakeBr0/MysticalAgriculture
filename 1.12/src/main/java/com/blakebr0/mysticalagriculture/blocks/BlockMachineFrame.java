@@ -29,7 +29,7 @@ public class BlockMachineFrame extends Block {
 		this.setCreativeTab(MysticalAgriculture.tabMysticalAgriculture);
 		this.setSoundType(sound);
 		this.setUnlocalizedName("ma." + name);
-		this.setRegistryName(name);
+//		super.setRegistryName(name);
 		this.setHardness(hardness);
 		this.setResistance(resistance);
 	}

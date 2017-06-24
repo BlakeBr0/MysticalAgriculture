@@ -1,5 +1,8 @@
 package com.blakebr0.mysticalagriculture.blocks;
 
+import com.blakebr0.mysticalagriculture.MysticalAgriculture;
+import com.blakebr0.mysticalagriculture.lib.IModelHelper;
+
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
@@ -18,7 +21,7 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraftforge.oredict.OreDictionary;
 
-public class BlockIngotStorage extends BlockBase {
+public class BlockIngotStorage extends BlockBase implements IModelHelper {
 
     public static final PropertyEnum<Type> VARIANT = PropertyEnum.<Type>create("variant", Type.class);
 	
@@ -29,9 +32,6 @@ public class BlockIngotStorage extends BlockBase {
 
     @Override
     public void init(){
-    	GameRegistry.register(this);
-    	GameRegistry.register(new ItemBlockIngotStorage(this).setRegistryName(getRegistryName()));
-
     	OreDictionary.registerOre("blockBaseEssence", new ItemStack(this, 1, 0));
     	OreDictionary.registerOre("blockInferium", new ItemStack(this, 1, 1));
     	OreDictionary.registerOre("blockPrudentium", new ItemStack(this, 1, 2));
@@ -57,7 +57,7 @@ public class BlockIngotStorage extends BlockBase {
     @SideOnly(Side.CLIENT)
     public void initModels(){
     	for(Type type : Type.values()){
-        	ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(this), type.getMetadata(), new ModelResourceLocation(getRegistryName().toString() + "_" + type.byMetadata(type.getMetadata()).getName()));
+        	ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(this), type.getMetadata(), new ModelResourceLocation(MysticalAgriculture.MOD_ID + ":" + getUnlocalizedName().substring(8) + "_" + type.byMetadata(type.getMetadata()).getName()));
     	}
     }
 

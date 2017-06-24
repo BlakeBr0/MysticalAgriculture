@@ -32,8 +32,6 @@ public class ItemGear extends ItemMeta {
 
 	@Override
 	public void init(){
-		GameRegistry.register(this);
-		
 		itemInferiumToolCore = addItem(0, "inferium_tool_core", true, Utils.asList(Tooltips.CORE_REMOVAL));
 		itemPrudentiumToolCore = addItem(1, "prudentium_tool_core", true, Utils.asList(Tooltips.CORE_REMOVAL));
 		itemIntermediumToolCore = addItem(2, "intermedium_tool_core", true, Utils.asList(Tooltips.CORE_REMOVAL));

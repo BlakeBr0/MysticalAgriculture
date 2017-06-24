@@ -7,6 +7,7 @@ import javax.annotation.Nullable;
 
 import com.blakebr0.mysticalagriculture.MysticalAgriculture;
 import com.blakebr0.mysticalagriculture.lib.EssenceType;
+import com.blakebr0.mysticalagriculture.lib.IModelHelper;
 import com.blakebr0.mysticalagriculture.lib.Tooltips;
 import com.blakebr0.mysticalagriculture.tileentity.TileEntityTinkeringTable;
 
@@ -37,7 +38,7 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class BlockTinkeringTable extends BlockBase implements ITileEntityProvider {
+public class BlockTinkeringTable extends BlockBase implements ITileEntityProvider, IModelHelper {
 
     public static final PropertyEnum<EssenceType.Type> VARIANT = PropertyEnum.<EssenceType.Type>create("variant", EssenceType.Type.class);
 	
@@ -113,7 +114,7 @@ public class BlockTinkeringTable extends BlockBase implements ITileEntityProvide
     @SideOnly(Side.CLIENT)
     public void initModels(){
     	for(EssenceType.Type type : EssenceType.Type.values()){
-        	ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(this), type.getMetadata(), new ModelResourceLocation(getRegistryName().toString() + "_" + type.byMetadata(type.getMetadata()).getName()));
+        	ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(this), type.getMetadata(), new ModelResourceLocation(MysticalAgriculture.MOD_ID + ":" + getUnlocalizedName().substring(8) + "_" + type.byMetadata(type.getMetadata()).getName()));
     	}
     }
 

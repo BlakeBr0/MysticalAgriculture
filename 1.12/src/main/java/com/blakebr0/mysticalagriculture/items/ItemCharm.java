@@ -52,8 +52,6 @@ public class ItemCharm extends ItemMeta {
 	
 	@Override
 	public void init(){
-		GameRegistry.register(this);
-		
 		itemCharmBlank = addItem(0, "blank");
 		
 		itemCharmNightvision = addItem(1, "nightvision", Applicable.HELMET);

@@ -18,73 +18,71 @@ import com.blakebr0.mysticalagriculture.blocks.soulstone.ItemBlockSoulstone;
 import com.blakebr0.mysticalagriculture.config.ModConfig;
 import com.blakebr0.mysticalagriculture.items.ModItems;
 import com.blakebr0.mysticalagriculture.lib.CropType;
+import com.blakebr0.mysticalagriculture.registry.MysticalRegistry;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
-import net.minecraft.client.renderer.block.model.ModelResourceLocation;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemSlab;
 import net.minecraft.item.ItemStack;
-import net.minecraftforge.client.model.ModelLoader;
-import net.minecraftforge.fml.common.registry.GameRegistry;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraftforge.oredict.OreDictionary;
-
+// TODO: blocks with init() need their stuff moved
+// TODO: blocks with config checks need a change of some sort
 public class ModBlocks {
 		
-	public static BlockStorage blockStorage = new BlockStorage();
-	public static BlockIngotStorage blockIngotStorage = new BlockIngotStorage();	
-	public static BlockEssenceCoal blockEssenceCoal = new BlockEssenceCoal();
+	public static BlockStorage blockStorage;
+	public static BlockIngotStorage blockIngotStorage;	
+	public static BlockEssenceCoal blockEssenceCoal;
 	
-	public static BlockSoulstone blockSoulstone = new BlockSoulstone();
-	public static BlockSoulstoneSlab blockSoulstoneSlab = new BlockSoulstoneSlab("soulstone_slab", false);
-	public static BlockSoulstoneSlab blockSoulstoneSlabFull = new BlockSoulstoneSlab("soulstone_slab_full", true);
-	public static BlockSoulstoneSlab blockCobbledSoulstoneSlab = new BlockSoulstoneSlab("cobbled_soulstone_slab", false);
-	public static BlockSoulstoneSlab blockCobbledSoulstoneSlabFull = new BlockSoulstoneSlab("cobbled_soulstone_slab_full", true);
-	public static BlockSoulstoneSlab blockSoulstoneBrickSlab = new BlockSoulstoneSlab("soulstone_brick_slab", false);
-	public static BlockSoulstoneSlab blockSoulstoneBrickSlabFull = new BlockSoulstoneSlab("soulstone_brick_slab_full", true);
-	public static BlockSoulstoneStairs blockCobbledSoulstoneStairs = new BlockSoulstoneStairs("cobbled_soulstone_stairs", blockSoulstone.getDefaultState().withProperty(BlockSoulstone.VARIANT, BlockSoulstone.Type.COBBLED));
-	public static BlockSoulstoneStairs blockSoulstoneBrickStairs = new BlockSoulstoneStairs("soulstone_brick_stairs", blockSoulstone.getDefaultState().withProperty(BlockSoulstone.VARIANT, BlockSoulstone.Type.BRICK));
-	public static BlockSoulstoneWall blockCobbledSoulstoneWall = new BlockSoulstoneWall("cobbled_soulstone_wall", blockSoulstone.getDefaultState().withProperty(BlockSoulstone.VARIANT, BlockSoulstone.Type.COBBLED).getBlock());	
-	public static BlockSoulstoneWall blockSoulstoneBrickWall = new BlockSoulstoneWall("soulstone_brick_wall", blockSoulstone.getDefaultState().withProperty(BlockSoulstone.VARIANT, BlockSoulstone.Type.BRICK).getBlock());	
+	public static BlockSoulstone blockSoulstone;
+	public static BlockSoulstoneSlab blockSoulstoneSlab;
+	public static BlockSoulstoneSlab blockSoulstoneSlabFull;
+	public static BlockSoulstoneSlab blockCobbledSoulstoneSlab;
+	public static BlockSoulstoneSlab blockCobbledSoulstoneSlabFull;
+	public static BlockSoulstoneSlab blockSoulstoneBrickSlab;
+	public static BlockSoulstoneSlab blockSoulstoneBrickSlabFull;
+	public static BlockSoulstoneStairs blockCobbledSoulstoneStairs;
+	public static BlockSoulstoneStairs blockSoulstoneBrickStairs;
+	public static BlockSoulstoneWall blockCobbledSoulstoneWall;	
+	public static BlockSoulstoneWall blockSoulstoneBrickWall;	
 	
-	public static BlockSoulGlass blockSoulGlass = new BlockSoulGlass("soul_glass");
-	public static BlockSoulGlassPane blockSoulGlassPane = new BlockSoulGlassPane("soul_glass_pane");
+	public static BlockSoulGlass blockSoulGlass;
+	public static BlockSoulGlassPane blockSoulGlassPane;
 	
-	public static BlockInferiumFurnace blockInferiumFurnace = new BlockInferiumFurnace(false, "inferium_furnace", 5.0F, 10.0F);
-	public static BlockInferiumFurnace blockInferiumFurnaceActive = new BlockInferiumFurnace(true, "inferium_furnace_active", 5.0F, 10.0F);
-	public static BlockPrudentiumFurnace blockPrudentiumFurnace = new BlockPrudentiumFurnace(false, "prudentium_furnace", 5.0F, 10.0F);
-	public static BlockPrudentiumFurnace blockPrudentiumFurnaceActive = new BlockPrudentiumFurnace(true, "prudentium_furnace_active", 5.0F, 10.0F);
-	public static BlockIntermediumFurnace blockIntermediumFurnace = new BlockIntermediumFurnace(false, "intermedium_furnace", 5.0F, 10.0F);
-	public static BlockIntermediumFurnace blockIntermediumFurnaceActive = new BlockIntermediumFurnace(true, "intermedium_furnace_active", 5.0F, 10.0F);
-	public static BlockSuperiumFurnace blockSuperiumFurnace = new BlockSuperiumFurnace(false, "superium_furnace", 5.0F, 10.0F);
-	public static BlockSuperiumFurnace blockSuperiumFurnaceActive = new BlockSuperiumFurnace(true, "superium_furnace_active", 5.0F, 10.0F);
-	public static BlockSupremiumFurnace blockSupremiumFurnace = new BlockSupremiumFurnace(false, "supremium_furnace", 5.0F, 10.0F);
-	public static BlockSupremiumFurnace blockSupremiumFurnaceActive = new BlockSupremiumFurnace(true, "supremium_furnace_active", 5.0F, 10.0F);
-	public static BlockUltimateFurnace blockUltimateFurnace = new BlockUltimateFurnace(false, "ultimate_furnace", 5.0F, 10.0F);
-	public static BlockUltimateFurnace blockUltimateFurnaceActive = new BlockUltimateFurnace(true, "ultimate_furnace_active", 5.0F, 10.0F);
+	public static BlockInferiumFurnace blockInferiumFurnace;
+	public static BlockInferiumFurnace blockInferiumFurnaceActive;
+	public static BlockPrudentiumFurnace blockPrudentiumFurnace;
+	public static BlockPrudentiumFurnace blockPrudentiumFurnaceActive;
+	public static BlockIntermediumFurnace blockIntermediumFurnace;
+	public static BlockIntermediumFurnace blockIntermediumFurnaceActive;
+	public static BlockSuperiumFurnace blockSuperiumFurnace;
+	public static BlockSuperiumFurnace blockSuperiumFurnaceActive;
+	public static BlockSupremiumFurnace blockSupremiumFurnace;
+	public static BlockSupremiumFurnace blockSupremiumFurnaceActive;
+	public static BlockUltimateFurnace blockUltimateFurnace;
+	public static BlockUltimateFurnace blockUltimateFurnaceActive;
 	
-	public static BlockProsperityOre blockProsperityOre = new BlockProsperityOre("prosperity_ore", Material.ROCK, SoundType.STONE, 3.0F, 5.0F, "pickaxe", 1);
-	public static BlockProsperityOre blockProsperityOreNether = new BlockProsperityOre("nether_prosperity_ore", Material.ROCK, SoundType.STONE, 3.0F, 5.0F, "pickaxe", 1);
-	public static BlockProsperityOre blockProsperityOreEnd = new BlockProsperityOre("end_prosperity_ore", Material.ROCK, SoundType.STONE, 3.0F, 5.0F, "pickaxe", 1);
-	public static BlockInferiumOre blockInferiumOre = new BlockInferiumOre("inferium_ore", Material.ROCK, SoundType.STONE, 3.0F, 5.0F, "pickaxe", 1);
-	public static BlockInferiumOre blockInferiumOreNether = new BlockInferiumOre("nether_inferium_ore", Material.ROCK, SoundType.STONE, 3.0F, 5.0F, "pickaxe", 1);
-	public static BlockInferiumOre blockInferiumOreEnd = new BlockInferiumOre("end_inferium_ore", Material.ROCK, SoundType.STONE, 3.0F, 5.0F, "pickaxe", 1);
+	public static BlockProsperityOre blockProsperityOre;
+	public static BlockProsperityOre blockProsperityOreNether;
+	public static BlockProsperityOre blockProsperityOreEnd;
+	public static BlockInferiumOre blockInferiumOre;
+	public static BlockInferiumOre blockInferiumOreNether;
+	public static BlockInferiumOre blockInferiumOreEnd;
 	
-	public static BlockAccelerator blockGrowthAccelerator = new BlockAccelerator("growth_accelerator", Material.ROCK, SoundType.STONE, 5.0F, 8.0F);
+	public static BlockAccelerator blockGrowthAccelerator;
 	
-	public static BlockMachineFrame blockMysticalMachineFrame = new BlockMachineFrame("mystical_machine_frame", Material.IRON, SoundType.STONE, 4.0F, 6.0F);
-	public static BlockMachineFrame blockGlowstoneLamp = (BlockMachineFrame)new BlockMachineFrame("glowstone_lamp", Material.IRON, SoundType.GLASS, 4.0F, 6.0F).setLightLevel(1.0F);
+	public static BlockMachineFrame blockMysticalMachineFrame;
+	public static BlockMachineFrame blockGlowstoneLamp;
 	
-	public static BlockSeedReprocessor blockSeedReprocessor = new BlockSeedReprocessor();
+	public static BlockSeedReprocessor blockSeedReprocessor;
 	
-	public static BlockWitherproofBlock blockWitherproofBlock = new BlockWitherproofBlock("witherproof_block", Material.ROCK, SoundType.STONE, 24.0F, 2000.0F, "pickaxe", 1);
-	public static BlockWitherproofGlass blockWitherproofGlass = new BlockWitherproofGlass("witherproof_glass", Material.GLASS, SoundType.GLASS, 20.0F, 1800.0F, "pickaxe", 1);
+	public static BlockWitherproofBlock blockWitherproofBlock;
+	public static BlockWitherproofGlass blockWitherproofGlass;
 	
-	public static BlockTinkeringTable blockTinkeringTable = new BlockTinkeringTable();
+	public static BlockTinkeringTable blockTinkeringTable;
 
 	public static BlockInferiumCrop blockTier1InferiumCrop = new BlockInferiumCrop("tier1_inferium_crop", 1);
 	public static BlockInferiumCrop blockTier2InferiumCrop = new BlockInferiumCrop("tier2_inferium_crop", 2);
@@ -92,73 +90,86 @@ public class ModBlocks {
 	public static BlockInferiumCrop blockTier4InferiumCrop = new BlockInferiumCrop("tier4_inferium_crop", 4);
 	public static BlockInferiumCrop blockTier5InferiumCrop = new BlockInferiumCrop("tier5_inferium_crop", 5);
 	
-	public static BlockMinersTorch blockMinersTorch = new BlockMinersTorch();
+	public static BlockMinersTorch blockMinersTorch;
 		
-	public static void initBlocks(){
+	public static void init(){
 							
-		blockStorage.init();
-		blockIngotStorage.init();		
-		blockEssenceCoal.init();
+		blockStorage = register(new BlockStorage(), "storage", false);
+		MysticalRegistry.register(new ItemBlockStorage(blockStorage), "storage");
+		blockIngotStorage = register(new BlockIngotStorage(), "ingot_storage", false);
+		MysticalRegistry.register(new ItemBlockIngotStorage(blockIngotStorage), "ingot_storage");
+		blockEssenceCoal = register(new BlockEssenceCoal(), "coal_block", false);
+		MysticalRegistry.register(new ItemBlockEssenceCoal(blockEssenceCoal), "coal_block");
 		
-		registerBlock(blockSoulstone, new ItemBlockSoulstone(blockSoulstone));
-		GameRegistry.register(blockSoulstoneSlab.setDrop(blockSoulstoneSlab));
-		GameRegistry.register(blockSoulstoneSlabFull.setDrop(blockSoulstoneSlab));
-		GameRegistry.register(new ItemSlab(blockSoulstoneSlab, blockSoulstoneSlab, blockSoulstoneSlabFull).setRegistryName(blockSoulstoneSlab.getRegistryName()));
-		GameRegistry.register(blockCobbledSoulstoneSlab.setDrop(blockCobbledSoulstoneSlab));
-		GameRegistry.register(blockCobbledSoulstoneSlabFull.setDrop(blockCobbledSoulstoneSlab));
-		GameRegistry.register(new ItemSlab(blockCobbledSoulstoneSlab, blockCobbledSoulstoneSlab, blockCobbledSoulstoneSlabFull).setRegistryName(blockCobbledSoulstoneSlab.getRegistryName()));
-		GameRegistry.register(blockSoulstoneBrickSlab.setDrop(blockSoulstoneBrickSlab));
-		GameRegistry.register(blockSoulstoneBrickSlabFull.setDrop(blockSoulstoneBrickSlab));
-		GameRegistry.register(new ItemSlab(blockSoulstoneBrickSlab, blockSoulstoneBrickSlab, blockSoulstoneBrickSlabFull).setRegistryName(blockSoulstoneBrickSlab.getRegistryName()));
-		registerBlock(blockCobbledSoulstoneStairs);
-		registerBlock(blockSoulstoneBrickStairs);
-		registerBlock(blockCobbledSoulstoneWall);
-		registerBlock(blockSoulstoneBrickWall);
+		blockSoulstone = register(new BlockSoulstone(), "soulstone", false);
+		MysticalRegistry.register(new ItemBlockSoulstone(blockSoulstone), "soulstone");
+		blockSoulstoneSlab = register(new BlockSoulstoneSlab("soulstone_slab", false), "soulstone_slab", false);
+		blockSoulstoneSlab.setDrop(blockSoulstoneSlab);
+		blockSoulstoneSlabFull = register(new BlockSoulstoneSlab("soulstone_slab_full", true), "soulstone_slab_full", false);
+		blockSoulstoneSlabFull.setDrop(blockSoulstoneSlab);
+		MysticalRegistry.register(new ItemSlab(blockSoulstoneSlab, blockSoulstoneSlab, blockSoulstoneSlabFull), "soulstone_slab");
+		blockCobbledSoulstoneSlab = register(new BlockSoulstoneSlab("cobbled_soulstone_slab", false), "cobbled_soulstone_slab", false);
+		blockCobbledSoulstoneSlab.setDrop(blockCobbledSoulstoneSlab);
+		blockCobbledSoulstoneSlabFull = register(new BlockSoulstoneSlab("cobbled_soulstone_slab_full", true), "cobbled_soulstone_slab_full", false);
+		blockCobbledSoulstoneSlabFull.setDrop(blockCobbledSoulstoneSlab);
+		MysticalRegistry.register(new ItemSlab(blockCobbledSoulstoneSlab, blockCobbledSoulstoneSlab, blockCobbledSoulstoneSlabFull), "cobbled_soulstone_slab");
+		blockSoulstoneBrickSlab = register(new BlockSoulstoneSlab("soulstone_brick_slab", false), "soulstone_brick_slab", false);
+		blockSoulstoneBrickSlab.setDrop(blockSoulstoneBrickSlab);
+		blockSoulstoneBrickSlabFull = register(new BlockSoulstoneSlab("soulstone_brick_slab_full", true), "soulstone_brick_slab_full", false);
+		blockSoulstoneBrickSlabFull.setDrop(blockSoulstoneBrickSlab);
+		MysticalRegistry.register(new ItemSlab(blockSoulstoneBrickSlab, blockSoulstoneBrickSlab, blockSoulstoneBrickSlabFull), "soulstone_brick_slab");
+		IBlockState cobbledSoulstone = blockSoulstone.getDefaultState().withProperty(BlockSoulstone.VARIANT, BlockSoulstone.Type.COBBLED);
+		blockCobbledSoulstoneStairs = register(new BlockSoulstoneStairs("cobbled_soulstone_stairs", cobbledSoulstone), "cobbled_soulstone_stairs");
+		IBlockState brickSoulstone = blockSoulstone.getDefaultState().withProperty(BlockSoulstone.VARIANT, BlockSoulstone.Type.BRICK);
+		blockSoulstoneBrickStairs = register(new BlockSoulstoneStairs("soulstone_brick_stairs", brickSoulstone), "soulstone_brick_stairs");
+		blockCobbledSoulstoneWall = register(new BlockSoulstoneWall("cobbled_soulstone_wall", cobbledSoulstone.getBlock()), "cobbled_soulstone_wall");
+		blockSoulstoneBrickWall = register(new BlockSoulstoneWall("soulstone_brick_wall", brickSoulstone.getBlock()), "soulstone_brick_wall");
 		
-		registerBlock(blockSoulGlass);
-		registerBlock(blockSoulGlassPane);
+		blockSoulGlass = register(new BlockSoulGlass(), "soul_glass");
+		blockSoulGlassPane = register(new BlockSoulGlassPane(), "soul_glass_pane");
 		
 		if(ModConfig.confEssenceFurnaces){
-			registerBlock(blockInferiumFurnace);
-			registerBlock(blockInferiumFurnaceActive, false);
-			registerBlock(blockPrudentiumFurnace);
-			registerBlock(blockPrudentiumFurnaceActive, false);
-			registerBlock(blockIntermediumFurnace);
-			registerBlock(blockIntermediumFurnaceActive, false);
-			registerBlock(blockSuperiumFurnace);
-			registerBlock(blockSuperiumFurnaceActive, false);
-			registerBlock(blockSupremiumFurnace);
-			registerBlock(blockSupremiumFurnaceActive, false);
+			blockInferiumFurnace = register(new BlockInferiumFurnace(false, "inferium_furnace", 5.0F, 10.0F), "inferium_furnace");
+			blockInferiumFurnaceActive = register(new BlockInferiumFurnace(true, "inferium_furnace_active", 5.0F, 10.0F), "inferium_furnace_active", false);
+			blockPrudentiumFurnace = register(new BlockPrudentiumFurnace(false, "prudentium_furnace", 5.0F, 10.0F), "prudentium_furnace");
+			blockPrudentiumFurnaceActive = register(new BlockPrudentiumFurnace(true, "prudentium_furnace_active", 5.0F, 10.0F), "prudentium_furnace_active", false);
+			blockIntermediumFurnace = register(new BlockIntermediumFurnace(false, "intermedium_furnace", 5.0F, 10.0F), "intermedium_furnace");
+			blockIntermediumFurnaceActive = register(new BlockIntermediumFurnace(true, "intermedium_furnace_active", 5.0F, 10.0F), "intermedium_furnace_active", false);
+			blockSuperiumFurnace = register(new BlockSuperiumFurnace(false, "superium_furnace", 5.0F, 10.0F), "superium_furnace");
+			blockSuperiumFurnaceActive = register(new BlockSuperiumFurnace(true, "superium_furnace_active", 5.0F, 10.0F), "superium_furnace_active", false);
+			blockSupremiumFurnace = register(new BlockSupremiumFurnace(false, "supremium_furnace", 5.0F, 10.0F), "supremium_furnace");
+			blockSupremiumFurnaceActive = register(new BlockSupremiumFurnace(true, "supremium_furnace_active", 5.0F, 10.0F), "supremium_furnace_active", false);
 			if(ModConfig.confUltimateFurnace){
-				registerBlock(blockUltimateFurnace);
-				registerBlock(blockUltimateFurnaceActive, false);
+				blockUltimateFurnace = register(new BlockUltimateFurnace(false, "ultimate_furnace", 5.0F, 10.0F), "ultimate_furnace");
+				blockUltimateFurnaceActive = register(new BlockUltimateFurnace(true, "ultimate_furnace_active", 5.0F, 10.0F), "ultimate_furnace_active", false);
 			}
 		}
 				
-		registerBlock(blockProsperityOre);
-		registerBlock(blockProsperityOreNether);
-		registerBlock(blockProsperityOreEnd);
-		registerBlock(blockInferiumOre);
-		registerBlock(blockInferiumOreNether);
-		registerBlock(blockInferiumOreEnd);
+		blockProsperityOre = register(new BlockProsperityOre("prosperity_ore"), "prosperity_ore");
+		blockProsperityOreNether = register(new BlockProsperityOre("nether_prosperity_ore"), "nether_prosperity_ore");
+		blockProsperityOreEnd = register(new BlockProsperityOre("end_prosperity_ore"), "end_prosperity_ore");
+		blockInferiumOre = register(new BlockInferiumOre("inferium_ore"), "inferium_ore");
+		blockInferiumOreNether = register(new BlockInferiumOre("nether_inferium_ore"), "nether_inferium_ore");
+		blockInferiumOreEnd = register(new BlockInferiumOre("end_inferium_ore"), "end_inferium_ore");
 		
-		if(ModConfig.confGrowthAccelerator){ registerBlock(blockGrowthAccelerator); }
+		if(ModConfig.confGrowthAccelerator){ blockGrowthAccelerator = register(new BlockAccelerator(), "growth_accelerator"); }
 		
-		registerBlock(blockMysticalMachineFrame);
-		registerBlock(blockGlowstoneLamp);
+		blockMysticalMachineFrame = register(new BlockMachineFrame("mystical_machine_frame", Material.IRON, SoundType.STONE, 4.0F, 6.0F), "mystical_machine_frame");
+		blockGlowstoneLamp = register((BlockMachineFrame)new BlockMachineFrame("glowstone_lamp", Material.IRON, SoundType.GLASS, 4.0F, 6.0F).setLightLevel(1.0F), "glowstone_lamp");
 
 		if(ModConfig.confSeedReprocessor){
-			registerBlock(blockSeedReprocessor);
+			blockSeedReprocessor = register(new BlockSeedReprocessor(), "seed_reprocessor");
 		}
 		
 		if(ModConfig.confWitherproofBlocks){
-			registerBlock(blockWitherproofBlock);
-			registerBlock(blockWitherproofGlass);
+			blockWitherproofBlock = register(new BlockWitherproofBlock(), "witherproof_block");
+			blockWitherproofGlass = register(new BlockWitherproofGlass(), "witherproof_glass");
 		}
 
-		registerBlock(blockTinkeringTable, new ItemBlockTinkeringTable(blockTinkeringTable));
+		blockTinkeringTable = register(new BlockTinkeringTable(), "tinkering_table", false);
+		MysticalRegistry.register(new ItemBlockTinkeringTable(blockTinkeringTable), "tinkering_table");
 		
-		registerBlock(blockTier1InferiumCrop.setSeed(ModItems.itemTier1InferiumSeeds));
+/*		registerBlock(blockTier1InferiumCrop.setSeed(ModItems.itemTier1InferiumSeeds));
 		registerBlock(blockTier2InferiumCrop.setSeed(ModItems.itemTier2InferiumSeeds));
 		registerBlock(blockTier3InferiumCrop.setSeed(ModItems.itemTier3InferiumSeeds));
 		registerBlock(blockTier4InferiumCrop.setSeed(ModItems.itemTier4InferiumSeeds));
@@ -169,101 +180,29 @@ public class ModBlocks {
 				registerBlock(type.getPlant());
 			}
 		}
-		
+	*/	
 		if(ModConfig.confGearModuleOverride){
-			registerBlock(blockMinersTorch, new ItemBlockMinersTorch(blockMinersTorch));
+			blockMinersTorch = register(new BlockMinersTorch(), "miners_torch", false);
+			MysticalRegistry.register(new ItemBlockMinersTorch(blockMinersTorch), "miners_torch");
 		}
 	}
 	
-	@SideOnly(Side.CLIENT)
-	public static void initModels(){
-		
-		blockStorage.initModels();
-		blockIngotStorage.initModels();
-		blockEssenceCoal.initModels();
-		
-		blockSoulstone.initModels();
-		registerModel(blockSoulstoneSlab);
-		registerModel(blockCobbledSoulstoneSlab);
-		registerModel(blockSoulstoneBrickSlab);
-		registerModel(blockCobbledSoulstoneStairs);
-		registerModel(blockSoulstoneBrickStairs);
-		registerModel(blockCobbledSoulstoneWall);
-		registerModel(blockSoulstoneBrickWall);
-		
-		registerModel(blockSoulGlass);
-		registerModel(blockSoulGlassPane);
-		
-		if(ModConfig.confEssenceFurnaces){
-			registerModel(blockInferiumFurnace);
-			registerModel(blockPrudentiumFurnace);
-			registerModel(blockIntermediumFurnace);
-			registerModel(blockSuperiumFurnace);
-			registerModel(blockSupremiumFurnace);
-			if(ModConfig.confUltimateFurnace){
-				registerModel(blockUltimateFurnace);
-			}
-		}
-					
-		registerModel(blockProsperityOre);
-		registerModel(blockProsperityOreNether);
-		registerModel(blockProsperityOreEnd);
-		registerModel(blockInferiumOre);
-		registerModel(blockInferiumOreNether);
-		registerModel(blockInferiumOreEnd);
-		
-		if(ModConfig.confGrowthAccelerator){ registerModel(blockGrowthAccelerator); }
-		
-		registerModel(blockMysticalMachineFrame);
-		registerModel(blockGlowstoneLamp);
-
-		if(ModConfig.confSeedReprocessor){
-			registerModel(blockSeedReprocessor);
-		}
-		
-		if(ModConfig.confWitherproofBlocks){
-			registerModel(blockWitherproofBlock);
-			registerModel(blockWitherproofGlass);
-		}
-		
-		blockTinkeringTable.initModels();
-
-		registerModel(blockTier1InferiumCrop);
-		registerModel(blockTier2InferiumCrop);
-		registerModel(blockTier3InferiumCrop);
-		registerModel(blockTier4InferiumCrop);
-		registerModel(blockTier5InferiumCrop);
-		
-		for(CropType.Type type : CropType.Type.values()){
-			if(type.isEnabled()){
-				registerModel(type.getPlant());
-			}
-		}
-		
-		if(ModConfig.confGearModuleOverride){
-			registerModel(blockMinersTorch);
-		}
+	public static <T extends Block> T register(T block, String name){
+		return register(block, name, true);
 	}
 	
-	public static void registerBlock(Block block){
-		registerBlock(block, true);
-	}
-	
-	public static void registerBlock(Block block, boolean itemBlock){
-		GameRegistry.register(block);
+	public static <T extends Block> T register(T block, String name, boolean itemBlock){
+		MysticalRegistry.register(block, name);
 		if(itemBlock){
-			GameRegistry.register(new ItemBlock(block).setRegistryName(block.getRegistryName()));
+			MysticalRegistry.register(new ItemBlock(block), name);
 		}
+		return block;
 	}
 	
-	public static void registerBlock(Block block, ItemBlock itemBlock){
-		GameRegistry.register(block);
-		GameRegistry.register(itemBlock.setRegistryName(block.getRegistryName()));
-	}
-	
-	@SideOnly(Side.CLIENT)
-	public static void registerModel(Block block){
-		ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(block), 0, new ModelResourceLocation(MysticalAgriculture.MOD_ID + ":" + block.getUnlocalizedName().substring(8), "inventory"));
+	public static <T extends Block> T register(T block, String name, ItemBlock itemBlock){
+		MysticalRegistry.register(block, name);
+		MysticalRegistry.register(itemBlock, name);
+		return block;
 	}
 	
 	public static void initOreDict(){

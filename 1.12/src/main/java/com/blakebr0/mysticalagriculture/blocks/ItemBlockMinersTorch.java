@@ -5,6 +5,7 @@ import net.minecraft.block.SoundType;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumActionResult;
@@ -39,6 +40,9 @@ public class ItemBlockMinersTorch extends ItemBlock {
                 iblockstate1 = world.getBlockState(pos);
                 SoundType soundtype = iblockstate1.getBlock().getSoundType(iblockstate1, world, pos, player);
                 world.playSound(player, pos, soundtype.getPlaceSound(), SoundCategory.BLOCKS, (soundtype.getVolume() + 1.0F) / 2.0F, soundtype.getPitch() * 0.8F);
+                if(itemstack.getItem() == Item.getItemFromBlock(ModBlocks.blockMinersTorch)){
+                	itemstack.shrink(1);
+                }
             }
             return EnumActionResult.SUCCESS;
         } else {

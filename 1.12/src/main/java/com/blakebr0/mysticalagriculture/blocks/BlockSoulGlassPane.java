@@ -13,10 +13,9 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class BlockSoulGlassPane extends BlockPane {
 
-	public BlockSoulGlassPane(String name){
+	public BlockSoulGlassPane(){
 		super(Material.GLASS, false);
-		this.setUnlocalizedName("ma." + name);
-		this.setRegistryName(name);
+		this.setUnlocalizedName("ma.soul_glass_pane");
 		this.setCreativeTab(MysticalAgriculture.tabMysticalAgriculture);
 		this.setHardness(0.3F);
 		this.setSoundType(SoundType.GLASS);

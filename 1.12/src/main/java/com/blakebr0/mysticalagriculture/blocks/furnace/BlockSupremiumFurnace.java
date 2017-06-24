@@ -55,7 +55,7 @@ public class BlockSupremiumFurnace extends BlockContainer
         this.setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH));
         this.isBurning = isBurning;
 		this.setUnlocalizedName("ma." + name);
-        this.setRegistryName(name);
+     //   super.setRegistryName(name);
         this.setCreativeTab(MysticalAgriculture.tabMysticalAgriculture);
 		this.setHardness(hardness);
 		this.setResistance(resistance);

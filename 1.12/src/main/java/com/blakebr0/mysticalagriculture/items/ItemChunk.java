@@ -48,8 +48,6 @@ public class ItemChunk extends ItemMeta {
 	
 	@Override
 	public void init(){
-		GameRegistry.register(this);
-		
 		itemTier1MobChunk = addItem(0, "tier1_mob_chunk");
 		itemTier2MobChunk = addItem(1, "tier2_mob_chunk");
 		itemTier3MobChunk = addItem(2, "tier3_mob_chunk");

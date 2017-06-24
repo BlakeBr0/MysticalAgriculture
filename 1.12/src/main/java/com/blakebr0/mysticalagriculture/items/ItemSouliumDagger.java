@@ -42,7 +42,7 @@ public class ItemSouliumDagger extends ItemSword {
 	protected ItemSouliumDagger(String name, ToolMaterial material){
 		super(material);
 		this.setUnlocalizedName("ma." + name);
-		this.setRegistryName(name);
+	//	super.setRegistryName(name);
 		this.setCreativeTab(MysticalAgriculture.tabMysticalAgriculture);
 	}
 		

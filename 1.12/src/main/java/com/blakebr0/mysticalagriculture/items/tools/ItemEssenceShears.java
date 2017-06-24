@@ -29,7 +29,7 @@ public class ItemEssenceShears extends ItemShears implements IRepairMaterial {
 	
 	public ItemEssenceShears(String name, ToolMaterial material, TextFormatting color){
 		this.setUnlocalizedName("ma." + name);
-		this.setRegistryName(name);
+		super.setRegistryName(name);
 		this.setCreativeTab(MysticalAgriculture.tabMysticalAgriculture);
 		this.setMaxDamage(material.getMaxUses());
 		this.color = color;

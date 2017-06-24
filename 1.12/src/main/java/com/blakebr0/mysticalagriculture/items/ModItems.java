@@ -41,6 +41,7 @@ import com.blakebr0.mysticalagriculture.items.tools.upgraded.ItemSwordStrength;
 import com.blakebr0.mysticalagriculture.lib.CropType;
 import com.blakebr0.mysticalagriculture.lib.IRepairMaterial;
 import com.blakebr0.mysticalagriculture.lib.ModToolMaterials;
+import com.blakebr0.mysticalagriculture.registry.MysticalRegistry;
 import com.blakebr0.mysticalagriculture.util.ModChecker;
 
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
@@ -82,12 +83,12 @@ public class ModItems {
 		
 	public static ItemChunk itemChunk = new ItemChunk();
 		
-	public static ItemSeed itemTier1InferiumSeeds = new ItemSeed("tier1_inferium_seeds", ModBlocks.blockTier1InferiumCrop, 1);
+/*	public static ItemSeed itemTier1InferiumSeeds = new ItemSeed("tier1_inferium_seeds", ModBlocks.blockTier1InferiumCrop, 1);
 	public static ItemSeed itemTier2InferiumSeeds = new ItemSeed("tier2_inferium_seeds", ModBlocks.blockTier2InferiumCrop, 2);
 	public static ItemSeed itemTier3InferiumSeeds = new ItemSeed("tier3_inferium_seeds", ModBlocks.blockTier3InferiumCrop, 3);
-	public static ItemSeed itemTier4InferiumSeeds = new ItemSeed("tier4_inferium_seeds", ModBlocks.blockTier4InferiumCrop, 4);
+	public static ItemSeed itemTier4InferiumSeeds = new ItemSeed("tier4_inferium_seeds", ModBlocks., 4);
 	public static ItemSeed itemTier5InferiumSeeds = new ItemSeed("tier5_inferium_seeds", ModBlocks.blockTier5InferiumCrop, 5); 
-				
+*/				
 	public static ItemGear itemGear = new ItemGear();
 
 	public static ItemCharm itemCharm = new ItemCharm();
@@ -98,7 +99,7 @@ public class ModItems {
 	public static ItemSuperiumArrow itemSuperiumArrow = new ItemSuperiumArrow("superium_arrow");
 	public static ItemSupremiumArrow itemSupremiumArrow = new ItemSupremiumArrow("supremium_arrow");
 	
-	public static ItemEssenceSword itemInferiumSword = new ItemEssenceSword("inferium_sword", ModToolMaterials.INFERIUM, TextFormatting.YELLOW);
+/*	public static ItemEssenceSword itemInferiumSword = new ItemEssenceSword("inferium_sword", ModToolMaterials.INFERIUM, TextFormatting.YELLOW);
 	public static ItemEssencePickaxe itemInferiumPickaxe = new ItemEssencePickaxe("inferium_pickaxe", ModToolMaterials.INFERIUM, TextFormatting.YELLOW);
 	public static ItemEssenceShovel itemInferiumShovel = new ItemEssenceShovel("inferium_shovel", ModToolMaterials.INFERIUM, TextFormatting.YELLOW);
 	public static ItemEssenceAxe itemInferiumAxe = new ItemEssenceAxe("inferium_axe", ModToolMaterials.INFERIUM, 8.0F, TextFormatting.YELLOW);
@@ -155,7 +156,7 @@ public class ModItems {
 	public static ItemBowTripleShot itemSupremiumBowTripleShot = new ItemBowTripleShot("supremium_bow_triple", ModToolMaterials.SUPREMIUM, 0.40F, TextFormatting.RED);
 	public static ItemSickleAOE itemSupremiumSickleAOE = new ItemSickleAOE("supremium_sickle_aoe", 3, ModToolMaterials.SUPREMIUM_AOE, TextFormatting.RED);
 	public static ItemScytheAOE itemSupremiumScytheAOE = new ItemScytheAOE("supremium_scythe_aoe", 2, ModToolMaterials.SUPREMIUM_AOE, TextFormatting.RED);
-	
+*/	
 	public static ItemInferiumArmor itemInferiumHelmet = new ItemInferiumArmor("inferium_helmet", ModToolMaterials.INFERIUM_ARMOR, 0, EntityEquipmentSlot.HEAD);
 	public static ItemInferiumArmor itemInferiumChestplate = new ItemInferiumArmor("inferium_chestplate", ModToolMaterials.INFERIUM_ARMOR, 0, EntityEquipmentSlot.CHEST);
 	public static ItemInferiumArmor itemInferiumLeggings = new ItemInferiumArmor("inferium_leggings", ModToolMaterials.INFERIUM_ARMOR, 0, EntityEquipmentSlot.LEGS);
@@ -215,13 +216,13 @@ public class ModItems {
 				OreDictionary.registerOre("essenceTier" + type.getTier(), type.getCrop());
 			}
 		}
-
+/*
 		registerItem(itemTier1InferiumSeeds);
 		registerItem(itemTier2InferiumSeeds);
 		registerItem(itemTier3InferiumSeeds);
 		registerItem(itemTier4InferiumSeeds);
 		registerItem(itemTier5InferiumSeeds); 
-		
+		*/
 		for(CropType.Type type : CropType.Type.values()){
 			if(type.isEnabled()){
 				registerItem(type.getSeed());	
@@ -240,7 +241,7 @@ public class ModItems {
 			registerItem(itemSuperiumArrow);
 			registerItem(itemSupremiumArrow);
 			
-			registerWithRepairMaterial(itemInferiumSword, ModItems.itemCrafting.itemInferiumIngot);
+/*			registerWithRepairMaterial(itemInferiumSword, ModItems.itemCrafting.itemInferiumIngot);
 			registerWithRepairMaterial(itemInferiumPickaxe, ModItems.itemCrafting.itemInferiumIngot);
 			registerWithRepairMaterial(itemInferiumShovel, ModItems.itemCrafting.itemInferiumIngot);
 			registerWithRepairMaterial(itemInferiumAxe, ModItems.itemCrafting.itemInferiumIngot);
@@ -321,13 +322,13 @@ public class ModItems {
 	        registerWithRepairMaterial(itemSupremiumHelmet, ModItems.itemCrafting.itemSupremiumIngot);
 	        registerWithRepairMaterial(itemSupremiumChestplate, ModItems.itemCrafting.itemSupremiumIngot);
 	        registerWithRepairMaterial(itemSupremiumLeggings, ModItems.itemCrafting.itemSupremiumIngot);
-	        registerWithRepairMaterial(itemSupremiumBoots, ModItems.itemCrafting.itemSupremiumIngot);
+	        registerWithRepairMaterial(itemSupremiumBoots, ModItems.itemCrafting.itemSupremiumIngot); */
 		}
 	}
 	
 	@SideOnly(Side.CLIENT)
 	public static void initItemModels(){
-		
+/*		
 		itemCrafting.initModels();
 		
 		registerModel(itemInfusionCrystal);
@@ -466,11 +467,11 @@ public class ModItems {
 	        registerModel(itemSupremiumChestplate);
 	        registerModel(itemSupremiumLeggings);
 	        registerModel(itemSupremiumBoots);	
-		}
+		}*/
 	}
 		
 	public static void registerItem(Item item){
-		GameRegistry.register(item);
+//		MysticalRegistry.register(item);
 	}
 	
 	public static void registerWithRepairMaterial(Item item, ItemStack stack){
@@ -482,6 +483,6 @@ public class ModItems {
 	
 	@SideOnly(Side.CLIENT)
 	public static void registerModel(Item item){
-		ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(MysticalAgriculture.MOD_ID + ":" + item.getUnlocalizedName().substring(8), "inventory")); 
+//		ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(MysticalAgriculture.MOD_ID + ":" + item.getUnlocalizedName().substring(8), "inventory")); 
 	}
 }

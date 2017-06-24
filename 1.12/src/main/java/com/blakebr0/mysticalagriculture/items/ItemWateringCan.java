@@ -48,8 +48,6 @@ public class ItemWateringCan extends ItemMeta {
 	
 	@Override
 	public void init(){
-		GameRegistry.register(this);
-		
 		itemInferiumWateringCan = addItem(0, "inferium");
 		itemPrudentiumWateringCan = addItem(1, "prudentium");
 		itemIntermediumWateringCan = addItem(2, "intermedium");

@@ -37,8 +37,6 @@ public class ItemEssenceCoal extends ItemMeta {
 	
 	@Override
 	public void init(){
-		GameRegistry.register(this);
-				
 		itemInferiumCoal = addItem(0, "inferium", "coalInferium");
 		itemPrudentiumCoal = addItem(1, "prudentium", "coalPrudentium");
 		itemIntermediumCoal = addItem(2, "intermedium", "coalIntermedium");

@@ -29,10 +29,10 @@ public class ItemSwordStrength extends ItemEssenceSword {
 	
 	@Override
     public ItemStack getContainerItem(ItemStack stack){
-		if(stack.getItem() == ModItems.itemSupremiumSwordStrength2){
+//		if(stack.getItem() == ModItems.itemSupremiumSwordStrength2){
 	        return ModItems.itemCharm.itemCharmStrength2;	
-		}
-		return ModItems.itemCharm.itemCharmStrength;
+//		}
+	//	return ModItems.itemCharm.itemCharmStrength;
     }
 
     @Override
@@ -44,11 +44,11 @@ public class ItemSwordStrength extends ItemEssenceSword {
 	@SideOnly(Side.CLIENT)
 	public void addInformation(ItemStack stack, @Nullable World player, List<String> tooltip, ITooltipFlag advanced){
 		tooltip.add(Tooltips.DURABILITY + Colors.RED + Tooltips.UNLIMITED);
-		if(stack.getItem() == ModItems.itemSupremiumSwordStrength){
+	//	if(stack.getItem() == ModItems.itemSupremiumSwordStrength){
 			tooltip.add(Tooltips.CHARM_SLOT + Colors.RED + Tooltips.STRENGTH_YES);
-		}
-		if(stack.getItem() == ModItems.itemSupremiumSwordStrength2){
+//		}
+	//	if(stack.getItem() == ModItems.itemSupremiumSwordStrength2){
 			tooltip.add(Tooltips.CHARM_SLOT + Colors.RED + Tooltips.STRENGTH_YES + Colors.RED + " II");
-		}
+//		}
 	}
 }

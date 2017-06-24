@@ -24,8 +24,8 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class BlockProsperityOre extends BlockBase {
 
-	public BlockProsperityOre(String name, Material material, SoundType sound, float hardness, float resistance, String tool, int level){
-		super(name, material, sound, hardness, resistance, tool, level);
+	public BlockProsperityOre(String name){
+		super(name, Material.ROCK, SoundType.STONE, 3.0F, 5.0F, "pickaxe", 1);
 	}
 
     @Nullable

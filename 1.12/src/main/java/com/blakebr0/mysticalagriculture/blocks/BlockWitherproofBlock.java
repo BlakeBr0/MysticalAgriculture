@@ -27,17 +27,16 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class BlockWitherproofBlock extends Block {
 	
-	public BlockWitherproofBlock(String name, Material material, SoundType sound, float hardness, float resistance, String tool, int level) {
-		super(material);
+	public BlockWitherproofBlock(){
+		super(Material.ROCK);
 		this.setCreativeTab(MysticalAgriculture.tabMysticalAgriculture);
-		this.setSoundType(sound);
-		this.setUnlocalizedName("ma." + name);
-		this.setRegistryName(name);
-		this.setHardness(hardness);
-		this.setResistance(resistance);
-		this.setHarvestLevel(tool, level);
+		this.setSoundType(SoundType.STONE);
+		this.setUnlocalizedName("ma.witherproof_block");
+		this.setHardness(24.0F);
+		this.setResistance(2000.0F);
+		this.setHarvestLevel("pickaxe", 1);
 	} 
-	
+
 	@Override
 	public boolean canEntityDestroy(IBlockState state, IBlockAccess world, BlockPos pos, Entity entity){
 		return !(entity instanceof EntityWither) && !(entity instanceof EntityWitherSkull);

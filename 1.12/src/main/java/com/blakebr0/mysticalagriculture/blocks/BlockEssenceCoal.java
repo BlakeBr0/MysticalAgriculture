@@ -4,8 +4,10 @@ import java.util.List;
 
 import javax.annotation.Nullable;
 
+import com.blakebr0.mysticalagriculture.MysticalAgriculture;
 import com.blakebr0.mysticalagriculture.lib.Colors;
 import com.blakebr0.mysticalagriculture.lib.EssenceType;
+import com.blakebr0.mysticalagriculture.lib.IModelHelper;
 import com.blakebr0.mysticalagriculture.lib.Tooltips;
 
 import net.minecraft.block.SoundType;
@@ -29,7 +31,7 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraftforge.oredict.OreDictionary;
 
-public class BlockEssenceCoal extends BlockBase {
+public class BlockEssenceCoal extends BlockBase implements IModelHelper {
 	
     public static final PropertyEnum<EssenceType.Type> VARIANT = PropertyEnum.<EssenceType.Type>create("variant", EssenceType.Type.class);
 
@@ -46,9 +48,6 @@ public class BlockEssenceCoal extends BlockBase {
     
     @Override
     public void init(){
-    	GameRegistry.register(this);
-    	GameRegistry.register(new ItemBlockEssenceCoal(this).setRegistryName(getRegistryName()));
-    	
         GameRegistry.registerFuelHandler(new FuelHander());
         
         OreDictionary.registerOre("blockInferiumCoal", new ItemStack(this, 1, 0));
@@ -74,7 +73,7 @@ public class BlockEssenceCoal extends BlockBase {
     @SideOnly(Side.CLIENT)
     public void initModels(){
     	for(EssenceType.Type type : EssenceType.Type.values()){
-        	ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(this), type.getMetadata(), new ModelResourceLocation(getRegistryName().toString() + "_" + type.byMetadata(type.getMetadata()).getName()));
+        	ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(this), type.getMetadata(), new ModelResourceLocation(MysticalAgriculture.MOD_ID + ":" + getUnlocalizedName().substring(8) + "_" + type.byMetadata(type.getMetadata()).getName()));
     	}
     }
 

@@ -10,7 +10,7 @@ public class BlockMinersTorch extends BlockTorch {
 
 	public BlockMinersTorch(){
 		this.setUnlocalizedName("ma.miners_torch");
-		this.setRegistryName("miners_torch");
+	//	this.setRegistryName("miners_torch");
 		this.setCreativeTab(MysticalAgriculture.tabMysticalAgriculture);
 		this.setLightLevel(1.0F);
 	}

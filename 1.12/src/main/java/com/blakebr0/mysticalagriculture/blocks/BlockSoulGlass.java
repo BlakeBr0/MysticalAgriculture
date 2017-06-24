@@ -13,10 +13,9 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class BlockSoulGlass extends BlockGlass {
 
-	public BlockSoulGlass(String name){
+	public BlockSoulGlass(){
 		super(Material.GLASS, false);
-		this.setUnlocalizedName("ma." + name);
-		this.setRegistryName(name);
+		this.setUnlocalizedName("ma.soul_glass");
 		this.setCreativeTab(MysticalAgriculture.tabMysticalAgriculture);
 		this.setHardness(0.3F);
 		this.setSoundType(SoundType.GLASS);
