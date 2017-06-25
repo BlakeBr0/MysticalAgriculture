@@ -7,6 +7,7 @@ import javax.annotation.Nullable;
 import com.blakebr0.mysticalagriculture.MysticalAgriculture;
 import com.blakebr0.mysticalagriculture.config.ModConfig;
 import com.blakebr0.mysticalagriculture.lib.Colors;
+import com.blakebr0.mysticalagriculture.lib.ModToolMaterials;
 import com.blakebr0.mysticalagriculture.lib.Tooltips;
 
 import net.minecraft.client.util.ITooltipFlag;
@@ -39,10 +40,9 @@ import net.minecraftforge.oredict.OreDictionary;
 
 public class ItemSouliumDagger extends ItemSword {
 	    
-	protected ItemSouliumDagger(String name, ToolMaterial material){
-		super(material);
-		this.setUnlocalizedName("ma." + name);
-	//	super.setRegistryName(name);
+	protected ItemSouliumDagger(){
+		super(ModToolMaterials.SOULIUM);
+		this.setUnlocalizedName("ma.soulium_dagger");
 		this.setCreativeTab(MysticalAgriculture.tabMysticalAgriculture);
 	}
 		

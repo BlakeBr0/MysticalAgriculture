@@ -25,10 +25,9 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class ItemInferiumApple extends ItemFood {
 	
-	public ItemInferiumApple(String name){
+	public ItemInferiumApple(){
         super(6, 0.3F, false);
-		this.setUnlocalizedName("ma." + name);
-		this.setRegistryName(name);
+		this.setUnlocalizedName("ma.inferium_apple");
 		this.setCreativeTab(MysticalAgriculture.tabMysticalAgriculture);
 		this.setAlwaysEdible();
 	}

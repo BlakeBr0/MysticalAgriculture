@@ -49,10 +49,6 @@ import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.text.TextFormatting;
-import net.minecraftforge.client.model.ModelLoader;
-import net.minecraftforge.fml.common.registry.GameRegistry;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraftforge.oredict.OreDictionary;
 // TODO: deal with the items with config disablers
 // TODO: cleanup item constructors
@@ -100,55 +96,55 @@ public class ModItems {
 	public static ItemSuperiumArrow itemSuperiumArrow;
 	public static ItemSupremiumArrow itemSupremiumArrow;
 	
-/*	public static ItemEssenceSword itemInferiumSword = new ItemEssenceSword("inferium_sword", ModToolMaterials.INFERIUM, TextFormatting.YELLOW);
-	public static ItemEssencePickaxe itemInferiumPickaxe = new ItemEssencePickaxe("inferium_pickaxe", ModToolMaterials.INFERIUM, TextFormatting.YELLOW);
-	public static ItemEssenceShovel itemInferiumShovel = new ItemEssenceShovel("inferium_shovel", ModToolMaterials.INFERIUM, TextFormatting.YELLOW);
-	public static ItemEssenceAxe itemInferiumAxe = new ItemEssenceAxe("inferium_axe", ModToolMaterials.INFERIUM, 8.0F, TextFormatting.YELLOW);
-	public static ItemEssenceHoe itemInferiumHoe = new ItemEssenceHoe("inferium_hoe", ModToolMaterials.INFERIUM, TextFormatting.YELLOW);
-	public static ItemEssenceShears itemInferiumShears = new ItemEssenceShears("inferium_shears", ModToolMaterials.INFERIUM, TextFormatting.YELLOW);
-	public static ItemEssenceBow itemInferiumBow = new ItemEssenceBow("inferium_bow", ModToolMaterials.INFERIUM, 0.1F, TextFormatting.YELLOW);
-	public static ItemEssenceSickle itemInferiumSickle = new ItemEssenceSickle("inferium_sickle", 2, ModToolMaterials.INFERIUM, TextFormatting.YELLOW);
-	public static ItemEssenceScythe itemInferiumScythe = new ItemEssenceScythe("inferium_scythe", 1, ModToolMaterials.INFERIUM, TextFormatting.YELLOW);
+	public static ItemEssenceSword itemInferiumSword;
+	public static ItemEssencePickaxe itemInferiumPickaxe;
+	public static ItemEssenceShovel itemInferiumShovel;
+	public static ItemEssenceAxe itemInferiumAxe;
+	public static ItemEssenceHoe itemInferiumHoe;
+	public static ItemEssenceShears itemInferiumShears;
+	public static ItemEssenceBow itemInferiumBow;
+	public static ItemEssenceSickle itemInferiumSickle;
+	public static ItemEssenceScythe itemInferiumScythe;
 	
-	public static ItemEssenceSword itemPrudentiumSword = new ItemEssenceSword("prudentium_sword", ModToolMaterials.PRUDENTIUM, TextFormatting.GREEN);
-	public static ItemEssencePickaxe itemPrudentiumPickaxe = new ItemEssencePickaxe("prudentium_pickaxe", ModToolMaterials.PRUDENTIUM, TextFormatting.GREEN);
-	public static ItemEssenceShovel itemPrudentiumShovel = new ItemEssenceShovel("prudentium_shovel", ModToolMaterials.PRUDENTIUM, TextFormatting.GREEN);
-	public static ItemEssenceAxe itemPrudentiumAxe = new ItemEssenceAxe("prudentium_axe", ModToolMaterials.PRUDENTIUM, 10.0F, TextFormatting.GREEN);
-	public static ItemEssenceHoe itemPrudentiumHoe = new ItemEssenceHoe("prudentium_hoe", ModToolMaterials.PRUDENTIUM, TextFormatting.GREEN);
-	public static ItemEssenceShears itemPrudentiumShears = new ItemEssenceShears("prudentium_shears", ModToolMaterials.PRUDENTIUM, TextFormatting.GREEN);
-	public static ItemEssenceBow itemPrudentiumBow = new ItemEssenceBow("prudentium_bow", ModToolMaterials.PRUDENTIUM, 0.2F, TextFormatting.GREEN);
-	public static ItemEssenceSickle itemPrudentiumSickle = new ItemEssenceSickle("prudentium_sickle", 2, ModToolMaterials.PRUDENTIUM, TextFormatting.GREEN);
-	public static ItemEssenceScythe itemPrudentiumScythe = new ItemEssenceScythe("prudentium_scythe", 1, ModToolMaterials.PRUDENTIUM, TextFormatting.GREEN);
+	public static ItemEssenceSword itemPrudentiumSword;
+	public static ItemEssencePickaxe itemPrudentiumPickaxe;
+	public static ItemEssenceShovel itemPrudentiumShovel;
+	public static ItemEssenceAxe itemPrudentiumAxe;
+	public static ItemEssenceHoe itemPrudentiumHoe;
+	public static ItemEssenceShears itemPrudentiumShears;
+	public static ItemEssenceBow itemPrudentiumBow;
+	public static ItemEssenceSickle itemPrudentiumSickle;
+	public static ItemEssenceScythe itemPrudentiumScythe;
 	
-	public static ItemEssenceSword itemIntermediumSword = new ItemEssenceSword("intermedium_sword", ModToolMaterials.INTERMEDIUM, TextFormatting.GOLD);
-	public static ItemEssencePickaxe itemIntermediumPickaxe = new ItemEssencePickaxe("intermedium_pickaxe", ModToolMaterials.INTERMEDIUM, TextFormatting.GOLD);
-	public static ItemEssenceShovel itemIntermediumShovel = new ItemEssenceShovel("intermedium_shovel", ModToolMaterials.INTERMEDIUM, TextFormatting.GOLD);
-	public static ItemEssenceAxe itemIntermediumAxe = new ItemEssenceAxe("intermedium_axe", ModToolMaterials.INTERMEDIUM, 13.0F, TextFormatting.GOLD);
-	public static ItemEssenceHoe itemIntermediumHoe = new ItemEssenceHoe("intermedium_hoe", ModToolMaterials.INTERMEDIUM, TextFormatting.GOLD);
-	public static ItemEssenceShears itemIntermediumShears = new ItemEssenceShears("intermedium_shears", ModToolMaterials.INTERMEDIUM, TextFormatting.GOLD);
-	public static ItemEssenceBow itemIntermediumBow = new ItemEssenceBow("intermedium_bow", ModToolMaterials.INTERMEDIUM, 0.35F, TextFormatting.GOLD);
-	public static ItemEssenceSickle itemIntermediumSickle = new ItemEssenceSickle("intermedium_sickle", 2, ModToolMaterials.INTERMEDIUM, TextFormatting.GOLD);
-	public static ItemEssenceScythe itemIntermediumScythe = new ItemEssenceScythe("intermedium_scythe", 1, ModToolMaterials.INTERMEDIUM, TextFormatting.GOLD);
+	public static ItemEssenceSword itemIntermediumSword;
+	public static ItemEssencePickaxe itemIntermediumPickaxe;
+	public static ItemEssenceShovel itemIntermediumShovel;
+	public static ItemEssenceAxe itemIntermediumAxe;
+	public static ItemEssenceHoe itemIntermediumHoe;
+	public static ItemEssenceShears itemIntermediumShears;
+	public static ItemEssenceBow itemIntermediumBow;
+	public static ItemEssenceSickle itemIntermediumSickle;
+	public static ItemEssenceScythe itemIntermediumScythe;
 	
-	public static ItemEssenceSword itemSuperiumSword = new ItemEssenceSword("superium_sword", ModToolMaterials.SUPERIUM, TextFormatting.AQUA);
-	public static ItemEssencePickaxe itemSuperiumPickaxe = new ItemEssencePickaxe("superium_pickaxe", ModToolMaterials.SUPERIUM, TextFormatting.AQUA);
-	public static ItemEssenceShovel itemSuperiumShovel = new ItemEssenceShovel("superium_shovel", ModToolMaterials.SUPERIUM, TextFormatting.AQUA);
-	public static ItemEssenceAxe itemSuperiumAxe = new ItemEssenceAxe("superium_axe", ModToolMaterials.SUPERIUM, 17.0F, TextFormatting.AQUA);
-	public static ItemEssenceHoe itemSuperiumHoe = new ItemEssenceHoe("superium_hoe", ModToolMaterials.SUPERIUM, TextFormatting.AQUA);
-	public static ItemEssenceShears itemSuperiumShears = new ItemEssenceShears("superium_shears", ModToolMaterials.SUPERIUM, TextFormatting.AQUA);
-	public static ItemEssenceBow itemSuperiumBow = new ItemEssenceBow("superium_bow", ModToolMaterials.SUPERIUM, 0.55F, TextFormatting.AQUA);
-	public static ItemEssenceSickle itemSuperiumSickle = new ItemEssenceSickle("superium_sickle", 2, ModToolMaterials.SUPERIUM, TextFormatting.AQUA);
-	public static ItemEssenceScythe itemSuperiumScythe = new ItemEssenceScythe("superium_scythe", 1, ModToolMaterials.SUPERIUM, TextFormatting.AQUA);
+	public static ItemEssenceSword itemSuperiumSword;
+	public static ItemEssencePickaxe itemSuperiumPickaxe;
+	public static ItemEssenceShovel itemSuperiumShovel;
+	public static ItemEssenceAxe itemSuperiumAxe;
+	public static ItemEssenceHoe itemSuperiumHoe;
+	public static ItemEssenceShears itemSuperiumShears;
+	public static ItemEssenceBow itemSuperiumBow;
+	public static ItemEssenceSickle itemSuperiumSickle;
+	public static ItemEssenceScythe itemSuperiumScythe;
 	
-	public static ItemEssenceSword itemSupremiumSword = new ItemEssenceSword("supremium_sword", ModToolMaterials.SUPREMIUM, TextFormatting.RED);
-	public static ItemEssencePickaxe itemSupremiumPickaxe = new ItemEssencePickaxe("supremium_pickaxe", ModToolMaterials.SUPREMIUM, TextFormatting.RED);
-	public static ItemEssenceShovel itemSupremiumShovel = new ItemEssenceShovel("supremium_shovel", ModToolMaterials.SUPREMIUM, TextFormatting.RED);
-	public static ItemEssenceAxe itemSupremiumAxe = new ItemEssenceAxe("supremium_axe", ModToolMaterials.SUPREMIUM, 23.0F, TextFormatting.RED);
-	public static ItemSupremiumHoe itemSupremiumHoe = new ItemSupremiumHoe("supremium_hoe", ModToolMaterials.SUPREMIUM, 1, TextFormatting.RED);
-	public static ItemEssenceShears itemSupremiumShears = new ItemEssenceShears("supremium_shears", ModToolMaterials.SUPREMIUM, TextFormatting.RED);
-	public static ItemEssenceBow itemSupremiumBow = new ItemEssenceBow("supremium_bow", ModToolMaterials.SUPREMIUM, 0.80F, TextFormatting.RED);
-	public static ItemEssenceSickle itemSupremiumSickle = new ItemEssenceSickle("supremium_sickle", 2, ModToolMaterials.SUPREMIUM, TextFormatting.RED);
-	public static ItemEssenceScythe itemSupremiumScythe = new ItemEssenceScythe("supremium_scythe", 1, ModToolMaterials.SUPREMIUM, TextFormatting.RED);
+	public static ItemEssenceSword itemSupremiumSword;
+	public static ItemEssencePickaxe itemSupremiumPickaxe;
+	public static ItemEssenceShovel itemSupremiumShovel;
+	public static ItemEssenceAxe itemSupremiumAxe;
+	public static ItemSupremiumHoe itemSupremiumHoe;
+	public static ItemEssenceShears itemSupremiumShears;
+	public static ItemEssenceBow itemSupremiumBow;
+	public static ItemEssenceSickle itemSupremiumSickle;
+	public static ItemEssenceScythe itemSupremiumScythe;
 	
 	public static ItemSwordStrength itemSupremiumSwordStrength = new ItemSwordStrength("supremium_sword_strength1", ModToolMaterials.SUPREMIUM_STRENGTH1, TextFormatting.RED);
 	public static ItemSwordStrength itemSupremiumSwordStrength2 = new ItemSwordStrength("supremium_sword_strength2", ModToolMaterials.SUPREMIUM_STRENGTH2, TextFormatting.RED);
@@ -157,57 +153,57 @@ public class ModItems {
 	public static ItemBowTripleShot itemSupremiumBowTripleShot = new ItemBowTripleShot("supremium_bow_triple", ModToolMaterials.SUPREMIUM, 0.40F, TextFormatting.RED);
 	public static ItemSickleAOE itemSupremiumSickleAOE = new ItemSickleAOE("supremium_sickle_aoe", 3, ModToolMaterials.SUPREMIUM_AOE, TextFormatting.RED);
 	public static ItemScytheAOE itemSupremiumScytheAOE = new ItemScytheAOE("supremium_scythe_aoe", 2, ModToolMaterials.SUPREMIUM_AOE, TextFormatting.RED);
-*/	
-	public static ItemInferiumArmor itemInferiumHelmet = new ItemInferiumArmor("inferium_helmet", ModToolMaterials.INFERIUM_ARMOR, 0, EntityEquipmentSlot.HEAD);
-	public static ItemInferiumArmor itemInferiumChestplate = new ItemInferiumArmor("inferium_chestplate", ModToolMaterials.INFERIUM_ARMOR, 0, EntityEquipmentSlot.CHEST);
-	public static ItemInferiumArmor itemInferiumLeggings = new ItemInferiumArmor("inferium_leggings", ModToolMaterials.INFERIUM_ARMOR, 0, EntityEquipmentSlot.LEGS);
-	public static ItemInferiumArmor itemInferiumBoots = new ItemInferiumArmor("inferium_boots", ModToolMaterials.INFERIUM_ARMOR, 0, EntityEquipmentSlot.FEET);
 	
-	public static ItemPrudentiumArmor itemPrudentiumHelmet = new ItemPrudentiumArmor("prudentium_helmet", ModToolMaterials.PRUDENTIUM_ARMOR, 0, EntityEquipmentSlot.HEAD);
-	public static ItemPrudentiumArmor itemPrudentiumChestplate = new ItemPrudentiumArmor("prudentium_chestplate", ModToolMaterials.PRUDENTIUM_ARMOR, 0, EntityEquipmentSlot.CHEST);
-	public static ItemPrudentiumArmor itemPrudentiumLeggings = new ItemPrudentiumArmor("prudentium_leggings", ModToolMaterials.PRUDENTIUM_ARMOR, 0, EntityEquipmentSlot.LEGS);
-	public static ItemPrudentiumArmor itemPrudentiumBoots = new ItemPrudentiumArmor("prudentium_boots", ModToolMaterials.PRUDENTIUM_ARMOR, 0, EntityEquipmentSlot.FEET);
+	public static ItemInferiumArmor itemInferiumHelmet;
+	public static ItemInferiumArmor itemInferiumChestplate;
+	public static ItemInferiumArmor itemInferiumLeggings;
+	public static ItemInferiumArmor itemInferiumBoots;
 	
-	public static ItemIntermediumArmor itemIntermediumHelmet = new ItemIntermediumArmor("intermedium_helmet", ModToolMaterials.INTERMEDIUM_ARMOR, 0, EntityEquipmentSlot.HEAD);
-	public static ItemIntermediumArmor itemIntermediumChestplate = new ItemIntermediumArmor("intermedium_chestplate", ModToolMaterials.INTERMEDIUM_ARMOR, 0, EntityEquipmentSlot.CHEST);
-	public static ItemIntermediumArmor itemIntermediumLeggings = new ItemIntermediumArmor("intermedium_leggings", ModToolMaterials.INTERMEDIUM_ARMOR, 0, EntityEquipmentSlot.LEGS);
-	public static ItemIntermediumArmor itemIntermediumBoots = new ItemIntermediumArmor("intermedium_boots", ModToolMaterials.INTERMEDIUM_ARMOR, 0, EntityEquipmentSlot.FEET);
+	public static ItemPrudentiumArmor itemPrudentiumHelmet;
+	public static ItemPrudentiumArmor itemPrudentiumChestplate;
+	public static ItemPrudentiumArmor itemPrudentiumLeggings;
+	public static ItemPrudentiumArmor itemPrudentiumBoots;
 	
-	public static ItemSuperiumArmor itemSuperiumHelmet = new ItemSuperiumArmor("superium_helmet", ModToolMaterials.SUPERIUM_ARMOR, 0, EntityEquipmentSlot.HEAD);
-	public static ItemSuperiumArmor itemSuperiumChestplate = new ItemSuperiumArmor("superium_chestplate", ModToolMaterials.SUPERIUM_ARMOR, 0, EntityEquipmentSlot.CHEST);
-	public static ItemSuperiumArmor itemSuperiumLeggings = new ItemSuperiumArmor("superium_leggings", ModToolMaterials.SUPERIUM_ARMOR, 0, EntityEquipmentSlot.LEGS);
-	public static ItemSuperiumArmor itemSuperiumBoots = new ItemSuperiumArmor("superium_boots", ModToolMaterials.SUPERIUM_ARMOR, 0, EntityEquipmentSlot.FEET);
+	public static ItemIntermediumArmor itemIntermediumHelmet;
+	public static ItemIntermediumArmor itemIntermediumChestplate;
+	public static ItemIntermediumArmor itemIntermediumLeggings;
+	public static ItemIntermediumArmor itemIntermediumBoots;
 	
-	public static ItemSupremiumArmor itemSupremiumHelmet = new ItemSupremiumArmor("supremium_helmet", ModToolMaterials.SUPREMIUM_ARMOR, 0, EntityEquipmentSlot.HEAD);
-	public static ItemSupremiumArmor itemSupremiumChestplate = new ItemSupremiumArmor("supremium_chestplate", ModToolMaterials.SUPREMIUM_ARMOR, 0, EntityEquipmentSlot.CHEST);
-	public static ItemSupremiumArmor itemSupremiumLeggings = new ItemSupremiumArmor("supremium_leggings", ModToolMaterials.SUPREMIUM_ARMOR, 0, EntityEquipmentSlot.LEGS);
-	public static ItemSupremiumArmor itemSupremiumBoots = new ItemSupremiumArmor("supremium_boots", ModToolMaterials.SUPREMIUM_ARMOR, 0, EntityEquipmentSlot.FEET);
+	public static ItemSuperiumArmor itemSuperiumHelmet;
+	public static ItemSuperiumArmor itemSuperiumChestplate;
+	public static ItemSuperiumArmor itemSuperiumLeggings;
+	public static ItemSuperiumArmor itemSuperiumBoots;
+	
+	public static ItemSupremiumArmor itemSupremiumHelmet;
+	public static ItemSupremiumArmor itemSupremiumChestplate;
+	public static ItemSupremiumArmor itemSupremiumLeggings;
+	public static ItemSupremiumArmor itemSupremiumBoots;
 			
-	public static void initItems(){
+	public static void init(){
 
 		itemCrafting = register(new ItemCrafting(), "crafting");
 		
-		itemInfusionCrystal = register(new ItemInfusionCrystal("infusion_crystal"), "infusion_crystal");
-		itemInfusionCrystalMaster = register(new ItemMasterInfusionCrystal("master_infusion_crystal"), "master_infusion_crystal");
+		itemInfusionCrystal = register(new ItemInfusionCrystal(), "infusion_crystal");
+		itemInfusionCrystalMaster = register(new ItemMasterInfusionCrystal(), "master_infusion_crystal");
 		
-		itemCoreRemover = register(new ItemCoreRemover("core_remover"), "core_remover");
+		itemCoreRemover = register(new ItemCoreRemover(), "core_remover");
 		
-		if(ModConfig.confFertilizedEssence){ itemFertilizedEssence = register(new ItemFertilizedEssence("fertilized_essence"), "fertilized_essence"); }
-		if(ModConfig.confMysticalFertilizer){ itemMysticalFertilizer = register(new ItemMysticalFertilizer("mystical_fertilizer"), "mystical_fertilizer"); }
+		if(ModConfig.confFertilizedEssence){ itemFertilizedEssence = register(new ItemFertilizedEssence(), "fertilized_essence"); }
+		if(ModConfig.confMysticalFertilizer){ itemMysticalFertilizer = register(new ItemMysticalFertilizer(), "mystical_fertilizer"); }
 		
 		if(ModConfig.confEssenceApples){
-			itemInferiumApple = register(new ItemInferiumApple("inferium_apple"), "inferium_apple");
-			itemPrudentiumApple = register(new ItemPrudentiumApple("prudentium_apple"), "prudentium_apple");
-			itemIntermediumApple = register(new ItemIntermediumApple("intermedium_apple"), "intermedium_apple");
-			itemSuperiumApple = register(new ItemSuperiumApple("superium_apple"), "superium_apple");
-			itemSupremiumApple = register(new ItemSupremiumApple("supremium_apple"), "supremium_apple");
+			itemInferiumApple = register(new ItemInferiumApple(), "inferium_apple");
+			itemPrudentiumApple = register(new ItemPrudentiumApple(), "prudentium_apple");
+			itemIntermediumApple = register(new ItemIntermediumApple(), "intermedium_apple");
+			itemSuperiumApple = register(new ItemSuperiumApple(), "superium_apple");
+			itemSupremiumApple = register(new ItemSupremiumApple(), "supremium_apple");
 		}
 		
 		if(ModConfig.confEssenceCoal){ itemEssenceCoal = register(new ItemEssenceCoal(), "coal"); }
 		
 		if(ModConfig.confWateringCans){ itemWateringCan = register(new ItemWateringCan(), "watering_can"); }
 
-		itemSouliumDagger = register(new ItemSouliumDagger("soulium_dagger", ModToolMaterials.SOULIUM), "soulium_dagger");
+		itemSouliumDagger = register(new ItemSouliumDagger(), "soulium_dagger");
 								
 		itemChunk = register(new ItemChunk(), "chunk");
 		
@@ -236,239 +232,95 @@ public class ModItems {
 			
 			itemCharm = register(new ItemCharm(), "charm");
 						
-			itemInferiumArrow = register(new ItemInferiumArrow("inferium_arrow"), "inferium_arrow");
-			itemPrudentiumArrow = register(new ItemPrudentiumArrow("prudentium_arrow"), "prudentium_arrow");
-			itemIntermediumArrow = register(new ItemIntermediumArrow("intermedium_arrow"), "intermedium_arrow");
-			itemSuperiumArrow = register(new ItemSuperiumArrow("superium_arrow"), "superium_arrow");
-			itemSupremiumArrow = register(new ItemSupremiumArrow("supremium_arrow"), "supremium_arrow");
+			itemInferiumArrow = register(new ItemInferiumArrow(), "inferium_arrow");
+			itemPrudentiumArrow = register(new ItemPrudentiumArrow(), "prudentium_arrow");
+			itemIntermediumArrow = register(new ItemIntermediumArrow(), "intermedium_arrow");
+			itemSuperiumArrow = register(new ItemSuperiumArrow(), "superium_arrow");
+			itemSupremiumArrow = register(new ItemSupremiumArrow(), "supremium_arrow");
 			
-/*			registerWithRepairMaterial(itemInferiumSword, ModItems.itemCrafting.itemInferiumIngot);
-			registerWithRepairMaterial(itemInferiumPickaxe, ModItems.itemCrafting.itemInferiumIngot);
-			registerWithRepairMaterial(itemInferiumShovel, ModItems.itemCrafting.itemInferiumIngot);
-			registerWithRepairMaterial(itemInferiumAxe, ModItems.itemCrafting.itemInferiumIngot);
-			registerWithRepairMaterial(itemInferiumHoe, ModItems.itemCrafting.itemInferiumIngot);
-			registerWithRepairMaterial(itemInferiumShears, ModItems.itemCrafting.itemInferiumIngot);
-			registerWithRepairMaterial(itemInferiumBow, ModItems.itemCrafting.itemInferiumIngot);
-			registerWithRepairMaterial(itemInferiumSickle, ModItems.itemCrafting.itemInferiumIngot);
-			registerWithRepairMaterial(itemInferiumScythe, ModItems.itemCrafting.itemInferiumIngot);
+			itemInferiumSword = register(new ItemEssenceSword("inferium_sword", ModToolMaterials.INFERIUM, TextFormatting.YELLOW), "inferium_sword", ModItems.itemCrafting.itemInferiumIngot);
+			itemInferiumPickaxe = register(new ItemEssencePickaxe("inferium_pickaxe", ModToolMaterials.INFERIUM, TextFormatting.YELLOW), "inferium_pickaxe", ModItems.itemCrafting.itemInferiumIngot);
+			itemInferiumShovel = register(new ItemEssenceShovel("inferium_shovel", ModToolMaterials.INFERIUM, TextFormatting.YELLOW), "inferium_shovel", ModItems.itemCrafting.itemInferiumIngot);
+			itemInferiumAxe = register(new ItemEssenceAxe("inferium_axe", ModToolMaterials.INFERIUM, 8.0F, TextFormatting.YELLOW), "inferium_axe", ModItems.itemCrafting.itemInferiumIngot);
+			itemInferiumHoe = register(new ItemEssenceHoe("inferium_hoe", ModToolMaterials.INFERIUM, TextFormatting.YELLOW), "inferium_hoe", ModItems.itemCrafting.itemInferiumIngot);
+			itemInferiumShears = register(new ItemEssenceShears("inferium_shears", ModToolMaterials.INFERIUM, TextFormatting.YELLOW), "inferium_shears", ModItems.itemCrafting.itemInferiumIngot);
+			itemInferiumBow = register(new ItemEssenceBow("inferium_bow", ModToolMaterials.INFERIUM, 0.1F, TextFormatting.YELLOW), "inferium_bow", ModItems.itemCrafting.itemInferiumIngot);
+			itemInferiumSickle = register(new ItemEssenceSickle("inferium_sickle", 2, ModToolMaterials.INFERIUM, TextFormatting.YELLOW), "inferium_sickle", ModItems.itemCrafting.itemInferiumIngot);
+			itemInferiumScythe = register(new ItemEssenceScythe("inferium_scythe", 1, ModToolMaterials.INFERIUM, TextFormatting.YELLOW), "inferium_scythe", ModItems.itemCrafting.itemInferiumIngot);
 			
-			registerWithRepairMaterial(itemPrudentiumSword, ModItems.itemCrafting.itemPrudentiumIngot);
-			registerWithRepairMaterial(itemPrudentiumPickaxe, ModItems.itemCrafting.itemPrudentiumIngot);
-			registerWithRepairMaterial(itemPrudentiumShovel, ModItems.itemCrafting.itemPrudentiumIngot);
-			registerWithRepairMaterial(itemPrudentiumAxe, ModItems.itemCrafting.itemPrudentiumIngot);
-			registerWithRepairMaterial(itemPrudentiumHoe, ModItems.itemCrafting.itemPrudentiumIngot);
-			registerWithRepairMaterial(itemPrudentiumShears, ModItems.itemCrafting.itemPrudentiumIngot);
-			registerWithRepairMaterial(itemPrudentiumBow, ModItems.itemCrafting.itemPrudentiumIngot);
-			registerWithRepairMaterial(itemPrudentiumSickle, ModItems.itemCrafting.itemPrudentiumIngot);
-			registerWithRepairMaterial(itemPrudentiumScythe, ModItems.itemCrafting.itemPrudentiumIngot);
+			itemPrudentiumSword = register(new ItemEssenceSword("prudentium_sword", ModToolMaterials.PRUDENTIUM, TextFormatting.GREEN), "prudentium_sword", ModItems.itemCrafting.itemPrudentiumIngot);
+			itemPrudentiumPickaxe = register(new ItemEssencePickaxe("prudentium_pickaxe", ModToolMaterials.PRUDENTIUM, TextFormatting.GREEN), "prudentium_pickaxe", ModItems.itemCrafting.itemPrudentiumIngot);
+			itemPrudentiumShovel = register(new ItemEssenceShovel("prudentium_shovel", ModToolMaterials.PRUDENTIUM, TextFormatting.GREEN), "prudentium_shovel", ModItems.itemCrafting.itemPrudentiumIngot);
+			itemPrudentiumAxe = register(new ItemEssenceAxe("prudentium_axe", ModToolMaterials.PRUDENTIUM, 10.0F, TextFormatting.GREEN), "prudentium_axe", ModItems.itemCrafting.itemPrudentiumIngot);
+			itemPrudentiumHoe = register(new ItemEssenceHoe("prudentium_hoe", ModToolMaterials.PRUDENTIUM, TextFormatting.GREEN), "prudentium_hoe", ModItems.itemCrafting.itemPrudentiumIngot);
+			itemPrudentiumShears = register(new ItemEssenceShears("prudentium_shears", ModToolMaterials.PRUDENTIUM, TextFormatting.GREEN), "prudentium_shears", ModItems.itemCrafting.itemPrudentiumIngot);
+			itemPrudentiumBow = register(new ItemEssenceBow("prudentium_bow", ModToolMaterials.PRUDENTIUM, 0.2F, TextFormatting.GREEN), "prudentium_bow", ModItems.itemCrafting.itemPrudentiumIngot);
+			itemPrudentiumSickle = register(new ItemEssenceSickle("prudentium_sickle", 2, ModToolMaterials.PRUDENTIUM, TextFormatting.GREEN), "prudentium_sickle", ModItems.itemCrafting.itemPrudentiumIngot);
+			itemPrudentiumScythe = register(new ItemEssenceScythe("prudentium_scythe", 1, ModToolMaterials.PRUDENTIUM, TextFormatting.GREEN), "prudentium_scythe", ModItems.itemCrafting.itemPrudentiumIngot);
 		
-			registerWithRepairMaterial(itemIntermediumSword, ModItems.itemCrafting.itemIntermediumIngot);
-			registerWithRepairMaterial(itemIntermediumPickaxe, ModItems.itemCrafting.itemIntermediumIngot);
-			registerWithRepairMaterial(itemIntermediumShovel, ModItems.itemCrafting.itemIntermediumIngot);
-			registerWithRepairMaterial(itemIntermediumAxe, ModItems.itemCrafting.itemIntermediumIngot);
-			registerWithRepairMaterial(itemIntermediumHoe, ModItems.itemCrafting.itemIntermediumIngot);
-			registerWithRepairMaterial(itemIntermediumShears, ModItems.itemCrafting.itemIntermediumIngot);
-			registerWithRepairMaterial(itemIntermediumBow, ModItems.itemCrafting.itemIntermediumIngot);
-			registerWithRepairMaterial(itemIntermediumSickle, ModItems.itemCrafting.itemIntermediumIngot);
-			registerWithRepairMaterial(itemIntermediumScythe, ModItems.itemCrafting.itemIntermediumIngot);
+			itemIntermediumSword = register(new ItemEssenceSword("intermedium_sword", ModToolMaterials.INTERMEDIUM, TextFormatting.GOLD), "intermedium_sword", ModItems.itemCrafting.itemIntermediumIngot);
+			itemIntermediumPickaxe = register(new ItemEssencePickaxe("intermedium_pickaxe", ModToolMaterials.INTERMEDIUM, TextFormatting.GOLD), "intermedium_pickaxe", ModItems.itemCrafting.itemIntermediumIngot);
+			itemIntermediumShovel = register(new ItemEssenceShovel("intermedium_shovel", ModToolMaterials.INTERMEDIUM, TextFormatting.GOLD), "intermedium_shovel", ModItems.itemCrafting.itemIntermediumIngot);
+			itemIntermediumAxe = register(new ItemEssenceAxe("intermedium_axe", ModToolMaterials.INTERMEDIUM, 13.0F, TextFormatting.GOLD), "intermedium_axe", ModItems.itemCrafting.itemIntermediumIngot);
+			itemIntermediumHoe = register(new ItemEssenceHoe("intermedium_hoe", ModToolMaterials.INTERMEDIUM, TextFormatting.GOLD), "intermedium_hoe", ModItems.itemCrafting.itemIntermediumIngot);
+			itemIntermediumShears = register(new ItemEssenceShears("intermedium_shears", ModToolMaterials.INTERMEDIUM, TextFormatting.GOLD), "intermedium_shears", ModItems.itemCrafting.itemIntermediumIngot);
+			itemIntermediumBow = register(new ItemEssenceBow("intermedium_bow", ModToolMaterials.INTERMEDIUM, 0.35F, TextFormatting.GOLD), "intermedium_bow", ModItems.itemCrafting.itemIntermediumIngot);
+			itemIntermediumSickle = register(new ItemEssenceSickle("intermedium_sickle", 2, ModToolMaterials.INTERMEDIUM, TextFormatting.GOLD), "intermedium_sickle", ModItems.itemCrafting.itemIntermediumIngot);
+			itemIntermediumScythe = register(new ItemEssenceScythe("intermedium_scythe", 1, ModToolMaterials.INTERMEDIUM, TextFormatting.GOLD), "intermedium_scythe", ModItems.itemCrafting.itemIntermediumIngot);
 	
-			registerWithRepairMaterial(itemSuperiumSword, ModItems.itemCrafting.itemSuperiumIngot);
-			registerWithRepairMaterial(itemSuperiumPickaxe, ModItems.itemCrafting.itemSuperiumIngot);
-			registerWithRepairMaterial(itemSuperiumShovel, ModItems.itemCrafting.itemSuperiumIngot);
-			registerWithRepairMaterial(itemSuperiumAxe, ModItems.itemCrafting.itemSuperiumIngot);
-			registerWithRepairMaterial(itemSuperiumHoe, ModItems.itemCrafting.itemSuperiumIngot);
-			registerWithRepairMaterial(itemSuperiumShears, ModItems.itemCrafting.itemSuperiumIngot);
-			registerWithRepairMaterial(itemSuperiumBow, ModItems.itemCrafting.itemSuperiumIngot);
-			registerWithRepairMaterial(itemSuperiumSickle, ModItems.itemCrafting.itemSuperiumIngot);
-			registerWithRepairMaterial(itemSuperiumScythe, ModItems.itemCrafting.itemSuperiumIngot);
+			itemSuperiumSword = register(new ItemEssenceSword("superium_sword", ModToolMaterials.SUPERIUM, TextFormatting.AQUA), "superium_sword", ModItems.itemCrafting.itemSuperiumIngot);
+			itemSuperiumPickaxe = register(new ItemEssencePickaxe("superium_pickaxe", ModToolMaterials.SUPERIUM, TextFormatting.AQUA), "superium_pickaxe", ModItems.itemCrafting.itemSuperiumIngot);
+			itemSuperiumShovel = register(new ItemEssenceShovel("superium_shovel", ModToolMaterials.SUPERIUM, TextFormatting.AQUA), "superium_shovel", ModItems.itemCrafting.itemSuperiumIngot);
+			itemSuperiumAxe = register(new ItemEssenceAxe("superium_axe", ModToolMaterials.SUPERIUM, 17.0F, TextFormatting.AQUA), "superium_axe", ModItems.itemCrafting.itemSuperiumIngot);
+			itemSuperiumHoe = register(new ItemEssenceHoe("superium_hoe", ModToolMaterials.SUPERIUM, TextFormatting.AQUA), "superium_hoe", ModItems.itemCrafting.itemSuperiumIngot);
+			itemSuperiumShears = register(new ItemEssenceShears("superium_shears", ModToolMaterials.SUPERIUM, TextFormatting.AQUA), "superium_shears", ModItems.itemCrafting.itemSuperiumIngot);
+			itemSuperiumBow = register(new ItemEssenceBow("superium_bow", ModToolMaterials.SUPERIUM, 0.55F, TextFormatting.AQUA), "superium_bow", ModItems.itemCrafting.itemSuperiumIngot);
+			itemSuperiumSickle = register(new ItemEssenceSickle("superium_sickle", 2, ModToolMaterials.SUPERIUM, TextFormatting.AQUA), "superium_sickle", ModItems.itemCrafting.itemSuperiumIngot);
+			itemSuperiumScythe = register(new ItemEssenceScythe("superium_scythe", 1, ModToolMaterials.SUPERIUM, TextFormatting.AQUA), "superium_scythe", ModItems.itemCrafting.itemSuperiumIngot);
 
-			registerWithRepairMaterial(itemSupremiumSword, ModItems.itemCrafting.itemSupremiumIngot);
-			registerWithRepairMaterial(itemSupremiumPickaxe, ModItems.itemCrafting.itemSupremiumIngot);
-			registerWithRepairMaterial(itemSupremiumShovel, ModItems.itemCrafting.itemSupremiumIngot);
-			registerWithRepairMaterial(itemSupremiumAxe, ModItems.itemCrafting.itemSupremiumIngot);
-			registerWithRepairMaterial(itemSupremiumHoe, ModItems.itemCrafting.itemSupremiumIngot);
-			registerWithRepairMaterial(itemSupremiumShears, ModItems.itemCrafting.itemSupremiumIngot);
-			registerWithRepairMaterial(itemSupremiumBow, ModItems.itemCrafting.itemSupremiumIngot);
-			registerWithRepairMaterial(itemSupremiumSickle, ModItems.itemCrafting.itemSupremiumIngot);
-			registerWithRepairMaterial(itemSupremiumScythe, ModItems.itemCrafting.itemSupremiumIngot);
+			itemSupremiumSword = register(new ItemEssenceSword("supremium_sword", ModToolMaterials.SUPREMIUM, TextFormatting.RED), "supremium_sword", ModItems.itemCrafting.itemSupremiumIngot);
+			itemSupremiumPickaxe = register(new ItemEssencePickaxe("supremium_pickaxe", ModToolMaterials.SUPREMIUM, TextFormatting.RED), "supremium_pickaxe", ModItems.itemCrafting.itemSupremiumIngot);
+			itemSupremiumShovel = register(new ItemEssenceShovel("supremium_shovel", ModToolMaterials.SUPREMIUM, TextFormatting.RED), "supremium_shovel", ModItems.itemCrafting.itemSupremiumIngot);
+			itemSupremiumAxe = register(new ItemEssenceAxe("supremium_axe", ModToolMaterials.SUPREMIUM, 23.0F, TextFormatting.RED), "supremium_axe", ModItems.itemCrafting.itemSupremiumIngot);
+			itemSupremiumHoe = register(new ItemSupremiumHoe("supremium_hoe", ModToolMaterials.SUPREMIUM, 1, TextFormatting.RED), "supremium_hoe", ModItems.itemCrafting.itemSupremiumIngot);
+			itemSupremiumShears = register(new ItemEssenceShears("supremium_shears", ModToolMaterials.SUPREMIUM, TextFormatting.RED), "supremium_shears", ModItems.itemCrafting.itemSupremiumIngot);
+			itemSupremiumBow = register(new ItemEssenceBow("supremium_bow", ModToolMaterials.SUPREMIUM, 0.80F, TextFormatting.RED), "supremium_bow", ModItems.itemCrafting.itemSupremiumIngot);
+			itemSupremiumSickle = register(new ItemEssenceSickle("supremium_sickle", 2, ModToolMaterials.SUPREMIUM, TextFormatting.RED), "supremium_sickle", ModItems.itemCrafting.itemSupremiumIngot);
+			itemSupremiumScythe = register(new ItemEssenceScythe("supremium_scythe", 1, ModToolMaterials.SUPREMIUM, TextFormatting.RED), "supremium_scythe", ModItems.itemCrafting.itemSupremiumIngot);
 
-			registerItem(itemSupremiumSwordStrength);
-			registerItem(itemSupremiumSwordStrength2);			
-			registerItem(itemSupremiumShearsRainbow);		
-			registerItem(itemSupremiumShearsAOE);		
-			registerItem(itemSupremiumBowTripleShot);					
-			registerItem(itemSupremiumSickleAOE);			
-			registerItem(itemSupremiumScytheAOE);
+			register(itemSupremiumSwordStrength, "supremium_sword_strength1");
+			register(itemSupremiumSwordStrength2, "supremium_sword_strength2");			
+			register(itemSupremiumShearsRainbow, "supremium_shears_rainbow");		
+			register(itemSupremiumShearsAOE, "supremium_shears_aoe");		
+			register(itemSupremiumBowTripleShot, "supremium_bow_triple");					
+			register(itemSupremiumSickleAOE, "supremium_sickle_aoe");			
+			register(itemSupremiumScytheAOE, "supremium_scythe_aoe");
 			
-	        registerWithRepairMaterial(itemInferiumHelmet, ModItems.itemCrafting.itemInferiumIngot);
-	        registerWithRepairMaterial(itemInferiumChestplate, ModItems.itemCrafting.itemInferiumIngot);
-	        registerWithRepairMaterial(itemInferiumLeggings, ModItems.itemCrafting.itemInferiumIngot);
-	        registerWithRepairMaterial(itemInferiumBoots, ModItems.itemCrafting.itemInferiumIngot);
+	        itemInferiumHelmet = register(new ItemInferiumArmor("inferium_helmet", ModToolMaterials.INFERIUM_ARMOR, 0, EntityEquipmentSlot.HEAD), "inferium_helmet", ModItems.itemCrafting.itemInferiumIngot);
+	        itemInferiumChestplate = register(new ItemInferiumArmor("inferium_chestplate", ModToolMaterials.INFERIUM_ARMOR, 0, EntityEquipmentSlot.CHEST), "inferium_chestplate", ModItems.itemCrafting.itemInferiumIngot);
+	        itemInferiumLeggings = register(new ItemInferiumArmor("inferium_leggings", ModToolMaterials.INFERIUM_ARMOR, 0, EntityEquipmentSlot.LEGS), "inferium_leggings", ModItems.itemCrafting.itemInferiumIngot);
+	        itemInferiumBoots = register(new ItemInferiumArmor("inferium_boots", ModToolMaterials.INFERIUM_ARMOR, 0, EntityEquipmentSlot.FEET), "inferium_boots", ModItems.itemCrafting.itemInferiumIngot);
 	        
-	        registerWithRepairMaterial(itemPrudentiumHelmet, ModItems.itemCrafting.itemPrudentiumIngot);
-	        registerWithRepairMaterial(itemPrudentiumChestplate, ModItems.itemCrafting.itemPrudentiumIngot);
-	        registerWithRepairMaterial(itemPrudentiumLeggings, ModItems.itemCrafting.itemPrudentiumIngot);
-	        registerWithRepairMaterial(itemPrudentiumBoots, ModItems.itemCrafting.itemPrudentiumIngot);
+	        itemPrudentiumHelmet = register(new ItemPrudentiumArmor("prudentium_helmet", ModToolMaterials.PRUDENTIUM_ARMOR, 0, EntityEquipmentSlot.HEAD), "prudentium_helmet", ModItems.itemCrafting.itemPrudentiumIngot);
+	        itemPrudentiumChestplate = register(new ItemPrudentiumArmor("prudentium_chestplate", ModToolMaterials.PRUDENTIUM_ARMOR, 0, EntityEquipmentSlot.CHEST), "prudentium_chestplate", ModItems.itemCrafting.itemPrudentiumIngot);
+	        itemPrudentiumLeggings = register(new ItemPrudentiumArmor("prudentium_leggings", ModToolMaterials.PRUDENTIUM_ARMOR, 0, EntityEquipmentSlot.LEGS), "prudentium_leggings", ModItems.itemCrafting.itemPrudentiumIngot);
+	        itemPrudentiumBoots = register(new ItemPrudentiumArmor("prudentium_boots", ModToolMaterials.PRUDENTIUM_ARMOR, 0, EntityEquipmentSlot.FEET), "prudentium_boots", ModItems.itemCrafting.itemPrudentiumIngot);
 	        
-	        registerWithRepairMaterial(itemIntermediumHelmet, ModItems.itemCrafting.itemIntermediumIngot);
-	        registerWithRepairMaterial(itemIntermediumChestplate, ModItems.itemCrafting.itemIntermediumIngot); 
-	    	registerWithRepairMaterial(itemIntermediumLeggings, ModItems.itemCrafting.itemIntermediumIngot);
-	    	registerWithRepairMaterial(itemIntermediumBoots, ModItems.itemCrafting.itemIntermediumIngot);
+	        itemIntermediumHelmet = register(new ItemIntermediumArmor("intermedium_helmet", ModToolMaterials.INTERMEDIUM_ARMOR, 0, EntityEquipmentSlot.HEAD), "intermedium_helmet", ModItems.itemCrafting.itemIntermediumIngot);
+	        itemIntermediumChestplate = register(new ItemIntermediumArmor("intermedium_chestplate", ModToolMaterials.INTERMEDIUM_ARMOR, 0, EntityEquipmentSlot.CHEST), "intermedium_chestplate", ModItems.itemCrafting.itemIntermediumIngot); 
+	    	itemIntermediumLeggings = register(new ItemIntermediumArmor("intermedium_leggings", ModToolMaterials.INTERMEDIUM_ARMOR, 0, EntityEquipmentSlot.LEGS), "intermedium_leggings", ModItems.itemCrafting.itemIntermediumIngot);
+	    	itemIntermediumBoots = register(new ItemIntermediumArmor("intermedium_boots", ModToolMaterials.INTERMEDIUM_ARMOR, 0, EntityEquipmentSlot.FEET), "intermedium_boots", ModItems.itemCrafting.itemIntermediumIngot);
 	    	
-	    	registerWithRepairMaterial(itemSuperiumHelmet, ModItems.itemCrafting.itemSuperiumIngot);
-	        registerWithRepairMaterial(itemSuperiumChestplate, ModItems.itemCrafting.itemSuperiumIngot);
-	        registerWithRepairMaterial(itemSuperiumLeggings, ModItems.itemCrafting.itemSuperiumIngot);
-	        registerWithRepairMaterial(itemSuperiumBoots, ModItems.itemCrafting.itemSuperiumIngot);
+	    	itemSuperiumHelmet = register(new ItemSuperiumArmor("superium_helmet", ModToolMaterials.SUPERIUM_ARMOR, 0, EntityEquipmentSlot.HEAD), "superium_helmet", ModItems.itemCrafting.itemSuperiumIngot);
+	        itemSuperiumChestplate = register(new ItemSuperiumArmor("superium_chestplate", ModToolMaterials.SUPERIUM_ARMOR, 0, EntityEquipmentSlot.CHEST), "superium_chestplate", ModItems.itemCrafting.itemSuperiumIngot);
+	        itemSuperiumLeggings = register(new ItemSuperiumArmor("superium_leggings", ModToolMaterials.SUPERIUM_ARMOR, 0, EntityEquipmentSlot.LEGS), "superium_leggings", ModItems.itemCrafting.itemSuperiumIngot);
+	        itemSuperiumBoots = register(new ItemSuperiumArmor("superium_boots", ModToolMaterials.SUPERIUM_ARMOR, 0, EntityEquipmentSlot.FEET), "superium_boots", ModItems.itemCrafting.itemSuperiumIngot);
 	        
-	        registerWithRepairMaterial(itemSupremiumHelmet, ModItems.itemCrafting.itemSupremiumIngot);
-	        registerWithRepairMaterial(itemSupremiumChestplate, ModItems.itemCrafting.itemSupremiumIngot);
-	        registerWithRepairMaterial(itemSupremiumLeggings, ModItems.itemCrafting.itemSupremiumIngot);
-	        registerWithRepairMaterial(itemSupremiumBoots, ModItems.itemCrafting.itemSupremiumIngot); */
+	        itemSupremiumHelmet = register(new ItemSupremiumArmor("supremium_helmet", ModToolMaterials.SUPREMIUM_ARMOR, 0, EntityEquipmentSlot.HEAD), "supremium_helmet", ModItems.itemCrafting.itemSupremiumIngot);
+	        itemSupremiumChestplate = register(new ItemSupremiumArmor("supremium_chestplate", ModToolMaterials.SUPREMIUM_ARMOR, 0, EntityEquipmentSlot.CHEST), "supremium_chestplate", ModItems.itemCrafting.itemSupremiumIngot);
+	        itemSupremiumLeggings = register(new ItemSupremiumArmor("supremium_leggings", ModToolMaterials.SUPREMIUM_ARMOR, 0, EntityEquipmentSlot.LEGS), "supremium_leggings", ModItems.itemCrafting.itemSupremiumIngot);
+	        itemSupremiumBoots = register(new ItemSupremiumArmor("supremium_boots", ModToolMaterials.SUPREMIUM_ARMOR, 0, EntityEquipmentSlot.FEET), "supremium_boots", ModItems.itemCrafting.itemSupremiumIngot);
 		}
-	}
-	
-	@SideOnly(Side.CLIENT)
-	public static void initItemModels(){
-/*		
-		itemCrafting.initModels();
-		
-		registerModel(itemInfusionCrystal);
-		registerModel(itemInfusionCrystalMaster);
-		
-		registerModel(itemCoreRemover);
-		
-		if(ModConfig.confFertilizedEssence){ registerModel(itemFertilizedEssence); }
-		if(ModConfig.confMysticalFertilizer){ registerModel(itemMysticalFertilizer); }
-		
-		if(ModConfig.confEssenceApples){
-			registerModel(itemInferiumApple);
-			registerModel(itemPrudentiumApple);
-			registerModel(itemIntermediumApple);
-			registerModel(itemSuperiumApple);
-			registerModel(itemSupremiumApple);
-		}
-		
-		if(ModConfig.confEssenceCoal){ itemEssenceCoal.initModels(); }
-		
-		if(ModConfig.confWateringCans){ itemWateringCan.initModels(); }
-
-		registerModel(itemSouliumDagger);
-					
-		itemChunk.initModels();
-		
-		for(CropType.Type type : CropType.Type.values()){
-			if(type.isEnabled()){
-				registerModel(type.getCrop());
-			}
-		}
-
-		registerModel(itemTier1InferiumSeeds);
-		registerModel(itemTier2InferiumSeeds);
-		registerModel(itemTier3InferiumSeeds);
-		registerModel(itemTier4InferiumSeeds);
-		registerModel(itemTier5InferiumSeeds); 
-		
-		for(CropType.Type type : CropType.Type.values()){
-			if(type.isEnabled()){
-				registerModel(type.getSeed());	
-			}
-		}
-		
-		if(ModConfig.confGearModuleOverride){
-			
-			itemGear.initModels();
-			
-			itemCharm.initModels();
-			
-			registerModel(itemInferiumArrow);
-			registerModel(itemPrudentiumArrow);
-			registerModel(itemIntermediumArrow);
-			registerModel(itemSuperiumArrow);
-			registerModel(itemSupremiumArrow);
-			
-			registerModel(itemInferiumSword);
-			registerModel(itemInferiumPickaxe);
-			registerModel(itemInferiumShovel);
-			registerModel(itemInferiumAxe);
-			registerModel(itemInferiumHoe);
-			registerModel(itemInferiumShears);
-			registerModel(itemInferiumBow);
-			registerModel(itemInferiumSickle);
-			registerModel(itemInferiumScythe);
-			
-			registerModel(itemPrudentiumSword);
-			registerModel(itemPrudentiumPickaxe);
-			registerModel(itemPrudentiumShovel);
-			registerModel(itemPrudentiumAxe);
-			registerModel(itemPrudentiumHoe);
-			registerModel(itemPrudentiumShears);
-			registerModel(itemPrudentiumBow);
-			registerModel(itemPrudentiumSickle);
-			registerModel(itemPrudentiumScythe);
-
-			registerModel(itemIntermediumSword);
-			registerModel(itemIntermediumPickaxe);
-			registerModel(itemIntermediumShovel);
-			registerModel(itemIntermediumAxe);
-			registerModel(itemIntermediumHoe);
-			registerModel(itemIntermediumShears);
-			registerModel(itemIntermediumBow);
-			registerModel(itemIntermediumSickle);
-			registerModel(itemIntermediumScythe);
-
-			registerModel(itemSuperiumSword);
-			registerModel(itemSuperiumPickaxe);
-			registerModel(itemSuperiumShovel);
-			registerModel(itemSuperiumAxe);
-			registerModel(itemSuperiumHoe);
-			registerModel(itemSuperiumShears);
-			registerModel(itemSuperiumBow);
-			registerModel(itemSuperiumSickle);
-			registerModel(itemSuperiumScythe);
-
-			registerModel(itemSupremiumSword);
-			registerModel(itemSupremiumPickaxe);
-			registerModel(itemSupremiumShovel);
-			registerModel(itemSupremiumAxe);
-			registerModel(itemSupremiumHoe);
-			registerModel(itemSupremiumShears);
-			registerModel(itemSupremiumBow);
-			registerModel(itemSupremiumSickle);
-			registerModel(itemSupremiumScythe);
-
-			registerModel(itemSupremiumSwordStrength);
-			registerModel(itemSupremiumSwordStrength2);			
-			registerModel(itemSupremiumShearsRainbow);	
-			registerModel(itemSupremiumShearsAOE);
-			registerModel(itemSupremiumBowTripleShot);
-			registerModel(itemSupremiumSickleAOE);
-			registerModel(itemSupremiumScytheAOE);
-			
-	        registerModel(itemInferiumHelmet);
-	        registerModel(itemInferiumChestplate);
-	        registerModel(itemInferiumLeggings);
-	        registerModel(itemInferiumBoots);
-	        
-	        registerModel(itemPrudentiumHelmet);
-	        registerModel(itemPrudentiumChestplate);
-	        registerModel(itemPrudentiumLeggings);
-	        registerModel(itemPrudentiumBoots);
-	        
-	        registerModel(itemIntermediumHelmet);
-	    	registerModel(itemIntermediumChestplate); 
-	    	registerModel(itemIntermediumLeggings);
-	    	registerModel(itemIntermediumBoots);
-	    	
-	        registerModel(itemSuperiumHelmet);
-	        registerModel(itemSuperiumChestplate);
-	        registerModel(itemSuperiumLeggings);
-	        registerModel(itemSuperiumBoots);
-	        
-	        registerModel(itemSupremiumHelmet);
-	        registerModel(itemSupremiumChestplate);
-	        registerModel(itemSupremiumLeggings);
-	        registerModel(itemSupremiumBoots);	
-		}*/
 	}
 		
 	public static <T extends Item> T register(T item, String name){
@@ -476,15 +328,11 @@ public class ModItems {
 		return item;
 	}
 	
-	public static void registerWithRepairMaterial(Item item, ItemStack stack){
-	//	registerItem(item);
+	public static <T extends Item> T register(T item, String name, ItemStack stack){
+		register(item, name);
 		if(item instanceof IRepairMaterial){
 			((IRepairMaterial)item).setRepairMaterial(stack);
 		}
-	}
-	
-	@SideOnly(Side.CLIENT)
-	public static void registerModel(Item item){
-//		ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(MysticalAgriculture.MOD_ID + ":" + item.getUnlocalizedName().substring(8), "inventory")); 
+		return item;
 	}
 }

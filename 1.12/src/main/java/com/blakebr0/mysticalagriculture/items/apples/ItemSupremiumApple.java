@@ -25,10 +25,9 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class ItemSupremiumApple extends ItemFood {
 	
-	public ItemSupremiumApple(String name){
+	public ItemSupremiumApple(){
         super(20, 0.9F, false);
-		this.setUnlocalizedName("ma." + name);
-		this.setRegistryName(name);
+		this.setUnlocalizedName("ma.supremium_apple");
 		this.setCreativeTab(MysticalAgriculture.tabMysticalAgriculture);
 		this.setAlwaysEdible();
 	}

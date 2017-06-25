@@ -24,10 +24,9 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class ItemCoreRemover extends Item {
 	
-	public ItemCoreRemover(String name){
+	public ItemCoreRemover(){
 		super();
-		this.setUnlocalizedName("ma." + name);
-		this.setRegistryName(name);
+		this.setUnlocalizedName("ma.core_remover");
 		this.setCreativeTab(MysticalAgriculture.tabMysticalAgriculture);
 		this.setMaxStackSize(1);
 		this.setMaxDamage(ModConfig.confRemoverDurability - 1);

@@ -19,10 +19,9 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class ItemMasterInfusionCrystal extends Item {
 	
-	public ItemMasterInfusionCrystal(String name){
+	public ItemMasterInfusionCrystal(){
 		super();
-		this.setUnlocalizedName("ma." + name);
-		this.setRegistryName(name);
+		this.setUnlocalizedName("ma.master_infusion_crystal");
 		this.setCreativeTab(MysticalAgriculture.tabMysticalAgriculture);
 		this.setMaxStackSize(1);
 	}

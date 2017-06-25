@@ -85,11 +85,11 @@ public class ModBlocks {
 	
 	public static BlockTinkeringTable blockTinkeringTable;
 
-	public static BlockInferiumCrop blockTier1InferiumCrop = new BlockInferiumCrop("tier1_inferium_crop", 1);
-	public static BlockInferiumCrop blockTier2InferiumCrop = new BlockInferiumCrop("tier2_inferium_crop", 2);
-	public static BlockInferiumCrop blockTier3InferiumCrop = new BlockInferiumCrop("tier3_inferium_crop", 3);
-	public static BlockInferiumCrop blockTier4InferiumCrop = new BlockInferiumCrop("tier4_inferium_crop", 4);
-	public static BlockInferiumCrop blockTier5InferiumCrop = new BlockInferiumCrop("tier5_inferium_crop", 5);
+	public static BlockInferiumCrop blockTier1InferiumCrop;
+	public static BlockInferiumCrop blockTier2InferiumCrop;
+	public static BlockInferiumCrop blockTier3InferiumCrop;
+	public static BlockInferiumCrop blockTier4InferiumCrop;
+	public static BlockInferiumCrop blockTier5InferiumCrop;
 	
 	public static BlockMinersTorch blockMinersTorch;
 		
@@ -170,18 +170,23 @@ public class ModBlocks {
 		blockTinkeringTable = register(new BlockTinkeringTable(), "tinkering_table", false);
 		MysticalRegistry.register(new ItemBlockTinkeringTable(blockTinkeringTable), "tinkering_table");
 		
-/*		registerBlock(blockTier1InferiumCrop.setSeed(ModItems.itemTier1InferiumSeeds));
-		registerBlock(blockTier2InferiumCrop.setSeed(ModItems.itemTier2InferiumSeeds));
-		registerBlock(blockTier3InferiumCrop.setSeed(ModItems.itemTier3InferiumSeeds));
-		registerBlock(blockTier4InferiumCrop.setSeed(ModItems.itemTier4InferiumSeeds));
-		registerBlock(blockTier5InferiumCrop.setSeed(ModItems.itemTier5InferiumSeeds));
+		blockTier1InferiumCrop = register(new BlockInferiumCrop("tier1_inferium_crop", 1), "tier1_inferium_crop");
+		blockTier2InferiumCrop = register(new BlockInferiumCrop("tier2_inferium_crop", 2), "tier2_inferium_crop");
+		blockTier3InferiumCrop = register(new BlockInferiumCrop("tier3_inferium_crop", 3), "tier3_inferium_crop");
+		blockTier4InferiumCrop = register(new BlockInferiumCrop("tier4_inferium_crop", 4), "tier4_inferium_crop");
+		blockTier5InferiumCrop = register(new BlockInferiumCrop("tier5_inferium_crop", 5), "tier5_inferium_crop");
+		blockTier1InferiumCrop.setSeed(ModItems.itemTier1InferiumSeeds);
+		blockTier2InferiumCrop.setSeed(ModItems.itemTier2InferiumSeeds);
+		blockTier3InferiumCrop.setSeed(ModItems.itemTier3InferiumSeeds);
+		blockTier4InferiumCrop.setSeed(ModItems.itemTier4InferiumSeeds);
+		blockTier5InferiumCrop.setSeed(ModItems.itemTier5InferiumSeeds);
 		
 		for(CropType.Type type : CropType.Type.values()){
 			if(type.isEnabled()){
-				registerBlock(type.getPlant());
+				register(type.getPlant(), type.getName() + "_crop");
 			}
 		}
-	*/	
+		
 		if(ModConfig.confGearModuleOverride){
 			blockMinersTorch = register(new BlockMinersTorch(), "miners_torch", false);
 			MysticalRegistry.register(new ItemBlockMinersTorch(blockMinersTorch), "miners_torch");

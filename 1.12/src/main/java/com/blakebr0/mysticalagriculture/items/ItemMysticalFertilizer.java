@@ -36,10 +36,9 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class ItemMysticalFertilizer extends Item {
 
-	public ItemMysticalFertilizer(String name){
+	public ItemMysticalFertilizer(){
 		super();
-		this.setUnlocalizedName("ma." + name);
-		this.setRegistryName(name);
+		this.setUnlocalizedName("ma.mystical_fertilizer");
 		this.setCreativeTab(MysticalAgriculture.tabMysticalAgriculture);
 	}
 	

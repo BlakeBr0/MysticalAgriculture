@@ -55,8 +55,8 @@ public class CommonProxy {
 		}
 		
 		ModBlocks.init();
-	    ModItems.initItems();
-//	    CropType.init();
+	    ModItems.init();
+	    CropType.init();
 	    ModEntities.init();
 
 	    MinecraftForge.EVENT_BUS.register(new MysticalRegistry());

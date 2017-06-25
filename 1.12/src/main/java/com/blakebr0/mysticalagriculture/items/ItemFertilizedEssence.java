@@ -30,10 +30,9 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class ItemFertilizedEssence extends Item {
 
-	public ItemFertilizedEssence(String name){
+	public ItemFertilizedEssence(){
 		super();
-		this.setUnlocalizedName("ma." + name);
-		this.setRegistryName(name);
+		this.setUnlocalizedName("ma.fertilized_essence");
 		this.setCreativeTab(MysticalAgriculture.tabMysticalAgriculture);
 	}
 	

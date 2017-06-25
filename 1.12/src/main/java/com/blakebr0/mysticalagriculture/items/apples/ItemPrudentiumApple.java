@@ -25,10 +25,9 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class ItemPrudentiumApple extends ItemFood {
 	
-	public ItemPrudentiumApple(String name){
+	public ItemPrudentiumApple(){
         super(8, 0.4F, false);
-		this.setUnlocalizedName("ma." + name);
-		this.setRegistryName(name);
+		this.setUnlocalizedName("ma.prudentium_apple");
 		this.setCreativeTab(MysticalAgriculture.tabMysticalAgriculture);
 		this.setAlwaysEdible();
 	}

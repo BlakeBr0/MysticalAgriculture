@@ -20,9 +20,8 @@ import net.minecraft.world.World;
 
 public class ItemSupremiumArrow extends ItemArrow {
 	
-	public ItemSupremiumArrow(String name){
-		this.setUnlocalizedName("ma." + name);
-		this.setRegistryName(name);
+	public ItemSupremiumArrow(){
+		this.setUnlocalizedName("ma.supremium_arrow");
 		this.setCreativeTab(MysticalAgriculture.tabMysticalAgriculture);
 	}
 	
