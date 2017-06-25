@@ -16,11 +16,12 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.CraftingManager;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.common.Loader;
+import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.oredict.OreDictionary;
 import net.minecraftforge.oredict.ShapedOreRecipe;
 import net.minecraftforge.oredict.ShapelessOreRecipe;
-/*
+
 public class ModRecipes {
 	
 	private static CropType.Type type;
@@ -92,13 +93,13 @@ public class ModRecipes {
 		}
 		return mobChunk;
 	}
-	
+	// TODO: a better job with recipes
 	public static void addShapedRecipe(ItemStack output, Object... input){
-//		GameRegistry.register(new ShapedOreRecipe(EMPTY_GROUP, output, input), getRecipeLocation(output));
+		ForgeRegistries.RECIPES.register(new ShapedOreRecipe(EMPTY_GROUP, output, input).setRegistryName(getRecipeLocation(output)));
 	}
 	
 	public static void addShapelessRecipe(ItemStack output, Object... input){
-//		GameRegistry.register(new ShapelessOreRecipe(EMPTY_GROUP, output, input), getRecipeLocation(output));
+		ForgeRegistries.RECIPES.register(new ShapelessOreRecipe(EMPTY_GROUP, output, input).setRegistryName(getRecipeLocation(output)));
 	}
 	
 	public static void addSeedRecipe(CropType.Type type, Object input){
@@ -133,14 +134,14 @@ public class ModRecipes {
 	}
 	
 	public static void addTinkeringRecipe(ItemStack output, ItemStack input, ItemStack input2){
-		TinkeringTableManager.getInstance().addRecipe(output, 
+/*		TinkeringTableManager.getInstance().addRecipe(output, 
 				"ACE", 
 				"PEP", 
 				"EPE",
 				'A', input,
 				'C', input2,
 				'E', new ItemStack(ModItems.itemSupremiumEssence, 1, 0),
-				'P', new ItemStack(ModItems.itemProsperityShard, 1, 0));
+				'P', new ItemStack(ModItems.itemProsperityShard, 1, 0)); */
 	}
 	
     public static ResourceLocation getRecipeLocation(ItemStack output){
@@ -871,79 +872,7 @@ public class ModRecipes {
 			addUpgradeRecipe(new ItemStack(ModItems.itemSupremiumBoots), ModItems.itemCharm.itemCharmAntivenom, ArmorType.ANTIVENOM.getIndex());
 			addUpgradeRecipe(new ItemStack(ModItems.itemSupremiumBoots), ModItems.itemCharm.itemCharmFire, ArmorType.FIRE_RESISTANCE.getIndex());
 			addUpgradeRecipe(new ItemStack(ModItems.itemSupremiumBoots), ModItems.itemCharm.itemCharmResistance, ArmorType.RESISTANCE.getIndex());
-			
-			addTinkeringRecipe(new ItemStack(ModItems.itemSupremiumSwordStrength), new ItemStack(ModItems.itemSupremiumSword, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(ModItems.itemCharmStrength, 1, 0));
-			if(ModConfig.confAOECharms){ addTinkeringRecipe(new ItemStack(ModItems.itemSupremiumHoeAOE), new ItemStack(ModItems.itemSupremiumHoe, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(ModItems.itemCharmTillingAOE, 1, 0)); }
-
-			addTinkeringRecipe(new ItemStack(ModItems.itemSupremiumShearsRainbow), new ItemStack(ModItems.itemSupremiumShears, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(ModItems.itemCharmRainbow, 1, 0));
-			
-			if(ModConfig.confAOECharms){ addTinkeringRecipe(new ItemStack(ModItems.itemSupremiumShearsAOE), new ItemStack(ModItems.itemSupremiumShears, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(ModItems.itemCharmShearingAOE, 1, 0)); }
-	
-			addTinkeringRecipe(new ItemStack(ModItems.itemSupremiumBowQuickDraw), new ItemStack(ModItems.itemSupremiumBow, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(ModItems.itemCharmQuickDraw, 1, 0));
-
-			addTinkeringRecipe(new ItemStack(ModItems.itemSupremiumBowTripleShot), new ItemStack(ModItems.itemSupremiumBow, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(ModItems.itemCharmTripleShot, 1, 0));
-
-			if(ModConfig.confAOECharms){ addTinkeringRecipe(new ItemStack(ModItems.itemSupremiumSickleAOE), new ItemStack(ModItems.itemSupremiumSickle, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(ModItems.itemCharmReapingAOE, 1, 0)); }
-
-			if(ModConfig.confAOECharms){ addTinkeringRecipe(new ItemStack(ModItems.itemSupremiumScytheAOE), new ItemStack(ModItems.itemSupremiumScythe, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(ModItems.itemCharmScythingAOE, 1, 0)); }
-
-
-
-			addCharmRecipe(new ItemStack(ModItems.itemSupremiumSword), new ItemStack(ModItems.itemSupremiumSwordStrength, 1, OreDictionary.WILDCARD_VALUE));
-			addCharmRecipe(new ItemStack(ModItems.itemSupremiumSword), new ItemStack(ModItems.itemSupremiumSwordStrength2, 1, OreDictionary.WILDCARD_VALUE));
-
-			if(ModConfig.confAOECharms){ addCharmRecipe(new ItemStack(ModItems.itemSupremiumSword), new ItemStack(ModItems.itemSupremiumSwordAOE, 1, OreDictionary.WILDCARD_VALUE)); }
-	
-			addCharmRecipe(new ItemStack(ModItems.itemSupremiumPickaxe), new ItemStack(ModItems.itemSupremiumPickaxeMinersVision, 1, OreDictionary.WILDCARD_VALUE));
-			
-			if(ModConfig.confAOECharms){ addCharmRecipe(new ItemStack(ModItems.itemSupremiumPickaxe), new ItemStack(ModItems.itemSupremiumPickaxeAOE, 1, OreDictionary.WILDCARD_VALUE)); }
-	
-			if(ModConfig.confAOECharms){ addCharmRecipe(new ItemStack(ModItems.itemSupremiumShovel), new ItemStack(ModItems.itemSupremiumShovelAOE, 1, OreDictionary.WILDCARD_VALUE)); }
-	
-			if(ModConfig.confAOECharms){ addCharmRecipe(new ItemStack(ModItems.itemSupremiumAxe), new ItemStack(ModItems.itemSupremiumAxeAOE, 1, OreDictionary.WILDCARD_VALUE)); }
-		
-			if(ModConfig.confAOECharms){ addCharmRecipe(new ItemStack(ModItems.itemSupremiumHoe), new ItemStack(ModItems.itemSupremiumHoeAOE, 1, OreDictionary.WILDCARD_VALUE)); }
-		
-			addCharmRecipe(new ItemStack(ModItems.itemSupremiumShears), new ItemStack(ModItems.itemSupremiumShearsRainbow, 1, OreDictionary.WILDCARD_VALUE));
-
-			if(ModConfig.confAOECharms){ addCharmRecipe(new ItemStack(ModItems.itemSupremiumShears), new ItemStack(ModItems.itemSupremiumShearsAOE, 1, OreDictionary.WILDCARD_VALUE)); }
-	
-			addCharmRecipe(new ItemStack(ModItems.itemSupremiumBow), new ItemStack(ModItems.itemSupremiumBowQuickDraw, 1, OreDictionary.WILDCARD_VALUE));
-	
-			addCharmRecipe(new ItemStack(ModItems.itemSupremiumBow), new ItemStack(ModItems.itemSupremiumBowTripleShot, 1, OreDictionary.WILDCARD_VALUE));
-
-			if(ModConfig.confAOECharms){ addCharmRecipe(new ItemStack(ModItems.itemSupremiumSickle), new ItemStack(ModItems.itemSupremiumSickleAOE, 1, OreDictionary.WILDCARD_VALUE)); }
-
-			if(ModConfig.confAOECharms){ addCharmRecipe(new ItemStack(ModItems.itemSupremiumScythe), new ItemStack(ModItems.itemSupremiumScytheAOE, 1, OreDictionary.WILDCARD_VALUE)); }
-
-			addCharmRecipe(new ItemStack(ModItems.itemSupremiumHelmet), new ItemStack(ModItems.itemSupremiumHelmetNightvision, 1, OreDictionary.WILDCARD_VALUE));
-			addCharmRecipe(new ItemStack(ModItems.itemSupremiumHelmet), new ItemStack(ModItems.itemSupremiumHelmetAbsorption, 1, OreDictionary.WILDCARD_VALUE));
-			addCharmRecipe(new ItemStack(ModItems.itemSupremiumHelmet), new ItemStack(ModItems.itemSupremiumHelmetWither, 1, OreDictionary.WILDCARD_VALUE));
-			addCharmRecipe(new ItemStack(ModItems.itemSupremiumHelmet), new ItemStack(ModItems.itemSupremiumHelmetAntivenom, 1, OreDictionary.WILDCARD_VALUE));
-			addCharmRecipe(new ItemStack(ModItems.itemSupremiumHelmet), new ItemStack(ModItems.itemSupremiumHelmetFire, 1, OreDictionary.WILDCARD_VALUE));
-			addCharmRecipe(new ItemStack(ModItems.itemSupremiumHelmet), new ItemStack(ModItems.itemSupremiumHelmetResistance, 1, OreDictionary.WILDCARD_VALUE));
-		
-			addCharmRecipe(new ItemStack(ModItems.itemSupremiumChestplate), new ItemStack(ModItems.itemSupremiumChestplateStrength, 1, OreDictionary.WILDCARD_VALUE));
-			addCharmRecipe(new ItemStack(ModItems.itemSupremiumChestplate), new ItemStack(ModItems.itemSupremiumChestplateAbsorption, 1, OreDictionary.WILDCARD_VALUE));
-			addCharmRecipe(new ItemStack(ModItems.itemSupremiumChestplate), new ItemStack(ModItems.itemSupremiumChestplateWither, 1, OreDictionary.WILDCARD_VALUE));
-			addCharmRecipe(new ItemStack(ModItems.itemSupremiumChestplate), new ItemStack(ModItems.itemSupremiumChestplateAntivenom, 1, OreDictionary.WILDCARD_VALUE));
-			addCharmRecipe(new ItemStack(ModItems.itemSupremiumChestplate), new ItemStack(ModItems.itemSupremiumChestplateFire, 1, OreDictionary.WILDCARD_VALUE));
-			addCharmRecipe(new ItemStack(ModItems.itemSupremiumChestplate), new ItemStack(ModItems.itemSupremiumChestplateResistance, 1, OreDictionary.WILDCARD_VALUE));
-	
-			addCharmRecipe(new ItemStack(ModItems.itemSupremiumLeggings), new ItemStack(ModItems.itemSupremiumLeggingsSpeed, 1, OreDictionary.WILDCARD_VALUE));
-			addCharmRecipe(new ItemStack(ModItems.itemSupremiumLeggings), new ItemStack(ModItems.itemSupremiumLeggingsAbsorption, 1, OreDictionary.WILDCARD_VALUE));
-			addCharmRecipe(new ItemStack(ModItems.itemSupremiumLeggings), new ItemStack(ModItems.itemSupremiumLeggingsWither, 1, OreDictionary.WILDCARD_VALUE));
-			addCharmRecipe(new ItemStack(ModItems.itemSupremiumLeggings), new ItemStack(ModItems.itemSupremiumLeggingsAntivenom, 1, OreDictionary.WILDCARD_VALUE));
-			addCharmRecipe(new ItemStack(ModItems.itemSupremiumLeggings), new ItemStack(ModItems.itemSupremiumLeggingsFire, 1, OreDictionary.WILDCARD_VALUE));
-			addCharmRecipe(new ItemStack(ModItems.itemSupremiumLeggings), new ItemStack(ModItems.itemSupremiumLeggingsResistance, 1, OreDictionary.WILDCARD_VALUE));
-		
-			addCharmRecipe(new ItemStack(ModItems.itemSupremiumBoots), new ItemStack(ModItems.itemSupremiumBootsJump, 1, OreDictionary.WILDCARD_VALUE));
-			addCharmRecipe(new ItemStack(ModItems.itemSupremiumBoots), new ItemStack(ModItems.itemSupremiumBootsAbsorption, 1, OreDictionary.WILDCARD_VALUE));
-			addCharmRecipe(new ItemStack(ModItems.itemSupremiumBoots), new ItemStack(ModItems.itemSupremiumBootsWither, 1, OreDictionary.WILDCARD_VALUE));
-			addCharmRecipe(new ItemStack(ModItems.itemSupremiumBoots), new ItemStack(ModItems.itemSupremiumBootsAntivenom, 1, OreDictionary.WILDCARD_VALUE));
-			addCharmRecipe(new ItemStack(ModItems.itemSupremiumBoots), new ItemStack(ModItems.itemSupremiumBootsFire, 1, OreDictionary.WILDCARD_VALUE));
-			addCharmRecipe(new ItemStack(ModItems.itemSupremiumBoots), new ItemStack(ModItems.itemSupremiumBootsResistance, 1, OreDictionary.WILDCARD_VALUE));
 	    }
 	}
 }
-*/
+

@@ -62,7 +62,7 @@ public class ItemEssenceBow extends ItemBow implements IRepairMaterial {
                     return 0.0F;
                 } else {
                     ItemStack itemstack = entity.getActiveItemStack();
-                    return !itemstack.isEmpty() && itemstack.getItem() instanceof ItemEssenceBow ? (float)(stack.getMaxItemUseDuration() - entity.getItemInUseCount()) * getDrawSpeed() / 20.0F : 0.0F;
+                    return !itemstack.isEmpty() && itemstack.getItem() instanceof ItemEssenceBow ? (float)(stack.getMaxItemUseDuration() - entity.getItemInUseCount()) * getDrawSpeed(stack) / 20.0F : 0.0F;
                 }
             }
         });
@@ -106,8 +106,17 @@ public class ItemEssenceBow extends ItemBow implements IRepairMaterial {
 		return repairMaterial;
 	}
 	
-	public float getDrawSpeed(){
-		return this.drawSpeed + 1.0f;
+	public float getDrawSpeed(ItemStack stack){
+		float multi = 1.0F;
+		NBTTagCompound tag = NBTHelper.getDataMap(stack);
+		if(tag.hasKey(ToolType.TOOL_TYPE)){
+			if(tag.getInteger(ToolType.TOOL_TYPE) == ToolType.QUICK_DRAW.getIndex()){
+				multi = 2.0F;
+			} else if(tag.getInteger(ToolType.TOOL_TYPE) == ToolType.TRIPLE_SHOT.getIndex()){
+				multi = 0.5F;
+			}
+		}
+		return (this.drawSpeed * multi) + 1.0f;
 	}
 	
 	protected ItemStack findAmmo(EntityPlayer player){
@@ -133,7 +142,7 @@ public class ItemEssenceBow extends ItemBow implements IRepairMaterial {
             boolean flag = entityplayer.capabilities.isCreativeMode || EnchantmentHelper.getEnchantmentLevel(Enchantments.INFINITY, stack) > 0;
             ItemStack itemstack = this.findAmmo(entityplayer);
 
-            int i = (int)((this.getMaxItemUseDuration(stack) - timeLeft) * getDrawSpeed());
+            int i = (int)((this.getMaxItemUseDuration(stack) - timeLeft) * getDrawSpeed(stack));
             i = net.minecraftforge.event.ForgeEventFactory.onArrowLoose(stack, world, (EntityPlayer)entityLiving, i, !itemstack.isEmpty() || flag);
             if(i < 0) return;
 

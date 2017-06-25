@@ -293,7 +293,7 @@ public class ModItems {
 			register(itemSupremiumShearsRainbow, "supremium_shears_rainbow");		
 			register(itemSupremiumShearsAOE, "supremium_shears_aoe");		
 			register(itemSupremiumBowTripleShot, "supremium_bow_triple");					
-			register(itemSupremiumSickleAOE, "supremium_sickle_aoe");			
+			register(itemSupremiumSickleAOE, "supremium_sickle_aoe");
 			register(itemSupremiumScytheAOE, "supremium_scythe_aoe");
 			
 	        itemInferiumHelmet = register(new ItemInferiumArmor("inferium_helmet", ModToolMaterials.INFERIUM_ARMOR, 0, EntityEquipmentSlot.HEAD), "inferium_helmet", ModItems.itemCrafting.itemInferiumIngot);

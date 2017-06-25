@@ -9,6 +9,7 @@ import com.blakebr0.mysticalagriculture.util.Utils;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
+import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.oredict.ShapedOreRecipe;
 
@@ -18,7 +19,7 @@ public class EssenceRecipes {
 	
 	public static void addEssenceRecipe(ItemStack output, Object... input){
 		if(!output.isEmpty() && output.getCount() > 0){
-//			GameRegistry.register(new ShapedOreRecipe(ModRecipes.EMPTY_GROUP, output, input).setMirrored(false), ModRecipes.getRecipeLocation(output));
+			ForgeRegistries.RECIPES.register(new ShapedOreRecipe(ModRecipes.EMPTY_GROUP, output, input).setMirrored(false).setRegistryName(ModRecipes.getRecipeLocation(output)));
 		}
 	}
 	

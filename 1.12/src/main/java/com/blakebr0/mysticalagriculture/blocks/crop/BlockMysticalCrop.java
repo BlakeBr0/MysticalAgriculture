@@ -29,7 +29,6 @@ public class BlockMysticalCrop extends BlockCrops {
     public BlockMysticalCrop(String name){
     	super();
 		this.setUnlocalizedName("ma." + name);
-//    	super.setRegistryName(name);
         this.setCreativeTab((CreativeTabs)null);
         this.setHardness(0.0F);
         this.setSoundType(SoundType.PLANT);

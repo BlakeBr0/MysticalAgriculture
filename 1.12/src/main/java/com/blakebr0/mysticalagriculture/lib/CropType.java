@@ -12,14 +12,6 @@ import net.minecraftforge.oredict.OreDictionary;
 
 public class CropType {
 	
-	public static void init(){
-		for(CropType.Type type : CropType.Type.values()){
-			if(type.isEnabled()){
-				type.set();
-			}
-		}
-	}
-	
 	public static enum Type implements IStringSerializable {
 		
 		STONE("stone", 1),

@@ -60,7 +60,7 @@ public class ItemBowTripleShot extends ItemEssenceBow {
             boolean flag = entityplayer.capabilities.isCreativeMode || EnchantmentHelper.getEnchantmentLevel(Enchantments.INFINITY, stack) > 0;
             ItemStack itemstack = this.findAmmo(entityplayer);
 
-            int i = (int)((this.getMaxItemUseDuration(stack) - timeLeft) * getDrawSpeed());
+            int i = (int)((this.getMaxItemUseDuration(stack) - timeLeft) * getDrawSpeed(stack));
             i = net.minecraftforge.event.ForgeEventFactory.onArrowLoose(stack, world, (EntityPlayer)entityLiving, i, itemstack != null || flag);
             if(i < 0) return;
             
