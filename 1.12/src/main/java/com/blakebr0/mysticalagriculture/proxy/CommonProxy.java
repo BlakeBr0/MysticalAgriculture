@@ -51,7 +51,7 @@ public class CommonProxy {
 		MinecraftForge.EVENT_BUS.register(new EssenceConfig());
 
 		for(CropType.Type type : CropType.Type.values()){
-//			type.declare();
+			type.declare();
 		}
 		
 		ModBlocks.init();

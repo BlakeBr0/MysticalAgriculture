@@ -31,6 +31,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraftforge.oredict.OreDictionary;
 // TODO: blocks with init() need their stuff moved
 // TODO: blocks with config checks need a change of some sort
+// TODO: blocks with custom itemblocks need some place to register them
 public class ModBlocks {
 		
 	public static BlockStorage blockStorage;

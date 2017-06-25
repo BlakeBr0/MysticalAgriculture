@@ -54,50 +54,51 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraftforge.oredict.OreDictionary;
-
+// TODO: deal with the items with config disablers
+// TODO: cleanup item constructors
 public class ModItems {
 	
 	private static CropType.Type type;
 	
-	public static ItemCrafting itemCrafting = new ItemCrafting();
+	public static ItemCrafting itemCrafting;
 	
-	public static ItemInfusionCrystal itemInfusionCrystal = new ItemInfusionCrystal("infusion_crystal");
-	public static ItemMasterInfusionCrystal itemInfusionCrystalMaster = new ItemMasterInfusionCrystal("master_infusion_crystal");
+	public static ItemInfusionCrystal itemInfusionCrystal;
+	public static ItemMasterInfusionCrystal itemInfusionCrystalMaster;
 		
-	public static ItemCoreRemover itemCoreRemover = new ItemCoreRemover("core_remover");
+	public static ItemCoreRemover itemCoreRemover;
 	
-	public static ItemFertilizedEssence itemFertilizedEssence = new ItemFertilizedEssence("fertilized_essence");
-	public static ItemMysticalFertilizer itemMysticalFertilizer = new ItemMysticalFertilizer("mystical_fertilizer");
+	public static ItemFertilizedEssence itemFertilizedEssence;
+	public static ItemMysticalFertilizer itemMysticalFertilizer;
 	
-	public static ItemInferiumApple itemInferiumApple = new ItemInferiumApple("inferium_apple");
-	public static ItemPrudentiumApple itemPrudentiumApple = new ItemPrudentiumApple("prudentium_apple");
-	public static ItemIntermediumApple itemIntermediumApple = new ItemIntermediumApple("intermedium_apple");
-	public static ItemSuperiumApple itemSuperiumApple = new ItemSuperiumApple("superium_apple");
-	public static ItemSupremiumApple itemSupremiumApple = new ItemSupremiumApple("supremium_apple");
+	public static ItemInferiumApple itemInferiumApple;
+	public static ItemPrudentiumApple itemPrudentiumApple;
+	public static ItemIntermediumApple itemIntermediumApple;
+	public static ItemSuperiumApple itemSuperiumApple;
+	public static ItemSupremiumApple itemSupremiumApple;
 	
-	public static ItemEssenceCoal itemEssenceCoal = new ItemEssenceCoal();
+	public static ItemEssenceCoal itemEssenceCoal;
 	
-	public static ItemWateringCan itemWateringCan = new ItemWateringCan();
+	public static ItemWateringCan itemWateringCan;
 
-	public static ItemSouliumDagger itemSouliumDagger = new ItemSouliumDagger("soulium_dagger", ModToolMaterials.SOULIUM);
+	public static ItemSouliumDagger itemSouliumDagger;
 		
-	public static ItemChunk itemChunk = new ItemChunk();
+	public static ItemChunk itemChunk;
 		
-/*	public static ItemSeed itemTier1InferiumSeeds = new ItemSeed("tier1_inferium_seeds", ModBlocks.blockTier1InferiumCrop, 1);
-	public static ItemSeed itemTier2InferiumSeeds = new ItemSeed("tier2_inferium_seeds", ModBlocks.blockTier2InferiumCrop, 2);
-	public static ItemSeed itemTier3InferiumSeeds = new ItemSeed("tier3_inferium_seeds", ModBlocks.blockTier3InferiumCrop, 3);
-	public static ItemSeed itemTier4InferiumSeeds = new ItemSeed("tier4_inferium_seeds", ModBlocks., 4);
-	public static ItemSeed itemTier5InferiumSeeds = new ItemSeed("tier5_inferium_seeds", ModBlocks.blockTier5InferiumCrop, 5); 
-*/				
-	public static ItemGear itemGear = new ItemGear();
+	public static ItemSeed itemTier1InferiumSeeds;
+	public static ItemSeed itemTier2InferiumSeeds;
+	public static ItemSeed itemTier3InferiumSeeds;
+	public static ItemSeed itemTier4InferiumSeeds;
+	public static ItemSeed itemTier5InferiumSeeds; 
+				
+	public static ItemGear itemGear;
 
-	public static ItemCharm itemCharm = new ItemCharm();
+	public static ItemCharm itemCharm;
 	
-	public static ItemInferiumArrow itemInferiumArrow = new ItemInferiumArrow("inferium_arrow");
-	public static ItemPrudentiumArrow itemPrudentiumArrow = new ItemPrudentiumArrow("prudentium_arrow");
-	public static ItemIntermediumArrow itemIntermediumArrow = new ItemIntermediumArrow("intermedium_arrow");
-	public static ItemSuperiumArrow itemSuperiumArrow = new ItemSuperiumArrow("superium_arrow");
-	public static ItemSupremiumArrow itemSupremiumArrow = new ItemSupremiumArrow("supremium_arrow");
+	public static ItemInferiumArrow itemInferiumArrow;
+	public static ItemPrudentiumArrow itemPrudentiumArrow;
+	public static ItemIntermediumArrow itemIntermediumArrow;
+	public static ItemSuperiumArrow itemSuperiumArrow;
+	public static ItemSupremiumArrow itemSupremiumArrow;
 	
 /*	public static ItemEssenceSword itemInferiumSword = new ItemEssenceSword("inferium_sword", ModToolMaterials.INFERIUM, TextFormatting.YELLOW);
 	public static ItemEssencePickaxe itemInferiumPickaxe = new ItemEssencePickaxe("inferium_pickaxe", ModToolMaterials.INFERIUM, TextFormatting.YELLOW);
@@ -184,62 +185,62 @@ public class ModItems {
 			
 	public static void initItems(){
 
-		itemCrafting.init();
+		itemCrafting = register(new ItemCrafting(), "crafting");
 		
-		registerItem(itemInfusionCrystal);
-		registerItem(itemInfusionCrystalMaster);
+		itemInfusionCrystal = register(new ItemInfusionCrystal("infusion_crystal"), "infusion_crystal");
+		itemInfusionCrystalMaster = register(new ItemMasterInfusionCrystal("master_infusion_crystal"), "master_infusion_crystal");
 		
-		registerItem(itemCoreRemover);
+		itemCoreRemover = register(new ItemCoreRemover("core_remover"), "core_remover");
 		
-		if(ModConfig.confFertilizedEssence){ registerItem(itemFertilizedEssence); }
-		if(ModConfig.confMysticalFertilizer){ registerItem(itemMysticalFertilizer); }
+		if(ModConfig.confFertilizedEssence){ itemFertilizedEssence = register(new ItemFertilizedEssence("fertilized_essence"), "fertilized_essence"); }
+		if(ModConfig.confMysticalFertilizer){ itemMysticalFertilizer = register(new ItemMysticalFertilizer("mystical_fertilizer"), "mystical_fertilizer"); }
 		
 		if(ModConfig.confEssenceApples){
-			registerItem(itemInferiumApple);
-			registerItem(itemPrudentiumApple);
-			registerItem(itemIntermediumApple);
-			registerItem(itemSuperiumApple);
-			registerItem(itemSupremiumApple);
+			itemInferiumApple = register(new ItemInferiumApple("inferium_apple"), "inferium_apple");
+			itemPrudentiumApple = register(new ItemPrudentiumApple("prudentium_apple"), "prudentium_apple");
+			itemIntermediumApple = register(new ItemIntermediumApple("intermedium_apple"), "intermedium_apple");
+			itemSuperiumApple = register(new ItemSuperiumApple("superium_apple"), "superium_apple");
+			itemSupremiumApple = register(new ItemSupremiumApple("supremium_apple"), "supremium_apple");
 		}
 		
-		if(ModConfig.confEssenceCoal){ itemEssenceCoal.init(); }
+		if(ModConfig.confEssenceCoal){ itemEssenceCoal = register(new ItemEssenceCoal(), "coal"); }
 		
-		if(ModConfig.confWateringCans){ itemWateringCan.init(); }
+		if(ModConfig.confWateringCans){ itemWateringCan = register(new ItemWateringCan(), "watering_can"); }
 
-		registerItem(itemSouliumDagger);
+		itemSouliumDagger = register(new ItemSouliumDagger("soulium_dagger", ModToolMaterials.SOULIUM), "soulium_dagger");
 								
-		itemChunk.init();
+		itemChunk = register(new ItemChunk(), "chunk");
 		
 		for(CropType.Type type : CropType.Type.values()){
 			if(type.isEnabled()){
-				registerItem(type.getCrop());
-				OreDictionary.registerOre("essenceTier" + type.getTier(), type.getCrop());
+				register(type.getCrop(), type.getName() + "_essence");
+//				OreDictionary.registerOre("essenceTier" + type.getTier(), type.getCrop()); //TODO oredict for essences
 			}
 		}
-/*
-		registerItem(itemTier1InferiumSeeds);
-		registerItem(itemTier2InferiumSeeds);
-		registerItem(itemTier3InferiumSeeds);
-		registerItem(itemTier4InferiumSeeds);
-		registerItem(itemTier5InferiumSeeds); 
-		*/
+
+		itemTier1InferiumSeeds = register(new ItemSeed("tier1_inferium_seeds", ModBlocks.blockTier1InferiumCrop, 1), "tier1_inferium_seeds");
+		itemTier2InferiumSeeds = register(new ItemSeed("tier2_inferium_seeds", ModBlocks.blockTier2InferiumCrop, 2), "tier2_inferium_seeds");
+		itemTier3InferiumSeeds = register(new ItemSeed("tier3_inferium_seeds", ModBlocks.blockTier3InferiumCrop, 3), "tier3_inferium_seeds");
+		itemTier4InferiumSeeds = register(new ItemSeed("tier4_inferium_seeds", ModBlocks.blockTier4InferiumCrop, 4), "tier4_inferium_seeds");
+		itemTier5InferiumSeeds = register(new ItemSeed("tier5_inferium_seeds", ModBlocks.blockTier5InferiumCrop, 5), "tier5_inferium_seeds");
+		
 		for(CropType.Type type : CropType.Type.values()){
 			if(type.isEnabled()){
-				registerItem(type.getSeed());	
+				register(type.getSeed(), type.getName() + "_seeds");
 			}
 		}
 		
 		if(ModConfig.confGearModuleOverride){
 			
-			itemGear.init();
+			itemGear = register(new ItemGear(), "gear");
 			
-			itemCharm.init();
+			itemCharm = register(new ItemCharm(), "charm");
 						
-			registerItem(itemInferiumArrow);
-			registerItem(itemPrudentiumArrow);
-			registerItem(itemIntermediumArrow);
-			registerItem(itemSuperiumArrow);
-			registerItem(itemSupremiumArrow);
+			itemInferiumArrow = register(new ItemInferiumArrow("inferium_arrow"), "inferium_arrow");
+			itemPrudentiumArrow = register(new ItemPrudentiumArrow("prudentium_arrow"), "prudentium_arrow");
+			itemIntermediumArrow = register(new ItemIntermediumArrow("intermedium_arrow"), "intermedium_arrow");
+			itemSuperiumArrow = register(new ItemSuperiumArrow("superium_arrow"), "superium_arrow");
+			itemSupremiumArrow = register(new ItemSupremiumArrow("supremium_arrow"), "supremium_arrow");
 			
 /*			registerWithRepairMaterial(itemInferiumSword, ModItems.itemCrafting.itemInferiumIngot);
 			registerWithRepairMaterial(itemInferiumPickaxe, ModItems.itemCrafting.itemInferiumIngot);
@@ -470,12 +471,13 @@ public class ModItems {
 		}*/
 	}
 		
-	public static void registerItem(Item item){
-//		MysticalRegistry.register(item);
+	public static <T extends Item> T register(T item, String name){
+		MysticalRegistry.register(item, name);
+		return item;
 	}
 	
 	public static void registerWithRepairMaterial(Item item, ItemStack stack){
-		registerItem(item);
+	//	registerItem(item);
 		if(item instanceof IRepairMaterial){
 			((IRepairMaterial)item).setRepairMaterial(stack);
 		}
