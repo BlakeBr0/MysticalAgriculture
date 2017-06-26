@@ -26,7 +26,7 @@ repositories {
 }
 
 minecraft {
-    version = "1.12-14.21.0.2363"
+    version = "1.12-14.21.0.2373"
     runDir = "run"
     
     // the mappings can be changed at any time, and must be in the following format.
