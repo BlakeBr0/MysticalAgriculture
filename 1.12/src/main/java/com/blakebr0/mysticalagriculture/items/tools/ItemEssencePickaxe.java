@@ -77,7 +77,7 @@ public class ItemEssencePickaxe extends ItemPickaxe implements IRepairMaterial {
 		return repairMaterial;
 	}
 	
-	@Override // TODO: upgraded supremium stuff container items
+/*	@Override // TODO: upgraded supremium stuff container items
     public ItemStack getContainerItem(ItemStack stack){
 		NBTTagCompound tag = NBTHelper.getDataMap(stack);
 		int type = tag.getInteger(ToolType.TOOL_TYPE);
@@ -92,7 +92,7 @@ public class ItemEssencePickaxe extends ItemPickaxe implements IRepairMaterial {
     @Override
     public boolean hasContainerItem(ItemStack stack){
         return ModConfig.confCharmReturn;
-    }
+    }*/
 	
     @Override
     public EnumActionResult onItemUse(EntityPlayer player, World world, BlockPos pos, EnumHand hand, EnumFacing side, float hitX, float hitY, float hitZ){

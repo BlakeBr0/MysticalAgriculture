@@ -4,7 +4,7 @@ import javax.annotation.Nonnull;
 
 import mezz.jei.api.recipe.IRecipeHandler;
 import mezz.jei.api.recipe.IRecipeWrapper;
-/*
+
 public class ReprocessorHandler implements IRecipeHandler<ReprocessorWrapper> {
     @Override
     @Nonnull
@@ -29,4 +29,3 @@ public class ReprocessorHandler implements IRecipeHandler<ReprocessorWrapper> {
         return true;
     }
 }
-*/

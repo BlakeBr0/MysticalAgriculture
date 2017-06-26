@@ -22,7 +22,7 @@ import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
-@JEIPlugin
+@JEIPlugin //TODO: update to new shit
 public class CompatJEI implements IModPlugin {
 
 	public static CompatJEI instance;
@@ -43,13 +43,13 @@ public class CompatJEI implements IModPlugin {
         	registry.addDescription(new ItemStack(item), "desc." + item.getUnlocalizedName());
         }
         
-/*        if(ModConfig.confSeedReprocessor){
+        if(ModConfig.confSeedReprocessor){
 	        registry.addRecipeCategories(new ReprocessorCategory(registry.getJeiHelpers().getGuiHelper()));
 	        registry.addRecipeHandlers(new ReprocessorHandler());
 	        registry.addRecipes(ReprocessorRecipeMaker.getRecipes());
 	        registry.addRecipeClickArea(GuiSeedReprocessor.class, 79, 26, 24, 17, ReprocessorCategory.uid);
 	        registry.addRecipeCategoryCraftingItem(new ItemStack(ModBlocks.blockSeedReprocessor, 1, 0), ReprocessorCategory.uid);
-        } */
+        }
         
         IJeiHelpers jeiHelpers = registry.getJeiHelpers();
         IGuiHelper guiHelper = jeiHelpers.getGuiHelper();
