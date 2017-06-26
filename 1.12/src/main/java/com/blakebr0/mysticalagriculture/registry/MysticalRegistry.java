@@ -32,9 +32,6 @@ public class MysticalRegistry {
 	
 	public static Block register(Block block, String name){
 		blocks.add(new RegistryObject<Block>(block, name));
-		if(block instanceof BlockBase){
-			((BlockBase)block).init();
-		}
 		return block;
 	}
 	
@@ -69,6 +66,10 @@ public class MysticalRegistry {
 				block.get().setRegistryName(block.getName());
 			}
 			event.getRegistry().register(block.get());
+			
+			if(block.get() instanceof BlockBase){
+				((BlockBase)block.get()).init();
+			}
 		}
 	}
 	
