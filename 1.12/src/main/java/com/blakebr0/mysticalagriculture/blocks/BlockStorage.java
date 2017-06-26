@@ -2,6 +2,7 @@ package com.blakebr0.mysticalagriculture.blocks;
 
 import com.blakebr0.mysticalagriculture.MysticalAgriculture;
 import com.blakebr0.mysticalagriculture.lib.IModelHelper;
+import com.blakebr0.mysticalagriculture.registry.MysticalRegistry;
 
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
@@ -32,12 +33,12 @@ public class BlockStorage extends BlockBase implements IModelHelper {
 
     @Override
     public void init(){
-    	OreDictionary.registerOre("blockInferiumEssence", new ItemStack(this, 1, 0));
-    	OreDictionary.registerOre("blockPrudentiumEssence", new ItemStack(this, 1, 1));
-    	OreDictionary.registerOre("blockIntermediumEssence", new ItemStack(this, 1, 2));
-    	OreDictionary.registerOre("blockSuperiumEssence", new ItemStack(this, 1, 3));
-    	OreDictionary.registerOre("blockSupremiumEssence", new ItemStack(this, 1, 4));
-    	OreDictionary.registerOre("blockProsperity", new ItemStack(this, 1, 5));
+    	MysticalRegistry.addOre(new ItemStack(this, 1, 0), "blockInferiumEssence");
+    	MysticalRegistry.addOre(new ItemStack(this, 1, 1), "blockPrudentiumEssence");
+    	MysticalRegistry.addOre(new ItemStack(this, 1, 2), "blockIntermediumEssence");
+    	MysticalRegistry.addOre(new ItemStack(this, 1, 3), "blockSuperiumEssence");
+    	MysticalRegistry.addOre(new ItemStack(this, 1, 4), "blockSupremiumEssence");
+    	MysticalRegistry.addOre(new ItemStack(this, 1, 5), "blockProsperity");
     }
 
     @Override

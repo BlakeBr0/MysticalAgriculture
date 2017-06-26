@@ -13,7 +13,6 @@ public class BlockBase extends Block {
 		this.setCreativeTab(MysticalAgriculture.tabMysticalAgriculture);
 		this.setSoundType(sound);
 		this.setUnlocalizedName("ma." + name);
-	//	this.setRegistryName(name);
 		this.setHardness(hardness);
 		this.setResistance(resistance);
 		this.setHarvestLevel(tool, level);
@@ -24,7 +23,6 @@ public class BlockBase extends Block {
 		this.setCreativeTab(MysticalAgriculture.tabMysticalAgriculture);
 		this.setSoundType(sound);
 		this.setUnlocalizedName("ma." + name);
-//		this.setRegistryName(name);
 		this.setHardness(hardness);
 		this.setResistance(resistance);
 	}

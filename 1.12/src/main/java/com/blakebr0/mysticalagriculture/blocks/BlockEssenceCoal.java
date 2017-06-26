@@ -9,6 +9,7 @@ import com.blakebr0.mysticalagriculture.lib.Colors;
 import com.blakebr0.mysticalagriculture.lib.EssenceType;
 import com.blakebr0.mysticalagriculture.lib.IModelHelper;
 import com.blakebr0.mysticalagriculture.lib.Tooltips;
+import com.blakebr0.mysticalagriculture.registry.MysticalRegistry;
 
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
@@ -50,11 +51,11 @@ public class BlockEssenceCoal extends BlockBase implements IModelHelper {
     public void init(){
         GameRegistry.registerFuelHandler(new FuelHander());
         
-        OreDictionary.registerOre("blockInferiumCoal", new ItemStack(this, 1, 0));
-        OreDictionary.registerOre("blockPrudentiumCoal", new ItemStack(this, 1, 1));
-        OreDictionary.registerOre("blockIntermediumCoal", new ItemStack(this, 1, 2));
-        OreDictionary.registerOre("blockSuperiumCoal", new ItemStack(this, 1, 3));
-        OreDictionary.registerOre("blockSupremiumCoal", new ItemStack(this, 1, 4));
+        MysticalRegistry.addOre(new ItemStack(this, 1, 0), "blockInferiumCoal");
+        MysticalRegistry.addOre(new ItemStack(this, 1, 1), "blockPrudentiumCoal");
+        MysticalRegistry.addOre(new ItemStack(this, 1, 2), "blockIntermediumCoal");
+        MysticalRegistry.addOre(new ItemStack(this, 1, 3), "blockSuperiumCoal");
+        MysticalRegistry.addOre(new ItemStack(this, 1, 4), "blockSupremiumCoal");
     }
 
     @Override

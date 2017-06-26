@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.blakebr0.mysticalagriculture.MysticalAgriculture;
+import com.blakebr0.mysticalagriculture.blocks.BlockBase;
 import com.blakebr0.mysticalagriculture.blocks.ModBlocks;
 import com.blakebr0.mysticalagriculture.items.ItemMeta;
 import com.blakebr0.mysticalagriculture.lib.IModelHelper;
@@ -31,6 +32,9 @@ public class MysticalRegistry {
 	
 	public static Block register(Block block, String name){
 		blocks.add(new RegistryObject<Block>(block, name));
+		if(block instanceof BlockBase){
+			((BlockBase)block).init();
+		}
 		return block;
 	}
 	
