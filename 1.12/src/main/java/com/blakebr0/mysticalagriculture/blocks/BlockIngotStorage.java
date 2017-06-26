@@ -47,7 +47,6 @@ public class BlockIngotStorage extends BlockBase implements IModelHelper {
     }
 
     @Override
-    @SideOnly(Side.CLIENT)
     public void getSubBlocks(CreativeTabs tab, NonNullList<ItemStack> stacks){
         for(Type type : Type.values()){
             stacks.add(new ItemStack(this, 1, type.getMetadata()));

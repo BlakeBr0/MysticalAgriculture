@@ -35,7 +35,6 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraftforge.oredict.OreDictionary;
 
-// TODO: quickdraw bow
 public class ItemEssenceBow extends ItemBow implements IRepairMaterial {
 
 	public ItemStack repairMaterial;
@@ -46,7 +45,6 @@ public class ItemEssenceBow extends ItemBow implements IRepairMaterial {
 	
 	public ItemEssenceBow(String name, ToolMaterial material, float drawSpeed, TextFormatting color){
 		this.setUnlocalizedName("ma." + name);
-		super.setRegistryName(name);
 		this.setCreativeTab(MysticalAgriculture.tabMysticalAgriculture);
 		this.toolMaterial = material;
 		this.damage = material.getDamageVsEntity() / 4;
@@ -108,12 +106,14 @@ public class ItemEssenceBow extends ItemBow implements IRepairMaterial {
 	
 	public float getDrawSpeed(ItemStack stack){
 		float multi = 1.0F;
-		NBTTagCompound tag = NBTHelper.getDataMap(stack);
-		if(tag.hasKey(ToolType.TOOL_TYPE)){
-			if(tag.getInteger(ToolType.TOOL_TYPE) == ToolType.QUICK_DRAW.getIndex()){
-				multi = 2.0F;
-			} else if(tag.getInteger(ToolType.TOOL_TYPE) == ToolType.TRIPLE_SHOT.getIndex()){
-				multi = 0.5F;
+		if(stack.getItem() == ModItems.itemSupremiumBow){
+			NBTTagCompound tag = NBTHelper.getDataMap(stack);
+			if(tag.hasKey(ToolType.TOOL_TYPE)){
+				if(tag.getInteger(ToolType.TOOL_TYPE) == ToolType.QUICK_DRAW.getIndex()){
+					multi = 2.0F;
+				} else if(tag.getInteger(ToolType.TOOL_TYPE) == ToolType.TRIPLE_SHOT.getIndex()){
+					multi = 0.5F;
+				}
 			}
 		}
 		return (this.drawSpeed * multi) + 1.0f;
@@ -135,6 +135,18 @@ public class ItemEssenceBow extends ItemBow implements IRepairMaterial {
 		}
 	}
 	
+	public int getArrowsShot(ItemStack stack){
+		if(stack.getItem() == ModItems.itemSupremiumBow){
+			NBTTagCompound tag = NBTHelper.getDataMap(stack);
+			if(tag.hasKey(ToolType.TOOL_TYPE)){
+				if(tag.getInteger(ToolType.TOOL_TYPE) == ToolType.TRIPLE_SHOT.getIndex()){
+					return 3;
+				}
+			}
+		}
+		return 1;
+	}
+	
 	@Override
     public void onPlayerStoppedUsing(ItemStack stack, World world, EntityLivingBase entityLiving, int timeLeft){
         if(entityLiving instanceof EntityPlayer){
@@ -145,59 +157,61 @@ public class ItemEssenceBow extends ItemBow implements IRepairMaterial {
             int i = (int)((this.getMaxItemUseDuration(stack) - timeLeft) * getDrawSpeed(stack));
             i = net.minecraftforge.event.ForgeEventFactory.onArrowLoose(stack, world, (EntityPlayer)entityLiving, i, !itemstack.isEmpty() || flag);
             if(i < 0) return;
-
-            if(!itemstack.isEmpty() || flag){
-                if(itemstack.isEmpty()){
-                    itemstack = new ItemStack(Items.ARROW);
-                }
-
-                float f = getArrowVelocity(i);
-
-                if((double)f >= 0.1D){
-                    boolean flag1 = entityplayer.capabilities.isCreativeMode || (itemstack.getItem() instanceof ItemArrow ? ((ItemArrow)itemstack.getItem()).isInfinite(itemstack, stack, entityplayer) : false);
-
-                    if(!world.isRemote){
-                        ItemArrow itemarrow = (ItemArrow)((ItemArrow)(itemstack.getItem() instanceof ItemArrow ? itemstack.getItem() : Items.ARROW));
-                        EntityArrow entityarrow = itemarrow.createArrow(world, itemstack, entityplayer);
-                        entityarrow.setAim(entityplayer, entityplayer.rotationPitch, entityplayer.rotationYaw, 0.0F, f * 3.0F, 1.0F);
-                        entityarrow.setDamage(entityarrow.getDamage() + this.damage);
-
-                        if(f >= 1.0F){
-                            entityarrow.setIsCritical(true);
-                        }
-                        int j = EnchantmentHelper.getEnchantmentLevel(Enchantments.POWER, stack);
-                        if(j > 0){
-                            entityarrow.setDamage(entityarrow.getDamage() + (double)j * 0.5D + 0.5D);
-                        }
-
-                        int k = EnchantmentHelper.getEnchantmentLevel(Enchantments.PUNCH, stack);
-                        if(k > 0){
-                            entityarrow.setKnockbackStrength(k);
-                        }
-
-                        if(EnchantmentHelper.getEnchantmentLevel(Enchantments.FLAME, stack) > 0){
-                            entityarrow.setFire(100);
-                        }
-
-                        stack.damageItem(1, entityplayer);
-
-                        if(flag1){
-                            entityarrow.pickupStatus = EntityArrow.PickupStatus.CREATIVE_ONLY;
-                        }
-
-                        world.spawnEntity(entityarrow);
+            int ts = getArrowsShot(stack);
+            for(int xd = 0; xd < ts; xd++){
+                if(!itemstack.isEmpty() || flag){
+                    if(itemstack.isEmpty()){
+                        itemstack = new ItemStack(Items.ARROW);
                     }
 
-                    world.playSound((EntityPlayer)null, entityplayer.posX, entityplayer.posY, entityplayer.posZ, SoundEvents.ENTITY_ARROW_SHOOT, SoundCategory.NEUTRAL, 1.0F, 1.0F / (itemRand.nextFloat() * 0.4F + 1.2F) + f * 0.5F);
+                    float f = getArrowVelocity(i);
 
-                    if(!flag1){
-                        itemstack.shrink(1);;
+                    if((double)f >= 0.1D){
+                        boolean flag1 = entityplayer.capabilities.isCreativeMode || (itemstack.getItem() instanceof ItemArrow ? ((ItemArrow)itemstack.getItem()).isInfinite(itemstack, stack, entityplayer) : false);
 
-                        if(itemstack.getCount() == 0){
-                            entityplayer.inventory.deleteStack(itemstack);
+                        if(!world.isRemote){
+                            ItemArrow itemarrow = (ItemArrow)((ItemArrow)(itemstack.getItem() instanceof ItemArrow ? itemstack.getItem() : Items.ARROW));
+                            EntityArrow entityarrow = itemarrow.createArrow(world, itemstack, entityplayer);
+                            entityarrow.setAim(entityplayer, entityplayer.rotationPitch, entityplayer.rotationYaw, 0.0F, f * 3.0F, 1.0F);
+                            entityarrow.setDamage(entityarrow.getDamage() + this.damage);
+
+                            if(f >= 1.0F){
+                                entityarrow.setIsCritical(true);
+                            }
+                            int j = EnchantmentHelper.getEnchantmentLevel(Enchantments.POWER, stack);
+                            if(j > 0){
+                                entityarrow.setDamage(entityarrow.getDamage() + (double)j * 0.5D + 0.5D);
+                            }
+
+                            int k = EnchantmentHelper.getEnchantmentLevel(Enchantments.PUNCH, stack);
+                            if(k > 0){
+                                entityarrow.setKnockbackStrength(k);
+                            }
+
+                            if(EnchantmentHelper.getEnchantmentLevel(Enchantments.FLAME, stack) > 0){
+                                entityarrow.setFire(100);
+                            }
+
+                            stack.damageItem(1, entityplayer);
+
+                            if(flag1){
+                                entityarrow.pickupStatus = EntityArrow.PickupStatus.CREATIVE_ONLY;
+                            }
+
+                            world.spawnEntity(entityarrow);
                         }
+
+                        world.playSound((EntityPlayer)null, entityplayer.posX, entityplayer.posY, entityplayer.posZ, SoundEvents.ENTITY_ARROW_SHOOT, SoundCategory.NEUTRAL, 1.0F, 1.0F / (itemRand.nextFloat() * 0.4F + 1.2F) + f * 0.5F);
+
+                        if(!flag1){
+                            itemstack.shrink(1);;
+
+                            if(itemstack.getCount() == 0){
+                                entityplayer.inventory.deleteStack(itemstack);
+                            }
+                        }
+                        entityplayer.addStat(StatList.getObjectUseStats(this));
                     }
-                    entityplayer.addStat(StatList.getObjectUseStats(this));
                 }
             }
         }

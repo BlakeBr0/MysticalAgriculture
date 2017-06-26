@@ -304,7 +304,6 @@ public class ModConfig {
 	public static boolean confSetBonuses;
 	public static boolean confHarderIngots;
 	public static boolean confCharmReturn;
-	public static boolean confSneakHoeAOE;
 	
 	public static boolean confEssenceApples;
 	public static int confAppleBuffDuration;
@@ -405,13 +404,12 @@ public class ModConfig {
 			type.configure(config);
 		}
 		
-		category = "Gear";
+		category = "Gear"; // TODO: remove charm return config until a new solution is woke
 		config.addCustomCategoryComment(category, "Settings for the Mystical Agriculture: Gear module.");
-		confGearModuleOverride = config.getBoolean("$gear_module_override", category, true, "Gear Module enabled?");
+		confGearModuleOverride = config.getBoolean("_gear_module_override", category, true, "Gear Module enabled?");
 		confSupremiumFlight = config.getBoolean("supremium_flight", category, true, "Wearing a full set of Supremium Armor gives flight.");
 		confSetBonuses = config.getBoolean("set_bonuses", category, true, "Should Prudentium+ armor give set bonuses? This does not affect the Supremium Flight option.");
 		confCharmReturn = config.getBoolean("charm_return", category, true, "Should uncrafting an upgraded armor/tool give back the charm?");
-		confSneakHoeAOE = config.getBoolean("sneak_hoe_aoe", category, true, "Should the Supremium Hoe till a 3x3 while sneaking?");
 		
 		category = "Fun Stuff";
 		config.addCustomCategoryComment(category, "Fun things made with essences. Sometimes.");

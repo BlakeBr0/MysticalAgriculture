@@ -104,7 +104,6 @@ public class BlockTinkeringTable extends BlockBase implements ITileEntityProvide
     }
 
     @Override
-    @SideOnly(Side.CLIENT)
     public void getSubBlocks(CreativeTabs tab, NonNullList<ItemStack> stacks){
         for(EssenceType.Type type : EssenceType.Type.values()){
             stacks.add(new ItemStack(this, 1, type.getMetadata()));

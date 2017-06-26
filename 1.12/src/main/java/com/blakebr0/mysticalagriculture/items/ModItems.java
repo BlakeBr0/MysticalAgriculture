@@ -146,14 +146,6 @@ public class ModItems {
 	public static ItemEssenceSickle itemSupremiumSickle;
 	public static ItemEssenceScythe itemSupremiumScythe;
 	
-	public static ItemSwordStrength itemSupremiumSwordStrength = new ItemSwordStrength("supremium_sword_strength1", ModToolMaterials.SUPREMIUM_STRENGTH1, TextFormatting.RED);
-	public static ItemSwordStrength itemSupremiumSwordStrength2 = new ItemSwordStrength("supremium_sword_strength2", ModToolMaterials.SUPREMIUM_STRENGTH2, TextFormatting.RED);
-	public static ItemShearsRainbow itemSupremiumShearsRainbow = new ItemShearsRainbow("supremium_shears_rainbow", ModToolMaterials.SUPREMIUM, TextFormatting.RED);
-	public static ItemShearsAOE itemSupremiumShearsAOE = new ItemShearsAOE("supremium_shears_aoe", ModToolMaterials.SUPREMIUM_AOE, TextFormatting.RED);
-	public static ItemBowTripleShot itemSupremiumBowTripleShot = new ItemBowTripleShot("supremium_bow_triple", ModToolMaterials.SUPREMIUM, 0.40F, TextFormatting.RED);
-	public static ItemSickleAOE itemSupremiumSickleAOE = new ItemSickleAOE("supremium_sickle_aoe", 3, ModToolMaterials.SUPREMIUM_AOE, TextFormatting.RED);
-	public static ItemScytheAOE itemSupremiumScytheAOE = new ItemScytheAOE("supremium_scythe_aoe", 2, ModToolMaterials.SUPREMIUM_AOE, TextFormatting.RED);
-	
 	public static ItemInferiumArmor itemInferiumHelmet;
 	public static ItemInferiumArmor itemInferiumChestplate;
 	public static ItemInferiumArmor itemInferiumLeggings;
@@ -287,15 +279,7 @@ public class ModItems {
 			itemSupremiumBow = register(new ItemEssenceBow("supremium_bow", ModToolMaterials.SUPREMIUM, 0.80F, TextFormatting.RED), "supremium_bow", ModItems.itemCrafting.itemSupremiumIngot);
 			itemSupremiumSickle = register(new ItemEssenceSickle("supremium_sickle", 2, ModToolMaterials.SUPREMIUM, TextFormatting.RED), "supremium_sickle", ModItems.itemCrafting.itemSupremiumIngot);
 			itemSupremiumScythe = register(new ItemEssenceScythe("supremium_scythe", 1, ModToolMaterials.SUPREMIUM, TextFormatting.RED), "supremium_scythe", ModItems.itemCrafting.itemSupremiumIngot);
-
-			register(itemSupremiumSwordStrength, "supremium_sword_strength1");
-			register(itemSupremiumSwordStrength2, "supremium_sword_strength2");			
-			register(itemSupremiumShearsRainbow, "supremium_shears_rainbow");		
-			register(itemSupremiumShearsAOE, "supremium_shears_aoe");		
-			register(itemSupremiumBowTripleShot, "supremium_bow_triple");					
-			register(itemSupremiumSickleAOE, "supremium_sickle_aoe");
-			register(itemSupremiumScytheAOE, "supremium_scythe_aoe");
-			
+						
 	        itemInferiumHelmet = register(new ItemInferiumArmor("inferium_helmet", ModToolMaterials.INFERIUM_ARMOR, 0, EntityEquipmentSlot.HEAD), "inferium_helmet", ModItems.itemCrafting.itemInferiumIngot);
 	        itemInferiumChestplate = register(new ItemInferiumArmor("inferium_chestplate", ModToolMaterials.INFERIUM_ARMOR, 0, EntityEquipmentSlot.CHEST), "inferium_chestplate", ModItems.itemCrafting.itemInferiumIngot);
 	        itemInferiumLeggings = register(new ItemInferiumArmor("inferium_leggings", ModToolMaterials.INFERIUM_ARMOR, 0, EntityEquipmentSlot.LEGS), "inferium_leggings", ModItems.itemCrafting.itemInferiumIngot);

@@ -31,13 +31,12 @@ public class ItemEssenceHoe extends ItemHoe implements IRepairMaterial {
 	public ItemEssenceHoe(String name, ToolMaterial material, TextFormatting color){
 		super(material);
 		this.setUnlocalizedName("ma." + name);
-		super.setRegistryName(name);
 		this.setCreativeTab(MysticalAgriculture.tabMysticalAgriculture);
 		this.color = color;
 	}
 	
 	@Override
-	@SideOnly(Side.CLIENT)
+	@SideOnly(Side.CLIENT) // TODO: ????
 	public void addInformation(ItemStack stack, @Nullable World player, List<String> tooltip, ITooltipFlag advanced){
 		int damage = stack.getMaxDamage() - stack.getItemDamage();
 		tooltip.add(Tooltips.DURABILITY + color + (damage > -1 ? damage : Tooltips.UNLIMITED));

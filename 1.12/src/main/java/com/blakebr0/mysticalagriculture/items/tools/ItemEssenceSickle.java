@@ -52,14 +52,26 @@ public class ItemEssenceSickle extends ItemBase implements IRepairMaterial {
 		this.color = color;
 	}
 	
+	public int getRange(ItemStack stack){
+		if(stack.getItem() == ModItems.itemSupremiumSickle){
+        	NBTTagCompound tag = NBTHelper.getDataMap(stack);
+        	if(tag.hasKey(ToolType.TOOL_TYPE)){
+        		if(tag.getInteger(ToolType.TOOL_TYPE) == ToolType.REAPING_AOE.getIndex()){
+        			return this.range + 1;
+        		}
+        	}
+		}
+		return this.range;
+	}
+	
 	@Override
     public float getStrVsBlock(ItemStack stack, IBlockState state){
         return (state.getMaterial() == Material.LEAVES || state.getMaterial() == Material.PLANTS || state.getMaterial() == Material.VINE) ? (this.toolMaterial.getEfficiencyOnProperMaterial() / 2) : super.getStrVsBlock(stack, state);
-    }
+	}
 
 	@Override
     public boolean onBlockStartBreak(ItemStack stack, BlockPos pos, EntityPlayer player){
-		this.harvest(stack, this.range, player.getEntityWorld(), pos, player);
+		this.harvest(stack, getRange(stack), player.getEntityWorld(), pos, player);
         return false;
     }
 

@@ -6,6 +6,7 @@ import javax.annotation.Nullable;
 
 import com.blakebr0.mysticalagriculture.MysticalAgriculture;
 import com.blakebr0.mysticalagriculture.config.ModConfig;
+import com.blakebr0.mysticalagriculture.items.ModItems;
 import com.blakebr0.mysticalagriculture.lib.Colors;
 import com.blakebr0.mysticalagriculture.lib.Tooltips;
 import com.blakebr0.mysticalagriculture.util.NBTHelper;
@@ -28,7 +29,6 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-// TODO: clean up hoes, aoe hoe
 public class ItemSupremiumHoe extends ItemEssenceHoe {
 	
 	public int range;
@@ -37,16 +37,12 @@ public class ItemSupremiumHoe extends ItemEssenceHoe {
 		super(name, material, color);
 		this.range = range;
 	}
-
-	public boolean isSneakAbilityEnabled(){
-		return ModConfig.confSneakHoeAOE;
-	}
 	
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void addInformation(ItemStack stack, @Nullable World player, List<String> tooltip, ITooltipFlag advanced){
-		int range = this.range + 2;
-		if(isSneakAbilityEnabled()){ tooltip.add(Tooltips.HOE_TOOLTIP[0] + " " + Colors.GRAY + Minecraft.getMinecraft().gameSettings.keyBindSneak.getDisplayName() +  " " + Tooltips.HOE_TOOLTIP[1] + " " + Colors.RED + range + "x" + range + Colors.GRAY + "."); }
+		int range = (getRange(stack) * 2 + 1);
+		tooltip.add(Tooltips.HOE_TOOLTIP[0] + " " + Colors.GRAY + Minecraft.getMinecraft().gameSettings.keyBindSneak.getDisplayName() +  " " + Tooltips.HOE_TOOLTIP[1] + " " + Colors.RED + range + "x" + range + Colors.GRAY + ".");
 		tooltip.add(Tooltips.DURABILITY + Colors.RED + Tooltips.UNLIMITED);
 		NBTTagCompound tag = NBTHelper.getDataMap(stack);
 		if(tag.hasKey(ToolType.TOOL_TYPE)){
@@ -56,6 +52,18 @@ public class ItemSupremiumHoe extends ItemEssenceHoe {
 		}
 	}
 	
+	public int getRange(ItemStack stack){
+		if(stack.getItem() == ModItems.itemSupremiumHoe){
+        	NBTTagCompound tag = NBTHelper.getDataMap(stack);
+        	if(tag.hasKey(ToolType.TOOL_TYPE)){
+        		if(tag.getInteger(ToolType.TOOL_TYPE) == ToolType.TILLING_AOE.getIndex()){
+        			return this.range + 2;
+        		}
+        	}
+		}
+		return this.range;
+	}
+	
 	@Override
 	public EnumActionResult onItemUse(EntityPlayer player, World world, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {		
 		ItemStack stack = player.getHeldItem(hand);
@@ -63,9 +71,10 @@ public class ItemSupremiumHoe extends ItemEssenceHoe {
 			return EnumActionResult.FAIL;
 		}
 		
+		int range = getRange(stack);
 		Iterable<BlockPos> blocks = BlockPos.getAllInBox(pos.add(-range, 0, -range), pos.add(range, 0, range));
 		
-		if(player.isSneaking() && isSneakAbilityEnabled()){
+		if(player.isSneaking()){
 			for(BlockPos aoePos : blocks){
 				hoe(stack, player, world, aoePos, facing);
 			}

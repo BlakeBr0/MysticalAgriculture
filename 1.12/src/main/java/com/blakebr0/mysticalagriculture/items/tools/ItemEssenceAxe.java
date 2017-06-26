@@ -40,7 +40,6 @@ public class ItemEssenceAxe extends ItemAxe implements IRepairMaterial {
 	public ItemEssenceAxe(String name, ToolMaterial material, float damage, TextFormatting color){
 		super(material, damage, -3.2F);
 		this.setUnlocalizedName("ma." + name);
-		super.setRegistryName(name);
 		this.setCreativeTab(MysticalAgriculture.tabMysticalAgriculture);
 		this.color = color;
 	}
@@ -77,16 +76,18 @@ public class ItemEssenceAxe extends ItemAxe implements IRepairMaterial {
 
 	@Override
     public boolean onBlockStartBreak(ItemStack stack, BlockPos pos, EntityPlayer player){
-		NBTTagCompound tag = NBTHelper.getDataMap(stack);
-		if(tag.hasKey(ToolType.TOOL_TYPE)){
-			if(tag.getInteger(ToolType.TOOL_TYPE) == ToolType.MINING_AOE.getIndex()){
-		        boolean blocks = false;
-	            RayTraceResult ray = ToolTools.getBlockWithinReach(player.getEntityWorld(), player);
-	            if(ray != null){
-	                int side = ray.sideHit.ordinal();
-	                blocks = this.harvest(stack, 1, player.getEntityWorld(), pos, side, player);
-	            }
-	            return blocks;
+		if(stack.getItem() == ModItems.itemSupremiumAxe){
+			NBTTagCompound tag = NBTHelper.getDataMap(stack);
+			if(tag.hasKey(ToolType.TOOL_TYPE)){
+				if(tag.getInteger(ToolType.TOOL_TYPE) == ToolType.MINING_AOE.getIndex()){
+			        boolean blocks = false;
+		            RayTraceResult ray = ToolTools.getBlockWithinReach(player.getEntityWorld(), player);
+		            if(ray != null){
+		                int side = ray.sideHit.ordinal();
+		                blocks = this.harvest(stack, 1, player.getEntityWorld(), pos, side, player);
+		            }
+		            return blocks;
+				}
 			}
 		}
 		return super.onBlockStartBreak(stack, pos, player);

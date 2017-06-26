@@ -7,6 +7,8 @@ import java.util.Map;
 
 import javax.annotation.Nullable;
 
+import com.blakebr0.mysticalagriculture.registry.MysticalRegistry;
+
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.creativetab.CreativeTabs;
@@ -54,13 +56,13 @@ public class ItemMeta extends ItemBase {
 	
 	public ItemStack addItem(int meta, String name, String ore, boolean enabled){
 		ItemStack stack = addItem(meta, name, enabled);
-		OreDictionary.registerOre(ore, stack);
+		MysticalRegistry.addOre(stack, ore);
 		return stack;
 	}
 	
 	public ItemStack addItem(int meta, String name, String ore, boolean enabled, List<String> tooltip){
 		ItemStack stack = addItem(meta, name, enabled, tooltip);
-		OreDictionary.registerOre(ore, stack);
+		MysticalRegistry.addOre(stack, ore);
 		return stack;
 	}
 	

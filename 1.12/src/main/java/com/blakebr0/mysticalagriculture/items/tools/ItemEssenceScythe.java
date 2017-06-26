@@ -87,6 +87,19 @@ public class ItemEssenceScythe extends ItemBase implements IRepairMaterial {
 		return repairMaterial;
 	}
 	
+	public int getRange(ItemStack stack){
+		int range = 1;
+		if(stack.getItem() == ModItems.itemSupremiumScythe){
+			NBTTagCompound tag = NBTHelper.getDataMap(stack);
+			if(tag.hasKey(ToolType.TOOL_TYPE)){
+				if(tag.getInteger(ToolType.TOOL_TYPE) == ToolType.SCYTHING_AOE.getIndex()){
+					range = 2;
+				}
+			}
+		}
+		return range;
+	}
+	
 	@Override
 	public EnumActionResult onItemUse(EntityPlayer player, World world, BlockPos pos, EnumHand hand, EnumFacing face, float hitX, float hitY, float hitZ){
 		ItemStack stack = player.getHeldItem(hand);
@@ -94,6 +107,7 @@ public class ItemEssenceScythe extends ItemBase implements IRepairMaterial {
 			return EnumActionResult.FAIL;
 		}
 				
+		int range = getRange(stack);
 		Iterable<BlockPos> blocks = pos.getAllInBox(pos.add(-range, 0, -range), pos.add(range, 0, range));
 		
 		for(BlockPos aoePos : blocks){
@@ -104,8 +118,8 @@ public class ItemEssenceScythe extends ItemBase implements IRepairMaterial {
 				if(crop.isMaxAge(state)){
 					List<ItemStack> drops = crop.getDrops(world, aoePos, state, 0);
 					for(ItemStack drop : drops){
-						if(drop != null && drop.getItem() instanceof IPlantable){
-							drop.shrink(1);;
+						if(!drop.isEmpty() && drop.getItem() instanceof IPlantable){
+							drop.shrink(1);
 							if(drop.getCount() <= 0){
 								drops.remove(drop);
 							}
@@ -113,7 +127,7 @@ public class ItemEssenceScythe extends ItemBase implements IRepairMaterial {
 						}
 					}
 					for(ItemStack drop : drops){
-						if(drop != null){
+						if(!drop.isEmpty()){
 							block.spawnAsEntity(world, aoePos, drop);
 						}
 					}
@@ -133,7 +147,9 @@ public class ItemEssenceScythe extends ItemBase implements IRepairMaterial {
     @Override
     public boolean onLeftClickEntity(ItemStack stack, EntityPlayer player, Entity entity){
     	if(player.getCooledAttackStrength(0.5F) >= 0.95F){
-    		List<EntityLivingBase> entities = player.getEntityWorld().getEntitiesWithinAABB(EntityLivingBase.class, entity.getEntityBoundingBox().expand(1.0D, 0.25D, 1.0D));
+    		int range = getRange(stack);
+    		double grow = (range == 2 ? 1.5D : 1.0D);
+    		List<EntityLivingBase> entities = player.getEntityWorld().getEntitiesWithinAABB(EntityLivingBase.class, entity.getEntityBoundingBox().grow(grow, 0.25D, grow));
 
             for(EntityLivingBase aoeEntity : entities) {
                 if(aoeEntity != player && aoeEntity != entity && !player.isOnSameTeam(entity)) {

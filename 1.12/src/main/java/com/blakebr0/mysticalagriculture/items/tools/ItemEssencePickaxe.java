@@ -43,7 +43,6 @@ public class ItemEssencePickaxe extends ItemPickaxe implements IRepairMaterial {
 	public ItemEssencePickaxe(String name, ToolMaterial material, TextFormatting color){
 		super(material);
 		this.setUnlocalizedName("ma." + name);
-		super.setRegistryName(name);
 		this.setCreativeTab(MysticalAgriculture.tabMysticalAgriculture);
 		this.color = color;
 	}
@@ -97,14 +96,16 @@ public class ItemEssencePickaxe extends ItemPickaxe implements IRepairMaterial {
 	
     @Override
     public EnumActionResult onItemUse(EntityPlayer player, World world, BlockPos pos, EnumHand hand, EnumFacing side, float hitX, float hitY, float hitZ){
-		ItemStack stack = player.getHeldItem(hand).copy();
-		NBTTagCompound tag = NBTHelper.getDataMap(stack);
-		if(tag.hasKey(ToolType.TOOL_TYPE)){
-			if(tag.getInteger(ToolType.TOOL_TYPE) == ToolType.MINERS_VISION.getIndex()){
-		    	ItemStack torch = new ItemStack(ModBlocks.blockMinersTorch);
-		    	if(torch.onItemUse(player, world, pos, hand, side, hitX, hitY, hitZ) != EnumActionResult.FAIL){
-		    		return EnumActionResult.SUCCESS;
-		    	}
+		ItemStack stack = player.getHeldItem(hand);
+		if(stack.getItem() == ModItems.itemSupremiumPickaxe){
+			NBTTagCompound tag = NBTHelper.getDataMap(stack);
+			if(tag.hasKey(ToolType.TOOL_TYPE)){
+				if(tag.getInteger(ToolType.TOOL_TYPE) == ToolType.MINERS_VISION.getIndex()){
+			    	ItemStack torch = new ItemStack(ModBlocks.blockMinersTorch);
+			    	if(torch.onItemUse(player, world, pos, hand, side, hitX, hitY, hitZ) != EnumActionResult.FAIL){
+			    		return EnumActionResult.SUCCESS;
+			    	}
+				}
 			}
 		}
         return EnumActionResult.FAIL;
@@ -112,16 +113,18 @@ public class ItemEssencePickaxe extends ItemPickaxe implements IRepairMaterial {
 	
 	@Override
     public boolean onBlockStartBreak(ItemStack stack, BlockPos pos, EntityPlayer player){
-		NBTTagCompound tag = NBTHelper.getDataMap(stack);
-		if(tag.hasKey(ToolType.TOOL_TYPE)){
-			if(tag.getInteger(ToolType.TOOL_TYPE) == ToolType.MINING_AOE.getIndex()){
-		        boolean blocks = false;
-	            RayTraceResult ray = ToolTools.getBlockWithinReach(player.getEntityWorld(), player);
-	            if(ray != null){
-	                int side = ray.sideHit.ordinal();
-	                blocks = this.harvest(stack, 1, player.getEntityWorld(), pos, side, player);
-	            }
-	            return blocks;
+		if(stack.getItem() == ModItems.itemSupremiumPickaxe){
+			NBTTagCompound tag = NBTHelper.getDataMap(stack);
+			if(tag.hasKey(ToolType.TOOL_TYPE)){
+				if(tag.getInteger(ToolType.TOOL_TYPE) == ToolType.MINING_AOE.getIndex()){
+			        boolean blocks = false;
+		            RayTraceResult ray = ToolTools.getBlockWithinReach(player.getEntityWorld(), player);
+		            if(ray != null){
+		                int side = ray.sideHit.ordinal();
+		                blocks = this.harvest(stack, 1, player.getEntityWorld(), pos, side, player);
+		            }
+		            return blocks;
+				}
 			}
 		}
 		return super.onBlockStartBreak(stack, pos, player);
