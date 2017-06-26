@@ -207,8 +207,16 @@ public class CropType {
 		}
 		
 		public void configure(Configuration config){
-			this.tier = config.get("Tiers", getName() + "_tier", this.defaultTier).getInt();
-			this.enabled &= config.get("Seeds", getName() + "_seeds", true).getBoolean();
+			int tier = config.get("Tiers", getName() + "_tier", this.defaultTier).getInt();
+			this.tier = tier;
+			int enabled = config.get("Seeds", getName() + "_seeds", 1).getInt();
+			if(enabled == 2){
+				this.enabled = true;
+			} else if(enabled == 1){
+				this.enabled &= true;
+			} else {
+				this.enabled = false;
+			}
 		}
 		
 		public void declare(){

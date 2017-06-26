@@ -122,7 +122,10 @@ public class ModConfig {
 		confSeedReprocessor = config.getBoolean("seed_reprocessor", category, true, "Should the Seed Reprocessor be enabled?");
 		
 		category = "Seeds";
-		config.addCustomCategoryComment(category, "Enable/Disable seeds individually.");
+		config.addCustomCategoryComment(category, "Enable/Disable seeds individually."
+				+ "\n0: Disable the seed."
+				+ "\n1: Soft-enable the seed. (default)"
+				+ "\n2: Force-enable the seed.");
 		
 		category = "Tiers";
 		config.addCustomCategoryComment(category, "Set the tiers of each seed. The tier affects the recipe and the tooltip."
