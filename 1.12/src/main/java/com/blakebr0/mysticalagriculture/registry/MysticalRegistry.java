@@ -66,10 +66,6 @@ public class MysticalRegistry {
 				block.get().setRegistryName(block.getName());
 			}
 			event.getRegistry().register(block.get());
-			
-			if(block.get() instanceof BlockBase){
-				((BlockBase)block.get()).init();
-			}
 		}
 	}
 	
