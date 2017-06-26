@@ -63,10 +63,10 @@ public class CommonProxy {
 	    MinecraftForge.EVENT_BUS.register(new MysticalRegistry());
 	    
 	    MinecraftForge.EVENT_BUS.register(new BowZoomHandler());
+	    
 	    MinecraftForge.EVENT_BUS.register(new ItemIntermediumArmor.AbilityHandler());
 	    MinecraftForge.EVENT_BUS.register(new ItemSuperiumArmor.AbilityHandler());
 	    MinecraftForge.EVENT_BUS.register(new ItemSupremiumArmor.AbilityHandler());
-	    MinecraftForge.EVENT_BUS.register(new ItemUpgradedSpeed.AbilityHandler());
 	}
 	
 	public void init(FMLInitializationEvent e){

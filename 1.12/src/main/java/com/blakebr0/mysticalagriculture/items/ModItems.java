@@ -32,26 +32,18 @@ import com.blakebr0.mysticalagriculture.items.tools.ItemEssenceShovel;
 import com.blakebr0.mysticalagriculture.items.tools.ItemEssenceSickle;
 import com.blakebr0.mysticalagriculture.items.tools.ItemEssenceSword;
 import com.blakebr0.mysticalagriculture.items.tools.ItemSupremiumHoe;
-import com.blakebr0.mysticalagriculture.items.tools.upgraded.ItemBowTripleShot;
-import com.blakebr0.mysticalagriculture.items.tools.upgraded.ItemScytheAOE;
-import com.blakebr0.mysticalagriculture.items.tools.upgraded.ItemShearsAOE;
-import com.blakebr0.mysticalagriculture.items.tools.upgraded.ItemShearsRainbow;
-import com.blakebr0.mysticalagriculture.items.tools.upgraded.ItemSickleAOE;
-import com.blakebr0.mysticalagriculture.items.tools.upgraded.ItemSwordStrength;
 import com.blakebr0.mysticalagriculture.lib.CropType;
 import com.blakebr0.mysticalagriculture.lib.IRepairMaterial;
 import com.blakebr0.mysticalagriculture.lib.ModToolMaterials;
 import com.blakebr0.mysticalagriculture.registry.MysticalRegistry;
 import com.blakebr0.mysticalagriculture.util.ModChecker;
 
-import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraftforge.oredict.OreDictionary;
 // TODO: deal with the items with config disablers
-// TODO: cleanup item constructors
 public class ModItems {
 	
 	private static CropType.Type type;
@@ -202,7 +194,7 @@ public class ModItems {
 		for(CropType.Type type : CropType.Type.values()){
 			if(type.isEnabled()){
 				register(type.getCrop(), type.getName() + "_essence");
-//				OreDictionary.registerOre("essenceTier" + type.getTier(), type.getCrop()); //TODO oredict for essences
+				MysticalRegistry.addOre(type.getCrop(), "essenceTier" + type.getTier());
 			}
 		}
 

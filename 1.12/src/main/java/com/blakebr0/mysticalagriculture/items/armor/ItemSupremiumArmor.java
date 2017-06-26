@@ -8,6 +8,7 @@ import javax.annotation.Nullable;
 import com.blakebr0.mysticalagriculture.MysticalAgriculture;
 import com.blakebr0.mysticalagriculture.config.ModConfig;
 import com.blakebr0.mysticalagriculture.items.ModItems;
+import com.blakebr0.mysticalagriculture.items.tools.ToolType;
 import com.blakebr0.mysticalagriculture.lib.Colors;
 import com.blakebr0.mysticalagriculture.lib.IRepairMaterial;
 import com.blakebr0.mysticalagriculture.lib.Tooltips;
@@ -110,11 +111,25 @@ public class ItemSupremiumArmor extends ItemArmor implements IRepairMaterial {
     public static class AbilityHandler {
     	
     	public static List<String> playersWithSet = new ArrayList<String>();
-    	
+    	public static List<String> playersWithSpeed = new ArrayList<String>();
+
     	public static String playerKey(EntityPlayer player) {
     		return player.getGameProfile().getName() + ":" + player.getEntityWorld().isRemote;
     	}
     	
+    	public boolean hasSpeed(EntityPlayer player){
+    		ItemStack stack = player.getItemStackFromSlot(EntityEquipmentSlot.LEGS);
+    		if(stack.getItem() == ModItems.itemSupremiumLeggings){
+            	NBTTagCompound tag = NBTHelper.getDataMap(stack);
+            	if(tag.hasKey(ArmorType.ARMOR_TYPE)){
+            		if(tag.getInteger(ArmorType.ARMOR_TYPE) == ArmorType.SPEED.getIndex()){
+            			return true;
+            		}
+            	}
+    		}
+    		return false;
+    	}
+    	    	
     	@SubscribeEvent
     	public void updatePlayerAbilityStatus(LivingUpdateEvent event) {
     		if(event.getEntityLiving() instanceof EntityPlayer) {
@@ -158,6 +173,36 @@ public class ItemSupremiumArmor extends ItemArmor implements IRepairMaterial {
     				}
     			} else if(hasSet) {
     				playersWithSet.add(key);
+    			}
+    			boolean hasSpeed = hasSpeed(player);
+    			if(playersWithSpeed.contains(key)){
+    				if(hasSpeed){
+						boolean flying = player.capabilities.isFlying;
+						boolean swimming = player.isInsideOfMaterial(Material.WATER) || player.isInWater();
+						if(player.onGround || flying || swimming) {
+							boolean sneaking = player.isSneaking();
+							boolean sprinting = player.isSprinting();
+							
+							float speed = 0.1f 
+								* (flying ? 0.6f : 1.0f)
+								* (sneaking ? 0.1f : 1.0f)
+								* (!sprinting ? 0.6F : 1.2F);
+							
+							if (player.moveForward > 0f) {
+								player.moveRelative(0f, 0f, 1f, speed);
+							} else if (player.moveForward < 0f) {
+								player.moveRelative(0f, 0f, 1f, -speed * 0.3f);
+							}
+							
+							if (player.moveStrafing != 0f) {
+								player.moveRelative(1f, 0f, 0f, speed * 0.5f * Math.signum(player.moveStrafing));
+							}
+						}
+    				} else {
+    					playersWithSpeed.remove(key);
+    				}
+    			} else if(hasSpeed){
+    				playersWithSpeed.add(key);
     			}
     		}
     	}

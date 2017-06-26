@@ -195,6 +195,14 @@ public class CropType {
 			return this.seed;
 		}
 		
+		public int getSecondCropChance(){
+			return ModConfig.confEssenceChance;
+		}
+		
+		public int getSecondSeedChance(){
+			return ModConfig.confSeedChance;
+		}
+		
 		public void configure(Configuration config){
 			this.tier = config.get("Tiers", getName() + "_tier", this.defaultTier).getInt();
 			this.enabled &= config.get("Seeds", getName() + "_seeds", true).getBoolean();
