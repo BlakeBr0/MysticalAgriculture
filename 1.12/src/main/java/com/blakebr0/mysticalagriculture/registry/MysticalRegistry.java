@@ -20,6 +20,7 @@ import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.oredict.OreDictionary;
 
 public class MysticalRegistry {
 	
@@ -74,6 +75,10 @@ public class MysticalRegistry {
 				item.get().setRegistryName(item.getName());
 			}
 			event.getRegistry().register(item.get());
+		}
+		
+		for(Map.Entry<ItemStack, String> ore : ores.entrySet()){
+			OreDictionary.registerOre(ore.getValue(), ore.getKey());
 		}
 	}
 	

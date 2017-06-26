@@ -728,21 +728,6 @@ item.ma.supremium_bow.name=§cSupremium Bow
 item.ma.supremium_sickle.name=§cSupremium Sickle
 item.ma.supremium_scythe.name=§cSupremium Scythe
 
-item.ma.supremium_sword_strength1.name=§cSupremium Sword
-item.ma.supremium_sword_strength2.name=§cSupremium Sword
-item.ma.supremium_sword_aoe.name=§cSupremium Sword
-item.ma.supremium_pickaxe_aoe.name=§cSupremium Pickaxe
-item.ma.supremium_pickaxe_miners.name=§cSupremium Pickaxe
-item.ma.supremium_shovel_aoe.name=§cSupremium Shovel
-item.ma.supremium_axe_aoe.name=§cSupremium Axe
-item.ma.supremium_hoe_aoe.name=§cSupremium Hoe
-item.ma.supremium_shears_rainbow.name=§cSupremium Shears
-item.ma.supremium_shears_aoe.name=§cSupremium Shears
-item.ma.supremium_bow_quick.name=§cSupremium Bow
-item.ma.supremium_bow_triple.name=§cSupremium Bow
-item.ma.supremium_sickle_aoe.name=§cSupremium Sickle
-item.ma.supremium_scythe_aoe.name=§cSupremium Scythe
-
 # ARMOR
 item.ma.inferium_helmet.name=§eInferium Helmet
 item.ma.inferium_chestplate.name=§eInferium Chestplate
@@ -768,34 +753,6 @@ item.ma.supremium_helmet.name=§cSupremium Helmet
 item.ma.supremium_chestplate.name=§cSupremium Chestplate
 item.ma.supremium_leggings.name=§cSupremium Leggings
 item.ma.supremium_boots.name=§cSupremium Boots
-
-item.ma.supremium_helmet_nightvision.name=§cSupremium Helmet
-item.ma.supremium_helmet_absorption.name=§cSupremium Helmet
-item.ma.supremium_helmet_wither.name=§cSupremium Helmet
-item.ma.supremium_helmet_antivenom.name=§cSupremium Helmet
-item.ma.supremium_helmet_fire.name=§cSupremium Helmet
-item.ma.supremium_helmet_resistance.name=§cSupremium Helmet
-
-item.ma.supremium_chestplate_strength.name=§cSupremium Chestplate
-item.ma.supremium_chestplate_absorption.name=§cSupremium Chestplate
-item.ma.supremium_chestplate_wither.name=§cSupremium Chestplate
-item.ma.supremium_chestplate_antivenom.name=§cSupremium Chestplate
-item.ma.supremium_chestplate_fire.name=§cSupremium Chestplate
-item.ma.supremium_chestplate_resistance.name=§cSupremium Chestplate
-
-item.ma.supremium_leggings_speed.name=§cSupremium Leggings
-item.ma.supremium_leggings_absorption.name=§cSupremium Leggings
-item.ma.supremium_leggings_wither.name=§cSupremium Leggings
-item.ma.supremium_leggings_antivenom.name=§cSupremium Leggings
-item.ma.supremium_leggings_fire.name=§cSupremium Leggings
-item.ma.supremium_leggings_resistance.name=§cSupremium Leggings
-
-item.ma.supremium_boots_jump.name=§cSupremium Boots
-item.ma.supremium_boots_absorption.name=§cSupremium Boots
-item.ma.supremium_boots_wither.name=§cSupremium Boots
-item.ma.supremium_boots_antivenom.name=§cSupremium Boots
-item.ma.supremium_boots_fire.name=§cSupremium Boots
-item.ma.supremium_boots_resistance.name=§cSupremium Boots
 
 # JEI DESCRIPTIONS
 desc.tile.ma.miners_torch=An un-collectable torch that can only be placed by a Supremium Pickaxe with a Miner's Vision charm.

@@ -19,7 +19,6 @@ import com.blakebr0.mysticalagriculture.items.ModItems;
 import com.blakebr0.mysticalagriculture.items.armor.ItemIntermediumArmor;
 import com.blakebr0.mysticalagriculture.items.armor.ItemSuperiumArmor;
 import com.blakebr0.mysticalagriculture.items.armor.ItemSupremiumArmor;
-import com.blakebr0.mysticalagriculture.items.armor.upgraded.ItemUpgradedSpeed;
 import com.blakebr0.mysticalagriculture.items.tools.ItemEssenceBow;
 import com.blakebr0.mysticalagriculture.lib.CropType;
 import com.blakebr0.mysticalagriculture.lib.Parts;
@@ -75,12 +74,12 @@ public class CommonProxy {
 		ModTileEntities.initTileEntities();
 
 		if(ModConfig.confSeedReprocessor){
-/*			ReprocessorManager.addRecipe(new ItemStack(ModItems.itemCrafting, 1, 0), new ItemStack(ModItems.itemTier1InferiumSeeds, 1, 0));
+			ReprocessorManager.addRecipe(new ItemStack(ModItems.itemCrafting, 1, 0), new ItemStack(ModItems.itemTier1InferiumSeeds, 1, 0));
 			ReprocessorManager.addRecipe(new ItemStack(ModItems.itemCrafting, 2, 0), new ItemStack(ModItems.itemTier2InferiumSeeds, 1, 0));
 			ReprocessorManager.addRecipe(new ItemStack(ModItems.itemCrafting, 3, 0), new ItemStack(ModItems.itemTier3InferiumSeeds, 1, 0));
 			ReprocessorManager.addRecipe(new ItemStack(ModItems.itemCrafting, 4, 0), new ItemStack(ModItems.itemTier4InferiumSeeds, 1, 0));
 			ReprocessorManager.addRecipe(new ItemStack(ModItems.itemCrafting, 5, 0), new ItemStack(ModItems.itemTier5InferiumSeeds, 1, 0));	
-	*/	}
+		}
 		
 		for(CropType.Type type : CropType.Type.values()){
 			if(type.isEnabled()){
