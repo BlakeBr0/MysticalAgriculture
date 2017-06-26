@@ -35,12 +35,15 @@ public class CompatJEI implements IModPlugin {
     public void register(IModRegistry registry) {
         instance = this;
         
+        IJeiHelpers jeiHelpers = registry.getJeiHelpers();
+        IGuiHelper guiHelper = jeiHelpers.getGuiHelper();
+        
         for(Block block : blocks){
-        	registry.addDescription(new ItemStack(block), "desc." + block.getUnlocalizedName());
+        	registry.addIngredientInfo(new ItemStack(block), ItemStack.class, "desc." + block.getUnlocalizedName());
         }
         
         for(Item item : items){
-        	registry.addDescription(new ItemStack(item), "desc." + item.getUnlocalizedName());
+        	registry.addIngredientInfo(new ItemStack(item), ItemStack.class, "desc." + item.getUnlocalizedName());
         }
         
         if(ModConfig.confSeedReprocessor){
@@ -50,9 +53,7 @@ public class CompatJEI implements IModPlugin {
 	        registry.addRecipeClickArea(GuiSeedReprocessor.class, 79, 26, 24, 17, ReprocessorCategory.uid);
 	        registry.addRecipeCategoryCraftingItem(new ItemStack(ModBlocks.blockSeedReprocessor, 1, 0), ReprocessorCategory.uid);
         }
-        
-        IJeiHelpers jeiHelpers = registry.getJeiHelpers();
-        IGuiHelper guiHelper = jeiHelpers.getGuiHelper();
+       
         // TODO redo all of this (easy port they said, it would be no problem they said)
         registry.addRecipeCategories(new TinkeringTableCategory(guiHelper));
         registry.addRecipeHandlers(new TinkeringTableHandler(jeiHelpers));

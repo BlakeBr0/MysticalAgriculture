@@ -200,6 +200,9 @@ tile.ma.mystical_flower_crop.name=Mystical Flower Crop
 tile.ma.manasteel_crop.name=Manasteel Crop
 tile.ma.terrasteel_crop.name=Terrasteel Crop
 
+tile.ma.uranium_238_crop.name=Uranium 238 Crop
+tile.ma.iridium_ore_crop.name=Iridium Ore Crop
+
 tile.ma.osmium_crop.name=Osmium Crop
 tile.ma.glowstone_ingot_crop.name=Glowstone Ingot Crop
 tile.ma.refined_obsidian_crop.name=Refined Obsidian Crop
@@ -446,6 +449,9 @@ item.ma.mystical_flower_essence.name=Mystical Flower Essence
 item.ma.manasteel_essence.name=Manasteel Essence
 item.ma.terrasteel_essence.name=Terrasteel Essence
 
+item.ma.uranium_238_essence.name=Uranium 238 Essence
+item.ma.iridium_ore_essence.name=Iridium Ore Essence
+
 item.ma.osmium_essence.name=Osmium Essence
 item.ma.glowstone_ingot_essence.name=Glowstone Ingot Essence
 item.ma.refined_obsidian_essence.name=Refined Obsidian Essence
@@ -587,6 +593,9 @@ item.ma.vibrant_alloy_seeds.name=Vibrant Alloy Seeds
 item.ma.mystical_flower_seeds.name=Mystical Flower Seeds
 item.ma.manasteel_seeds.name=Manasteel Seeds
 item.ma.terrasteel_seeds.name=Terrasteel Seeds
+
+item.ma.uranium_238_seeds.name=Uranium 238 Seeds
+item.ma.iridium_ore_seeds.name=Iridium Ore Seeds
 
 item.ma.osmium_seeds.name=Osmium Seeds
 item.ma.glowstone_ingot_seeds.name=Glowstone Ingot Seeds

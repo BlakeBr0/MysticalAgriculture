@@ -72,10 +72,10 @@ public class CropType {
 		MITHRIL("mithril", 4, ModChecker.MITHRIL),
 		TUNGSTEN("tungsten", 5, ModChecker.TUNGSTEN),
 		TITANIUM("titanium", 5, ModChecker.TITANIUM),
-		URANIUM("uranium", 5, (ModChecker.URANIUM || ModChecker.IC2)),
+		URANIUM("uranium", 5, (ModChecker.URANIUM)),
 		CHROME("chrome", 5, ModChecker.CHROME),
 		PLATINUM("platinum", 5, ModChecker.PLATINUM),
-		IRIDIUM("iridium", 5, (ModChecker.IRIDIUM || ModChecker.IC2)),
+		IRIDIUM("iridium", 5, (ModChecker.IRIDIUM)),
 		
 		RUBY("ruby", 4, ModChecker.RUBY),
 		SAPPHIRE("sapphire", 4, ModChecker.SAPPHIRE),
@@ -107,9 +107,12 @@ public class CropType {
 		ENERGETIC_ALLOY("energetic_alloy", 4, ModChecker.ENDERIO),
 		VIBRANT_ALLOY("vibrant_alloy", 5, ModChecker.ENDERIO),
 		
-		MYSTICAL_FLOWER("mystical_flower", 2, ModConfig.confMysticalFlowerSeeds && ModChecker.BOTANIA),
-		MANASTEEL("manasteel", 3, ModConfig.confManasteelSeeds && ModChecker.BOTANIA),
-		TERRASTEEL("terrasteel", 5, ModConfig.confTerrasteelSeeds && ModChecker.BOTANIA),
+		MYSTICAL_FLOWER("mystical_flower", 2, ModChecker.BOTANIA),
+		MANASTEEL("manasteel", 3, ModChecker.BOTANIA),
+		TERRASTEEL("terrasteel", 5, ModChecker.BOTANIA),
+		
+		URANIUM_238("uranium_238", 5, ModChecker.IC2),
+		IRIDIUM_ORE("iridium_ore", 5, ModChecker.IC2),
 		
 		OSMIUM("osmium", 4, ModChecker.MEKANISM),
 		GLOWSTONE_INGOT("glowstone_ingot", 4, ModChecker.MEKANISM),
