@@ -3,6 +3,7 @@ package com.blakebr0.mysticalagriculture.items.tools.upgraded;
 import java.util.List;
 import java.util.Random;
 
+import com.blakebr0.mysticalagriculture.config.ModConfig;
 import com.blakebr0.mysticalagriculture.items.ModItems;
 import com.blakebr0.mysticalagriculture.items.tools.ItemEssenceShears;
 import com.blakebr0.mysticalagriculture.lib.Colors;
@@ -37,6 +38,16 @@ public class ItemShearsAOE extends ItemEssenceShears {
 		tooltip.add(Tooltips.DURABILITY + Colors.RED + Tooltips.UNLIMITED);
 		tooltip.add(Tooltips.CHARM_SLOT + Colors.RED + Tooltips.SHEARING_AOE);
 	}
+	
+	@Override
+    public ItemStack getContainerItem(ItemStack itemstack){
+        return new ItemStack(ModItems.itemCharmShearingAOE, 1, 0);
+    }
+
+    @Override
+    public boolean hasContainerItem(ItemStack stack){
+        return ModConfig.confCharmReturn;
+    }
 		
     @Override
     public boolean itemInteractionForEntity(ItemStack itemstack, EntityPlayer player, EntityLivingBase entity, EnumHand hand){
