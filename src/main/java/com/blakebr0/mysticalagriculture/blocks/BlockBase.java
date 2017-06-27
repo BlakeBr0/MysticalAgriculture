@@ -19,7 +19,7 @@ public class BlockBase extends Block {
 		this.setHarvestLevel(tool, level);
 	} 
 	
-	public BlockBase(String name, Material material, SoundType sound, float hardness, float resistance) {
+	public BlockBase(String name, Material material, SoundType sound, float hardness, float resistance){
 		super(material);
 		this.setCreativeTab(MysticalAgriculture.tabMysticalAgriculture);
 		this.setSoundType(sound);

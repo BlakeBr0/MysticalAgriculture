@@ -23,7 +23,7 @@ public class ItemBlockMinersTorch extends ItemBlock {
 	}
 
 	@Override
-    public EnumActionResult onItemUse(EntityPlayer player, World world, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ){
+    public EnumActionResult onItemUse(ItemStack stack, EntityPlayer player, World world, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ){
         IBlockState iblockstate = world.getBlockState(pos);
         Block block = iblockstate.getBlock();
 
@@ -31,18 +31,15 @@ public class ItemBlockMinersTorch extends ItemBlock {
             pos = pos.offset(facing);
         }
 
-        ItemStack itemstack = player.getHeldItem(hand);
+        if(stack.stackSize != 0 && player.canPlayerEdit(pos, facing, stack) && world.canBlockBePlaced(this.block, pos, false, facing, (Entity)null, stack)){
+            int i = this.getMetadata(stack.getMetadata());
+            IBlockState iblockstate1 = this.block.getStateForPlacement(world, pos, facing, hitX, hitY, hitZ, i, player, stack);
 
-        if(!itemstack.isEmpty() && player.canPlayerEdit(pos, facing, itemstack) && world.mayPlace(this.block, pos, false, facing, (Entity)null)){
-            int i = this.getMetadata(itemstack.getMetadata());
-            IBlockState iblockstate1 = this.block.getStateForPlacement(world, pos, facing, hitX, hitY, hitZ, i, player, hand);
-
-            if(placeBlockAt(itemstack, player, world, pos, facing, hitX, hitY, hitZ, iblockstate1)){
-                iblockstate1 = world.getBlockState(pos);
-                SoundType soundtype = iblockstate1.getBlock().getSoundType(iblockstate1, world, pos, player);
+            if(placeBlockAt(stack, player, world, pos, facing, hitX, hitY, hitZ, iblockstate1)){
+            	SoundType soundtype = world.getBlockState(pos).getBlock().getSoundType(world.getBlockState(pos), world, pos, player);
                 world.playSound(player, pos, soundtype.getPlaceSound(), SoundCategory.BLOCKS, (soundtype.getVolume() + 1.0F) / 2.0F, soundtype.getPitch() * 0.8F);
-                if(itemstack.getItem() == Item.getItemFromBlock(ModBlocks.blockMinersTorch)){
-                	itemstack.shrink(1);
+                if(stack.getItem() == Item.getItemFromBlock(ModBlocks.blockMinersTorch)){
+                	--stack.stackSize;
                 }
             }
             return EnumActionResult.SUCCESS;
