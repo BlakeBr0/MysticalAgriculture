@@ -198,6 +198,14 @@ public class CropType {
 			return this.seed;
 		}
 		
+		public int getSecondCropChance(){
+			return ModConfig.confEssenceChance;
+		}
+		
+		public int getSecondSeedChance(){
+			return ModConfig.confSeedChance;
+		}
+		
 		public Type set(){
 			this.getPlant().setCrop(this.getCrop());
 			this.getPlant().setSeed(this.getSeed());
