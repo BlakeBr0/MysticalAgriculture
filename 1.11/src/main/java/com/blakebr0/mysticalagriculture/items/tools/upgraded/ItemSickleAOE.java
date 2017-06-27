@@ -2,6 +2,7 @@ package com.blakebr0.mysticalagriculture.items.tools.upgraded;
 
 import java.util.List;
 
+import com.blakebr0.mysticalagriculture.config.ModConfig;
 import com.blakebr0.mysticalagriculture.items.ModItems;
 import com.blakebr0.mysticalagriculture.items.tools.ItemEssenceSickle;
 import com.blakebr0.mysticalagriculture.lib.Colors;
@@ -27,4 +28,14 @@ public class ItemSickleAOE extends ItemEssenceSickle {
 		tooltip.add(Tooltips.DURABILITY + color + (damage > -1 ? damage : Tooltips.UNLIMITED));
 		tooltip.add(Tooltips.CHARM_SLOT + Colors.RED + Tooltips.REAPING_AOE);
 	}
+	
+	@Override
+    public ItemStack getContainerItem(ItemStack itemstack){
+        return new ItemStack(ModItems.itemCharmReapingAOE, 1, 0);
+    }
+
+    @Override
+    public boolean hasContainerItem(ItemStack stack){
+        return ModConfig.confCharmReturn;
+    }
 }

@@ -79,10 +79,10 @@ public class CropType {
 		MITHRIL("mithril", ModConfig.confMithrilTier, ModConfig.confMithrilSeeds && ModChecker.MITHRIL),
 		TUNGSTEN("tungsten", ModConfig.confTungstenTier, ModConfig.confTungstenSeeds && ModChecker.TUNGSTEN),
 		TITANIUM("titanium", ModConfig.confTitaniumTier, ModConfig.confTitaniumSeeds && ModChecker.TITANIUM),
-		URANIUM("uranium", ModConfig.confUraniumTier, ModConfig.confUraniumSeeds && (ModChecker.URANIUM || ModChecker.IC2)),
+		URANIUM("uranium", ModConfig.confUraniumTier, ModConfig.confUraniumSeeds && ModChecker.URANIUM),
 		CHROME("chrome", ModConfig.confChromeTier, ModConfig.confChromeSeeds && ModChecker.CHROME),
 		PLATINUM("platinum", ModConfig.confPlatinumTier, ModConfig.confPlatinumSeeds && ModChecker.PLATINUM),
-		IRIDIUM("iridium", ModConfig.confIridiumTier, ModConfig.confIridiumSeeds && (ModChecker.IRIDIUM || ModChecker.IC2)),
+		IRIDIUM("iridium", ModConfig.confIridiumTier, ModConfig.confIridiumSeeds && ModChecker.IRIDIUM),
 		
 		RUBY("ruby", ModConfig.confRubyTier, ModConfig.confRubySeeds && ModChecker.RUBY),
 		SAPPHIRE("sapphire", ModConfig.confSapphireTier, ModConfig.confSapphireSeeds && ModChecker.SAPPHIRE),
@@ -117,6 +117,9 @@ public class CropType {
 		MYSTICAL_FLOWER("mystical_flower", ModConfig.confMysticalFlowerTier, ModConfig.confMysticalFlowerSeeds && ModChecker.BOTANIA),
 		MANASTEEL("manasteel", ModConfig.confManasteelTier, ModConfig.confManasteelSeeds && ModChecker.BOTANIA),
 		TERRASTEEL("terrasteel", ModConfig.confTerrasteelTier, ModConfig.confTerrasteelSeeds && ModChecker.BOTANIA),
+		
+		URANIUM_238("uranium_238", ModConfig.confUranium238Tier, ModConfig.confUranium238Seeds && ModChecker.IC2),
+		IRIDIUM_ORE("iridium_ore", ModConfig.confIridiumOreTier, ModConfig.confIridiumOreSeeds && ModChecker.IC2),
 		
 		OSMIUM("osmium", ModConfig.confOsmiumTier, ModConfig.confOsmiumSeeds && ModChecker.MEKANISM),
 		GLOWSTONE_INGOT("glowstone_ingot", ModConfig.confGlowstoneIngotTier, ModConfig.confGlowstoneIngotSeeds && ModChecker.MEKANISM),
@@ -196,6 +199,14 @@ public class CropType {
 		
 		public ItemSeed getSeed(){
 			return this.seed;
+		}
+		
+		public int getSecondCropChance(){
+			return ModConfig.confEssenceChance;
+		}
+		
+		public int getSecondSeedChance(){
+			return ModConfig.confSeedChance;
 		}
 		
 		public Type set(){

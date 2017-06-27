@@ -71,7 +71,7 @@ public class ItemSupremiumArmor extends ItemArmor {
 		ItemStack legs = player.getItemStackFromSlot(EntityEquipmentSlot.LEGS);
 		ItemStack feet = player.getItemStackFromSlot(EntityEquipmentSlot.FEET);
 		
-		return head != null && head.getItem() instanceof ItemSupremiumArmor && chest != null && chest.getItem() instanceof ItemSupremiumArmor && legs != null && legs.getItem() instanceof ItemSupremiumArmor && feet != null && feet.getItem() instanceof ItemSupremiumArmor;
+		return !head.isEmpty() && head.getItem() instanceof ItemSupremiumArmor && !chest.isEmpty() && chest.getItem() instanceof ItemSupremiumArmor && !legs.isEmpty() && legs.getItem() instanceof ItemSupremiumArmor && !feet.isEmpty() && feet.getItem() instanceof ItemSupremiumArmor;
 	}
     
     public static class AbilityHandler {

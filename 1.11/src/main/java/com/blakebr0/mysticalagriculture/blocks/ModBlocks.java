@@ -200,7 +200,7 @@ public class ModBlocks {
 		}
 		
 		if(ModConfig.confGearModuleOverride){
-			registerBlock(blockMinersTorch);
+			registerBlock(blockMinersTorch, new ItemBlockMinersTorch(blockMinersTorch));
 		}
 	}
 	

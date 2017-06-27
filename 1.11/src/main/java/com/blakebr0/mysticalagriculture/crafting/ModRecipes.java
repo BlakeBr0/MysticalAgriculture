@@ -508,10 +508,10 @@ public class ModRecipes {
 	    addSeedRecipe(type.MITHRIL, "ingotMithril");
 	    addSeedRecipe(type.TUNGSTEN, "ingotTungsten");
 	    addSeedRecipe(type.TITANIUM, "ingotTitanium");
-	    if(ModChecker.URANIUM){ addSeedRecipe(type.URANIUM, "ingotUranium"); }
+	    addSeedRecipe(type.URANIUM, "ingotUranium");
 	    addSeedRecipe(type.CHROME, "ingotChrome");
 	    addSeedRecipe(type.PLATINUM, "ingotPlatinum");
-	    if(ModChecker.IRIDIUM){ addSeedRecipe(type.IRIDIUM, "ingotIridium"); }
+	    addSeedRecipe(type.IRIDIUM, "ingotIridium");
 
 	    addSeedRecipe(type.RUBY, "gemRuby");
 	    addSeedRecipe(type.SAPPHIRE, "gemSapphire");
@@ -547,10 +547,8 @@ public class ModRecipes {
 	    addSeedRecipe(type.MANASTEEL, new ItemStack(Parts.itemBotaniaResources, 1, 0));
 	    addSeedRecipe(type.TERRASTEEL, new ItemStack(Parts.itemBotaniaResources, 1, 4));
 	    
-	    if(ModChecker.IC2){
-		    addSeedRecipe(type.URANIUM, new ItemStack(Parts.itemIC2Nuclear, 1, 2));
-		    addSeedRecipe(type.IRIDIUM, new ItemStack(Parts.itemIC2MiscResource, 1, 1));
-	    }
+	    addSeedRecipe(type.URANIUM_238, new ItemStack(Parts.itemIC2Nuclear, 1, 2));
+	    addSeedRecipe(type.IRIDIUM_ORE, new ItemStack(Parts.itemIC2MiscResource, 1, 1));
 	
 	    addSeedRecipe(type.OSMIUM, "ingotOsmium");
 	    addSeedRecipe(type.GLOWSTONE_INGOT, "ingotRefinedGlowstone");

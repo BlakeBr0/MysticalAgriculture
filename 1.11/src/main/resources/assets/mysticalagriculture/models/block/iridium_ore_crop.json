@@ -1,0 +1,6 @@
+{
+    "parent": "block/cross",
+    "textures": {
+        "cross": "mysticalagriculture:blocks/iridium_ore_crop"
+    }
+}

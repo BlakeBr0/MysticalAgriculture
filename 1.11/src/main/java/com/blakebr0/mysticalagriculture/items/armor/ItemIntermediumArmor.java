@@ -62,7 +62,7 @@ public class ItemIntermediumArmor extends ItemArmor {
 		ItemStack legs = player.getItemStackFromSlot(EntityEquipmentSlot.LEGS);
 		ItemStack feet = player.getItemStackFromSlot(EntityEquipmentSlot.FEET);
 		
-		return head != null && head.getItem() instanceof ItemIntermediumArmor && chest != null && chest.getItem() instanceof ItemIntermediumArmor && legs != null && legs.getItem() instanceof ItemIntermediumArmor && feet != null && feet.getItem() instanceof ItemIntermediumArmor;
+		return !head.isEmpty() && head.getItem() instanceof ItemIntermediumArmor && !chest.isEmpty() && chest.getItem() instanceof ItemIntermediumArmor && !legs.isEmpty() && legs.getItem() instanceof ItemIntermediumArmor && !feet.isEmpty() && feet.getItem() instanceof ItemIntermediumArmor;
 	}
     
     public static class AbilityHandler {

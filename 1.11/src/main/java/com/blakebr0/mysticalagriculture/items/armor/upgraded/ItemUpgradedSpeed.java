@@ -75,7 +75,7 @@ public class ItemUpgradedSpeed extends ItemSupremiumArmor {
     	public static boolean playerHasSet(EntityPlayer entity) {
     		ItemStack legs = entity.getItemStackFromSlot(EntityEquipmentSlot.LEGS);
     		
-    		return legs != null && legs.getItem() instanceof ItemUpgradedSpeed;
+    		return !legs.isEmpty() && legs.getItem() instanceof ItemUpgradedSpeed;
     	}
     	
     	@SubscribeEvent
@@ -85,12 +85,8 @@ public class ItemUpgradedSpeed extends ItemSupremiumArmor {
     			String key = playerKey(player);
 
     			Boolean hasSet = playerHasSet(player);
-    			if(playersWithSpeed.contains(key) && ModConfig.confSetBonuses){
+    			if(playersWithSpeed.contains(key)){
     				if(hasSet){
-    					player.stepHeight = 1.0F;
-    					if(ModConfig.confSupremiumFlight){
-    						player.capabilities.allowFlying = true;
-    					}
 						boolean flying = player.capabilities.isFlying;
 						boolean swimming = player.isInsideOfMaterial(Material.WATER) || player.isInWater();
 						if(player.onGround || flying || swimming) {
@@ -113,11 +109,6 @@ public class ItemUpgradedSpeed extends ItemSupremiumArmor {
 							}
 						}
     				} else {
-    					player.stepHeight = 0.5F;
-    					if(!player.capabilities.isCreativeMode && !player.isSpectator()){
-    						player.capabilities.allowFlying = false;
-        					player.capabilities.isFlying = false;
-    					}
     					playersWithSpeed.remove(key);
     				}
     			} else if(hasSet) {
