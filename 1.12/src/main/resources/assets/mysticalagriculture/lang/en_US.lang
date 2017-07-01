@@ -269,9 +269,9 @@ item.ma.crafting_tier3_crafting_seed.name=Tier 3 Crafting Seed
 item.ma.crafting_tier4_crafting_seed.name=Tier 4 Crafting Seed
 item.ma.crafting_tier5_crafting_seed.name=Tier 5 Crafting Seed
 
-item.ma.crafting_mystical_tool_rod.name=Mystical Tool Rod
-item.ma.crafting_mystical_bowstring.name=Mystical Bowstring
-item.ma.crafting_mystical_fletching.name=Mystical Fletching
+item.ma.crafting_mystical_stick.name=Mystical Stick
+item.ma.crafting_mystical_string.name=Mystical String
+item.ma.crafting_mystical_feather.name=Mystical Feather
 
 item.ma.crafting_soul_dust.name=Soul Dust
 item.ma.crafting_soulium_dust.name=§dSoulium Dust

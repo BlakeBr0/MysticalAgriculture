@@ -34,9 +34,9 @@ public class ItemCrafting extends ItemMeta {
 	public static ItemStack itemTier4CraftingSeed;
 	public static ItemStack itemTier5CraftingSeed;
 	
-	public static ItemStack itemMysticalToolRod;
-	public static ItemStack itemMysticalBowstring;
-	public static ItemStack itemMysticalFletching;
+	public static ItemStack itemMysticalStick;
+	public static ItemStack itemMysticalString;
+	public static ItemStack itemMysticalFeather;
 	
 	public static ItemStack itemSoulDust;
 	public static ItemStack itemSouliumDust;
@@ -95,9 +95,9 @@ public class ItemCrafting extends ItemMeta {
 		itemTier4CraftingSeed = addItem(20, "tier4_crafting_seed");
 		itemTier5CraftingSeed = addItem(21, "tier5_crafting_seed");
 		
-		itemMysticalToolRod = addItem(22, "mystical_tool_rod");
-		itemMysticalBowstring = addItem(23, "mystical_bowstring");
-		itemMysticalFletching = addItem(24, "mystical_fletching");
+		itemMysticalStick = addItem(22, "mystical_stick");
+		itemMysticalString = addItem(23, "mystical_string");
+		itemMysticalFeather = addItem(24, "mystical_feather");
 		
 		itemSoulDust = addItem(28, "soul_dust");
 		itemSouliumDust = addItem(29, "soulium_dust");
