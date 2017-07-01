@@ -260,6 +260,7 @@ item.ma.crafting_end_cluster.name=End Cluster
 item.ma.crafting_mystical_flower_cluster.name=Mystical Flower Cluster
 
 item.ma.crafting_blank_record.name=Blank Record
+item.ma.crafting_blank_skull.name=Blank Skull
 
 item.ma.crafting_base_crafting_seed.name=Base Crafting Seed
 item.ma.crafting_tier1_crafting_seed.name=Tier 1 Crafting Seed

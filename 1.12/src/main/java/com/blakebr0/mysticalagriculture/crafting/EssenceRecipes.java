@@ -1,6 +1,7 @@
 package com.blakebr0.mysticalagriculture.crafting;
 
 import com.blakebr0.mysticalagriculture.config.EssenceConfig;
+import com.blakebr0.mysticalagriculture.items.ModItems;
 import com.blakebr0.mysticalagriculture.lib.CropType;
 import com.blakebr0.mysticalagriculture.lib.Parts;
 import com.blakebr0.mysticalagriculture.util.ModChecker;
@@ -135,7 +136,8 @@ public class EssenceRecipes {
 	    addEssenceRecipe(new ItemStack(Items.EMERALD, EssenceConfig.emerald, 0), "EEE", "EEE", "EEE", 'E', new ItemStack(type.EMERALD.getCrop(), 1, 0));
 
 	    addEssenceRecipe(new ItemStack(Items.ROTTEN_FLESH, EssenceConfig.rottenFlesh, 0), "EEE", "   ", "   ", 'E', new ItemStack(type.ZOMBIE.getCrop(), 1, 0));
-
+	    addEssenceRecipe(new ItemStack(Items.SKULL, EssenceConfig.zombieHead, 2), "EEE", "ESE", "EEE", 'E', new ItemStack(type.ZOMBIE.getCrop(), 1, 0), 'S', ModItems.itemCrafting.itemBlankSkull);
+	    
 	    addEssenceRecipe(new ItemStack(Items.PORKCHOP, EssenceConfig.pork, 0), "EEE", "   ", "   ", 'E', new ItemStack(type.PIG.getCrop(), 1, 0));
 
 	    addEssenceRecipe(new ItemStack(Items.CHICKEN, EssenceConfig.chicken, 0), "EEE", "   ", "   ", 'E', new ItemStack(type.CHICKEN.getCrop(), 1, 0));
@@ -153,8 +155,10 @@ public class EssenceRecipes {
 
 	    addEssenceRecipe(new ItemStack(Items.ARROW, EssenceConfig.arrow, 0), "   ", "EEE", "   ", 'E', new ItemStack(type.SKELETON.getCrop(), 1, 0));
 	    addEssenceRecipe(new ItemStack(Items.BONE, EssenceConfig.bone, 0), " E ", "EEE", " E ", 'E', new ItemStack(type.SKELETON.getCrop(), 1, 0));
-    
+	    addEssenceRecipe(new ItemStack(Items.SKULL, EssenceConfig.skeletonSkull, 0), "EEE", "ESE", "EEE", 'E', new ItemStack(type.SKELETON.getCrop(), 1, 0), 'S', ModItems.itemCrafting.itemBlankSkull);
+	    
 	    addEssenceRecipe(new ItemStack(Items.GUNPOWDER, EssenceConfig.gunpowder, 0), "EEE", "   ", "   ", 'E', new ItemStack(type.CREEPER.getCrop(), 1, 0));
+	    addEssenceRecipe(new ItemStack(Items.SKULL, EssenceConfig.creeperHead, 4), "EEE", "ESE", "EEE", 'E', new ItemStack(type.CREEPER.getCrop(), 1, 0), 'S', ModItems.itemCrafting.itemBlankSkull);
 	    
 	    addEssenceRecipe(new ItemStack(Items.STRING, EssenceConfig.string, 0), "EEE", "   ", "   ", 'E', new ItemStack(type.SPIDER.getCrop(), 1, 0));
 	    addEssenceRecipe(new ItemStack(Items.SPIDER_EYE, EssenceConfig.spiderEye, 0), " E ", "EEE", " E ", 'E', new ItemStack(type.SPIDER.getCrop(), 1, 0));
@@ -173,7 +177,7 @@ public class EssenceRecipes {
   
 	    addEssenceRecipe(new ItemStack(Items.ENDER_PEARL, EssenceConfig.enderPearl, 0), "EEE", "E E", "EEE", 'E', new ItemStack(type.ENDERMAN.getCrop(), 1, 0));
 
-	    addEssenceRecipe(new ItemStack(Items.SKULL, EssenceConfig.witherSkeletonSkull, 1), "EEE", "EEE", "EEE", 'E', new ItemStack(type.WITHER_SKELETON.getCrop(), 1, 0));
+	    addEssenceRecipe(new ItemStack(Items.SKULL, EssenceConfig.witherSkeletonSkull, 1), "EEE", "ESE", "EEE", 'E', new ItemStack(type.WITHER_SKELETON.getCrop(), 1, 0), 'S', ModItems.itemCrafting.itemBlankSkull);
 
 	    if(type.RUBBER.isEnabled()){ addEssenceRecipe(Utils.getItem("itemRubber", EssenceConfig.rubber), "EEE", "   ", "   ", 'E', new ItemStack(type.RUBBER.getCrop(), 1, 0)); }
 	    if(type.SILICON.isEnabled()){ addEssenceRecipe(Utils.getItem("itemSilicon", EssenceConfig.silicon), "EEE", "   ", "   ", 'E', new ItemStack(type.SILICON.getCrop(), 1, 0)); }

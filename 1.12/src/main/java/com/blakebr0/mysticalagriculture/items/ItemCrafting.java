@@ -25,6 +25,7 @@ public class ItemCrafting extends ItemMeta {
 	public static ItemStack itemMysticalFlowerCluster;
 	
 	public static ItemStack itemBlankRecord;
+	public static ItemStack itemBlankSkull;
 	
 	public static ItemStack itemBaseCraftingSeed;
 	public static ItemStack itemTier1CraftingSeed;
@@ -85,6 +86,7 @@ public class ItemCrafting extends ItemMeta {
 		itemMysticalFlowerCluster = addItem(10, "mystical_flower", CropType.Type.MYSTICAL_FLOWER.isEnabled());
 		
 		itemBlankRecord = addItem(14, "blank_record");
+		itemBlankSkull = addItem(15, "blank_skull");
 		
 		itemBaseCraftingSeed = addItem(16, "base_crafting_seed");
 		itemTier1CraftingSeed = addItem(17, "tier1_crafting_seed");

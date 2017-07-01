@@ -72,6 +72,7 @@ public class EssenceConfig {
 	public static int emerald;
 	
 	public static int rottenFlesh;
+	public static int zombieHead;
 	public static int pork;
 	public static int chicken;
 	public static int feather;
@@ -84,7 +85,9 @@ public class EssenceConfig {
 	public static int slimeBall;
 	public static int arrow;
 	public static int bone;
+	public static int skeletonSkull;
 	public static int gunpowder;
+	public static int creeperHead;
 	public static boolean record;
 	public static int string;
 	public static int spiderEye;
@@ -279,6 +282,7 @@ public class EssenceConfig {
 	
 		category = "Mob Drops";
 		rottenFlesh = config.get(category, "rotten_flesh", 12).getInt();
+		zombieHead = config.get(category, "zombie_head", 1).getInt();
 		pork = config.get(category, "pork", 4).getInt();
 		chicken = config.get(category, "chicken", 4).getInt();
 		feather = config.get(category, "feather", 8).getInt();
@@ -291,7 +295,9 @@ public class EssenceConfig {
 		slimeBall = config.get(category, "slime_ball", 8).getInt();
 		arrow = config.get(category, "arrow", 8).getInt();
 		bone = config.get(category, "bone", 8).getInt();
+		skeletonSkull = config.get(category, "skeleton_skull", 1).getInt();
 		gunpowder = config.get(category, "gunpowder", 6).getInt();
+		creeperHead = config.get(category, "creeper_head", 1).getInt();
 		record = config.get(category, "record", true).getBoolean();
 		string = config.get(category, "string", 8).getInt();
 		spiderEye = config.get(category, "spider_eye", 3).getInt();

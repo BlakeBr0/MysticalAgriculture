@@ -292,6 +292,8 @@ public class ModRecipes {
 			addShapelessRecipe(new ItemStack(Items.RECORD_WAIT, 1, 0), ModItems.itemCrafting.itemBlankRecord, "dyeLightBlue", new ItemStack(type.SKELETON.getCrop(), 1, 0), new ItemStack(type.CREEPER.getCrop(), 1, 0));
 		}
 		
+		addShapedRecipe(new ItemStack(ModItems.itemCrafting, 16, 15), " S ", "SBS", " S ", 'S', ModItems.itemCrafting.itemSoulDust, 'B', new ItemStack(Blocks.BONE_BLOCK, 1, 0));
+		
 		if(ModConfig.confEssenceApples){ 
 			addShapedRecipe(new ItemStack(ModItems.itemInferiumApple, 1, 0), " S ", "SWS", " S ", 'S', ModItems.itemCrafting.itemInferiumEssence, 'W', new ItemStack(Items.APPLE, 1, 0)); 
 			addShapedRecipe(new ItemStack(ModItems.itemPrudentiumApple, 1, 0), " S ", "SWS", " S ", 'S', ModItems.itemCrafting.itemPrudentiumEssence, 'W', new ItemStack(ModItems.itemInferiumApple, 1, 0)); 
