@@ -26,6 +26,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 import net.minecraftforge.common.IPlantable;
+import net.minecraftforge.common.util.FakePlayer;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -76,6 +77,10 @@ public class ItemWateringCan extends ItemMeta {
 		if(!player.canPlayerEdit(pos.offset(facing), facing, stack)){
 			return EnumActionResult.FAIL;
 	    }
+		
+		if(player instanceof FakePlayer){
+			return EnumActionResult.FAIL;
+		}
 		
 		int range = stack.getMetadata();
 		
