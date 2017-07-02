@@ -41,9 +41,9 @@ public class ModConfig {
 	public static int confAppleBuffDuration;
 	public static boolean confEssenceFurnaces;
 	public static boolean confUltimateFurnace;
-	public static boolean confBotaniaHornHarvesting;
 	public static boolean confEssenceCoal;
 	public static boolean confWateringCans;
+	public static boolean confFakePlayerWatering;
 	
 	public static boolean confGenerateRegular;
 	public static boolean confGenerateNether;
@@ -152,9 +152,9 @@ public class ModConfig {
 		confAppleBuffDuration = config.getInt("apple_buff_duration", category, 2, 1, 100, "Essence Apple buff durations in minutes.");
 		confEssenceFurnaces = config.getBoolean("essence_furnaces", category, true, "Essence Furnaces enabled?");
 		confUltimateFurnace = config.getBoolean("ultimate_furnace", category, true, "Ultimate Furnace enabled? Requires Essence Furnaces be enabled.");
-		confBotaniaHornHarvesting = config.getBoolean("botania_horn_harvesting", category, true, "Should the Horn of the Wild auto-replant crops?");
 		confEssenceCoal = config.getBoolean("essence_coal", category, true, "Essence Coal enabled?");
 		confWateringCans = config.getBoolean("watering_cans", category, true, "Should the essence Watering Cans be enabled?");
+		confFakePlayerWatering = config.getBoolean("fake_player_watering", category, false, "Should fake players be able to use the watering cans?");
 		
 		category = "World";
 		config.addCustomCategoryComment(category, "Settings for any World Generation in Mystical Agriculture.");

@@ -5,6 +5,7 @@ import java.util.Random;
 
 import javax.annotation.Nullable;
 
+import com.blakebr0.mysticalagriculture.config.ModConfig;
 import com.blakebr0.mysticalagriculture.lib.Tooltips;
 import com.blakebr0.mysticalagriculture.util.Utils;
 
@@ -78,7 +79,7 @@ public class ItemWateringCan extends ItemMeta {
 			return EnumActionResult.FAIL;
 	    }
 		
-		if(player instanceof FakePlayer){
+		if(player instanceof FakePlayer && !ModConfig.confFakePlayerWatering){
 			return EnumActionResult.FAIL;
 		}
 		
