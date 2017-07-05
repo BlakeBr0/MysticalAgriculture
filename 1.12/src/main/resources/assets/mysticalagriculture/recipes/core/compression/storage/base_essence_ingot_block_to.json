@@ -1,0 +1,18 @@
+{
+  "type": "forge:ore_shaped",
+  "pattern": [
+    "EEE",
+    "EEE",
+    "EEE"
+  ],
+  "key": {
+    "E": {
+      "item": "mysticalagriculture:crafting",
+	  "data": 32
+    }
+  },
+  "result": {
+    "item": "mysticalagriculture:ingot_storage",
+	"data": 0
+  }
+}

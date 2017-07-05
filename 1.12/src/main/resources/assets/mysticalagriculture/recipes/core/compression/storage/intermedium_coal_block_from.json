@@ -1,0 +1,20 @@
+{
+  "conditions": [
+     {
+	    "type": "minecraft:item_exists",
+		"item": "mysticalagriculture:coal"
+	 }
+  ],
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "mysticalagriculture:coal_block",
+      "data": 2
+    }
+  ],
+  "result": {
+    "item": "mysticalagriculture:coal",
+	"count": 9,
+    "data": 2
+  }
+}

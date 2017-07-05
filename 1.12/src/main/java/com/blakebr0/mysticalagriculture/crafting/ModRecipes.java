@@ -95,10 +95,20 @@ public class ModRecipes {
 	}
 	// TODO: a better job with recipes
 	public static void addShapedRecipe(ItemStack output, Object... input){
+		for(Object obj : input){
+			if(obj == null){
+				return;
+			}
+		}
 		ForgeRegistries.RECIPES.register(new ShapedOreRecipe(EMPTY_GROUP, output, input).setRegistryName(getRecipeLocation(output)));
 	}
 	
 	public static void addShapelessRecipe(ItemStack output, Object... input){
+		for(Object obj : input){
+			if(obj == null){
+				return;
+			}
+		}
 		ForgeRegistries.RECIPES.register(new ShapelessOreRecipe(EMPTY_GROUP, output, input).setRegistryName(getRecipeLocation(output)));
 	}
 	
@@ -159,21 +169,6 @@ public class ModRecipes {
     }
 	
 	public static void initRecipes(){
-		
-	    addShapedRecipe(new ItemStack(ModBlocks.blockStorage, 1, 0), "EEE", "EEE", "EEE", 'E', ModItems.itemCrafting.itemInferiumEssence);
-	    addShapedRecipe(new ItemStack(ModBlocks.blockStorage, 1, 1), "EEE", "EEE", "EEE", 'E', ModItems.itemCrafting.itemPrudentiumEssence);
-	    addShapedRecipe(new ItemStack(ModBlocks.blockStorage, 1, 2), "EEE", "EEE", "EEE", 'E', ModItems.itemCrafting.itemIntermediumEssence);
-	    addShapedRecipe(new ItemStack(ModBlocks.blockStorage, 1, 3), "EEE", "EEE", "EEE", 'E', ModItems.itemCrafting.itemSuperiumEssence);
-	    addShapedRecipe(new ItemStack(ModBlocks.blockStorage, 1, 4), "EEE", "EEE", "EEE", 'E', ModItems.itemCrafting.itemSupremiumEssence);		
-	    addShapedRecipe(new ItemStack(ModBlocks.blockStorage, 1, 5), "EEE", "EEE", "EEE", 'E', ModItems.itemCrafting.itemProsperityShard);
-	
-	    addShapedRecipe(new ItemStack(ModBlocks.blockIngotStorage, 1, 0), "EEE", "EEE", "EEE", 'E', ModItems.itemCrafting.itemBaseEssenceIngot);
-	    addShapedRecipe(new ItemStack(ModBlocks.blockIngotStorage, 1, 1), "EEE", "EEE", "EEE", 'E', ModItems.itemCrafting.itemInferiumIngot);
-	    addShapedRecipe(new ItemStack(ModBlocks.blockIngotStorage, 1, 2), "EEE", "EEE", "EEE", 'E', ModItems.itemCrafting.itemPrudentiumIngot);
-	    addShapedRecipe(new ItemStack(ModBlocks.blockIngotStorage, 1, 3), "EEE", "EEE", "EEE", 'E', ModItems.itemCrafting.itemIntermediumIngot);
-	    addShapedRecipe(new ItemStack(ModBlocks.blockIngotStorage, 1, 4), "EEE", "EEE", "EEE", 'E', ModItems.itemCrafting.itemSuperiumIngot);
-	    addShapedRecipe(new ItemStack(ModBlocks.blockIngotStorage, 1, 5), "EEE", "EEE", "EEE", 'E', ModItems.itemCrafting.itemSupremiumIngot);
-	    addShapedRecipe(new ItemStack(ModBlocks.blockIngotStorage, 1, 6), "EEE", "EEE", "EEE", 'E', ModItems.itemCrafting.itemSouliumIngot);
 	    	    
 	    if(ModConfig.confEssenceFurnaces){
 	    	addShapedRecipe(new ItemStack(ModBlocks.blockInferiumFurnace, 1, 0), " E ", "EDE", " B ", 'E', ModItems.itemCrafting.itemInferiumEssence, 'D', new ItemStack(Blocks.FURNACE, 1, 0), 'B', new ItemStack(ModBlocks.blockStorage, 1, 0));
@@ -187,21 +182,7 @@ public class ModRecipes {
 	    }
 	    
 	    if(ModConfig.confEssenceCoal){
-	    	addShapelessRecipe(new ItemStack(ModItems.itemEssenceCoal, 1, 0), new ItemStack(Items.COAL, 1, 0), ModItems.itemCrafting.itemInferiumEssence, ModItems.itemCrafting.itemInferiumEssence);
-	    	addShapelessRecipe(new ItemStack(ModItems.itemEssenceCoal, 1, 1), new ItemStack(ModItems.itemEssenceCoal, 1, 0), ModItems.itemCrafting.itemPrudentiumEssence, ModItems.itemCrafting.itemPrudentiumEssence);
-	    	addShapelessRecipe(new ItemStack(ModItems.itemEssenceCoal, 1, 2), new ItemStack(ModItems.itemEssenceCoal, 1, 1), ModItems.itemCrafting.itemIntermediumEssence, ModItems.itemCrafting.itemIntermediumEssence);
-	    	addShapelessRecipe(new ItemStack(ModItems.itemEssenceCoal, 1, 3), new ItemStack(ModItems.itemEssenceCoal, 1, 2), ModItems.itemCrafting.itemSuperiumEssence, ModItems.itemCrafting.itemSuperiumEssence);
-	    	addShapelessRecipe(new ItemStack(ModItems.itemEssenceCoal, 1, 4), new ItemStack(ModItems.itemEssenceCoal, 1, 3), ModItems.itemCrafting.itemSupremiumEssence, ModItems.itemCrafting.itemSupremiumEssence);
-	    	addShapedRecipe(new ItemStack(ModBlocks.blockEssenceCoal, 1, 0), "CCC", "CCC", "CCC", 'C', new ItemStack(ModItems.itemEssenceCoal, 1, 0));
-	    	addShapedRecipe(new ItemStack(ModBlocks.blockEssenceCoal, 1, 1), "CCC", "CCC", "CCC", 'C', new ItemStack(ModItems.itemEssenceCoal, 1, 1));
-	    	addShapedRecipe(new ItemStack(ModBlocks.blockEssenceCoal, 1, 2), "CCC", "CCC", "CCC", 'C', new ItemStack(ModItems.itemEssenceCoal, 1, 2));
-	    	addShapedRecipe(new ItemStack(ModBlocks.blockEssenceCoal, 1, 3), "CCC", "CCC", "CCC", 'C', new ItemStack(ModItems.itemEssenceCoal, 1, 3));
-	    	addShapedRecipe(new ItemStack(ModBlocks.blockEssenceCoal, 1, 4), "CCC", "CCC", "CCC", 'C', new ItemStack(ModItems.itemEssenceCoal, 1, 4));
-	    	addShapelessRecipe(new ItemStack(ModItems.itemEssenceCoal, 9, 0), new ItemStack(ModBlocks.blockEssenceCoal, 1, 0));
-	    	addShapelessRecipe(new ItemStack(ModItems.itemEssenceCoal, 9, 1), new ItemStack(ModBlocks.blockEssenceCoal, 1, 1));
-	    	addShapelessRecipe(new ItemStack(ModItems.itemEssenceCoal, 9, 2), new ItemStack(ModBlocks.blockEssenceCoal, 1, 2));
-	    	addShapelessRecipe(new ItemStack(ModItems.itemEssenceCoal, 9, 3), new ItemStack(ModBlocks.blockEssenceCoal, 1, 3));
-	    	addShapelessRecipe(new ItemStack(ModItems.itemEssenceCoal, 9, 4), new ItemStack(ModBlocks.blockEssenceCoal, 1, 4));
+	    	//TODO: see how json recipes work with this concept xd
 	    }
 	    
 	    if(ModConfig.confGrowthAccelerator){ addShapedRecipe(new ItemStack(ModBlocks.blockGrowthAccelerator, 1, 0), "SES", "EDE", "SES", 'E', new ItemStack(ModBlocks.blockStorage, 1, 0), 'S', "stone", 'D', "gemDiamond"); }
@@ -221,22 +202,6 @@ public class ModRecipes {
 	    addShapedRecipe(new ItemStack(ModBlocks.blockTinkeringTable, 1, 2), "SSS", "ICI", "I I", 'S', new ItemStack(ModBlocks.blockSoulstone, 1, 0), 'I', ModItems.itemCrafting.itemIntermediumIngot, 'C', "workbench");
 	    addShapedRecipe(new ItemStack(ModBlocks.blockTinkeringTable, 1, 3), "SSS", "ICI", "I I", 'S', new ItemStack(ModBlocks.blockSoulstone, 1, 0), 'I', ModItems.itemCrafting.itemSuperiumIngot, 'C', "workbench");
 	    addShapedRecipe(new ItemStack(ModBlocks.blockTinkeringTable, 1, 4), "SSS", "ICI", "I I", 'S', new ItemStack(ModBlocks.blockSoulstone, 1, 0), 'I', ModItems.itemCrafting.itemSupremiumIngot, 'C', "workbench");
-	    
-		addShapelessRecipe(new ItemStack(ModItems.itemCrafting, 9, 0), new ItemStack(ModBlocks.blockStorage, 1, 0)); 
-		addShapelessRecipe(new ItemStack(ModItems.itemCrafting, 9, 1), new ItemStack(ModBlocks.blockStorage, 1, 1)); 
-		addShapelessRecipe(new ItemStack(ModItems.itemCrafting, 9, 2), new ItemStack(ModBlocks.blockStorage, 1, 2)); 
-		addShapelessRecipe(new ItemStack(ModItems.itemCrafting, 9, 3), new ItemStack(ModBlocks.blockStorage, 1, 3)); 
-		addShapelessRecipe(new ItemStack(ModItems.itemCrafting, 9, 4), new ItemStack(ModBlocks.blockStorage, 1, 4)); 
-	
-		addShapelessRecipe(new ItemStack(ModItems.itemCrafting, 9, 5), new ItemStack(ModBlocks.blockStorage, 1, 5)); 
-		
-		addShapelessRecipe(new ItemStack(ModItems.itemCrafting, 9, 32), new ItemStack(ModBlocks.blockIngotStorage, 1, 0)); 
-		addShapelessRecipe(new ItemStack(ModItems.itemCrafting, 9, 33), new ItemStack(ModBlocks.blockIngotStorage, 1, 1)); 
-		addShapelessRecipe(new ItemStack(ModItems.itemCrafting, 9, 34), new ItemStack(ModBlocks.blockIngotStorage, 1, 2)); 
-		addShapelessRecipe(new ItemStack(ModItems.itemCrafting, 9, 35), new ItemStack(ModBlocks.blockIngotStorage, 1, 3)); 
-		addShapelessRecipe(new ItemStack(ModItems.itemCrafting, 9, 36), new ItemStack(ModBlocks.blockIngotStorage, 1, 4)); 
-		addShapelessRecipe(new ItemStack(ModItems.itemCrafting, 9, 37), new ItemStack(ModBlocks.blockIngotStorage, 1, 5)); 
-		addShapelessRecipe(new ItemStack(ModItems.itemCrafting, 9, 38), new ItemStack(ModBlocks.blockIngotStorage, 1, 6)); 
 		
 		addShapedRecipe(new ItemStack(ModItems.itemCrafting, 1, 1), " E ", "ECE", " E ", 'E', ModItems.itemCrafting.itemInferiumEssence, 'C', new ItemStack(ModItems.itemInfusionCrystal, 1, OreDictionary.WILDCARD_VALUE));
 		addShapedRecipe(new ItemStack(ModItems.itemCrafting, 1, 2), " E ", "ECE", " E ", 'E', ModItems.itemCrafting.itemPrudentiumEssence, 'C', new ItemStack(ModItems.itemInfusionCrystal, 1, OreDictionary.WILDCARD_VALUE));
@@ -254,13 +219,10 @@ public class ModRecipes {
 	    addShapedRecipe(new ItemStack(ModBlocks.blockStorage, 1, 4), " E ", "ECE", " E ", 'E', new ItemStack(ModBlocks.blockStorage, 1, 3), 'C', new ItemStack(ModItems.itemInfusionCrystalMaster, 1, 0));
 
 		addShapelessRecipe(new ItemStack(ModItems.itemCrafting, 4, 0), ModItems.itemCrafting.itemPrudentiumEssence);
-		addShapelessRecipe(new ItemStack(ModItems.itemCrafting, 4, 0), ModItems.itemCrafting.itemIntermediumEssence);
-		addShapelessRecipe(new ItemStack(ModItems.itemCrafting, 4, 0), ModItems.itemCrafting.itemSuperiumEssence);
-		addShapelessRecipe(new ItemStack(ModItems.itemCrafting, 4, 0), ModItems.itemCrafting.itemSupremiumEssence);
-				
-		addShapedRecipe(new ItemStack(ModItems.itemInfusionCrystal, 1, 0), "SES", "EDE", "SES", 'E', ModItems.itemCrafting.itemInferiumEssence, 'D', "gemDiamond", 'S', ModItems.itemCrafting.itemProsperityShard);
-		addShapedRecipe(new ItemStack(ModItems.itemInfusionCrystalMaster, 1, 0), "SES", "EDE", "SES", 'E', ModItems.itemCrafting.itemSupremiumEssence, 'D', "gemDiamond", 'S', ModItems.itemCrafting.itemProsperityShard);
-  
+		addShapelessRecipe(new ItemStack(ModItems.itemCrafting, 4, 1), ModItems.itemCrafting.itemIntermediumEssence);
+		addShapelessRecipe(new ItemStack(ModItems.itemCrafting, 4, 2), ModItems.itemCrafting.itemSuperiumEssence);
+		addShapelessRecipe(new ItemStack(ModItems.itemCrafting, 4, 3), ModItems.itemCrafting.itemSupremiumEssence);
+				  
 	    addShapedRecipe(new ItemStack(ModItems.itemCoreRemover, 1, 0), "IOI", "ODO", "IOI", 'I', "ingotIron", 'O', new ItemStack(Blocks.OBSIDIAN, 1, 0), 'D', "gemDiamond");
 		
 	    if(ModConfig.confMysticalFertilizer){

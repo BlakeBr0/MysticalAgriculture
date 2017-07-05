@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "mysticalagriculture:ingot_storage",
+      "data": 0
+    }
+  ],
+  "result": {
+    "item": "mysticalagriculture:crafting",
+	"count": 9,
+    "data": 32
+  }
+}

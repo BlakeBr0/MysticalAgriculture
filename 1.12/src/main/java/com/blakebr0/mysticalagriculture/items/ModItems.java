@@ -210,6 +210,12 @@ public class ModItems {
 		itemTier4InferiumSeeds = register(new ItemSeed("tier4_inferium_seeds", ModBlocks.blockTier4InferiumCrop, 4), "tier4_inferium_seeds");
 		itemTier5InferiumSeeds = register(new ItemSeed("tier5_inferium_seeds", ModBlocks.blockTier5InferiumCrop, 5), "tier5_inferium_seeds");
 		
+		ModBlocks.blockTier1InferiumCrop.setSeed(itemTier1InferiumSeeds);
+		ModBlocks.blockTier2InferiumCrop.setSeed(itemTier2InferiumSeeds);
+		ModBlocks.blockTier3InferiumCrop.setSeed(itemTier3InferiumSeeds);
+		ModBlocks.blockTier4InferiumCrop.setSeed(itemTier4InferiumSeeds);
+		ModBlocks.blockTier5InferiumCrop.setSeed(itemTier5InferiumSeeds);
+		
 		for(CropType.Type type : CropType.Type.values()){
 			if(type.isEnabled()){
 				register(type.getSeed(), type.getName() + "_seeds");

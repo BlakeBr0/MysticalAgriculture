@@ -1,0 +1,24 @@
+{
+  "conditions": [
+     {
+	    "type": "minecraft:item_exists",
+		"item": "mysticalagriculture:coal_block"
+	 }
+  ],
+  "type": "forge:ore_shaped",
+  "pattern": [
+    "EEE",
+    "EEE",
+    "EEE"
+  ],
+  "key": {
+    "E": {
+      "item": "mysticalagriculture:coal",
+	  "data": 3
+    }
+  },
+  "result": {
+    "item": "mysticalagriculture:coal_block",
+	"data": 3
+  }
+}

@@ -8,6 +8,7 @@ import java.util.Map;
 import com.blakebr0.mysticalagriculture.MysticalAgriculture;
 import com.blakebr0.mysticalagriculture.blocks.BlockBase;
 import com.blakebr0.mysticalagriculture.blocks.ModBlocks;
+import com.blakebr0.mysticalagriculture.config.ModConfig;
 import com.blakebr0.mysticalagriculture.items.ItemMeta;
 import com.blakebr0.mysticalagriculture.lib.IModelHelper;
 
@@ -17,8 +18,11 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IStringSerializable;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.client.model.ModelLoader;
+import net.minecraftforge.common.crafting.CraftingHelper;
+import net.minecraftforge.common.crafting.IConditionFactory;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.oredict.OreDictionary;
@@ -29,6 +33,12 @@ public class MysticalRegistry {
 	public static List<RegistryObject<Item>> items = new ArrayList<>();
 	public static Map<Class, String> tiles = new HashMap<>();
 	public static Map<ItemStack, String> ores = new HashMap<>();
+	
+	static {
+//		CraftingHelper.register(new ResourceLocation("mysticalagriculture:ore_exists"), (IConditionFactory)(json, context) -> {
+//			return () -> 
+//		});
+	}
 	
 	public static Block register(Block block, String name){
 		blocks.add(new RegistryObject<Block>(block, name));

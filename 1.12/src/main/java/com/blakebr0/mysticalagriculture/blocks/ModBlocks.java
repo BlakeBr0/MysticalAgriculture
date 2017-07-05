@@ -97,8 +97,10 @@ public class ModBlocks {
 		MysticalRegistry.register(new ItemBlockStorage(blockStorage), "storage");
 		blockIngotStorage = register(new BlockIngotStorage(), "ingot_storage", false);
 		MysticalRegistry.register(new ItemBlockIngotStorage(blockIngotStorage), "ingot_storage");
-		blockEssenceCoal = register(new BlockEssenceCoal(), "coal_block", false);
-		MysticalRegistry.register(new ItemBlockEssenceCoal(blockEssenceCoal), "coal_block");
+		if(ModConfig.confEssenceCoal){
+			blockEssenceCoal = register(new BlockEssenceCoal(), "coal_block", false);
+			MysticalRegistry.register(new ItemBlockEssenceCoal(blockEssenceCoal), "coal_block");
+		}
 		
 		blockSoulstone = register(new BlockSoulstone(), "soulstone", false);
 		MysticalRegistry.register(new ItemBlockSoulstone(blockSoulstone), "soulstone");
@@ -173,11 +175,6 @@ public class ModBlocks {
 		blockTier3InferiumCrop = register(new BlockInferiumCrop("tier3_inferium_crop", 3), "tier3_inferium_crop");
 		blockTier4InferiumCrop = register(new BlockInferiumCrop("tier4_inferium_crop", 4), "tier4_inferium_crop");
 		blockTier5InferiumCrop = register(new BlockInferiumCrop("tier5_inferium_crop", 5), "tier5_inferium_crop");
-		blockTier1InferiumCrop.setSeed(ModItems.itemTier1InferiumSeeds);
-		blockTier2InferiumCrop.setSeed(ModItems.itemTier2InferiumSeeds);
-		blockTier3InferiumCrop.setSeed(ModItems.itemTier3InferiumSeeds);
-		blockTier4InferiumCrop.setSeed(ModItems.itemTier4InferiumSeeds);
-		blockTier5InferiumCrop.setSeed(ModItems.itemTier5InferiumSeeds);
 		
 		for(CropType.Type type : CropType.Type.values()){
 			if(type.isEnabled()){
