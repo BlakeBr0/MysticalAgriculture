@@ -134,7 +134,7 @@ public class OreGeneration implements IWorldGenerator {
 	    	new WorldGenMinable(state, veinSize, predicate).generate(world, random, pos);
 	    }
 	    
-	    block = ModBlocks.blockInferiumOreEnd;
+	    block = ModBlocks.blockProsperityOreEnd;
 	    veinCount = config.confEndProsperityVeinCount;
 	    veinSize = config.confEndProsperityVeinSize;
 	    for(i = 0; i < config.confEndProsperityVeinCount; ++i){
