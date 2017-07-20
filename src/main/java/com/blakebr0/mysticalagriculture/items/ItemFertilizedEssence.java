@@ -66,7 +66,7 @@ public class ItemFertilizedEssence extends ItemBase {
 		}
 
 		if(applyFertilizer(stack, world, pos, playerIn)){
-			if (!world.isRemote){
+			if(!world.isRemote){
 				world.playEvent(2005, pos, 0);
 			}
 			return EnumActionResult.SUCCESS;

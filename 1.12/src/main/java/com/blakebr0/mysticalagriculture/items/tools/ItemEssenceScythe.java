@@ -116,7 +116,7 @@ public class ItemEssenceScythe extends ItemBase implements IRepairMaterial {
 			if(block instanceof BlockCrops){
 				BlockCrops crop = (BlockCrops)block;
 				if(crop.isMaxAge(state)){
-					List<ItemStack> drops = crop.getDrops(world, aoePos, state, 0);
+					List<ItemStack> drops = crop.getDrops(world, aoePos, state, 0); //TODO: fortune from stack
 					for(ItemStack drop : drops){
 						if(!drop.isEmpty() && drop.getItem() instanceof IPlantable){
 							drop.shrink(1);
