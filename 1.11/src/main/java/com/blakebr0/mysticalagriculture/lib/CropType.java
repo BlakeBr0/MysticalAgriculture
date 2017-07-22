@@ -139,11 +139,17 @@ public class CropType {
 		METEORIC_IRON("meteoric_iron", ModConfig.confMeteoricIronTier, ModConfig.confMeteoricIronSeeds && ModChecker.GALACTICRAFT),
 		DESH("desh", ModConfig.confDeshTier, ModConfig.confDeshSeeds && ModChecker.GALACTICRAFTPLANETS),
 		
+		BLACK_QUARTZ("black_quartz", ModConfig.confBlackQuartzTier, ModConfig.confBlackQuartzSeeds && ModChecker.ACTUALLYADDITIONS),
+		
 		VINTEUM("vinteum", ModConfig.confVinteumTier, ModConfig.confVinteumSeeds && ModChecker.AM2),
 		CHIMERITE("chimerite", ModConfig.confChimeriteTier, ModConfig.confChimeriteSeeds && ModChecker.AM2),
 		BLUE_TOPAZ("blue_topaz", ModConfig.confBlueTopazTier, ModConfig.confBlueTopazSeeds && ModChecker.AM2),
 		MOONSTONE("moonstone", ModConfig.confMoonstoneTier, ModConfig.confMoonstoneSeeds && ModChecker.AM2),
 		SUNSTONE("sunstone", ModConfig.confSunstoneTier, ModConfig.confSunstoneSeeds && ModChecker.AM2),
+		
+		AQUAMARINE("aquamarine", ModConfig.confAquamarineTier, ModConfig.confAquamarineSeeds && ModChecker.ASTRAL),
+		STARMETAL("starmetal", ModConfig.confStarmetalTier, ModConfig.confStarmetalSeeds && ModChecker.ASTRAL),
+		ROCK_CRYSTAL("rock_crystal", ModConfig.confRockCrystalTier, ModConfig.confRockCrystalSeeds && ModChecker.ASTRAL),
 		
 		ENDER_BIOTITE("ender_biotite", ModConfig.confEnderBiotiteTier, ModConfig.confEnderBiotiteSeeds && ModChecker.QUARK),
 		

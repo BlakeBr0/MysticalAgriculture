@@ -568,7 +568,7 @@ public class ModRecipes {
 	    addSeedRecipe(type.METEORIC_IRON, "ingotMeteoricIron");
 	    addSeedRecipe(type.DESH, "ingotDesh");
 	    
-	    addSeedRecipe(type.BLACK_QUARTZ, "gemBlackQuartz");
+	    addSeedRecipe(type.BLACK_QUARTZ, "gemQuartzBlack");
 	    
 	    addSeedRecipe(type.VINTEUM, "dustVinteum");
 	    addSeedRecipe(type.CHIMERITE, "gemChimerite");
@@ -578,7 +578,7 @@ public class ModRecipes {
 	    
 	    addSeedRecipe(type.AQUAMARINE, new ItemStack(Parts.itemAstralCrafting, 1, 0));
 	    addSeedRecipe(type.STARMETAL, new ItemStack(Parts.itemAstralCrafting, 1, 1));
-	    addSeedRecipe(type.ROCK_CRYSTAL, new ItemStack(Parts.itemAstralOre, 1, 0));
+	    addSeedRecipe(type.ROCK_CRYSTAL, new ItemStack(Parts.itemAstralRockCrystal, 1, 0));
 
 	    addSeedRecipe(type.ENDER_BIOTITE, "gemEnderBiotite");
 	    

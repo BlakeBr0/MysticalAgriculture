@@ -1,5 +1,6 @@
 package com.blakebr0.mysticalagriculture.items.tools;
 
+import java.lang.reflect.Method;
 import java.util.List;
 
 import com.blakebr0.mysticalagriculture.MysticalAgriculture;
@@ -32,6 +33,7 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 import net.minecraftforge.common.IPlantable;
+import net.minecraftforge.fml.relauncher.ReflectionHelper;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
@@ -41,6 +43,12 @@ public class ItemEssenceScythe extends ItemBase {
 	public ToolMaterial toolMaterial;
 	public Item repairMaterial;
 	public TextFormatting color;
+	
+	private static final Method GET_SEED;
+	
+	static {
+		GET_SEED = ReflectionHelper.findMethod(BlockCrops.class, "getSeed", "func_149866_i");
+	}
 	
 	public ItemEssenceScythe(String name, int range, ToolMaterial material, Item repairMaterial, TextFormatting color){
 		super(name);
@@ -81,10 +89,10 @@ public class ItemEssenceScythe extends ItemBase {
 			Block block = state.getBlock();
 			if(block instanceof BlockCrops){
 				BlockCrops crop = (BlockCrops)block;
-				if(crop.isMaxAge(state)){
+				if(crop.isMaxAge(state) && getSeed(crop) != null){
 					List<ItemStack> drops = crop.getDrops(world, aoePos, state, 0);
 					for(ItemStack drop : drops){
-						if(drop != null && drop.getItem() instanceof IPlantable){
+						if(drop != null && drop.getItem() == getSeed(crop)){
 							drop.shrink(1);;
 							if(drop.getCount() <= 0){
 								drops.remove(drop);
@@ -93,7 +101,7 @@ public class ItemEssenceScythe extends ItemBase {
 						}
 					}
 					for(ItemStack drop : drops){
-						if(drop != null){
+						if(!drop.isEmpty()){
 							block.spawnAsEntity(world, aoePos, drop);
 						}
 					}
@@ -138,4 +146,12 @@ public class ItemEssenceScythe extends ItemBase {
         }
         return multimap;
     }
+    
+	public static Item getSeed(Block block){
+		try {
+			return (Item)GET_SEED.invoke(block);
+		} catch(Exception e){
+			return null;
+		}
+	}
 }

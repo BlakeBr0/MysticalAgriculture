@@ -222,11 +222,17 @@ tile.ma.apatite_crop.name=Apatite Crop
 tile.ma.meteoric_iron_crop.name=Meteoric Iron Crop
 tile.ma.desh_crop.name=Desh Crop
 
+tile.ma.black_quartz_crop.name=Black Quartz Crop
+
 tile.ma.vinteum_crop.name=Vinteum Crop
 tile.ma.chimerite_crop.name=Chimerite Crop
 tile.ma.blue_topaz_crop.name=Blue Topaz Crop
 tile.ma.moonstone_crop.name=Moonstone Crop
 tile.ma.sunstone_crop.name=Sunstone Crop
+
+tile.ma.aquamarine_crop.name=Aquamarine Crop
+tile.ma.starmetal_crop.name=Starmetal Crop
+tile.ma.rock_crystal_crop.name=Rock Crystal Crop
 
 tile.ma.ender_biotite_crop.name=Ender Biotite Crop
 
@@ -474,11 +480,17 @@ item.ma.apatite_essence.name=Apatite Essence
 item.ma.meteoric_iron_essence.name=Meteoric Iron Essence
 item.ma.desh_essence.name=Desh Essence
 
+item.ma.black_quartz_essence.name=Black Quartz Essence
+
 item.ma.vinteum_essence.name=Vinteum Essence
 item.ma.chimerite_essence.name=Chimerite Essence
 item.ma.blue_topaz_essence.name=Blue Topaz Essence
 item.ma.moonstone_essence.name=Moonstone Essence
 item.ma.sunstone_essence.name=Sunstone Essence
+
+item.ma.aquamarine_essence.name=Aquamarine Essence
+item.ma.starmetal_essence.name=Starmetal Essence
+item.ma.rock_crystal_essence.name=Rock Crystal Essence
 
 item.ma.ender_biotite_essence.name=Ender Biotite Essence
 
@@ -619,11 +631,17 @@ item.ma.apatite_seeds.name=Apatite Seeds
 item.ma.meteoric_iron_seeds.name=Meteoric Iron Seeds
 item.ma.desh_seeds.name=Desh Seeds
 
+item.ma.black_quartz_seeds.name=Black Quartz Seeds
+
 item.ma.vinteum_seeds.name=Vinteum Seeds
 item.ma.chimerite_seeds.name=Chimerite Seeds
 item.ma.blue_topaz_seeds.name=Blue Topaz Seeds
 item.ma.moonstone_seeds.name=Moonstone Seeds
 item.ma.sunstone_seeds.name=Sunstone Seeds
+
+item.ma.aquamarine_seeds.name=Aquamarine Seeds
+item.ma.starmetal_seeds.name=Starmetal Seeds
+item.ma.rock_crystal_seeds.name=Rock Crystal Seeds
 
 item.ma.ender_biotite_seeds.name=Ender Biotite Seeds
 

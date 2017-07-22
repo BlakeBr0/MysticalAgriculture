@@ -271,11 +271,17 @@ public class EssenceRecipes {
 	    if(type.METEORIC_IRON.isEnabled()){ addEssenceRecipe(Utils.getItem("ingotMeteoricIron", EssenceConfig.meteoricIron), "EEE", "EXE", "EEE", 'E', new ItemStack(type.METEORIC_IRON.getCrop(), 1, 0)); }
 	    if(type.DESH.isEnabled()){ addEssenceRecipe(new ItemStack(Parts.itemGCPMars, EssenceConfig.desh, 2), "EEE", "EXE", "EEE", 'E', new ItemStack(type.DESH.getCrop(), 1, 0)); }
 
+	    if(type.BLACK_QUARTZ.isEnabled()){ addEssenceRecipe(Utils.getItem("gemQuartzBlack", EssenceConfig.blackQuartz), "EEE", "XEX", "EEE", 'E', new ItemStack(type.BLACK_QUARTZ.getCrop(), 1, 0)); }
+	    
 	    if(type.VINTEUM.isEnabled()){ addEssenceRecipe(Utils.getItem("dustVinteum", EssenceConfig.vinteum), "EEE", "EXE", "EEE", 'E', new ItemStack(type.VINTEUM.getCrop(), 1, 0)); }    
 	    if(type.CHIMERITE.isEnabled()){ addEssenceRecipe(Utils.getItem("gemChimerite", EssenceConfig.chimerite), "XEX", "EEE", "XEX", 'E', new ItemStack(type.CHIMERITE.getCrop(), 1, 0)); }    
 	    if(type.BLUE_TOPAZ.isEnabled()){ addEssenceRecipe(Utils.getItem("gemBlueTopaz", EssenceConfig.blueTopaz), "EEE", "EXE", "EEE", 'E', new ItemStack(type.BLUE_TOPAZ.getCrop(), 1, 0)); }    
 	    if(type.MOONSTONE.isEnabled()){ addEssenceRecipe(Utils.getItem("gemMoonstone", EssenceConfig.moonstone), "EEE", "EXE", "EEE", 'E', new ItemStack(type.MOONSTONE.getCrop(), 1, 0)); }    
 	    if(type.SUNSTONE.isEnabled()){ addEssenceRecipe(Utils.getItem("gemSunstone", EssenceConfig.sunstone), "EEE", "EXE", "EEE", 'E', new ItemStack(type.SUNSTONE.getCrop(), 1, 0)); }    
+	    
+	    if(type.AQUAMARINE.isEnabled()){ addEssenceRecipe(new ItemStack(Parts.itemAstralCrafting, EssenceConfig.aquamarine, 0), "XEX", "EEE", "XEX", 'E', new ItemStack(type.AQUAMARINE.getCrop(), 1, 0)); }
+	    if(type.STARMETAL.isEnabled()){ addEssenceRecipe(new ItemStack(Parts.itemAstralCrafting, EssenceConfig.starmetal, 1), "EEE", "EXE", "EEE", 'E', new ItemStack(type.STARMETAL.getCrop(), 1, 0)); }
+	    if(type.ROCK_CRYSTAL.isEnabled()){ addEssenceRecipe(new ItemStack(Parts.itemAstralOre, EssenceConfig.rockCrystal, 0), "EEE", "EXE", "EEE", 'E', new ItemStack(type.ROCK_CRYSTAL.getCrop(), 1, 0)); }
 	    
 	    if(type.ENDER_BIOTITE.isEnabled()){ addEssenceRecipe(Utils.getItem("gemEnderBiotite", EssenceConfig.enderBiotite), "EEE", "XEX", "EEE", 'E', new ItemStack(type.ENDER_BIOTITE.getCrop(), 1, 0)); }    
 	    

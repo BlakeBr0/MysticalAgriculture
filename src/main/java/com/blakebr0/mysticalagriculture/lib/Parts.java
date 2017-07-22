@@ -27,6 +27,7 @@ public class Parts {
 	public static Item itemIC2MiscResource;
 	public static Item itemAstralCrafting;
 	public static Item itemAstralOre;
+	public static Item itemAstralRockCrystal;
 	
 	public static void getParts(){
 		
@@ -150,6 +151,13 @@ public class Parts {
 	    	try {
 	    		Item item = getItem("astralsorcery:BlockCustomOre");
 	    		itemAstralOre = item;
+	    	} catch(Throwable e){
+	    		e.printStackTrace();
+	    	}
+	    	
+	    	try {
+	    		Item item = getItem("astralsorcery:ItemRockCrystalSimple");
+	    		itemAstralRockCrystal = item;
 	    	} catch(Throwable e){
 	    		e.printStackTrace();
 	    	}
