@@ -6,6 +6,7 @@ import com.blakebr0.mysticalagriculture.MysticalAgriculture;
 import com.blakebr0.mysticalagriculture.config.ModConfig;
 import com.blakebr0.mysticalagriculture.items.ItemBase;
 import com.blakebr0.mysticalagriculture.items.ModItems;
+import com.blakebr0.mysticalagriculture.items.tools.ItemEssenceScythe;
 import com.blakebr0.mysticalagriculture.lib.Colors;
 import com.blakebr0.mysticalagriculture.lib.Tooltips;
 import com.blakebr0.mysticalagriculture.util.Utils;
@@ -89,10 +90,10 @@ public class ItemScytheAOE extends ItemBase {
 			Block block = state.getBlock();
 			if(block instanceof BlockCrops){
 				BlockCrops crop = (BlockCrops)block;
-				if(crop.isMaxAge(state)){
+				if(crop.isMaxAge(state) && ItemEssenceScythe.getSeed(crop) != null){
 					List<ItemStack> drops = crop.getDrops(world, aoePos, state, 0);
 					for(ItemStack drop : drops){
-						if(drop != null && drop.getItem() instanceof IPlantable){
+						if(drop != null && drop.getItem() == ItemEssenceScythe.getSeed(crop)){
 							drop.stackSize--;
 							if(drop.stackSize <= 0){
 								drops.remove(drop);
