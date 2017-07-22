@@ -279,6 +279,10 @@ public class EssenceRecipes {
 	    if(type.MOONSTONE.isEnabled()){ addEssenceRecipe(Utils.getItem("gemMoonstone", EssenceConfig.moonstone), "EEE", "EXE", "EEE", 'E', new ItemStack(type.MOONSTONE.getCrop(), 1, 0)); }    
 	    if(type.SUNSTONE.isEnabled()){ addEssenceRecipe(Utils.getItem("gemSunstone", EssenceConfig.sunstone), "EEE", "EXE", "EEE", 'E', new ItemStack(type.SUNSTONE.getCrop(), 1, 0)); }    
 	    
+	    if(type.AQUAMARINE.isEnabled()){ addEssenceRecipe(new ItemStack(Parts.itemAstralCrafting, EssenceConfig.aquamarine, 0), "XEX", "EEE", "XEX", 'E', new ItemStack(type.AQUAMARINE.getCrop(), 1, 0)); }
+	    if(type.STARMETAL.isEnabled()){ addEssenceRecipe(new ItemStack(Parts.itemAstralCrafting, EssenceConfig.starmetal, 1), "EEE", "EXE", "EEE", 'E', new ItemStack(type.STARMETAL.getCrop(), 1, 0)); }
+	    if(type.ROCK_CRYSTAL.isEnabled()){ addEssenceRecipe(new ItemStack(Parts.itemAstralOre, EssenceConfig.rockCrystal, 0), "EEE", "EXE", "EEE", 'E', new ItemStack(type.ROCK_CRYSTAL.getCrop(), 1, 0)); }
+	    
 	    if(type.ENDER_BIOTITE.isEnabled()){ addEssenceRecipe(Utils.getItem("gemEnderBiotite", EssenceConfig.enderBiotite), "EEE", "XEX", "EEE", 'E', new ItemStack(type.ENDER_BIOTITE.getCrop(), 1, 0)); }    
 	    
 	    if(type.ENDER_AMETHYST.isEnabled()){ addEssenceRecipe(new ItemStack(Parts.itemBOPGems, EssenceConfig.enderAmethyst, 0), "EEE", "EXE", "EEE", 'E', new ItemStack(type.ENDER_AMETHYST.getCrop(), 1, 0)); }    

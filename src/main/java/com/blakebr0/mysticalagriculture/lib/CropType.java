@@ -147,6 +147,10 @@ public class CropType {
 		MOONSTONE("moonstone", ModConfig.confMoonstoneTier, ModConfig.confMoonstoneSeeds && ModChecker.AM2),
 		SUNSTONE("sunstone", ModConfig.confSunstoneTier, ModConfig.confSunstoneSeeds && ModChecker.AM2),
 		
+		AQUAMARINE("aquamarine", ModConfig.confAquamarineTier, ModConfig.confAquamarineSeeds && ModChecker.ASTRAL),
+		STARMETAL("starmetal", ModConfig.confStarmetalTier, ModConfig.confStarmetalSeeds && ModChecker.ASTRAL),
+		ROCK_CRYSTAL("rock_crystal", ModConfig.confRockCrystalTier, ModConfig.confRockCrystalSeeds && ModChecker.ASTRAL),
+		
 		ENDER_BIOTITE("ender_biotite", ModConfig.confEnderBiotiteTier, ModConfig.confEnderBiotiteSeeds && ModChecker.QUARK),
 		
 		ENDER_AMETHYST("ender_amethyst", ModConfig.confEnderAmethystTier, ModConfig.confEnderAmethystSeeds && ModChecker.BOP),

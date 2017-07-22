@@ -1,0 +1,6 @@
+{
+    "parent": "block/cross",
+    "textures": {
+        "cross": "mysticalagriculture:blocks/rock_crystal_crop"
+    }
+}

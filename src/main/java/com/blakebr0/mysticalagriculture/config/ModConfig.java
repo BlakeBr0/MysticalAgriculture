@@ -155,6 +155,10 @@ public class ModConfig {
 	public static boolean confMoonstoneSeeds;
 	public static boolean confSunstoneSeeds;
 	
+	public static boolean confAquamarineSeeds;
+	public static boolean confStarmetalSeeds;
+	public static boolean confRockCrystalSeeds;
+	
 	public static boolean confEnderBiotiteSeeds;
 	
 	public static boolean confEnderAmethystSeeds;
@@ -293,6 +297,10 @@ public class ModConfig {
 	public static int confBlueTopazTier;
 	public static int confMoonstoneTier;
 	public static int confSunstoneTier;
+	
+	public static int confAquamarineTier;
+	public static int confStarmetalTier;
+	public static int confRockCrystalTier;
 	
 	public static int confEnderBiotiteTier;
 	
@@ -528,6 +536,10 @@ public class ModConfig {
 		confMoonstoneSeeds = config.get(category, "moonstone_seeds", true).getBoolean();
 		confSunstoneSeeds = config.get(category, "sunstone_seeds", true).getBoolean();
 		
+		confAquamarineSeeds = config.get(category, "aquamarine_seeds", true).getBoolean();
+		confStarmetalSeeds = config.get(category, "starmetal_seeds", true).getBoolean();
+		confRockCrystalSeeds = config.get(category, "rock_crystal_seeds", true).getBoolean();
+		
 		confEnderBiotiteSeeds = config.get(category, "ender_biotite_seeds", true).getBoolean();
 		
 		confEnderAmethystSeeds = config.get(category, "ender_amethyst_seeds", true).getBoolean();
@@ -680,6 +692,10 @@ public class ModConfig {
 		confBlueTopazTier = config.get(category, "blue_topaz_tier", 3).getInt();
 		confMoonstoneTier = config.get(category, "moonstone_tier", 5).getInt();
 		confSunstoneTier = config.get(category, "sunstone_tier", 5).getInt();
+		
+		confAquamarineTier = config.get(category, "aquamarine_tier", 3).getInt();
+		confStarmetalTier = config.get(category, "starmetal_tier", 4).getInt();
+		confRockCrystalTier = config.get(category, "rock_crystal_tier", 5).getInt();
 		
 		confEnderBiotiteTier = config.get(category, "ender_biotite_tier", 3).getInt();
 		

@@ -25,6 +25,8 @@ public class Parts {
 	public static Item itemAEMaterial;
 	public static Item itemGCPMars;
 	public static Item itemIC2MiscResource;
+	public static Item itemAstralCrafting;
+	public static Item itemAstralOre;
 	
 	public static void getParts(){
 		
@@ -132,6 +134,22 @@ public class Parts {
 	    	try {
 	    		Item item = getItem("IC2:misc_resource");
 	    		itemIC2MiscResource = item;
+	    	} catch(Throwable e){
+	    		e.printStackTrace();
+	    	}
+	    }
+	    
+	    if(ModChecker.ASTRAL){
+	    	try {
+	    		Item item = getItem("astralsorcery:ItemCraftingComponent");
+	    		itemAstralCrafting = item;
+	    	} catch(Throwable e){
+	    		e.printStackTrace();
+	    	}
+	    	
+	    	try {
+	    		Item item = getItem("astralsorcery:BlockCustomOre");
+	    		itemAstralOre = item;
 	    	} catch(Throwable e){
 	    		e.printStackTrace();
 	    	}

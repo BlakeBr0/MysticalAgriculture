@@ -186,6 +186,10 @@ public class EssenceConfig {
 	public static int moonstone;
 	public static int sunstone;
 	
+	public static int aquamarine;
+	public static int starmetal;
+	public static int rockCrystal;
+	
 	public static int enderBiotite;
 	
 	public static int enderAmethyst;
@@ -409,6 +413,11 @@ public class EssenceConfig {
 		blueTopaz = config.get(category, "blue_topaz", 6).getInt();
 		moonstone = config.get(category, "moonstone", 3).getInt();
 		sunstone = config.get(category, "sunstone", 3).getInt();
+		
+		category = "Astral Sorcery";
+		aquamarine = config.get(category, "aquamarine", 8).getInt();
+		starmetal = config.get(category, "starmetal", 3).getInt();
+		rockCrystal = config.get(category, "rock_crystal", 1).getInt();
 		
 		category = "Qyark";
 		enderBiotite = config.get(category, "biotite", 8).getInt();
