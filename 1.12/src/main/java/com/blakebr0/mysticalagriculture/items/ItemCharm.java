@@ -6,6 +6,8 @@ import java.util.Map;
 
 import javax.annotation.Nullable;
 
+import com.blakebr0.cucumber.item.ItemMeta;
+import com.blakebr0.mysticalagriculture.MysticalAgriculture;
 import com.blakebr0.mysticalagriculture.items.ItemCharm.Applicable;
 import com.blakebr0.mysticalagriculture.lib.Colors;
 import com.blakebr0.mysticalagriculture.lib.Tooltips;
@@ -47,7 +49,8 @@ public class ItemCharm extends ItemMeta {
 	public static ItemStack itemCharmScythingAOE;
 	
 	public ItemCharm(){
-		super("charm");
+		super("ma.charm", MysticalAgriculture.REGISTRY);
+		this.setCreativeTab(MysticalAgriculture.tabMysticalAgriculture);
 	}
 	
 	@Override

@@ -1,8 +1,7 @@
 package com.blakebr0.mysticalagriculture.blocks;
 
+import com.blakebr0.cucumber.iface.IModelHelper;
 import com.blakebr0.mysticalagriculture.MysticalAgriculture;
-import com.blakebr0.mysticalagriculture.lib.IModelHelper;
-import com.blakebr0.mysticalagriculture.registry.MysticalRegistry;
 
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
@@ -33,13 +32,13 @@ public class BlockIngotStorage extends BlockBase implements IModelHelper {
 
     @Override
     public void init(){
-    	MysticalRegistry.addOre(new ItemStack(this, 1, 0), "blockBaseEssence");
-    	MysticalRegistry.addOre(new ItemStack(this, 1, 1), "blockInferium");
-    	MysticalRegistry.addOre(new ItemStack(this, 1, 2), "blockPrudentium");
-    	MysticalRegistry.addOre(new ItemStack(this, 1, 3), "blockIntermedium");
-    	MysticalRegistry.addOre(new ItemStack(this, 1, 4), "blockSuperium");
-    	MysticalRegistry.addOre(new ItemStack(this, 1, 5), "blockSupremium");
-    	MysticalRegistry.addOre(new ItemStack(this, 1, 6), "blockSoulium");
+    	MysticalAgriculture.REGISTRY.addOre(new ItemStack(this, 1, 0), "blockBaseEssence");
+    	MysticalAgriculture.REGISTRY.addOre(new ItemStack(this, 1, 1), "blockInferium");
+    	MysticalAgriculture.REGISTRY.addOre(new ItemStack(this, 1, 2), "blockPrudentium");
+    	MysticalAgriculture.REGISTRY.addOre(new ItemStack(this, 1, 3), "blockIntermedium");
+    	MysticalAgriculture.REGISTRY.addOre(new ItemStack(this, 1, 4), "blockSuperium");
+    	MysticalAgriculture.REGISTRY.addOre(new ItemStack(this, 1, 5), "blockSupremium");
+    	MysticalAgriculture.REGISTRY.addOre(new ItemStack(this, 1, 6), "blockSoulium");
     }
 
     @Override
@@ -54,7 +53,6 @@ public class BlockIngotStorage extends BlockBase implements IModelHelper {
         }
     }
     
-    @SideOnly(Side.CLIENT)
     public void initModels(){
     	for(Type type : Type.values()){
         	ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(this), type.getMetadata(), new ModelResourceLocation(MysticalAgriculture.MOD_ID + ":" + getUnlocalizedName().substring(8) + "_" + type.byMetadata(type.getMetadata()).getName()));

@@ -5,9 +5,9 @@ import java.util.List;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
+import com.blakebr0.cucumber.iface.IModelHelper;
 import com.blakebr0.mysticalagriculture.MysticalAgriculture;
 import com.blakebr0.mysticalagriculture.lib.EssenceType;
-import com.blakebr0.mysticalagriculture.lib.IModelHelper;
 import com.blakebr0.mysticalagriculture.lib.Tooltips;
 import com.blakebr0.mysticalagriculture.tileentity.TileEntityTinkeringTable;
 
@@ -110,7 +110,6 @@ public class BlockTinkeringTable extends BlockBase implements ITileEntityProvide
         }
     }
     
-    @SideOnly(Side.CLIENT)
     public void initModels(){
     	for(EssenceType.Type type : EssenceType.Type.values()){
         	ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(this), type.getMetadata(), new ModelResourceLocation(MysticalAgriculture.MOD_ID + ":" + getUnlocalizedName().substring(8) + "_" + type.byMetadata(type.getMetadata()).getName()));

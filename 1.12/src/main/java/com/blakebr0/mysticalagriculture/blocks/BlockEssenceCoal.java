@@ -4,12 +4,11 @@ import java.util.List;
 
 import javax.annotation.Nullable;
 
+import com.blakebr0.cucumber.iface.IModelHelper;
 import com.blakebr0.mysticalagriculture.MysticalAgriculture;
 import com.blakebr0.mysticalagriculture.lib.Colors;
 import com.blakebr0.mysticalagriculture.lib.EssenceType;
-import com.blakebr0.mysticalagriculture.lib.IModelHelper;
 import com.blakebr0.mysticalagriculture.lib.Tooltips;
-import com.blakebr0.mysticalagriculture.registry.MysticalRegistry;
 
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
@@ -51,11 +50,11 @@ public class BlockEssenceCoal extends BlockBase implements IModelHelper {
     public void init(){
         GameRegistry.registerFuelHandler(new FuelHander());
         
-        MysticalRegistry.addOre(new ItemStack(this, 1, 0), "blockInferiumCoal");
-        MysticalRegistry.addOre(new ItemStack(this, 1, 1), "blockPrudentiumCoal");
-        MysticalRegistry.addOre(new ItemStack(this, 1, 2), "blockIntermediumCoal");
-        MysticalRegistry.addOre(new ItemStack(this, 1, 3), "blockSuperiumCoal");
-        MysticalRegistry.addOre(new ItemStack(this, 1, 4), "blockSupremiumCoal");
+        MysticalAgriculture.REGISTRY.addOre(new ItemStack(this, 1, 0), "blockInferiumCoal");
+        MysticalAgriculture.REGISTRY.addOre(new ItemStack(this, 1, 1), "blockPrudentiumCoal");
+        MysticalAgriculture.REGISTRY.addOre(new ItemStack(this, 1, 2), "blockIntermediumCoal");
+        MysticalAgriculture.REGISTRY.addOre(new ItemStack(this, 1, 3), "blockSuperiumCoal");
+        MysticalAgriculture.REGISTRY.addOre(new ItemStack(this, 1, 4), "blockSupremiumCoal");
     }
 
     @Override
@@ -70,7 +69,6 @@ public class BlockEssenceCoal extends BlockBase implements IModelHelper {
         }
     }
     
-    @SideOnly(Side.CLIENT)
     public void initModels(){
     	for(EssenceType.Type type : EssenceType.Type.values()){
         	ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(this), type.getMetadata(), new ModelResourceLocation(MysticalAgriculture.MOD_ID + ":" + getUnlocalizedName().substring(8) + "_" + type.byMetadata(type.getMetadata()).getName()));

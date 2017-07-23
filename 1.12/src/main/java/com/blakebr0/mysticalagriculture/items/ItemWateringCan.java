@@ -5,6 +5,8 @@ import java.util.Random;
 
 import javax.annotation.Nullable;
 
+import com.blakebr0.cucumber.item.ItemMeta;
+import com.blakebr0.mysticalagriculture.MysticalAgriculture;
 import com.blakebr0.mysticalagriculture.config.ModConfig;
 import com.blakebr0.mysticalagriculture.lib.Tooltips;
 import com.blakebr0.mysticalagriculture.util.Utils;
@@ -44,7 +46,8 @@ public class ItemWateringCan extends ItemMeta {
 	public static ItemStack itemSupremiumWateringCan;;
 	
 	public ItemWateringCan(){
-		super("watering_can");
+		super("ma.watering_can", MysticalAgriculture.REGISTRY);
+		this.setCreativeTab(MysticalAgriculture.tabMysticalAgriculture);
 		this.setMaxStackSize(1);
 	}
 	

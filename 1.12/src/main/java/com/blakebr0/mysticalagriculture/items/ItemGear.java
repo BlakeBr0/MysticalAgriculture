@@ -1,5 +1,7 @@
 package com.blakebr0.mysticalagriculture.items;
 
+import com.blakebr0.cucumber.item.ItemMeta;
+import com.blakebr0.mysticalagriculture.MysticalAgriculture;
 import com.blakebr0.mysticalagriculture.lib.Tooltips;
 import com.blakebr0.mysticalagriculture.util.Utils;
 
@@ -27,7 +29,8 @@ public class ItemGear extends ItemMeta {
 	public static ItemStack itemSupremiumArrowHead;
 	
 	public ItemGear(){
-		super("gear");
+		super("ma.gear", MysticalAgriculture.REGISTRY);
+		this.setCreativeTab(MysticalAgriculture.tabMysticalAgriculture);
 	}
 
 	@Override

@@ -5,12 +5,12 @@ import java.util.List;
 
 import javax.annotation.Nullable;
 
+import com.blakebr0.cucumber.iface.IRepairMaterial;
 import com.blakebr0.mysticalagriculture.MysticalAgriculture;
 import com.blakebr0.mysticalagriculture.config.ModConfig;
 import com.blakebr0.mysticalagriculture.items.ModItems;
 import com.blakebr0.mysticalagriculture.items.tools.ToolType;
 import com.blakebr0.mysticalagriculture.lib.Colors;
-import com.blakebr0.mysticalagriculture.lib.IRepairMaterial;
 import com.blakebr0.mysticalagriculture.lib.Tooltips;
 import com.blakebr0.mysticalagriculture.util.NBTHelper;
 import com.blakebr0.mysticalagriculture.util.Utils;

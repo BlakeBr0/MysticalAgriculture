@@ -34,9 +34,7 @@ import com.blakebr0.mysticalagriculture.items.tools.ItemEssenceSickle;
 import com.blakebr0.mysticalagriculture.items.tools.ItemEssenceSword;
 import com.blakebr0.mysticalagriculture.items.tools.ItemSupremiumHoe;
 import com.blakebr0.mysticalagriculture.lib.CropType;
-import com.blakebr0.mysticalagriculture.lib.IRepairMaterial;
 import com.blakebr0.mysticalagriculture.lib.ModToolMaterials;
-import com.blakebr0.mysticalagriculture.registry.MysticalRegistry;
 import com.blakebr0.mysticalagriculture.util.ModChecker;
 
 import net.minecraft.inventory.EntityEquipmentSlot;
@@ -200,7 +198,7 @@ public class ModItems {
 		for(CropType.Type type : CropType.Type.values()){
 			if(type.isEnabled()){
 				register(type.getCrop(), type.getName() + "_essence");
-				MysticalRegistry.addOre(type.getCrop(), "essenceTier" + type.getTier());
+				MysticalAgriculture.REGISTRY.addOre(type.getCrop(), "essenceTier" + type.getTier());
 			}
 		}
 
@@ -317,15 +315,12 @@ public class ModItems {
 	}
 		
 	public static <T extends Item> T register(T item, String name){
-		MysticalRegistry.register(item, name);
+		MysticalAgriculture.REGISTRY.register(item, name);
 		return item;
 	}
 	
 	public static <T extends Item> T register(T item, String name, ItemStack stack){
-		register(item, name);
-		if(item instanceof IRepairMaterial){
-			((IRepairMaterial)item).setRepairMaterial(stack);
-		}
+		MysticalAgriculture.REGISTRY.register(item, name, stack);
 		return item;
 	}
 }

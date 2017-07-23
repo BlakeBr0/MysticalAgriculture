@@ -1,5 +1,6 @@
 package com.blakebr0.mysticalagriculture;
 
+import com.blakebr0.cucumber.registry.ModRegistry;
 import com.blakebr0.mysticalagriculture.items.ModItems;
 import com.blakebr0.mysticalagriculture.proxy.CommonProxy;
 
@@ -12,13 +13,16 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
-@Mod(modid = MysticalAgriculture.MOD_ID, name = MysticalAgriculture.NAME, version = MysticalAgriculture.VERSION, guiFactory = MysticalAgriculture.GUI_FACTORY)
+@Mod(modid = MysticalAgriculture.MOD_ID, name = MysticalAgriculture.NAME, version = MysticalAgriculture.VERSION, dependencies = MysticalAgriculture.DEPENDENCIES, guiFactory = MysticalAgriculture.GUI_FACTORY)
 public class MysticalAgriculture {
 	
 	public static final String MOD_ID = "mysticalagriculture";
 	public static final String NAME = "Mystical Agriculture";
 	public static final String VERSION = "1.6.1";
+	public static final String DEPENDENCIES = "required-after:cucumber@[1.0.0,)";
 	public static final String GUI_FACTORY = "com.blakebr0.mysticalagriculture.config.GuiFactory";
+	
+	public static final ModRegistry REGISTRY = new ModRegistry(MOD_ID);
 		
 	@Mod.Instance(MysticalAgriculture.MOD_ID)
 	public static MysticalAgriculture INSTANCE;

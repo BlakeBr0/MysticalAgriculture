@@ -1,8 +1,7 @@
 package com.blakebr0.mysticalagriculture.blocks;
 
+import com.blakebr0.cucumber.iface.IModelHelper;
 import com.blakebr0.mysticalagriculture.MysticalAgriculture;
-import com.blakebr0.mysticalagriculture.lib.IModelHelper;
-import com.blakebr0.mysticalagriculture.registry.MysticalRegistry;
 
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
@@ -33,12 +32,12 @@ public class BlockStorage extends BlockBase implements IModelHelper {
 
     @Override
     public void init(){
-    	MysticalRegistry.addOre(new ItemStack(this, 1, 0), "blockInferiumEssence");
-    	MysticalRegistry.addOre(new ItemStack(this, 1, 1), "blockPrudentiumEssence");
-    	MysticalRegistry.addOre(new ItemStack(this, 1, 2), "blockIntermediumEssence");
-    	MysticalRegistry.addOre(new ItemStack(this, 1, 3), "blockSuperiumEssence");
-    	MysticalRegistry.addOre(new ItemStack(this, 1, 4), "blockSupremiumEssence");
-    	MysticalRegistry.addOre(new ItemStack(this, 1, 5), "blockProsperity");
+    	MysticalAgriculture.REGISTRY.addOre(new ItemStack(this, 1, 0), "blockInferiumEssence");
+    	MysticalAgriculture.REGISTRY.addOre(new ItemStack(this, 1, 1), "blockPrudentiumEssence");
+    	MysticalAgriculture.REGISTRY.addOre(new ItemStack(this, 1, 2), "blockIntermediumEssence");
+    	MysticalAgriculture.REGISTRY.addOre(new ItemStack(this, 1, 3), "blockSuperiumEssence");
+    	MysticalAgriculture.REGISTRY.addOre(new ItemStack(this, 1, 4), "blockSupremiumEssence");
+    	MysticalAgriculture.REGISTRY.addOre(new ItemStack(this, 1, 5), "blockProsperity");
     }
 
     @Override
@@ -53,7 +52,6 @@ public class BlockStorage extends BlockBase implements IModelHelper {
         }
     }
     
-    @SideOnly(Side.CLIENT)
     public void initModels(){
     	for(Type type : Type.values()){
         	ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(this), type.getMetadata(), new ModelResourceLocation(MysticalAgriculture.MOD_ID + ":" + getUnlocalizedName().substring(8) + "_" + type.byMetadata(type.getMetadata()).getName()));

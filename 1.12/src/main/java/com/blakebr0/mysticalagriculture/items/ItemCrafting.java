@@ -1,5 +1,7 @@
 package com.blakebr0.mysticalagriculture.items;
 
+import com.blakebr0.cucumber.item.ItemMeta;
+import com.blakebr0.mysticalagriculture.MysticalAgriculture;
 import com.blakebr0.mysticalagriculture.config.ModConfig;
 import com.blakebr0.mysticalagriculture.lib.CropType;
 import com.blakebr0.mysticalagriculture.lib.Tooltips;
@@ -66,7 +68,8 @@ public class ItemCrafting extends ItemMeta {
 	public static ItemStack itemSupremiumFertCore;
 	
 	public ItemCrafting(){
-		super("crafting");
+		super("ma.crafting", MysticalAgriculture.REGISTRY);
+		this.setCreativeTab(MysticalAgriculture.tabMysticalAgriculture);
 	}
 	
 	@Override

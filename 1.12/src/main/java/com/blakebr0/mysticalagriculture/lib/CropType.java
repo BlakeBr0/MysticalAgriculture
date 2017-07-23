@@ -1,8 +1,9 @@
 package com.blakebr0.mysticalagriculture.lib;
 
+import com.blakebr0.cucumber.item.ItemBase;
+import com.blakebr0.mysticalagriculture.MysticalAgriculture;
 import com.blakebr0.mysticalagriculture.blocks.crop.BlockMysticalCrop;
 import com.blakebr0.mysticalagriculture.config.ModConfig;
-import com.blakebr0.mysticalagriculture.items.ItemBase;
 import com.blakebr0.mysticalagriculture.items.ItemSeed;
 import com.blakebr0.mysticalagriculture.util.ModChecker;
 
@@ -222,6 +223,7 @@ public class CropType {
 		public void declare(){
 			this.plant = new BlockMysticalCrop(getName() + "_crop");
 			this.crop = new ItemBase(getName() + "_essence");
+			crop.setCreativeTab(MysticalAgriculture.tabMysticalAgriculture);
 			this.seed = new ItemSeed(getName() + "_seeds", getPlant(), getTier());
 		}
 		

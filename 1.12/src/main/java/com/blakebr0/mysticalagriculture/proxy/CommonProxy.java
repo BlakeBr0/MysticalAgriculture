@@ -22,7 +22,6 @@ import com.blakebr0.mysticalagriculture.items.armor.ItemSupremiumArmor;
 import com.blakebr0.mysticalagriculture.items.tools.ItemEssenceBow;
 import com.blakebr0.mysticalagriculture.lib.CropType;
 import com.blakebr0.mysticalagriculture.lib.Parts;
-import com.blakebr0.mysticalagriculture.registry.MysticalRegistry;
 import com.blakebr0.mysticalagriculture.tileentity.ModTileEntities;
 import com.blakebr0.mysticalagriculture.util.ModChecker;
 import com.blakebr0.mysticalagriculture.world.OreGeneration;
@@ -59,7 +58,7 @@ public class CommonProxy {
 	    ModItems.init();
 	    ModEntities.init();
 
-	    MinecraftForge.EVENT_BUS.register(new MysticalRegistry());
+	    MinecraftForge.EVENT_BUS.register(MysticalAgriculture.REGISTRY);
 	    
 	    MinecraftForge.EVENT_BUS.register(new BowZoomHandler());
 	    

@@ -1,8 +1,8 @@
 package com.blakebr0.mysticalagriculture.blocks.soulstone;
 
+import com.blakebr0.cucumber.iface.IModelHelper;
 import com.blakebr0.mysticalagriculture.MysticalAgriculture;
 import com.blakebr0.mysticalagriculture.blocks.BlockBase;
-import com.blakebr0.mysticalagriculture.lib.IModelHelper;
 import com.blakebr0.mysticalagriculture.lib.EssenceType.Type;
 
 import net.minecraft.block.SoundType;
@@ -56,7 +56,6 @@ public class BlockSoulstone extends BlockBase implements IModelHelper {
         }
     }
     
-    @SideOnly(Side.CLIENT)
     public void initModels(){
     	for(Type type : Type.values()){
         	ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(this), type.getMetadata(), new ModelResourceLocation(MysticalAgriculture.MOD_ID + ":" + getUnlocalizedName().substring(8) + "_" + type.byMetadata(type.getMetadata()).getName()));

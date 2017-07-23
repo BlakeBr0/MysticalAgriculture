@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.annotation.Nullable;
 
+import com.blakebr0.cucumber.item.ItemMeta;
 import com.blakebr0.mysticalagriculture.MysticalAgriculture;
 import com.blakebr0.mysticalagriculture.config.ModConfig;
 import com.blakebr0.mysticalagriculture.lib.Colors;
@@ -32,7 +33,8 @@ public class ItemEssenceCoal extends ItemMeta {
 	public static ItemStack itemSupremiumCoal;
 	
 	public ItemEssenceCoal(){
-		super("coal");
+		super("ma.coal", MysticalAgriculture.REGISTRY);
+		this.setCreativeTab(MysticalAgriculture.tabMysticalAgriculture);
 	}
 	
 	@Override
@@ -48,7 +50,7 @@ public class ItemEssenceCoal extends ItemMeta {
     
     @Override
     @SideOnly(Side.CLIENT)
-    public void addInformation(ItemStack stack, @Nullable World player, List<String> tooltip, ITooltipFlag advanced){
+    public void addInformation(ItemStack stack, @Nullable World world, List<String> tooltip, ITooltipFlag advanced){
     	String bt = null;
     	switch(stack.getMetadata()){
 		case 0:

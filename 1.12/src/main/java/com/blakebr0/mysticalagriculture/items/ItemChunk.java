@@ -3,6 +3,8 @@ package com.blakebr0.mysticalagriculture.items;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.blakebr0.cucumber.item.ItemMeta;
+import com.blakebr0.mysticalagriculture.MysticalAgriculture;
 import com.blakebr0.mysticalagriculture.config.ModConfig;
 import com.blakebr0.mysticalagriculture.lib.Colors;
 import com.blakebr0.mysticalagriculture.lib.CropType;
@@ -43,7 +45,8 @@ public class ItemChunk extends ItemMeta {
 	public static ItemStack itemBasalzChunk;
 	
 	public ItemChunk(){
-		super("chunk");
+		super("ma.chunk", MysticalAgriculture.REGISTRY);
+		this.setCreativeTab(MysticalAgriculture.tabMysticalAgriculture);
 	}
 	
 	@Override

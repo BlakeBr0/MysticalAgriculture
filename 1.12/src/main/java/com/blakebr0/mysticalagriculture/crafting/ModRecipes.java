@@ -1,5 +1,6 @@
 package com.blakebr0.mysticalagriculture.crafting;
 
+import com.blakebr0.cucumber.helper.RecipeHelper;
 import com.blakebr0.mysticalagriculture.blocks.ModBlocks;
 import com.blakebr0.mysticalagriculture.config.EssenceConfig;
 import com.blakebr0.mysticalagriculture.config.ModConfig;
@@ -95,21 +96,11 @@ public class ModRecipes {
 	}
 	// TODO: a better job with recipes
 	public static void addShapedRecipe(ItemStack output, Object... input){
-		for(Object obj : input){
-			if(obj == null){
-				return;
-			}
-		}
-		ForgeRegistries.RECIPES.register(new ShapedOreRecipe(EMPTY_GROUP, output, input).setRegistryName(getRecipeLocation(output)));
+		RecipeHelper.addShapedRecipe(output, input);
 	}
 	
 	public static void addShapelessRecipe(ItemStack output, Object... input){
-		for(Object obj : input){
-			if(obj == null){
-				return;
-			}
-		}
-		ForgeRegistries.RECIPES.register(new ShapelessOreRecipe(EMPTY_GROUP, output, input).setRegistryName(getRecipeLocation(output)));
+		RecipeHelper.addShapelessRecipe(output, input);
 	}
 	
 	public static void addSeedRecipe(CropType.Type type, Object input){
