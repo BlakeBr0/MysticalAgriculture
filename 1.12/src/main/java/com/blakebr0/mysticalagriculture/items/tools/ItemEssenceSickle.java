@@ -44,7 +44,7 @@ public class ItemEssenceSickle extends ItemBase implements IRepairMaterial {
 	public TextFormatting color;
 	
 	public ItemEssenceSickle(String name, int range, ToolMaterial material, TextFormatting color){
-		super(name);
+		super("ma." + name);
 		this.setMaxStackSize(1);
 		this.setMaxDamage(material.getMaxUses());
 		this.setCreativeTab(MysticalAgriculture.tabMysticalAgriculture);
