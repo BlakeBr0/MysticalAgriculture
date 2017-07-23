@@ -1,0 +1,32 @@
+{
+  "type": "forge:ore_shaped",
+  "conditions": [
+     {
+	    "type": "minecraft:item_exists",
+		"item": "mysticalagriculture:tinkering_table"
+	 }
+  ],
+  "pattern": [
+	"SSS",
+	"ICI",
+	"I I"
+  ],
+  "key": {
+    "S": {
+      "item": "mysticalagriculture:soulstone",
+	  "data": 0
+    },
+	"C": {
+      "type": "forge:ore_dict",
+      "ore": "workbench"
+    },
+	"I": {
+	  "item": "mysticalagriculture:crafting",
+	  "data": 36
+	}
+  },
+  "result": {
+    "item": "mysticalagriculture:tinkering_table",
+	"data": 3
+  }
+}

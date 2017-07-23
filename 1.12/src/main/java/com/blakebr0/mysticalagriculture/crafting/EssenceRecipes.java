@@ -1,5 +1,6 @@
 package com.blakebr0.mysticalagriculture.crafting;
 
+import com.blakebr0.cucumber.helper.RecipeHelper;
 import com.blakebr0.mysticalagriculture.config.EssenceConfig;
 import com.blakebr0.mysticalagriculture.items.ModItems;
 import com.blakebr0.mysticalagriculture.lib.CropType;
@@ -20,7 +21,7 @@ public class EssenceRecipes {
 	
 	public static void addEssenceRecipe(ItemStack output, Object... input){
 		if(!output.isEmpty() && output.getCount() > 0){
-			ForgeRegistries.RECIPES.register(new ShapedOreRecipe(ModRecipes.EMPTY_GROUP, output, input).setMirrored(false).setRegistryName(ModRecipes.getRecipeLocation(output)));
+			ForgeRegistries.RECIPES.register(new ShapedOreRecipe(ModRecipes.EMPTY_GROUP, output, input).setMirrored(false).setRegistryName(RecipeHelper.getRecipeLocation(output)));
 		}
 	}
 	

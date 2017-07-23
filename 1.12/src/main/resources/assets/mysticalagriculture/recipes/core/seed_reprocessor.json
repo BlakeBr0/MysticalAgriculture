@@ -1,0 +1,36 @@
+{
+  "type": "forge:ore_shaped",
+    "conditions": [
+     {
+	    "type": "minecraft:item_exists",
+		"item": "mysticalagriculture:seed_reprocessor"
+	 }
+  ],
+  "pattern": [
+	"ISI",
+	"IMI",
+	"IBI"
+  ],
+  "key": {
+    "S": {
+      "item": "mysticalagriculture:tier2_inferium_seeds",
+	  "data": 0
+    },
+	"M": {
+      "item": "mysticalagriculture:mystical_machine_frame",
+	  "data": 0
+    },
+	"B": {
+      "item": "mysticalagriculture:ingot_storage",
+	  "data": 6
+    },
+	"I": {
+      "type": "forge:ore_dict",
+      "ore": "ingotIron"
+    }
+  },
+  "result": {
+    "item": "mysticalagriculture:seed_reprocessor",
+	"data": 0
+  }
+}

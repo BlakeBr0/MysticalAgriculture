@@ -33,18 +33,18 @@ public class MysticalAgriculture {
 	public static CommonProxy proxy;
 		
 	@EventHandler
-	public void preInit(FMLPreInitializationEvent e) {
-		proxy.preInit(e);
+	public void preInit(FMLPreInitializationEvent event){
+		proxy.preInit(event);
 	}
 
 	@EventHandler
-	public void init(FMLInitializationEvent e) {
-		proxy.init(e);
+	public void init(FMLInitializationEvent event){
+		proxy.init(event);
 	}
 
 	@EventHandler
-	public void postInit(FMLPostInitializationEvent e) {
-		proxy.postInit(e);
+	public void postInit(FMLPostInitializationEvent event){
+		proxy.postInit(event);
 	}
 
 	public static CreativeTabs tabMysticalAgriculture = new CreativeTabs("tabMysticalAgriculture"){

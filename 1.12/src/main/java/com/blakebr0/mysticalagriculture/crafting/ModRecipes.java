@@ -145,70 +145,8 @@ public class ModRecipes {
 				'P', new ItemStack(ModItems.itemProsperityShard, 1, 0)); */
 	}
 	
-    public static ResourceLocation getRecipeLocation(ItemStack output){
-    	String namespace = Loader.instance().activeModContainer().getModId();
-        ResourceLocation baseLoc = new ResourceLocation(namespace, output.getItem().getRegistryName().getResourcePath());
-        ResourceLocation recipeLoc = baseLoc;
-        int index = 0;
-
-        while(CraftingManager.REGISTRY.containsKey(recipeLoc)){
-            index++;
-            recipeLoc = new ResourceLocation(namespace, baseLoc.getResourcePath() + "_" + index);
-        }
-        
-        return recipeLoc;
-    }
-	
 	public static void initRecipes(){
-	    	    
-	    if(ModConfig.confEssenceFurnaces){
-	    	addShapedRecipe(new ItemStack(ModBlocks.blockInferiumFurnace, 1, 0), " E ", "EDE", " B ", 'E', ModItems.itemCrafting.itemInferiumEssence, 'D', new ItemStack(Blocks.FURNACE, 1, 0), 'B', new ItemStack(ModBlocks.blockStorage, 1, 0));
-	    	addShapedRecipe(new ItemStack(ModBlocks.blockPrudentiumFurnace, 1, 0), " E ", "EDE", " B ", 'E', ModItems.itemCrafting.itemPrudentiumEssence, 'D', new ItemStack(ModBlocks.blockInferiumFurnace, 1, 0), 'B', new ItemStack(ModBlocks.blockStorage, 1, 1));
-	    	addShapedRecipe(new ItemStack(ModBlocks.blockIntermediumFurnace, 1, 0), " E ", "EDE", " B ", 'E', ModItems.itemCrafting.itemIntermediumEssence, 'D', new ItemStack(ModBlocks.blockPrudentiumFurnace, 1, 0), 'B', new ItemStack(ModBlocks.blockStorage, 1, 2));
-	    	addShapedRecipe(new ItemStack(ModBlocks.blockSuperiumFurnace, 1, 0), " E ", "EDE", " B ", 'E', ModItems.itemCrafting.itemSuperiumEssence, 'D', new ItemStack(ModBlocks.blockIntermediumFurnace, 1, 0), 'B', new ItemStack(ModBlocks.blockStorage, 1, 3));
-	    	addShapedRecipe(new ItemStack(ModBlocks.blockSupremiumFurnace, 1, 0), " E ", "EDE", " B ", 'E', ModItems.itemCrafting.itemSupremiumEssence, 'D', new ItemStack(ModBlocks.blockSuperiumFurnace, 1, 0), 'B', new ItemStack(ModBlocks.blockStorage, 1, 4));
-	    	if(ModConfig.confUltimateFurnace){
-	    		addShapedRecipe(new ItemStack(ModBlocks.blockUltimateFurnace, 1, 0), "SNS", "EDE", "SES", 'E', new ItemStack(ModBlocks.blockStorage, 1, 4), 'D', new ItemStack(ModBlocks.blockSupremiumFurnace, 1, 0), 'N', new ItemStack(Items.NETHER_STAR, 1, 0), 'S', new ItemStack(Items.SKULL, 1, 1));
-	    	}
-	    }
-	    
-	    if(ModConfig.confEssenceCoal){
-	    	//TODO: see how json recipes work with this concept xd
-	    }
-	    
-	    if(ModConfig.confGrowthAccelerator){ addShapedRecipe(new ItemStack(ModBlocks.blockGrowthAccelerator, 1, 0), "SES", "EDE", "SES", 'E', new ItemStack(ModBlocks.blockStorage, 1, 0), 'S', "stone", 'D', "gemDiamond"); }
-	    
-	    addShapedRecipe(new ItemStack(ModBlocks.blockMysticalMachineFrame, 4, 0), "SIS", "I I", "SIS", 'S', "stone", 'I', ModItems.itemCrafting.itemBaseEssenceIngot);
-	    if(ModConfig.confSeedReprocessor){
-	    	addShapedRecipe(new ItemStack(ModBlocks.blockSeedReprocessor), "ISI", "IMI", "IBI", 'I', "ingotIron", 'S', new ItemStack(ModItems.itemTier2InferiumSeeds, 1, 0), 'M', new ItemStack(ModBlocks.blockMysticalMachineFrame, 1, 0), 'B', new ItemStack(ModBlocks.blockIngotStorage, 1, 6));
-	    }
-	    
-	    if(ModConfig.confWitherproofBlocks){
-	    	addShapedRecipe(new ItemStack(ModBlocks.blockWitherproofBlock, 1, 0), " E ", "EDE", " E ", 'E', new ItemStack(type.WITHER_SKELETON.getCrop(), 1, 0), 'D', new ItemStack(ModBlocks.blockSoulstone, 1, 0));
-	    	addShapedRecipe(new ItemStack(ModBlocks.blockWitherproofGlass, 1, 0), " E ", "EDE", " E ", 'E', new ItemStack(type.WITHER_SKELETON.getCrop(), 1, 0), 'D', new ItemStack(ModBlocks.blockSoulGlass, 1, 0));
-	    }
-	    
-	    addShapedRecipe(new ItemStack(ModBlocks.blockTinkeringTable, 1, 0), "SSS", "ICI", "I I", 'S', new ItemStack(ModBlocks.blockSoulstone, 1, 0), 'I', ModItems.itemCrafting.itemInferiumIngot, 'C', "workbench");
-	    addShapedRecipe(new ItemStack(ModBlocks.blockTinkeringTable, 1, 1), "SSS", "ICI", "I I", 'S', new ItemStack(ModBlocks.blockSoulstone, 1, 0), 'I', ModItems.itemCrafting.itemPrudentiumIngot, 'C', "workbench");
-	    addShapedRecipe(new ItemStack(ModBlocks.blockTinkeringTable, 1, 2), "SSS", "ICI", "I I", 'S', new ItemStack(ModBlocks.blockSoulstone, 1, 0), 'I', ModItems.itemCrafting.itemIntermediumIngot, 'C', "workbench");
-	    addShapedRecipe(new ItemStack(ModBlocks.blockTinkeringTable, 1, 3), "SSS", "ICI", "I I", 'S', new ItemStack(ModBlocks.blockSoulstone, 1, 0), 'I', ModItems.itemCrafting.itemSuperiumIngot, 'C', "workbench");
-	    addShapedRecipe(new ItemStack(ModBlocks.blockTinkeringTable, 1, 4), "SSS", "ICI", "I I", 'S', new ItemStack(ModBlocks.blockSoulstone, 1, 0), 'I', ModItems.itemCrafting.itemSupremiumIngot, 'C', "workbench");
-		
-		addShapedRecipe(new ItemStack(ModItems.itemCrafting, 1, 1), " E ", "ECE", " E ", 'E', ModItems.itemCrafting.itemInferiumEssence, 'C', new ItemStack(ModItems.itemInfusionCrystal, 1, OreDictionary.WILDCARD_VALUE));
-		addShapedRecipe(new ItemStack(ModItems.itemCrafting, 1, 2), " E ", "ECE", " E ", 'E', ModItems.itemCrafting.itemPrudentiumEssence, 'C', new ItemStack(ModItems.itemInfusionCrystal, 1, OreDictionary.WILDCARD_VALUE));
-		addShapedRecipe(new ItemStack(ModItems.itemCrafting, 1, 3), " E ", "ECE", " E ", 'E', ModItems.itemCrafting.itemIntermediumEssence, 'C', new ItemStack(ModItems.itemInfusionCrystal, 1, OreDictionary.WILDCARD_VALUE));
-		addShapedRecipe(new ItemStack(ModItems.itemCrafting, 1, 4), " E ", "ECE", " E ", 'E', ModItems.itemCrafting.itemSuperiumEssence, 'C', new ItemStack(ModItems.itemInfusionCrystal, 1, OreDictionary.WILDCARD_VALUE));
-	    
-		addShapedRecipe(new ItemStack(ModItems.itemCrafting, 1, 1), " E ", "ECE", " E ", 'E', ModItems.itemCrafting.itemInferiumEssence, 'C', new ItemStack(ModItems.itemInfusionCrystalMaster, 1, 0));
-	    addShapedRecipe(new ItemStack(ModItems.itemCrafting, 1, 2), " E ", "ECE", " E ", 'E', ModItems.itemCrafting.itemPrudentiumEssence, 'C', new ItemStack(ModItems.itemInfusionCrystalMaster, 1, 0));
-	    addShapedRecipe(new ItemStack(ModItems.itemCrafting, 1, 3), " E ", "ECE", " E ", 'E', ModItems.itemCrafting.itemIntermediumEssence, 'C', new ItemStack(ModItems.itemInfusionCrystalMaster, 1, 0));
-	    addShapedRecipe(new ItemStack(ModItems.itemCrafting, 1, 4), " E ", "ECE", " E ", 'E', ModItems.itemCrafting.itemSuperiumEssence, 'C', new ItemStack(ModItems.itemInfusionCrystalMaster, 1, 0));
-
-		addShapedRecipe(new ItemStack(ModBlocks.blockStorage, 1, 1), " E ", "ECE", " E ", 'E', new ItemStack(ModBlocks.blockStorage, 1, 0), 'C', new ItemStack(ModItems.itemInfusionCrystalMaster, 1, 0));
-	    addShapedRecipe(new ItemStack(ModBlocks.blockStorage, 1, 2), " E ", "ECE", " E ", 'E', new ItemStack(ModBlocks.blockStorage, 1, 1), 'C', new ItemStack(ModItems.itemInfusionCrystalMaster, 1, 0));
-	    addShapedRecipe(new ItemStack(ModBlocks.blockStorage, 1, 3), " E ", "ECE", " E ", 'E', new ItemStack(ModBlocks.blockStorage, 1, 2), 'C', new ItemStack(ModItems.itemInfusionCrystalMaster, 1, 0));
-	    addShapedRecipe(new ItemStack(ModBlocks.blockStorage, 1, 4), " E ", "ECE", " E ", 'E', new ItemStack(ModBlocks.blockStorage, 1, 3), 'C', new ItemStack(ModItems.itemInfusionCrystalMaster, 1, 0));
-
+	    	    	    	    
 		addShapelessRecipe(new ItemStack(ModItems.itemCrafting, 4, 0), ModItems.itemCrafting.itemPrudentiumEssence);
 		addShapelessRecipe(new ItemStack(ModItems.itemCrafting, 4, 1), ModItems.itemCrafting.itemIntermediumEssence);
 		addShapelessRecipe(new ItemStack(ModItems.itemCrafting, 4, 2), ModItems.itemCrafting.itemSuperiumEssence);

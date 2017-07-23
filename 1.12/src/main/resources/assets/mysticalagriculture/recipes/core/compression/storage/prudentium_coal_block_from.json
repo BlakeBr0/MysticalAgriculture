@@ -1,11 +1,11 @@
 {
+  "type": "forge:ore_shapeless",
   "conditions": [
      {
 	    "type": "minecraft:item_exists",
 		"item": "mysticalagriculture:coal"
 	 }
   ],
-  "type": "minecraft:crafting_shapeless",
   "ingredients": [
     {
       "item": "mysticalagriculture:coal_block",

@@ -1,0 +1,36 @@
+{
+  "type": "forge:ore_shaped",
+    "conditions": [
+     {
+	    "type": "minecraft:item_exists",
+		"item": "mysticalagriculture:ultimate_furnace"
+	 }
+  ],
+  "pattern": [
+	"SNS",
+	"EDE",
+	"SES"
+  ],
+  "key": {
+    "S": {
+      "item": "minecraft:skull",
+	  "data": 1
+    },
+	"E": {
+      "item": "mysticalagriculture:storage",
+	  "data": 4
+    },
+	"D": {
+      "item": "mysticalagriculture:supremium_furnace",
+	  "data": 0
+    },
+	"N": {
+      "item": "minecraft:nether_star",
+	  "data": 0
+    }
+  },
+  "result": {
+    "item": "mysticalagriculture:ultimate_furnace",
+	"data": 0
+  }
+}

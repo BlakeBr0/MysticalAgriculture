@@ -1,11 +1,11 @@
 {
+  "type": "forge:ore_shaped",
   "conditions": [
      {
 	    "type": "minecraft:item_exists",
 		"item": "mysticalagriculture:coal_block"
 	 }
   ],
-  "type": "forge:ore_shaped",
   "pattern": [
     "EEE",
     "EEE",

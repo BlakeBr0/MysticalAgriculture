@@ -1,0 +1,32 @@
+{
+  "type": "forge:ore_shaped",
+    "conditions": [
+     {
+	    "type": "minecraft:item_exists",
+		"item": "mysticalagriculture:witherproof_glass"
+	 },
+	 {
+	    "type": "minecraft:item_exists",
+		"item": "mysticalagriculture:wither_skeleton_essence"
+	 }
+  ],
+  "pattern": [
+	" E ",
+	"EDE",
+	" E "
+  ],
+  "key": {
+    "E": {
+      "item": "mysticalagriculture:wither_skeleton_essence",
+	  "data": 0
+    },
+	"D": {
+      "item": "mysticalagriculture:soul_glass",
+	  "data": 0
+    }
+  },
+  "result": {
+    "item": "mysticalagriculture:witherproof_glass",
+	"data": 0
+  }
+}
