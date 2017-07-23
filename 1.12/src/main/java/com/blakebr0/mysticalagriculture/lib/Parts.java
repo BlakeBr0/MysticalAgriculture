@@ -32,7 +32,7 @@ public class Parts {
 	
 	public static void getParts(){
 		
-	    if(ModChecker.TINKERS){
+	    if(ModChecker.TINKERS_CONSTRUCT){
 	        try {
 	            Item item = getItem("tconstruct:ingots");
 	            itemTinkersIngots = item;
@@ -96,7 +96,7 @@ public class Parts {
 	        }
 	    }
 	    
-	    if(ModChecker.BOP){
+	    if(ModChecker.BIOMES_O_PLENTY){
 	    	try {
 	    		Item item = getItem("biomesoplenty:gem");
 	    		itemBOPGems = item;
@@ -105,7 +105,7 @@ public class Parts {
 	    	}
 	    }
 	    
-	    if(ModChecker.RS){
+	    if(ModChecker.REFINED_STORAGE){
 	        try {
 	            Item item = getItem("refinedstorage:quartz_enriched_iron");
 	            itemRSIngot = item;
@@ -114,7 +114,7 @@ public class Parts {
 	        }
 	    }
 	    
-	    if(ModChecker.AE2){
+	    if(ModChecker.APPLIED_ENERGISTICS_2){
 	        try {
 	            Item item = getItem("appliedenergistics2:material");
 	            itemAEMaterial = item;
@@ -123,7 +123,7 @@ public class Parts {
 	        }
 	    }
 	    
-	    if(ModChecker.GALACTICRAFTPLANETS){
+	    if(ModChecker.GALACTICRAFT_PLANETS){
 	    	try {
 	    		Item item = getItem("galacticraftplanets:item_basic_mars");
 	    		itemGCPMars = item;
@@ -148,7 +148,7 @@ public class Parts {
 	    	}
 	    }
 	    
-	    if(ModChecker.ASTRAL){
+	    if(ModChecker.ASTRAL_SORCERY){
 	    	try {
 	    		Item item = getItem("astralsorcery:ItemCraftingComponent");
 	    		itemAstralCrafting = item;

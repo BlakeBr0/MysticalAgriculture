@@ -81,23 +81,23 @@ public class CropType {
 		RUBY("ruby", 4, ModChecker.RUBY),
 		SAPPHIRE("sapphire", 4, ModChecker.SAPPHIRE),
 		PERIDOT("peridot", 4, ModChecker.PERIDOT),
-		AMBER("amber", 4, ModChecker.BOP),
-		TOPAZ("topaz", 4, ModChecker.BOP),
-		MALACHITE("malachite", 4, ModChecker.BOP),
-		TANZANITE("tanzanite", 4, ModChecker.BOP),
+		AMBER("amber", 4, ModChecker.BIOMES_O_PLENTY),
+		TOPAZ("topaz", 4, ModChecker.BIOMES_O_PLENTY),
+		MALACHITE("malachite", 4, ModChecker.BIOMES_O_PLENTY),
+		TANZANITE("tanzanite", 4, ModChecker.BIOMES_O_PLENTY),
 		
-		BLIZZ("blizz", 3, ModChecker.THERMAL),
-		BLITZ("blitz", 3, ModChecker.THERMAL),
-		BASALZ("basalz", 3, ModChecker.THERMAL),
+		BLIZZ("blizz", 3, ModChecker.THERMAL_FOUNDATION),
+		BLITZ("blitz", 3, ModChecker.THERMAL_FOUNDATION),
+		BASALZ("basalz", 3, ModChecker.THERMAL_FOUNDATION),
 		SIGNALUM("signalum", 4, ModChecker.SIGNALUM),
 		LUMIUM("lumium", 4, ModChecker.LUMIUM),
 		ENDERIUM("enderium", 5, ModChecker.ENDERIUM),
 		
-		ALUMINUM_BRASS("aluminum_brass", 2, ModChecker.TINKERS),
-		KNIGHTSLIME("knightslime", 3, ModChecker.TINKERS),
-		ARDITE("ardite", 3, ModChecker.TINKERS),
-		COBALT("cobalt", 4, ModChecker.TINKERS),
-		MANYULLYN("manyullyn", 5, ModChecker.TINKERS),
+		ALUMINUM_BRASS("aluminum_brass", 2, ModChecker.TINKERS_CONSTRUCT),
+		KNIGHTSLIME("knightslime", 3, ModChecker.TINKERS_CONSTRUCT),
+		ARDITE("ardite", 3, ModChecker.TINKERS_CONSTRUCT),
+		COBALT("cobalt", 4, ModChecker.TINKERS_CONSTRUCT),
+		MANYULLYN("manyullyn", 5, ModChecker.TINKERS_CONSTRUCT),
 		
 		ELECTRICAL_STEEL("electrical_steel", 3, ModChecker.ENDERIO),
 		REDSTONE_ALLOY("redstone_alloy", 3, ModChecker.ENDERIO),
@@ -119,10 +119,10 @@ public class CropType {
 		GLOWSTONE_INGOT("glowstone_ingot", 4, ModChecker.MEKANISM),
 		REFINED_OBSIDIAN("refined_obsidian", 5, ModChecker.MEKANISM),
 		
-		AQUARIUM("aquarium", 3, ModChecker.BASEMETALS),
-		COLD_IRON("cold_iron", 3, ModChecker.BASEMETALS),
-		STAR_STEEL("star_steel", 4, ModChecker.BASEMETALS),
-		ADAMANTINE("adamantine", 5, ModChecker.BASEMETALS),
+		AQUARIUM("aquarium", 3, ModChecker.BASE_METALS),
+		COLD_IRON("cold_iron", 3, ModChecker.BASE_METALS),
+		STAR_STEEL("star_steel", 4, ModChecker.BASE_METALS),
+		ADAMANTINE("adamantine", 5, ModChecker.BASE_METALS),
 		
 		MARBLE("marble", 2, ModChecker.CHISEL),
 		LIMESTONE("limestone", 2, ModChecker.CHISEL),
@@ -130,33 +130,33 @@ public class CropType {
 		
 		APATITE("apatite", 2, ModChecker.FORESTRY),
 		
-		METEORIC_IRON("meteoric_iron", 4,  ModChecker.GALACTICRAFT),
-		DESH("desh", 5, ModChecker.GALACTICRAFTPLANETS),
+		METEORIC_IRON("meteoric_iron", 4,  ModChecker.GALACTICRAFT_CORE),
+		DESH("desh", 5, ModChecker.GALACTICRAFT_PLANETS),
 		
-		BLACK_QUARTZ("black_quartz", 3, ModChecker.ACTUALLYADDITIONS),
+		BLACK_QUARTZ("black_quartz", 3, ModChecker.ACTUALLY_ADDITIONS),
 		
-		VINTEUM("vinteum", 3, ModChecker.AM2),
-		CHIMERITE("chimerite", 3, ModChecker.AM2),
-		BLUE_TOPAZ("blue_topaz", 3, ModChecker.AM2),
-		MOONSTONE("moonstone", 5, ModChecker.AM2),
-		SUNSTONE("sunstone", 5, ModChecker.AM2),
+		VINTEUM("vinteum", 3, ModChecker.ARS_MAGICA_2),
+		CHIMERITE("chimerite", 3, ModChecker.ARS_MAGICA_2),
+		BLUE_TOPAZ("blue_topaz", 3, ModChecker.ARS_MAGICA_2),
+		MOONSTONE("moonstone", 5, ModChecker.ARS_MAGICA_2),
+		SUNSTONE("sunstone", 5, ModChecker.ARS_MAGICA_2),
 		
-		AQUAMARINE("aquamarine", 3, ModChecker.ASTRAL),
-		STARMETAL("starmetal", 4, ModChecker.ASTRAL),
-		ROCK_CRYSTAL("rock_crystal", 5, ModChecker.ASTRAL),
+		AQUAMARINE("aquamarine", 3, ModChecker.ASTRAL_SORCERY),
+		STARMETAL("starmetal", 4, ModChecker.ASTRAL_SORCERY),
+		ROCK_CRYSTAL("rock_crystal", 5, ModChecker.ASTRAL_SORCERY),
 		
 		ENDER_BIOTITE("ender_biotite", 3, ModChecker.QUARK),
 		
-		ENDER_AMETHYST("ender_amethyst", 5, ModChecker.BOP),
+		ENDER_AMETHYST("ender_amethyst", 5, ModChecker.BIOMES_O_PLENTY),
 		
-		DRACONIUM("draconium", 5, ModChecker.DRACONIC),
+		DRACONIUM("draconium", 5, ModChecker.DRACONIC_EVOLUTION),
 		
-		YELLORIUM("yellorium", 5, ModChecker.BIGREACTORS),
+		YELLORIUM("yellorium", 5, ModChecker.BIG_REACTORS),
 		
-		CERTUS_QUARTZ("certus_quartz", 3, ModChecker.AE2),
-		FLUIX("fluix", 4, ModChecker.AE2),
+		CERTUS_QUARTZ("certus_quartz", 3, ModChecker.APPLIED_ENERGISTICS_2),
+		FLUIX("fluix", 4, ModChecker.APPLIED_ENERGISTICS_2),
 		
-		QUARTZ_ENRICHED_IRON("quartz_enriched_iron", 3, ModChecker.RS);
+		QUARTZ_ENRICHED_IRON("quartz_enriched_iron", 3, ModChecker.REFINED_STORAGE);
 				
 		private final String name;
 		private int tier;
@@ -228,7 +228,7 @@ public class CropType {
 		
 		public void declare(){
 			this.plant = new BlockMysticalCrop(getName() + "_crop");
-			this.crop = new ItemBase(getName() + "_essence");
+			this.crop = new ItemBase("ma." + getName() + "_essence");
 			crop.setCreativeTab(MysticalAgriculture.tabMysticalAgriculture);
 			this.seed = new ItemSeed(getName() + "_seeds", getPlant(), getTier());
 		}

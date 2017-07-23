@@ -93,31 +93,31 @@ public class ModBlocks {
 	public static void init(){
 							
 		blockStorage = register(new BlockStorage(), "storage", false);
-		MysticalAgriculture.REGISTRY.register(new ItemBlockStorage(blockStorage), "storage");
+		ModItems.register(new ItemBlockStorage(blockStorage), "storage");
 		blockIngotStorage = register(new BlockIngotStorage(), "ingot_storage", false);
-		MysticalAgriculture.REGISTRY.register(new ItemBlockIngotStorage(blockIngotStorage), "ingot_storage");
+		ModItems.register(new ItemBlockIngotStorage(blockIngotStorage), "ingot_storage");
 		if(ModConfig.confEssenceCoal){
 			blockEssenceCoal = register(new BlockEssenceCoal(), "coal_block", false);
-			MysticalAgriculture.REGISTRY.register(new ItemBlockEssenceCoal(blockEssenceCoal), "coal_block");
+			ModItems.register(new ItemBlockEssenceCoal(blockEssenceCoal), "coal_block");
 		}
 		
 		blockSoulstone = register(new BlockSoulstone(), "soulstone", false);
-		MysticalAgriculture.REGISTRY.register(new ItemBlockSoulstone(blockSoulstone), "soulstone");
+		ModItems.register(new ItemBlockSoulstone(blockSoulstone), "soulstone");
 		blockSoulstoneSlab = register(new BlockSoulstoneSlab("soulstone_slab", false), "soulstone_slab", false);
 		blockSoulstoneSlab.setDrop(blockSoulstoneSlab);
 		blockSoulstoneSlabFull = register(new BlockSoulstoneSlab("soulstone_slab_full", true), "soulstone_slab_full", false);
 		blockSoulstoneSlabFull.setDrop(blockSoulstoneSlab);
-		MysticalAgriculture.REGISTRY.register(new ItemSlab(blockSoulstoneSlab, blockSoulstoneSlab, blockSoulstoneSlabFull), "soulstone_slab");
+		ModItems.register(new ItemSlab(blockSoulstoneSlab, blockSoulstoneSlab, blockSoulstoneSlabFull), "soulstone_slab");
 		blockCobbledSoulstoneSlab = register(new BlockSoulstoneSlab("cobbled_soulstone_slab", false), "cobbled_soulstone_slab", false);
 		blockCobbledSoulstoneSlab.setDrop(blockCobbledSoulstoneSlab);
 		blockCobbledSoulstoneSlabFull = register(new BlockSoulstoneSlab("cobbled_soulstone_slab_full", true), "cobbled_soulstone_slab_full", false);
 		blockCobbledSoulstoneSlabFull.setDrop(blockCobbledSoulstoneSlab);
-		MysticalAgriculture.REGISTRY.register(new ItemSlab(blockCobbledSoulstoneSlab, blockCobbledSoulstoneSlab, blockCobbledSoulstoneSlabFull), "cobbled_soulstone_slab");
+		ModItems.register(new ItemSlab(blockCobbledSoulstoneSlab, blockCobbledSoulstoneSlab, blockCobbledSoulstoneSlabFull), "cobbled_soulstone_slab");
 		blockSoulstoneBrickSlab = register(new BlockSoulstoneSlab("soulstone_brick_slab", false), "soulstone_brick_slab", false);
 		blockSoulstoneBrickSlab.setDrop(blockSoulstoneBrickSlab);
 		blockSoulstoneBrickSlabFull = register(new BlockSoulstoneSlab("soulstone_brick_slab_full", true), "soulstone_brick_slab_full", false);
 		blockSoulstoneBrickSlabFull.setDrop(blockSoulstoneBrickSlab);
-		MysticalAgriculture.REGISTRY.register(new ItemSlab(blockSoulstoneBrickSlab, blockSoulstoneBrickSlab, blockSoulstoneBrickSlabFull), "soulstone_brick_slab");
+		ModItems.register(new ItemSlab(blockSoulstoneBrickSlab, blockSoulstoneBrickSlab, blockSoulstoneBrickSlabFull), "soulstone_brick_slab");
 		IBlockState cobbledSoulstone = blockSoulstone.getDefaultState().withProperty(BlockSoulstone.VARIANT, BlockSoulstone.Type.COBBLED);
 		blockCobbledSoulstoneStairs = register(new BlockSoulstoneStairs("cobbled_soulstone_stairs", cobbledSoulstone), "cobbled_soulstone_stairs");
 		IBlockState brickSoulstone = blockSoulstone.getDefaultState().withProperty(BlockSoulstone.VARIANT, BlockSoulstone.Type.BRICK);
@@ -167,7 +167,7 @@ public class ModBlocks {
 		}
 
 		blockTinkeringTable = register(new BlockTinkeringTable(), "tinkering_table", false);
-		MysticalAgriculture.REGISTRY.register(new ItemBlockTinkeringTable(blockTinkeringTable), "tinkering_table");
+		ModItems.register(new ItemBlockTinkeringTable(blockTinkeringTable), "tinkering_table");
 		
 		blockTier1InferiumCrop = register(new BlockInferiumCrop("tier1_inferium_crop", 1), "tier1_inferium_crop");
 		blockTier2InferiumCrop = register(new BlockInferiumCrop("tier2_inferium_crop", 2), "tier2_inferium_crop");
@@ -183,12 +183,13 @@ public class ModBlocks {
 		
 		if(ModConfig.confGearModuleOverride){
 			blockMinersTorch = register(new BlockMinersTorch(), "miners_torch", false);
-			MysticalAgriculture.REGISTRY.register(new ItemBlockMinersTorch(blockMinersTorch), "miners_torch");
+			ModItems.register(new ItemBlockMinersTorch(blockMinersTorch), "miners_torch");
 		}
 	}
 	
 	public static <T extends Block> T register(T block, String name){
-		return MysticalAgriculture.REGISTRY.register(block, name);
+		MysticalAgriculture.REGISTRY.register(block, name);
+		return block;
 	}
 	
 	public static <T extends Block> T register(T block, String name, boolean itemBlock){
