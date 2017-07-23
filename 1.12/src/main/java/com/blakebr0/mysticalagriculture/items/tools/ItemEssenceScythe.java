@@ -1,5 +1,6 @@
 package com.blakebr0.mysticalagriculture.items.tools;
 
+import java.lang.reflect.Method;
 import java.util.List;
 
 import javax.annotation.Nullable;
@@ -18,15 +19,18 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockCrops;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.util.ITooltipFlag;
+import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Enchantments;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.item.Item;
 import net.minecraft.item.Item.ToolMaterial;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumActionResult;
@@ -37,6 +41,7 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 import net.minecraftforge.common.IPlantable;
+import net.minecraftforge.fml.relauncher.ReflectionHelper;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraftforge.oredict.OreDictionary;
@@ -47,6 +52,12 @@ public class ItemEssenceScythe extends ItemBase implements IRepairMaterial {
 	public ToolMaterial toolMaterial;
 	public ItemStack repairMaterial;
 	public TextFormatting color;
+	
+	private static final Method GET_SEED;
+	
+	static {
+		GET_SEED = ReflectionHelper.findMethod(BlockCrops.class, "getSeed", "func_149866_i");
+	}
 	
 	public ItemEssenceScythe(String name, int range, ToolMaterial material, TextFormatting color){
 		super(name);
@@ -116,11 +127,12 @@ public class ItemEssenceScythe extends ItemBase implements IRepairMaterial {
 			Block block = state.getBlock();
 			if(block instanceof BlockCrops){
 				BlockCrops crop = (BlockCrops)block;
-				if(crop.isMaxAge(state)){
-					List<ItemStack> drops = crop.getDrops(world, aoePos, state, 0); //TODO: fortune from stack
+				if(crop.isMaxAge(state) && getSeed(crop) != null){
+					int fortune = EnchantmentHelper.getEnchantmentLevel(Enchantments.FORTUNE, stack);
+					List<ItemStack> drops = crop.getDrops(world, aoePos, state, fortune);
 					for(ItemStack drop : drops){
-						if(!drop.isEmpty() && drop.getItem() instanceof IPlantable){
-							drop.shrink(1);
+						if(drop != null && drop.getItem() == getSeed(crop)){
+							drop.shrink(1);;
 							if(drop.getCount() <= 0){
 								drops.remove(drop);
 							}
@@ -175,4 +187,12 @@ public class ItemEssenceScythe extends ItemBase implements IRepairMaterial {
         }
         return multimap;
     }
+    
+	public static Item getSeed(Block block){
+		try {
+			return (Item)GET_SEED.invoke(block);
+		} catch(Exception e){
+			return null;
+		}
+	}
 }
