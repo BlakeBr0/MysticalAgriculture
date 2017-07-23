@@ -18,8 +18,10 @@ public class ModChecker {
 	public static boolean RS = Loader.isModLoaded("refinedstorage");
 	public static boolean IE = Loader.isModLoaded("immersiveengineering");
 	public static boolean AM2 = Loader.isModLoaded("arsmagica2");
+	public static boolean ASTRAL = Loader.isModLoaded("astralsorcery");
 	public static boolean GALACTICRAFT = Loader.isModLoaded("galacticraftcore");
 	public static boolean GALACTICRAFTPLANETS = Loader.isModLoaded("galacticraftplanets");
+	public static boolean ACTUALLYADDITIONS = Loader.isModLoaded("actuallyadditions");
 	public static boolean IC2 = Loader.isModLoaded("IC2") || Loader.isModLoaded("ic2");
 	public static boolean BOP = Loader.isModLoaded("BiomesOPlenty") || Loader.isModLoaded("biomesoplenty");
 	public static boolean QUARK = Loader.isModLoaded("Quark") || Loader.isModLoaded("quark");

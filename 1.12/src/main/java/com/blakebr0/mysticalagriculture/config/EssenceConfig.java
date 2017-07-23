@@ -181,11 +181,17 @@ public class EssenceConfig {
 	public static int meteoricIron;
 	public static int desh;
 	
+	public static int blackQuartz;
+
 	public static int vinteum;
 	public static int chimerite;
 	public static int blueTopaz;
 	public static int moonstone;
 	public static int sunstone;
+	
+	public static int aquamarine;
+	public static int starmetal;
+	public static int rockCrystal;
 	
 	public static int enderBiotite;
 	
@@ -404,12 +410,20 @@ public class EssenceConfig {
 		meteoricIron = config.get(category, "meteoric_iron", 3).getInt();
 		desh = config.get(category, "desh", 2).getInt();
 		
+		category = "Actually Additions";
+		blackQuartz = config.get(category, "black_quartz", 6).getInt();
+		
 		category = "Ars Magica 2";
 		vinteum = config.get(category, "vinteum", 8).getInt();
 		chimerite = config.get(category, "chimerite", 8).getInt();
 		blueTopaz = config.get(category, "blue_topaz", 6).getInt();
 		moonstone = config.get(category, "moonstone", 3).getInt();
 		sunstone = config.get(category, "sunstone", 3).getInt();
+		
+		category = "Astral Sorcery";
+		aquamarine = config.get(category, "aquamarine", 8).getInt();
+		starmetal = config.get(category, "starmetal", 3).getInt();
+		rockCrystal = config.get(category, "rock_crystal", 1).getInt();
 		
 		category = "Qyark";
 		enderBiotite = config.get(category, "biotite", 8).getInt();

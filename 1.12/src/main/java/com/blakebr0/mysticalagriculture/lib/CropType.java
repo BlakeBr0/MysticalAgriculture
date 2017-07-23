@@ -133,11 +133,17 @@ public class CropType {
 		METEORIC_IRON("meteoric_iron", 4,  ModChecker.GALACTICRAFT),
 		DESH("desh", 5, ModChecker.GALACTICRAFTPLANETS),
 		
+		BLACK_QUARTZ("black_quartz", 3, ModChecker.ACTUALLYADDITIONS),
+		
 		VINTEUM("vinteum", 3, ModChecker.AM2),
 		CHIMERITE("chimerite", 3, ModChecker.AM2),
 		BLUE_TOPAZ("blue_topaz", 3, ModChecker.AM2),
 		MOONSTONE("moonstone", 5, ModChecker.AM2),
 		SUNSTONE("sunstone", 5, ModChecker.AM2),
+		
+		AQUAMARINE("aquamarine", 3, ModChecker.ASTRAL),
+		STARMETAL("starmetal", 4, ModChecker.ASTRAL),
+		ROCK_CRYSTAL("rock_crystal", 5, ModChecker.ASTRAL),
 		
 		ENDER_BIOTITE("ender_biotite", 3, ModChecker.QUARK),
 		
