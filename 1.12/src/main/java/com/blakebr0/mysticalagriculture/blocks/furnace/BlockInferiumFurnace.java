@@ -5,8 +5,10 @@ import java.util.Random;
 
 import javax.annotation.Nullable;
 
+import com.blakebr0.cucumber.iface.IEnableable;
 import com.blakebr0.mysticalagriculture.MysticalAgriculture;
 import com.blakebr0.mysticalagriculture.blocks.ModBlocks;
+import com.blakebr0.mysticalagriculture.config.ModConfig;
 import com.blakebr0.mysticalagriculture.lib.Colors;
 import com.blakebr0.mysticalagriculture.lib.Tooltips;
 import com.blakebr0.mysticalagriculture.tileentity.TileEntityInferiumFurnace;
@@ -43,7 +45,7 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 // TODO: cleanup
-public class BlockInferiumFurnace extends BlockContainer {
+public class BlockInferiumFurnace extends BlockContainer implements IEnableable {
 	
     public static final PropertyDirection FACING = BlockHorizontal.FACING;
     private final boolean isBurning;
@@ -54,7 +56,6 @@ public class BlockInferiumFurnace extends BlockContainer {
         this.setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH));
         this.isBurning = isBurning;
 		this.setUnlocalizedName("ma." + name);
- //       super.setRegistryName(name);
         this.setCreativeTab(MysticalAgriculture.tabMysticalAgriculture);
 		this.setHardness(hardness);
 		this.setResistance(resistance);
@@ -303,4 +304,9 @@ public class BlockInferiumFurnace extends BlockContainer {
     {
         return new BlockStateContainer(this, new IProperty[] {FACING});
     }
+
+	@Override
+	public boolean isEnabled(){
+		return ModConfig.confEssenceFurnaces;
+	}
 }

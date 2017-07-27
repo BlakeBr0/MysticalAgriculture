@@ -5,6 +5,7 @@ import java.util.Random;
 
 import javax.annotation.Nullable;
 
+import com.blakebr0.cucumber.iface.IEnableable;
 import com.blakebr0.mysticalagriculture.config.ModConfig;
 import com.blakebr0.mysticalagriculture.lib.Tooltips;
 
@@ -23,7 +24,7 @@ import net.minecraftforge.common.IPlantable;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class BlockAccelerator extends BlockBase {
+public class BlockAccelerator extends BlockBase implements IEnableable {
 	
 	public BlockAccelerator(){
 		super("growth_accelerator", Material.ROCK, SoundType.STONE, 5.0F, 8.0F);
@@ -61,5 +62,10 @@ public class BlockAccelerator extends BlockBase {
 			}
 		}
 		world.scheduleBlockUpdate(pos, state.getBlock(), ModConfig.confGrowthAcceleratorSpeed * 20, 1);
+	}
+
+	@Override
+	public boolean isEnabled(){
+		return ModConfig.confGrowthAccelerator;
 	}
 }

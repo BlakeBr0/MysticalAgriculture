@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.annotation.Nullable;
 
+import com.blakebr0.cucumber.iface.IEnableable;
 import com.blakebr0.cucumber.item.ItemMeta;
 import com.blakebr0.mysticalagriculture.MysticalAgriculture;
 import com.blakebr0.mysticalagriculture.config.ModConfig;
@@ -24,7 +25,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraftforge.fml.common.IFuelHandler;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
-public class ItemEssenceCoal extends ItemMeta {
+public class ItemEssenceCoal extends ItemMeta implements IEnableable {
 
 	public static ItemStack itemInferiumCoal;
 	public static ItemStack itemPrudentiumCoal;
@@ -93,4 +94,9 @@ public class ItemEssenceCoal extends ItemMeta {
 			return 0;
 		} 	
     }
+
+	@Override
+	public boolean isEnabled(){
+		return ModConfig.confEssenceCoal;
+	}
 }

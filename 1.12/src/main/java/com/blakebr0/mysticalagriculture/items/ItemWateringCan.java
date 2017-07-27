@@ -5,6 +5,7 @@ import java.util.Random;
 
 import javax.annotation.Nullable;
 
+import com.blakebr0.cucumber.iface.IEnableable;
 import com.blakebr0.cucumber.item.ItemMeta;
 import com.blakebr0.mysticalagriculture.MysticalAgriculture;
 import com.blakebr0.mysticalagriculture.config.ModConfig;
@@ -34,7 +35,7 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class ItemWateringCan extends ItemMeta {
+public class ItemWateringCan extends ItemMeta implements IEnableable {
 		
 	private boolean water = false;
 	private long ticks;
@@ -133,9 +134,14 @@ public class ItemWateringCan extends ItemMeta {
         
     @Override
     @SideOnly(Side.CLIENT)
-    public void addInformation(ItemStack stack, @Nullable World player, List<String> tooltip, ITooltipFlag advanced){
+    public void addInformation(ItemStack stack, @Nullable World world, List<String> tooltip, ITooltipFlag advanced){
     	int meta = stack.getMetadata();
     	int range = (meta * 2 + 1);
     	tooltip.add(Tooltips.RANGE + Utils.getColorFromMeta(meta) + range + "x" + range);
     }
+
+	@Override
+	public boolean isEnabled(){
+		return ModConfig.confWateringCans;
+	}
 }

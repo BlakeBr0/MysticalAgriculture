@@ -4,7 +4,9 @@ import java.util.List;
 
 import javax.annotation.Nullable;
 
+import com.blakebr0.cucumber.iface.IEnableable;
 import com.blakebr0.mysticalagriculture.MysticalAgriculture;
+import com.blakebr0.mysticalagriculture.config.ModConfig;
 import com.blakebr0.mysticalagriculture.lib.Tooltips;
 
 import net.minecraft.block.Block;
@@ -25,7 +27,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class BlockWitherproofBlock extends Block {
+public class BlockWitherproofBlock extends Block implements IEnableable {
 	
 	public BlockWitherproofBlock(){
 		super(Material.ROCK);
@@ -55,5 +57,10 @@ public class BlockWitherproofBlock extends Block {
 	@SideOnly(Side.CLIENT)
 	public void addInformation(ItemStack stack, @Nullable World player, List<String> tooltip, ITooltipFlag advanced){
 		tooltip.add(Tooltips.BLAST_RESISTANT);
+	}
+
+	@Override
+	public boolean isEnabled(){
+		return ModConfig.confWitherproofBlocks;
 	}
 }

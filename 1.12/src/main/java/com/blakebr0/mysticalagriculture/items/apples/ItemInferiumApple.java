@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.annotation.Nullable;
 
+import com.blakebr0.cucumber.iface.IEnableable;
 import com.blakebr0.mysticalagriculture.MysticalAgriculture;
 import com.blakebr0.mysticalagriculture.config.ModConfig;
 import com.blakebr0.mysticalagriculture.lib.Colors;
@@ -23,7 +24,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class ItemInferiumApple extends ItemFood {
+public class ItemInferiumApple extends ItemFood implements IEnableable {
 	
 	public ItemInferiumApple(){
         super(6, 0.3F, false);
@@ -62,5 +63,10 @@ public class ItemInferiumApple extends ItemFood {
 		} else {
 			tooltip.add(Tooltips.HOLD_SHIFT_FOR_INFO);
 		}
+	}
+
+	@Override
+	public boolean isEnabled(){
+		return ModConfig.confEssenceApples;
 	}
 }

@@ -4,8 +4,10 @@ import java.util.List;
 
 import javax.annotation.Nullable;
 
+import com.blakebr0.cucumber.iface.IEnableable;
 import com.blakebr0.cucumber.iface.IModelHelper;
 import com.blakebr0.mysticalagriculture.MysticalAgriculture;
+import com.blakebr0.mysticalagriculture.config.ModConfig;
 import com.blakebr0.mysticalagriculture.lib.Colors;
 import com.blakebr0.mysticalagriculture.lib.EssenceType;
 import com.blakebr0.mysticalagriculture.lib.Tooltips;
@@ -31,7 +33,7 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraftforge.oredict.OreDictionary;
 
-public class BlockEssenceCoal extends BlockBase implements IModelHelper {
+public class BlockEssenceCoal extends BlockBase implements IModelHelper, IEnableable {
 	
     public static final PropertyEnum<EssenceType.Type> VARIANT = PropertyEnum.<EssenceType.Type>create("variant", EssenceType.Type.class);
 
@@ -113,6 +115,11 @@ public class BlockEssenceCoal extends BlockBase implements IModelHelper {
     	}
     	tooltip.add(Tooltips.BURN_TIME + bt);
     }
+    
+	@Override
+	public boolean isEnabled(){
+		return ModConfig.confEssenceCoal;
+	}
     
     public class FuelHander implements IFuelHandler {
 

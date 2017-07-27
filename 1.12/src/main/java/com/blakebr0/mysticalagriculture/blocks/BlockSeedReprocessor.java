@@ -3,7 +3,9 @@ import java.util.Random;
 
 import javax.annotation.Nullable;
 
+import com.blakebr0.cucumber.iface.IEnableable;
 import com.blakebr0.mysticalagriculture.MysticalAgriculture;
+import com.blakebr0.mysticalagriculture.config.ModConfig;
 import com.blakebr0.mysticalagriculture.tileentity.TileEntityIntermediumFurnace;
 import com.blakebr0.mysticalagriculture.tileentity.TileEntitySeedReprocessor;
 
@@ -37,7 +39,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class BlockSeedReprocessor extends BlockContainer {
+public class BlockSeedReprocessor extends BlockContainer implements IEnableable {
 
     private Random rand = new Random();
     public static final PropertyDirection FACING = BlockHorizontal.FACING;
@@ -196,4 +198,9 @@ public class BlockSeedReprocessor extends BlockContainer {
     protected BlockStateContainer createBlockState(){
         return new BlockStateContainer(this, new IProperty[] {FACING});
     }
+
+	@Override
+	public boolean isEnabled(){
+		return ModConfig.confSeedReprocessor;
+	}
 }

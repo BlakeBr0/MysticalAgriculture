@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.annotation.Nullable;
 
+import com.blakebr0.cucumber.iface.IEnableable;
 import com.blakebr0.mysticalagriculture.MysticalAgriculture;
 import com.blakebr0.mysticalagriculture.blocks.crop.BlockInferiumCrop;
 import com.blakebr0.mysticalagriculture.blocks.crop.BlockMysticalCrop;
@@ -34,7 +35,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class ItemMysticalFertilizer extends Item {
+public class ItemMysticalFertilizer extends Item implements IEnableable {
 
 	public ItemMysticalFertilizer(){
 		super();
@@ -91,4 +92,9 @@ public class ItemMysticalFertilizer extends Item {
         }
         return EnumActionResult.PASS;
     }
+
+	@Override
+	public boolean isEnabled(){
+		return ModConfig.confMysticalFertilizer;
+	}
 }

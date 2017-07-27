@@ -2,6 +2,7 @@ package com.blakebr0.mysticalagriculture.blocks;
 
 import javax.annotation.Nonnull;
 
+import com.blakebr0.cucumber.block.BlockBase;
 import com.blakebr0.mysticalagriculture.MysticalAgriculture;
 
 import net.minecraft.block.Block;
@@ -22,16 +23,11 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class BlockMachineFrame extends Block {
+public class BlockMachineFrame extends BlockBase {
 	
-	public BlockMachineFrame(String name, Material material, SoundType sound, float hardness, float resistance) {
-		super(Material.IRON);
+	public BlockMachineFrame(String name){
+		super("ma." + name, Material.IRON, SoundType.STONE, 4.0F, 6.0F);
 		this.setCreativeTab(MysticalAgriculture.tabMysticalAgriculture);
-		this.setSoundType(sound);
-		this.setUnlocalizedName("ma." + name);
-//		super.setRegistryName(name);
-		this.setHardness(hardness);
-		this.setResistance(resistance);
 	}
 
 	@Override
@@ -44,7 +40,7 @@ public class BlockMachineFrame extends Block {
 			return true;
 		}
 		
-		if(player.getHeldItemMainhand() == null){
+		if(player.getHeldItemMainhand().isEmpty()){
 			return false;
 		}
 		if(player.getHeldItemMainhand().getItem() == Item.getItemFromBlock(Blocks.GLOWSTONE)){
