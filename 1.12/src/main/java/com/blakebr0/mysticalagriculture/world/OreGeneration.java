@@ -31,11 +31,11 @@ public class OreGeneration implements IWorldGenerator {
 			  }
 			  break;
 		  case -1:
-			  if(ModConfig.confGenerateNether){
-				  generateNether(world, random, chunkX * 16, chunkZ * 16);
-			  }
 			  if(ModConfig.confGenerateSoulstone){
 				  generateSoulstone(world, random, chunkX * 16, chunkZ * 16);  
+			  }
+			  if(ModConfig.confGenerateNether){
+				  generateNether(world, random, chunkX * 16, chunkZ * 16);
 			  }
 			  break;
 		  case 1:
