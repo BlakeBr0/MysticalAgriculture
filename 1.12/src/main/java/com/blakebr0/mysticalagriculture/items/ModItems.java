@@ -69,6 +69,8 @@ public class ModItems {
 	public static ItemWateringCan itemWateringCan = new ItemWateringCan();
 
 	public static ItemSouliumDagger itemSouliumDagger = new ItemSouliumDagger();
+	
+	public static ItemExperienceDroplet itemExperienceDroplet = new ItemExperienceDroplet();
 		
 	public static ItemChunk itemChunk = new ItemChunk();
 		
@@ -192,6 +194,8 @@ public class ModItems {
 		registry.register(itemWateringCan, "watering_can");
 
 		registry.register(itemSouliumDagger, "soulium_dagger");
+		
+		registry.register(itemExperienceDroplet, "xp_droplet");
 								
 		registry.register(itemChunk, "chunk");
 		

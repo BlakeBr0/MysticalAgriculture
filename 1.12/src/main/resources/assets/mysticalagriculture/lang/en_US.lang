@@ -332,6 +332,8 @@ item.ma.watering_can_supremium.name=§cSupremium Watering Can
 
 item.ma.soulium_dagger.name=§dSoulium Dagger
 
+item.ma.xp_droplet.name=Experience Droplet
+
 # CHUNKS
 item.ma.chunk_tier1_mob_chunk.name=Tier 1 Mob Chunk
 item.ma.chunk_tier2_mob_chunk.name=Tier 2 Mob Chunk
