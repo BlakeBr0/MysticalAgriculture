@@ -2,6 +2,7 @@ package com.blakebr0.mysticalagriculture.tileentity;
 
 import java.util.ArrayList;
 
+import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
 import com.blakebr0.mysticalagriculture.crafting.ReprocessorManager;
@@ -18,8 +19,10 @@ import net.minecraft.network.play.server.SPacketUpdateTileEntity;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.ITickable;
-
-public class TileEntitySeedReprocessor extends TileEntityUtil implements ISidedInventory, ITickable {
+import net.minecraftforge.common.capabilities.Capability;
+import net.minecraftforge.common.capabilities.ICapabilityProvider;
+// TODO: cleanup
+public class TileEntitySeedReprocessor extends TileEntityUtil implements ISidedInventory, ITickable, ICapabilityProvider {
 	
     private ItemStack input = ItemStack.EMPTY, processing = ItemStack.EMPTY, output = ItemStack.EMPTY;
     private int facing = 2;
@@ -348,4 +351,21 @@ public class TileEntitySeedReprocessor extends TileEntityUtil implements ISidedI
 	public boolean isEmpty() {
 		return false;
 	}
+	
+    net.minecraftforge.items.IItemHandler handlerTop = new net.minecraftforge.items.wrapper.SidedInvWrapper(this, net.minecraft.util.EnumFacing.UP);
+    net.minecraftforge.items.IItemHandler handlerBottom = new net.minecraftforge.items.wrapper.SidedInvWrapper(this, net.minecraft.util.EnumFacing.DOWN);
+    net.minecraftforge.items.IItemHandler handlerSide = new net.minecraftforge.items.wrapper.SidedInvWrapper(this, net.minecraft.util.EnumFacing.WEST);
+
+    @SuppressWarnings("unchecked")
+    @Override
+    public <T> T getCapability(net.minecraftforge.common.capabilities.Capability<T> capability, net.minecraft.util.EnumFacing facing){
+        if(facing != null && capability == net.minecraftforge.items.CapabilityItemHandler.ITEM_HANDLER_CAPABILITY)
+            if(facing == EnumFacing.DOWN)
+                return (T) handlerBottom;
+            else if (facing == EnumFacing.UP)
+                return (T) handlerTop;
+            else
+                return (T) handlerSide;
+        return super.getCapability(capability, facing);
+    }
 }
