@@ -202,7 +202,9 @@ public class ModItems {
 		for(CropType.Type type : CropType.Type.values()){
 			if(type.isEnabled()){
 				registry.register(type.getCrop(), type.getName() + "_essence");
-				registry.addOre(type.getCrop(), "essenceTier" + type.getTier());
+				if(ModConfig.confGenericOreDictEssence){
+					registry.addOre(type.getCrop(), "essenceTier" + type.getTier());
+				}
 			}
 		}
 
