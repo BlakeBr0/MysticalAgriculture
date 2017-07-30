@@ -7,10 +7,11 @@ import javax.annotation.Nullable;
 
 import com.blakebr0.cucumber.iface.IEnableable;
 import com.blakebr0.cucumber.item.ItemMeta;
+import com.blakebr0.cucumber.util.Utils;
 import com.blakebr0.mysticalagriculture.MysticalAgriculture;
 import com.blakebr0.mysticalagriculture.config.ModConfig;
 import com.blakebr0.mysticalagriculture.lib.Tooltips;
-import com.blakebr0.mysticalagriculture.util.Utils;
+import com.blakebr0.mysticalagriculture.util.MystUtils;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockFarmland;
@@ -137,7 +138,7 @@ public class ItemWateringCan extends ItemMeta implements IEnableable {
     public void addInformation(ItemStack stack, @Nullable World world, List<String> tooltip, ITooltipFlag advanced){
     	int meta = stack.getMetadata();
     	int range = (meta * 2 + 1);
-    	tooltip.add(Tooltips.RANGE + Utils.getColorFromMeta(meta) + range + "x" + range);
+    	tooltip.add(Tooltips.RANGE + MystUtils.getColorFromMeta(meta) + range + "x" + range);
     }
 
 	@Override

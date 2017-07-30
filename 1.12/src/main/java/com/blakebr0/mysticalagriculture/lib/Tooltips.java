@@ -1,6 +1,7 @@
 package com.blakebr0.mysticalagriculture.lib;
 
-import com.blakebr0.mysticalagriculture.util.Utils;
+import com.blakebr0.cucumber.lib.Colors;
+import com.blakebr0.cucumber.util.Utils;
 
 import net.minecraft.init.MobEffects;
 

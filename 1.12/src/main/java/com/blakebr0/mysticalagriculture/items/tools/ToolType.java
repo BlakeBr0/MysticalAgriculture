@@ -1,6 +1,6 @@
 package com.blakebr0.mysticalagriculture.items.tools;
 
-import com.blakebr0.mysticalagriculture.util.Utils;
+import com.blakebr0.cucumber.util.Utils;
 
 import net.minecraft.util.IStringSerializable;
 
