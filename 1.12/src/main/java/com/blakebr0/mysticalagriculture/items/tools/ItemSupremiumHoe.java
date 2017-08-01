@@ -5,8 +5,6 @@ import java.util.List;
 import javax.annotation.Nullable;
 
 import com.blakebr0.cucumber.lib.Colors;
-import com.blakebr0.mysticalagriculture.MysticalAgriculture;
-import com.blakebr0.mysticalagriculture.config.ModConfig;
 import com.blakebr0.mysticalagriculture.items.ModItems;
 import com.blakebr0.mysticalagriculture.lib.Tooltips;
 import com.blakebr0.mysticalagriculture.util.NBTHelper;

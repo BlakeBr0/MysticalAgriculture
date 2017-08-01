@@ -1,10 +1,6 @@
 package com.blakebr0.mysticalagriculture.jei;
 
-import java.util.Collections;
-import java.util.List;
-
 import mezz.jei.api.ingredients.IIngredients;
-import mezz.jei.api.recipe.BlankRecipeWrapper;
 import mezz.jei.api.recipe.IRecipeWrapper;
 import net.minecraft.item.ItemStack;
 

@@ -1,6 +1,5 @@
 package com.blakebr0.mysticalagriculture.jei;
 
-import java.util.Arrays;
 import java.util.List;
 
 import com.blakebr0.mysticalagriculture.crafting.UpgradeRecipe;

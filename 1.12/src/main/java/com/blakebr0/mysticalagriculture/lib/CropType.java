@@ -9,7 +9,6 @@ import com.blakebr0.mysticalagriculture.util.ModChecker;
 
 import net.minecraft.util.IStringSerializable;
 import net.minecraftforge.common.config.Configuration;
-import net.minecraftforge.oredict.OreDictionary;
 
 public class CropType {
 	

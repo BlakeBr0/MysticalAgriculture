@@ -1,10 +1,5 @@
 package com.blakebr0.mysticalagriculture.tileentity;
 
-import java.util.ArrayList;
-
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-
 import com.blakebr0.mysticalagriculture.crafting.ReprocessorManager;
 import com.blakebr0.mysticalagriculture.util.TileEntityUtil;
 import com.blakebr0.mysticalagriculture.util.VanillaPacketDispatcher;
@@ -13,13 +8,8 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.ISidedInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.network.NetworkManager;
-import net.minecraft.network.Packet;
-import net.minecraft.network.play.server.SPacketUpdateTileEntity;
-import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.ITickable;
-import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.capabilities.ICapabilityProvider;
 // TODO: cleanup
 public class TileEntitySeedReprocessor extends TileEntityUtil implements ISidedInventory, ITickable, ICapabilityProvider {

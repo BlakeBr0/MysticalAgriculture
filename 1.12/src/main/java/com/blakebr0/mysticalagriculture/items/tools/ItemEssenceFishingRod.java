@@ -11,7 +11,6 @@ import com.blakebr0.mysticalagriculture.lib.Tooltips;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.item.ItemFishingRod;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.Item.ToolMaterial;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;

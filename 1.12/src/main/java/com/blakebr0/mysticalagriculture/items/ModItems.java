@@ -1,13 +1,9 @@
 package com.blakebr0.mysticalagriculture.items;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import com.blakebr0.cucumber.registry.ModRegistry;
 import com.blakebr0.mysticalagriculture.MysticalAgriculture;
 import com.blakebr0.mysticalagriculture.blocks.ModBlocks;
 import com.blakebr0.mysticalagriculture.config.ModConfig;
-import com.blakebr0.mysticalagriculture.items.ItemCharm.Applicable;
 import com.blakebr0.mysticalagriculture.items.apples.ItemInferiumApple;
 import com.blakebr0.mysticalagriculture.items.apples.ItemIntermediumApple;
 import com.blakebr0.mysticalagriculture.items.apples.ItemPrudentiumApple;
@@ -36,13 +32,9 @@ import com.blakebr0.mysticalagriculture.items.tools.ItemEssenceSword;
 import com.blakebr0.mysticalagriculture.items.tools.ItemSupremiumHoe;
 import com.blakebr0.mysticalagriculture.lib.CropType;
 import com.blakebr0.mysticalagriculture.lib.ModToolMaterials;
-import com.blakebr0.mysticalagriculture.util.ModChecker;
 
 import net.minecraft.inventory.EntityEquipmentSlot;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
 import net.minecraft.util.text.TextFormatting;
-import net.minecraftforge.oredict.OreDictionary;
 
 public class ModItems {
 	

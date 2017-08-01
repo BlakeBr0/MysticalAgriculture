@@ -1,7 +1,7 @@
 package com.blakebr0.mysticalagriculture.blocks.crop;
 
-import java.util.List;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 import com.blakebr0.mysticalagriculture.config.ModConfig;

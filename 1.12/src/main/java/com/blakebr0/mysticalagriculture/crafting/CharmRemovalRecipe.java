@@ -1,7 +1,6 @@
 package com.blakebr0.mysticalagriculture.crafting;
 
 import com.blakebr0.mysticalagriculture.items.armor.ArmorType;
-import com.blakebr0.mysticalagriculture.items.armor.ItemSupremiumArmor;
 import com.blakebr0.mysticalagriculture.items.tools.ToolType;
 import com.blakebr0.mysticalagriculture.util.NBTHelper;
 
@@ -11,7 +10,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.MathHelper;
-import net.minecraftforge.oredict.ShapedOreRecipe;
 import net.minecraftforge.oredict.ShapelessOreRecipe;
 
 public class CharmRemovalRecipe extends ShapelessOreRecipe {

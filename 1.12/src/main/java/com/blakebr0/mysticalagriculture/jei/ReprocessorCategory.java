@@ -1,7 +1,5 @@
 package com.blakebr0.mysticalagriculture.jei;
 
-import javax.annotation.Nonnull;
-
 import com.blakebr0.mysticalagriculture.MysticalAgriculture;
 
 import mezz.jei.api.IGuiHelper;
@@ -16,7 +14,6 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.TextComponentTranslation;
-import net.minecraft.util.text.translation.I18n;
 
 public class ReprocessorCategory implements IRecipeCategory<ReprocessorWrapper> {
 	

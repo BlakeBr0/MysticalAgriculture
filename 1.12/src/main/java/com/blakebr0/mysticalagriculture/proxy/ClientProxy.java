@@ -1,10 +1,7 @@
 package com.blakebr0.mysticalagriculture.proxy;
 
-import com.blakebr0.mysticalagriculture.blocks.ModBlocks;
 import com.blakebr0.mysticalagriculture.entity.ModEntities;
-import com.blakebr0.mysticalagriculture.items.ModItems;
 
-import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;

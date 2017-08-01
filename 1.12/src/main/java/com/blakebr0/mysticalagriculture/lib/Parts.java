@@ -2,13 +2,7 @@ package com.blakebr0.mysticalagriculture.lib;
 
 import com.blakebr0.mysticalagriculture.util.ModChecker;
 
-import net.minecraft.block.Block;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraftforge.fml.common.Loader;
-import net.minecraftforge.fml.common.registry.GameRegistry;
-import net.minecraftforge.fml.common.registry.GameRegistry.ItemStackHolder;
-import net.minecraftforge.oredict.OreDictionary;
 
 public class Parts {
 		

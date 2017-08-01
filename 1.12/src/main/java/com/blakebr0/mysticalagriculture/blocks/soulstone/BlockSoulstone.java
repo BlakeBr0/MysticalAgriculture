@@ -3,7 +3,6 @@ package com.blakebr0.mysticalagriculture.blocks.soulstone;
 import com.blakebr0.cucumber.iface.IModelHelper;
 import com.blakebr0.mysticalagriculture.MysticalAgriculture;
 import com.blakebr0.mysticalagriculture.blocks.BlockBase;
-import com.blakebr0.mysticalagriculture.lib.EssenceType.Type;
 
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
@@ -22,9 +21,6 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
 import net.minecraftforge.client.model.ModelLoader;
-import net.minecraftforge.fml.common.registry.GameRegistry;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class BlockSoulstone extends BlockBase implements IModelHelper {
 	
