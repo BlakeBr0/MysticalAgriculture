@@ -23,6 +23,10 @@ repositories {
 	maven {
 		url = "http://dvs1.progwml6.com/files/maven"
 	}
+	
+	maven {
+		url = "http://tehnut.info/maven"
+	}
 }
 
 minecraft {
@@ -41,6 +45,8 @@ minecraft {
 dependencies {
 	deobfCompile "mezz.jei:jei_1.12:4.7.0.67:api"
 	runtime "mezz.jei:jei_1.12:4.7.0.67"
+	
+	deobfCompile "mcp.mobius.waila:Hwyla:1.8.19-B33_1.12"
 }
 
 processResources {
