@@ -1,9 +1,0 @@
-{
-    "variants": {
-        "variant=inferium": { "model": "mysticalagriculture:coal_block_inferium" },
-		"variant=prudentium": { "model": "mysticalagriculture:coal_block_prudentium" },
-		"variant=intermedium": { "model": "mysticalagriculture:coal_block_intermedium" },
-		"variant=superium": { "model": "mysticalagriculture:coal_block_superium" },
-		"variant=supremium": { "model": "mysticalagriculture:coal_block_supremium" }
-    }
-}
