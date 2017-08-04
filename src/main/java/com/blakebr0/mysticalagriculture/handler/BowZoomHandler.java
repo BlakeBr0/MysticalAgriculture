@@ -21,7 +21,7 @@ public class BowZoomHandler {
 			Item item = stack.getItem();
 			if(item instanceof ItemEssenceBow){
 				ItemEssenceBow bow = (ItemEssenceBow)item;
-				float f = MathHelper.clamp_float((stack.getMaxItemUseDuration() - entity.getItemInUseCount()) * bow.getDrawSpeed() / 20.0F, 0, 1.0F);
+				float f = MathHelper.clamp((stack.getMaxItemUseDuration() - entity.getItemInUseCount()) * bow.getDrawSpeed(stack) / 20.0F, 0, 1.0F);
 				event.setNewfov(event.getFov() - (f * f * 0.15F));
 			}
 		}

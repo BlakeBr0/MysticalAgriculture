@@ -2,6 +2,9 @@ package com.blakebr0.mysticalagriculture.blocks;
 
 import javax.annotation.Nonnull;
 
+import com.blakebr0.cucumber.block.BlockBase;
+import com.blakebr0.mysticalagriculture.MysticalAgriculture;
+
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -20,32 +23,33 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class BlockMachineFrame extends BlockBase {
 	
-	public BlockMachineFrame(String name, Material material, SoundType sound, float hardness, float resistance) {
-		super(name, material, sound, hardness, resistance);
+	public BlockMachineFrame(String name){
+		super("ma." + name, Material.IRON, SoundType.STONE, 4.0F, 6.0F);
+		this.setCreativeTab(MysticalAgriculture.tabMysticalAgriculture);
 	}
 
 	@Override
-	public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, ItemStack heldItem, EnumFacing side, float hitX, float hitY, float hitZ){
-		if(player.getHeldItemMainhand() == null && player.isSneaking() && world.getBlockState(pos).getBlock() == ModBlocks.blockGlowstoneLamp){
+    public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, EnumFacing heldItem, float side, float hitX, float hitY){
+		if(player.getHeldItemMainhand().isEmpty() && player.isSneaking() && world.getBlockState(pos).getBlock() == ModBlocks.blockGlowstoneLamp){
 			world.setBlockState(pos, ModBlocks.blockMysticalMachineFrame.getDefaultState());
 			if(!world.isRemote){
-				world.spawnEntityInWorld(new EntityItem(world, player.posX, player.posY, player.posZ, new ItemStack(Blocks.GLOWSTONE)));
+				world.spawnEntity(new EntityItem(world, player.posX, player.posY, player.posZ, new ItemStack(Blocks.GLOWSTONE)));
 			}
 			return true;
 		}
 		
-		if(player.getHeldItemMainhand() == null){
+		if(player.getHeldItemMainhand().isEmpty()){
 			return false;
 		}
-		
 		if(player.getHeldItemMainhand().getItem() == Item.getItemFromBlock(Blocks.GLOWSTONE)){
 			if(world.getBlockState(pos).getBlock() != ModBlocks.blockGlowstoneLamp){
 				world.setBlockState(pos, ModBlocks.blockGlowstoneLamp.getDefaultState());
-				heldItem.stackSize--;
+				player.getHeldItemMainhand().shrink(1);
 			}
 			return true;
 		}
-		return super.onBlockActivated(world, pos, state, player, hand, heldItem, side, hitX, hitY, hitZ);
+		return super.onBlockActivated(world, pos, state, player, hand, heldItem, side, hitX, hitY)
+;
 	}
 	
 	@Nonnull

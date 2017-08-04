@@ -1,13 +1,10 @@
 package com.blakebr0.mysticalagriculture.jei;
 
-import java.util.Collections;
-import java.util.List;
-
 import mezz.jei.api.ingredients.IIngredients;
-import mezz.jei.api.recipe.BlankRecipeWrapper;
+import mezz.jei.api.recipe.IRecipeWrapper;
 import net.minecraft.item.ItemStack;
 
-public class ReprocessorWrapper extends BlankRecipeWrapper {
+public class ReprocessorWrapper implements IRecipeWrapper {
     private ItemStack input;
     private ItemStack output;
 
@@ -20,18 +17,6 @@ public class ReprocessorWrapper extends BlankRecipeWrapper {
     public void getIngredients(IIngredients ingredients) {
         ingredients.setInput(ItemStack.class, input);
         ingredients.setOutput(ItemStack.class, output);
-    }
-
-    @Override
-    @SuppressWarnings("deprecation")
-    public List<ItemStack> getInputs() {
-        return Collections.singletonList(input);
-    }
-
-    @Override
-    @SuppressWarnings("deprecation")
-    public List<ItemStack> getOutputs() {
-        return Collections.singletonList(output);
     }
 
     @Override

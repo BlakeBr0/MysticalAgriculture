@@ -1,10 +1,9 @@
 package com.blakebr0.mysticalagriculture.blocks;
-
 import java.util.Random;
 
-import javax.annotation.Nullable;
-
+import com.blakebr0.cucumber.iface.IEnableable;
 import com.blakebr0.mysticalagriculture.MysticalAgriculture;
+import com.blakebr0.mysticalagriculture.config.ModConfig;
 import com.blakebr0.mysticalagriculture.tileentity.TileEntitySeedReprocessor;
 
 import net.minecraft.block.BlockContainer;
@@ -34,7 +33,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class BlockSeedReprocessor extends BlockContainer {
+public class BlockSeedReprocessor extends BlockContainer implements IEnableable {
 
     private Random rand = new Random();
     public static final PropertyDirection FACING = BlockHorizontal.FACING;
@@ -44,20 +43,20 @@ public class BlockSeedReprocessor extends BlockContainer {
         this.setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH));
         this.setSoundType(SoundType.METAL);
         setHardness(8.0F);
-        this.setResistance(12.0F);
         this.setUnlocalizedName("ma.seed_reprocessor");
         setRegistryName("seed_reprocessor");
         setHarvestLevel("pickaxe", 1);
+        this.setResistance(12.0F);
         setCreativeTab(MysticalAgriculture.tabMysticalAgriculture);
     }
 
     @Override
-    public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, @Nullable ItemStack heldItem, EnumFacing side, float hitX, float hitY, float hitZ){
+    public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, EnumFacing heldItem, float side, float hitX, float hitY){
         if(world.isRemote){
             return true;
         } else {
-        	TileEntity tileentity = world.getTileEntity(pos);
-        	
+            TileEntity tileentity = world.getTileEntity(pos);
+
             if(tileentity instanceof TileEntitySeedReprocessor){
                 player.openGui(MysticalAgriculture.INSTANCE, 0, world, pos.getX(), pos.getY(), pos.getZ());
             }
@@ -70,29 +69,25 @@ public class BlockSeedReprocessor extends BlockContainer {
         return new TileEntitySeedReprocessor();
     }
 
-    @Override
     public void onBlockAdded(World world, BlockPos pos, IBlockState state){
-    	this.setDefaultFacing(world, pos, state);
+        this.setDefaultFacing(world, pos, state);
     }
-    
+
     private void setDefaultFacing(World world, BlockPos pos, IBlockState state){
-        if (!world.isRemote){
+        if(!world.isRemote){
             IBlockState iblockstate = world.getBlockState(pos.north());
             IBlockState iblockstate1 = world.getBlockState(pos.south());
             IBlockState iblockstate2 = world.getBlockState(pos.west());
             IBlockState iblockstate3 = world.getBlockState(pos.east());
             EnumFacing enumfacing = (EnumFacing)state.getValue(FACING);
 
-            if (enumfacing == EnumFacing.NORTH && iblockstate.isFullBlock() && !iblockstate1.isFullBlock()){
+            if(enumfacing == EnumFacing.NORTH && iblockstate.isFullBlock() && !iblockstate1.isFullBlock()){
                 enumfacing = EnumFacing.SOUTH;
-            }
-            else if (enumfacing == EnumFacing.SOUTH && iblockstate1.isFullBlock() && !iblockstate.isFullBlock()){
+            } else if(enumfacing == EnumFacing.SOUTH && iblockstate1.isFullBlock() && !iblockstate.isFullBlock()){
                 enumfacing = EnumFacing.NORTH;
-            }
-            else if (enumfacing == EnumFacing.WEST && iblockstate2.isFullBlock() && !iblockstate3.isFullBlock()){
+            } else if(enumfacing == EnumFacing.WEST && iblockstate2.isFullBlock() && !iblockstate3.isFullBlock()){
                 enumfacing = EnumFacing.EAST;
-            }
-            else if (enumfacing == EnumFacing.EAST && iblockstate3.isFullBlock() && !iblockstate2.isFullBlock()){
+            } else if(enumfacing == EnumFacing.EAST && iblockstate3.isFullBlock() && !iblockstate2.isFullBlock()){
                 enumfacing = EnumFacing.WEST;
             }
 
@@ -100,9 +95,9 @@ public class BlockSeedReprocessor extends BlockContainer {
         }
     }
 
-    public IBlockState onBlockPlaced(World worldIn, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer){
+    public IBlockState getStateForPlacement(World world, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer){
         return this.getDefaultState().withProperty(FACING, placer.getHorizontalFacing().getOpposite());
-    }    
+    } 
     
     @SideOnly(Side.CLIENT)
     @SuppressWarnings("incomplete-switch")
@@ -141,28 +136,28 @@ public class BlockSeedReprocessor extends BlockContainer {
     @Override
     public void breakBlock(World world, BlockPos pos, IBlockState state){
    
-    	TileEntitySeedReprocessor reprocessor = (TileEntitySeedReprocessor)world.getTileEntity(pos);
+    	TileEntitySeedReprocessor compressor = (TileEntitySeedReprocessor)world.getTileEntity(pos);
 
-        if(reprocessor != null){
+        if(compressor != null){
             for(int i = 0; i < 2;i++) {
-                ItemStack itemstack = reprocessor.getStackInSlot(i);
+                ItemStack itemstack = compressor.getStackInSlot(i);
 
-                if(itemstack != null){
+                if(!itemstack.isEmpty()){
                     float f = this.rand.nextFloat() * 0.8F + 0.1F;
                     float f1 = this.rand.nextFloat() * 0.8F + 0.1F;
                     float f2 = this.rand.nextFloat() * 0.8F + 0.1F;
 
-                    EntityItem entityitem = new EntityItem(world, (double) ((float) pos.getX() + f), (double) ((float) pos.getY() + f1), (double) ((float) pos.getZ() + f2), new ItemStack(itemstack.getItem(), itemstack.stackSize, itemstack.getItemDamage()));
+                    EntityItem entityitem = new EntityItem(world, (double) ((float) pos.getX() + f), (double) ((float) pos.getY() + f1), (double) ((float) pos.getZ() + f2), new ItemStack(itemstack.getItem(), itemstack.getCount(), itemstack.getItemDamage()));
                     
                     if(itemstack.hasTagCompound()) {
-                    	entityitem.getEntityItem().setTagCompound((NBTTagCompound)itemstack.getTagCompound().copy());
+                    	entityitem.getItem().setTagCompound((NBTTagCompound)itemstack.getTagCompound().copy());
                     }
 
                     float f3 = 0.05F;
                     entityitem.motionX = (double) ((float) this.rand.nextGaussian() * f3);
                     entityitem.motionY = (double) ((float) this.rand.nextGaussian() * f3 + 0.2F);
                     entityitem.motionZ = (double) ((float) this.rand.nextGaussian() * f3);
-                    world.spawnEntityInWorld(entityitem);
+                    world.spawnEntity(entityitem);
                 }
             }
         }
@@ -197,4 +192,9 @@ public class BlockSeedReprocessor extends BlockContainer {
     protected BlockStateContainer createBlockState(){
         return new BlockStateContainer(this, new IProperty[] {FACING});
     }
+
+	@Override
+	public boolean isEnabled(){
+		return ModConfig.confSeedReprocessor;
+	}
 }

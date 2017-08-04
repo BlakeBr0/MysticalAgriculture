@@ -15,7 +15,6 @@ import net.minecraft.inventory.Container;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.InventoryCrafting;
 import net.minecraft.inventory.Slot;
-import net.minecraft.inventory.SlotCrafting;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import net.minecraftforge.items.IItemHandler;
@@ -81,44 +80,42 @@ public class ContainerTinkeringTable extends Container {
     @Nullable
     @Override
     public ItemStack transferStackInSlot(EntityPlayer player, int slotNumber) {
-        ItemStack itemstack = null;
+        ItemStack itemstack = ItemStack.EMPTY;
         Slot slot = this.inventorySlots.get(slotNumber);
 
         if(slot != null && slot.getHasStack()) {
             ItemStack itemstack1 = slot.getStack();
             itemstack = itemstack1.copy();
 
-            if(slotNumber == 0){
+            if (slotNumber == 0) {
                 if(!this.mergeItemStack(itemstack1, 10, 46, true)){
-                    return null;
+                    return ItemStack.EMPTY;
                 }
 
                 slot.onSlotChange(itemstack1, itemstack);
             } else if(slotNumber >= 10 && slotNumber < 37){
                 if (!this.mergeItemStack(itemstack1, 37, 46, false)) {
-                    return null;
+                    return ItemStack.EMPTY;
                 }
-            } else if(slotNumber >= 37 && slotNumber < 62) {
+            } else if (slotNumber >= 37 && slotNumber < 62) {
                 if (!this.mergeItemStack(itemstack1, 10, 37, false)) {
-                    return null;
+                    return ItemStack.EMPTY;
                 }
             } else if(!this.mergeItemStack(itemstack1, 10, 46, false)) {
-                return null;
+                return ItemStack.EMPTY;
             }
 
-            if (itemstack1.stackSize == 0) {
-                slot.putStack(null);
+            if (itemstack1.getCount() == 0) {
+                slot.putStack(ItemStack.EMPTY);
             } else {
                 slot.onSlotChanged();
             }
 
-            if (itemstack1.stackSize == itemstack.stackSize) {
-                return null;
+            if (itemstack1.getCount() == itemstack.getCount()) {
+                return ItemStack.EMPTY;
             }
-
-            slot.onPickupFromSlot(player, itemstack1);
+            slot.onTake(player, itemstack1);
         }
-
         return itemstack;
     }
 }

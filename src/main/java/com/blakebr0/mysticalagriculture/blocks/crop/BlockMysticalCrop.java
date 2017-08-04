@@ -1,7 +1,7 @@
 package com.blakebr0.mysticalagriculture.blocks.crop;
 
-import java.util.List;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 import com.blakebr0.mysticalagriculture.config.ModConfig;
@@ -19,14 +19,8 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.common.EnumPlantType;
-import net.minecraftforge.fml.common.Optional;
 
-import vazkii.botania.api.item.IHornHarvestable;
-
-@Optional.InterfaceList(value = {
-        @Optional.Interface(modid = "Botania", iface = "vazkii.botania.api.item.IHornHarvestable")
-})
-public class BlockMysticalCrop extends BlockCrops implements IHornHarvestable {
+public class BlockMysticalCrop extends BlockCrops {
 	
     private static final AxisAlignedBB CROPS_AABB = new AxisAlignedBB(0.0D, 0.0D, 0.0D, 1.0D, 0.25D, 1.0D);
     private Item seed;
@@ -35,7 +29,6 @@ public class BlockMysticalCrop extends BlockCrops implements IHornHarvestable {
     public BlockMysticalCrop(String name){
     	super();
 		this.setUnlocalizedName("ma." + name);
-    	this.setRegistryName(name);
         this.setCreativeTab((CreativeTabs)null);
         this.setHardness(0.0F);
         this.setSoundType(SoundType.PLANT);
@@ -143,38 +136,5 @@ public class BlockMysticalCrop extends BlockCrops implements IHornHarvestable {
         if(essence > 0){ drops.add(new ItemStack(this.getCrop(), essence, 0)); }
         if(fertilizer > 0 && ModConfig.confFertilizedEssence){ drops.add(new ItemStack(ModItems.itemFertilizedEssence, fertilizer, 0)); }
         return drops;
-    }
-    
-    @Override
-    public boolean canHornHarvest(World world, BlockPos blockPos, ItemStack stack, EnumHornType hornType){
-        return hornType.ordinal() == 0 && isMaxAge(world.getBlockState(blockPos));
-    }
-
-    @Override
-    public boolean hasSpecialHornHarvest(World world, BlockPos blockPos, ItemStack stack, EnumHornType hornType){
-        return hornType.ordinal() == 0 && ModConfig.confBotaniaHornHarvesting;
-    }
-
-    @Override
-    public void harvestByHorn(World world, BlockPos pos, ItemStack stack, EnumHornType hornType){
-        if(hornType.ordinal() != 0){
-            return;
-        }
-
-        IBlockState state = world.getBlockState(pos);
-        if(state.getValue(AGE) == 7){
-            List<ItemStack> drops = getDrops(world, pos, state, 0);
-            for(ItemStack drop : drops){
-                if(drop != null && drop.getItem() != null){
-                    if(drop.getItem() == this.getSeed()){
-                        drop.stackSize -= 1;
-                    }
-                    if(drop.stackSize > 0){
-                        this.spawnAsEntity(world, pos, drop);
-                    }
-                }
-            }
-            world.setBlockState(pos, state.withProperty(AGE, 0), 2);
-        }
     }
 }

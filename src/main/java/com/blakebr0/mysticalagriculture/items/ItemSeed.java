@@ -2,42 +2,37 @@ package com.blakebr0.mysticalagriculture.items;
 
 import java.util.List;
 
+import javax.annotation.Nullable;
+
+import com.blakebr0.cucumber.lib.Colors;
 import com.blakebr0.mysticalagriculture.MysticalAgriculture;
-import com.blakebr0.mysticalagriculture.blocks.ModBlocks;
-import com.blakebr0.mysticalagriculture.blocks.crop.BlockMysticalCrop;
-import com.blakebr0.mysticalagriculture.lib.Colors;
 import com.blakebr0.mysticalagriculture.lib.Tooltips;
 
 import net.minecraft.block.Block;
-import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemSeeds;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.EnumActionResult;
-import net.minecraft.util.EnumFacing;
-import net.minecraft.util.EnumHand;
-import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class ItemSeed extends ItemSeeds {
 	
-	private final Block crops;
+	private Block crops;
 	public int tier;
 	
 	public ItemSeed(String name, Block crops, int tier){
 		super(crops, Blocks.FARMLAND);
 		this.setUnlocalizedName("ma." + name);
-		this.setRegistryName(name);
 		this.setCreativeTab(MysticalAgriculture.tabMysticalAgriculture);
         this.crops = crops;
         this.tier = tier;
 	}
-
+		
 	@Override
     @SideOnly(Side.CLIENT)
-    public void addInformation(ItemStack stack, EntityPlayer player, List tooltip, boolean advanced){
+    public void addInformation(ItemStack stack, @Nullable World player, List<String> tooltip, ITooltipFlag advanced){
         switch(this.tier - 1){
         case 0:
         	tooltip.add(Tooltips.TIER + Colors.YELLOW + "1");

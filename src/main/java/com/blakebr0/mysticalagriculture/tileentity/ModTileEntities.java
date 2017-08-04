@@ -7,6 +7,7 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 public class ModTileEntities {
 	
 	public static void initTileEntities(){
+		
 		if(ModConfig.confSeedReprocessor){
 			GameRegistry.registerTileEntity(TileEntitySeedReprocessor.class, "MA_Seed_Reprocessor");
 		}

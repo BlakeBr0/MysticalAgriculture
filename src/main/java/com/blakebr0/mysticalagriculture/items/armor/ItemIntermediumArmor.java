@@ -3,29 +3,32 @@ package com.blakebr0.mysticalagriculture.items.armor;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.annotation.Nullable;
+
+import com.blakebr0.cucumber.iface.IRepairMaterial;
+import com.blakebr0.cucumber.lib.Colors;
 import com.blakebr0.mysticalagriculture.MysticalAgriculture;
 import com.blakebr0.mysticalagriculture.config.ModConfig;
-import com.blakebr0.mysticalagriculture.items.ModItems;
-import com.blakebr0.mysticalagriculture.lib.Colors;
 import com.blakebr0.mysticalagriculture.lib.Tooltips;
-import com.blakebr0.mysticalagriculture.util.Utils;
 
+import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.MobEffects;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionEffect;
-import net.minecraft.item.ItemArmor.ArmorMaterial;
 import net.minecraft.world.World;
 import net.minecraftforge.event.entity.living.LivingEvent.LivingUpdateEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-import net.minecraftforge.fml.common.gameevent.TickEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import net.minecraftforge.oredict.OreDictionary;
 
-public class ItemIntermediumArmor extends ItemArmor {
+public class ItemIntermediumArmor extends ItemArmor implements IRepairMaterial {
 
+	private ItemStack repairMaterial;
+	
 	public ItemIntermediumArmor(String name, ArmorMaterial material, int index, EntityEquipmentSlot slot){
 		super(material, index, slot);
 		this.setUnlocalizedName("ma." + name);
@@ -36,7 +39,7 @@ public class ItemIntermediumArmor extends ItemArmor {
 		
 	@Override
 	@SideOnly(Side.CLIENT)
-	public void addInformation(ItemStack stack, EntityPlayer player, List tooltip, boolean advanced){
+	public void addInformation(ItemStack stack, @Nullable World world, List<String> tooltip, ITooltipFlag advanced){
 		int damage = stack.getMaxDamage() - stack.getItemDamage();
 		tooltip.add(Tooltips.DURABILITY + Colors.GOLD + damage);
 		if(ModConfig.confSetBonuses){ tooltip.add(Tooltips.SET_BONUS + Colors.GOLD + Tooltips.STEP_ASSIST); }
@@ -53,8 +56,18 @@ public class ItemIntermediumArmor extends ItemArmor {
 	
 	@Override
     public boolean getIsRepairable(ItemStack toRepair, ItemStack repair){
-        return repair.getItem() == ModItems.itemIntermediumIngot;
+        return OreDictionary.itemMatches(getRepairMaterial(), repair, false);
     }
+
+	@Override
+	public void setRepairMaterial(ItemStack stack){
+		repairMaterial = stack;
+	}
+
+	@Override
+	public ItemStack getRepairMaterial(){
+		return repairMaterial;
+	}
 	
 	public static boolean isFullSet(EntityPlayer player){		
 		ItemStack head = player.getItemStackFromSlot(EntityEquipmentSlot.HEAD);
@@ -62,7 +75,7 @@ public class ItemIntermediumArmor extends ItemArmor {
 		ItemStack legs = player.getItemStackFromSlot(EntityEquipmentSlot.LEGS);
 		ItemStack feet = player.getItemStackFromSlot(EntityEquipmentSlot.FEET);
 		
-		return head != null && head.getItem() instanceof ItemIntermediumArmor && chest != null && chest.getItem() instanceof ItemIntermediumArmor && legs != null && legs.getItem() instanceof ItemIntermediumArmor && feet != null && feet.getItem() instanceof ItemIntermediumArmor;
+		return !head.isEmpty() && head.getItem() instanceof ItemIntermediumArmor && !chest.isEmpty() && chest.getItem() instanceof ItemIntermediumArmor && !legs.isEmpty() && legs.getItem() instanceof ItemIntermediumArmor && !feet.isEmpty() && feet.getItem() instanceof ItemIntermediumArmor;
 	}
     
     public static class AbilityHandler {
@@ -70,7 +83,7 @@ public class ItemIntermediumArmor extends ItemArmor {
     	public static List<String> playersWithSet = new ArrayList<String>();
     	
     	public static String playerKey(EntityPlayer player) {
-    		return player.getGameProfile().getName() + ":" + player.worldObj.isRemote;
+    		return player.getGameProfile().getName() + ":" + player.getEntityWorld().isRemote;
     	}
     	
     	@SubscribeEvent

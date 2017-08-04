@@ -2,51 +2,50 @@ package com.blakebr0.mysticalagriculture.items;
 
 import java.util.List;
 
+import javax.annotation.Nullable;
+
+import com.blakebr0.cucumber.iface.IEnableable;
+import com.blakebr0.cucumber.item.ItemMeta;
+import com.blakebr0.cucumber.lib.Colors;
 import com.blakebr0.mysticalagriculture.MysticalAgriculture;
 import com.blakebr0.mysticalagriculture.config.ModConfig;
-import com.blakebr0.mysticalagriculture.lib.Colors;
-import com.blakebr0.mysticalagriculture.lib.EssenceType;
 import com.blakebr0.mysticalagriculture.lib.Tooltips;
 
-import net.minecraft.client.renderer.block.model.ModelResourceLocation;
-import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.Item;
+import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.item.ItemStack;
-import net.minecraftforge.client.model.ModelLoader;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
+import net.minecraft.world.World;
 import net.minecraftforge.fml.common.IFuelHandler;
 import net.minecraftforge.fml.common.registry.GameRegistry;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class ItemEssenceCoal extends ItemMeta {
+public class ItemEssenceCoal extends ItemMeta implements IEnableable {
 
-	public static ItemStack inferium;
-	public static ItemStack prudentium;
-	public static ItemStack intermedium;
-	public static ItemStack superium;
-	public static ItemStack supremium;
+	public static ItemStack itemInferiumCoal;
+	public static ItemStack itemPrudentiumCoal;
+	public static ItemStack itemIntermediumCoal;
+	public static ItemStack itemSuperiumCoal;
+	public static ItemStack itemSupremiumCoal;
 	
 	public ItemEssenceCoal(){
-		super("coal");
+		super("ma.coal", MysticalAgriculture.REGISTRY);
+		this.setCreativeTab(MysticalAgriculture.tabMysticalAgriculture);
 	}
 	
 	@Override
-	public void init() {
-		GameRegistry.register(this);
-				
-		inferium = addItem(0, "inferium", "coalInferium");
-		prudentium = addItem(1, "prudentium", "coalPrudentium");
-		intermedium = addItem(2, "intermedium", "coalIntermedium");
-		superium = addItem(3, "superium", "coalSuperium");
-		supremium = addItem(4, "supremium", "coalSupremium");
+	public void init(){
+		itemInferiumCoal = addItem(0, "inferium", "coalInferium");
+		itemPrudentiumCoal = addItem(1, "prudentium", "coalPrudentium");
+		itemIntermediumCoal = addItem(2, "intermedium", "coalIntermedium");
+		itemSuperiumCoal = addItem(3, "superium", "coalSuperium");
+		itemSupremiumCoal = addItem(4, "supremium", "coalSupremium");
 		
-		GameRegistry.registerFuelHandler(new FuelHander());
+		GameRegistry.registerFuelHandler(new FuelHandler());
 	}
     
     @Override
     @SideOnly(Side.CLIENT)
-    public void addInformation(ItemStack stack, EntityPlayer player, List<String> tooltip, boolean advanced){
+    public void addInformation(ItemStack stack, @Nullable World world, List<String> tooltip, ITooltipFlag advanced){
     	String bt = null;
     	switch(stack.getMetadata()){
 		case 0:
@@ -68,7 +67,7 @@ public class ItemEssenceCoal extends ItemMeta {
     	tooltip.add(Tooltips.BURN_TIME + bt);
     }
     
-    public class FuelHander implements IFuelHandler {
+    public class FuelHandler implements IFuelHandler {
 
 		@Override
 		public int getBurnTime(ItemStack stack){
@@ -89,4 +88,9 @@ public class ItemEssenceCoal extends ItemMeta {
 			return 0;
 		} 	
     }
+
+	@Override
+	public boolean isEnabled(){
+		return ModConfig.confEssenceCoal;
+	}
 }

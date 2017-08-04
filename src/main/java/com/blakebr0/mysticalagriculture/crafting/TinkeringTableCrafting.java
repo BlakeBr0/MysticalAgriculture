@@ -33,7 +33,7 @@ public class TinkeringTableCrafting extends InventoryCrafting implements ISidedI
             int x = row + column * 3;
             return this.getStackInSlot(x);
         } else {
-            return null;
+            return ItemStack.EMPTY;
         }
     }
 
@@ -41,31 +41,31 @@ public class TinkeringTableCrafting extends InventoryCrafting implements ISidedI
     public ItemStack decrStackSize(int slot, int decrement){
         ItemStack slotStack = this.handler.getStackInSlot(slot);
         this.container.onCraftMatrixChanged(this);
-        if(slotStack != null) {
+        if(!slotStack.isEmpty()) {
             ItemStack stack;
-            if(slotStack.stackSize <= decrement) {
+            if(slotStack.getCount() <= decrement) {
                 stack = slotStack.copy();
-                slotStack = null;
-                this.tile.setInventorySlotContents(slot, null);
+                slotStack = ItemStack.EMPTY;
+                this.tile.setInventorySlotContents(slot, ItemStack.EMPTY);
                 this.container.onCraftMatrixChanged(this);
                 return stack;
             } else {
                 stack = slotStack.splitStack(decrement);
-                if(slotStack.stackSize == 0) {
-                    slotStack = null;
-                    this.tile.setInventorySlotContents(slot, null);
+                if(slotStack.getCount() == 0) {
+                    slotStack = ItemStack.EMPTY;
+                    this.tile.setInventorySlotContents(slot, ItemStack.EMPTY);
                 }
                 this.container.onCraftMatrixChanged(this);
                 return stack;
             }
         } else {
-            return null;
+            return ItemStack.EMPTY;
         }
     }
 
     public void craft(){
         for(int i = 0; i < this.handler.getSlots(); i++){
-            if(handler.getStackInSlot(i) != null){
+            if(!handler.getStackInSlot(i).isEmpty()){
             	ItemStack stack = this.handler.getStackInSlot(i);
                 this.handler.extractItem(i, 1, false);
             }

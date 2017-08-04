@@ -1,9 +1,8 @@
 package com.blakebr0.mysticalagriculture.blocks.soulstone;
 
-import java.util.List;
-
+import com.blakebr0.cucumber.iface.IModelHelper;
+import com.blakebr0.mysticalagriculture.MysticalAgriculture;
 import com.blakebr0.mysticalagriculture.blocks.BlockBase;
-import com.blakebr0.mysticalagriculture.lib.EssenceType.Type;
 
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
@@ -17,15 +16,13 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IStringSerializable;
+import net.minecraft.util.NonNullList;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
 import net.minecraftforge.client.model.ModelLoader;
-import net.minecraftforge.fml.common.registry.GameRegistry;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class BlockSoulstone extends BlockBase {
+public class BlockSoulstone extends BlockBase implements IModelHelper {
 	
     public static final PropertyEnum<Type> VARIANT = PropertyEnum.<Type>create("variant", Type.class);
 
@@ -45,21 +42,19 @@ public class BlockSoulstone extends BlockBase {
     @Override
     public ItemStack getPickBlock(IBlockState state, RayTraceResult target, World world, BlockPos pos, EntityPlayer player) {
     	 Item item = Item.getItemFromBlock(this);
-         return item == null ? null : new ItemStack(item, 1, getMetaFromState(state));
+         return new ItemStack(item, 1, getMetaFromState(state));
     }
     
     @Override
-    @SideOnly(Side.CLIENT)
-    public void getSubBlocks(Item item, CreativeTabs tab, List<ItemStack> stacks){
+    public void getSubBlocks(CreativeTabs tab, NonNullList<ItemStack> stacks){
         for(Type type : Type.values()){
-            stacks.add(new ItemStack(item, 1, type.getMetadata()));
+            stacks.add(new ItemStack(this, 1, type.getMetadata()));
         }
     }
     
-    @SideOnly(Side.CLIENT)
     public void initModels(){
     	for(Type type : Type.values()){
-        	ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(this), type.getMetadata(), new ModelResourceLocation(getRegistryName().toString() + "_" + type.byMetadata(type.getMetadata()).getName()));
+        	ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(this), type.getMetadata(), new ModelResourceLocation(MysticalAgriculture.MOD_ID + ":" + getUnlocalizedName().substring(8) + "_" + type.byMetadata(type.getMetadata()).getName()));
     	}
     }
 

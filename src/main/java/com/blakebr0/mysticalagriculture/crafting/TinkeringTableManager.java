@@ -8,7 +8,6 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.world.World;
-import net.minecraftforge.oredict.ShapelessOreRecipe;
 
 public class TinkeringTableManager {
 
@@ -19,21 +18,27 @@ public class TinkeringTableManager {
 	   return INSTANCE;
    }
 
-   public TinkeringTableRecipe addRecipe(ItemStack result, Object... recipe){
+/*   public TinkeringTableRecipe addRecipe(ItemStack result, Object... recipe){
 	   TinkeringTableRecipe craft = new TinkeringTableRecipe(result, recipe);
        this.recipes.add(craft);
        return craft;
+	}*/
+   
+   public UpgradeRecipe addUpgradeRecipe(ItemStack result, int type, Object... recipe){
+	   UpgradeRecipe ur = new UpgradeRecipe(result, type, recipe);
+	   this.getRecipeList().add(ur);
+	   return ur;
    }
 
    public ItemStack findMatchingRecipe(InventoryCrafting grid, World world) {
        int i = 0;
-       ItemStack stack = null;
-       ItemStack stack1 = null;
+       ItemStack stack = ItemStack.EMPTY;
+       ItemStack stack1 = ItemStack.EMPTY;
        int j;
 
        for(j = 0; j < grid.getSizeInventory(); ++j) {
            ItemStack stack2 = grid.getStackInSlot(j);
-           if(stack2 != null) {
+           if(!stack2.isEmpty()) {
                if (i == 0) {
                    stack = stack2;
                }
@@ -44,7 +49,7 @@ public class TinkeringTableManager {
            }
        }
 
-       if(i == 2 && stack.getItem() == stack1.getItem() && stack.stackSize == 1 && stack1.stackSize == 1 && stack.getItem().isRepairable()) {
+       if(i == 2 && stack.getItem() == stack1.getItem() && stack.getCount() == 1 && stack1.getCount() == 1 && stack.getItem().isRepairable()) {
            Item item = stack.getItem();
            int j1 = item.getMaxDamage() - stack.getItemDamage();
            int k = item.getMaxDamage() - stack1.getItemDamage();
@@ -62,7 +67,7 @@ public class TinkeringTableManager {
                    return recipe.getCraftingResult(grid);
                }
            }
-           return null;
+           return ItemStack.EMPTY;
        }
    }
 

@@ -15,18 +15,18 @@ public class TinkeringTableCraftResult extends InventoryCraftResult {
 
     @Override
     public ItemStack getStackInSlot(int slot){
-        return slot == 0 ? this.tile.getResult() : null;
+        return slot == 0 ? this.tile.getResult() : ItemStack.EMPTY;
     }
 
     @Override
     public ItemStack decrStackSize(int slot, int decrement){
         ItemStack stack = this.tile.getResult();
-        if(stack != null){
+        if(!stack.isEmpty()){
             ItemStack resultStack = stack;
-            this.tile.setResult(null);
+            this.tile.setResult(ItemStack.EMPTY);
             return resultStack;
         } else {
-            return null;
+            return ItemStack.EMPTY;
         }
     }
 

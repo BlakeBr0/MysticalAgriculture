@@ -5,12 +5,12 @@ import java.util.List;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
+import com.blakebr0.cucumber.iface.IModelHelper;
 import com.blakebr0.mysticalagriculture.MysticalAgriculture;
 import com.blakebr0.mysticalagriculture.lib.EssenceType;
 import com.blakebr0.mysticalagriculture.lib.Tooltips;
 import com.blakebr0.mysticalagriculture.tileentity.TileEntityTinkeringTable;
 
-import net.minecraft.block.Block;
 import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
@@ -19,6 +19,7 @@ import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
+import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
@@ -28,6 +29,7 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.BlockRenderLayer;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
+import net.minecraft.util.NonNullList;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.client.model.ModelLoader;
@@ -35,7 +37,7 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class BlockTinkeringTable extends BlockBase implements ITileEntityProvider {
+public class BlockTinkeringTable extends BlockBase implements ITileEntityProvider, IModelHelper {
 
     public static final PropertyEnum<EssenceType.Type> VARIANT = PropertyEnum.<EssenceType.Type>create("variant", EssenceType.Type.class);
 	
@@ -46,7 +48,7 @@ public class BlockTinkeringTable extends BlockBase implements ITileEntityProvide
 	}
 
     @Override
-    public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, @Nullable ItemStack heldItem, EnumFacing side, float hitX, float hitY, float hitZ){
+    public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, EnumFacing heldItem, float side, float hitX, float hitY){
         if(world.isRemote){
             return true;
         } else {
@@ -71,7 +73,7 @@ public class BlockTinkeringTable extends BlockBase implements ITileEntityProvide
             for(int i = 0; i < 9; i++){
                 ItemStack stack = tile.matrix.getStackInSlot(i);
                 if(stack != null){
-                    world.spawnEntityInWorld(new EntityItem(world, pos.getX(), pos.getY(), pos.getZ(), stack));
+                    world.spawnEntity(new EntityItem(world, pos.getX(), pos.getY(), pos.getZ(), stack));
                 }
             }
         }
@@ -101,17 +103,15 @@ public class BlockTinkeringTable extends BlockBase implements ITileEntityProvide
     }
 
     @Override
-    @SideOnly(Side.CLIENT)
-    public void getSubBlocks(Item item, CreativeTabs tab, List<ItemStack> stacks){
+    public void getSubBlocks(CreativeTabs tab, NonNullList<ItemStack> stacks){
         for(EssenceType.Type type : EssenceType.Type.values()){
-            stacks.add(new ItemStack(item, 1, type.getMetadata()));
+            stacks.add(new ItemStack(this, 1, type.getMetadata()));
         }
     }
     
-    @SideOnly(Side.CLIENT)
     public void initModels(){
     	for(EssenceType.Type type : EssenceType.Type.values()){
-        	ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(this), type.getMetadata(), new ModelResourceLocation(getRegistryName().toString() + "_" + type.byMetadata(type.getMetadata()).getName()));
+        	ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(this), type.getMetadata(), new ModelResourceLocation(MysticalAgriculture.MOD_ID + ":" + getUnlocalizedName().substring(8) + "_" + type.byMetadata(type.getMetadata()).getName()));
     	}
     }
 
@@ -132,7 +132,7 @@ public class BlockTinkeringTable extends BlockBase implements ITileEntityProvide
     
     @Override
     @SideOnly(Side.CLIENT)
-    public void addInformation(ItemStack stack, EntityPlayer player, List<String> tooltip, boolean advanced) {
+    public void addInformation(ItemStack stack, @Nullable World player, List<String> tooltip, ITooltipFlag advanced){
     	String mat = "";
     	switch(stack.getMetadata()){
 		case 0:

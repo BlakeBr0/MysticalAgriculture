@@ -10,13 +10,12 @@ import mezz.jei.api.gui.IDrawable;
 import mezz.jei.api.gui.IGuiItemStackGroup;
 import mezz.jei.api.gui.IRecipeLayout;
 import mezz.jei.api.ingredients.IIngredients;
-import mezz.jei.api.recipe.BlankRecipeCategory;
-import mezz.jei.api.recipe.IRecipeWrapper;
+import mezz.jei.api.recipe.IRecipeCategory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.TextComponentTranslation;
 
-public class TinkeringTableCategory extends BlankRecipeCategory<IRecipeWrapper> {
+public class TinkeringTableCategory implements IRecipeCategory<TinkeringTableWrapper> {
 
     public static final String UID = "mysticalagriculture:tinkering_table_jei";
 
@@ -45,7 +44,7 @@ public class TinkeringTableCategory extends BlankRecipeCategory<IRecipeWrapper> 
     }
 
     @Override
-    public void setRecipe(IRecipeLayout layout, IRecipeWrapper wrapper, IIngredients ingredients) {
+    public void setRecipe(IRecipeLayout layout, TinkeringTableWrapper wrapper, IIngredients ingredients) {
         IGuiItemStackGroup stacks = layout.getItemStacks();
 
         stacks.init(0, false, 131, 35);
@@ -63,9 +62,14 @@ public class TinkeringTableCategory extends BlankRecipeCategory<IRecipeWrapper> 
         layout.setRecipeTransferButton(141, 60);
 
         List<List<ItemStack>> inputs = ingredients.getInputs(ItemStack.class);
-        List<ItemStack> outputs = ingredients.getOutputs(ItemStack.class);
+        List<ItemStack> outputs = ingredients.getOutputs(ItemStack.class).get(0);
 
         this.gridHelper.setOutput(stacks, outputs);
         this.gridHelper.setInputStacks(stacks, inputs);
     }
+
+	@Override
+	public String getModName(){
+		return MysticalAgriculture.NAME;
+	}
 }

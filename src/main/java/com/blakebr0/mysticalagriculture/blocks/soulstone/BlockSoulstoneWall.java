@@ -1,16 +1,12 @@
 package com.blakebr0.mysticalagriculture.blocks.soulstone;
 
-import java.util.List;
-
 import com.blakebr0.mysticalagriculture.MysticalAgriculture;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockWall;
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
-import net.minecraftforge.fml.common.registry.GameRegistry;
+import net.minecraft.util.NonNullList;
 
 public class BlockSoulstoneWall extends BlockWall {
 
@@ -22,7 +18,7 @@ public class BlockSoulstoneWall extends BlockWall {
 	}
 	
 	@Override
-	public void getSubBlocks(Item item, CreativeTabs tab, List<ItemStack> list) {
-		list.add(new ItemStack(item));
+	public void getSubBlocks(CreativeTabs tab, NonNullList<ItemStack> list){
+		list.add(new ItemStack(this));
 	}
 }

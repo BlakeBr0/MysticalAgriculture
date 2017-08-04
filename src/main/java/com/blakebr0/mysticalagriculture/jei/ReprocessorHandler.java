@@ -14,14 +14,8 @@ public class ReprocessorHandler implements IRecipeHandler<ReprocessorWrapper> {
 
     @Override
     @Nonnull
-    public String getRecipeCategoryUid() {
-        return ReprocessorCategory.UID;
-    }
-
-    @Override
-    @Nonnull
     public String getRecipeCategoryUid(@Nonnull ReprocessorWrapper recipe) {
-        return ReprocessorCategory.UID;
+        return ReprocessorCategory.uid;
     }
 
     @Override

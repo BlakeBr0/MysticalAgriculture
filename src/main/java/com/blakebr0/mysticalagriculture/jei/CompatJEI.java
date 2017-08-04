@@ -11,10 +11,10 @@ import com.blakebr0.mysticalagriculture.gui.GuiSeedReprocessor;
 import com.blakebr0.mysticalagriculture.gui.GuiTinkeringTable;
 import com.blakebr0.mysticalagriculture.lib.EssenceType;
 
-import mezz.jei.api.BlankModPlugin;
 import mezz.jei.api.IGuiHelper;
 import mezz.jei.api.IJeiHelpers;
 import mezz.jei.api.IJeiRuntime;
+import mezz.jei.api.IModPlugin;
 import mezz.jei.api.IModRegistry;
 import mezz.jei.api.JEIPlugin;
 import mezz.jei.api.recipe.transfer.IRecipeTransferRegistry;
@@ -22,8 +22,8 @@ import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
-@JEIPlugin
-public class CompatJEI extends BlankModPlugin {
+@JEIPlugin //TODO: update to new shit
+public class CompatJEI implements IModPlugin {
 
 	public static CompatJEI instance;
     private IJeiRuntime runtime;
@@ -35,25 +35,26 @@ public class CompatJEI extends BlankModPlugin {
     public void register(IModRegistry registry) {
         instance = this;
         
+        IJeiHelpers jeiHelpers = registry.getJeiHelpers();
+        IGuiHelper guiHelper = jeiHelpers.getGuiHelper();
+        
         for(Block block : blocks){
-        	registry.addDescription(new ItemStack(block), "desc." + block.getUnlocalizedName());
+        	registry.addIngredientInfo(new ItemStack(block), ItemStack.class, "desc." + block.getUnlocalizedName());
         }
         
         for(Item item : items){
-        	registry.addDescription(new ItemStack(item), "desc." + item.getUnlocalizedName());
+        	registry.addIngredientInfo(new ItemStack(item), ItemStack.class, "desc." + item.getUnlocalizedName());
         }
         
         if(ModConfig.confSeedReprocessor){
 	        registry.addRecipeCategories(new ReprocessorCategory(registry.getJeiHelpers().getGuiHelper()));
 	        registry.addRecipeHandlers(new ReprocessorHandler());
 	        registry.addRecipes(ReprocessorRecipeMaker.getRecipes());
-	        registry.addRecipeClickArea(GuiSeedReprocessor.class, 79, 26, 24, 17, ReprocessorCategory.UID);
-	        registry.addRecipeCategoryCraftingItem(new ItemStack(ModBlocks.blockSeedReprocessor, 1, 0), ReprocessorCategory.UID);
+	        registry.addRecipeClickArea(GuiSeedReprocessor.class, 79, 26, 24, 17, ReprocessorCategory.uid);
+	        registry.addRecipeCategoryCraftingItem(new ItemStack(ModBlocks.blockSeedReprocessor, 1, 0), ReprocessorCategory.uid);
         }
-        
-        IJeiHelpers jeiHelpers = registry.getJeiHelpers();
-        IGuiHelper guiHelper = jeiHelpers.getGuiHelper();
-
+       
+        // TODO redo all of this (easy port they said, it would be no problem they said)
         registry.addRecipeCategories(new TinkeringTableCategory(guiHelper));
         registry.addRecipeHandlers(new TinkeringTableHandler(jeiHelpers));
         registry.addRecipes(TinkeringTableManager.getInstance().getRecipeList());
@@ -61,7 +62,7 @@ public class CompatJEI extends BlankModPlugin {
         IRecipeTransferRegistry transferRegistry = registry.getRecipeTransferRegistry();
         transferRegistry.addRecipeTransferHandler(ContainerTinkeringTable.class, TinkeringTableCategory.UID, 1, 9, 10, 36);
         for(EssenceType.Type type : EssenceType.Type.values()){
-            registry.addRecipeCategoryCraftingItem(new ItemStack(ModBlocks.blockTinkeringTable, 1, type.getMetadata()), TinkeringTableCategory.UID);
+            registry.addRecipeCatalyst(new ItemStack(ModBlocks.blockTinkeringTable, 1, type.getMetadata()), TinkeringTableCategory.UID);
         }
     }
 

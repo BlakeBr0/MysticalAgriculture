@@ -23,9 +23,14 @@ public class BlockInferiumCrop extends BlockMysticalCrop {
         this.tier = tier;
     }
     
+    public int getTier()
+    {
+    	return tier;
+    }
+    
     @Override
     protected Item getCrop() {
-    	return ModItems.itemInferiumEssence;
+    	return ModItems.itemCrafting;
     }
     
     @Override

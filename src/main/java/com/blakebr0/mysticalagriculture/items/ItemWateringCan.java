@@ -3,13 +3,21 @@ package com.blakebr0.mysticalagriculture.items;
 import java.util.List;
 import java.util.Random;
 
+import javax.annotation.Nullable;
+
+import com.blakebr0.cucumber.iface.IEnableable;
+import com.blakebr0.cucumber.item.ItemMeta;
+import com.blakebr0.cucumber.util.Utils;
+import com.blakebr0.mysticalagriculture.MysticalAgriculture;
+import com.blakebr0.mysticalagriculture.config.ModConfig;
 import com.blakebr0.mysticalagriculture.lib.Tooltips;
-import com.blakebr0.mysticalagriculture.util.Utils;
+import com.blakebr0.mysticalagriculture.util.MystUtils;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockFarmland;
 import net.minecraft.block.IGrowable;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
@@ -20,38 +28,36 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 import net.minecraftforge.common.IPlantable;
-import net.minecraftforge.fml.common.registry.GameRegistry;
+import net.minecraftforge.common.util.FakePlayer;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class ItemWateringCan extends ItemMeta {
+public class ItemWateringCan extends ItemMeta implements IEnableable {
 		
 	private boolean water = false;
 	private long ticks;
 	
-	public static ItemStack inferium;
-	public static ItemStack prudentium;
-	public static ItemStack intermedium;
-	public static ItemStack superium;
-	public static ItemStack supremium;
+	public static ItemStack itemInferiumWateringCan;
+	public static ItemStack itemPrudentiumWateringCan;
+	public static ItemStack itemIntermediumWateringCan;
+	public static ItemStack itemSuperiumWateringCan;
+	public static ItemStack itemSupremiumWateringCan;;
 	
 	public ItemWateringCan(){
-		super("watering_can");
+		super("ma.watering_can", MysticalAgriculture.REGISTRY);
+		this.setCreativeTab(MysticalAgriculture.tabMysticalAgriculture);
 		this.setMaxStackSize(1);
 	}
 	
 	@Override
 	public void init(){
-		GameRegistry.register(this);
-		
-		inferium = addItem(0, "inferium");
-		prudentium = addItem(1, "prudentium");
-		intermedium = addItem(2, "intermedium");
-		superium = addItem(3, "superium");
-		supremium = addItem(4, "supremium");
+		itemInferiumWateringCan = addItem(0, "inferium");
+		itemPrudentiumWateringCan = addItem(1, "prudentium");
+		itemIntermediumWateringCan = addItem(2, "intermedium");
+		itemSuperiumWateringCan = addItem(3, "superium");
+		itemSupremiumWateringCan = addItem(4, "supremium");
 	}
 
 	@Override
@@ -70,10 +76,15 @@ public class ItemWateringCan extends ItemMeta {
     }
 	
     @Override
-    public EnumActionResult onItemUse(ItemStack stack, EntityPlayer player, World world, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ){
+    public EnumActionResult onItemUse(EntityPlayer player, World world, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ){
+    	ItemStack stack = player.getHeldItem(hand);
 		if(!player.canPlayerEdit(pos.offset(facing), facing, stack)){
 			return EnumActionResult.FAIL;
 	    }
+		
+		if(player instanceof FakePlayer && !ModConfig.confFakePlayerWatering){
+			return EnumActionResult.FAIL;
+		}
 		
 		int range = stack.getMetadata();
 		
@@ -122,9 +133,14 @@ public class ItemWateringCan extends ItemMeta {
         
     @Override
     @SideOnly(Side.CLIENT)
-    public void addInformation(ItemStack stack, EntityPlayer player, List<String> tooltip, boolean advanced){
+    public void addInformation(ItemStack stack, @Nullable World world, List<String> tooltip, ITooltipFlag advanced){
     	int meta = stack.getMetadata();
     	int range = (meta * 2 + 1);
-    	tooltip.add(Tooltips.RANGE + Utils.getColorFromMeta(meta) + range + "x" + range);
+    	tooltip.add(Tooltips.RANGE + MystUtils.getColorFromMeta(meta) + range + "x" + range);
     }
+
+	@Override
+	public boolean isEnabled(){
+		return ModConfig.confWateringCans;
+	}
 }

@@ -2,20 +2,22 @@ package com.blakebr0.mysticalagriculture.items.tools;
 
 import java.util.List;
 
-import com.blakebr0.mysticalagriculture.MysticalAgriculture;
-import com.blakebr0.mysticalagriculture.config.ModConfig;
-import com.blakebr0.mysticalagriculture.lib.Colors;
+import javax.annotation.Nullable;
+
+import com.blakebr0.cucumber.lib.Colors;
+import com.blakebr0.mysticalagriculture.items.ModItems;
 import com.blakebr0.mysticalagriculture.lib.Tooltips;
+import com.blakebr0.mysticalagriculture.util.NBTHelper;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockDirt;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
-import net.minecraft.item.Item.ToolMaterial;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
@@ -29,33 +31,48 @@ public class ItemSupremiumHoe extends ItemEssenceHoe {
 	
 	public int range;
 	
-	public ItemSupremiumHoe(String name, ToolMaterial material, int range, Item repairMaterial, TextFormatting color){
-		super(name, material, repairMaterial, color);
+	public ItemSupremiumHoe(String name, ToolMaterial material, int range, TextFormatting color){
+		super(name, material, color);
 		this.range = range;
-	}
-
-	public boolean isSneakAbilityEnabled(){
-		return ModConfig.confSneakHoeAOE;
 	}
 	
 	@Override
 	@SideOnly(Side.CLIENT)
-	public void addInformation(ItemStack stack, EntityPlayer player, List tooltip, boolean advanced){
-		int range = this.range + 2;
-		if(isSneakAbilityEnabled()){ tooltip.add(Tooltips.HOE_TOOLTIP[0] + " " + Colors.GRAY + Minecraft.getMinecraft().gameSettings.keyBindSneak.getDisplayName() +  " " + Tooltips.HOE_TOOLTIP[1] + " " + Colors.RED + range + "x" + range + Colors.GRAY + "."); }
+	public void addInformation(ItemStack stack, @Nullable World player, List<String> tooltip, ITooltipFlag advanced){
+		int range = (getRange(stack) * 2 + 1);
+		tooltip.add(Tooltips.HOE_TOOLTIP[0] + " " + Colors.GRAY + Minecraft.getMinecraft().gameSettings.keyBindSneak.getDisplayName() +  " " + Tooltips.HOE_TOOLTIP[1] + " " + Colors.RED + range + "x" + range + Colors.GRAY + ".");
 		tooltip.add(Tooltips.DURABILITY + Colors.RED + Tooltips.UNLIMITED);
-		tooltip.add(Tooltips.CHARM_SLOT + Colors.RED + Tooltips.EMPTY);
+		NBTTagCompound tag = NBTHelper.getDataMap(stack);
+		if(tag.hasKey(ToolType.TOOL_TYPE)){
+			tooltip.add(Tooltips.CHARM_SLOT + Colors.RED + ToolType.byIndex(tag.getInteger(ToolType.TOOL_TYPE)).getLocalizedName());
+		} else {
+			tooltip.add(Tooltips.CHARM_SLOT + Colors.RED + Tooltips.EMPTY);
+		}
+	}
+	
+	public int getRange(ItemStack stack){
+		if(stack.getItem() == ModItems.itemSupremiumHoe){
+        	NBTTagCompound tag = NBTHelper.getDataMap(stack);
+        	if(tag.hasKey(ToolType.TOOL_TYPE)){
+        		if(tag.getInteger(ToolType.TOOL_TYPE) == ToolType.TILLING_AOE.getIndex()){
+        			return this.range + 2;
+        		}
+        	}
+		}
+		return this.range;
 	}
 	
 	@Override
-	public EnumActionResult onItemUse(ItemStack stack, EntityPlayer player, World world, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {		
+	public EnumActionResult onItemUse(EntityPlayer player, World world, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {		
+		ItemStack stack = player.getHeldItem(hand);
 		if(!hoe(stack, player, world, pos, facing) && !player.isSneaking()){
 			return EnumActionResult.FAIL;
 		}
 		
+		int range = getRange(stack);
 		Iterable<BlockPos> blocks = BlockPos.getAllInBox(pos.add(-range, 0, -range), pos.add(range, 0, range));
 		
-		if(player.isSneaking() && isSneakAbilityEnabled()){
+		if(player.isSneaking()){
 			for(BlockPos aoePos : blocks){
 				hoe(stack, player, world, aoePos, facing);
 			}

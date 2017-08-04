@@ -2,12 +2,11 @@ package com.blakebr0.mysticalagriculture.entity.arrow;
 
 import javax.annotation.Nonnull;
 
+import com.blakebr0.cucumber.util.Utils;
 import com.blakebr0.mysticalagriculture.items.ModItems;
-import com.blakebr0.mysticalagriculture.util.Utils;
 
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.projectile.EntityArrow;
-import net.minecraft.init.Items;
 import net.minecraft.init.MobEffects;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionEffect;

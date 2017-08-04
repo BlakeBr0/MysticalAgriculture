@@ -2,30 +2,30 @@ package com.blakebr0.mysticalagriculture.items.apples;
 
 import java.util.List;
 
+import javax.annotation.Nullable;
+
+import com.blakebr0.cucumber.iface.IEnableable;
+import com.blakebr0.cucumber.lib.Colors;
+import com.blakebr0.cucumber.util.Utils;
 import com.blakebr0.mysticalagriculture.MysticalAgriculture;
 import com.blakebr0.mysticalagriculture.config.ModConfig;
-import com.blakebr0.mysticalagriculture.lib.Colors;
 import com.blakebr0.mysticalagriculture.lib.Tooltips;
-import com.blakebr0.mysticalagriculture.util.Utils;
 
+import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.MobEffects;
 import net.minecraft.item.ItemFood;
 import net.minecraft.item.ItemStack;
-import net.minecraft.potion.Potion;
-import net.minecraft.potion.PotionAbsorption;
 import net.minecraft.potion.PotionEffect;
-import net.minecraft.potion.PotionHelper;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class ItemSuperiumApple extends ItemFood {
+public class ItemSuperiumApple extends ItemFood implements IEnableable {
 	
-	public ItemSuperiumApple(String name){
+	public ItemSuperiumApple(){
         super(15, 0.7F, false);
-		this.setUnlocalizedName("ma." + name);
-		this.setRegistryName(name);
+		this.setUnlocalizedName("ma.superium_apple");
 		this.setCreativeTab(MysticalAgriculture.tabMysticalAgriculture);
 		this.setAlwaysEdible();
 	}
@@ -70,7 +70,7 @@ public class ItemSuperiumApple extends ItemFood {
     
 	@Override
 	@SideOnly(Side.CLIENT)
-	public void addInformation(ItemStack stack, EntityPlayer player, List tooltip, boolean advanced){
+	public void addInformation(ItemStack stack, @Nullable World player, List<String> tooltip, ITooltipFlag advanced){
 		int duration = ModConfig.confAppleBuffDuration;
 		if(Utils.isShiftKeyDown()){
 			tooltip.add(Tooltips.GIVES_BUFFS);
@@ -81,5 +81,10 @@ public class ItemSuperiumApple extends ItemFood {
 		} else {
 			tooltip.add(Tooltips.HOLD_SHIFT_FOR_INFO);
 		}
+	}
+
+	@Override
+	public boolean isEnabled(){
+		return ModConfig.confEssenceApples;
 	}
 }

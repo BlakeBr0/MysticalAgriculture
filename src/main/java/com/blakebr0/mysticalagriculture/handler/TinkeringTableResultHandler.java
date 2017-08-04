@@ -30,12 +30,13 @@ public class TinkeringTableResultHandler extends Slot {
     }
 
     @Override
-    public void onPickupFromSlot(EntityPlayer player, ItemStack stack) {
+    public ItemStack onTake(EntityPlayer player, ItemStack stack){
         for(int i = 0; i < this.matrix.getSlots(); i++){
             if(this.matrix.getStackInSlot(i) != null){
             	this.matrix.extractItem(i, 1, false);
             }
         }
         this.crafting.container.onCraftMatrixChanged(this.crafting);
+        return stack;
     }
 }

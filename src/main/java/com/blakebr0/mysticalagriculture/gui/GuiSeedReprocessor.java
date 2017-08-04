@@ -18,11 +18,19 @@ public class GuiSeedReprocessor extends GuiContainer {
         super(new ContainerSeedReprocessor(player, machine));
         compressor = machine;
     }
+    
+    @Override
+    public void drawScreen(int mouseX, int mouseY, float partialTicks){
+        this.drawDefaultBackground();
+        super.drawScreen(mouseX, mouseY, partialTicks);
+        this.renderHoveredToolTip(mouseX, mouseY);
+    }
 
+    @Override
     protected void drawGuiContainerForegroundLayer(int p_146979_1_, int p_146979_2_){
         String s = I18n.translateToLocal("container.ma.seed_reprocessor.name");
-        this.fontRendererObj.drawString(s, this.xSize / 2 - this.fontRendererObj.getStringWidth(s) / 2, 6, 4210752);
-        this.fontRendererObj.drawString(I18n.translateToLocal("container.inventory"), 8, this.ySize - 96 + 2, 4210752);
+        this.fontRenderer.drawString(s, this.xSize / 2 - this.fontRenderer.getStringWidth(s) / 2, 6, 4210752);
+        this.fontRenderer.drawString(I18n.translateToLocal("container.inventory"), 8, this.ySize - 96 + 2, 4210752);
     }
     
     private int getCookProgressScaled(int pixels){
@@ -31,6 +39,7 @@ public class GuiSeedReprocessor extends GuiContainer {
         return j != 0 && i != 0 ? i * pixels / j : 0;
     }
 
+    @Override
     protected void drawGuiContainerBackgroundLayer(float p_146976_1_, int p_146976_2_, int p_146976_3_){
         GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
         this.mc.getTextureManager().bindTexture(gui_texture);

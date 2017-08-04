@@ -2,7 +2,13 @@ package com.blakebr0.mysticalagriculture.blocks;
 
 import java.util.List;
 
-import com.blakebr0.mysticalagriculture.lib.Colors;
+import javax.annotation.Nullable;
+
+import com.blakebr0.cucumber.iface.IEnableable;
+import com.blakebr0.cucumber.iface.IModelHelper;
+import com.blakebr0.cucumber.lib.Colors;
+import com.blakebr0.mysticalagriculture.MysticalAgriculture;
+import com.blakebr0.mysticalagriculture.config.ModConfig;
 import com.blakebr0.mysticalagriculture.lib.EssenceType;
 import com.blakebr0.mysticalagriculture.lib.Tooltips;
 
@@ -13,17 +19,19 @@ import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
+import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.NonNullList;
+import net.minecraft.world.World;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fml.common.IFuelHandler;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class BlockEssenceCoal extends BlockBase {
+public class BlockEssenceCoal extends BlockBase implements IModelHelper, IEnableable {
 	
     public static final PropertyEnum<EssenceType.Type> VARIANT = PropertyEnum.<EssenceType.Type>create("variant", EssenceType.Type.class);
 
@@ -40,10 +48,13 @@ public class BlockEssenceCoal extends BlockBase {
     
     @Override
     public void init(){
-    	GameRegistry.register(this);
-    	GameRegistry.register(new ItemBlockEssenceCoal(this).setRegistryName(getRegistryName()));
-    	
-        GameRegistry.registerFuelHandler(new FuelHander()); 	
+        GameRegistry.registerFuelHandler(new FuelHander());
+        
+        MysticalAgriculture.REGISTRY.addOre(new ItemStack(this, 1, 0), "blockInferiumCoal");
+        MysticalAgriculture.REGISTRY.addOre(new ItemStack(this, 1, 1), "blockPrudentiumCoal");
+        MysticalAgriculture.REGISTRY.addOre(new ItemStack(this, 1, 2), "blockIntermediumCoal");
+        MysticalAgriculture.REGISTRY.addOre(new ItemStack(this, 1, 3), "blockSuperiumCoal");
+        MysticalAgriculture.REGISTRY.addOre(new ItemStack(this, 1, 4), "blockSupremiumCoal");
     }
 
     @Override
@@ -52,17 +63,15 @@ public class BlockEssenceCoal extends BlockBase {
     }
 
     @Override
-    @SideOnly(Side.CLIENT)
-    public void getSubBlocks(Item item, CreativeTabs tab, List<ItemStack> stacks){
+    public void getSubBlocks(CreativeTabs tab, NonNullList<ItemStack> stacks){
         for(EssenceType.Type type : EssenceType.Type.values()){
-            stacks.add(new ItemStack(item, 1, type.getMetadata()));
+            stacks.add(new ItemStack(this, 1, type.getMetadata()));
         }
     }
     
-    @SideOnly(Side.CLIENT)
     public void initModels(){
     	for(EssenceType.Type type : EssenceType.Type.values()){
-        	ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(this), type.getMetadata(), new ModelResourceLocation(getRegistryName().toString() + "_" + type.byMetadata(type.getMetadata()).getName()));
+        	ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(this), type.getMetadata(), new ModelResourceLocation(MysticalAgriculture.MOD_ID + ":" + getUnlocalizedName().substring(8) + "_" + type.byMetadata(type.getMetadata()).getName()));
     	}
     }
 
@@ -83,7 +92,7 @@ public class BlockEssenceCoal extends BlockBase {
     
     @Override
     @SideOnly(Side.CLIENT)
-    public void addInformation(ItemStack stack, EntityPlayer player, List<String> tooltip, boolean advanced){
+    public void addInformation(ItemStack stack, @Nullable World player, List<String> tooltip, ITooltipFlag advanced){
     	String bt = null;
     	switch(stack.getMetadata()){
 		case 0:
@@ -104,6 +113,11 @@ public class BlockEssenceCoal extends BlockBase {
     	}
     	tooltip.add(Tooltips.BURN_TIME + bt);
     }
+    
+	@Override
+	public boolean isEnabled(){
+		return ModConfig.confEssenceCoal;
+	}
     
     public class FuelHander implements IFuelHandler {
 

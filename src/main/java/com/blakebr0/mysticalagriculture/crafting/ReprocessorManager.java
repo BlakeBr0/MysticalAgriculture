@@ -17,7 +17,7 @@ public class ReprocessorManager {
             if(recipe.validInput(input))
                 return recipe.getOutput();
         }
-        return null;
+        return ItemStack.EMPTY; 
     }
 
     public static int getCost(ItemStack input){

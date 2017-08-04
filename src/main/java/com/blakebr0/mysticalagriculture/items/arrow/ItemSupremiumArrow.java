@@ -2,12 +2,15 @@ package com.blakebr0.mysticalagriculture.items.arrow;
 
 import java.util.List;
 
+import javax.annotation.Nullable;
+
+import com.blakebr0.cucumber.lib.Colors;
+import com.blakebr0.cucumber.util.Utils;
 import com.blakebr0.mysticalagriculture.MysticalAgriculture;
 import com.blakebr0.mysticalagriculture.entity.arrow.EntitySupremiumArrow;
-import com.blakebr0.mysticalagriculture.lib.Colors;
 import com.blakebr0.mysticalagriculture.lib.Tooltips;
-import com.blakebr0.mysticalagriculture.util.Utils;
 
+import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.projectile.EntityArrow;
@@ -17,9 +20,8 @@ import net.minecraft.world.World;
 
 public class ItemSupremiumArrow extends ItemArrow {
 	
-	public ItemSupremiumArrow(String name){
-		this.setUnlocalizedName("ma." + name);
-		this.setRegistryName(name);
+	public ItemSupremiumArrow(){
+		this.setUnlocalizedName("ma.supremium_arrow");
 		this.setCreativeTab(MysticalAgriculture.tabMysticalAgriculture);
 	}
 	
@@ -34,7 +36,7 @@ public class ItemSupremiumArrow extends ItemArrow {
 	}
 	
 	@Override
-	public void addInformation(ItemStack stack, EntityPlayer playerIn, List<String> tooltip, boolean advanced) {
+	public void addInformation(ItemStack stack, @Nullable World player, List<String> tooltip, ITooltipFlag advanced) {
 		if(Utils.isShiftKeyDown()){
 			tooltip.add(Tooltips.DAMAGE + Colors.RED + "+4.5");
 			tooltip.add(Tooltips.GIVES_DEBUFFS);

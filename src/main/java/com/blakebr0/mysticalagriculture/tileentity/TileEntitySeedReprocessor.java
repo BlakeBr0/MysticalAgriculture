@@ -1,9 +1,5 @@
 package com.blakebr0.mysticalagriculture.tileentity;
 
-import java.util.ArrayList;
-
-import javax.annotation.Nullable;
-
 import com.blakebr0.mysticalagriculture.crafting.ReprocessorManager;
 import com.blakebr0.mysticalagriculture.util.TileEntityUtil;
 import com.blakebr0.mysticalagriculture.util.VanillaPacketDispatcher;
@@ -12,16 +8,13 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.ISidedInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.network.NetworkManager;
-import net.minecraft.network.Packet;
-import net.minecraft.network.play.server.SPacketUpdateTileEntity;
-import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.ITickable;
-
-public class TileEntitySeedReprocessor extends TileEntityUtil implements ISidedInventory, ITickable {
+import net.minecraftforge.common.capabilities.ICapabilityProvider;
+// TODO: cleanup
+public class TileEntitySeedReprocessor extends TileEntityUtil implements ISidedInventory, ITickable, ICapabilityProvider {
 	
-    private ItemStack input, processing, output;
+    private ItemStack input = ItemStack.EMPTY, processing = ItemStack.EMPTY, output = ItemStack.EMPTY;
     private int facing = 2;
     private int progress = 0;
     private int target = 0;
@@ -42,14 +35,16 @@ public class TileEntitySeedReprocessor extends TileEntityUtil implements ISidedI
     public NBTTagCompound writeCustomNBT(NBTTagCompound tag){
     	tag.setInteger("TimeLeft", this.time_left);
         tag.setShort("Facing", (short) this.facing);
-        if(input != null) {
+    	if(input == null){
+    		input = ItemStack.EMPTY;
+    	}
+        if(input != null || !input.isEmpty()){
             NBTTagCompound produce = new NBTTagCompound();
             input.writeToNBT(produce);
             tag.setTag("Input", produce);
-        }
-        else
+        } else
             tag.removeTag("Input");
-        if(processing != null) {
+        if(processing != null || !processing.isEmpty()) {
             NBTTagCompound produce = new NBTTagCompound();
             processing.writeToNBT(produce);
             tag.setTag("Processing", produce);
@@ -65,7 +60,7 @@ public class TileEntitySeedReprocessor extends TileEntityUtil implements ISidedI
             tag.removeTag("Target");
             tag.removeTag("Ingredient");
         }
-        if(output != null) {
+        if(output != null || !output.isEmpty()) {
             NBTTagCompound produce = new NBTTagCompound();
             output.writeToNBT(produce);
             tag.setTag("Output", produce);
@@ -74,14 +69,14 @@ public class TileEntitySeedReprocessor extends TileEntityUtil implements ISidedI
             tag.removeTag("Output");
         return tag;
     }
-    
+        
     @Override
     public void readCustomNBT(NBTTagCompound tag){
     	this.time_left = tag.getInteger("TimeLeft");
-        this.input = ItemStack.loadItemStackFromNBT(tag.getCompoundTag("Input"));
-        this.processing = ItemStack.loadItemStackFromNBT(tag.getCompoundTag("Processing"));
-        this.output = ItemStack.loadItemStackFromNBT(tag.getCompoundTag("Output"));
-        if(processing != null) {
+        this.input = new ItemStack(tag.getCompoundTag("Input"));
+        this.processing = new ItemStack(tag.getCompoundTag("Processing"));
+        this.output = new ItemStack(tag.getCompoundTag("Output"));
+        if(!processing.isEmpty()) {
             this.target = ReprocessorManager.getPrice(processing);
             if(target != 0) {
                 this.progress = tag.getInteger("Progress");
@@ -89,7 +84,7 @@ public class TileEntitySeedReprocessor extends TileEntityUtil implements ISidedI
                     this.ingredient = tag.getString("Ingredient");
             }
             else
-                processing = null;
+                processing = ItemStack.EMPTY;
         }
         else {
             progress = 0;
@@ -108,13 +103,13 @@ public class TileEntitySeedReprocessor extends TileEntityUtil implements ISidedI
         if(time_left > 0)
         	time_left--;
         
-		if(worldObj.isRemote)
+		if(world.isRemote)
 			return;
         
         if(time_left <= 0){
-	        if(input != null && (processing == null) ){
-	            if(ReprocessorManager.getOutput(input) != null && (output == null || ReprocessorManager.getOutput(input).isItemEqual(output))) {
-	                if(processing == null){
+	        if(!input.isEmpty() && (processing.isEmpty()) ){
+	            if(!ReprocessorManager.getOutput(input).isEmpty() && (output.isEmpty() || ReprocessorManager.getOutput(input).isItemEqual(output))) {
+	                if(processing.isEmpty()){
 	                    processing = ReprocessorManager.getOutput(input);
 	                    target = ReprocessorManager.getCost(input);
 	                    ingredient = ReprocessorManager.getName(input);
@@ -122,13 +117,13 @@ public class TileEntitySeedReprocessor extends TileEntityUtil implements ISidedI
 	                }
 	                if(ReprocessorManager.getOutput(input).isItemEqual(processing)) {
 	                    int needed = target - progress;
-	                    if(needed >= input.stackSize) {
-	                        progress += input.stackSize;
-	                        input = null;
+	                    if(needed >= input.getCount()) {
+	                        progress += input.getCount();
+	                        input = ItemStack.EMPTY;
 	                    }
 	                    else {
 	                        progress = target;
-	                        input.stackSize -= needed;
+	                        input.shrink(needed);
 	                    }
 	                }
 	                markDirty();
@@ -137,15 +132,15 @@ public class TileEntitySeedReprocessor extends TileEntityUtil implements ISidedI
 	        }
         }
         if(time_left <= 0){
-            if (progress >= target && processing != null && (output == null || (output.isItemEqual(processing) && output.stackSize + processing.stackSize <= output.getMaxStackSize()))) {
-                if(output == null){
+            if (progress >= target && !processing.isEmpty() && (output.isEmpty() || (output.isItemEqual(processing) && output.getCount() + processing.getCount() <= output.getMaxStackSize()))) {
+                if(output.isEmpty()){
                     output = processing.copy();
                 }
                 else if(output.isItemEqual(processing))
-                    output.stackSize+= processing.stackSize;
+                    output.setCount(output.getCount() + processing.getCount());
                 progress -= target;
                 if(progress == 0) {
-                    processing = null;
+                    processing = ItemStack.EMPTY;
                     ingredient = null;
                 }
                 markDirty();
@@ -198,54 +193,53 @@ public class TileEntitySeedReprocessor extends TileEntityUtil implements ISidedI
     @Override
     public ItemStack decrStackSize(int slot, int decrement){
         if(slot == 0) {
-            if (input == null)
-                return null;
+            if(input.isEmpty())
+                return ItemStack.EMPTY;
             else {
-                if (decrement < input.stackSize) {
+                if(decrement < input.getCount()) {
                     ItemStack take = input.splitStack(decrement);
-                    if (input.stackSize <= 0)
-                        input = null;
+                    if(input.getCount() <= 0)
+                        input = ItemStack.EMPTY;
                     return take;
                 } else {
                     ItemStack take = input;
-                    input = null;
+                    input = ItemStack.EMPTY;
                     return take;
                 }
             }
         }
         else if (slot == 1){
-            if (output == null)
-                return null;
+            if(output.isEmpty())
+                return ItemStack.EMPTY;
             else {
-                if (decrement < output.stackSize) {
+                if (decrement < output.getCount()) {
                     ItemStack take = output.splitStack(decrement);
-                    if (output.stackSize <= 0)
-                        output = null;
+                    if (output.getCount() <= 0)
+                        output = ItemStack.EMPTY;
                     return take;
                 } else {
                     ItemStack take = output;
-                    output = null;
+                    output = ItemStack.EMPTY;
                     return take;
                 }
             }
         }
-        return null;
+        return ItemStack.EMPTY;
     }
 
-    @Override
-    public boolean isUseableByPlayer(EntityPlayer player)
-    {
-        return this.worldObj.getTileEntity(this.getPos()) == this && player.getDistanceSq((double)this.getPos().getX() + 0.5D, (double)this.getPos().getY() + 0.5D, (double)this.getPos().getZ() + 0.5D) <= 64.0D;
-    }
+	@Override
+	public boolean isUsableByPlayer(EntityPlayer player) {
+		return this.world.getTileEntity(this.getPos()) == this && player.getDistanceSq((double)this.getPos().getX() + 0.5D, (double)this.getPos().getY() + 0.5D, (double)this.getPos().getZ() + 0.5D) <= 64.0D;
+	}
 
     @Override
     public boolean isItemValidForSlot(int slot, ItemStack stack){
-        if(stack == null)
+        if(stack.isEmpty())
             return false;
         if(slot == 0){
-            if(processing == null)
+            if(processing.isEmpty())
                 return true;
-            if(ReprocessorManager.getOutput(stack) == null)
+            if(ReprocessorManager.getOutput(stack).isEmpty())
                 return false;
             if(ReprocessorManager.getOutput(stack).isItemEqual(processing))
                 return true;
@@ -277,8 +271,8 @@ public class TileEntitySeedReprocessor extends TileEntityUtil implements ISidedI
     }
 
     @Override
-	public ItemStack removeStackFromSlot(int index) {
-		return null;
+	public ItemStack removeStackFromSlot(int index){
+		return ItemStack.EMPTY;
 	}
 
 	@Override
@@ -336,10 +330,32 @@ public class TileEntitySeedReprocessor extends TileEntityUtil implements ISidedI
 	}
 
 	public int getTimeLeft() {
-		return time_left;
+		return time_left; 
 	}
 
 	public void setTimeLeft(int time_left) {
 		this.time_left = time_left;
 	}
+
+	@Override
+	public boolean isEmpty() {
+		return false;
+	}
+	
+    net.minecraftforge.items.IItemHandler handlerTop = new net.minecraftforge.items.wrapper.SidedInvWrapper(this, net.minecraft.util.EnumFacing.UP);
+    net.minecraftforge.items.IItemHandler handlerBottom = new net.minecraftforge.items.wrapper.SidedInvWrapper(this, net.minecraft.util.EnumFacing.DOWN);
+    net.minecraftforge.items.IItemHandler handlerSide = new net.minecraftforge.items.wrapper.SidedInvWrapper(this, net.minecraft.util.EnumFacing.WEST);
+
+    @SuppressWarnings("unchecked")
+    @Override
+    public <T> T getCapability(net.minecraftforge.common.capabilities.Capability<T> capability, net.minecraft.util.EnumFacing facing){
+        if(facing != null && capability == net.minecraftforge.items.CapabilityItemHandler.ITEM_HANDLER_CAPABILITY)
+            if(facing == EnumFacing.DOWN)
+                return (T) handlerBottom;
+            else if (facing == EnumFacing.UP)
+                return (T) handlerTop;
+            else
+                return (T) handlerSide;
+        return super.getCapability(capability, facing);
+    }
 }

@@ -2,13 +2,7 @@ package com.blakebr0.mysticalagriculture.lib;
 
 import com.blakebr0.mysticalagriculture.util.ModChecker;
 
-import net.minecraft.block.Block;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraftforge.fml.common.Loader;
-import net.minecraftforge.fml.common.registry.GameRegistry;
-import net.minecraftforge.fml.common.registry.GameRegistry.ItemStackHolder;
-import net.minecraftforge.oredict.OreDictionary;
 
 public class Parts {
 		
@@ -25,13 +19,14 @@ public class Parts {
 	public static Item itemAEMaterial;
 	public static Item itemGCPMars;
 	public static Item itemIC2MiscResource;
+	public static Item itemIC2Nuclear;
 	public static Item itemAstralCrafting;
 	public static Item itemAstralOre;
 	public static Item itemAstralRockCrystal;
 	
 	public static void getParts(){
 		
-	    if(ModChecker.TINKERS){
+	    if(ModChecker.TINKERS_CONSTRUCT){
 	        try {
 	            Item item = getItem("tconstruct:ingots");
 	            itemTinkersIngots = item;
@@ -74,28 +69,28 @@ public class Parts {
 	    
 	    if(ModChecker.CHISEL){
 	        try {
-	            Item item = getItem("chisel:marbleextra");
+	            Item item = getItem("chisel:marble2");
 	            itemChiselMarble = item;
 	        } catch(Throwable e){
 	            e.printStackTrace();
 	        }
 	        
 	        try {
-	            Item item = getItem("chisel:limestoneextra");
+	            Item item = getItem("chisel:limestone2");
 	            itemChiselLimestone = item;
 	        } catch(Throwable e){
 	            e.printStackTrace();
 	        }
 	        
 	        try {
-	            Item item = getItem("chisel:basaltextra");
+	            Item item = getItem("chisel:basalt2");
 	            itemChiselBasalt = item;
 	        } catch(Throwable e){
 	            e.printStackTrace();
 	        }
 	    }
 	    
-	    if(ModChecker.BOP){
+	    if(ModChecker.BIOMES_O_PLENTY){
 	    	try {
 	    		Item item = getItem("biomesoplenty:gem");
 	    		itemBOPGems = item;
@@ -104,7 +99,7 @@ public class Parts {
 	    	}
 	    }
 	    
-	    if(ModChecker.RS){
+	    if(ModChecker.REFINED_STORAGE){
 	        try {
 	            Item item = getItem("refinedstorage:quartz_enriched_iron");
 	            itemRSIngot = item;
@@ -113,7 +108,7 @@ public class Parts {
 	        }
 	    }
 	    
-	    if(ModChecker.AE2){
+	    if(ModChecker.APPLIED_ENERGISTICS_2){
 	        try {
 	            Item item = getItem("appliedenergistics2:material");
 	            itemAEMaterial = item;
@@ -122,7 +117,7 @@ public class Parts {
 	        }
 	    }
 	    
-	    if(ModChecker.GALACTICRAFTPLANETS){
+	    if(ModChecker.GALACTICRAFT_PLANETS){
 	    	try {
 	    		Item item = getItem("galacticraftplanets:item_basic_mars");
 	    		itemGCPMars = item;
@@ -133,14 +128,21 @@ public class Parts {
 	    
 	    if(ModChecker.IC2){
 	    	try {
-	    		Item item = getItem("IC2:misc_resource");
+	    		Item item = getItem("ic2:misc_resource");
 	    		itemIC2MiscResource = item;
+	    	} catch(Throwable e){
+	    		e.printStackTrace();
+	    	}
+	    	
+	    	try {
+	    		Item item = getItem("ic2:nuclear");
+	    		itemIC2Nuclear = item;
 	    	} catch(Throwable e){
 	    		e.printStackTrace();
 	    	}
 	    }
 	    
-	    if(ModChecker.ASTRAL){
+	    if(ModChecker.ASTRAL_SORCERY){
 	    	try {
 	    		Item item = getItem("astralsorcery:ItemCraftingComponent");
 	    		itemAstralCrafting = item;

@@ -1,7 +1,5 @@
 package com.blakebr0.mysticalagriculture.gui;
 
-import javax.annotation.Nullable;
-
 import com.blakebr0.mysticalagriculture.crafting.ReprocessorManager;
 import com.blakebr0.mysticalagriculture.tileentity.TileEntitySeedReprocessor;
 
@@ -9,7 +7,6 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Container;
 import net.minecraft.inventory.Slot;
-import net.minecraft.inventory.SlotFurnaceOutput;
 import net.minecraft.item.ItemStack;
 
 public class ContainerSeedReprocessor extends Container {
@@ -40,12 +37,11 @@ public class ContainerSeedReprocessor extends Container {
     }
 
     public boolean canInteractWith(EntityPlayer player){
-        return this.reprocessor.isUseableByPlayer(player);
+        return this.reprocessor.isUsableByPlayer(player);
     }
 
-    @Override
     public ItemStack transferStackInSlot(EntityPlayer player, int slotNumber){
-        ItemStack itemstack = null;
+        ItemStack itemstack = ItemStack.EMPTY;
         Slot slot = (Slot)this.inventorySlots.get(slotNumber);
 
         if(slot != null && slot.getHasStack()){
@@ -54,41 +50,39 @@ public class ContainerSeedReprocessor extends Container {
 
             if(slotNumber == 1){
                 if(!this.mergeItemStack(itemstack1, 2, 38, false)){
-                    return null;
+                    return ItemStack.EMPTY;
                 }
                 slot.onSlotChange(itemstack1, itemstack);
-            
             } else if(slotNumber != 0){
-                if(ReprocessorManager.getOutput(itemstack1) != null){
+                if(!ReprocessorManager.getOutput(itemstack1).isEmpty()){
                     if(!this.mergeItemStack(itemstack1, 0, 1, false)){
-                        return null;
+                        return ItemStack.EMPTY;
                     }
                 } else if(slotNumber >= 2 && slotNumber < 29){
-                    if (!this.mergeItemStack(itemstack1, 29, 38, false)){
-                        return null;
+                    if(!this.mergeItemStack(itemstack1, 29, 38, false)){
+                        return ItemStack.EMPTY;
                     }
-                } else if(slotNumber >= 29 && slotNumber < 38){
-                    if (!this.mergeItemStack(itemstack1, 2, 29, false)){
-                        return null;
-                    }
-                }           
+                }
+                else if(slotNumber >= 29 && slotNumber < 38){
+                	if(!this.mergeItemStack(itemstack1, 2, 29, false)){
+                        return ItemStack.EMPTY;
+                	}
+                }
             } else if(!this.mergeItemStack(itemstack1, 2, 38, false)){
-                return null;
+                return ItemStack.EMPTY;
             }
 
-            if(itemstack1.stackSize == 0){
-                slot.putStack(null);
+            if(itemstack1.getCount() == 0){
+                slot.putStack(ItemStack.EMPTY);
             } else {
                 slot.onSlotChanged();
             }
 
-            if(itemstack1.stackSize == itemstack.stackSize){
-                return null;
+            if(itemstack1.getCount() == itemstack.getCount()){
+                return ItemStack.EMPTY;
             }
-
-            slot.onPickupFromSlot(player, itemstack1);
+            slot.onTake(player, itemstack1);
         }
-
         return itemstack;
     }
 }
