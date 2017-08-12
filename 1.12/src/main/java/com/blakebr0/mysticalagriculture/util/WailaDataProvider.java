@@ -24,6 +24,9 @@ public class WailaDataProvider implements IWailaDataProvider {
 		Block block = accessor.getBlock();
 		if(block instanceof BlockMysticalCrop){
 			BlockMysticalCrop crop = (BlockMysticalCrop)block;
+			if(crop.getSeed() instanceof ItemSeed){
+				ItemSeed seed = (ItemSeed)crop.getSeed();
+				currenttip.add(Tooltips.TIER.substring(0, 4) + " : " + MystUtils.getColorFromMeta(seed.getTier() - 1) + seed.getTier());
 			}
 		}
 		return currenttip;
