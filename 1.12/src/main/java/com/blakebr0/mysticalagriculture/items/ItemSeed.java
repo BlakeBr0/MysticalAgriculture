@@ -20,7 +20,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 public class ItemSeed extends ItemSeeds {
 	
 	private Block crops;
-	public int tier;
+	private int tier;
 	
 	public ItemSeed(String name, Block crops, int tier){
 		super(crops, Blocks.FARMLAND);
@@ -28,6 +28,10 @@ public class ItemSeed extends ItemSeeds {
 		this.setCreativeTab(MysticalAgriculture.tabMysticalAgriculture);
         this.crops = crops;
         this.tier = tier;
+	}
+	
+	public int getTier(){
+		return this.tier;
 	}
 		
 	@Override

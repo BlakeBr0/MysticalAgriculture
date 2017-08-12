@@ -26,6 +26,7 @@ import com.blakebr0.mysticalagriculture.world.OreGeneration;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLInterModComms;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
@@ -58,7 +59,7 @@ public class CommonProxy {
 	}
 	
 	public void init(FMLInitializationEvent e){
-		//FMLInterModComms.sendMessage("waila", "register", "com.blakebr0.mysticalagriculture.util.WailaDataProvider.callbackRegister");
+		FMLInterModComms.sendMessage("waila", "register", "com.blakebr0.mysticalagriculture.util.WailaDataProvider.callbackRegister");
 		
 		ModTileEntities.initTileEntities();
 

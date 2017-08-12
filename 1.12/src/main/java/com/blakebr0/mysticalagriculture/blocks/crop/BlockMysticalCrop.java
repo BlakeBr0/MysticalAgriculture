@@ -72,7 +72,7 @@ public class BlockMysticalCrop extends BlockCrops {
     }
 
     @Override
-    protected Item getSeed(){
+    public Item getSeed(){
     	return this.seed;
     }
     
@@ -82,7 +82,7 @@ public class BlockMysticalCrop extends BlockCrops {
     }
     
     @Override
-    protected Item getCrop() {
+    public Item getCrop() {
     	return this.crop;
     }
     

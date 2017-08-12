@@ -1,10 +1,11 @@
 package com.blakebr0.mysticalagriculture.world;
 
 import java.util.Random;
-import com.google.common.base.Predicate;
+
 import com.blakebr0.cucumber.util.Utils;
 import com.blakebr0.mysticalagriculture.blocks.ModBlocks;
 import com.blakebr0.mysticalagriculture.config.ModConfig;
+import com.google.common.base.Predicate;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
