@@ -1,5 +1,8 @@
 package com.blakebr0.mysticalagriculture.crafting;
 
+import com.blakebr0.cucumber.helper.StackHelper;
+import com.blakebr0.cucumber.iface.IRepairMaterial;
+import com.blakebr0.mysticalagriculture.items.ModItems;
 import com.blakebr0.mysticalagriculture.items.armor.ArmorType;
 import com.blakebr0.mysticalagriculture.items.tools.ToolType;
 import com.blakebr0.mysticalagriculture.util.NBTHelper;
@@ -10,6 +13,7 @@ import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 import net.minecraftforge.oredict.ShapedOreRecipe;
 
@@ -22,7 +26,7 @@ public class UpgradeRecipe extends ShapedOreRecipe {
     public UpgradeRecipe(ItemStack result, int type, Object... recipe){
 		super(new ResourceLocation("", ""), result, recipe);
 		this.resultItem = result.getItem();
-		this.resultMeta = result.getMetadata();
+		this.resultMeta = result.getItemDamage();
 		this.type = type;
 		this.setMirrored(false);
 	}
@@ -30,7 +34,19 @@ public class UpgradeRecipe extends ShapedOreRecipe {
     @Override
     public ItemStack getCraftingResult(InventoryCrafting inventoryCrafting){        
         ItemStack result = new ItemStack((Item)this.resultItem, 1, this.resultMeta);
-        NBTTagCompound tag = NBTHelper.getDataMap(result);
+        NBTTagCompound tag = new NBTTagCompound();
+        ItemStack slotStack;
+        for(int i = 0; i < inventoryCrafting.getSizeInventory(); i++){
+            slotStack = inventoryCrafting.getStackInSlot(i);
+            if(!StackHelper.isNull(slotStack) && slotStack.getItem() != null){
+            	if(slotStack.getItem() == result.getItem()){
+            		tag = NBTHelper.getDataMap(slotStack).copy();
+            		int newDamage = MathHelper.clamp(slotStack.getItemDamage(), 0, result.getMaxDamage());
+            		result.setItemDamage(newDamage);
+            		break;
+            	}
+            }
+        }
         if(this.resultItem instanceof ItemArmor){
         	tag.setInteger(ArmorType.ARMOR_TYPE, type);
         } else {

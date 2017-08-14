@@ -122,7 +122,7 @@ public class ModRecipes {
 				"ACE", 
 				"PEP", 
 				"EPE",
-				'A', output,
+				'A', new ItemStack(output.getItem(), 1, OreDictionary.WILDCARD_VALUE),
 				'C', input,
 				'E', ModItems.itemCrafting.itemSupremiumEssence,
 				'P', ModItems.itemCrafting.itemProsperityShard);
