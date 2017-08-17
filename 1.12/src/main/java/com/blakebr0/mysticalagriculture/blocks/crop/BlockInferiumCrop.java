@@ -18,13 +18,13 @@ public class BlockInferiumCrop extends BlockMysticalCrop {
 	
 	private int tier;
     
-    public BlockInferiumCrop(String name, int tier){
+    public BlockInferiumCrop(String name, int tier) {
     	super(name);
         this.tier = tier;
     }
     
     @Override
-    protected Item getCrop() {
+	public Item getCrop() {
     	return ModItems.itemCrafting;
     }
     
@@ -63,7 +63,7 @@ public class BlockInferiumCrop extends BlockMysticalCrop {
         }
 
         drops.add(new ItemStack(this.getSeed(), seeds, 0));
-        if(essence > 0){ drops.add(new ItemStack(this.getCrop(), essence, 0)); }
+        if(essence > 0) { drops.add(new ItemStack(this.getCrop(), essence, 0)); }
         return drops;
     }
 }

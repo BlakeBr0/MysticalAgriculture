@@ -122,7 +122,7 @@ public class ItemWateringCan extends ItemMeta implements IEnableable {
 	        	for(BlockPos aoePos : blocks){
 	        		Block plant = world.getBlockState(aoePos).getBlock();	        		
 	        		if(plant instanceof IGrowable || plant instanceof IPlantable || plant == Blocks.MYCELIUM || plant == Blocks.CHORUS_FLOWER){
-	        			world.scheduleBlockUpdate(aoePos, plant, 0, 1);
+	        			world.scheduleBlockUpdate(aoePos, plant, 0, 100);
 	        		}
 	        	}
 	        	return EnumActionResult.FAIL;
