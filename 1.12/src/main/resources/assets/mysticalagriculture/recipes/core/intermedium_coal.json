@@ -1,0 +1,22 @@
+{
+  "type": "forge:ore_shapeless",
+  "ingredients": [
+    {
+      "item": "mysticalagriculture:coal",
+      "data": 1
+    },
+    {
+      "item": "mysticalagriculture:crafting",
+      "data": 2
+    },
+    {
+      "item": "mysticalagriculture:crafting",
+      "data": 2
+    }
+  ],
+  "result": {
+    "item": "mysticalagriculture:coal",
+	"count": 1,
+    "data": 2
+  }
+}
