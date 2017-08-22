@@ -67,7 +67,7 @@ public class EssenceConfig {
 	public static int obsidian;
 	public static int gold;
 	public static int lapis;
-	public static int experienceBottle;
+	public static int experienceDroplet;
 	public static int diamond;
 	public static int emerald;
 	
@@ -282,7 +282,7 @@ public class EssenceConfig {
 		obsidian = config.get(category, "obsidian", 12).getInt();
 		gold = config.get(category, "gold", 4).getInt();
 		lapis = config.get(category, "lapis", 12).getInt();
-		experienceBottle = config.get(category, "experience_bottle", 12).getInt();
+		experienceDroplet = config.get(category, "experience_droplet", 8).getInt();
 		diamond = config.get(category, "diamond", 1).getInt();
 		emerald = config.get(category, "emerald", 1).getInt();
 	

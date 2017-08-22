@@ -128,7 +128,7 @@ public class EssenceRecipes {
 		addEssenceRecipe(new ItemStack(Blocks.PURPUR_BLOCK, EssenceConfig.purpurBlock, 0), " E ", "E E", " E ", 'E', new ItemStack(type.END.getCrop(), 1, 0));
 	    addEssenceRecipe(new ItemStack(Items.CHORUS_FRUIT, EssenceConfig.chorusFruit, 0), "ENE", "   ", "   ", 'E', new ItemStack(type.END.getCrop(), 1, 0), 'N', new ItemStack(type.NATURE.getCrop(), 1, 0));
 
-	    addEssenceRecipe(new ItemStack(ModItems.itemExperienceDroplet, EssenceConfig.experienceBottle, 0), "EEE", "E E", "EEE", 'E', new ItemStack(type.EXPERIENCE.getCrop(), 1, 0));
+	    addEssenceRecipe(new ItemStack(ModItems.itemExperienceDroplet, EssenceConfig.experienceDroplet, 0), "EEE", "E E", "EEE", 'E', new ItemStack(type.EXPERIENCE.getCrop(), 1, 0));
 
 	    addEssenceRecipe(new ItemStack(Items.DIAMOND, EssenceConfig.diamond, 0), "EEE", "EEE", "EEE", 'E', new ItemStack(type.DIAMOND.getCrop(), 1, 0));
 
