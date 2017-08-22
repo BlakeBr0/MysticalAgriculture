@@ -1,0 +1,26 @@
+{
+  "type": "forge:ore_shaped",
+  "pattern": [
+	"IOI",
+	"ODO",
+	"IOI"
+  ],
+  "key": {
+    "I": {
+      "type": "forge:ore_dict",
+      "ore": "ingotIron"
+    },
+	"O": {
+      "type": "forge:ore_dict",
+      "ore": "obsidian"
+    },
+	"D": {
+      "type": "forge:ore_dict",
+      "ore": "gemDiamond"
+    }
+  },
+  "result": {
+    "item": "mysticalagriculture:core_remover",
+	"data": 0
+  }
+}

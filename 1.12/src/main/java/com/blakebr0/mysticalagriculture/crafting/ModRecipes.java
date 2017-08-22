@@ -140,20 +140,6 @@ public class ModRecipes {
 	}
 	
 	public static void initRecipes(){
-	    	    	    	    
-		addShapelessRecipe(new ItemStack(ModItems.itemCrafting, 4, 0), ModItems.itemCrafting.itemPrudentiumEssence);
-		addShapelessRecipe(new ItemStack(ModItems.itemCrafting, 4, 1), ModItems.itemCrafting.itemIntermediumEssence);
-		addShapelessRecipe(new ItemStack(ModItems.itemCrafting, 4, 2), ModItems.itemCrafting.itemSuperiumEssence);
-		addShapelessRecipe(new ItemStack(ModItems.itemCrafting, 4, 3), ModItems.itemCrafting.itemSupremiumEssence);
-				  
-	    addShapedRecipe(new ItemStack(ModItems.itemCoreRemover, 1, 0), "IOI", "ODO", "IOI", 'I', "ingotIron", 'O', new ItemStack(Blocks.OBSIDIAN, 1, 0), 'D', "gemDiamond");
-		
-	    if(ModConfig.confMysticalFertilizer){
-	    	addShapedRecipe(new ItemStack(ModItems.itemMysticalFertilizer, 3, 0), "SES", "EDE", "SES", 'E', ModItems.itemCrafting.itemInferiumEssence, 'D', "gemDiamond", 'S', new ItemStack(Items.DYE, 1, 15));	
-	    	if(ModConfig.confFertilizedEssence){
-	    		addShapedRecipe(new ItemStack(ModItems.itemMysticalFertilizer, 6, 0), "SES", "EDE", "SES", 'E', ModItems.itemCrafting.itemInferiumEssence, 'D', "gemDiamond", 'S', new ItemStack(ModItems.itemFertilizedEssence, 1, 0));	
-	    	}
-	    }
 	    
 		if(type.NATURE.isEnabled()){ addShapelessRecipe(new ItemStack(ModItems.itemCrafting, 1, 6), new ItemStack(Blocks.CACTUS, 1, 0), new ItemStack(Blocks.PUMPKIN, 1, 0), new ItemStack(Items.REEDS, 1, 0), new ItemStack(Items.WHEAT, 1, 0)); }
 		if(type.DYE.isEnabled()){ addShapelessRecipe(new ItemStack(ModItems.itemCrafting, 1, 7), new ItemStack(Items.DYE, 1, 0), new ItemStack(Items.DYE, 1, 14), new ItemStack(Items.DYE, 1, 6), new ItemStack(Items.DYE, 1, 13)); }
