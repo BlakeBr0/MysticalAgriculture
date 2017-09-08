@@ -18,7 +18,7 @@ public class MysticalAgriculture {
 	
 	public static final String MOD_ID = "mysticalagriculture";
 	public static final String NAME = "Mystical Agriculture";
-	public static final String VERSION = "1.6.3";
+	public static final String VERSION = "${version}";
 	public static final String DEPENDENCIES = "required-after:cucumber@[1.0.0,)";
 	public static final String GUI_FACTORY = "com.blakebr0.mysticalagriculture.config.GuiFactory";
 	
