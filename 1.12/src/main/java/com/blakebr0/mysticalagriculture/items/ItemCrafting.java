@@ -85,7 +85,7 @@ public class ItemCrafting extends ItemMeta {
 		itemDyeCluster = addItem(7, "dye_cluster", CropType.Type.DYE.isEnabled());
 		itemNetherCluster = addItem(8, "nether_cluster", CropType.Type.NETHER.isEnabled());
 		itemEndCluster = addItem(9, "end_cluster", CropType.Type.END.isEnabled());
-		itemMysticalFlowerCluster = addItem(10, "mystical_flower", CropType.Type.MYSTICAL_FLOWER.isEnabled());
+		itemMysticalFlowerCluster = addItem(10, "mystical_flower_cluster", CropType.Type.MYSTICAL_FLOWER.isEnabled());
 		
 		itemBlankRecord = addItem(14, "blank_record");
 		itemBlankSkull = addItem(15, "blank_skull");
