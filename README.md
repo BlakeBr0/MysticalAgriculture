@@ -1,4 +1,4 @@
 # MysticalAgriculture
-Adds Resource Crops, Armor, Tools, and other cool things
+Adds Resource Crops, Armor, Tools, and other cool things.
 
-All Rights Reserved
+All Rights Reserved.
