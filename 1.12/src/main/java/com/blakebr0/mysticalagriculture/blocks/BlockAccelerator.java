@@ -49,7 +49,7 @@ public class BlockAccelerator extends BlockBase implements IEnableable {
 	}
 
 	private void growCropsNearby(World world, BlockPos pos, IBlockState state){
-		Iterable<BlockPos> blocks = BlockPos.getAllInBox(pos.add(0, 0, 0), pos.add(0, 64, 0));
+		Iterable<BlockPos> blocks = BlockPos.getAllInBox(pos.add(0, 1, 0), pos.add(0, 64, 0));
 		for(BlockPos aoePos : blocks){
 			IBlockState cropState = world.getBlockState(new BlockPos(aoePos));
 			Block cropBlock = cropState.getBlock();
