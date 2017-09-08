@@ -1,5 +1,7 @@
 package com.blakebr0.mysticalagriculture.tileentity;
 
+import javax.annotation.Nonnull;
+
 import com.blakebr0.mysticalagriculture.crafting.ReprocessorManager;
 import com.blakebr0.mysticalagriculture.util.TileEntityUtil;
 import com.blakebr0.mysticalagriculture.util.VanillaPacketDispatcher;
@@ -10,8 +12,11 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.ITickable;
+import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.capabilities.ICapabilityProvider;
-// TODO: cleanup
+import net.minecraftforge.items.CapabilityItemHandler;
+import net.minecraftforge.items.wrapper.SidedInvWrapper;
+// TODO: I am genuinely curious how the fuck this class happened
 public class TileEntitySeedReprocessor extends TileEntityUtil implements ISidedInventory, ITickable, ICapabilityProvider {
 	
     private ItemStack input = ItemStack.EMPTY, processing = ItemStack.EMPTY, output = ItemStack.EMPTY;
@@ -315,18 +320,19 @@ public class TileEntitySeedReprocessor extends TileEntityUtil implements ISidedI
 		return false;
 	}
 
-    public int[] getSlotsForFace(EnumFacing side){
-        return side == EnumFacing.DOWN ? sides : (side == EnumFacing.UP ? top : sides);
-    }
+	@Override
+	public int[] getSlotsForFace(EnumFacing side) {
+		return side == EnumFacing.UP ? new int[] { 0 } : side == EnumFacing.DOWN ? new int[] { 1 } : new int[] { 0, 1 };
+	}
 
 	@Override
 	public boolean canInsertItem(int index, ItemStack itemStackIn, EnumFacing direction) {
-		return true;
+		return this.isItemValidForSlot(index, itemStackIn);
 	}
 
 	@Override
 	public boolean canExtractItem(int index, ItemStack stack, EnumFacing direction) {
-		return true;
+		return index == 1;
 	}
 
 	public int getTimeLeft() {
@@ -342,20 +348,16 @@ public class TileEntitySeedReprocessor extends TileEntityUtil implements ISidedI
 		return false;
 	}
 	
-    net.minecraftforge.items.IItemHandler handlerTop = new net.minecraftforge.items.wrapper.SidedInvWrapper(this, net.minecraft.util.EnumFacing.UP);
-    net.minecraftforge.items.IItemHandler handlerBottom = new net.minecraftforge.items.wrapper.SidedInvWrapper(this, net.minecraft.util.EnumFacing.DOWN);
-    net.minecraftforge.items.IItemHandler handlerSide = new net.minecraftforge.items.wrapper.SidedInvWrapper(this, net.minecraft.util.EnumFacing.WEST);
-
-    @SuppressWarnings("unchecked")
+	@Override
+	public boolean hasCapability(Capability<?> capability, EnumFacing side) {
+		return this.getCapability(capability, side) != null;
+	}
+	
     @Override
-    public <T> T getCapability(net.minecraftforge.common.capabilities.Capability<T> capability, net.minecraft.util.EnumFacing facing){
-        if(facing != null && capability == net.minecraftforge.items.CapabilityItemHandler.ITEM_HANDLER_CAPABILITY)
-            if(facing == EnumFacing.DOWN)
-                return (T) handlerBottom;
-            else if (facing == EnumFacing.UP)
-                return (T) handlerTop;
-            else
-                return (T) handlerSide;
+    public <T> T getCapability(Capability<T> capability, net.minecraft.util.EnumFacing facing) {
+        if(capability == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY) {
+        	return (T) new SidedInvWrapper(this, facing);
+        }
         return super.getCapability(capability, facing);
     }
 }
