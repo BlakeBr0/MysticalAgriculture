@@ -95,7 +95,7 @@ public class ItemIntermediumArmor extends ItemArmor implements IRepairMaterial {
     			Boolean hasSet = ItemIntermediumArmor.isFullSet(player);
     			if(playersWithSet.contains(key) && ModConfig.confSetBonuses){
     				if(hasSet){
-    					player.stepHeight = 1.0F;
+    					player.stepHeight = 1.0625F;
     				} else {
     					player.stepHeight = 0.5F;
     					playersWithSet.remove(key);

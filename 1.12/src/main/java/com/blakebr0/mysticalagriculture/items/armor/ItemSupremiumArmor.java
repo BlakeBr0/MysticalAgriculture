@@ -137,7 +137,7 @@ public class ItemSupremiumArmor extends ItemArmor implements IRepairMaterial {
     						player.capabilities.allowFlying = true;
     					}
     					if(ModConfig.confSetBonuses){
-        					player.stepHeight = 1.0F;
+        					player.stepHeight = 1.0625F;
     						boolean flying = player.capabilities.isFlying;
     						if(flying){ 
     							boolean sneaking = player.isSneaking();
