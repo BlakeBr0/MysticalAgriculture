@@ -178,6 +178,11 @@ public class EssenceConfig {
 	
 	public static int apatite;
 	
+	public static int steelleaf;
+	public static int ironwood;
+	public static int knightmetal;
+	public static int fieryIngot;
+	
 	public static int meteoricIron;
 	public static int desh;
 	
@@ -405,6 +410,12 @@ public class EssenceConfig {
 		
 		category = "Forestry";
 		apatite = config.get(category, "apatite", 8).getInt();
+		
+		category = "Twilight Forest";
+		steelleaf = config.get(category, "steelleaf", 5).getInt();
+		ironwood = config.get(category, "ironwood", 5).getInt();
+		knightmetal = config.get(category, "knightmetal", 4).getInt();
+		fieryIngot = config.get(category, "fiery_ingot", 3).getInt();
 		
 		category = "Galacticraft";
 		meteoricIron = config.get(category, "meteoric_iron", 3).getInt();

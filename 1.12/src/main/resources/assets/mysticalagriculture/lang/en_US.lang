@@ -218,6 +218,11 @@ tile.ma.basalt_crop.name=Basalt Crop
 
 tile.ma.apatite_crop.name=Apatite Crop
 
+tile.ma.steelleaf_crop.name=Steelleaf Crop
+tile.ma.ironwood_crop.name=Ironwood Crop
+tile.ma.knightmetal_crop.name=Knightmetal Crop
+tile.ma.fiery_ingot_crop.name=Fiery Ingot Crop
+
 tile.ma.meteoric_iron_crop.name=Meteoric Iron Crop
 tile.ma.desh_crop.name=Desh Crop
 
@@ -476,6 +481,11 @@ item.ma.basalt_essence.name=Basalt Essence
 
 item.ma.apatite_essence.name=Apatite Essence
 
+item.ma.steelleaf_essence.name=Steelleaf Essence
+item.ma.ironwood_essence.name=Ironwood Essence
+item.ma.knightmetal_essence.name=Knightmetal Essence
+item.ma.fiery_ingot_essence.name=Fiery Ingot Essence
+
 item.ma.meteoric_iron_essence.name=Meteoric Iron Essence
 item.ma.desh_essence.name=Desh Essence
 
@@ -626,6 +636,11 @@ item.ma.limestone_seeds.name=Limestone Seeds
 item.ma.basalt_seeds.name=Basalt Seeds
 
 item.ma.apatite_seeds.name=Apatite Seeds
+
+item.ma.steelleaf_seeds.name=Steelleaf Seeds
+item.ma.ironwood_seeds.name=Ironwood Seeds
+item.ma.knightmetal_seeds.name=Knightmetal Seeds
+item.ma.fiery_ingot_seeds.name=Fiery Ingot Seeds
 
 item.ma.meteoric_iron_seeds.name=Meteoric Iron Seeds
 item.ma.desh_seeds.name=Desh Seeds
