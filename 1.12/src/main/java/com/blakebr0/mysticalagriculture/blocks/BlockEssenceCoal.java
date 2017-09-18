@@ -49,12 +49,6 @@ public class BlockEssenceCoal extends BlockBase implements IModelHelper, IEnable
     @Override
     public void init(){
         GameRegistry.registerFuelHandler(new FuelHander());
-        
-        MysticalAgriculture.REGISTRY.addOre(new ItemStack(this, 1, 0), "blockInferiumCoal");
-        MysticalAgriculture.REGISTRY.addOre(new ItemStack(this, 1, 1), "blockPrudentiumCoal");
-        MysticalAgriculture.REGISTRY.addOre(new ItemStack(this, 1, 2), "blockIntermediumCoal");
-        MysticalAgriculture.REGISTRY.addOre(new ItemStack(this, 1, 3), "blockSuperiumCoal");
-        MysticalAgriculture.REGISTRY.addOre(new ItemStack(this, 1, 4), "blockSupremiumCoal");
     }
 
     @Override

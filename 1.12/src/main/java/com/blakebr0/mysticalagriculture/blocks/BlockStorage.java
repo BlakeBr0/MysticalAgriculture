@@ -28,12 +28,7 @@ public class BlockStorage extends BlockBase implements IModelHelper {
 
     @Override
     public void init(){
-    	MysticalAgriculture.REGISTRY.addOre(new ItemStack(this, 1, 0), "blockInferiumEssence");
-    	MysticalAgriculture.REGISTRY.addOre(new ItemStack(this, 1, 1), "blockPrudentiumEssence");
-    	MysticalAgriculture.REGISTRY.addOre(new ItemStack(this, 1, 2), "blockIntermediumEssence");
-    	MysticalAgriculture.REGISTRY.addOre(new ItemStack(this, 1, 3), "blockSuperiumEssence");
-    	MysticalAgriculture.REGISTRY.addOre(new ItemStack(this, 1, 4), "blockSupremiumEssence");
-    	MysticalAgriculture.REGISTRY.addOre(new ItemStack(this, 1, 5), "blockProsperity");
+
     }
 
     @Override

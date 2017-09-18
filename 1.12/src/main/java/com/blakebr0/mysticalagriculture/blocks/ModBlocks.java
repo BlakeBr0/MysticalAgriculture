@@ -1,6 +1,7 @@
 package com.blakebr0.mysticalagriculture.blocks;
 
 import com.blakebr0.cucumber.registry.ModRegistry;
+import com.blakebr0.cucumber.registry.Ore;
 import com.blakebr0.mysticalagriculture.MysticalAgriculture;
 import com.blakebr0.mysticalagriculture.blocks.crop.BlockInferiumCrop;
 import com.blakebr0.mysticalagriculture.blocks.furnace.BlockInferiumFurnace;
@@ -90,10 +91,16 @@ public class ModBlocks {
 		
 	public static void init(){
 		final ModRegistry registry = MysticalAgriculture.REGISTRY;
-		
-		registry.register(blockStorage, "storage", new ItemBlockStorage(blockStorage));
-		registry.register(blockIngotStorage, "ingot_storage", new ItemBlockIngotStorage(blockIngotStorage));
-		registry.register(blockEssenceCoal, "coal_block", new ItemBlockEssenceCoal(blockEssenceCoal));
+    	
+		registry.register(blockStorage, "storage", new ItemBlockStorage(blockStorage),
+				Ore.of(0, "blockBaseEssence"), Ore.of(1, "blockInferium"), Ore.of(2, "blockPrudentium"), Ore.of(3, "blockIntermedium"), 
+				Ore.of(4, "blockSuperium"), Ore.of(5, "blockSuperium"), Ore.of(6, "blockSoulium"));
+		registry.register(blockIngotStorage, "ingot_storage", new ItemBlockIngotStorage(blockIngotStorage),
+				Ore.of(0, "blockInferiumEssence"), Ore.of(1, "blockPrudentiumEssence"), Ore.of(2, "blockIntermediumEssence"),
+				Ore.of(3, "blockSuperiumEssence"), Ore.of(4, "blockSupremiumEssence"), Ore.of(5, "blockProsperity"));
+		registry.register(blockEssenceCoal, "coal_block", new ItemBlockEssenceCoal(blockEssenceCoal),
+				Ore.of(0, "blockInferiumCoal"), Ore.of(1, "blockPrudentiumCoal"), Ore.of(2, "blockIntermediumCoal"),
+				Ore.of(3, "blockSuperiumCoal"), Ore.of(4, "blockSupremiumCoal"));
 		
 		registry.register(blockSoulstone, "soulstone", new ItemBlockSoulstone(blockSoulstone));
 		registry.register(blockSoulstoneSlab, "soulstone_slab", false);
