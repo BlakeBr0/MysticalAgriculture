@@ -35,6 +35,7 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
+import net.minecraft.util.NonNullList;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.text.TextFormatting;
@@ -127,9 +128,10 @@ public class ItemEssenceScythe extends ItemBase implements IRepairMaterial {
 				BlockCrops crop = (BlockCrops)block;
 				if(crop.isMaxAge(state) && getSeed(crop) != null){
 					int fortune = EnchantmentHelper.getEnchantmentLevel(Enchantments.FORTUNE, stack);
-					List<ItemStack> drops = crop.getDrops(world, aoePos, state, fortune);
+					NonNullList<ItemStack> drops = NonNullList.create();
+					crop.getDrops(drops, world, aoePos, state, fortune);
 					for(ItemStack drop : drops){
-						if(drop != null && drop.getItem() == getSeed(crop)){
+						if(!drop.isEmpty() && drop.getItem() == getSeed(crop)){
 							drop.shrink(1);;
 							if(drop.getCount() <= 0){
 								drops.remove(drop);
