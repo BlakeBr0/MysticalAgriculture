@@ -2,6 +2,7 @@ package com.blakebr0.mysticalagriculture.items;
 
 import com.blakebr0.cucumber.item.ItemBase;
 import com.blakebr0.cucumber.util.Utils;
+import com.blakebr0.mysticalagriculture.MysticalAgriculture;
 
 import net.minecraft.entity.item.EntityXPOrb;
 import net.minecraft.entity.player.EntityPlayer;
@@ -15,6 +16,7 @@ public class ItemExperienceDroplet extends ItemBase {
 
 	public ItemExperienceDroplet(){
 		super("ma.xp_droplet");
+		this.setCreativeTab(MysticalAgriculture.tabMysticalAgriculture);
 	}
 
 	@Override
