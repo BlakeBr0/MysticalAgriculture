@@ -7,6 +7,6 @@
 		"age=4": { "model": "mysticalagriculture:crop3" },
 		"age=5": { "model": "mysticalagriculture:crop4" },
 		"age=6": { "model": "mysticalagriculture:crop4" },
-		"age=7": { "model": "mysticalagriculture:steelleaf_crop" }
+		"age=7": { "model": "mysticalagriculture:steeleaf_crop" }
     }
 }

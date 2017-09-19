@@ -178,7 +178,7 @@ public class EssenceConfig {
 	
 	public static int apatite;
 	
-	public static int steelleaf;
+	public static int steeleaf;
 	public static int ironwood;
 	public static int knightmetal;
 	public static int fieryIngot;
@@ -412,7 +412,7 @@ public class EssenceConfig {
 		apatite = config.get(category, "apatite", 8).getInt();
 		
 		category = "Twilight Forest";
-		steelleaf = config.get(category, "steelleaf", 5).getInt();
+		steeleaf = config.get(category, "steeleaf", 5).getInt();
 		ironwood = config.get(category, "ironwood", 5).getInt();
 		knightmetal = config.get(category, "knightmetal", 4).getInt();
 		fieryIngot = config.get(category, "fiery_ingot", 3).getInt();

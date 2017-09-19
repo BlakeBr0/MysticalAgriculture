@@ -272,7 +272,7 @@ public class EssenceRecipes {
 
 	    if(type.APATITE.isEnabled()){ addEssenceRecipe(MystUtils.getItem("gemApatite", EssenceConfig.apatite), "EEE", "   ", "   ", 'E', new ItemStack(type.APATITE.getCrop(), 1, 0)); }    
 
-	    if(type.STEELLEAF.isEnabled()){ addEssenceRecipe(MystUtils.getItem("ingotSteelleaf", EssenceConfig.steelleaf), "EEE", "E E", "EEE", 'E', new ItemStack(type.STEELLEAF.getCrop(), 1, 0)); }
+	    if(type.STEELEAF.isEnabled()){ addEssenceRecipe(MystUtils.getItem("ingotSteeleaf", EssenceConfig.steeleaf), "EEE", "E E", "EEE", 'E', new ItemStack(type.STEELEAF.getCrop(), 1, 0)); }
 	    if(type.IRONWOOD.isEnabled()){ addEssenceRecipe(MystUtils.getItem("ingotIronwood", EssenceConfig.ironwood), "EEE", "E E", "EEE", 'E', new ItemStack(type.IRONWOOD.getCrop(), 1, 0)); }
 	    if(type.KNIGHTMETAL.isEnabled()){ addEssenceRecipe(MystUtils.getItem("ingotKnightmetal", EssenceConfig.knightmetal), "EEE", "E E", "EEE", 'E', new ItemStack(type.KNIGHTMETAL.getCrop(), 1, 0)); }
 	    if(type.FIERY_INGOT.isEnabled()){ addEssenceRecipe(MystUtils.getItem("ingotFiery", EssenceConfig.fieryIngot), "EEE", "E E", "EEE", 'E', new ItemStack(type.FIERY_INGOT.getCrop(), 1, 0)); }

@@ -129,7 +129,7 @@ public class CropType {
 		
 		APATITE("apatite", 2, ModChecker.FORESTRY),
 		
-		STEELLEAF("steelleaf", 3),
+		STEELEAF("steeleaf", 3),
 		IRONWOOD("ironwood", 3),
 		KNIGHTMETAL("knightmetal", 4),
 		FIERY_INGOT("fiery_ingot", 4),

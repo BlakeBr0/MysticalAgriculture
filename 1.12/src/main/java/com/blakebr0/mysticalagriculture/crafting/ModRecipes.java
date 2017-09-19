@@ -469,7 +469,7 @@ public class ModRecipes {
 	    
 	    addSeedRecipe(type.APATITE, "gemApatite");
 	    
-	    addSeedRecipe(type.STEELLEAF, "ingotSteelleaf");
+	    addSeedRecipe(type.STEELEAF, "ingotSteeleaf");
 	    addSeedRecipe(type.IRONWOOD, "ingotIronwood");
 	    addSeedRecipe(type.KNIGHTMETAL, "ingotKnightmetal");
 	    addSeedRecipe(type.FIERY_INGOT, "ingotFiery");
