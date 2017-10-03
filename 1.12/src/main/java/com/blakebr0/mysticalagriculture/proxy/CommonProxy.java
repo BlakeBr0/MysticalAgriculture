@@ -89,14 +89,12 @@ public class CommonProxy {
 //		RecipeSorter.register("mysticalagriculture:charm_recipe", CharmRecipe.class, Category.SHAPELESS, "after:forge:shapelessore");
 		
 		ModRecipes.initRecipes();
-		EssenceRecipes.init();
 		
 	    GameRegistry.registerWorldGenerator(new OreGeneration(), 0);
 	    MinecraftForge.EVENT_BUS.register(new MobDrops());
 	}
 
 	public void postInit(FMLPostInitializationEvent e) {
-
+		EssenceRecipes.init();
 	}
-
 }
