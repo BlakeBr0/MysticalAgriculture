@@ -129,10 +129,10 @@ public class CropType {
 		
 		APATITE("apatite", 2, ModChecker.FORESTRY),
 		
-		STEELEAF("steeleaf", 3),
-		IRONWOOD("ironwood", 3),
-		KNIGHTMETAL("knightmetal", 4),
-		FIERY_INGOT("fiery_ingot", 4),
+		STEELEAF("steeleaf", 3, ModChecker.TWILIGHT_FOREST),
+		IRONWOOD("ironwood", 3, ModChecker.TWILIGHT_FOREST),
+		KNIGHTMETAL("knightmetal", 4, ModChecker.TWILIGHT_FOREST),
+		FIERY_INGOT("fiery_ingot", 4, ModChecker.TWILIGHT_FOREST),
 		
 		METEORIC_IRON("meteoric_iron", 4,  ModChecker.GALACTICRAFT_CORE),
 		DESH("desh", 5, ModChecker.GALACTICRAFT_PLANETS),

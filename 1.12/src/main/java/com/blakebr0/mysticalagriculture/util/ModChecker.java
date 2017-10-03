@@ -31,6 +31,7 @@ public class ModChecker {
 	public static final boolean TECH_REBORN = Loader.isModLoaded("techreborn");
 	public static final boolean SUBSTRATUM = Loader.isModLoaded("substratum");
 	public static final boolean BASE_METALS = Loader.isModLoaded("basemetals");
+	public static final boolean TWILIGHT_FOREST = Loader.isModLoaded("twilightforest");
 	
 	public static final boolean RUBBER = OreDictionary.getOres("itemRubber").size() > 0 || IC2 || TECH_REBORN;
 	public static final boolean SILICON = OreDictionary.getOres("itemSilicon").size() > 0 || ENDERIO || GALACTICRAFT_CORE || APPLIED_ENERGISTICS_2 || REFINED_STORAGE;
