@@ -121,7 +121,7 @@ public class ModConfig {
 		confFertilizedEssenceChance = config.getInt("fertilized_essence_chance", category, 5, 0, 100, "Percentage chance that a Resource Crop will drop a Fertilized Essence when harvested.");
 		confMysticalFertilizer = config.getBoolean("mystical_fertilizer", category, true, "Enable Mystical Fertilizer?");
 		confSeedReprocessor = config.getBoolean("seed_reprocessor", category, true, "Should the Seed Reprocessor be enabled?");
-		confGenericOreDictEssence = config.getBoolean("generic_ore_dict_essence", category, true, "Should the resource essences be added to the OreDictionary as essenceTier1, essenceTier2, etc.?");
+		confGenericOreDictEssence = config.getBoolean("generic_ore_dict_essence", category, true, "Should the resource essences/seeds be added to the OreDictionary as essenceTier1, seedsTier1, etc.?");
 		
 		category = "Seeds";
 		config.addCustomCategoryComment(category, "Enable/Disable seeds individually."
