@@ -324,18 +324,19 @@ public class TileEntitySeedReprocessor extends TileEntityUtil implements ISidedI
 		return false;
 	}
 
-    public int[] getSlotsForFace(EnumFacing side){
-        return side == EnumFacing.DOWN ? sides : (side == EnumFacing.UP ? top : sides);
-    }
+	@Override
+	public int[] getSlotsForFace(EnumFacing side) {
+		return side == EnumFacing.UP ? new int[] { 0 } : side == EnumFacing.DOWN ? new int[] { 1 } : new int[] { 0, 1 };
+	}
 
 	@Override
 	public boolean canInsertItem(int index, ItemStack itemStackIn, EnumFacing direction) {
-		return true;
+		return this.isItemValidForSlot(index, itemStackIn);
 	}
 
 	@Override
 	public boolean canExtractItem(int index, ItemStack stack, EnumFacing direction) {
-		return true;
+		return index == 1;
 	}
 
 	public int getTimeLeft() {
