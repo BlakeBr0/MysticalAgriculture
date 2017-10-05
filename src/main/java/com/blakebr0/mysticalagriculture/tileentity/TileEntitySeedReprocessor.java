@@ -18,6 +18,9 @@ import net.minecraft.network.play.server.SPacketUpdateTileEntity;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.ITickable;
+import net.minecraftforge.common.capabilities.Capability;
+import net.minecraftforge.items.CapabilityItemHandler;
+import net.minecraftforge.items.wrapper.SidedInvWrapper;
 
 public class TileEntitySeedReprocessor extends TileEntityUtil implements ISidedInventory, ITickable {
 	
@@ -342,4 +345,17 @@ public class TileEntitySeedReprocessor extends TileEntityUtil implements ISidedI
 	public void setTimeLeft(int time_left) {
 		this.time_left = time_left;
 	}
+	
+	@Override
+	public boolean hasCapability(Capability<?> capability, EnumFacing side) {
+		return this.getCapability(capability, side) != null;
+	}
+	
+    @Override
+    public <T> T getCapability(Capability<T> capability, net.minecraft.util.EnumFacing facing) {
+        if(capability == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY) {
+        	return (T) new SidedInvWrapper(this, facing);
+        }
+        return super.getCapability(capability, facing);
+    }
 }
