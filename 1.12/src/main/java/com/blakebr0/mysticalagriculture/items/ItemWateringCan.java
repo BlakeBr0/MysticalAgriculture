@@ -82,7 +82,7 @@ public class ItemWateringCan extends ItemMeta implements IEnableable {
 			return EnumActionResult.FAIL;
 	    }
 		
-		if(player instanceof FakePlayer && !ModConfig.confFakePlayerWatering){
+		if(!ModConfig.confFakePlayerWatering && player instanceof FakePlayer){
 			return EnumActionResult.FAIL;
 		}
 		
@@ -120,9 +120,9 @@ public class ItemWateringCan extends ItemMeta implements IEnableable {
 	    	int bonus = 4 * stack.getMetadata();
 	        if(chance <= (40 + bonus)){
 	        	for(BlockPos aoePos : blocks){
-	        		Block plant = world.getBlockState(aoePos).getBlock();	        		
+	        		Block plant = world.getBlockState(aoePos).getBlock();      		
 	        		if(plant instanceof IGrowable || plant instanceof IPlantable || plant == Blocks.MYCELIUM || plant == Blocks.CHORUS_FLOWER){
-	        			world.scheduleBlockUpdate(aoePos, plant, 0, 100);
+	        			world.scheduleBlockUpdate(aoePos, plant, 0, 1000);
 	        		}
 	        	}
 	        	return EnumActionResult.FAIL;
