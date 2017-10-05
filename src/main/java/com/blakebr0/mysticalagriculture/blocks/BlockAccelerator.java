@@ -47,7 +47,6 @@ public class BlockAccelerator extends BlockBase {
 			Block cropBlock = cropState.getBlock();
 			
 			if(cropBlock instanceof IGrowable || cropBlock instanceof IPlantable){
-				world.scheduleBlockUpdate(new BlockPos(aoePos), cropBlock, ModConfig.confGrowthAcceleratorSpeed * 20, 1);
 				cropBlock.updateTick(world, new BlockPos(aoePos), cropState, world.rand);
 			}
 		}	
