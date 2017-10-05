@@ -442,6 +442,7 @@ public class ModItems {
 		for(CropType.Type type : CropType.Type.values()){
 			if(type.isEnabled()){
 				registerItem(type.getSeed());	
+				OreDictionary.registerOre("seedsTier" + type.getTier(), type.getSeed());
 			}
 		}
 		
