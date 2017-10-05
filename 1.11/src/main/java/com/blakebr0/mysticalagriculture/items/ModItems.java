@@ -429,7 +429,9 @@ public class ModItems {
 		for(CropType.Type type : CropType.Type.values()){
 			if(type.isEnabled()){
 				registerItem(type.getCrop());
-				OreDictionary.registerOre("essenceTier" + type.getTier(), type.getCrop());
+				if (ModConfig.confGenericOreDictEssence) {
+					OreDictionary.registerOre("essenceTier" + type.getTier(), type.getCrop());
+				}
 			}
 		}
 
@@ -442,7 +444,9 @@ public class ModItems {
 		for(CropType.Type type : CropType.Type.values()){
 			if(type.isEnabled()){
 				registerItem(type.getSeed());	
-				OreDictionary.registerOre("seedsTier" + type.getTier(), type.getSeed());
+				if (ModConfig.confGenericOreDictEssence) {
+					OreDictionary.registerOre("seedsTier" + type.getTier(), type.getSeed());
+				}
 			}
 		}
 		
