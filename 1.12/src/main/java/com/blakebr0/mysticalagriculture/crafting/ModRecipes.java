@@ -497,6 +497,7 @@ public class ModRecipes {
 
 	    addSeedRecipe(type.YELLORIUM, "ingotYellorium");
 
+	    addSeedRecipe(type.SKY_STONE, new ItemStack(Parts.itemAESkyStone, 1, 0));
 	    addSeedRecipe(type.CERTUS_QUARTZ, "crystalCertusQuartz");
 	    addSeedRecipe(type.FLUIX, "crystalFluix");
 	    

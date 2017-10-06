@@ -17,6 +17,7 @@ public class Parts {
 	public static Item itemBOPGems;
 	public static Item itemRSIngot;
 	public static Item itemAEMaterial;
+	public static Item itemAESkyStone;
 	public static Item itemGCPMars;
 	public static Item itemIC2MiscResource;
 	public static Item itemIC2Nuclear;
@@ -114,6 +115,13 @@ public class Parts {
 	            itemAEMaterial = item;
 	        } catch(Throwable e){
 	            e.printStackTrace();
+	        }
+	        
+	        try {
+	        	Item item = getItem("appliedenergistics2:sky_stone_block");
+	        	itemAESkyStone = item;
+	        } catch (Throwable e) {
+	        	e.printStackTrace();
 	        }
 	    }
 	    

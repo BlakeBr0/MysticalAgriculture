@@ -206,6 +206,7 @@ public class EssenceConfig {
 	
 	public static int yellorium;
 	
+	public static int skyStone;
 	public static int certusQuartz;
 	public static int fluix;
 	public static int press;
@@ -449,6 +450,7 @@ public class EssenceConfig {
 		yellorium = config.get(category, "yellorium", 4).getInt();
 		
 		category = "Applied Energistics 2";
+		skyStone = config.get(category, "sky_stone", 16).getInt();
 		certusQuartz = config.get(category, "certus_quartz", 6).getInt();
 		fluix = config.get(category, "fluix", 6).getInt();
 		press = config.get(category, "press", 1).getInt();

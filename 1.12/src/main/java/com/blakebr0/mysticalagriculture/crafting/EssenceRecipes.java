@@ -300,6 +300,7 @@ public class EssenceRecipes {
 
 	    if(type.YELLORIUM.isEnabled()){ addEssenceRecipe(MystUtils.getItem("ingotYellorium", EssenceConfig.yellorium), "EEE", "E E", "EEE", 'E', new ItemStack(type.YELLORIUM.getCrop(), 1, 0)); }
 
+	    if(type.SKY_STONE.isEnabled()){ addEssenceRecipe(new ItemStack(Parts.itemAESkyStone, EssenceConfig.skyStone, 0), "EEE", "E E", "EEE", 'E', new ItemStack(type.SKY_STONE.getCrop(), 1, 0)); }
 	    if(type.CERTUS_QUARTZ.isEnabled()){ 
 	    	addEssenceRecipe(MystUtils.getItem("crystalCertusQuartz", EssenceConfig.certusQuartz), "EEE", "E E", "EEE", 'E', new ItemStack(type.CERTUS_QUARTZ.getCrop(), 1, 0)); 
 	    	addEssenceRecipe(new ItemStack(Parts.itemAEMaterial, EssenceConfig.press, 13), "EEE", "EXE", "EEE", 'X', new ItemStack(Parts.itemAEMaterial, 1, 10), 'E', new ItemStack(type.CERTUS_QUARTZ.getCrop(), 1, 0));

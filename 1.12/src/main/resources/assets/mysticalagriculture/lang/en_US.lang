@@ -246,6 +246,7 @@ tile.ma.draconium_crop.name=Draconium Crop
 
 tile.ma.yellorium_crop.name=Yellorium Crop
 
+tile.ma.sky_stone_crop.name=Sky Stone Crop
 tile.ma.certus_quartz_crop.name=Certus Quartz Crop
 tile.ma.fluix_crop.name=Fluix Crop
 
@@ -509,6 +510,7 @@ item.ma.draconium_essence.name=Draconium Essence
 
 item.ma.yellorium_essence.name=Yellorium Essence
 
+item.ma.sky_stone_essence.name=Sky Stone Essence
 item.ma.certus_quartz_essence.name=Certus Quartz Essence
 item.ma.fluix_essence.name=Fluix Essence
 
@@ -665,6 +667,7 @@ item.ma.draconium_seeds.name=Draconium Seeds
 
 item.ma.yellorium_seeds.name=Yellorium Seeds
 
+item.ma.sky_stone_seeds.name=Sky Stone Seeds
 item.ma.certus_quartz_seeds.name=Certus Quartz Seeds
 item.ma.fluix_seeds.name=Fluix Seeds
 

@@ -157,6 +157,7 @@ public class CropType {
 		
 		YELLORIUM("yellorium", 5, ModChecker.BIG_REACTORS),
 		
+		SKY_STONE("sky_stone", 3, ModChecker.APPLIED_ENERGISTICS_2),
 		CERTUS_QUARTZ("certus_quartz", 3, ModChecker.APPLIED_ENERGISTICS_2),
 		FLUIX("fluix", 4, ModChecker.APPLIED_ENERGISTICS_2),
 		
