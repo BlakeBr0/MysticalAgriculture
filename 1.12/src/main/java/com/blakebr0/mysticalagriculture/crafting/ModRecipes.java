@@ -449,6 +449,7 @@ public class ModRecipes {
 
 	    addSeedRecipe(type.MYSTICAL_FLOWER, ModItems.itemCrafting.itemMysticalFlowerCluster);
 	    addSeedRecipe(type.MANASTEEL, new ItemStack(Parts.itemBotaniaResources, 1, 0));
+	    addSeedRecipe(type.ELEMENTIUM, new ItemStack(Parts.itemBotaniaResources, 1, 7));
 	    addSeedRecipe(type.TERRASTEEL, new ItemStack(Parts.itemBotaniaResources, 1, 4));
 	    
 	    addSeedRecipe(type.URANIUM_238, new ItemStack(Parts.itemIC2Nuclear, 1, 2));

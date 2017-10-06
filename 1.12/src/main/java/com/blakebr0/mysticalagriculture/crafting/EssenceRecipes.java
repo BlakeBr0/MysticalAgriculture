@@ -252,6 +252,7 @@ public class EssenceRecipes {
 	    	addEssenceRecipe(new ItemStack(Parts.itemBotaniaFlowers, EssenceConfig.mysticalFlower, 15), "E  ", "EE ", "   ", 'E', new ItemStack(type.MYSTICAL_FLOWER.getCrop(), 1, 0)); 
 	    }
 	    if(type.MANASTEEL.isEnabled()){ addEssenceRecipe(new ItemStack(Parts.itemBotaniaResources, EssenceConfig.manasteel, 0), "EEE", "E E", "EEE", 'E', new ItemStack(type.MANASTEEL.getCrop(), 1, 0)); }
+	    if(type.ELEMENTIUM.isEnabled()){ addEssenceRecipe(new ItemStack(Parts.itemBotaniaResources, EssenceConfig.elementium, 7), "EEE", "E E", "EEE", 'E', new ItemStack(type.ELEMENTIUM.getCrop(), 1, 0)); }
 	    if(type.TERRASTEEL.isEnabled()){ addEssenceRecipe(new ItemStack(Parts.itemBotaniaResources, EssenceConfig.terrasteel, 4), "EEE", "E E", "EEE", 'E', new ItemStack(type.TERRASTEEL.getCrop(), 1, 0)); }
 	    
 	    if(type.URANIUM_238.isEnabled()){ addEssenceRecipe(new ItemStack(Parts.itemIC2Nuclear, EssenceConfig.uranium238, 2), "EEE", "EEE", "EEE", 'E', new ItemStack(type.URANIUM_238.getCrop(), 1, 0)); }

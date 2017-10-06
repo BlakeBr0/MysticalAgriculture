@@ -198,6 +198,7 @@ tile.ma.vibrant_alloy_crop.name=Vibrant Alloy Crop
 
 tile.ma.mystical_flower_crop.name=Mystical Flower Crop
 tile.ma.manasteel_crop.name=Manasteel Crop
+tile.ma.elementium_crop.name=Elementium Crop
 tile.ma.terrasteel_crop.name=Terrasteel Crop
 
 tile.ma.uranium_238_crop.name=Uranium 238 Crop
@@ -462,6 +463,7 @@ item.ma.vibrant_alloy_essence.name=Vibrant Alloy Essence
 
 item.ma.mystical_flower_essence.name=Mystical Flower Essence
 item.ma.manasteel_essence.name=Manasteel Essence
+item.ma.elementium_essence.name=Elementium Essence
 item.ma.terrasteel_essence.name=Terrasteel Essence
 
 item.ma.uranium_238_essence.name=Uranium 238 Essence
@@ -619,6 +621,7 @@ item.ma.vibrant_alloy_seeds.name=Vibrant Alloy Seeds
 
 item.ma.mystical_flower_seeds.name=Mystical Flower Seeds
 item.ma.manasteel_seeds.name=Manasteel Seeds
+item.ma.elementium_seeds.name=Elementium Seeds
 item.ma.terrasteel_seeds.name=Terrasteel Seeds
 
 item.ma.uranium_238_seeds.name=Uranium 238 Seeds

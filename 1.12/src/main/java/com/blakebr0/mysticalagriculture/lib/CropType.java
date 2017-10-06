@@ -109,6 +109,7 @@ public class CropType {
 		
 		MYSTICAL_FLOWER("mystical_flower", 2, ModChecker.BOTANIA),
 		MANASTEEL("manasteel", 3, ModChecker.BOTANIA),
+		ELEMENTIUM("elementium", 4, ModChecker.BOTANIA),
 		TERRASTEEL("terrasteel", 5, ModChecker.BOTANIA),
 		
 		URANIUM_238("uranium_238", 5, ModChecker.IC2),

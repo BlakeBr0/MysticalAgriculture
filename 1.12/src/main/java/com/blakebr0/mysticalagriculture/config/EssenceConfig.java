@@ -158,6 +158,7 @@ public class EssenceConfig {
 	
 	public static int mysticalFlower;
 	public static int manasteel;
+	public static int elementium;
 	public static int terrasteel;
 	
 	public static int uranium238;
@@ -387,6 +388,7 @@ public class EssenceConfig {
 		category = "Botania";
 		mysticalFlower = config.get(category, "mystical_flower", 6).getInt();
 		manasteel = config.get(category, "manasteel", 5).getInt();
+		elementium = config.get(category, "elementium", 4).getInt();
 		terrasteel = config.get(category, "terrasteel", 2).getInt();
 		
 		category = "IC2";
