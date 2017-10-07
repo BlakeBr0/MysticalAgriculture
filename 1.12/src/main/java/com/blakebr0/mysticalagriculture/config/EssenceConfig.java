@@ -201,6 +201,8 @@ public class EssenceConfig {
 	
 	public static int enderBiotite;
 	
+	public static int slate;
+	
 	public static int enderAmethyst;
 	
 	public static int draconium;
@@ -441,6 +443,9 @@ public class EssenceConfig {
 		
 		category = "Qyark";
 		enderBiotite = config.get(category, "biotite", 8).getInt();
+		
+		category = "Rustic";
+		slate = config.get(category, "slate", 24).getInt();
  	
 		category = "Biomes 'O Plenty";
 		enderAmethyst = config.get(category, "ender_amethyst", 3).getInt();

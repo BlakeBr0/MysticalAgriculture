@@ -24,6 +24,7 @@ public class Parts {
 	public static Item itemAstralCrafting;
 	public static Item itemAstralOre;
 	public static Item itemAstralRockCrystal;
+	public static Item itemRusticSlate;
 	
 	public static void getParts(){
 		
@@ -169,6 +170,15 @@ public class Parts {
 	    		Item item = getItem("astralsorcery:ItemRockCrystalSimple");
 	    		itemAstralRockCrystal = item;
 	    	} catch(Throwable e){
+	    		e.printStackTrace();
+	    	}
+	    }
+	    
+	    if (ModChecker.RUSTIC) {
+	    	try {
+	    		Item item = getItem("rustic:slate");
+	    		itemRusticSlate = item;
+	    	} catch (Throwable e) {
 	    		e.printStackTrace();
 	    	}
 	    }

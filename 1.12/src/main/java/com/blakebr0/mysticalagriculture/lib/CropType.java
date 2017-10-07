@@ -152,6 +152,8 @@ public class CropType {
 		
 		ENDER_BIOTITE("ender_biotite", 3, ModChecker.QUARK),
 		
+		SLATE("slate", 2, ModChecker.RUSTIC),
+		
 		ENDER_AMETHYST("ender_amethyst", 5, ModChecker.BIOMES_O_PLENTY),
 		
 		DRACONIUM("draconium", 5, ModChecker.DRACONIC_EVOLUTION),

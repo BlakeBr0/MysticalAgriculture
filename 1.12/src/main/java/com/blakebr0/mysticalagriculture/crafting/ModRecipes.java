@@ -492,6 +492,8 @@ public class ModRecipes {
 
 	    addSeedRecipe(type.ENDER_BIOTITE, "gemEnderBiotite");
 	    
+	    addSeedRecipe(type.SLATE, new ItemStack(Parts.itemRusticSlate, 1, 0));
+	    
 	    addSeedRecipe(type.ENDER_AMETHYST, new ItemStack(Parts.itemBOPGems, 1, 0));
 	    
 	    addSeedRecipe(type.DRACONIUM, "ingotDraconium");

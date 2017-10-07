@@ -295,6 +295,8 @@ public class EssenceRecipes {
 	  
 	    if(type.ENDER_BIOTITE.isEnabled()){ addEssenceRecipe(MystUtils.getItem("gemEnderBiotite", EssenceConfig.enderBiotite), "EEE", " E ", "EEE", 'E', new ItemStack(type.ENDER_BIOTITE.getCrop(), 1, 0)); }    
 	    
+	    if(type.SLATE.isEnabled()){ addEssenceRecipe(new ItemStack(Parts.itemRusticSlate, EssenceConfig.slate, 0), "EEE", "E E", "EEE", 'E', new ItemStack(type.SLATE.getCrop(), 1, 0)); }    
+
 	    if(type.ENDER_AMETHYST.isEnabled()){ addEssenceRecipe(new ItemStack(Parts.itemBOPGems, EssenceConfig.enderAmethyst, 0), "EEE", "E E", "EEE", 'E', new ItemStack(type.ENDER_AMETHYST.getCrop(), 1, 0)); }    
 	    
 	    if(type.DRACONIUM.isEnabled()){ addEssenceRecipe(MystUtils.getItem("ingotDraconium", EssenceConfig.draconium), "EEE", "E E", "EEE", 'E', new ItemStack(type.DRACONIUM.getCrop(), 1, 0)); }
