@@ -98,7 +98,7 @@ public class ItemSuperiumArmor extends ItemArmor implements IRepairMaterial {
     				if(hasSet){
     					player.stepHeight = 1.0625F;
     				} else {
-    					player.stepHeight = 0.5F;
+    					player.stepHeight = 0.6F;
     					playersWithSet.remove(key);
     				}
     			} else if(hasSet){

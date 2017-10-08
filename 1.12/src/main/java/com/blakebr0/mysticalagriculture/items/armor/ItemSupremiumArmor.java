@@ -158,7 +158,7 @@ public class ItemSupremiumArmor extends ItemArmor implements IRepairMaterial {
     						}
 						}
     				} else {
-    					player.stepHeight = 0.5F;
+    					player.stepHeight = 0.6F;
     					if(!player.capabilities.isCreativeMode && !player.isSpectator()){
     						player.capabilities.allowFlying = false;
         					player.capabilities.isFlying = false;
