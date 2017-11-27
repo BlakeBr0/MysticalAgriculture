@@ -14,6 +14,7 @@ import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.oredict.OreDictionary;
 
@@ -637,7 +638,7 @@ public class ModRecipes {
 			addShapelessRecipe(new ItemStack(ModItems.itemGear, 1, 4), new ItemStack(ModItems.itemSupremiumSickle, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(ModItems.itemCoreRemover, 1, OreDictionary.WILDCARD_VALUE));
 			addShapelessRecipe(new ItemStack(ModItems.itemGear, 1, 4), new ItemStack(ModItems.itemSupremiumScythe, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(ModItems.itemCoreRemover, 1, OreDictionary.WILDCARD_VALUE));
 			addShapelessRecipe(new ItemStack(ModItems.itemGear, 1, 4), new ItemStack(ModItems.itemSupremiumFishingRod, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(ModItems.itemCoreRemover, 1, OreDictionary.WILDCARD_VALUE));
-			
+						
 			addShapedRecipe(new ItemStack(ModItems.itemCharm, 1, 0), "PPP", "PBP", "PPP", 'P', ModItems.itemCrafting.itemProsperityShard, 'B', new ItemStack(ModBlocks.blockStorage, 1, 3));
 			addShapedRecipe(new ItemStack(ModItems.itemCharm, 1, 1), "MEM", "EBE", "MEM", 'E', ModItems.itemCrafting.itemSuperiumEssence, 'B', ModItems.itemCharm.itemCharmBlank, 'M', new ItemStack(Items.GOLDEN_CARROT, 1, 0));
 			addShapedRecipe(new ItemStack(ModItems.itemCharm, 1, 2), "MEM", "EBE", "MEM", 'E', ModItems.itemCrafting.itemSuperiumEssence, 'B', ModItems.itemCharm.itemCharmBlank, 'M', new ItemStack(Items.GOLDEN_APPLE, 1, 1));
