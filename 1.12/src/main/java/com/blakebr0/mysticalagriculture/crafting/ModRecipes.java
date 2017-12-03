@@ -1,5 +1,8 @@
 package com.blakebr0.mysticalagriculture.crafting;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.blakebr0.cucumber.helper.RecipeHelper;
 import com.blakebr0.mysticalagriculture.blocks.ModBlocks;
 import com.blakebr0.mysticalagriculture.config.EssenceConfig;
@@ -13,10 +16,13 @@ import com.blakebr0.mysticalagriculture.lib.Parts;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.oredict.OreDictionary;
+import net.minecraftforge.oredict.ShapedOreRecipe;
+import net.minecraftforge.oredict.ShapelessOreRecipe;
 
 public class ModRecipes {
 	
@@ -89,13 +95,17 @@ public class ModRecipes {
 		}
 		return mobChunk;
 	}
+	
+	public static List<IRecipe> recipes = new ArrayList<>();
 	// TODO: a better job with recipes
 	public static void addShapedRecipe(ItemStack output, Object... input){
 		RecipeHelper.addShapedRecipe(output, input);
+		//recipes.add(new ShapedOreRecipe(EMPTY_GROUP, output, input).setRegistryName(RecipeHelper.getRecipeLocation(output)));
 	}
 	
 	public static void addShapelessRecipe(ItemStack output, Object... input){
 		RecipeHelper.addShapelessRecipe(output, input);
+		//recipes.add(new ShapelessOreRecipe(EMPTY_GROUP, output, input).setRegistryName(RecipeHelper.getRecipeLocation(output)));
 	}
 	
 	public static void addSeedRecipe(CropType.Type type, Object input){

@@ -24,11 +24,14 @@ import com.blakebr0.mysticalagriculture.util.ModChecker;
 import com.blakebr0.mysticalagriculture.world.OreGeneration;
 
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.crafting.IRecipe;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLInterModComms;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
@@ -39,6 +42,8 @@ public class CommonProxy {
 		EssenceConfig.init(new File(e.getModConfigurationDirectory(), "mysticalagriculture_recipes.cfg"));
 		MinecraftForge.EVENT_BUS.register(new ModConfig());
 		MinecraftForge.EVENT_BUS.register(new EssenceConfig());
+		
+		MinecraftForge.EVENT_BUS.register(this);
 
 		for(CropType.Type type : CropType.Type.values()){
 			type.declare();
@@ -85,11 +90,10 @@ public class CommonProxy {
 	
 		ModBlocks.initOreDict();
 		
-		Parts.getParts();
 //		RecipeSorter.register("mysticalagriculture:charm_recipe", CharmRecipe.class, Category.SHAPELESS, "after:forge:shapelessore");
 		
-		ModRecipes.initRecipes();
-		EssenceRecipes.init();
+		//ModRecipes.initRecipes();
+		//EssenceRecipes.init();
 
 	    GameRegistry.registerWorldGenerator(new OreGeneration(), 0);
 	    MinecraftForge.EVENT_BUS.register(new MobDrops());
@@ -97,5 +101,12 @@ public class CommonProxy {
 
 	public void postInit(FMLPostInitializationEvent e) {
 		
+	}
+	
+	@SubscribeEvent
+	public void recipes(RegistryEvent.Register<IRecipe> event) {
+		Parts.getParts();
+		ModRecipes.initRecipes();
+		EssenceRecipes.init();
 	}
 }
