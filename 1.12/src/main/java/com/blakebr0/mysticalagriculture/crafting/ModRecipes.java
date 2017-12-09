@@ -463,6 +463,8 @@ public class ModRecipes {
 	    addSeedRecipe(type.ELEMENTIUM, new ItemStack(Parts.itemBotaniaResources, 1, 7));
 	    addSeedRecipe(type.TERRASTEEL, new ItemStack(Parts.itemBotaniaResources, 1, 4));
 	    
+	    addSeedRecipe(type.DAWNSTONE, "ingotDawnstone");
+	    
 	    addSeedRecipe(type.URANIUM_238, new ItemStack(Parts.itemIC2Nuclear, 1, 2));
 	    addSeedRecipe(type.IRIDIUM_ORE, new ItemStack(Parts.itemIC2MiscResource, 1, 1));
 	

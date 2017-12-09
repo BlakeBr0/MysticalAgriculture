@@ -161,6 +161,8 @@ public class EssenceConfig {
 	public static int elementium;
 	public static int terrasteel;
 	
+	public static int dawnstone;
+	
 	public static int uranium238;
 	public static int iridiumOre;
 	
@@ -392,6 +394,9 @@ public class EssenceConfig {
 		manasteel = config.get(category, "manasteel", 5).getInt();
 		elementium = config.get(category, "elementium", 4).getInt();
 		terrasteel = config.get(category, "terrasteel", 2).getInt();
+		
+		category = "Embers";
+		dawnstone = config.get(category, "dawnstone", 3).getInt();
 		
 		category = "IC2";
 		uranium238 = config.get(category, "uranium_238", 4).getInt();

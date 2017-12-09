@@ -112,6 +112,8 @@ public class CropType {
 		ELEMENTIUM("elementium", 4, ModChecker.BOTANIA),
 		TERRASTEEL("terrasteel", 5, ModChecker.BOTANIA),
 		
+		DAWNSTONE("dawnstone", 4, ModChecker.EMBERS),
+		
 		URANIUM_238("uranium_238", 5, ModChecker.IC2),
 		IRIDIUM_ORE("iridium_ore", 5, ModChecker.IC2),
 		

@@ -201,6 +201,8 @@ tile.ma.manasteel_crop.name=Manasteel Crop
 tile.ma.elementium_crop.name=Elementium Crop
 tile.ma.terrasteel_crop.name=Terrasteel Crop
 
+tile.ma.dawnstone_crop.name=Dawnstone Crop
+
 tile.ma.uranium_238_crop.name=Uranium 238 Crop
 tile.ma.iridium_ore_crop.name=Iridium Ore Crop
 
@@ -468,6 +470,8 @@ item.ma.manasteel_essence.name=Manasteel Essence
 item.ma.elementium_essence.name=Elementium Essence
 item.ma.terrasteel_essence.name=Terrasteel Essence
 
+item.ma.dawnstone_essence.name=Dawnstone Essence
+
 item.ma.uranium_238_essence.name=Uranium 238 Essence
 item.ma.iridium_ore_essence.name=Iridium Ore Essence
 
@@ -627,6 +631,8 @@ item.ma.mystical_flower_seeds.name=Mystical Flower Seeds
 item.ma.manasteel_seeds.name=Manasteel Seeds
 item.ma.elementium_seeds.name=Elementium Seeds
 item.ma.terrasteel_seeds.name=Terrasteel Seeds
+
+item.ma.dawnstone_seeds.name=Dawnstone Seeds
 
 item.ma.uranium_238_seeds.name=Uranium 238 Seeds
 item.ma.iridium_ore_seeds.name=Iridium Ore Seeds

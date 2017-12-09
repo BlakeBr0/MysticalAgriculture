@@ -9,6 +9,7 @@ public class ModChecker {
 	public static final boolean TINKERS_CONSTRUCT = Loader.isModLoaded("tconstruct");
 	public static final boolean ENDERIO = Loader.isModLoaded("EnderIO") || Loader.isModLoaded("enderio");
 	public static final boolean BOTANIA = Loader.isModLoaded("Botania") || Loader.isModLoaded("botania");
+	public static final boolean EMBERS = Loader.isModLoaded("embers");
 	public static final boolean MEKANISM = Loader.isModLoaded("Mekanism") || Loader.isModLoaded("mekanism");
 	public static final boolean THERMAL_FOUNDATION = Loader.isModLoaded("thermalfoundation");
 	public static final boolean CHISEL = Loader.isModLoaded("chisel");

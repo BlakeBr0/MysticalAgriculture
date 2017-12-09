@@ -21,7 +21,7 @@ public class EssenceRecipes {
 	private static CropType.Type type;
 	
 	public static void addEssenceRecipe(ItemStack output, Object... input){
-		if(!output.isEmpty() && output.getCount() > 0){
+		if (!output.isEmpty() && output.getCount() > 0) {
 			ForgeRegistries.RECIPES.register(new ShapedOreRecipe(ModRecipes.EMPTY_GROUP, output, input).setMirrored(false).setRegistryName(RecipeHelper.getRecipeLocation(output)));
 		}
 	}
@@ -279,6 +279,8 @@ public class EssenceRecipes {
 	    if(type.ELEMENTIUM.isEnabled()){ addEssenceRecipe(new ItemStack(Parts.itemBotaniaResources, EssenceConfig.elementium, 7), "EEE", "E E", "EEE", 'E', new ItemStack(type.ELEMENTIUM.getCrop(), 1, 0)); }
 	    if(type.TERRASTEEL.isEnabled()){ addEssenceRecipe(new ItemStack(Parts.itemBotaniaResources, EssenceConfig.terrasteel, 4), "EEE", "E E", "EEE", 'E', new ItemStack(type.TERRASTEEL.getCrop(), 1, 0)); }
 	    
+	    if(type.DAWNSTONE.isEnabled()){ addEssenceRecipe("ingotDawnstone", EssenceConfig.dawnstone, "EEE", "E E", "EEE", 'E', new ItemStack(type.DAWNSTONE.getCrop(), 1, 0)); }
+
 	    if(type.URANIUM_238.isEnabled()){ addEssenceRecipe(new ItemStack(Parts.itemIC2Nuclear, EssenceConfig.uranium238, 2), "EEE", "EEE", "EEE", 'E', new ItemStack(type.URANIUM_238.getCrop(), 1, 0)); }
 	    if(type.IRIDIUM_ORE.isEnabled()){ addEssenceRecipe(new ItemStack(Parts.itemIC2MiscResource, EssenceConfig.iridiumOre, 1), "EEE", "EEE", "EEE", 'E', new ItemStack(type.IRIDIUM_ORE.getCrop(), 1, 0)); }
 
