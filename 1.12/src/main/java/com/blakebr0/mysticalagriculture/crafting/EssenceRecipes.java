@@ -21,15 +21,27 @@ public class EssenceRecipes {
 	private static CropType.Type type;
 	
 	public static void addEssenceRecipe(ItemStack output, Object... input){
-		if (!output.isEmpty() && output.getCount() > 0) {
+		if (!output.isEmpty() && output.getCount() > 0 && validate(input)) {
 			ForgeRegistries.RECIPES.register(new ShapedOreRecipe(ModRecipes.EMPTY_GROUP, output, input).setMirrored(false).setRegistryName(RecipeHelper.getRecipeLocation(output)));
 		}
 	}
 	
 	public static void addEssenceRecipe(String output, int amount, Object... input) {
-		if (amount > 0) {
+		if (amount > 0 && validate(input)) {
 			ForgeRegistries.RECIPES.register(new EssenceOreDictRecipe(output, amount, input).setMirrored(false).setRegistryName(getRecipeLocation(output)));
 		}
+	}
+	
+	private static boolean validate(Object[] objs) {
+		for (Object o : objs) {
+			if (o instanceof ItemStack) {
+				ItemStack stack = (ItemStack) o;
+				if (stack.isEmpty() || stack.getItem().getRegistryName() == null) {
+					return false;
+				}
+			}
+		}
+		return true;
 	}
 	
 	// TODO: cucumber
