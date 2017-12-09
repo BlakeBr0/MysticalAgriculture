@@ -149,7 +149,7 @@ public class CropType {
 		SUNSTONE("sunstone", 5, ModChecker.ARS_MAGICA_2),
 		
 		AQUAMARINE("aquamarine", 3, ModChecker.ASTRAL_SORCERY),
-		STARMETAL("starmetal", 4, ModChecker.ASTRAL_SORCERY),
+		STARMETAL("starmetal", 5, ModChecker.ASTRAL_SORCERY),
 		ROCK_CRYSTAL("rock_crystal", 5, ModChecker.ASTRAL_SORCERY),
 		
 		ENDER_BIOTITE("ender_biotite", 3, ModChecker.QUARK),
