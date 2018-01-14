@@ -1,7 +1,7 @@
 {
     "parent": "item/generated",
     "textures": {
-        "layer0": "mysticalagriculture:items/superium_bow"
+        "layer0": "mysticalagriculture:items/supremium_bow"
     },
     "display": {
         "thirdperson_righthand": {
@@ -30,21 +30,21 @@
             "predicate": {
                 "pulling": 1
             },
-            "model": "mysticalagriculture:item/superium_bow_pulling_0"
+            "model": "mysticalagriculture:item/supremium_bow_pulling_0"
         },
         {
             "predicate": {
                 "pulling": 1,
                 "pull": 0.65
             },
-            "model": "mysticalagriculture:item/superium_bow_pulling_1"
+            "model": "mysticalagriculture:item/supremium_bow_pulling_1"
         },
         {
             "predicate": {
                 "pulling": 1,
                 "pull": 0.9
             },
-            "model": "mysticalagriculture:item/superium_bow_pulling_2"
+            "model": "mysticalagriculture:item/supremium_bow_pulling_2"
         }
     ]
 }

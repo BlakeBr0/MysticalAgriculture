@@ -12,17 +12,17 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.world.World;
 
-public class EntitySuperiumArrow extends EntityArrow {
+public class EntitySupremiumArrow extends EntityArrow {
 
-    public EntitySuperiumArrow(World world){
+    public EntitySupremiumArrow(World world){
         super(world);
     }
 
-    public EntitySuperiumArrow(World world, EntityLivingBase shooter){
+    public EntitySupremiumArrow(World world, EntityLivingBase shooter){
         super(world, shooter);
     }
 
-    public EntitySuperiumArrow(World world, double x, double y, double z){
+    public EntitySupremiumArrow(World world, double x, double y, double z){
         super(world, x, y, z);
     }
 
@@ -34,7 +34,7 @@ public class EntitySuperiumArrow extends EntityArrow {
     @Override
     @Nonnull
     public ItemStack getArrowStack(){
-        return new ItemStack(ModItems.itemSuperiumArrow);
+        return new ItemStack(ModItems.itemSupremiumArrow);
     }
 
     @Override

@@ -15,7 +15,7 @@ public class ModTileEntities {
 			GameRegistry.registerTileEntity(TileEntityInferiumFurnace.class, "MA_Inferium_Furnace");
 			GameRegistry.registerTileEntity(TileEntityPrudentiumFurnace.class, "MA_Prudentium_Furnace");
 			GameRegistry.registerTileEntity(TileEntityIntermediumFurnace.class, "MA_Intermedium_Furnace");
-			GameRegistry.registerTileEntity(TileEntitySuperiumFurnace.class, "MA_Superium_Furnace");
+			GameRegistry.registerTileEntity(TileEntitySupremiumFurnace.class, "MA_Supremium_Furnace");
 			GameRegistry.registerTileEntity(TileEntitySupremiumFurnace.class, "MA_Supremium_Furnace");
 			if(ModConfig.confUltimateFurnace){
 				GameRegistry.registerTileEntity(TileEntityUltimateFurnace.class, "MA_Ultimate_Furnace");

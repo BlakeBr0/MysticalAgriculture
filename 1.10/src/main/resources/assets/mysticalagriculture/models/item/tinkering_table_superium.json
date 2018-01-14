@@ -1,5 +1,5 @@
 {
-	"parent": "mysticalagriculture:block/tinkering_table_superium",
+	"parent": "mysticalagriculture:block/tinkering_table_supremium",
     "display": {
         "gui": {
             "rotation": [ 30, 225, 0 ],

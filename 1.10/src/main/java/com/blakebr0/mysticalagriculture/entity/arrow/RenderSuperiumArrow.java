@@ -6,14 +6,14 @@ import net.minecraft.client.renderer.entity.RenderArrow;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.util.ResourceLocation;
 
-public class RenderSuperiumArrow extends RenderArrow<EntitySuperiumArrow> {
+public class RenderSupremiumArrow extends RenderArrow<EntitySupremiumArrow> {
 	
-	public RenderSuperiumArrow(RenderManager renderManager){
+	public RenderSupremiumArrow(RenderManager renderManager){
 		super(renderManager);
 	}
 
 	@Override
-	protected ResourceLocation getEntityTexture(EntitySuperiumArrow entity){
-		return new ResourceLocation(MysticalAgriculture.MOD_ID, "textures/entity/projectiles/superium_arrow.png");
+	protected ResourceLocation getEntityTexture(EntitySupremiumArrow entity){
+		return new ResourceLocation(MysticalAgriculture.MOD_ID, "textures/entity/projectiles/supremium_arrow.png");
 	}	
 }

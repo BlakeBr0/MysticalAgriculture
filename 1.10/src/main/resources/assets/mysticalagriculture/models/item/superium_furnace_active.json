@@ -1,5 +1,5 @@
 {
-	"parent": "mysticalagriculture:block/superium_furnace_active",
+	"parent": "mysticalagriculture:block/supremium_furnace_active",
     "display": {
         "gui": {
             "rotation": [ 30, 225, 0 ],

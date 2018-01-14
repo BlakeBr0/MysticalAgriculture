@@ -21,11 +21,11 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class ItemSuperiumApple extends ItemFood implements IEnableable {
+public class ItemSupremiumApple extends ItemFood implements IEnableable {
 	
-	public ItemSuperiumApple(){
+	public ItemSupremiumApple(){
         super(15, 0.7F, false);
-		this.setUnlocalizedName("ma.superium_apple");
+		this.setUnlocalizedName("ma.supremium_apple");
 		this.setCreativeTab(MysticalAgriculture.tabMysticalAgriculture);
 		this.setAlwaysEdible();
 	}

@@ -7,7 +7,7 @@ import com.blakebr0.mysticalagriculture.blocks.crop.BlockInferiumCrop;
 import com.blakebr0.mysticalagriculture.blocks.furnace.BlockInferiumFurnace;
 import com.blakebr0.mysticalagriculture.blocks.furnace.BlockIntermediumFurnace;
 import com.blakebr0.mysticalagriculture.blocks.furnace.BlockPrudentiumFurnace;
-import com.blakebr0.mysticalagriculture.blocks.furnace.BlockSuperiumFurnace;
+import com.blakebr0.mysticalagriculture.blocks.furnace.BlockSupremiumFurnace;
 import com.blakebr0.mysticalagriculture.blocks.furnace.BlockSupremiumFurnace;
 import com.blakebr0.mysticalagriculture.blocks.furnace.BlockUltimateFurnace;
 import com.blakebr0.mysticalagriculture.blocks.ore.BlockInferiumOre;
@@ -55,8 +55,8 @@ public class ModBlocks {
 	public static BlockPrudentiumFurnace blockPrudentiumFurnaceActive = new BlockPrudentiumFurnace(true, "prudentium_furnace_active", 5.0F, 10.0F);
 	public static BlockIntermediumFurnace blockIntermediumFurnace = new BlockIntermediumFurnace(false, "intermedium_furnace", 5.0F, 10.0F);
 	public static BlockIntermediumFurnace blockIntermediumFurnaceActive = new BlockIntermediumFurnace(true, "intermedium_furnace_active", 5.0F, 10.0F);
-	public static BlockSuperiumFurnace blockSuperiumFurnace = new BlockSuperiumFurnace(false, "superium_furnace", 5.0F, 10.0F);
-	public static BlockSuperiumFurnace blockSuperiumFurnaceActive = new BlockSuperiumFurnace(true, "superium_furnace_active", 5.0F, 10.0F);
+	public static BlockSupremiumFurnace blockSupremiumFurnace = new BlockSupremiumFurnace(false, "supremium_furnace", 5.0F, 10.0F);
+	public static BlockSupremiumFurnace blockSupremiumFurnaceActive = new BlockSupremiumFurnace(true, "supremium_furnace_active", 5.0F, 10.0F);
 	public static BlockSupremiumFurnace blockSupremiumFurnace = new BlockSupremiumFurnace(false, "supremium_furnace", 5.0F, 10.0F);
 	public static BlockSupremiumFurnace blockSupremiumFurnaceActive = new BlockSupremiumFurnace(true, "supremium_furnace_active", 5.0F, 10.0F);
 	public static BlockUltimateFurnace blockUltimateFurnace = new BlockUltimateFurnace(false, "ultimate_furnace", 5.0F, 10.0F);
@@ -94,13 +94,13 @@ public class ModBlocks {
     	
 		registry.register(blockStorage, "storage", new ItemBlockStorage(blockStorage),
 				Ore.of(0, "blockInferiumEssence"), Ore.of(1, "blockPrudentiumEssence"), Ore.of(2, "blockIntermediumEssence"),
-				Ore.of(3, "blockSuperiumEssence"), Ore.of(4, "blockSupremiumEssence"), Ore.of(5, "blockProsperity"));
+				Ore.of(3, "blockSupremiumEssence"), Ore.of(4, "blockSupremiumEssence"), Ore.of(5, "blockProsperity"));
 		registry.register(blockIngotStorage, "ingot_storage", new ItemBlockIngotStorage(blockIngotStorage),
 				Ore.of(0, "blockBaseEssence"), Ore.of(1, "blockInferium"), Ore.of(2, "blockPrudentium"), Ore.of(3, "blockIntermedium"), 
-				Ore.of(4, "blockSuperium"), Ore.of(5, "blockSuperium"), Ore.of(6, "blockSoulium"));
+				Ore.of(4, "blockSupremium"), Ore.of(5, "blockSupremium"), Ore.of(6, "blockSoulium"));
 		registry.register(blockEssenceCoal, "coal_block", new ItemBlockEssenceCoal(blockEssenceCoal),
 				Ore.of(0, "blockInferiumCoal"), Ore.of(1, "blockPrudentiumCoal"), Ore.of(2, "blockIntermediumCoal"),
-				Ore.of(3, "blockSuperiumCoal"), Ore.of(4, "blockSupremiumCoal"));
+				Ore.of(3, "blockSupremiumCoal"), Ore.of(4, "blockSupremiumCoal"));
 		
 		registry.register(blockSoulstone, "soulstone", new ItemBlockSoulstone(blockSoulstone));
 		registry.register(blockSoulstoneSlab, "soulstone_slab", false);
@@ -132,8 +132,8 @@ public class ModBlocks {
 		registry.register(blockPrudentiumFurnaceActive, "prudentium_furnace_active", false);
 		registry.register(blockIntermediumFurnace, "intermedium_furnace");
 		registry.register(blockIntermediumFurnaceActive, "intermedium_furnace_active", false);
-		registry.register(blockSuperiumFurnace, "superium_furnace");
-		registry.register(blockSuperiumFurnaceActive, "superium_furnace_active", false);
+		registry.register(blockSupremiumFurnace, "supremium_furnace");
+		registry.register(blockSupremiumFurnaceActive, "supremium_furnace_active", false);
 		registry.register(blockSupremiumFurnace, "supremium_furnace");
 		registry.register(blockSupremiumFurnaceActive, "supremium_furnace_active", false);
 		registry.register(blockUltimateFurnace, "ultimate_furnace");

@@ -5,7 +5,7 @@ itemGroup.tabMysticalAgriculture=神秘农业
 tile.ma.storage_inferium.name=§e下级精华块
 tile.ma.storage_prudentium.name=§a初级精华块
 tile.ma.storage_intermedium.name=§6中级精华块
-tile.ma.storage_superium.name=§b高级精华块
+tile.ma.storage_supremium.name=§b高级精华块
 tile.ma.storage_supremium.name=§c终极精华块
 tile.ma.storage_prosperity.name=活化水晶块
 
@@ -13,14 +13,14 @@ tile.ma.ingot_storage_base_essence.name=基础精华块
 tile.ma.ingot_storage_inferium.name=§e下级精华块
 tile.ma.ingot_storage_prudentium.name=§a初级精华块
 tile.ma.ingot_storage_intermedium.name=§6中级精华块
-tile.ma.ingot_storage_superium.name=§b高级精华块
+tile.ma.ingot_storage_supremium.name=§b高级精华块
 tile.ma.ingot_storage_supremium.name=§c终极精华块
 tile.ma.ingot_storage_soulium.name=§d离魂块
 
 tile.ma.coal_block_inferium.name=§e下级进化煤块
 tile.ma.coal_block_prudentium.name=§a初级精华煤块
 tile.ma.coal_block_intermedium.name=§6中级精华煤块
-tile.ma.coal_block_superium.name=§b高级精华煤块
+tile.ma.coal_block_supremium.name=§b高级精华煤块
 tile.ma.coal_block_supremium.name=§c终极精华煤块
 
 # SOULSTONE
@@ -58,9 +58,9 @@ tile.ma.intermedium_furnace.name=§6中级精华熔炉
 tile.ma.intermedium_furnace_active.name=§6中级精华熔炉
 container.ma.intermedium_furnace.name=中级精华熔炉
 
-tile.ma.superium_furnace.name=§b高级精华熔炉
-tile.ma.superium_furnace_active.name=§b高级精华熔炉
-container.ma.superium_furnace.name=高级精华熔炉
+tile.ma.supremium_furnace.name=§b高级精华熔炉
+tile.ma.supremium_furnace_active.name=§b高级精华熔炉
+container.ma.supremium_furnace.name=高级精华熔炉
 
 tile.ma.supremium_furnace.name=§c终极精华熔炉
 tile.ma.supremium_furnace_active.name=§c终极精华熔炉
@@ -263,7 +263,7 @@ tile.ma.miners_torch.name=矿工火把
 item.ma.crafting_inferium_essence.name=§e下级精华
 item.ma.crafting_prudentium_essence.name=§a初级精华
 item.ma.crafting_intermedium_essence.name=§6中级精华
-item.ma.crafting_superium_essence.name=§b高级精华
+item.ma.crafting_supremium_essence.name=§b高级精华
 item.ma.crafting_supremium_essence.name=§c终极精华
 
 item.ma.crafting_prosperity_shard.name=活化水晶碎片
@@ -295,7 +295,7 @@ item.ma.crafting_base_essence_ingot.name=基础精华锭
 item.ma.crafting_inferium_ingot.name=§e下级精华锭
 item.ma.crafting_prudentium_ingot.name=§a初级精华锭
 item.ma.crafting_intermedium_ingot.name=§6中级精华锭
-item.ma.crafting_superium_ingot.name=§b高级精华锭
+item.ma.crafting_supremium_ingot.name=§b高级精华锭
 item.ma.crafting_supremium_ingot.name=§c终极精华锭
 item.ma.crafting_soulium_ingot.name=§d离魂锭
 
@@ -303,7 +303,7 @@ item.ma.crafting_base_essence_nugget.name=基础精华粒
 item.ma.crafting_inferium_nugget.name=§e下级精华粒
 item.ma.crafting_prudentium_nugget.name=§a初级精华粒
 item.ma.crafting_intermedium_nugget.name=§6中级精华粒
-item.ma.crafting_superium_nugget.name=§b高级精华粒
+item.ma.crafting_supremium_nugget.name=§b高级精华粒
 item.ma.crafting_supremium_nugget.name=§c终极精华粒
 item.ma.crafting_soulium_nugget.name=§d离魂粒
 
@@ -312,7 +312,7 @@ item.ma.crafting_theoretical_water.name=虚拟无限水源
 item.ma.crafting_inferium_fert_core.name=§e下级精华施肥核心
 item.ma.crafting_prudentium_fert_core.name=§a初级精华施肥核心
 item.ma.crafting_intermedium_fert_core.name=§6中级精华施肥核心
-item.ma.crafting_superium_fert_core.name=§b高级精华施肥核心
+item.ma.crafting_supremium_fert_core.name=§b高级精华施肥核心
 item.ma.crafting_supremium_fert_core.name=§c终极精华施肥核心
 
 item.ma.infusion_crystal.name=注魔水晶
@@ -324,19 +324,19 @@ item.ma.fertilized_essence.name=§d肥料精华
 item.ma.inferium_apple.name=§e下级苹果
 item.ma.prudentium_apple.name=§a初级苹果
 item.ma.intermedium_apple.name=§6中级苹果
-item.ma.superium_apple.name=§b高级苹果
+item.ma.supremium_apple.name=§b高级苹果
 item.ma.supremium_apple.name=§c终极苹果
 
 item.ma.coal_inferium.name=§e下级进化煤
 item.ma.coal_prudentium.name=§a初级精华煤
 item.ma.coal_intermedium.name=§6中级精华煤
-item.ma.coal_superium.name=§b高级精华煤
+item.ma.coal_supremium.name=§b高级精华煤
 item.ma.coal_supremium.name=§c终极精华煤
 
 item.ma.watering_can_inferium.name=§e下级精华洒水壶
 item.ma.watering_can_prudentium.name=§a初级精华洒水壶
 item.ma.watering_can_intermedium.name=§6中级精华洒水壶
-item.ma.watering_can_superium.name=§b高级精华洒水壶
+item.ma.watering_can_supremium.name=§b高级精华洒水壶
 item.ma.watering_can_supremium.name=§c终极精华洒水壶
 
 item.ma.soulium_dagger.name=§d离魂匕首
@@ -690,19 +690,19 @@ item.ma.core_remover.name=§c核心替换器
 item.ma.gear_inferium_tool_core.name=§e下级精华工具核心
 item.ma.gear_prudentium_tool_core.name=§a初级精华工具核心
 item.ma.gear_intermedium_tool_core.name=§6中级精华工具核心
-item.ma.gear_superium_tool_core.name=§b高级精华工具核心
+item.ma.gear_supremium_tool_core.name=§b高级精华工具核心
 item.ma.gear_supremium_tool_core.name=§c终极精华工具核心
 
 item.ma.gear_inferium_armor_core.name=§e下级精华装甲核心
 item.ma.gear_prudentium_armor_core.name=§a初级精华装甲核心
 item.ma.gear_intermedium_armor_core.name=§6中级精华装甲核心
-item.ma.gear_superium_armor_core.name=§b高级精华装甲核心
+item.ma.gear_supremium_armor_core.name=§b高级精华装甲核心
 item.ma.gear_supremium_armor_core.name=§c终极精华装甲核心
 
 item.ma.gear_inferium_arrow_head.name=§e下级精华箭头
 item.ma.gear_prudentium_arrow_head.name=§a初级精华箭头
 item.ma.gear_intermedium_arrow_head.name=§6中级精华箭头
-item.ma.gear_superium_arrow_head.name=§b高级精华箭头
+item.ma.gear_supremium_arrow_head.name=§b高级精华箭头
 item.ma.gear_supremium_arrow_head.name=§c终极精华箭头
 
 # CHARMS
@@ -731,7 +731,7 @@ item.ma.charm_scything_aoe.name=魔符：镰刀AOE
 item.ma.inferium_arrow.name=§e下级精华箭
 item.ma.prudentium_arrow.name=§a初级精华箭
 item.ma.intermedium_arrow.name=§6中级精华箭
-item.ma.superium_arrow.name=§b高级精华箭
+item.ma.supremium_arrow.name=§b高级精华箭
 item.ma.supremium_arrow.name=§c终极精华箭
 
 # TOOLS
@@ -768,16 +768,16 @@ item.ma.intermedium_sickle.name=§6中级精华镰刀
 item.ma.intermedium_scythe.name=§6中级精华长柄镰刀
 item.ma.intermedium_fishing_rod.name=§6中级精华钓竿
 
-item.ma.superium_sword.name=§b高级精华剑
-item.ma.superium_pickaxe.name=§b高级精华镐
-item.ma.superium_shovel.name=§b高级精华铲
-item.ma.superium_axe.name=§b高级精华斧
-item.ma.superium_hoe.name=§b高级精华锄
-item.ma.superium_shears.name=§b高级精华剪刀
-item.ma.superium_bow.name=§b高级精华弓
-item.ma.superium_sickle.name=§b高级精华镰刀
-item.ma.superium_scythe.name=§b高级精华长柄镰刀
-item.ma.superium_fishing_rod.name=§b高级精华钓竿
+item.ma.supremium_sword.name=§b高级精华剑
+item.ma.supremium_pickaxe.name=§b高级精华镐
+item.ma.supremium_shovel.name=§b高级精华铲
+item.ma.supremium_axe.name=§b高级精华斧
+item.ma.supremium_hoe.name=§b高级精华锄
+item.ma.supremium_shears.name=§b高级精华剪刀
+item.ma.supremium_bow.name=§b高级精华弓
+item.ma.supremium_sickle.name=§b高级精华镰刀
+item.ma.supremium_scythe.name=§b高级精华长柄镰刀
+item.ma.supremium_fishing_rod.name=§b高级精华钓竿
 
 item.ma.supremium_sword.name=§c终极精华剑
 item.ma.supremium_pickaxe.name=§c终极精华镐
@@ -806,10 +806,10 @@ item.ma.intermedium_chestplate.name=§6中级精华胸甲
 item.ma.intermedium_leggings.name=§6中级精华护腿
 item.ma.intermedium_boots.name=§6中级精华靴子
 
-item.ma.superium_helmet.name=§b高级精华头盔
-item.ma.superium_chestplate.name=§b高级精华胸甲
-item.ma.superium_leggings.name=§b高级精华护腿
-item.ma.superium_boots.name=§b高级精华靴子
+item.ma.supremium_helmet.name=§b高级精华头盔
+item.ma.supremium_chestplate.name=§b高级精华胸甲
+item.ma.supremium_leggings.name=§b高级精华护腿
+item.ma.supremium_boots.name=§b高级精华靴子
 
 item.ma.supremium_helmet.name=§c终极精华头盔
 item.ma.supremium_chestplate.name=§c终极精华胸甲
@@ -831,7 +831,7 @@ tooltip.ma.soulium_dagger=用于获取§c灵魂碎片§7。
 tooltip.ma.inferium=下级精华
 tooltip.ma.prudentium=初级精华
 tooltip.ma.intermedium=中级精华
-tooltip.ma.superium=高级精华
+tooltip.ma.supremium=高级精华
 tooltip.ma.supremium=终极精华
 
 tooltip.ma.burn_time=燃烧时间

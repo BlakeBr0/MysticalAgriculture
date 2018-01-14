@@ -5,7 +5,7 @@ itemGroup.tabMysticalAgriculture=Mystical Agriculture
 tile.ma.inferium_block.name=§eInferium Block
 tile.ma.prudentium_block.name=§aPrudentium Block
 tile.ma.intermedium_block.name=§6Intermedium Block
-tile.ma.superium_block.name=§bSuperium Block
+tile.ma.supremium_block.name=§bSupremium Block
 tile.ma.supremium_block.name=§cSupremium Block
 
 tile.ma.prosperity_block.name=Prosperity Block
@@ -14,7 +14,7 @@ tile.ma.base_essence_ingot_block.name=Base Essence Ingot Block
 tile.ma.inferium_ingot_block.name=§eInferium Ingot Block
 tile.ma.prudentium_ingot_block.name=§aPrudentium Ingot Block
 tile.ma.intermedium_ingot_block.name=§6Intermedium Ingot Block
-tile.ma.superium_ingot_block.name=§bSuperium Ingot Block
+tile.ma.supremium_ingot_block.name=§bSupremium Ingot Block
 tile.ma.supremium_ingot_block.name=§cSupremium Ingot Block
 
 tile.ma.soulium_ingot_block.name=§dSoulium Ingot Block
@@ -22,7 +22,7 @@ tile.ma.soulium_ingot_block.name=§dSoulium Ingot Block
 tile.ma.coal_block_inferium.name=§eInferium Coal Block
 tile.ma.coal_block_prudentium.name=§aPrudentium Coal Block
 tile.ma.coal_block_intermedium.name=§6Intermedium Coal Block
-tile.ma.coal_block_superium.name=§bSuperium Coal Block
+tile.ma.coal_block_supremium.name=§bSupremium Coal Block
 tile.ma.coal_block_supremium.name=§cSupremium Coal Block
 
 tile.ma.soulstone_smooth.name=Soulstone
@@ -59,9 +59,9 @@ tile.ma.intermedium_furnace.name=§6Intermedium Furnace
 tile.ma.intermedium_furnace_active.name=§6Intermedium Furnace
 container.ma.intermedium_furnace.name=Intermedium Furnace
 
-tile.ma.superium_furnace.name=§bSuperium Furnace
-tile.ma.superium_furnace_active.name=§bSuperium Furnace
-container.ma.superium_furnace.name=Superium Furnace
+tile.ma.supremium_furnace.name=§bSupremium Furnace
+tile.ma.supremium_furnace_active.name=§bSupremium Furnace
+container.ma.supremium_furnace.name=Supremium Furnace
 
 tile.ma.supremium_furnace.name=§cSupremium Furnace
 tile.ma.supremium_furnace_active.name=§cSupremium Furnace
@@ -255,7 +255,7 @@ tile.ma.miners_torch.name=Miner's Torch
 item.ma.inferium_essence.name=§eInferium Essence
 item.ma.prudentium_essence.name=§aPrudentium Essence
 item.ma.intermedium_essence.name=§6Intermedium Essence
-item.ma.superium_essence.name=§bSuperium Essence
+item.ma.supremium_essence.name=§bSupremium Essence
 item.ma.supremium_essence.name=§cSupremium Essence
 
 # INFUSION CRYSTALS
@@ -280,19 +280,19 @@ item.ma.blank_record.name=Blank Record
 item.ma.inferium_apple.name=§eInferium Apple
 item.ma.prudentium_apple.name=§aPrudentium Apple
 item.ma.intermedium_apple.name=§6Intermedium Apple
-item.ma.superium_apple.name=§bSuperium Apple
+item.ma.supremium_apple.name=§bSupremium Apple
 item.ma.supremium_apple.name=§cSupremium Apple
 
 item.ma.coal_inferium.name=§eInferium Coal
 item.ma.coal_prudentium.name=§aPrudentium Coal
 item.ma.coal_intermedium.name=§6Intermedium Coal
-item.ma.coal_superium.name=§bSuperium Coal
+item.ma.coal_supremium.name=§bSupremium Coal
 item.ma.coal_supremium.name=§cSupremium Coal
 
 item.ma.watering_can_inferium.name=§eInferium Watering Can
 item.ma.watering_can_prudentium.name=§aPrudentium Watering Can
 item.ma.watering_can_intermedium.name=§6Intermedium Watering Can
-item.ma.watering_can_superium.name=§bSuperium Watering Can
+item.ma.watering_can_supremium.name=§bSupremium Watering Can
 item.ma.watering_can_supremium.name=§cSupremium Watering Can
 
 # CRAFTING SEEDS
@@ -311,7 +311,7 @@ item.ma.base_essence_ingot.name=Base Essence Ingot
 item.ma.inferium_ingot.name=§eInferium Ingot
 item.ma.prudentium_ingot.name=§aPrudentium Ingot
 item.ma.intermedium_ingot.name=§6Intermedium Ingot
-item.ma.superium_ingot.name=§bSuperium Ingot
+item.ma.supremium_ingot.name=§bSupremium Ingot
 item.ma.supremium_ingot.name=§cSupremium Ingot
 
 item.ma.soul_dust.name=Soul Dust
@@ -323,7 +323,7 @@ item.ma.nugget_base_essence.name=Base Essence Nugget
 item.ma.nugget_inferium.name=§eInferium Nugget
 item.ma.nugget_prudentium.name=§aPrudentium Nugget
 item.ma.nugget_intermedium.name=§6Intermedium Nugget
-item.ma.nugget_superium.name=§bSuperium Nugget
+item.ma.nugget_supremium.name=§bSupremium Nugget
 item.ma.nugget_supremium.name=§cSupremium Nugget
 item.ma.nugget_soulium.name=§dSoulium Nugget
 
@@ -332,7 +332,7 @@ item.ma.crafting_theoretical_water.name=Theoretical Infinite Water Source
 item.ma.crafting_inferium_fert_core.name=§eInferium Fertilization Core
 item.ma.crafting_prudentium_fert_core.name=§aPrudentium Fertilization Core
 item.ma.crafting_intermedium_fert_core.name=§6Intermedium Fertilization Core
-item.ma.crafting_superium_fert_core.name=§bSuperium Fertilization Core
+item.ma.crafting_supremium_fert_core.name=§bSupremium Fertilization Core
 item.ma.crafting_supremium_fert_core.name=§cSupremium Fertilization Core
 
 # CHUNKS
@@ -665,13 +665,13 @@ item.ma.core_remover.name=§cCore Remover
 item.ma.inferium_tool_core.name=§eInferium Tool Core
 item.ma.prudentium_tool_core.name=§aPrudentium Tool Core
 item.ma.intermedium_tool_core.name=§6Intermedium Tool Core
-item.ma.superium_tool_core.name=§bSuperium Tool Core
+item.ma.supremium_tool_core.name=§bSupremium Tool Core
 item.ma.supremium_tool_core.name=§cSupremium Tool Core
 
 item.ma.inferium_armor_core.name=§eInferium Armor Core
 item.ma.prudentium_armor_core.name=§aPrudentium Armor Core
 item.ma.intermedium_armor_core.name=§6Intermedium Armor Core
-item.ma.superium_armor_core.name=§bSuperium Armor Core
+item.ma.supremium_armor_core.name=§bSupremium Armor Core
 item.ma.supremium_armor_core.name=§cSupremium Armor Core
 
 # CHARMS
@@ -700,13 +700,13 @@ item.ma.charm_scything_aoe.name=Charm: Scything AOE
 item.ma.arrow_head_inferium.name=§eInferium Arrow Head
 item.ma.arrow_head_prudentium.name=§aPrudentium Arrow Head
 item.ma.arrow_head_intermedium.name=§6Intermedium Arrow Head
-item.ma.arrow_head_superium.name=§bSuperium Arrow Head
+item.ma.arrow_head_supremium.name=§bSupremium Arrow Head
 item.ma.arrow_head_supremium.name=§cSupremium Arrow Head
 
 item.ma.inferium_arrow.name=§eInferium Arrow
 item.ma.prudentium_arrow.name=§aPrudentium Arrow
 item.ma.intermedium_arrow.name=§6Intermedium Arrow
-item.ma.superium_arrow.name=§bSuperium Arrow
+item.ma.supremium_arrow.name=§bSupremium Arrow
 item.ma.supremium_arrow.name=§cSupremium Arrow
 
 # TOOLS
@@ -740,15 +740,15 @@ item.ma.intermedium_bow.name=§6Intermedium Bow
 item.ma.intermedium_sickle.name=§6Intermedium Sickle
 item.ma.intermedium_scythe.name=§6Intermedium Scythe
 
-item.ma.superium_sword.name=§bSuperium Sword
-item.ma.superium_pickaxe.name=§bSuperium Pickaxe
-item.ma.superium_shovel.name=§bSuperium Shovel
-item.ma.superium_axe.name=§bSuperium Axe
-item.ma.superium_hoe.name=§bSuperium Hoe
-item.ma.superium_shears.name=§bSuperium Shears
-item.ma.superium_bow.name=§bSuperium Bow
-item.ma.superium_sickle.name=§bSuperium Sickle
-item.ma.superium_scythe.name=§bSuperium Scythe
+item.ma.supremium_sword.name=§bSupremium Sword
+item.ma.supremium_pickaxe.name=§bSupremium Pickaxe
+item.ma.supremium_shovel.name=§bSupremium Shovel
+item.ma.supremium_axe.name=§bSupremium Axe
+item.ma.supremium_hoe.name=§bSupremium Hoe
+item.ma.supremium_shears.name=§bSupremium Shears
+item.ma.supremium_bow.name=§bSupremium Bow
+item.ma.supremium_sickle.name=§bSupremium Sickle
+item.ma.supremium_scythe.name=§bSupremium Scythe
 
 item.ma.supremium_sword.name=§cSupremium Sword
 item.ma.supremium_pickaxe.name=§cSupremium Pickaxe
@@ -803,10 +803,10 @@ item.ma.intermedium_chestplate.name=§6Intermedium Chestplate
 item.ma.intermedium_leggings.name=§6Intermedium Leggings
 item.ma.intermedium_boots.name=§6Intermedium Boots
 
-item.ma.superium_helmet.name=§bSuperium Helmet
-item.ma.superium_chestplate.name=§bSuperium Chestplate
-item.ma.superium_leggings.name=§bSuperium Leggings
-item.ma.superium_boots.name=§bSuperium Boots
+item.ma.supremium_helmet.name=§bSupremium Helmet
+item.ma.supremium_chestplate.name=§bSupremium Chestplate
+item.ma.supremium_leggings.name=§bSupremium Leggings
+item.ma.supremium_boots.name=§bSupremium Boots
 
 item.ma.supremium_helmet.name=§cSupremium Helmet
 item.ma.supremium_chestplate.name=§cSupremium Chestplate
@@ -856,7 +856,7 @@ tooltip.ma.soulium_dagger=Used to obtain §cMob Chunks§7.
 tooltip.ma.inferium=Inferium
 tooltip.ma.prudentium=Prudentium
 tooltip.ma.intermedium=Intermedium
-tooltip.ma.superium=Superium
+tooltip.ma.supremium=Supremium
 tooltip.ma.supremium=Supremium
 
 tooltip.ma.burn_time=Burn Time

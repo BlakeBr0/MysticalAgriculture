@@ -18,7 +18,7 @@ public class ItemNugget extends ItemMeta {
 	public static ItemStack inferium;
 	public static ItemStack prudentium;
 	public static ItemStack intermedium;
-	public static ItemStack superium;
+	public static ItemStack supremium;
 	public static ItemStack supremium;
 	public static ItemStack soulium;
 	
@@ -34,7 +34,7 @@ public class ItemNugget extends ItemMeta {
 		inferium = addItem(1, "inferium", "nuggetInferium");
 		prudentium = addItem(2, "prudentium", "nuggetPrudentium");
 		intermedium = addItem(3, "intermedium", "nuggetIntermedium");
-		superium = addItem(4, "superium", "nuggetSuperium");
+		supremium = addItem(4, "supremium", "nuggetSupremium");
 		supremium = addItem(5, "supremium", "nuggetSupremium");
 		soulium = addItem(6, "soulium", "nuggetSoulium");
 	}

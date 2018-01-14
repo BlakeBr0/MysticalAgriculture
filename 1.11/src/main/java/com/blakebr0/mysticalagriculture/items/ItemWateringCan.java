@@ -35,7 +35,7 @@ public class ItemWateringCan extends ItemMeta {
 	public static ItemStack inferium;
 	public static ItemStack prudentium;
 	public static ItemStack intermedium;
-	public static ItemStack superium;
+	public static ItemStack supremium;
 	public static ItemStack supremium;
 	
 	public ItemWateringCan(){
@@ -50,7 +50,7 @@ public class ItemWateringCan extends ItemMeta {
 		inferium = addItem(0, "inferium");
 		prudentium = addItem(1, "prudentium");
 		intermedium = addItem(2, "intermedium");
-		superium = addItem(3, "superium");
+		supremium = addItem(3, "supremium");
 		supremium = addItem(4, "supremium");
 	}
 

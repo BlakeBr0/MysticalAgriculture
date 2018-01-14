@@ -26,9 +26,9 @@ import net.minecraftforge.fml.common.gameevent.TickEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class ItemSuperiumArmor extends ItemArmor {
+public class ItemSupremiumArmor extends ItemArmor {
 
-	public ItemSuperiumArmor(String name, ArmorMaterial material, int index, EntityEquipmentSlot slot){
+	public ItemSupremiumArmor(String name, ArmorMaterial material, int index, EntityEquipmentSlot slot){
 		super(material, index, slot);
 		this.setUnlocalizedName("ma." + name);
 		this.setRegistryName(name);
@@ -56,7 +56,7 @@ public class ItemSuperiumArmor extends ItemArmor {
 	
 	@Override
     public boolean getIsRepairable(ItemStack toRepair, ItemStack repair){
-        return repair.getItem() == ModItems.itemSuperiumIngot;
+        return repair.getItem() == ModItems.itemSupremiumIngot;
     }
 	
 	public static boolean isFullSet(EntityPlayer player){		
@@ -65,7 +65,7 @@ public class ItemSuperiumArmor extends ItemArmor {
 		ItemStack legs = player.getItemStackFromSlot(EntityEquipmentSlot.LEGS);
 		ItemStack feet = player.getItemStackFromSlot(EntityEquipmentSlot.FEET);
 		
-		return head != null && head.getItem() instanceof ItemSuperiumArmor && chest != null && chest.getItem() instanceof ItemSuperiumArmor && legs != null && legs.getItem() instanceof ItemSuperiumArmor && feet != null && feet.getItem() instanceof ItemSuperiumArmor;
+		return head != null && head.getItem() instanceof ItemSupremiumArmor && chest != null && chest.getItem() instanceof ItemSupremiumArmor && legs != null && legs.getItem() instanceof ItemSupremiumArmor && feet != null && feet.getItem() instanceof ItemSupremiumArmor;
 	}
     
     public static class AbilityHandler {

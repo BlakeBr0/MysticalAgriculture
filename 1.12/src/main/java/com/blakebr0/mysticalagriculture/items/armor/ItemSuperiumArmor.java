@@ -25,11 +25,11 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraftforge.oredict.OreDictionary;
 
-public class ItemSuperiumArmor extends ItemArmor implements IRepairMaterial {
+public class ItemSupremiumArmor extends ItemArmor implements IRepairMaterial {
 
 	private ItemStack repairMaterial;
 	
-	public ItemSuperiumArmor(String name, ArmorMaterial material, int index, EntityEquipmentSlot slot){
+	public ItemSupremiumArmor(String name, ArmorMaterial material, int index, EntityEquipmentSlot slot){
 		super(material, index, slot);
 		this.setUnlocalizedName("ma." + name);
 		this.setRegistryName(name);
@@ -76,7 +76,7 @@ public class ItemSuperiumArmor extends ItemArmor implements IRepairMaterial {
 		ItemStack legs = player.getItemStackFromSlot(EntityEquipmentSlot.LEGS);
 		ItemStack feet = player.getItemStackFromSlot(EntityEquipmentSlot.FEET);
 		
-		return !head.isEmpty() && head.getItem() instanceof ItemSuperiumArmor && !chest.isEmpty() && chest.getItem() instanceof ItemSuperiumArmor && !legs.isEmpty() && legs.getItem() instanceof ItemSuperiumArmor && !feet.isEmpty() && feet.getItem() instanceof ItemSuperiumArmor;
+		return !head.isEmpty() && head.getItem() instanceof ItemSupremiumArmor && !chest.isEmpty() && chest.getItem() instanceof ItemSupremiumArmor && !legs.isEmpty() && legs.getItem() instanceof ItemSupremiumArmor && !feet.isEmpty() && feet.getItem() instanceof ItemSupremiumArmor;
 	}
     
     public static class AbilityHandler {

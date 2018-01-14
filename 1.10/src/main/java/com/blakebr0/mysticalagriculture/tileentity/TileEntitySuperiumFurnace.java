@@ -2,7 +2,7 @@ package com.blakebr0.mysticalagriculture.tileentity;
 
 import javax.annotation.Nullable;
 
-import com.blakebr0.mysticalagriculture.blocks.furnace.BlockSuperiumFurnace;
+import com.blakebr0.mysticalagriculture.blocks.furnace.BlockSupremiumFurnace;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockFurnace;
@@ -36,7 +36,7 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class TileEntitySuperiumFurnace extends TileEntityLockable implements ITickable, ISidedInventory {
+public class TileEntitySupremiumFurnace extends TileEntityLockable implements ITickable, ISidedInventory {
 	
     private static final int[] SLOTS_TOP = new int[] {0};
     private static final int[] SLOTS_BOTTOM = new int[] {2, 1};
@@ -83,7 +83,7 @@ public class TileEntitySuperiumFurnace extends TileEntityLockable implements ITi
     }
 
     public String getName(){
-        return this.hasCustomName() ? this.furnaceCustomName : "container.ma.superium_furnace.name";
+        return this.hasCustomName() ? this.furnaceCustomName : "container.ma.supremium_furnace.name";
     }
 
     public boolean hasCustomName(){
@@ -199,7 +199,7 @@ public class TileEntitySuperiumFurnace extends TileEntityLockable implements ITi
             }
             if (flag != this.isBurning()){
                 flag1 = true;
-                BlockSuperiumFurnace.setState(this.isBurning(), this.worldObj, this.pos);
+                BlockSupremiumFurnace.setState(this.isBurning(), this.worldObj, this.pos);
             }
         }
         if (flag1){

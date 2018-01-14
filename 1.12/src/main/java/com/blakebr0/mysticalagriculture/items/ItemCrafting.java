@@ -14,7 +14,7 @@ public class ItemCrafting extends ItemMeta {
 	public static ItemStack itemInferiumEssence;
 	public static ItemStack itemPrudentiumEssence;
 	public static ItemStack itemIntermediumEssence;
-	public static ItemStack itemSuperiumEssence;
+	public static ItemStack itemSupremiumEssence;
 	public static ItemStack itemSupremiumEssence;
 	
 	public static ItemStack itemProsperityShard;
@@ -46,7 +46,7 @@ public class ItemCrafting extends ItemMeta {
 	public static ItemStack itemInferiumIngot;
 	public static ItemStack itemPrudentiumIngot;
 	public static ItemStack itemIntermediumIngot;
-	public static ItemStack itemSuperiumIngot;
+	public static ItemStack itemSupremiumIngot;
 	public static ItemStack itemSupremiumIngot;
 	public static ItemStack itemSouliumIngot;
 	
@@ -54,7 +54,7 @@ public class ItemCrafting extends ItemMeta {
 	public static ItemStack itemInferiumNugget;
 	public static ItemStack itemPrudentiumNugget;
 	public static ItemStack itemIntermediumNugget;
-	public static ItemStack itemSuperiumNugget;
+	public static ItemStack itemSupremiumNugget;
 	public static ItemStack itemSupremiumNugget;
 	public static ItemStack itemSouliumNugget;
 	
@@ -63,7 +63,7 @@ public class ItemCrafting extends ItemMeta {
 	public static ItemStack itemInferiumFertCore;
 	public static ItemStack itemPrudentiumFertCore;
 	public static ItemStack itemIntermediumFertCore;
-	public static ItemStack itemSuperiumFertCore;
+	public static ItemStack itemSupremiumFertCore;
 	public static ItemStack itemSupremiumFertCore;
 	
 	public ItemCrafting(){
@@ -76,7 +76,7 @@ public class ItemCrafting extends ItemMeta {
 		itemInferiumEssence = addItem(0, "inferium_essence", "essenceInferium");
 		itemPrudentiumEssence = addItem(1, "prudentium_essence", "essencePrudentium");
 		itemIntermediumEssence = addItem(2, "intermedium_essence", "essenceIntermedium");
-		itemSuperiumEssence = addItem(3, "superium_essence", "essenceSuperium");
+		itemSupremiumEssence = addItem(3, "supremium_essence", "essenceSupremium");
 		itemSupremiumEssence = addItem(4, "supremium_essence", "essenceSupremium");
 		
 		itemProsperityShard = addItem(5, "prosperity_shard", "shardProsperity");
@@ -108,7 +108,7 @@ public class ItemCrafting extends ItemMeta {
 		itemInferiumIngot = addItem(33, "inferium_ingot", "ingotInferium");
 		itemPrudentiumIngot = addItem(34, "prudentium_ingot", "ingotPrudentium");
 		itemIntermediumIngot = addItem(35, "intermedium_ingot", "ingotIntermedium");
-		itemSuperiumIngot = addItem(36, "superium_ingot", "ingotSuperium");
+		itemSupremiumIngot = addItem(36, "supremium_ingot", "ingotSupremium");
 		itemSupremiumIngot = addItem(37, "supremium_ingot", "ingotSupremium");
 		itemSouliumIngot = addItem(38, "soulium_ingot", "ingotSoulium");
 		
@@ -116,7 +116,7 @@ public class ItemCrafting extends ItemMeta {
 		itemInferiumNugget = addItem(40, "inferium_nugget", "nuggetInferium");
 		itemPrudentiumNugget = addItem(41, "prudentium_nugget", "nuggetPrudentium");
 		itemIntermediumNugget = addItem(42, "intermedium_nugget", "nuggetIntermedium");
-		itemSuperiumNugget = addItem(43, "superium_nugget", "nuggetSuperium");
+		itemSupremiumNugget = addItem(43, "supremium_nugget", "nuggetSupremium");
 		itemSupremiumNugget = addItem(44, "supremium_nugget", "nuggetSupremium");
 		itemSouliumNugget = addItem(45, "soulium_nugget", "nuggetSoulium");
 		
@@ -125,7 +125,7 @@ public class ItemCrafting extends ItemMeta {
 		itemInferiumFertCore = addItem(50, "inferium_fert_core", ModConfig.confWateringCans, Utils.asList(Tooltips.CORE_REMOVAL));
 		itemPrudentiumFertCore = addItem(51, "prudentium_fert_core", ModConfig.confWateringCans, Utils.asList(Tooltips.CORE_REMOVAL));
 		itemIntermediumFertCore = addItem(52, "intermedium_fert_core", ModConfig.confWateringCans, Utils.asList(Tooltips.CORE_REMOVAL));
-		itemSuperiumFertCore = addItem(53, "superium_fert_core", ModConfig.confWateringCans, Utils.asList(Tooltips.CORE_REMOVAL));
+		itemSupremiumFertCore = addItem(53, "supremium_fert_core", ModConfig.confWateringCans, Utils.asList(Tooltips.CORE_REMOVAL));
 		itemSupremiumFertCore = addItem(54, "supremium_fert_core", ModConfig.confWateringCans, Utils.asList(Tooltips.CORE_REMOVAL));
 	}
 }

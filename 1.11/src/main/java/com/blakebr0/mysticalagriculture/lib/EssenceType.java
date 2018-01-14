@@ -9,7 +9,7 @@ public class EssenceType {
 		INFERIUM(0, "inferium"),
 		PRUDENTIUM(1, "prudentium"),
 		INTERMEDIUM(2, "intermedium"),
-		SUPERIUM(3, "superium"),
+		SUPREMIUM(3, "supremium"),
 		SUPREMIUM(4, "supremium");
 		
         private static final Type[] META_LOOKUP = new Type[values().length];

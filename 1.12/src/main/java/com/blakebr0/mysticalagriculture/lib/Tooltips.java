@@ -20,7 +20,7 @@ public class Tooltips {
 	public static final String INFERIUM = Colors.YELLOW + Utils.localize("tooltip.ma.inferium");
 	public static final String PRUDENTIUM = Colors.GREEN + Utils.localize("tooltip.ma.prudentium");
 	public static final String INTERMEDIUM = Colors.GOLD + Utils.localize("tooltip.ma.intermedium");
-	public static final String SUPERIUM = Colors.AQUA + Utils.localize("tooltip.ma.superium");
+	public static final String SUPREMIUM = Colors.AQUA + Utils.localize("tooltip.ma.supremium");
 	public static final String SUPREMIUM = Colors.RED + Utils.localize("tooltip.ma.supremium");
 	
 	public static final String ABSORPTION = Colors.YELLOW + Utils.localize(MobEffects.ABSORPTION.getName()) + " II";

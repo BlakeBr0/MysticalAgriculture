@@ -8,7 +8,7 @@ import com.blakebr0.mysticalagriculture.MysticalAgriculture;
 import com.blakebr0.mysticalagriculture.blocks.ModBlocks;
 import com.blakebr0.mysticalagriculture.lib.Colors;
 import com.blakebr0.mysticalagriculture.lib.Tooltips;
-import com.blakebr0.mysticalagriculture.tileentity.TileEntitySuperiumFurnace;
+import com.blakebr0.mysticalagriculture.tileentity.TileEntitySupremiumFurnace;
 
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.BlockHorizontal;
@@ -39,13 +39,13 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class BlockSuperiumFurnace extends BlockContainer {
+public class BlockSupremiumFurnace extends BlockContainer {
 	
     public static final PropertyDirection FACING = BlockHorizontal.FACING;
     private final boolean isBurning;
     private static boolean keepInventory;
 
-    public BlockSuperiumFurnace(boolean isBurning, String name, float hardness, float resistance){
+    public BlockSupremiumFurnace(boolean isBurning, String name, float hardness, float resistance){
         super(Material.ROCK);
         this.setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH));
         this.isBurning = isBurning;
@@ -64,7 +64,7 @@ public class BlockSuperiumFurnace extends BlockContainer {
 
     @Nullable
     public Item getItemDropped(IBlockState state, Random rand, int fortune){
-        return Item.getItemFromBlock(ModBlocks.blockSuperiumFurnace);
+        return Item.getItemFromBlock(ModBlocks.blockSupremiumFurnace);
     }
 
     public void onBlockAdded(World worldIn, BlockPos pos, IBlockState state){
@@ -137,8 +137,8 @@ public class BlockSuperiumFurnace extends BlockContainer {
         } else {
             TileEntity tileentity = worldIn.getTileEntity(pos);
 
-            if (tileentity instanceof TileEntitySuperiumFurnace){
-                playerIn.displayGUIChest((TileEntitySuperiumFurnace)tileentity);
+            if (tileentity instanceof TileEntitySupremiumFurnace){
+                playerIn.displayGUIChest((TileEntitySupremiumFurnace)tileentity);
                 playerIn.addStat(StatList.FURNACE_INTERACTION);
             }
             return true;
@@ -151,11 +151,11 @@ public class BlockSuperiumFurnace extends BlockContainer {
         keepInventory = true;
 
         if(active){
-            worldIn.setBlockState(pos, ModBlocks.blockSuperiumFurnaceActive.getDefaultState().withProperty(FACING, iblockstate.getValue(FACING)), 3);
-            worldIn.setBlockState(pos, ModBlocks.blockSuperiumFurnaceActive.getDefaultState().withProperty(FACING, iblockstate.getValue(FACING)), 3);
+            worldIn.setBlockState(pos, ModBlocks.blockSupremiumFurnaceActive.getDefaultState().withProperty(FACING, iblockstate.getValue(FACING)), 3);
+            worldIn.setBlockState(pos, ModBlocks.blockSupremiumFurnaceActive.getDefaultState().withProperty(FACING, iblockstate.getValue(FACING)), 3);
         } else {
-            worldIn.setBlockState(pos, ModBlocks.blockSuperiumFurnace.getDefaultState().withProperty(FACING, iblockstate.getValue(FACING)), 3);
-            worldIn.setBlockState(pos, ModBlocks.blockSuperiumFurnace.getDefaultState().withProperty(FACING, iblockstate.getValue(FACING)), 3);
+            worldIn.setBlockState(pos, ModBlocks.blockSupremiumFurnace.getDefaultState().withProperty(FACING, iblockstate.getValue(FACING)), 3);
+            worldIn.setBlockState(pos, ModBlocks.blockSupremiumFurnace.getDefaultState().withProperty(FACING, iblockstate.getValue(FACING)), 3);
         }
 
         keepInventory = false;
@@ -167,7 +167,7 @@ public class BlockSuperiumFurnace extends BlockContainer {
     }
 
     public TileEntity createNewTileEntity(World worldIn, int meta){
-        return new TileEntitySuperiumFurnace();
+        return new TileEntitySupremiumFurnace();
     }
 
     public IBlockState onBlockPlaced(World worldIn, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer){
@@ -180,8 +180,8 @@ public class BlockSuperiumFurnace extends BlockContainer {
         if (stack.hasDisplayName()){
             TileEntity tileentity = worldIn.getTileEntity(pos);
 
-            if (tileentity instanceof TileEntitySuperiumFurnace){
-                ((TileEntitySuperiumFurnace)tileentity).setCustomInventoryName(stack.getDisplayName());
+            if (tileentity instanceof TileEntitySupremiumFurnace){
+                ((TileEntitySupremiumFurnace)tileentity).setCustomInventoryName(stack.getDisplayName());
             }
         }
     }
@@ -190,8 +190,8 @@ public class BlockSuperiumFurnace extends BlockContainer {
         if (!keepInventory){
             TileEntity tileentity = worldIn.getTileEntity(pos);
 
-            if (tileentity instanceof TileEntitySuperiumFurnace){
-                InventoryHelper.dropInventoryItems(worldIn, pos, (TileEntitySuperiumFurnace)tileentity);
+            if (tileentity instanceof TileEntitySupremiumFurnace){
+                InventoryHelper.dropInventoryItems(worldIn, pos, (TileEntitySupremiumFurnace)tileentity);
                 worldIn.updateComparatorOutputLevel(pos, this);
             }
         }
@@ -207,7 +207,7 @@ public class BlockSuperiumFurnace extends BlockContainer {
     }
 
     public ItemStack getItem(World worldIn, BlockPos pos, IBlockState state){
-        return new ItemStack(ModBlocks.blockSuperiumFurnace);
+        return new ItemStack(ModBlocks.blockSupremiumFurnace);
     }
 
     public EnumBlockRenderType getRenderType(IBlockState state){
