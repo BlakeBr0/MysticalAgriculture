@@ -1,5 +1,5 @@
 {
-	"parent": "mysticalagriculture:block/ingot_storage_superium",
+	"parent": "mysticalagriculture:block/ingot_storage_supremium",
     "display": {
         "gui": {
             "rotation": [ 30, 225, 0 ],

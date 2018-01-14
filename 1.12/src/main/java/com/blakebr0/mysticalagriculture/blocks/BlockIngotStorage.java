@@ -70,7 +70,7 @@ public class BlockIngotStorage extends BlockBase implements IModelHelper {
 		INFERIUM(1, "inferium"),
 		PRUDENTIUM(2, "prudentium"),
 		INTERMEDIUM(3, "intermedium"),
-		SUPERIUM(4, "superium"),
+		SUPREMIUM(4, "supremium"),
 		SUPREMIUM(5, "supremium"),
 		SOULIUM(6, "soulium");
 		

@@ -42,7 +42,7 @@ public class ItemWateringCan extends ItemMeta implements IEnableable {
 	public static ItemStack itemInferiumWateringCan;
 	public static ItemStack itemPrudentiumWateringCan;
 	public static ItemStack itemIntermediumWateringCan;
-	public static ItemStack itemSuperiumWateringCan;
+	public static ItemStack itemSupremiumWateringCan;
 	public static ItemStack itemSupremiumWateringCan;;
 	
 	public ItemWateringCan(){
@@ -56,7 +56,7 @@ public class ItemWateringCan extends ItemMeta implements IEnableable {
 		itemInferiumWateringCan = addItem(0, "inferium");
 		itemPrudentiumWateringCan = addItem(1, "prudentium");
 		itemIntermediumWateringCan = addItem(2, "intermedium");
-		itemSuperiumWateringCan = addItem(3, "superium");
+		itemSupremiumWateringCan = addItem(3, "supremium");
 		itemSupremiumWateringCan = addItem(4, "supremium");
 	}
 

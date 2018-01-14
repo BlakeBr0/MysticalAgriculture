@@ -1,5 +1,5 @@
 {
-	"parent": "mysticalagriculture:block/coal_block_superium",
+	"parent": "mysticalagriculture:block/coal_block_supremium",
     "display": {
         "gui": {
             "rotation": [ 30, 225, 0 ],

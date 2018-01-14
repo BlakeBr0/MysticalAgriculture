@@ -560,7 +560,7 @@ public class ModConfig {
 				+ "\nTier 1: Inferium"
 				+ "\nTier 2: Prudentium"
 				+ "\nTier 3: Intermedium"
-				+ "\nTier 4: Superium"
+				+ "\nTier 4: Supremium"
 				+ "\nTier 5: Supremium");
 		confStoneTier = config.get(category, "stone_tier", 1).getInt();
 		confDirtTier = config.get(category, "dirt_tier", 1).getInt();
@@ -605,7 +605,7 @@ public class ModConfig {
 				+ "\nTier 1: Inferium"
 				+ "\nTier 2: Prudentium"
 				+ "\nTier 3: Intermedium"
-				+ "\nTier 4: Superium"
+				+ "\nTier 4: Supremium"
 				+ "\nTier 5: Supremium");
 		confRubberTier = config.get(category, "rubber_tier", 2).getInt();
 		confSiliconTier = config.get(category, "silicon_tier", 2).getInt();

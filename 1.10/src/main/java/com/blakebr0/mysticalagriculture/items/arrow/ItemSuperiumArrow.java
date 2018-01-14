@@ -3,7 +3,7 @@ package com.blakebr0.mysticalagriculture.items.arrow;
 import java.util.List;
 
 import com.blakebr0.mysticalagriculture.MysticalAgriculture;
-import com.blakebr0.mysticalagriculture.entity.arrow.EntitySuperiumArrow;
+import com.blakebr0.mysticalagriculture.entity.arrow.EntitySupremiumArrow;
 import com.blakebr0.mysticalagriculture.lib.Colors;
 import com.blakebr0.mysticalagriculture.lib.Tooltips;
 import com.blakebr0.mysticalagriculture.util.Utils;
@@ -15,9 +15,9 @@ import net.minecraft.item.ItemArrow;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
-public class ItemSuperiumArrow extends ItemArrow {
+public class ItemSupremiumArrow extends ItemArrow {
 	
-	public ItemSuperiumArrow(String name){
+	public ItemSupremiumArrow(String name){
 		this.setUnlocalizedName("ma." + name);
 		this.setRegistryName(name);
 		this.setCreativeTab(MysticalAgriculture.tabMysticalAgriculture);
@@ -25,7 +25,7 @@ public class ItemSuperiumArrow extends ItemArrow {
 	
 	@Override
 	public EntityArrow createArrow(World world, ItemStack stack, EntityLivingBase shooter) {
-		return new EntitySuperiumArrow(world, shooter);
+		return new EntitySupremiumArrow(world, shooter);
 	}
 	
 	@Override

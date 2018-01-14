@@ -31,7 +31,7 @@ public class BlockEssenceCoal extends BlockBase {
     public static ItemStack blockInferiumCoal;
     public static ItemStack blockPrudentiumCoal;
     public static ItemStack blockIntermediumCoal;
-    public static ItemStack blockSuperiumCoal;
+    public static ItemStack blockSupremiumCoal;
     public static ItemStack blockSupremiumCoal;
     
     public BlockEssenceCoal(){

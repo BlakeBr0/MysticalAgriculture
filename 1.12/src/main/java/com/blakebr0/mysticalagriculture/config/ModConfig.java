@@ -134,7 +134,7 @@ public class ModConfig {
 				+ "\nTier 1: Inferium"
 				+ "\nTier 2: Prudentium"
 				+ "\nTier 3: Intermedium"
-				+ "\nTier 4: Superium"
+				+ "\nTier 4: Supremium"
 				+ "\nTier 5: Supremium");
 
 		for(CropType.Type type : CropType.Type.values()){

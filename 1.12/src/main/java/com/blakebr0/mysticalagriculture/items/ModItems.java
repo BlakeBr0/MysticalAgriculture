@@ -7,17 +7,17 @@ import com.blakebr0.mysticalagriculture.config.ModConfig;
 import com.blakebr0.mysticalagriculture.items.apples.ItemInferiumApple;
 import com.blakebr0.mysticalagriculture.items.apples.ItemIntermediumApple;
 import com.blakebr0.mysticalagriculture.items.apples.ItemPrudentiumApple;
-import com.blakebr0.mysticalagriculture.items.apples.ItemSuperiumApple;
+import com.blakebr0.mysticalagriculture.items.apples.ItemSupremiumApple;
 import com.blakebr0.mysticalagriculture.items.apples.ItemSupremiumApple;
 import com.blakebr0.mysticalagriculture.items.armor.ItemInferiumArmor;
 import com.blakebr0.mysticalagriculture.items.armor.ItemIntermediumArmor;
 import com.blakebr0.mysticalagriculture.items.armor.ItemPrudentiumArmor;
-import com.blakebr0.mysticalagriculture.items.armor.ItemSuperiumArmor;
+import com.blakebr0.mysticalagriculture.items.armor.ItemSupremiumArmor;
 import com.blakebr0.mysticalagriculture.items.armor.ItemSupremiumArmor;
 import com.blakebr0.mysticalagriculture.items.arrow.ItemInferiumArrow;
 import com.blakebr0.mysticalagriculture.items.arrow.ItemIntermediumArrow;
 import com.blakebr0.mysticalagriculture.items.arrow.ItemPrudentiumArrow;
-import com.blakebr0.mysticalagriculture.items.arrow.ItemSuperiumArrow;
+import com.blakebr0.mysticalagriculture.items.arrow.ItemSupremiumArrow;
 import com.blakebr0.mysticalagriculture.items.arrow.ItemSupremiumArrow;
 import com.blakebr0.mysticalagriculture.items.tools.ItemEssenceAxe;
 import com.blakebr0.mysticalagriculture.items.tools.ItemEssenceBow;
@@ -53,7 +53,7 @@ public class ModItems {
 	public static ItemInferiumApple itemInferiumApple = new ItemInferiumApple();
 	public static ItemPrudentiumApple itemPrudentiumApple = new ItemPrudentiumApple();
 	public static ItemIntermediumApple itemIntermediumApple = new ItemIntermediumApple();
-	public static ItemSuperiumApple itemSuperiumApple = new ItemSuperiumApple();
+	public static ItemSupremiumApple itemSupremiumApple = new ItemSupremiumApple();
 	public static ItemSupremiumApple itemSupremiumApple = new ItemSupremiumApple();
 	
 	public static ItemEssenceCoal itemEssenceCoal = new ItemEssenceCoal();
@@ -79,7 +79,7 @@ public class ModItems {
 	public static ItemInferiumArrow itemInferiumArrow = new ItemInferiumArrow();
 	public static ItemPrudentiumArrow itemPrudentiumArrow = new ItemPrudentiumArrow();
 	public static ItemIntermediumArrow itemIntermediumArrow = new ItemIntermediumArrow();
-	public static ItemSuperiumArrow itemSuperiumArrow = new ItemSuperiumArrow();
+	public static ItemSupremiumArrow itemSupremiumArrow = new ItemSupremiumArrow();
 	public static ItemSupremiumArrow itemSupremiumArrow = new ItemSupremiumArrow();
 	
 	public static ItemEssenceSword itemInferiumSword = new ItemEssenceSword("inferium_sword", ModToolMaterials.INFERIUM, TextFormatting.YELLOW);
@@ -115,16 +115,16 @@ public class ModItems {
 	public static ItemEssenceScythe itemIntermediumScythe = new ItemEssenceScythe("intermedium_scythe", 1, ModToolMaterials.INTERMEDIUM, TextFormatting.GOLD);
 	public static ItemEssenceFishingRod itemIntermediumFishingRod = new ItemEssenceFishingRod("intermedium_fishing_rod", ModToolMaterials.INTERMEDIUM, TextFormatting.GOLD);
 	
-	public static ItemEssenceSword itemSuperiumSword = new ItemEssenceSword("superium_sword", ModToolMaterials.SUPERIUM, TextFormatting.AQUA);
-	public static ItemEssencePickaxe itemSuperiumPickaxe = new ItemEssencePickaxe("superium_pickaxe", ModToolMaterials.SUPERIUM, TextFormatting.AQUA);
-	public static ItemEssenceShovel itemSuperiumShovel = new ItemEssenceShovel("superium_shovel", ModToolMaterials.SUPERIUM, TextFormatting.AQUA);
-	public static ItemEssenceAxe itemSuperiumAxe = new ItemEssenceAxe("superium_axe", ModToolMaterials.SUPERIUM, 17.0F, TextFormatting.AQUA);
-	public static ItemEssenceHoe itemSuperiumHoe = new ItemEssenceHoe("superium_hoe", ModToolMaterials.SUPERIUM, TextFormatting.AQUA);
-	public static ItemEssenceShears itemSuperiumShears = new ItemEssenceShears("superium_shears", ModToolMaterials.SUPERIUM, TextFormatting.AQUA);
-	public static ItemEssenceBow itemSuperiumBow = new ItemEssenceBow("superium_bow", ModToolMaterials.SUPERIUM, 0.55F, TextFormatting.AQUA);
-	public static ItemEssenceSickle itemSuperiumSickle = new ItemEssenceSickle("superium_sickle", 2, ModToolMaterials.SUPERIUM, TextFormatting.AQUA);
-	public static ItemEssenceScythe itemSuperiumScythe = new ItemEssenceScythe("superium_scythe", 1, ModToolMaterials.SUPERIUM, TextFormatting.AQUA);
-	public static ItemEssenceFishingRod itemSuperiumFishingRod = new ItemEssenceFishingRod("superium_fishing_rod", ModToolMaterials.SUPERIUM, TextFormatting.AQUA);
+	public static ItemEssenceSword itemSupremiumSword = new ItemEssenceSword("supremium_sword", ModToolMaterials.SUPREMIUM, TextFormatting.AQUA);
+	public static ItemEssencePickaxe itemSupremiumPickaxe = new ItemEssencePickaxe("supremium_pickaxe", ModToolMaterials.SUPREMIUM, TextFormatting.AQUA);
+	public static ItemEssenceShovel itemSupremiumShovel = new ItemEssenceShovel("supremium_shovel", ModToolMaterials.SUPREMIUM, TextFormatting.AQUA);
+	public static ItemEssenceAxe itemSupremiumAxe = new ItemEssenceAxe("supremium_axe", ModToolMaterials.SUPREMIUM, 17.0F, TextFormatting.AQUA);
+	public static ItemEssenceHoe itemSupremiumHoe = new ItemEssenceHoe("supremium_hoe", ModToolMaterials.SUPREMIUM, TextFormatting.AQUA);
+	public static ItemEssenceShears itemSupremiumShears = new ItemEssenceShears("supremium_shears", ModToolMaterials.SUPREMIUM, TextFormatting.AQUA);
+	public static ItemEssenceBow itemSupremiumBow = new ItemEssenceBow("supremium_bow", ModToolMaterials.SUPREMIUM, 0.55F, TextFormatting.AQUA);
+	public static ItemEssenceSickle itemSupremiumSickle = new ItemEssenceSickle("supremium_sickle", 2, ModToolMaterials.SUPREMIUM, TextFormatting.AQUA);
+	public static ItemEssenceScythe itemSupremiumScythe = new ItemEssenceScythe("supremium_scythe", 1, ModToolMaterials.SUPREMIUM, TextFormatting.AQUA);
+	public static ItemEssenceFishingRod itemSupremiumFishingRod = new ItemEssenceFishingRod("supremium_fishing_rod", ModToolMaterials.SUPREMIUM, TextFormatting.AQUA);
 	
 	public static ItemEssenceSword itemSupremiumSword = new ItemEssenceSword("supremium_sword", ModToolMaterials.SUPREMIUM, TextFormatting.RED);
 	public static ItemEssencePickaxe itemSupremiumPickaxe = new ItemEssencePickaxe("supremium_pickaxe", ModToolMaterials.SUPREMIUM, TextFormatting.RED);
@@ -152,10 +152,10 @@ public class ModItems {
 	public static ItemIntermediumArmor itemIntermediumLeggings = new ItemIntermediumArmor("intermedium_leggings", ModToolMaterials.INTERMEDIUM_ARMOR, 0, EntityEquipmentSlot.LEGS);
 	public static ItemIntermediumArmor itemIntermediumBoots = new ItemIntermediumArmor("intermedium_boots", ModToolMaterials.INTERMEDIUM_ARMOR, 0, EntityEquipmentSlot.FEET);
 	
-	public static ItemSuperiumArmor itemSuperiumHelmet = new ItemSuperiumArmor("superium_helmet", ModToolMaterials.SUPERIUM_ARMOR, 0, EntityEquipmentSlot.HEAD);
-	public static ItemSuperiumArmor itemSuperiumChestplate = new ItemSuperiumArmor("superium_chestplate", ModToolMaterials.SUPERIUM_ARMOR, 0, EntityEquipmentSlot.CHEST);
-	public static ItemSuperiumArmor itemSuperiumLeggings = new ItemSuperiumArmor("superium_leggings", ModToolMaterials.SUPERIUM_ARMOR, 0, EntityEquipmentSlot.LEGS);
-	public static ItemSuperiumArmor itemSuperiumBoots = new ItemSuperiumArmor("superium_boots", ModToolMaterials.SUPERIUM_ARMOR, 0, EntityEquipmentSlot.FEET);
+	public static ItemSupremiumArmor itemSupremiumHelmet = new ItemSupremiumArmor("supremium_helmet", ModToolMaterials.SUPREMIUM_ARMOR, 0, EntityEquipmentSlot.HEAD);
+	public static ItemSupremiumArmor itemSupremiumChestplate = new ItemSupremiumArmor("supremium_chestplate", ModToolMaterials.SUPREMIUM_ARMOR, 0, EntityEquipmentSlot.CHEST);
+	public static ItemSupremiumArmor itemSupremiumLeggings = new ItemSupremiumArmor("supremium_leggings", ModToolMaterials.SUPREMIUM_ARMOR, 0, EntityEquipmentSlot.LEGS);
+	public static ItemSupremiumArmor itemSupremiumBoots = new ItemSupremiumArmor("supremium_boots", ModToolMaterials.SUPREMIUM_ARMOR, 0, EntityEquipmentSlot.FEET);
 	
 	public static ItemSupremiumArmor itemSupremiumHelmet = new ItemSupremiumArmor("supremium_helmet", ModToolMaterials.SUPREMIUM_ARMOR, 0, EntityEquipmentSlot.HEAD);
 	public static ItemSupremiumArmor itemSupremiumChestplate = new ItemSupremiumArmor("supremium_chestplate", ModToolMaterials.SUPREMIUM_ARMOR, 0, EntityEquipmentSlot.CHEST);
@@ -178,7 +178,7 @@ public class ModItems {
 		registry.register(itemInferiumApple, "inferium_apple");
 		registry.register(itemPrudentiumApple, "prudentium_apple");
 		registry.register(itemIntermediumApple, "intermedium_apple");
-		registry.register(itemSuperiumApple, "superium_apple");
+		registry.register(itemSupremiumApple, "supremium_apple");
 		registry.register(itemSupremiumApple, "supremium_apple");
 		
 		registry.register(itemEssenceCoal, "coal");
@@ -229,7 +229,7 @@ public class ModItems {
 			registry.register(itemInferiumArrow, "inferium_arrow");
 			registry.register(itemPrudentiumArrow, "prudentium_arrow");
 			registry.register(itemIntermediumArrow, "intermedium_arrow");
-			registry.register(itemSuperiumArrow, "superium_arrow");
+			registry.register(itemSupremiumArrow, "supremium_arrow");
 			registry.register(itemSupremiumArrow, "supremium_arrow");
 			
 			registry.register(itemInferiumSword, "inferium_sword", ModItems.itemCrafting.itemInferiumIngot);
@@ -265,16 +265,16 @@ public class ModItems {
 			registry.register(itemIntermediumScythe, "intermedium_scythe", ModItems.itemCrafting.itemIntermediumIngot);
 			registry.register(itemIntermediumFishingRod, "intermedium_fishing_rod", ModItems.itemCrafting.itemIntermediumIngot);
 			
-			registry.register(itemSuperiumSword, "superium_sword", ModItems.itemCrafting.itemSuperiumIngot);
-			registry.register(itemSuperiumPickaxe, "superium_pickaxe", ModItems.itemCrafting.itemSuperiumIngot);
-			registry.register(itemSuperiumShovel, "superium_shovel", ModItems.itemCrafting.itemSuperiumIngot);
-			registry.register(itemSuperiumAxe, "superium_axe", ModItems.itemCrafting.itemSuperiumIngot);
-			registry.register(itemSuperiumHoe, "superium_hoe", ModItems.itemCrafting.itemSuperiumIngot);
-			registry.register(itemSuperiumShears, "superium_shears", ModItems.itemCrafting.itemSuperiumIngot);
-			registry.register(itemSuperiumBow, "superium_bow", ModItems.itemCrafting.itemSuperiumIngot);
-			registry.register(itemSuperiumSickle, "superium_sickle", ModItems.itemCrafting.itemSuperiumIngot);
-			registry.register(itemSuperiumScythe, "superium_scythe", ModItems.itemCrafting.itemSuperiumIngot);
-			registry.register(itemSuperiumFishingRod, "superium_fishing_rod", ModItems.itemCrafting.itemSuperiumIngot);
+			registry.register(itemSupremiumSword, "supremium_sword", ModItems.itemCrafting.itemSupremiumIngot);
+			registry.register(itemSupremiumPickaxe, "supremium_pickaxe", ModItems.itemCrafting.itemSupremiumIngot);
+			registry.register(itemSupremiumShovel, "supremium_shovel", ModItems.itemCrafting.itemSupremiumIngot);
+			registry.register(itemSupremiumAxe, "supremium_axe", ModItems.itemCrafting.itemSupremiumIngot);
+			registry.register(itemSupremiumHoe, "supremium_hoe", ModItems.itemCrafting.itemSupremiumIngot);
+			registry.register(itemSupremiumShears, "supremium_shears", ModItems.itemCrafting.itemSupremiumIngot);
+			registry.register(itemSupremiumBow, "supremium_bow", ModItems.itemCrafting.itemSupremiumIngot);
+			registry.register(itemSupremiumSickle, "supremium_sickle", ModItems.itemCrafting.itemSupremiumIngot);
+			registry.register(itemSupremiumScythe, "supremium_scythe", ModItems.itemCrafting.itemSupremiumIngot);
+			registry.register(itemSupremiumFishingRod, "supremium_fishing_rod", ModItems.itemCrafting.itemSupremiumIngot);
 			
 			registry.register(itemSupremiumSword, "supremium_sword", ModItems.itemCrafting.itemSupremiumIngot);
 			registry.register(itemSupremiumPickaxe, "supremium_pickaxe", ModItems.itemCrafting.itemSupremiumIngot);
@@ -302,10 +302,10 @@ public class ModItems {
 	    	registry.register(itemIntermediumLeggings, "intermedium_leggings", ModItems.itemCrafting.itemIntermediumIngot);
 	    	registry.register(itemIntermediumBoots, "intermedium_boots", ModItems.itemCrafting.itemIntermediumIngot);
 	    	
-	    	registry.register(itemSuperiumHelmet, "superium_helmet", ModItems.itemCrafting.itemSuperiumIngot);
-	        registry.register(itemSuperiumChestplate, "superium_chestplate", ModItems.itemCrafting.itemSuperiumIngot);
-	        registry.register(itemSuperiumLeggings, "superium_leggings", ModItems.itemCrafting.itemSuperiumIngot);
-	        registry.register(itemSuperiumBoots, "superium_boots", ModItems.itemCrafting.itemSuperiumIngot);
+	    	registry.register(itemSupremiumHelmet, "supremium_helmet", ModItems.itemCrafting.itemSupremiumIngot);
+	        registry.register(itemSupremiumChestplate, "supremium_chestplate", ModItems.itemCrafting.itemSupremiumIngot);
+	        registry.register(itemSupremiumLeggings, "supremium_leggings", ModItems.itemCrafting.itemSupremiumIngot);
+	        registry.register(itemSupremiumBoots, "supremium_boots", ModItems.itemCrafting.itemSupremiumIngot);
 	        
 	        registry.register(itemSupremiumHelmet, "supremium_helmet", ModItems.itemCrafting.itemSupremiumIngot);
 	        registry.register(itemSupremiumChestplate, "supremium_chestplate", ModItems.itemCrafting.itemSupremiumIngot);

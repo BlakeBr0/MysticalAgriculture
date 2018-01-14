@@ -5,14 +5,14 @@ itemGroup.tabMysticalAgriculture=神秘农业
 tile.ma.inferium_soil.name=§e下级土壤
 tile.ma.prudentium_soil.name=§a初级土壤
 tile.ma.intermedium_soil.name=§6中级土壤
-tile.ma.superium_soil.name=§b高级土壤
+tile.ma.supremium_soil.name=§b高级土壤
 tile.ma.supremium_soil.name=§c终极土壤
 
 # STORAGE BLOCKS
 tile.ma.inferium_block.name=§e下级精华块
 tile.ma.prudentium_block.name=§a初级精华块
 tile.ma.intermedium_block.name=§6中级精华块
-tile.ma.superium_block.name=§b高级精华块
+tile.ma.supremium_block.name=§b高级精华块
 tile.ma.supremium_block.name=§c终极精华块
 
 tile.ma.soulstone.name=离魂石 [WIP]
@@ -101,7 +101,7 @@ tile.ma.refined_obsidian_crop.name=Refined Obsidian Crop
 item.ma.inferium_essence.name=§e下级精华
 item.ma.prudentium_essence.name=§a初级精华
 item.ma.intermedium_essence.name=§6中级精华
-item.ma.superium_essence.name=§b高级精华
+item.ma.supremium_essence.name=§b高级精华
 item.ma.supremium_essence.name=§c终极精华
 
 # INFUSION CRYSTALS
@@ -121,7 +121,7 @@ item.ma.mystical_flower_cluster.name=魔力花簇
 item.ma.inferium_apple.name=§e下级苹果
 item.ma.prudentium_apple.name=§a初级苹果
 item.ma.intermedium_apple.name=§6中级苹果
-item.ma.superium_apple.name=§b高级苹果
+item.ma.supremium_apple.name=§b高级苹果
 item.ma.supremium_apple.name=§c终极苹果
 
 # CRAFTING SEEDS
@@ -302,7 +302,7 @@ item.ma.refined_obsidian_seeds.name=Refined Obsidian Seeds
 item.ma.inferium_ingot.name=§e下级精华锭
 item.ma.prudentium_ingot.name=§a初级精华锭
 item.ma.intermedium_ingot.name=§6中级精华锭
-item.ma.superium_ingot.name=§b高级精华锭
+item.ma.supremium_ingot.name=§b高级精华锭
 item.ma.supremium_ingot.name=§c终极精华锭
 item.ma.core_remover.name=§c核心替换器
 
@@ -310,13 +310,13 @@ item.ma.core_remover.name=§c核心替换器
 item.ma.inferium_tool_core.name=§e下级工具核心
 item.ma.prudentium_tool_core.name=§a初级工具核心
 item.ma.intermedium_tool_core.name=§6中级工具核心
-item.ma.superium_tool_core.name=§b高级工具核心
+item.ma.supremium_tool_core.name=§b高级工具核心
 item.ma.supremium_tool_core.name=§c终极工具核心
 
 item.ma.inferium_armor_core.name=§e下级防具核心
 item.ma.prudentium_armor_core.name=§a初级防具核心
 item.ma.intermedium_armor_core.name=§6中级防具核心
-item.ma.superium_armor_core.name=§b高级防具核心
+item.ma.supremium_armor_core.name=§b高级防具核心
 item.ma.supremium_armor_core.name=§c终极防具核心
 
 # TOOLS
@@ -338,11 +338,11 @@ item.ma.intermedium_shovel.name=§6中级精华铲
 item.ma.intermedium_axe.name=§6中级精华斧
 item.ma.intermedium_hoe.name=§6中级精华锄
 
-item.ma.superium_sword.name=§b高级精华剑
-item.ma.superium_pickaxe.name=§b高级精华镐
-item.ma.superium_shovel.name=§b高级精华铲
-item.ma.superium_axe.name=§b高级精华斧
-item.ma.superium_hoe.name=§b高级精华锄
+item.ma.supremium_sword.name=§b高级精华剑
+item.ma.supremium_pickaxe.name=§b高级精华镐
+item.ma.supremium_shovel.name=§b高级精华铲
+item.ma.supremium_axe.name=§b高级精华斧
+item.ma.supremium_hoe.name=§b高级精华锄
 
 item.ma.supremium_sword.name=§c终极精华剑
 item.ma.supremium_pickaxe.name=§c终极精华镐
@@ -366,10 +366,10 @@ item.ma.intermedium_chestplate.name=§6中级精华胸甲
 item.ma.intermedium_leggings.name=§6中级精华护腿
 item.ma.intermedium_boots.name=§6中级精华靴子
 
-item.ma.superium_helmet.name=§b高级精华头盔
-item.ma.superium_chestplate.name=§b高级精华胸甲
-item.ma.superium_leggings.name=§b高级精华护腿
-item.ma.superium_boots.name=§b高级精华靴子
+item.ma.supremium_helmet.name=§b高级精华头盔
+item.ma.supremium_chestplate.name=§b高级精华胸甲
+item.ma.supremium_leggings.name=§b高级精华护腿
+item.ma.supremium_boots.name=§b高级精华靴子
 
 item.ma.supremium_helmet.name=§c终极精华头盔
 item.ma.supremium_chestplate.name=§c终极精华胸甲

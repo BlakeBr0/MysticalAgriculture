@@ -5,7 +5,7 @@ import com.blakebr0.mysticalagriculture.blocks.crop.BlockInferiumCrop;
 import com.blakebr0.mysticalagriculture.blocks.furnace.BlockInferiumFurnace;
 import com.blakebr0.mysticalagriculture.blocks.furnace.BlockIntermediumFurnace;
 import com.blakebr0.mysticalagriculture.blocks.furnace.BlockPrudentiumFurnace;
-import com.blakebr0.mysticalagriculture.blocks.furnace.BlockSuperiumFurnace;
+import com.blakebr0.mysticalagriculture.blocks.furnace.BlockSupremiumFurnace;
 import com.blakebr0.mysticalagriculture.blocks.furnace.BlockSupremiumFurnace;
 import com.blakebr0.mysticalagriculture.blocks.furnace.BlockUltimateFurnace;
 import com.blakebr0.mysticalagriculture.blocks.ore.BlockInferiumOre;
@@ -39,7 +39,7 @@ public class ModBlocks {
 	public static BlockBase blockInferium = new BlockBase("inferium_block", Material.ROCK, SoundType.STONE, 4.0F, 6.0F);
 	public static BlockBase blockPrudentium = new BlockBase("prudentium_block", Material.ROCK, SoundType.STONE, 4.0F, 6.0F);
 	public static BlockBase blockIntermedium = new BlockBase("intermedium_block", Material.ROCK, SoundType.STONE, 4.0F, 6.0F);
-	public static BlockBase blockSuperium = new BlockBase("superium_block", Material.ROCK, SoundType.STONE, 4.0F, 6.0F);
+	public static BlockBase blockSupremium = new BlockBase("supremium_block", Material.ROCK, SoundType.STONE, 4.0F, 6.0F);
 	public static BlockBase blockSupremium = new BlockBase("supremium_block", Material.ROCK, SoundType.STONE, 4.0F, 6.0F);
 	
 	public static BlockBase blockProsperity = new BlockBase("prosperity_block", Material.ROCK, SoundType.STONE, 4.0F, 6.0F);
@@ -48,7 +48,7 @@ public class ModBlocks {
 	public static BlockBase blockInferiumIngot = new BlockBase("inferium_ingot_block", Material.IRON, SoundType.METAL, 5.0F, 8.0F);
 	public static BlockBase blockPrudentiumIngot = new BlockBase("prudentium_ingot_block", Material.IRON, SoundType.METAL, 5.0F, 8.0F);
 	public static BlockBase blockIntermediumIngot = new BlockBase("intermedium_ingot_block", Material.IRON, SoundType.METAL, 5.0F, 8.0F);
-	public static BlockBase blockSuperiumIngot = new BlockBase("superium_ingot_block", Material.IRON, SoundType.METAL, 5.0F, 8.0F);
+	public static BlockBase blockSupremiumIngot = new BlockBase("supremium_ingot_block", Material.IRON, SoundType.METAL, 5.0F, 8.0F);
 	public static BlockBase blockSupremiumIngot = new BlockBase("supremium_ingot_block", Material.IRON, SoundType.METAL, 5.0F, 8.0F);
 	public static BlockBase blockSouliumIngot = new BlockBase("soulium_ingot_block", Material.IRON, SoundType.METAL, 5.0F, 8.0F);
 	
@@ -75,8 +75,8 @@ public class ModBlocks {
 	public static BlockPrudentiumFurnace blockPrudentiumFurnaceActive = new BlockPrudentiumFurnace(true, "prudentium_furnace_active", 5.0F, 10.0F);
 	public static BlockIntermediumFurnace blockIntermediumFurnace = new BlockIntermediumFurnace(false, "intermedium_furnace", 5.0F, 10.0F);
 	public static BlockIntermediumFurnace blockIntermediumFurnaceActive = new BlockIntermediumFurnace(true, "intermedium_furnace_active", 5.0F, 10.0F);
-	public static BlockSuperiumFurnace blockSuperiumFurnace = new BlockSuperiumFurnace(false, "superium_furnace", 5.0F, 10.0F);
-	public static BlockSuperiumFurnace blockSuperiumFurnaceActive = new BlockSuperiumFurnace(true, "superium_furnace_active", 5.0F, 10.0F);
+	public static BlockSupremiumFurnace blockSupremiumFurnace = new BlockSupremiumFurnace(false, "supremium_furnace", 5.0F, 10.0F);
+	public static BlockSupremiumFurnace blockSupremiumFurnaceActive = new BlockSupremiumFurnace(true, "supremium_furnace_active", 5.0F, 10.0F);
 	public static BlockSupremiumFurnace blockSupremiumFurnace = new BlockSupremiumFurnace(false, "supremium_furnace", 5.0F, 10.0F);
 	public static BlockSupremiumFurnace blockSupremiumFurnaceActive = new BlockSupremiumFurnace(true, "supremium_furnace_active", 5.0F, 10.0F);
 	public static BlockUltimateFurnace blockUltimateFurnace = new BlockUltimateFurnace(false, "ultimate_furnace", 5.0F, 10.0F);
@@ -114,7 +114,7 @@ public class ModBlocks {
 		registerBlock(blockInferium);
 		registerBlock(blockPrudentium);
 		registerBlock(blockIntermedium);
-		registerBlock(blockSuperium);
+		registerBlock(blockSupremium);
 		registerBlock(blockSupremium);
 		
 		registerBlock(blockProsperity);
@@ -123,7 +123,7 @@ public class ModBlocks {
 		registerBlock(blockInferiumIngot);
 		registerBlock(blockPrudentiumIngot);
 		registerBlock(blockIntermediumIngot);
-		registerBlock(blockSuperiumIngot);
+		registerBlock(blockSupremiumIngot);
 		registerBlock(blockSupremiumIngot);
 		registerBlock(blockSouliumIngot);
 		
@@ -154,8 +154,8 @@ public class ModBlocks {
 			registerBlock(blockPrudentiumFurnaceActive);
 			registerBlock(blockIntermediumFurnace);
 			registerBlock(blockIntermediumFurnaceActive);
-			registerBlock(blockSuperiumFurnace);
-			registerBlock(blockSuperiumFurnaceActive);
+			registerBlock(blockSupremiumFurnace);
+			registerBlock(blockSupremiumFurnaceActive);
 			registerBlock(blockSupremiumFurnace);
 			registerBlock(blockSupremiumFurnaceActive);
 			if(ModConfig.confUltimateFurnace){
@@ -210,7 +210,7 @@ public class ModBlocks {
 		registerModel(blockInferium);
 		registerModel(blockPrudentium);
 		registerModel(blockIntermedium);
-		registerModel(blockSuperium);
+		registerModel(blockSupremium);
 		registerModel(blockSupremium);
 		
 		registerModel(blockProsperity);
@@ -219,7 +219,7 @@ public class ModBlocks {
 		registerModel(blockInferiumIngot);
 		registerModel(blockPrudentiumIngot);
 		registerModel(blockIntermediumIngot);
-		registerModel(blockSuperiumIngot);
+		registerModel(blockSupremiumIngot);
 		registerModel(blockSupremiumIngot);
 		registerModel(blockSouliumIngot);
 		
@@ -244,8 +244,8 @@ public class ModBlocks {
 			registerModel(blockPrudentiumFurnaceActive);
 			registerModel(blockIntermediumFurnace);
 			registerModel(blockIntermediumFurnaceActive);
-			registerModel(blockSuperiumFurnace);
-			registerModel(blockSuperiumFurnaceActive);
+			registerModel(blockSupremiumFurnace);
+			registerModel(blockSupremiumFurnaceActive);
 			registerModel(blockSupremiumFurnace);
 			registerModel(blockSupremiumFurnaceActive);
 			if(ModConfig.confUltimateFurnace){
@@ -313,7 +313,7 @@ public class ModBlocks {
 		OreDictionary.registerOre("blockInferium", blockInferium);
 		OreDictionary.registerOre("blockPrudentium", blockPrudentium);
 		OreDictionary.registerOre("blockIntermedium", blockIntermedium);
-		OreDictionary.registerOre("blockSuperium", blockSuperium);
+		OreDictionary.registerOre("blockSupremium", blockSupremium);
 		OreDictionary.registerOre("blockSupremium", blockSupremium);
 		
 		OreDictionary.registerOre("blockProsperityShard", blockProsperity);
@@ -322,7 +322,7 @@ public class ModBlocks {
 		OreDictionary.registerOre("blockInferiumIngot", blockInferiumIngot);
 		OreDictionary.registerOre("blockPrudentiumIngot", blockPrudentiumIngot);
 		OreDictionary.registerOre("blockIntermediumIngot", blockIntermediumIngot);
-		OreDictionary.registerOre("blockSuperiumIngot", blockSuperiumIngot);
+		OreDictionary.registerOre("blockSupremiumIngot", blockSupremiumIngot);
 		OreDictionary.registerOre("blockSupremiumIngot", blockSupremiumIngot);
 		
 		OreDictionary.registerOre("blockSouliumIngot", blockSouliumIngot);

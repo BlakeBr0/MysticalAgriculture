@@ -1,5 +1,5 @@
 {
-	"parent": "mysticalagriculture:block/superium_block",
+	"parent": "mysticalagriculture:block/supremium_block",
     "display": {
         "gui": {
             "rotation": [ 30, 225, 0 ],

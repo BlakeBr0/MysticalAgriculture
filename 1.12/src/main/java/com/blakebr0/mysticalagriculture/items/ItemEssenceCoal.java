@@ -24,7 +24,7 @@ public class ItemEssenceCoal extends ItemMeta implements IEnableable {
 	public static ItemStack itemInferiumCoal;
 	public static ItemStack itemPrudentiumCoal;
 	public static ItemStack itemIntermediumCoal;
-	public static ItemStack itemSuperiumCoal;
+	public static ItemStack itemSupremiumCoal;
 	public static ItemStack itemSupremiumCoal;
 	
 	public ItemEssenceCoal(){
@@ -37,7 +37,7 @@ public class ItemEssenceCoal extends ItemMeta implements IEnableable {
 		itemInferiumCoal = addItem(0, "inferium", "coalInferium");
 		itemPrudentiumCoal = addItem(1, "prudentium", "coalPrudentium");
 		itemIntermediumCoal = addItem(2, "intermedium", "coalIntermedium");
-		itemSuperiumCoal = addItem(3, "superium", "coalSuperium");
+		itemSupremiumCoal = addItem(3, "supremium", "coalSupremium");
 		itemSupremiumCoal = addItem(4, "supremium", "coalSupremium");
 		
 		GameRegistry.registerFuelHandler(new FuelHandler());

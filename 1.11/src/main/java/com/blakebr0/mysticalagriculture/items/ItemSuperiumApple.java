@@ -17,9 +17,9 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class ItemSuperiumApple extends ItemFood {
+public class ItemSupremiumApple extends ItemFood {
 	
-	public ItemSuperiumApple(String name){
+	public ItemSupremiumApple(String name){
         super(15, 0.7F, false);
 		this.setUnlocalizedName("ma." + name);
 		this.setRegistryName(name);

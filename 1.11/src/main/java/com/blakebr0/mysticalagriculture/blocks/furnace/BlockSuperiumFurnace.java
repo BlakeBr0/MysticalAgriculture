@@ -7,7 +7,7 @@ import com.blakebr0.mysticalagriculture.MysticalAgriculture;
 import com.blakebr0.mysticalagriculture.blocks.ModBlocks;
 import com.blakebr0.mysticalagriculture.lib.Colors;
 import com.blakebr0.mysticalagriculture.lib.Tooltips;
-import com.blakebr0.mysticalagriculture.tileentity.TileEntitySuperiumFurnace;
+import com.blakebr0.mysticalagriculture.tileentity.TileEntitySupremiumFurnace;
 
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.BlockHorizontal;
@@ -40,13 +40,13 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 // TODO: cleanup
-public class BlockSuperiumFurnace extends BlockContainer
+public class BlockSupremiumFurnace extends BlockContainer
 {
     public static final PropertyDirection FACING = BlockHorizontal.FACING;
     private final boolean isBurning;
     private static boolean keepInventory;
 
-    public BlockSuperiumFurnace(boolean isBurning, String name, float hardness, float resistance)
+    public BlockSupremiumFurnace(boolean isBurning, String name, float hardness, float resistance)
     {
         super(Material.ROCK);
         this.setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH));
@@ -69,7 +69,7 @@ public class BlockSuperiumFurnace extends BlockContainer
      */
     public Item getItemDropped(IBlockState state, Random rand, int fortune)
     {
-        return Item.getItemFromBlock(ModBlocks.blockSuperiumFurnace);
+        return Item.getItemFromBlock(ModBlocks.blockSupremiumFurnace);
     }
 
     /**
@@ -160,9 +160,9 @@ public class BlockSuperiumFurnace extends BlockContainer
         {
             TileEntity tileentity = worldIn.getTileEntity(pos);
 
-            if (tileentity instanceof TileEntitySuperiumFurnace)
+            if (tileentity instanceof TileEntitySupremiumFurnace)
             {
-                playerIn.displayGUIChest((TileEntitySuperiumFurnace)tileentity);
+                playerIn.displayGUIChest((TileEntitySupremiumFurnace)tileentity);
                 playerIn.addStat(StatList.FURNACE_INTERACTION);
             }
 
@@ -178,13 +178,13 @@ public class BlockSuperiumFurnace extends BlockContainer
 
         if (active)
         {
-            worldIn.setBlockState(pos, ModBlocks.blockSuperiumFurnaceActive.getDefaultState().withProperty(FACING, iblockstate.getValue(FACING)), 3);
-            worldIn.setBlockState(pos, ModBlocks.blockSuperiumFurnaceActive.getDefaultState().withProperty(FACING, iblockstate.getValue(FACING)), 3);
+            worldIn.setBlockState(pos, ModBlocks.blockSupremiumFurnaceActive.getDefaultState().withProperty(FACING, iblockstate.getValue(FACING)), 3);
+            worldIn.setBlockState(pos, ModBlocks.blockSupremiumFurnaceActive.getDefaultState().withProperty(FACING, iblockstate.getValue(FACING)), 3);
         }
         else
         {
-            worldIn.setBlockState(pos, ModBlocks.blockSuperiumFurnace.getDefaultState().withProperty(FACING, iblockstate.getValue(FACING)), 3);
-            worldIn.setBlockState(pos, ModBlocks.blockSuperiumFurnace.getDefaultState().withProperty(FACING, iblockstate.getValue(FACING)), 3);
+            worldIn.setBlockState(pos, ModBlocks.blockSupremiumFurnace.getDefaultState().withProperty(FACING, iblockstate.getValue(FACING)), 3);
+            worldIn.setBlockState(pos, ModBlocks.blockSupremiumFurnace.getDefaultState().withProperty(FACING, iblockstate.getValue(FACING)), 3);
         }
 
         keepInventory = false;
@@ -201,7 +201,7 @@ public class BlockSuperiumFurnace extends BlockContainer
      */
     public TileEntity createNewTileEntity(World worldIn, int meta)
     {
-        return new TileEntitySuperiumFurnace();
+        return new TileEntitySupremiumFurnace();
     }
 
     /**
@@ -224,9 +224,9 @@ public class BlockSuperiumFurnace extends BlockContainer
         {
             TileEntity tileentity = worldIn.getTileEntity(pos);
 
-            if (tileentity instanceof TileEntitySuperiumFurnace)
+            if (tileentity instanceof TileEntitySupremiumFurnace)
             {
-                ((TileEntitySuperiumFurnace)tileentity).setCustomInventoryName(stack.getDisplayName());
+                ((TileEntitySupremiumFurnace)tileentity).setCustomInventoryName(stack.getDisplayName());
             }
         }
     }
@@ -240,9 +240,9 @@ public class BlockSuperiumFurnace extends BlockContainer
         {
             TileEntity tileentity = worldIn.getTileEntity(pos);
 
-            if (tileentity instanceof TileEntitySuperiumFurnace)
+            if (tileentity instanceof TileEntitySupremiumFurnace)
             {
-                InventoryHelper.dropInventoryItems(worldIn, pos, (TileEntitySuperiumFurnace)tileentity);
+                InventoryHelper.dropInventoryItems(worldIn, pos, (TileEntitySupremiumFurnace)tileentity);
                 worldIn.updateComparatorOutputLevel(pos, this);
             }
         }
@@ -262,7 +262,7 @@ public class BlockSuperiumFurnace extends BlockContainer
 
     public ItemStack getItem(World worldIn, BlockPos pos, IBlockState state)
     {
-        return new ItemStack(ModBlocks.blockSuperiumFurnace);
+        return new ItemStack(ModBlocks.blockSupremiumFurnace);
     }
 
     /**

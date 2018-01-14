@@ -146,7 +146,7 @@ public class BlockTinkeringTable extends BlockBase implements ITileEntityProvide
 			mat = Tooltips.INTERMEDIUM;
 			break;
 		case 3: 
-			mat = Tooltips.SUPERIUM;
+			mat = Tooltips.SUPREMIUM;
 			break;
 		case 4:
 			mat = Tooltips.SUPREMIUM;

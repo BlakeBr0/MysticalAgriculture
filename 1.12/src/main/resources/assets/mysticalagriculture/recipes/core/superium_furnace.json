@@ -3,7 +3,7 @@
     "conditions": [
      {
 	    "type": "minecraft:item_exists",
-		"item": "mysticalagriculture:superium_furnace"
+		"item": "mysticalagriculture:supremium_furnace"
 	 }
   ],
   "pattern": [
@@ -26,7 +26,7 @@
     }
   },
   "result": {
-    "item": "mysticalagriculture:superium_furnace",
+    "item": "mysticalagriculture:supremium_furnace",
 	"data": 0
   }
 }
