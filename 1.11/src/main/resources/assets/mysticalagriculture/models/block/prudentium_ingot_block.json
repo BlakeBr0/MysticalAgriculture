@@ -1,6 +1,0 @@
-{
-    "parent": "block/cube_all",
-    "textures": {
-        "all": "mysticalagriculture:blocks/prudentium_ingot_block"
-    }
-}
