@@ -1,8 +1,0 @@
-{
-    "variants": {
-        "facing=north": { "model": "mysticalagriculture:inferium_furnace" },
-        "facing=south": { "model": "mysticalagriculture:inferium_furnace", "y": 180 },
-        "facing=west":  { "model": "mysticalagriculture:inferium_furnace", "y": 270 },
-        "facing=east":  { "model": "mysticalagriculture:inferium_furnace", "y": 90 }
-    }
-}
