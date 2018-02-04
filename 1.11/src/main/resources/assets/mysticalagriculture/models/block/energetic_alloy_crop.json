@@ -1,6 +1,0 @@
-{
-    "parent": "block/cross",
-    "textures": {
-        "cross": "mysticalagriculture:blocks/energetic_alloy_crop"
-    }
-}

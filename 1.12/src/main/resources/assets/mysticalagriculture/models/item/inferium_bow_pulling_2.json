@@ -1,6 +1,0 @@
-{
-  "parent":"mysticalagriculture:item/inferium_bow",
-  "textures": {
-    "layer0":"mysticalagriculture:items/inferium_bow_pulling_2"
-  }
-}
