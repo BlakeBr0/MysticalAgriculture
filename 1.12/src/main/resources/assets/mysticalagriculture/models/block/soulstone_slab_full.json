@@ -1,9 +1,0 @@
-{
-    "parent": "block/orientable",
-    "textures": {
-        "bottom": "mysticalagriculture:blocks/soulstone_slab",
-        "top": "mysticalagriculture:blocks/soulstone_slab",
-		"front": "mysticalagriculture:blocks/soulstone_slab_side",
-        "side": "mysticalagriculture:blocks/soulstone_slab_side"
-    }
-}
