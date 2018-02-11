@@ -127,6 +127,10 @@ public class ModConfig {
 	public static boolean confManasteelSeeds;
 	public static boolean confTerrasteelSeeds;
 	
+	public static boolean confQuicksilverSeeds;
+	public static boolean confThaumiumSeeds;
+	public static boolean confVoidMetalSeeds;
+	
 	public static boolean confUranium238Seeds;
 	public static boolean confIridiumOreSeeds;
 	
@@ -269,6 +273,10 @@ public class ModConfig {
 	public static int confMysticalFlowerTier;
 	public static int confManasteelTier;
 	public static int confTerrasteelTier;
+	
+	public static int confQuicksilverTier;
+	public static int confThaumiumTier;
+	public static int confVoidMetalTier;
 	
 	public static int confUranium238Tier;
 	public static int confIridiumOreTier;
@@ -508,7 +516,11 @@ public class ModConfig {
 		confMysticalFlowerSeeds = config.get(category, "mystical_flower_seeds", true).getBoolean();
 		confManasteelSeeds = config.get(category, "manasteel_seeds", true).getBoolean();
 		confTerrasteelSeeds = config.get(category, "terrasteel_seeds", true).getBoolean();
-		
+
+		confQuicksilverSeeds = config.get(category, "quicksilver_seeds", true).getBoolean();
+		confThaumiumSeeds = config.get(category, "thaumium_seeds", true).getBoolean();
+		confVoidMetalSeeds = config.get(category, "void_metal_seeds", true).getBoolean();
+
 		confUranium238Seeds = config.get(category, "uranium_238_seeds", true).getBoolean();
 		confIridiumOreSeeds = config.get(category, "iridium_ore_seeds", true).getBoolean();
 		
@@ -666,6 +678,10 @@ public class ModConfig {
 		confManasteelTier = config.get(category, "manasteel_tier", 3).getInt();
 		confTerrasteelTier = config.get(category, "terrasteel_tier", 5).getInt();
 		
+		confQuicksilverTier = config.get(category, "quicksilver_tier", 3).getInt();
+		confThaumiumTier = config.get(category, "thaumium_tier", 3).getInt();
+		confVoidMetalTier = config.get(category, "void_metal_tier", 4).getInt();
+
 		confUranium238Tier = config.get(category, "uranium_238_tier", 5).getInt();
 		confIridiumOreTier = config.get(category, "iridium_ore_tier", 5).getInt();
 

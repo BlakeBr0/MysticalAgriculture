@@ -157,6 +157,10 @@ public class EssenceConfig {
 	public static int manasteel;
 	public static int terrasteel;
 	
+	public static int quicksilver;
+	public static int thaumium;
+	public static int voidMetal;
+	
 	public static int uranium238;
 	public static int iridiumOre;
 	
@@ -376,6 +380,11 @@ public class EssenceConfig {
 		mysticalFlower = config.get(category, "mystical_flower", 6).getInt();
 		manasteel = config.get(category, "manasteel", 5).getInt();
 		terrasteel = config.get(category, "terrasteel", 2).getInt();
+		
+		category = "Thaumcraft";
+		quicksilver = config.get(category, "quicksilver", 4).getInt();
+		thaumium = config.get(category, "thaumium", 4).getInt();
+		voidMetal = config.get(category, "void_metal", 3).getInt();
 		
 		category = "IC2";
 		uranium238 = config.get(category, "uranium_238", 4).getInt();

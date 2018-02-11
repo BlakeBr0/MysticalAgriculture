@@ -547,6 +547,10 @@ public class ModRecipes {
 	    addSeedRecipe(type.MANASTEEL, new ItemStack(Parts.itemBotaniaResources, 1, 0));
 	    addSeedRecipe(type.TERRASTEEL, new ItemStack(Parts.itemBotaniaResources, 1, 4));
 	    
+	    addSeedRecipe(type.QUICKSILVER, "quicksilver");
+	    addSeedRecipe(type.THAUMIUM, "ingotThaumium");
+	    addSeedRecipe(type.VOID_METAL, "ingotVoid");
+	    
 	    addSeedRecipe(type.URANIUM_238, "uran238");
 	    addSeedRecipe(type.IRIDIUM_ORE, new ItemStack(Parts.itemIC2MiscResource, 1, 1));
 	

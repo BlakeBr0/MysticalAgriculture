@@ -201,6 +201,10 @@ tile.ma.mystical_flower_crop.name=Mystical Flower Crop
 tile.ma.manasteel_crop.name=Manasteel Crop
 tile.ma.terrasteel_crop.name=Terrasteel Crop
 
+tile.ma.quicksilver_crop.name=Quicksilver Crop
+tile.ma.thaumium_crop.name=Thaumium Crop
+tile.ma.void_metal_crop.name=Void Metal Crop
+
 tile.ma.uranium_238_crop.name=Uranium 238 Crop
 tile.ma.iridium_ore_crop.name=Iridium Ore Crop
 
@@ -459,6 +463,10 @@ item.ma.mystical_flower_essence.name=Mystical Flower Essence
 item.ma.manasteel_essence.name=Manasteel Essence
 item.ma.terrasteel_essence.name=Terrasteel Essence
 
+item.ma.quicksilver_essence.name=Quicksilver Essence
+item.ma.thaumium_essence.name=Thaumium Essence
+item.ma.void_metal_essence.name=Void Metal Essence
+
 item.ma.uranium_238_essence.name=Uranium 238 Essence
 item.ma.iridium_ore_essence.name=Iridium Ore Essence
 
@@ -609,6 +617,10 @@ item.ma.vibrant_alloy_seeds.name=Vibrant Alloy Seeds
 item.ma.mystical_flower_seeds.name=Mystical Flower Seeds
 item.ma.manasteel_seeds.name=Manasteel Seeds
 item.ma.terrasteel_seeds.name=Terrasteel Seeds
+
+item.ma.quicksilver_seeds.name=Quicksilver Seeds
+item.ma.thaumium_seeds.name=Thaumium Seeds
+item.ma.void_metal_seeds.name=Void Metal Seeds
 
 item.ma.uranium_238_seeds.name=Uranium 238 Seeds
 item.ma.iridium_ore_seeds.name=Iridium Ore Seeds

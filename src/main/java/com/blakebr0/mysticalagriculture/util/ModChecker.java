@@ -9,6 +9,7 @@ public class ModChecker {
 	public static boolean TINKERS = Loader.isModLoaded("tconstruct");
 	public static boolean ENDERIO = Loader.isModLoaded("EnderIO") || Loader.isModLoaded("enderio");
 	public static boolean BOTANIA = Loader.isModLoaded("Botania") || Loader.isModLoaded("botania");
+	public static boolean THAUMCRAFT = Loader.isModLoaded("thaumcraft");
 	public static boolean MEKANISM = Loader.isModLoaded("Mekanism") || Loader.isModLoaded("mekanism");
 	public static boolean THERMAL = Loader.isModLoaded("thermalfoundation");
 	public static boolean CHISEL = Loader.isModLoaded("chisel");
@@ -41,7 +42,7 @@ public class ModChecker {
 	public static boolean TIN = OreDictionary.getOres("ingotTin").size() > 0 || THERMAL || IC2 || GALACTICRAFT || FORESTRY || TECHREBORN || MEKANISM || SUBSTRATUM || BASEMETALS;
 	public static boolean BRONZE = OreDictionary.getOres("ingotBronze").size() > 0 || THERMAL || IC2 || GALACTICRAFT || FORESTRY || TECHREBORN || MEKANISM || SUBSTRATUM || BASEMETALS;
 	public static boolean ZINC = OreDictionary.getOres("ingotZinc").size() > 0 || TECHREBORN || SUBSTRATUM || BASEMETALS;
-	public static boolean BRASS = OreDictionary.getOres("ingotBrass").size() > 0 || TECHREBORN || SUBSTRATUM || BASEMETALS;
+	public static boolean BRASS = OreDictionary.getOres("ingotBrass").size() > 0 || THAUMCRAFT || TECHREBORN || SUBSTRATUM || BASEMETALS;
 	public static boolean SILVER = OreDictionary.getOres("ingotSilver").size() > 0 || THERMAL || IC2 || IE || FORESTRY || TECHREBORN || SUBSTRATUM || BASEMETALS;
 	public static boolean LEAD = OreDictionary.getOres("ingotLead").size() > 0 || THERMAL || IC2 || IE || GALACTICRAFTPLANETS || TECHREBORN || SUBSTRATUM || BASEMETALS;
 	public static boolean STEEL = OreDictionary.getOres("ingotSteel").size() > 0 || THERMAL || IC2 || IE || TECHREBORN || MEKANISM || SUBSTRATUM || BASEMETALS || BIGREACTORS;
@@ -60,6 +61,7 @@ public class ModChecker {
 	public static boolean RUBY = OreDictionary.getOres("gemRuby").size() > 0 || BOP || TECHREBORN || PIXELMON;
 	public static boolean SAPPHIRE = OreDictionary.getOres("gemSapphire").size() > 0 || BOP || TECHREBORN || PIXELMON;
 	public static boolean PERIDOT = OreDictionary.getOres("gemPeridot").size() > 0 || BOP || TECHREBORN;
+	public static boolean AMBER = OreDictionary.getOres("gemAmber").size() > 0 || BOP || THAUMCRAFT;
 	
 	public static boolean SIGNALUM = OreDictionary.getOres("ingotSignalum").size() > 0 || THERMAL || SUBSTRATUM;
 	public static boolean LUMIUM = OreDictionary.getOres("ingotLumium").size() > 0 || THERMAL || SUBSTRATUM;

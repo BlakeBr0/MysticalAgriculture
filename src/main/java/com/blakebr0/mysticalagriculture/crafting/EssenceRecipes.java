@@ -249,7 +249,11 @@ public class EssenceRecipes {
 	    }
 	    if(type.MANASTEEL.isEnabled()){ addEssenceRecipe(new ItemStack(Parts.itemBotaniaResources, EssenceConfig.manasteel, 0), "EEE", "EXE", "EEE", 'E', new ItemStack(type.MANASTEEL.getCrop(), 1, 0)); }
 	    if(type.TERRASTEEL.isEnabled()){ addEssenceRecipe(new ItemStack(Parts.itemBotaniaResources, EssenceConfig.terrasteel, 4), "EEE", "EXE", "EEE", 'E', new ItemStack(type.TERRASTEEL.getCrop(), 1, 0)); }
-   
+
+	    if(type.QUICKSILVER.isEnabled()){ addEssenceRecipe(Utils.getItem("quicksilver", EssenceConfig.quicksilver), "EEE", "EXE", "EEE", 'E', new ItemStack(type.QUICKSILVER.getCrop(), 1, 0)); }
+	    if(type.THAUMIUM.isEnabled()){ addEssenceRecipe(Utils.getItem("ingotThaumium", EssenceConfig.thaumium), "EEE", "EXE", "EEE", 'E', new ItemStack(type.THAUMIUM.getCrop(), 1, 0)); }
+	    if(type.VOID_METAL.isEnabled()){ addEssenceRecipe(Utils.getItem("ingotVoid", EssenceConfig.voidMetal), "EEE", "EXE", "EEE", 'E', new ItemStack(type.VOID_METAL.getCrop(), 1, 0)); }
+
 	    if(type.URANIUM_238.isEnabled()){ addEssenceRecipe(Utils.getItem("uran238", EssenceConfig.uranium238), "EEE", "EEE", "EEE", 'E', new ItemStack(type.URANIUM_238.getCrop(), 1, 0)); }
 	    if(type.IRIDIUM_ORE.isEnabled()){ addEssenceRecipe(new ItemStack(Parts.itemIC2MiscResource, EssenceConfig.iridiumOre, 1), "EEE", "EEE", "EEE", 'E', new ItemStack(type.IRIDIUM_ORE.getCrop(), 1, 0)); }
 

@@ -87,7 +87,7 @@ public class CropType {
 		RUBY("ruby", ModConfig.confRubyTier, ModConfig.confRubySeeds && ModChecker.RUBY),
 		SAPPHIRE("sapphire", ModConfig.confSapphireTier, ModConfig.confSapphireSeeds && ModChecker.SAPPHIRE),
 		PERIDOT("peridot", ModConfig.confPeridotTier, ModConfig.confPeridotSeeds && ModChecker.PERIDOT),
-		AMBER("amber", ModConfig.confAmberTier, ModConfig.confAmberSeeds && ModChecker.BOP),
+		AMBER("amber", ModConfig.confAmberTier, ModConfig.confAmberSeeds && ModChecker.AMBER),
 		TOPAZ("topaz", ModConfig.confTopazTier, ModConfig.confTopazSeeds && ModChecker.BOP),
 		MALACHITE("malachite", ModConfig.confMalachiteTier, ModConfig.confMalachiteSeeds && ModChecker.BOP),
 		TANZANITE("tanzanite", ModConfig.confTanzaniteTier, ModConfig.confTanzaniteSeeds && ModChecker.BOP),
@@ -117,6 +117,10 @@ public class CropType {
 		MYSTICAL_FLOWER("mystical_flower", ModConfig.confMysticalFlowerTier, ModConfig.confMysticalFlowerSeeds && ModChecker.BOTANIA),
 		MANASTEEL("manasteel", ModConfig.confManasteelTier, ModConfig.confManasteelSeeds && ModChecker.BOTANIA),
 		TERRASTEEL("terrasteel", ModConfig.confTerrasteelTier, ModConfig.confTerrasteelSeeds && ModChecker.BOTANIA),
+		
+		QUICKSILVER("quicksilver", ModConfig.confQuicksilverTier, ModConfig.confQuicksilverSeeds && ModChecker.THAUMCRAFT),
+		THAUMIUM("thaumium", ModConfig.confThaumiumTier, ModConfig.confThaumiumSeeds && ModChecker.THAUMCRAFT),
+		VOID_METAL("void_metal", ModConfig.confVoidMetalTier, ModConfig.confVoidMetalSeeds && ModChecker.THAUMCRAFT),
 		
 		URANIUM_238("uranium_238", ModConfig.confUranium238Tier, ModConfig.confUranium238Seeds && ModChecker.IC2),
 		IRIDIUM_ORE("iridium_ore", ModConfig.confIridiumOreTier, ModConfig.confIridiumOreSeeds && ModChecker.IC2),
