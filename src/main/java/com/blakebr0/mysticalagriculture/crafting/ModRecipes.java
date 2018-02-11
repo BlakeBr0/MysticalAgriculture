@@ -551,7 +551,7 @@ public class ModRecipes {
 	    addSeedRecipe(type.THAUMIUM, "ingotThaumium");
 	    addSeedRecipe(type.VOID_METAL, "ingotVoid");
 	    
-	    addSeedRecipe(type.URANIUM_238, "uran238");
+	    addSeedRecipe(type.URANIUM_238, new ItemStack(Parts.itemIC2Nuclear, 1, 2));
 	    addSeedRecipe(type.IRIDIUM_ORE, new ItemStack(Parts.itemIC2MiscResource, 1, 1));
 	
 	    addSeedRecipe(type.OSMIUM, "ingotOsmium");

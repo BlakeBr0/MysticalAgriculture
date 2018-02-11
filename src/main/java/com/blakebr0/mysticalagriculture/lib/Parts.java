@@ -25,6 +25,7 @@ public class Parts {
 	public static Item itemAEMaterial;
 	public static Item itemGCPMars;
 	public static Item itemIC2MiscResource;
+	public static Item itemIC2Nuclear;
 	public static Item itemAstralCrafting;
 	public static Item itemAstralOre;
 	public static Item itemAstralRockCrystal;
@@ -135,6 +136,12 @@ public class Parts {
 	    	try {
 	    		Item item = getItem("IC2:misc_resource");
 	    		itemIC2MiscResource = item;
+	    	} catch(Throwable e){
+	    		e.printStackTrace();
+	    	}
+	    	try {
+	    		Item item = getItem("IC2:nuclear");
+	    		itemIC2Nuclear = item;
 	    	} catch(Throwable e){
 	    		e.printStackTrace();
 	    	}

@@ -254,7 +254,7 @@ public class EssenceRecipes {
 	    if(type.THAUMIUM.isEnabled()){ addEssenceRecipe(Utils.getItem("ingotThaumium", EssenceConfig.thaumium), "EEE", "EXE", "EEE", 'E', new ItemStack(type.THAUMIUM.getCrop(), 1, 0)); }
 	    if(type.VOID_METAL.isEnabled()){ addEssenceRecipe(Utils.getItem("ingotVoid", EssenceConfig.voidMetal), "EEE", "EXE", "EEE", 'E', new ItemStack(type.VOID_METAL.getCrop(), 1, 0)); }
 
-	    if(type.URANIUM_238.isEnabled()){ addEssenceRecipe(Utils.getItem("uran238", EssenceConfig.uranium238), "EEE", "EEE", "EEE", 'E', new ItemStack(type.URANIUM_238.getCrop(), 1, 0)); }
+	    if(type.URANIUM_238.isEnabled()){ addEssenceRecipe(new ItemStack(Parts.itemIC2Nuclear, EssenceConfig.uranium238, 2), "EEE", "EEE", "EEE", 'E', new ItemStack(type.URANIUM_238.getCrop(), 1, 0)); }
 	    if(type.IRIDIUM_ORE.isEnabled()){ addEssenceRecipe(new ItemStack(Parts.itemIC2MiscResource, EssenceConfig.iridiumOre, 1), "EEE", "EEE", "EEE", 'E', new ItemStack(type.IRIDIUM_ORE.getCrop(), 1, 0)); }
 
 	    if(type.OSMIUM.isEnabled()){ addEssenceRecipe(Utils.getItem("ingotOsmium", EssenceConfig.osmium), "EEE", "EXE", "EEE", 'E', new ItemStack(type.OSMIUM.getCrop(), 1, 0)); }
