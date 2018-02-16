@@ -260,14 +260,14 @@ public class EssenceRecipes {
 	    if(type.COBALT.isEnabled()){ addEssenceRecipe(new ItemStack(Parts.itemTinkersIngots, EssenceConfig.cobalt, 0), "EEE", "E E", "EEE", 'E', new ItemStack(type.COBALT.getCrop(), 1, 0)); }
 	    if(type.MANYULLYN.isEnabled()){ addEssenceRecipe(new ItemStack(Parts.itemTinkersIngots, EssenceConfig.manyullyn, 2), "EEE", "E E", "EEE", 'E', new ItemStack(type.MANYULLYN.getCrop(), 1, 0)); }
 
-	    if(type.ELECTRICAL_STEEL.isEnabled()){ addEssenceRecipe(new ItemStack(Parts.itemEnderIOAlloys, EssenceConfig.electricalSteel, 0), "EEE", "E E", "EEE", 'E', new ItemStack(type.ELECTRICAL_STEEL.getCrop(), 1, 0)); }
-	    if(type.REDSTONE_ALLOY.isEnabled()){ addEssenceRecipe(new ItemStack(Parts.itemEnderIOAlloys, EssenceConfig.redstoneAlloy, 3), "EEE", "E E", "EEE", 'E', new ItemStack(type.REDSTONE_ALLOY.getCrop(), 1, 0)); }
-	    if(type.CONDUCTIVE_IRON.isEnabled()){ addEssenceRecipe(new ItemStack(Parts.itemEnderIOAlloys, EssenceConfig.conductiveIron, 4), "EEE", "E E", "EEE", 'E', new ItemStack(type.CONDUCTIVE_IRON.getCrop(), 1, 0)); }
-	    if(type.SOULARIUM.isEnabled()){ addEssenceRecipe(new ItemStack(Parts.itemEnderIOAlloys, EssenceConfig.soularium, 7), "EEE", "E E", "EEE", 'E', new ItemStack(type.SOULARIUM.getCrop(), 1, 0)); }
-	    if(type.DARK_STEEL.isEnabled()){ addEssenceRecipe(new ItemStack(Parts.itemEnderIOAlloys, EssenceConfig.dark_steel, 6), "EEE", "E E", "EEE", 'E', new ItemStack(type.DARK_STEEL.getCrop(), 1, 0)); }
-	    if(type.PULSATING_IRON.isEnabled()){ addEssenceRecipe(new ItemStack(Parts.itemEnderIOAlloys, EssenceConfig.pulsatingIron, 5), "EEE", "E E", "EEE", 'E', new ItemStack(type.PULSATING_IRON.getCrop(), 1, 0)); }
-	    if(type.ENERGETIC_ALLOY.isEnabled()){ addEssenceRecipe(new ItemStack(Parts.itemEnderIOAlloys, EssenceConfig.energeticAlloy, 1), "EEE", "E E", "EEE", 'E', new ItemStack(type.ENERGETIC_ALLOY.getCrop(), 1, 0)); }
-	    if(type.VIBRANT_ALLOY.isEnabled()){ addEssenceRecipe(new ItemStack(Parts.itemEnderIOAlloys, EssenceConfig.vibrantAlloy, 2), "EEE", "E E", "EEE", 'E', new ItemStack(type.VIBRANT_ALLOY.getCrop(), 1, 0)); }
+	    if(type.ELECTRICAL_STEEL.isEnabled()){ addEssenceRecipe("ingotElectricalSteel", EssenceConfig.electricalSteel, "EEE", "E E", "EEE", 'E', new ItemStack(type.ELECTRICAL_STEEL.getCrop(), 1, 0)); }
+	    if(type.REDSTONE_ALLOY.isEnabled()){ addEssenceRecipe("ingotRedstoneAlloy", EssenceConfig.redstoneAlloy, "EEE", "E E", "EEE", 'E', new ItemStack(type.REDSTONE_ALLOY.getCrop(), 1, 0)); }
+	    if(type.CONDUCTIVE_IRON.isEnabled()){ addEssenceRecipe("ingotConductiveIron", EssenceConfig.conductiveIron, "EEE", "E E", "EEE", 'E', new ItemStack(type.CONDUCTIVE_IRON.getCrop(), 1, 0)); }
+	    if(type.SOULARIUM.isEnabled()){ addEssenceRecipe("ingotSoularium", EssenceConfig.soularium, "EEE", "E E", "EEE", 'E', new ItemStack(type.SOULARIUM.getCrop(), 1, 0)); }
+	    if(type.DARK_STEEL.isEnabled()){ addEssenceRecipe("ingotDarkSteel", EssenceConfig.dark_steel, "EEE", "E E", "EEE", 'E', new ItemStack(type.DARK_STEEL.getCrop(), 1, 0)); }
+	    if(type.PULSATING_IRON.isEnabled()){ addEssenceRecipe("ingotPulsatingIron", EssenceConfig.pulsatingIron, "EEE", "E E", "EEE", 'E', new ItemStack(type.PULSATING_IRON.getCrop(), 1, 0)); }
+	    if(type.ENERGETIC_ALLOY.isEnabled()){ addEssenceRecipe("ingotEnergeticAlloy", EssenceConfig.energeticAlloy, "EEE", "E E", "EEE", 'E', new ItemStack(type.ENERGETIC_ALLOY.getCrop(), 1, 0)); }
+	    if(type.VIBRANT_ALLOY.isEnabled()){ addEssenceRecipe("ingotVibrantAlloy", EssenceConfig.vibrantAlloy, "EEE", "E E", "EEE", 'E', new ItemStack(type.VIBRANT_ALLOY.getCrop(), 1, 0)); }
 
 	    if(type.MYSTICAL_FLOWER.isEnabled()){ 
 	    	addEssenceRecipe(new ItemStack(Parts.itemBotaniaFlowers, EssenceConfig.mysticalFlower, 0), "EEE", "   ", "   ", 'E', new ItemStack(type.MYSTICAL_FLOWER.getCrop(), 1, 0)); 

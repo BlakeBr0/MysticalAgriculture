@@ -7,7 +7,6 @@ import net.minecraft.item.Item;
 public class Parts {
 		
 	public static Item itemTinkersIngots;
-	public static Item itemEnderIOAlloys;
 	public static Item itemBotaniaFlowers;
 	public static Item itemBotaniaPetals;
 	public static Item itemBotaniaResources;
@@ -32,15 +31,6 @@ public class Parts {
 	        try {
 	            Item item = getItem("tconstruct:ingots");
 	            itemTinkersIngots = item;
-	        } catch(Throwable e){
-	            e.printStackTrace();
-	        }
-	    }
-	    
-	    if(ModChecker.ENDERIO){
-	        try {
-	            Item item = getItem("EnderIO:itemAlloy");
-	            itemEnderIOAlloys = item;
 	        } catch(Throwable e){
 	            e.printStackTrace();
 	        }

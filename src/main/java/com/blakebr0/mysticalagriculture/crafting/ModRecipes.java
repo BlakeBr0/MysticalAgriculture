@@ -449,14 +449,14 @@ public class ModRecipes {
 	    addSeedRecipe(type.COBALT, new ItemStack(Parts.itemTinkersIngots, 1, 0));
 	    addSeedRecipe(type.MANYULLYN, new ItemStack(Parts.itemTinkersIngots, 1, 2));
 
-	    addSeedRecipe(type.ELECTRICAL_STEEL, new ItemStack(Parts.itemEnderIOAlloys, 1, 0));
-	    addSeedRecipe(type.REDSTONE_ALLOY, new ItemStack(Parts.itemEnderIOAlloys, 1, 3));
-	    addSeedRecipe(type.CONDUCTIVE_IRON, new ItemStack(Parts.itemEnderIOAlloys, 1, 4));
-	    addSeedRecipe(type.SOULARIUM, new ItemStack(Parts.itemEnderIOAlloys, 1, 7));
-	    addSeedRecipe(type.DARK_STEEL, new ItemStack(Parts.itemEnderIOAlloys, 1, 6));
-	    addSeedRecipe(type.PULSATING_IRON, new ItemStack(Parts.itemEnderIOAlloys, 1, 5));
-	    addSeedRecipe(type.ENERGETIC_ALLOY, new ItemStack(Parts.itemEnderIOAlloys, 1, 1));
-	    addSeedRecipe(type.VIBRANT_ALLOY, new ItemStack(Parts.itemEnderIOAlloys, 1, 2));
+	    addSeedRecipe(type.ELECTRICAL_STEEL, "ingotElectricalSteel");
+	    addSeedRecipe(type.REDSTONE_ALLOY, "ingotRedstoneAlloy");
+	    addSeedRecipe(type.CONDUCTIVE_IRON, "ingotConductiveIron");
+	    addSeedRecipe(type.SOULARIUM, "ingotSoularium");
+	    addSeedRecipe(type.DARK_STEEL, "ingotDarkSteel");
+	    addSeedRecipe(type.PULSATING_IRON, "ingotPulsatingIron");
+	    addSeedRecipe(type.ENERGETIC_ALLOY, "ingotEnergeticAlloy");
+	    addSeedRecipe(type.VIBRANT_ALLOY, "ingotVibrantAlloy");
 
 	    addSeedRecipe(type.MYSTICAL_FLOWER, ModItems.itemCrafting.itemMysticalFlowerCluster);
 	    addSeedRecipe(type.MANASTEEL, new ItemStack(Parts.itemBotaniaResources, 1, 0));
