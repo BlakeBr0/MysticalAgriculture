@@ -92,6 +92,8 @@ public class CropType {
 		LUMIUM("lumium", 4, ModChecker.LUMIUM),
 		ENDERIUM("enderium", 5, ModChecker.ENDERIUM),
 		
+		FLUXED_ELECTRUM("fluxed_electrum", 4, ModChecker.REDSTONE_ARSENAL),
+		
 		ALUMINUM_BRASS("aluminum_brass", 2, ModChecker.TINKERS_CONSTRUCT),
 		KNIGHTSLIME("knightslime", 3, ModChecker.TINKERS_CONSTRUCT),
 		ARDITE("ardite", 3, ModChecker.TINKERS_CONSTRUCT),

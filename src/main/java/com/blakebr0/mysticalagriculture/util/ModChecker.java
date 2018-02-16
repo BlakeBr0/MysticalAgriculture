@@ -12,6 +12,7 @@ public class ModChecker {
 	public static final boolean EMBERS = Loader.isModLoaded("embers");
 	public static final boolean MEKANISM = Loader.isModLoaded("Mekanism") || Loader.isModLoaded("mekanism");
 	public static final boolean THERMAL_FOUNDATION = Loader.isModLoaded("thermalfoundation");
+	public static final boolean REDSTONE_ARSENAL = Loader.isModLoaded("redstonearsenal");
 	public static final boolean CHISEL = Loader.isModLoaded("chisel");
 	public static final boolean DRACONIC_EVOLUTION = Loader.isModLoaded("draconicevolution");
 	public static final boolean BIG_REACTORS = Loader.isModLoaded("bigreactors");

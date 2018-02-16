@@ -141,6 +141,8 @@ public class EssenceConfig {
 	public static int lumium;
 	public static int enderium;
 	
+	public static int fluxedElectrum;
+	
 	public static int aluminumBrass;
 	public static int knightslime;
 	public static int ardite;
@@ -371,6 +373,9 @@ public class EssenceConfig {
 		signalum = config.get(category, "signalum", 4).getInt();
 		lumium = config.get(category, "lumium", 4).getInt();
 		enderium = config.get(category, "enderium", 2).getInt();
+		
+		category = "Redstone Arsenal";
+		fluxedElectrum = config.get(category, "fluxed_electrum", 3).getInt();
 		
 		category = "Tinkers Construct";
 		aluminumBrass = config.get(category, "aluminum_brass", 6).getInt();

@@ -253,7 +253,9 @@ public class EssenceRecipes {
 	    if(type.SIGNALUM.isEnabled()){ addEssenceRecipe("ingotSignalum", EssenceConfig.signalum, "EEE", "E E", "EEE", 'E', new ItemStack(type.SIGNALUM.getCrop(), 1, 0)); }
 	    if(type.LUMIUM.isEnabled()){ addEssenceRecipe("ingotLumium", EssenceConfig.lumium, "EEE", "E E", "EEE", 'E', new ItemStack(type.LUMIUM.getCrop(), 1, 0)); }
 	    if(type.ENDERIUM.isEnabled()){ addEssenceRecipe("ingotEnderium", EssenceConfig.enderium, "EEE", "E E", "EEE", 'E', new ItemStack(type.ENDERIUM.getCrop(), 1, 0)); }
-	    
+
+	    if(type.FLUXED_ELECTRUM.isEnabled()){ addEssenceRecipe("ingotElectrumFlux", EssenceConfig.fluxedElectrum, "EEE", "E E", "EEE", 'E', new ItemStack(type.FLUXED_ELECTRUM.getCrop(), 1, 0)); }
+
 	    if(type.ALUMINUM_BRASS.isEnabled()){ addEssenceRecipe(new ItemStack(Parts.itemTinkersIngots, EssenceConfig.aluminumBrass, 5), "EEE", "E E", "EEE", 'E', new ItemStack(type.ALUMINUM_BRASS.getCrop(), 1, 0)); }
 	    if(type.KNIGHTSLIME.isEnabled()){ addEssenceRecipe(new ItemStack(Parts.itemTinkersIngots, EssenceConfig.knightslime, 3), "EEE", "E E", "EEE", 'E', new ItemStack(type.KNIGHTSLIME.getCrop(), 1, 0)); }
 	    if(type.ARDITE.isEnabled()){ addEssenceRecipe(new ItemStack(Parts.itemTinkersIngots, EssenceConfig.ardite, 1), "EEE", "E E", "EEE", 'E', new ItemStack(type.ARDITE.getCrop(), 1, 0)); }
