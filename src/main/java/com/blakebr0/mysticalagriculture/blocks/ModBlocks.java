@@ -97,7 +97,7 @@ public class ModBlocks {
 				Ore.of(3, "blockSuperiumEssence"), Ore.of(4, "blockSupremiumEssence"), Ore.of(5, "blockProsperity"));
 		registry.register(blockIngotStorage, "ingot_storage", new ItemBlockIngotStorage(blockIngotStorage),
 				Ore.of(0, "blockBaseEssence"), Ore.of(1, "blockInferium"), Ore.of(2, "blockPrudentium"), Ore.of(3, "blockIntermedium"), 
-				Ore.of(4, "blockSuperium"), Ore.of(5, "blockSuperium"), Ore.of(6, "blockSoulium"));
+				Ore.of(4, "blockSuperium"), Ore.of(5, "blockSupremium"), Ore.of(6, "blockSoulium"));
 		registry.register(blockEssenceCoal, "coal_block", new ItemBlockEssenceCoal(blockEssenceCoal),
 				Ore.of(0, "blockInferiumCoal"), Ore.of(1, "blockPrudentiumCoal"), Ore.of(2, "blockIntermediumCoal"),
 				Ore.of(3, "blockSuperiumCoal"), Ore.of(4, "blockSupremiumCoal"));
