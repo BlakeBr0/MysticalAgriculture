@@ -233,6 +233,8 @@ tile.ma.desh_crop.name=Desh Crop
 
 tile.ma.black_quartz_crop.name=Black Quartz Crop
 
+tile.ma.menril_crop.name=Menril Crop
+
 tile.ma.vinteum_crop.name=Vinteum Crop
 tile.ma.chimerite_crop.name=Chimerite Crop
 tile.ma.blue_topaz_crop.name=Blue Topaz Crop
@@ -504,6 +506,8 @@ item.ma.desh_essence.name=Desh Essence
 
 item.ma.black_quartz_essence.name=Black Quartz Essence
 
+item.ma.menril_essence.name=Menril Essence
+
 item.ma.vinteum_essence.name=Vinteum Essence
 item.ma.chimerite_essence.name=Chimerite Essence
 item.ma.blue_topaz_essence.name=Blue Topaz Essence
@@ -667,6 +671,8 @@ item.ma.meteoric_iron_seeds.name=Meteoric Iron Seeds
 item.ma.desh_seeds.name=Desh Seeds
 
 item.ma.black_quartz_seeds.name=Black Quartz Seeds
+
+item.ma.menril_seeds.name=Menril Seeds
 
 item.ma.vinteum_seeds.name=Vinteum Seeds
 item.ma.chimerite_seeds.name=Chimerite Seeds

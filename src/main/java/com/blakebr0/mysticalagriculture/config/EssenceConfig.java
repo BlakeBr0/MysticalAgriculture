@@ -192,6 +192,10 @@ public class EssenceConfig {
 	public static int desh;
 	
 	public static int blackQuartz;
+	
+	public static int menrilLog;
+	public static int menrilSapling;
+	public static int menrilBerry;
 
 	public static int vinteum;
 	public static int chimerite;
@@ -438,6 +442,11 @@ public class EssenceConfig {
 		
 		category = "Actually Additions";
 		blackQuartz = config.get(category, "black_quartz", 6).getInt();
+		
+		category = "Integrated Dynamics";
+		menrilLog = config.get(category, "menril_log", 16).getInt();
+		menrilSapling = config.get(category, "menril_sapling", 4).getInt();
+		menrilBerry = config.get(category, "menril_berry", 12).getInt();
 		
 		category = "Ars Magica 2";
 		vinteum = config.get(category, "vinteum", 8).getInt();

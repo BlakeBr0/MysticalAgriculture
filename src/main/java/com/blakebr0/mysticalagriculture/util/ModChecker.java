@@ -36,6 +36,7 @@ public class ModChecker {
 	public static final boolean TWILIGHT_FOREST = Loader.isModLoaded("twilightforest");
 	public static final boolean RUSTIC = Loader.isModLoaded("rustic");
 	public static final boolean LIB_VULPES = Loader.isModLoaded("libvulpes");
+	public static final boolean INTEGRATED_DYNAMICS = Loader.isModLoaded("integrateddynamics");
 	
 	public static final boolean RUBBER = !OreDictionary.getOres("itemRubber", false).isEmpty() || IC2 || TECH_REBORN;
 	public static final boolean SILICON = !OreDictionary.getOres("itemSilicon", false).isEmpty() || ENDERIO || GALACTICRAFT_CORE || APPLIED_ENERGISTICS_2 || REFINED_STORAGE || LIB_VULPES;

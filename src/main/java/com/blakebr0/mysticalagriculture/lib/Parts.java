@@ -24,6 +24,9 @@ public class Parts {
 	public static Item itemAstralOre;
 	public static Item itemAstralRockCrystal;
 	public static Item itemRusticSlate;
+	public static Item itemIDMenrilLog;
+	public static Item itemIDMenrilSapling;
+	public static Item itemIDMenrilBerry;
 	
 	public static void getParts(){
 		
@@ -171,6 +174,16 @@ public class Parts {
 	    	} catch (Throwable e) {
 	    		e.printStackTrace();
 	    	}
+	    }
+	    
+	    if (ModChecker.INTEGRATED_DYNAMICS) {
+	    	try {
+	    		itemIDMenrilLog = getItem("integrateddynamics:menril_log");
+	    		itemIDMenrilSapling = getItem("integrateddynamics:menril_sapling");
+	    		itemIDMenrilBerry = getItem("integrateddynamics:menril_berries");
+	    	} catch (Throwable e) {
+				e.printStackTrace();
+			}
 	    }
 	}
 

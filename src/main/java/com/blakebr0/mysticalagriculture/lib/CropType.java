@@ -144,6 +144,8 @@ public class CropType {
 		
 		BLACK_QUARTZ("black_quartz", 3, ModChecker.ACTUALLY_ADDITIONS),
 		
+		MENRIL("menril", 2, ModChecker.INTEGRATED_DYNAMICS),
+		
 		VINTEUM("vinteum", 3, ModChecker.ARS_MAGICA_2),
 		CHIMERITE("chimerite", 3, ModChecker.ARS_MAGICA_2),
 		BLUE_TOPAZ("blue_topaz", 3, ModChecker.ARS_MAGICA_2),

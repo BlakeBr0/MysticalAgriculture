@@ -495,6 +495,8 @@ public class ModRecipes {
 	    
 	    addSeedRecipe(type.BLACK_QUARTZ, "gemQuartzBlack");
 	    
+	    addSeedRecipe(type.MENRIL, new ItemStack(Parts.itemIDMenrilLog, 1, 0));
+	    
 	    addSeedRecipe(type.VINTEUM, "dustVinteum");
 	    addSeedRecipe(type.CHIMERITE, "gemChimerite");
 	    addSeedRecipe(type.BLUE_TOPAZ, "gemBlueTopaz");

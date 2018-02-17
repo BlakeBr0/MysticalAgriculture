@@ -323,6 +323,10 @@ public class EssenceRecipes {
 
 	    if(type.BLACK_QUARTZ.isEnabled()){ addEssenceRecipe("gemQuartzBlack", EssenceConfig.blackQuartz, "EEE", " E ", "EEE", 'E', new ItemStack(type.BLACK_QUARTZ.getCrop(), 1, 0)); }
 
+	    if(type.MENRIL.isEnabled()){ addEssenceRecipe(new ItemStack(Parts.itemIDMenrilLog, EssenceConfig.menrilLog, 0), "EEE", "   ", "   ", 'E', new ItemStack(type.MENRIL.getCrop(), 1, 0)); }
+	    if(type.MENRIL.isEnabled()){ addEssenceRecipe(new ItemStack(Parts.itemIDMenrilSapling, EssenceConfig.menrilSapling, 0), "EFE", "   ", "   ", 'E', new ItemStack(type.MENRIL.getCrop(), 1, 0), 'F', new ItemStack(type.NATURE.getCrop(), 1, 0)); }
+	    if(type.MENRIL.isEnabled()){ addEssenceRecipe(new ItemStack(Parts.itemIDMenrilBerry, EssenceConfig.menrilBerry, 0), "E  ", " E ", "  E", 'E', new ItemStack(type.MENRIL.getCrop(), 1, 0)); }
+
 	    if(type.VINTEUM.isEnabled()){ addEssenceRecipe("dustVinteum", EssenceConfig.vinteum, "EEE", "E E", "EEE", 'E', new ItemStack(type.VINTEUM.getCrop(), 1, 0)); }    
 	    if(type.CHIMERITE.isEnabled()){ addEssenceRecipe("gemChimerite", EssenceConfig.chimerite, " E ", "EEE", " E ", 'E', new ItemStack(type.CHIMERITE.getCrop(), 1, 0)); }    
 	    if(type.BLUE_TOPAZ.isEnabled()){ addEssenceRecipe("gemBlueTopaz", EssenceConfig.blueTopaz, "EEE", "E E", "EEE", 'E', new ItemStack(type.BLUE_TOPAZ.getCrop(), 1, 0)); }    
