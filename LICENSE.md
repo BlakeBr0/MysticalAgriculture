@@ -8,3 +8,5 @@ However, you are allowed to:
 - Create addons that depend on the source
 
 *A modpack is a collection of mods and configurations. This mod can be included in and distributed in the context of a modpack. A modpack can be distributed publicly or privately. Do not publicly distribute this mod in anything other than a modpack.
+
+© 2018 BlakeBr0
