@@ -93,7 +93,7 @@ public class ItemSuperiumArmor extends ItemArmor implements IRepairMaterial {
     			EntityPlayer player = (EntityPlayer)event.getEntityLiving();
     			String key = playerKey(player);
 
-    			Boolean hasSet = ItemPrudentiumArmor.isFullSet(player);
+    			Boolean hasSet = ItemSuperiumArmor.isFullSet(player);
     			if(playersWithSet.contains(key) && ModConfig.confSetBonuses){
     				if(hasSet){
     					player.stepHeight = 1.0625F;
