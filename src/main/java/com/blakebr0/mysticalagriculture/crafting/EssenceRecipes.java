@@ -100,7 +100,8 @@ public class EssenceRecipes {
 	    addEssenceRecipe(new ItemStack(Blocks.RED_MUSHROOM, EssenceConfig.mushroom, 0), " E ", " F ", " E ", 'E', new ItemStack(type.NATURE.getCrop(), 1, 0), 'F', new ItemStack(type.DIRT.getCrop(), 1, 0));
 	    addEssenceRecipe(new ItemStack(Blocks.MOSSY_COBBLESTONE, EssenceConfig.mossyCobblestone, 0), "E E", " N ", "E E", 'E', new ItemStack(type.STONE.getCrop(), 1, 0), 'N', new ItemStack(type.NATURE.getCrop(), 1, 0));
 	    addEssenceRecipe(new ItemStack(Blocks.STONEBRICK, EssenceConfig.mossyStonebrick, 1), " E ", "ENE", " E ", 'E', new ItemStack(type.STONE.getCrop(), 1, 0), 'N', new ItemStack(type.NATURE.getCrop(), 1, 0));   
-
+	    addEssenceRecipe(new ItemStack(Items.APPLE, EssenceConfig.apple, 0), "E  ", " E ", "  E", 'E', new ItemStack(type.NATURE.getCrop(), 1, 0));
+	    
 	    addEssenceRecipe(new ItemStack(Blocks.LOG, EssenceConfig.wood, 0), "EEE", "   ", "   ", 'E', new ItemStack(type.WOOD.getCrop(), 1, 0));
 	    addEssenceRecipe(new ItemStack(Blocks.LOG, EssenceConfig.wood, 1), "   ", "EEE", "   ", 'E', new ItemStack(type.WOOD.getCrop(), 1, 0));
 	    addEssenceRecipe(new ItemStack(Blocks.LOG, EssenceConfig.wood, 2), "E  ", " E ", "  E", 'E', new ItemStack(type.WOOD.getCrop(), 1, 0));
