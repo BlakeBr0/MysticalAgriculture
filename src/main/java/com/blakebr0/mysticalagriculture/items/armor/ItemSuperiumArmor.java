@@ -19,6 +19,7 @@ import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.world.World;
+import net.minecraftforge.event.entity.living.LivingFallEvent;
 import net.minecraftforge.event.entity.living.LivingEvent.LivingUpdateEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.relauncher.Side;
@@ -51,7 +52,6 @@ public class ItemSuperiumArmor extends ItemArmor implements IRepairMaterial {
 			if(player.isInWater()){
 				player.addPotionEffect(new PotionEffect(MobEffects.WATER_BREATHING, 5, 0, true, false));
 			}
-			player.fallDistance = 0;
 		}
 	}
 	
@@ -103,6 +103,16 @@ public class ItemSuperiumArmor extends ItemArmor implements IRepairMaterial {
     				}
     			} else if(hasSet){
     				playersWithSet.add(key);
+    			}
+    		}
+    	}
+    	
+    	@SubscribeEvent
+    	public void onFall(LivingFallEvent event) {
+    		if (event.getEntityLiving() instanceof EntityPlayer) {
+    			boolean hasSet = ItemSuperiumArmor.isFullSet((EntityPlayer) event.getEntityLiving());
+    			if (hasSet) {
+    				event.setDamageMultiplier(0);
     			}
     		}
     	}

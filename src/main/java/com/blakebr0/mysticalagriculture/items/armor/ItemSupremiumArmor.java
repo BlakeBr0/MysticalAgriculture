@@ -61,7 +61,6 @@ public class ItemSupremiumArmor extends ItemArmor implements IRepairMaterial {
 			if(player.isInWater()){
 				player.addPotionEffect(new PotionEffect(MobEffects.WATER_BREATHING, 5, 0, true, false));
 			}
-			player.fallDistance = 0;
 		}
 		
 		NBTTagCompound tag = NBTHelper.getDataMap(stack);
