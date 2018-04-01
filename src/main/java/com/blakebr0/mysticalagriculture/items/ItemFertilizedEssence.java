@@ -11,10 +11,13 @@ import com.blakebr0.mysticalagriculture.blocks.crop.BlockMysticalCrop;
 import com.blakebr0.mysticalagriculture.config.ModConfig;
 import com.blakebr0.mysticalagriculture.lib.Tooltips;
 
+import net.minecraft.block.BlockDispenser;
 import net.minecraft.block.IGrowable;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.util.ITooltipFlag;
+import net.minecraft.dispenser.IBlockSource;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Bootstrap;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumActionResult;
@@ -31,6 +34,24 @@ public class ItemFertilizedEssence extends Item {
 		super();
 		this.setUnlocalizedName("ma.fertilized_essence");
 		this.setCreativeTab(MysticalAgriculture.tabMysticalAgriculture);
+		
+        BlockDispenser.DISPENSE_BEHAVIOR_REGISTRY.putObject(this, new Bootstrap.BehaviorDispenseOptional() {
+            protected ItemStack dispenseStack(IBlockSource source, ItemStack stack) {
+                this.successful = true;
+                World world = source.getWorld();
+                BlockPos blockpos = source.getBlockPos().offset((EnumFacing)source.getBlockState().getValue(BlockDispenser.FACING));
+
+                if (ItemFertilizedEssence.applyFertilizer(stack, world, blockpos)) {
+                	if (!world.isRemote) {
+                		world.playEvent(2005, blockpos, 0);
+                	}
+                } else {
+                	this.successful = false;
+                }
+
+                return stack;
+            }
+        });
 	}
 	
 	@Override
@@ -40,6 +61,12 @@ public class ItemFertilizedEssence extends Item {
 		int chance = ModConfig.confFertilizedEssenceChance;
 		if(ModConfig.confFertilizedEssenceChance > 0){ tooltip.add(Tooltips.DROP_CHANCE + Colors.LIGHT_PURPLE + chance + "%"); }
 	}
+	
+    public static boolean applyFertilizer(ItemStack stack, World worldIn, BlockPos target) {
+        if (worldIn instanceof net.minecraft.world.WorldServer)
+            return applyFertilizer(stack, worldIn, target, net.minecraftforge.common.util.FakePlayerFactory.getMinecraft((net.minecraft.world.WorldServer)worldIn), null);
+        return false;
+    }
 	
     public static boolean applyFertilizer(ItemStack stack, World worldIn, BlockPos target, EntityPlayer player, EnumHand hand){
         IBlockState iblockstate = worldIn.getBlockState(target);
