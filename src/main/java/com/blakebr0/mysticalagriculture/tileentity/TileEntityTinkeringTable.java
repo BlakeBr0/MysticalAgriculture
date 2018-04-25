@@ -11,7 +11,7 @@ import net.minecraftforge.common.capabilities.ICapabilityProvider;
 public class TileEntityTinkeringTable extends TileEntity implements ICapabilityProvider {
 	
     public TinkeringTableStackHandler matrix = new TinkeringTableStackHandler(9, this);
-    private ItemStack result;
+    private ItemStack result = ItemStack.EMPTY;
 
     public ItemStack getResult(){
         return result;
