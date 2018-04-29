@@ -80,7 +80,7 @@ public class CropType {
 		RUBY("ruby", 4, ModChecker.RUBY),
 		SAPPHIRE("sapphire", 4, ModChecker.SAPPHIRE),
 		PERIDOT("peridot", 4, ModChecker.PERIDOT),
-		AMBER("amber", 4, ModChecker.BIOMES_O_PLENTY),
+		AMBER("amber", 4, ModChecker.AMBER),
 		TOPAZ("topaz", 4, ModChecker.BIOMES_O_PLENTY),
 		MALACHITE("malachite", 4, ModChecker.BIOMES_O_PLENTY),
 		TANZANITE("tanzanite", 4, ModChecker.BIOMES_O_PLENTY),
@@ -113,6 +113,10 @@ public class CropType {
 		MANASTEEL("manasteel", 3, ModChecker.BOTANIA),
 		ELEMENTIUM("elementium", 4, ModChecker.BOTANIA),
 		TERRASTEEL("terrasteel", 5, ModChecker.BOTANIA),
+		
+		QUICKSILVER("quicksilver", 3, ModChecker.THAUMCRAFT),
+		THAUMIUM("thaumium", 3, ModChecker.THAUMCRAFT),
+		VOID_METAL("void_metal", 4, ModChecker.THAUMCRAFT),
 		
 		DAWNSTONE("dawnstone", 4, ModChecker.EMBERS),
 		

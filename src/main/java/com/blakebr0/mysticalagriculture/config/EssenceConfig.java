@@ -164,6 +164,10 @@ public class EssenceConfig {
 	public static int elementium;
 	public static int terrasteel;
 	
+	public static int quicksilver;
+	public static int thaumium;
+	public static int voidMetal;
+	
 	public static int dawnstone;
 	
 	public static int uranium238;
@@ -405,6 +409,11 @@ public class EssenceConfig {
 		manasteel = config.get(category, "manasteel", 5).getInt();
 		elementium = config.get(category, "elementium", 4).getInt();
 		terrasteel = config.get(category, "terrasteel", 2).getInt();
+		
+		category = "Thaumcraft";
+		quicksilver = config.get(category, "quicksilver", 4).getInt();
+		thaumium = config.get(category, "thaumium", 4).getInt();
+		voidMetal = config.get(category, "void_metal", 3).getInt();
 		
 		category = "Embers";
 		dawnstone = config.get(category, "dawnstone", 3).getInt();

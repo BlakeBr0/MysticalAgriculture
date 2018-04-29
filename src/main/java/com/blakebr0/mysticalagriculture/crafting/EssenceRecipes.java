@@ -294,6 +294,10 @@ public class EssenceRecipes {
 	    if(type.ELEMENTIUM.isEnabled()){ addEssenceRecipe(new ItemStack(Parts.itemBotaniaResources, EssenceConfig.elementium, 7), "EEE", "E E", "EEE", 'E', new ItemStack(type.ELEMENTIUM.getCrop(), 1, 0)); }
 	    if(type.TERRASTEEL.isEnabled()){ addEssenceRecipe(new ItemStack(Parts.itemBotaniaResources, EssenceConfig.terrasteel, 4), "EEE", "E E", "EEE", 'E', new ItemStack(type.TERRASTEEL.getCrop(), 1, 0)); }
 	    
+	    if(type.QUICKSILVER.isEnabled()){ addEssenceRecipe("quicksilver", EssenceConfig.quicksilver, "EEE", "E E", "EEE", 'E', new ItemStack(type.QUICKSILVER.getCrop(), 1, 0)); }
+	    if(type.THAUMIUM.isEnabled()){ addEssenceRecipe("ingotThaumium", EssenceConfig.thaumium, "EEE", "E E", "EEE", 'E', new ItemStack(type.THAUMIUM.getCrop(), 1, 0)); }
+	    if(type.VOID_METAL.isEnabled()){ addEssenceRecipe("ingotVoid", EssenceConfig.voidMetal, "EEE", "E E", "EEE", 'E', new ItemStack(type.VOID_METAL.getCrop(), 1, 0)); }
+	    
 	    if(type.DAWNSTONE.isEnabled()){ addEssenceRecipe("ingotDawnstone", EssenceConfig.dawnstone, "EEE", "E E", "EEE", 'E', new ItemStack(type.DAWNSTONE.getCrop(), 1, 0)); }
 
 	    if(type.URANIUM_238.isEnabled()){ addEssenceRecipe(new ItemStack(Parts.itemIC2Nuclear, EssenceConfig.uranium238, 2), "EEE", "EEE", "EEE", 'E', new ItemStack(type.URANIUM_238.getCrop(), 1, 0)); }
