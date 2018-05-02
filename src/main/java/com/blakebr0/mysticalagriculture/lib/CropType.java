@@ -100,6 +100,7 @@ public class CropType {
 		COBALT("cobalt", 4, ModChecker.TINKERS_CONSTRUCT),
 		MANYULLYN("manyullyn", 5, ModChecker.TINKERS_CONSTRUCT),
 		
+		GRAINS_OF_INFINITY("grains_of_infinity", 2, ModChecker.ENDERIO),
 		ELECTRICAL_STEEL("electrical_steel", 3, ModChecker.ENDERIO),
 		REDSTONE_ALLOY("redstone_alloy", 3, ModChecker.ENDERIO),
 		CONDUCTIVE_IRON("conductive_iron", 3, ModChecker.ENDERIO),
@@ -108,6 +109,7 @@ public class CropType {
 		PULSATING_IRON("pulsating_iron", 4, ModChecker.ENDERIO),
 		ENERGETIC_ALLOY("energetic_alloy", 4, ModChecker.ENDERIO),
 		VIBRANT_ALLOY("vibrant_alloy", 5, ModChecker.ENDERIO),
+		END_STEEL("end_steel", 5, ModChecker.ENDERIO),
 		
 		MYSTICAL_FLOWER("mystical_flower", 2, ModChecker.BOTANIA),
 		MANASTEEL("manasteel", 3, ModChecker.BOTANIA),

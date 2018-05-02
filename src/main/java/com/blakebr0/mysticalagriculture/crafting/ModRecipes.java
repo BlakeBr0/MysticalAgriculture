@@ -451,6 +451,7 @@ public class ModRecipes {
 	    addSeedRecipe(type.COBALT, new ItemStack(Parts.itemTinkersIngots, 1, 0));
 	    addSeedRecipe(type.MANYULLYN, new ItemStack(Parts.itemTinkersIngots, 1, 2));
 
+	    addSeedRecipe(type.GRAINS_OF_INFINITY, "dustBedrock");
 	    addSeedRecipe(type.ELECTRICAL_STEEL, "ingotElectricalSteel");
 	    addSeedRecipe(type.REDSTONE_ALLOY, "ingotRedstoneAlloy");
 	    addSeedRecipe(type.CONDUCTIVE_IRON, "ingotConductiveIron");
@@ -459,6 +460,7 @@ public class ModRecipes {
 	    addSeedRecipe(type.PULSATING_IRON, "ingotPulsatingIron");
 	    addSeedRecipe(type.ENERGETIC_ALLOY, "ingotEnergeticAlloy");
 	    addSeedRecipe(type.VIBRANT_ALLOY, "ingotVibrantAlloy");
+	    addSeedRecipe(type.END_STEEL, "ingotEndSteel");
 
 	    addSeedRecipe(type.MYSTICAL_FLOWER, ModItems.itemCrafting.itemMysticalFlowerCluster);
 	    addSeedRecipe(type.MANASTEEL, new ItemStack(Parts.itemBotaniaResources, 1, 0));

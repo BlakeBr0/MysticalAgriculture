@@ -189,6 +189,7 @@ tile.ma.ardite_crop.name=Ardite Crop
 tile.ma.cobalt_crop.name=Cobalt Crop
 tile.ma.manyullyn_crop.name=Manyullyn Crop
 
+tile.ma.grains_of_infinity_crop.name=Grains of Infinity Crop
 tile.ma.electrical_steel_crop.name=Electrical Steel Crop
 tile.ma.redstone_alloy_crop.name=Redstone Alloy Crop
 tile.ma.conductive_iron_crop.name=Conductive Iron Crop
@@ -197,6 +198,7 @@ tile.ma.dark_steel_crop.name=Dark Steel Crop
 tile.ma.pulsating_iron_crop.name=Pulsating Iron Crop
 tile.ma.energetic_alloy_crop.name=Energetic Alloy Crop
 tile.ma.vibrant_alloy_crop.name=Vibrant Alloy Crop
+tile.ma.end_steel_crop.name=End Steel Crop
 
 tile.ma.mystical_flower_crop.name=Mystical Flower Crop
 tile.ma.manasteel_crop.name=Manasteel Crop
@@ -465,15 +467,17 @@ item.ma.knightslime_essence.name=Knightslime Essence
 item.ma.ardite_essence.name=Ardite Essence
 item.ma.cobalt_essence.name=Cobalt Essence
 item.ma.manyullyn_essence.name=Manyullyn Essence
-item.ma.energetic_alloy_essence.name=Energetic Alloy Essence
 
+item.ma.grains_of_infinity_essence.name=Grains of Infinity Essence
 item.ma.electrical_steel_essence.name=Electrical Steel Essence
 item.ma.redstone_alloy_essence.name=Redstone Alloy Essence
 item.ma.conductive_iron_essence.name=Conductive Iron Essence
 item.ma.soularium_essence.name=Soularium Essence
 item.ma.dark_steel_essence.name=Dark Steel Essence
 item.ma.pulsating_iron_essence.name=Pulsating Iron Essence
+item.ma.energetic_alloy_essence.name=Energetic Alloy Essence
 item.ma.vibrant_alloy_essence.name=Vibrant Alloy Essence
+item.ma.end_steel_essence.name=End Steel Essence
 
 item.ma.mystical_flower_essence.name=Mystical Flower Essence
 item.ma.manasteel_essence.name=Manasteel Essence
@@ -636,6 +640,7 @@ item.ma.ardite_seeds.name=Ardite Seeds
 item.ma.cobalt_seeds.name=Cobalt Seeds
 item.ma.manyullyn_seeds.name=Manyullyn Seeds
 
+item.ma.grains_of_infinity_seeds.name=Grains of Infinity Seeds
 item.ma.electrical_steel_seeds.name=Electrical Steel Seeds
 item.ma.redstone_alloy_seeds.name=Redstone Alloy Seeds
 item.ma.conductive_iron_seeds.name=Conductive Iron Seeds
@@ -644,6 +649,7 @@ item.ma.dark_steel_seeds.name=Dark Steel Seeds
 item.ma.pulsating_iron_seeds.name=Pulsating Iron Seeds
 item.ma.energetic_alloy_seeds.name=Energetic Alloy Seeds
 item.ma.vibrant_alloy_seeds.name=Vibrant Alloy Seeds
+item.ma.end_steel_seeds.name=End Steel Seeds
 
 item.ma.mystical_flower_seeds.name=Mystical Flower Seeds
 item.ma.manasteel_seeds.name=Manasteel Seeds

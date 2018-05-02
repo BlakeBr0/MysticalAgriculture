@@ -150,6 +150,7 @@ public class EssenceConfig {
 	public static int cobalt;
 	public static int manyullyn;
 	
+	public static int grainsOfInfinity;
 	public static int electricalSteel;
 	public static int redstoneAlloy;
 	public static int conductiveIron;
@@ -158,6 +159,7 @@ public class EssenceConfig {
 	public static int pulsatingIron;
 	public static int energeticAlloy;
 	public static int vibrantAlloy;
+	public static int endSteel;
 	
 	public static int mysticalFlower;
 	public static int manasteel;
@@ -395,6 +397,7 @@ public class EssenceConfig {
 		manyullyn = config.get(category, "manyullyn", 2).getInt();
 		
 		category = "Ender IO";
+		grainsOfInfinity = config.get(category, "grains_of_infinity", 8).getInt();
 		electricalSteel = config.get(category, "electrical_steel", 5).getInt();
 		redstoneAlloy = config.get(category, "redstone_alloy", 5).getInt();
 		conductiveIron = config.get(category, "conductive_iron", 5).getInt();
@@ -403,6 +406,7 @@ public class EssenceConfig {
 		pulsatingIron = config.get(category, "pulsating_iron", 3).getInt();
 		energeticAlloy = config.get(category, "energetic_alloy", 3).getInt();
 		vibrantAlloy = config.get(category, "vibrant_alloy", 3).getInt();
+		endSteel = config.get(category, "end_steel", 3).getInt();
 		
 		category = "Botania";
 		mysticalFlower = config.get(category, "mystical_flower", 6).getInt();

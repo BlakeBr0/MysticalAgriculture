@@ -263,6 +263,7 @@ public class EssenceRecipes {
 	    if(type.COBALT.isEnabled()){ addEssenceRecipe(new ItemStack(Parts.itemTinkersIngots, EssenceConfig.cobalt, 0), "EEE", "E E", "EEE", 'E', new ItemStack(type.COBALT.getCrop(), 1, 0)); }
 	    if(type.MANYULLYN.isEnabled()){ addEssenceRecipe(new ItemStack(Parts.itemTinkersIngots, EssenceConfig.manyullyn, 2), "EEE", "E E", "EEE", 'E', new ItemStack(type.MANYULLYN.getCrop(), 1, 0)); }
 
+	    if(type.GRAINS_OF_INFINITY.isEnabled()){ addEssenceRecipe("dustBedrock", EssenceConfig.grainsOfInfinity, " E ", "EEE", " E ", 'E', new ItemStack(type.GRAINS_OF_INFINITY.getCrop(), 1, 0)); }
 	    if(type.ELECTRICAL_STEEL.isEnabled()){ addEssenceRecipe("ingotElectricalSteel", EssenceConfig.electricalSteel, "EEE", "E E", "EEE", 'E', new ItemStack(type.ELECTRICAL_STEEL.getCrop(), 1, 0)); }
 	    if(type.REDSTONE_ALLOY.isEnabled()){ addEssenceRecipe("ingotRedstoneAlloy", EssenceConfig.redstoneAlloy, "EEE", "E E", "EEE", 'E', new ItemStack(type.REDSTONE_ALLOY.getCrop(), 1, 0)); }
 	    if(type.CONDUCTIVE_IRON.isEnabled()){ addEssenceRecipe("ingotConductiveIron", EssenceConfig.conductiveIron, "EEE", "E E", "EEE", 'E', new ItemStack(type.CONDUCTIVE_IRON.getCrop(), 1, 0)); }
@@ -271,6 +272,7 @@ public class EssenceRecipes {
 	    if(type.PULSATING_IRON.isEnabled()){ addEssenceRecipe("ingotPulsatingIron", EssenceConfig.pulsatingIron, "EEE", "E E", "EEE", 'E', new ItemStack(type.PULSATING_IRON.getCrop(), 1, 0)); }
 	    if(type.ENERGETIC_ALLOY.isEnabled()){ addEssenceRecipe("ingotEnergeticAlloy", EssenceConfig.energeticAlloy, "EEE", "E E", "EEE", 'E', new ItemStack(type.ENERGETIC_ALLOY.getCrop(), 1, 0)); }
 	    if(type.VIBRANT_ALLOY.isEnabled()){ addEssenceRecipe("ingotVibrantAlloy", EssenceConfig.vibrantAlloy, "EEE", "E E", "EEE", 'E', new ItemStack(type.VIBRANT_ALLOY.getCrop(), 1, 0)); }
+	    if(type.END_STEEL.isEnabled()){ addEssenceRecipe("ingotEndSteel", EssenceConfig.endSteel, "EEE", "E E", "EEE", 'E', new ItemStack(type.END_STEEL.getCrop(), 1, 0)); }
 
 	    if(type.MYSTICAL_FLOWER.isEnabled()){ 
 	    	addEssenceRecipe(new ItemStack(Parts.itemBotaniaFlowers, EssenceConfig.mysticalFlower, 0), "EEE", "   ", "   ", 'E', new ItemStack(type.MYSTICAL_FLOWER.getCrop(), 1, 0)); 

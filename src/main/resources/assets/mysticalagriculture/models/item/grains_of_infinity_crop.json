@@ -1,0 +1,6 @@
+{
+  "parent":"item/generated",
+  "textures": {
+    "layer0":"mysticalagriculture:blocks/grains_of_infinity_crop"
+  }
+}
