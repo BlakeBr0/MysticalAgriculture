@@ -140,6 +140,8 @@ public class CropType {
 		
 		APATITE("apatite", 2, ModChecker.FORESTRY),
 		
+		ALUMITE("alumite", 4, ModChecker.PLUSTIC),
+		
 		STEELEAF("steeleaf", 3, ModChecker.TWILIGHT_FOREST),
 		IRONWOOD("ironwood", 3, ModChecker.TWILIGHT_FOREST),
 		KNIGHTMETAL("knightmetal", 4, ModChecker.TWILIGHT_FOREST),

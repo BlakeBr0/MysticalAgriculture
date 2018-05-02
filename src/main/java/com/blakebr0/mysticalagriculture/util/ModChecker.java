@@ -30,6 +30,7 @@ public class ModChecker {
 	public static final boolean QUARK = Loader.isModLoaded("Quark") || Loader.isModLoaded("quark");
 	public static final boolean RAILCRAFT = Loader.isModLoaded("railcraft");
 	public static final boolean FORESTRY = Loader.isModLoaded("forestry");
+	public static final boolean PLUSTIC = Loader.isModLoaded("plustic");
 	public static final boolean PIXELMON = Loader.isModLoaded("pixelmon"); // this should probably be removed
 	public static final boolean TECH_REBORN = Loader.isModLoaded("techreborn");
 	public static final boolean SUBSTRATUM = Loader.isModLoaded("substratum");

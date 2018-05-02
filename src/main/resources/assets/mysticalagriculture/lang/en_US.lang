@@ -229,6 +229,8 @@ tile.ma.basalt_crop.name=Basalt Crop
 
 tile.ma.apatite_crop.name=Apatite Crop
 
+tile.ma.alumite_crop.name=Alumite Crop
+
 tile.ma.steeleaf_crop.name=Steeleaf Crop
 tile.ma.ironwood_crop.name=Ironwood Crop
 tile.ma.knightmetal_crop.name=Knightmetal Crop
@@ -508,6 +510,8 @@ item.ma.basalt_essence.name=Basalt Essence
 
 item.ma.apatite_essence.name=Apatite Essence
 
+item.ma.alumite_essence.name=Alumite Essence
+
 item.ma.steeleaf_essence.name=Steeleaf Essence
 item.ma.ironwood_essence.name=Ironwood Essence
 item.ma.knightmetal_essence.name=Knightmetal Essence
@@ -679,6 +683,8 @@ item.ma.limestone_seeds.name=Limestone Seeds
 item.ma.basalt_seeds.name=Basalt Seeds
 
 item.ma.apatite_seeds.name=Apatite Seeds
+
+item.ma.alumite_seeds.name=Alumite Seeds
 
 item.ma.steeleaf_seeds.name=Steeleaf Seeds
 item.ma.ironwood_seeds.name=Ironwood Seeds

@@ -190,6 +190,8 @@ public class EssenceConfig {
 	
 	public static int apatite;
 	
+	public static int alumite;
+	
 	public static int steeleaf;
 	public static int ironwood;
 	public static int knightmetal;
@@ -444,6 +446,9 @@ public class EssenceConfig {
 		
 		category = "Forestry";
 		apatite = config.get(category, "apatite", 8).getInt();
+		
+		category = "PlusTiC";
+		alumite = config.get(category, "alumite", 4).getInt();
 		
 		category = "Twilight Forest";
 		steeleaf = config.get(category, "steeleaf", 5).getInt();
