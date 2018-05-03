@@ -1,0 +1,965 @@
+# CREATIVE TAB
+itemGroup.tabMysticalAgriculture=Mystical Agriculture
+
+# STORAGE BLOCKS
+tile.ma.storage_inferium.name=§eБлок Инфериумной эссенции
+tile.ma.storage_prudentium.name=§aБлок Прудентиумной эссенции
+tile.ma.storage_intermedium.name=§6Блок Интермедиумной эссенции
+tile.ma.storage_superium.name=§bБлок Супериумной эссенции
+tile.ma.storage_supremium.name=§cБлок Супремиумной эссенции
+tile.ma.storage_prosperity.name=Блок Процветания
+
+tile.ma.ingot_storage_base_essence.name=Блок Базовой эссенции
+tile.ma.ingot_storage_inferium.name=§eБлок Инфериума
+tile.ma.ingot_storage_prudentium.name=§aБлок Прудентиума
+tile.ma.ingot_storage_intermedium.name=§6Блок Интермедиума
+tile.ma.ingot_storage_superium.name=§bБлок Супериума
+tile.ma.ingot_storage_supremium.name=§cБлок Супремиума
+tile.ma.ingot_storage_soulium.name=§dБлок Соулиума
+
+tile.ma.coal_block_inferium.name=§eБлок Инфериумного угля
+tile.ma.coal_block_prudentium.name=§aБлок Прудентиумного угля
+tile.ma.coal_block_intermedium.name=§6Блок Интермедиумного угля
+tile.ma.coal_block_superium.name=§bБлок Супериумного угля
+tile.ma.coal_block_supremium.name=§cБлок Супремиумного угля
+
+# SOULSTONE
+tile.ma.soulstone_smooth.name=Камень души
+tile.ma.soulstone_cobbled.name=Мощеный камень души
+tile.ma.soulstone_polished.name=Полированный камень души
+tile.ma.soulstone_brick.name=Кирпичи камня души
+tile.ma.soulstone_cracked.name=Треснувшие кирпичи камня души
+tile.ma.soulstone_chiseled.name=Точеный камень души
+tile.ma.soulstone_slab_block.name=Блок плиты камня души
+
+tile.ma.soulstone_slab.name=Плита камня души
+tile.ma.cobbled_soulstone_slab.name=Мощеная плита камня души
+tile.ma.soulstone_brick_slab.name=Кирпичная плита камня души
+
+tile.ma.cobbled_soulstone_stairs.name=Мощеные ступеньки камня души
+tile.ma.soulstone_brick_stairs.name=Кирпичные ступеньки камня души
+
+tile.ma.cobbled_soulstone_wall.name=Мощеная стена камня души
+tile.ma.soulstone_brick_wall.name=Кирпичные стена камня души
+
+tile.ma.soul_glass.name=Стекло души
+tile.ma.soul_glass_pane.name=Стеклянная панель души
+
+# FURNACES
+tile.ma.inferium_furnace.name=§eИнфериумная печь
+tile.ma.inferium_furnace_active.name=§eИнфериумная печь
+container.ma.inferium_furnace.name=Инфериумная печь
+
+tile.ma.prudentium_furnace.name=§aПрудентиумная печь
+tile.ma.prudentium_furnace_active.name=§aПрудентиумная печь
+container.ma.prudentium_furnace.name=Прудентиумная печь
+
+tile.ma.intermedium_furnace.name=§6Интермедиумная печь
+tile.ma.intermedium_furnace_active.name=§6Интермедиумная печь
+container.ma.intermedium_furnace.name=Интермедиумная печь
+
+tile.ma.superium_furnace.name=§bСупериумная печь
+tile.ma.superium_furnace_active.name=§bСупериумная печь
+container.ma.superium_furnace.name=Супериумная печь
+
+tile.ma.supremium_furnace.name=§cСупремиумная печь
+tile.ma.supremium_furnace_active.name=§cСупремиумная печь
+container.ma.supremium_furnace.name=Супремиумная печь
+
+tile.ma.ultimate_furnace.name=§8Максимальная печь
+tile.ma.ultimate_furnace_active.name=§8Максимальная печь
+container.ma.ultimate_furnace.name=Максимальная печь
+
+tile.ma.mystical_machine_frame.name=Мистический каркас механизма
+tile.ma.glowstone_lamp.name=Светокаменная лампа
+desc.tile.ma.glowstone_lamp=Чтобы сделать лампу светящегося камня, просто щелкните ПКМ на §8Мистическом каркасе механизма §0с блоком светокамня. \n\nВы можете забрать светокамень в любое время, щелкнув ПКМ по блоку пустой рукой.
+
+# MACHINE
+tile.ma.seed_reprocessor.name=Переработчик семени
+container.ma.seed_reprocessor.name=Переработчик семени
+jei.ma.seed_reprocessor=Переработчик семени
+desc.tile.ma.seed_reprocessor=Преобразует семена в соответствующую культуру. Он работает на мощности теоретической энергии, что означает, что Вам не нужно давать ему никакой энергии.
+
+tile.ma.tinkering_table.name=Мастерской стол
+container.ma.tinkering_table.name=Мастерской стол
+jei.ma.tinkering_table=Мастерской стол
+
+# ORES
+tile.ma.prosperity_ore.name=Руда процветания
+tile.ma.nether_prosperity_ore.name=Руда процветания нижнего мира
+tile.ma.end_prosperity_ore.name=Руда процветания края
+tile.ma.inferium_ore.name=§eИнфериумная руда
+tile.ma.nether_inferium_ore.name=§eИнфериумная руда нижнего мира
+tile.ma.end_inferium_ore.name=§eИнфериумная руда края
+
+tile.ma.growth_accelerator.name=§eУскоритель роста
+
+tile.ma.witherproof_block.name=Иссушитель-устойчивый блок
+tile.ma.witherproof_glass.name=Иссушитель-устойчивое стекло
+
+# CROPS
+tile.ma.tier1_inferium_crop.name=Уровень 1 Инфериумная культура
+tile.ma.tier2_inferium_crop.name=Уровень 2 Инфериумная культура
+tile.ma.tier3_inferium_crop.name=Уровень 3 Инфериумная культура
+tile.ma.tier4_inferium_crop.name=Уровень 4 Инфериумная культура
+tile.ma.tier5_inferium_crop.name=Уровень 5 Инфериумная культура
+
+tile.ma.stone_crop.name=Каменная культура
+tile.ma.dirt_crop.name=Грязевая культура
+tile.ma.nature_crop.name=Природная культура
+tile.ma.wood_crop.name=Деревянная культура
+tile.ma.water_crop.name=Водная культура
+tile.ma.ice_crop.name=Ледяная культура
+tile.ma.fire_crop.name=Огненная культура
+tile.ma.dye_crop.name=Красящая культура
+tile.ma.nether_crop.name=Культура нижнего мира
+tile.ma.coal_crop.name=Угольная культура
+tile.ma.iron_crop.name=Железная культура
+tile.ma.nether_quartz_crop.name=Культура кварца нижнего мира
+tile.ma.glowstone_crop.name=Светокаменная культура
+tile.ma.redstone_crop.name=Редстоуновая культура
+tile.ma.obsidian_crop.name=Обсидиановая культура
+tile.ma.gold_crop.name=Золотая культура
+tile.ma.lapis_lazuli_crop.name=Лазуритовая культура
+tile.ma.end_crop.name=Культура края
+tile.ma.experience_crop.name=Культура опыта
+tile.ma.diamond_crop.name=Алмазная культура
+tile.ma.emerald_crop.name=Изумрудная культура
+
+tile.ma.zombie_crop.name=Зомби культура
+tile.ma.pig_crop.name=Свинья культура
+tile.ma.chicken_crop.name=Курица культура
+tile.ma.cow_crop.name=Корова культура
+tile.ma.sheep_crop.name=Овца культура
+tile.ma.slime_crop.name=Слизень культура
+tile.ma.skeleton_crop.name=Скелет культура
+tile.ma.creeper_crop.name=Крипер культура
+tile.ma.spider_crop.name=Паук культура
+tile.ma.rabbit_crop.name=Кролик культура
+tile.ma.guardian_crop.name=Стражник культура
+tile.ma.blaze_crop.name=Ифрит культура
+tile.ma.ghast_crop.name=Гаст культура
+tile.ma.enderman_crop.name=Странник края культура
+tile.ma.wither_skeleton_crop.name=Скелет-Иссушитель культура
+
+tile.ma.rubber_crop.name=Резиновая культура
+tile.ma.silicon_crop.name=Кремниевая культура
+tile.ma.sulfur_crop.name=Серная культура
+tile.ma.aluminum_crop.name=Алюминиевая культура
+tile.ma.copper_crop.name=Медная культура
+tile.ma.saltpeter_crop.name=Селитровая культура
+tile.ma.tin_crop.name=Оловянная культура
+tile.ma.bronze_crop.name=Бронзовая культура
+tile.ma.zinc_crop.name=Цинковая культура
+tile.ma.brass_crop.name=Латунная культура
+tile.ma.silver_crop.name=Серебряная культура
+tile.ma.lead_crop.name=Свинцовая культура
+tile.ma.steel_crop.name=Стальная культура
+tile.ma.nickel_crop.name=Никелевая культура
+tile.ma.electrum_crop.name=Электрумовая культура
+tile.ma.invar_crop.name=Инваровая культура
+tile.ma.mithril_crop.name=Мифриловая культура
+tile.ma.tungsten_crop.name=Вольфрамовая культура
+tile.ma.titanium_crop.name=Титановая культура
+tile.ma.uranium_crop.name=Урановая культура
+tile.ma.chrome_crop.name=Хромовая культура
+tile.ma.platinum_crop.name=Платиновая культура
+tile.ma.iridium_crop.name=Иридиевая культура
+
+tile.ma.ruby_crop.name=Рубиновая культура
+tile.ma.sapphire_crop.name=Сапфировая культура
+tile.ma.peridot_crop.name=Перидотовая культура
+tile.ma.amber_crop.name=Янтарная культура
+tile.ma.topaz_crop.name=Топазовая культура
+tile.ma.malachite_crop.name=Малахитовая культура
+tile.ma.tanzanite_crop.name=Танзанитовая культура
+
+tile.ma.blizz_crop.name=Близз культура
+tile.ma.blitz_crop.name=Блитц культура
+tile.ma.basalz_crop.name=Базальц культура
+tile.ma.signalum_crop.name=Синаловая культура
+tile.ma.lumium_crop.name=Люмиумная культура
+tile.ma.enderium_crop.name=Эндериумная культура
+
+tile.ma.fluxed_electrum_crop.name=Флаксо-электрумовая культура
+
+tile.ma.aluminum_brass_crop.name=Алюминиево-латунная культура
+tile.ma.knightslime_crop.name=Слизесталевая культура
+tile.ma.ardite_crop.name=Ардитовая культура
+tile.ma.cobalt_crop.name=Кобальтовая культура
+tile.ma.manyullyn_crop.name=Маньюлиновая культура
+
+tile.ma.grains_of_infinity_crop.name=Культура зерна бесконечности
+tile.ma.electrical_steel_crop.name=Культура наэлектризованной стали 
+tile.ma.redstone_alloy_crop.name=Культура сплава из красного камня
+tile.ma.conductive_iron_crop.name=Культура проводящего железа
+tile.ma.soularium_crop.name=Культура соулария
+tile.ma.dark_steel_crop.name=Культура тёмной стали
+tile.ma.pulsating_iron_crop.name=Культура пульсирующего железа
+tile.ma.energetic_alloy_crop.name=Культура энергетического сплава
+tile.ma.vibrant_alloy_crop.name=Культура вибрирующего сплава
+tile.ma.end_steel_crop.name=Культура сталь края
+
+tile.ma.mystical_flower_crop.name=Культура мистического цветка
+tile.ma.manasteel_crop.name=Манастальная культура
+tile.ma.elementium_crop.name=Элементиумная культура
+tile.ma.terrasteel_crop.name=Террастальная культура
+
+tile.ma.quicksilver_crop.name=Ртутная культура
+tile.ma.thaumium_crop.name=Таумиумная культура
+tile.ma.void_metal_crop.name=Культура пустотного металла
+
+tile.ma.dawnstone_crop.name=Культура камня рассвета
+
+tile.ma.uranium_238_crop.name=Культура уран-238
+tile.ma.iridium_ore_crop.name=Культура иридиевой руды
+
+tile.ma.osmium_crop.name=Осмиевая культура
+tile.ma.glowstone_ingot_crop.name=Культура слитка светокамня
+tile.ma.refined_obsidian_crop.name=Культура изысканного обсидиана
+
+tile.ma.aquarium_crop.name=Аквариумная культура
+tile.ma.cold_iron_crop.name=Культура холодноого железа
+tile.ma.star_steel_crop.name=Культура звездной стали
+tile.ma.adamantine_crop.name=Адамантиновая культура
+
+tile.ma.marble_crop.name=Мраморная культура
+tile.ma.limestone_crop.name=Известняковая культура
+tile.ma.basalt_crop.name=Базальтовая культура
+
+tile.ma.apatite_crop.name=Апатитовая культура
+
+tile.ma.alumite_crop.name=Алюмитовая культура
+
+tile.ma.steeleaf_crop.name=Культура магического листа
+tile.ma.ironwood_crop.name=Культура железной древесины
+tile.ma.knightmetal_crop.name=Культура королевского металла
+tile.ma.fiery_ingot_crop.name=Культура пламенного слитка
+
+tile.ma.meteoric_iron_crop.name=Культура метеоритного железа
+tile.ma.desh_crop.name=Деш культура
+
+tile.ma.black_quartz_crop.name=Культура черного кварца
+
+tile.ma.menril_crop.name=Менриловая культура
+
+tile.ma.vinteum_crop.name=Винтеумная культура
+tile.ma.chimerite_crop.name=Чимеритовая культура
+tile.ma.blue_topaz_crop.name=Культура синего топаза
+tile.ma.moonstone_crop.name=Культура лунного камня
+tile.ma.sunstone_crop.name=Культура солнечного камня
+
+tile.ma.aquamarine_crop.name=Аквамариновая культура
+tile.ma.starmetal_crop.name=Культура звездного металла
+tile.ma.rock_crystal_crop.name=Культура горного хрусталя
+
+tile.ma.ender_biotite_crop.name=Культура биотит края
+
+tile.ma.slate_crop.name=Сланцевая культура
+
+tile.ma.ender_amethyst_crop.name=Культура аметист края
+
+tile.ma.draconium_crop.name=Дракониум культура
+
+tile.ma.yellorium_crop.name=Йеллориумная культура
+
+tile.ma.sky_stone_crop.name=Культура небесного камня
+tile.ma.certus_quartz_crop.name=Культура заряженного кварца
+tile.ma.fluix_crop.name=Флюксовая культура
+
+tile.ma.quartz_enriched_iron_crop.name=Культура кварца обогащенного железом
+
+tile.ma.constantan_crop.name=Константовая культура
+
+tile.ma.miners_torch.name=Факел шахтера
+
+# CRAFTING ITEMS
+item.ma.crafting_inferium_essence.name=§eИнфериумная эссенция
+item.ma.crafting_prudentium_essence.name=§aПрудентиумная эссенция
+item.ma.crafting_intermedium_essence.name=§6Интермедиумная эссенция
+item.ma.crafting_superium_essence.name=§bСупериумная эссенция
+item.ma.crafting_supremium_essence.name=§cСупремиумная эссенция
+
+item.ma.crafting_prosperity_shard.name=Осколок процветания
+
+item.ma.crafting_nature_cluster.name=Природный кластер
+item.ma.crafting_dye_cluster.name=Красящий кластер
+item.ma.crafting_nether_cluster.name=Кластер нижнего мира
+item.ma.crafting_end_cluster.name=Кластер края
+item.ma.crafting_mystical_flower_cluster.name=Мистический цветочный кластер
+
+item.ma.crafting_blank_record.name=Пустая запись
+item.ma.crafting_blank_skull.name=Пустой череп
+
+item.ma.crafting_base_crafting_seed.name=Базовое Создание семени
+item.ma.crafting_tier1_crafting_seed.name=Уровень 1 Создание семени
+item.ma.crafting_tier2_crafting_seed.name=Уровень 2 Создание семени
+item.ma.crafting_tier3_crafting_seed.name=Уровень 3 Создание семени
+item.ma.crafting_tier4_crafting_seed.name=Уровень 4 Создание семени
+item.ma.crafting_tier5_crafting_seed.name=Уровень 5 Создание семени
+
+item.ma.crafting_mystical_stick.name=Мистическая палка
+item.ma.crafting_mystical_string.name=Мистическая нитка
+item.ma.crafting_mystical_feather.name=Мистическое перо
+
+item.ma.crafting_soul_dust.name=Пыль души
+item.ma.crafting_soulium_dust.name=§dСоулиумная пыль
+
+item.ma.crafting_base_essence_ingot.name=Слиток Базовой эссенции
+item.ma.crafting_inferium_ingot.name=§eИнфериумный слиток
+item.ma.crafting_prudentium_ingot.name=§aПрудентиумный слиток
+item.ma.crafting_intermedium_ingot.name=§6Интермедиумный слиток
+item.ma.crafting_superium_ingot.name=§bСупериумный слиток
+item.ma.crafting_supremium_ingot.name=§cСупремиумный слиток
+item.ma.crafting_soulium_ingot.name=§dСоулиумный слиток
+
+item.ma.crafting_base_essence_nugget.name=Самородок Базовой эссенции
+item.ma.crafting_inferium_nugget.name=§eИнфериумный самородок
+item.ma.crafting_prudentium_nugget.name=§aПрудентиумный самородок
+item.ma.crafting_intermedium_nugget.name=§6Интермедиумный самородок
+item.ma.crafting_superium_nugget.name=§bСупериумный самородок
+item.ma.crafting_supremium_nugget.name=§cСупремиумный самородок
+item.ma.crafting_soulium_nugget.name=§dСоулиумный самородок
+
+item.ma.crafting_theoretical_water.name=Теоретический бесконечный источник воды
+
+item.ma.crafting_inferium_fert_core.name=§eИнфериумное ядро удобрения
+item.ma.crafting_prudentium_fert_core.name=§aПрудентиумное ядро удобрения
+item.ma.crafting_intermedium_fert_core.name=§6Интермедиумное ядро удобрения
+item.ma.crafting_superium_fert_core.name=§bСупериумное ядро удобрения
+item.ma.crafting_supremium_fert_core.name=§cСупремиумное ядро удобрения
+
+item.ma.infusion_crystal.name=Инфузионный кристалл
+item.ma.master_infusion_crystal.name=§cМастер инфузионный кристалл
+
+item.ma.mystical_fertilizer.name=§dМистическое удобрение
+item.ma.fertilized_essence.name=§dУдобренная эссенция
+
+item.ma.inferium_apple.name=§eИнфериумное яблоко
+item.ma.prudentium_apple.name=§aПрудентиумное яблоко
+item.ma.intermedium_apple.name=§6Интермедиумное яблоко
+item.ma.superium_apple.name=§bСупериумное яблоко
+item.ma.supremium_apple.name=§cСупремиумное яблоко
+
+item.ma.coal_inferium.name=§eИнфериумный уголь
+item.ma.coal_prudentium.name=§aПрудентиумный уголь
+item.ma.coal_intermedium.name=§6Интермедиумный уголь
+item.ma.coal_superium.name=§bСупериумный уголь
+item.ma.coal_supremium.name=§cСупремиумный уголь
+
+item.ma.watering_can_inferium.name=§eИнфериумная лейка
+item.ma.watering_can_prudentium.name=§aПрудентиумная лейка
+item.ma.watering_can_intermedium.name=§6Интермедиумная лейка
+item.ma.watering_can_superium.name=§bСупериумная лейка
+item.ma.watering_can_supremium.name=§cСупремиумная лейка
+
+item.ma.soulium_dagger.name=§dСоулиумовый кинжал
+
+item.ma.xp_droplet.name=Капелька опыта
+
+# CHUNKS
+item.ma.chunk_tier1_mob_chunk.name=Уровень 1 Кусок моба
+item.ma.chunk_tier2_mob_chunk.name=Уровень 2 Кусок моба
+item.ma.chunk_tier3_mob_chunk.name=Уровень 3 Кусок моба
+item.ma.chunk_tier4_mob_chunk.name=Уровень 4 Кусок моба
+item.ma.chunk_tier5_mob_chunk.name=Уровень 5 Кусок моба
+
+item.ma.chunk_experience_chunk.name=Опыт кусок
+item.ma.chunk_zombie_chunk.name=Зомби кусок
+item.ma.chunk_pig_chunk.name=Свинья кусок
+item.ma.chunk_chicken_chunk.name=Курица кусок
+item.ma.chunk_cow_chunk.name=Корова кусок
+item.ma.chunk_sheep_chunk.name=Овца кусок
+item.ma.chunk_slime_chunk.name=Слизень кусок
+item.ma.chunk_skeleton_chunk.name=Скелет кусок
+item.ma.chunk_creeper_chunk.name=Крипер кусок
+item.ma.chunk_spider_chunk.name=Паук кусок
+item.ma.chunk_rabbit_chunk.name=Кролик кусок
+item.ma.chunk_guardian_chunk.name=Стражник кусок
+item.ma.chunk_blaze_chunk.name=Ифрит кусок
+item.ma.chunk_ghast_chunk.name=Гаст кусок
+item.ma.chunk_enderman_chunk.name=Странник края кусок
+item.ma.chunk_wither_skeleton_chunk.name=Скелет-Иссушитель кусок
+item.ma.chunk_blizz_chunk.name=Близз кусок
+item.ma.chunk_blitz_chunk.name=Блитц кусок
+item.ma.chunk_basalz_chunk.name=Базальц кусок
+
+# RESOURCE ESSENCES
+item.ma.stone_essence.name=Каменная эссенция
+item.ma.dirt_essence.name=Грязевая эссенция
+item.ma.nature_essence.name=Природная эссенция
+item.ma.wood_essence.name=Деревянная эссенция
+item.ma.water_essence.name=Водная эссенция
+item.ma.ice_essence.name=Ледяная эссенция
+item.ma.fire_essence.name=Огненная эссенция
+item.ma.dye_essence.name=Красящая эссенция
+item.ma.nether_essence.name=Эссенция нижнего мира
+item.ma.coal_essence.name=Угольная эссенция
+item.ma.iron_essence.name=Железная эссенция
+item.ma.nether_quartz_essence.name=Эссенция кварца нижнего мира
+item.ma.glowstone_essence.name=Светокаменная эссенция
+item.ma.redstone_essence.name=Редстоуновая эссенция
+item.ma.obsidian_essence.name=Обсидиановая эссенция
+item.ma.gold_essence.name=Золотая эссенция
+item.ma.lapis_lazuli_essence.name=Лазуритовая эссенция
+item.ma.end_essence.name=Эссенция края
+item.ma.experience_essence.name=Эссенция опыта
+item.ma.diamond_essence.name=Алмазная эссенция
+item.ma.emerald_essence.name=Изумрудная эссенция
+
+item.ma.zombie_essence.name=Зомби эссенция
+item.ma.pig_essence.name=Свинья эссенция
+item.ma.chicken_essence.name=Курица эссенция
+item.ma.cow_essence.name=Корова эссенция
+item.ma.sheep_essence.name=Овца эссенция
+item.ma.slime_essence.name=Слизень эссенция
+item.ma.skeleton_essence.name=Скелет эссенция
+item.ma.creeper_essence.name=Крипер эссенция
+item.ma.spider_essence.name=Паук эссенция
+item.ma.rabbit_essence.name=Кролик эссенция
+item.ma.guardian_essence.name=Стражник эссенция
+item.ma.blaze_essence.name=Ифрит эссенция
+item.ma.ghast_essence.name=Гаст эссенция
+item.ma.enderman_essence.name=Странник края эссенция
+item.ma.wither_skeleton_essence.name=Скелет-Иссушитель эссенция
+
+item.ma.rubber_essence.name=Резиновая эссенция
+item.ma.silicon_essence.name=Кремниевая эссенция
+item.ma.sulfur_essence.name=Серная эссенция
+item.ma.aluminum_essence.name=Алюминиевая эссенция
+item.ma.copper_essence.name=Медная эссенция
+item.ma.saltpeter_essence.name=Селитровая эссенция
+item.ma.tin_essence.name=Оловянная эссенция
+item.ma.bronze_essence.name=Бронзовая эссенция
+item.ma.zinc_essence.name=Цинковая эссенция
+item.ma.brass_essence.name=Латунная эссенция
+item.ma.silver_essence.name=Серебряная эссенция
+item.ma.lead_essence.name=Свинцовая эссенция
+item.ma.steel_essence.name=Стальная эссенция
+item.ma.nickel_essence.name=Никелевая эссенция
+item.ma.electrum_essence.name=Электрумовая эссенция
+item.ma.invar_essence.name=Инваровая эссенция
+item.ma.mithril_essence.name=Мифриловая эссенция
+item.ma.tungsten_essence.name=Вольфрамовая эссенция
+item.ma.titanium_essence.name=Титановая эссенция
+item.ma.uranium_essence.name=Урановая эссенция
+item.ma.chrome_essence.name=Хромовая эссенция
+item.ma.platinum_essence.name=Платиновая эссенция
+item.ma.iridium_essence.name=Иридиевая эссенция
+
+item.ma.ruby_essence.name=Рубиновая эссенция
+item.ma.sapphire_essence.name=Сапфировая эссенция
+item.ma.peridot_essence.name=Перидотовая эссенция
+item.ma.amber_essence.name=Янтарная эссенция
+item.ma.topaz_essence.name=Топазовая эссенция
+item.ma.malachite_essence.name=Малахитовая эссенция
+item.ma.tanzanite_essence.name=Танзанитовая эссенция
+
+item.ma.blizz_essence.name=Близз эссенция
+item.ma.blitz_essence.name=Блитц эссенция
+item.ma.basalz_essence.name=Базальц эссенция
+item.ma.signalum_essence.name=Синаловая эссенция
+item.ma.lumium_essence.name=Люмиумная эссенция
+item.ma.enderium_essence.name=Эндериумная эссенция
+
+item.ma.fluxed_electrum_essence.name=Флаксо-электрумовая эссенция
+
+item.ma.aluminum_brass_essence.name=Алюминиево-латунная эссенция
+item.ma.knightslime_essence.name=Слизесталевая эссенция
+item.ma.ardite_essence.name=Ардитовая эссенция
+item.ma.cobalt_essence.name=Кобальтовая эссенция
+item.ma.manyullyn_essence.name=Маньюлиновая эссенция
+
+item.ma.grains_of_infinity_essence.name=Эссенция зерна бесконечности
+item.ma.electrical_steel_essence.name=Эссенция наэлектризованной стали 
+item.ma.redstone_alloy_essence.name=Эссенция сплава из красного камня
+item.ma.conductive_iron_essence.name=Эссенция проводящего железа
+item.ma.soularium_essence.name=Эссенция соулария
+item.ma.dark_steel_essence.name=Эссенция тёмной стали
+item.ma.pulsating_iron_essence.name=Эссенция пульсирующего железа
+item.ma.energetic_alloy_essence.name=Эссенция энергетического сплава
+item.ma.vibrant_alloy_essence.name=Эссенция вибрирующего сплава
+item.ma.end_steel_essence.name=Эссенция стали края
+
+item.ma.mystical_flower_essence.name=Эссенция мистического цветка
+item.ma.manasteel_essence.name=Манастальная эссенция
+item.ma.elementium_essence.name=Элементиумная эссенция
+item.ma.terrasteel_essence.name=Террастальная эссенция
+
+item.ma.quicksilver_essence.name=Ртутная эссенция
+item.ma.thaumium_essence.name=Таумиумная эссенция
+item.ma.void_metal_essence.name=Эссенция пустотного металла
+
+item.ma.dawnstone_essence.name=Эссенция камня рассвета
+
+item.ma.uranium_238_essence.name=Эссенция уран-238
+item.ma.iridium_ore_essence.name=Эссенция иридиевой руды
+
+item.ma.osmium_essence.name=Осмиевая эссенция
+item.ma.glowstone_ingot_essence.name=Эссенция слитка светокамня
+item.ma.refined_obsidian_essence.name=Эссенция изысканного обсидиана
+
+item.ma.aquarium_essence.name=Аквариумная эссенция
+item.ma.cold_iron_essence.name=Эссенция холодноого железа
+item.ma.star_steel_essence.name=Эссенция звездной стали
+item.ma.adamantine_essence.name=Адамантиновая эссенция
+
+item.ma.marble_essence.name=Мраморная эссенция
+item.ma.limestone_essence.name=Известняковая эссенция
+item.ma.basalt_essence.name=Базальтовая эссенция
+
+item.ma.apatite_essence.name=Апатитовая эссенция
+
+item.ma.alumite_essence.name=Алюмитовая эссенция
+
+item.ma.steeleaf_essence.name=Эссенция магического листа
+item.ma.ironwood_essence.name=Эссенция железной древесины
+item.ma.knightmetal_essence.name=Эссенция королевского металла
+item.ma.fiery_ingot_essence.name=Эссенция пламенного слитка
+
+item.ma.meteoric_iron_essence.name=Эссенция метеоритного железа
+item.ma.desh_essence.name=Деш эссенция
+
+item.ma.black_quartz_essence.name=Эссенция черного кварца
+
+item.ma.menril_essence.name=Менриловая эссенция
+
+item.ma.vinteum_essence.name=Винтеумная эссенция
+item.ma.chimerite_essence.name=Чимеритовая эссенция
+item.ma.blue_topaz_essence.name=Эссенция синего топаза
+item.ma.moonstone_essence.name=Эссенция лунного камня
+item.ma.sunstone_essence.name=Эссенция солнечного камня
+
+item.ma.aquamarine_essence.name=Аквамариновая эссенция
+item.ma.starmetal_essence.name=Эссенция звездного металла
+item.ma.rock_crystal_essence.name=Эссенция горного хрусталя
+
+item.ma.ender_biotite_essence.name=Эссенция биотит края
+
+item.ma.slate_essence.name=Сланцевая эссенция
+
+item.ma.ender_amethyst_essence.name=Эссенция аметист края
+
+item.ma.draconium_essence.name=Дракониум эссенция
+
+item.ma.yellorium_essence.name=Йеллориумная эссенция
+
+item.ma.sky_stone_essence.name=Эссенция небесного камня
+item.ma.certus_quartz_essence.name=Эссенция заряженного кварца
+item.ma.fluix_essence.name=Флюксовая эссенция
+
+item.ma.quartz_enriched_iron_essence.name=Эссенция кварца обогащенного железом
+
+item.ma.constantan_essence.name=Константовая эссенция
+
+# SEEDS
+item.ma.tier1_inferium_seeds.name=Инфериумные семена
+item.ma.tier2_inferium_seeds.name=Инфериумные семена
+item.ma.tier3_inferium_seeds.name=Инфериумные семена
+item.ma.tier4_inferium_seeds.name=Инфериумные семена
+item.ma.tier5_inferium_seeds.name=Инфериумные семена
+
+item.ma.stone_seeds.name=Каменные семена
+item.ma.dirt_seeds.name=Грязевые семена
+item.ma.nature_seeds.name=Природные семена
+item.ma.wood_seeds.name=Деревянные семена
+item.ma.water_seeds.name=Водные семена
+item.ma.ice_seeds.name=Ледяные семена
+item.ma.fire_seeds.name=Огненные семена
+item.ma.dye_seeds.name=Красящие семена
+item.ma.nether_seeds.name=Семена нижнего мира
+item.ma.coal_seeds.name=Угольные семена
+item.ma.iron_seeds.name=Железные семена
+item.ma.nether_quartz_seeds.name=Семена кварца нижнего мира
+item.ma.glowstone_seeds.name=Светокаменные семена
+item.ma.redstone_seeds.name=Редстоуновые семена
+item.ma.obsidian_seeds.name=Обсидиановые семена
+item.ma.gold_seeds.name=Золотые семена
+item.ma.lapis_lazuli_seeds.name=Лазуритовые семена
+item.ma.end_seeds.name=Семена края
+item.ma.experience_seeds.name=Семена опыта
+item.ma.diamond_seeds.name=Алмазные семена
+item.ma.emerald_seeds.name=Изумрудные семена
+
+item.ma.zombie_seeds.name=Зомби семена
+item.ma.pig_seeds.name=Свинья семена
+item.ma.chicken_seeds.name=Курица семена
+item.ma.cow_seeds.name=Корова семена
+item.ma.sheep_seeds.name=Овца семена
+item.ma.slime_seeds.name=Слизень семена
+item.ma.skeleton_seeds.name=Скелет семена
+item.ma.creeper_seeds.name=Крипер семена
+item.ma.spider_seeds.name=Паук семена
+item.ma.rabbit_seeds.name=Кролик семена
+item.ma.guardian_seeds.name=Стражник семена
+item.ma.blaze_seeds.name=Ифрит семена
+item.ma.ghast_seeds.name=Гаст семена
+item.ma.enderman_seeds.name=Странник края семена
+item.ma.wither_skeleton_seeds.name=Скелет-Иссушитель семена
+
+item.ma.rubber_seeds.name=Резиновые семена
+item.ma.silicon_seeds.name=Кремниевые семена
+item.ma.sulfur_seeds.name=Серные семена
+item.ma.aluminum_seeds.name=Алюминиевые семена
+item.ma.copper_seeds.name=Медные семена
+item.ma.saltpeter_seeds.name=Селитровые семена
+item.ma.tin_seeds.name=Оловянные семена
+item.ma.bronze_seeds.name=Бронзовые семена
+item.ma.zinc_seeds.name=Цинковые семена
+item.ma.brass_seeds.name=Латунные семена
+item.ma.silver_seeds.name=Серебряные семена
+item.ma.lead_seeds.name=Свинцовые семена
+item.ma.steel_seeds.name=Стальные семена
+item.ma.nickel_seeds.name=Никелевые семена
+item.ma.electrum_seeds.name=Электрумовые семена
+item.ma.invar_seeds.name=Инваровые семена
+item.ma.mithril_seeds.name=Мифриловые семена
+item.ma.tungsten_seeds.name=Вольфрамовые семена
+item.ma.titanium_seeds.name=Титановые семена
+item.ma.uranium_seeds.name=Урановые семена
+item.ma.chrome_seeds.name=Хромовые семена
+item.ma.platinum_seeds.name=Платиновые семена
+item.ma.iridium_seeds.name=Иридиевые семена
+
+item.ma.ruby_seeds.name=Рубиновые семена
+item.ma.sapphire_seeds.name=Сапфировые семена
+item.ma.peridot_seeds.name=Перидотовые семена
+item.ma.amber_seeds.name=Янтарные семена
+item.ma.topaz_seeds.name=Топазовые семена
+item.ma.malachite_seeds.name=Малахитовые семена
+item.ma.tanzanite_seeds.name=Танзанитовые семена
+
+item.ma.blizz_seeds.name=Близз семена
+item.ma.blitz_seeds.name=Блитц семена
+item.ma.basalz_seeds.name=Базальц семена
+item.ma.signalum_seeds.name=Синаловые семена
+item.ma.lumium_seeds.name=Люмиумные семена
+item.ma.enderium_seeds.name=Эндериумные семена
+
+item.ma.fluxed_electrum_seeds.name=Флаксо-электрумовые семена
+
+item.ma.aluminum_brass_seeds.name=Алюминиево-латунные семена
+item.ma.knightslime_seeds.name=Слизесталевые семена
+item.ma.ardite_seeds.name=Ардитовые семена
+item.ma.cobalt_seeds.name=Кобальтовые семена
+item.ma.manyullyn_seeds.name=Маньюлиновые семена
+
+item.ma.grains_of_infinity_seeds.name=Семена зерна бесконечности
+item.ma.electrical_steel_seeds.name=Семена наэлектризованной стали 
+item.ma.redstone_alloy_seeds.name=Семена сплава из красного камня
+item.ma.conductive_iron_seeds.name=Семена проводящего железа
+item.ma.soularium_seeds.name=Семена соулария
+item.ma.dark_steel_seeds.name=Семена тёмной стали
+item.ma.pulsating_iron_seeds.name=Семена пульсирующего железа
+item.ma.energetic_alloy_seeds.name=Семена энергетического сплава
+item.ma.vibrant_alloy_seeds.name=Семена вибрирующего сплава
+item.ma.end_steel_seeds.name=Семена стали края
+
+item.ma.mystical_flower_seeds.name=Семена мистического цветка
+item.ma.manasteel_seeds.name=Манастальные семена
+item.ma.elementium_seeds.name=Элементиумные семена
+item.ma.terrasteel_seeds.name=Террастальные семена
+
+item.ma.quicksilver_seeds.name=Ртутные семена
+item.ma.thaumium_seeds.name=Таумиумные семена
+item.ma.void_metal_seeds.name=Семена пустотного металла
+
+item.ma.dawnstone_seeds.name=Семена камня рассвета
+
+item.ma.uranium_238_seeds.name=Семена уран-238
+item.ma.iridium_ore_seeds.name=Семена иридиевой руды
+
+item.ma.osmium_seeds.name=Осмиевые семена
+item.ma.glowstone_ingot_seeds.name=Семена слитка светокамня
+item.ma.refined_obsidian_seeds.name=Семена изысканного обсидиана
+
+item.ma.aquarium_seeds.name=Аквариумные семена
+item.ma.cold_iron_seeds.name=Семена холодноого железа
+item.ma.star_steel_seeds.name=Семена звездной стали
+item.ma.adamantine_seeds.name=Адамантиновые семена
+
+item.ma.marble_seeds.name=Мраморные семена
+item.ma.limestone_seeds.name=Известняковые семена
+item.ma.basalt_seeds.name=Базальтовые семена
+
+item.ma.apatite_seeds.name=Апатитовые семена
+
+item.ma.alumite_seeds.name=Алюмитовые семена
+
+item.ma.steeleaf_seeds.name=Семена магического листа
+item.ma.ironwood_seeds.name=Семена железной древесины
+item.ma.knightmetal_seeds.name=Семена королевского металла
+item.ma.fiery_ingot_seeds.name=Семена пламенного слитка
+
+item.ma.meteoric_iron_seeds.name=Семена метеоритного железа
+item.ma.desh_seeds.name=Деш семена
+
+item.ma.black_quartz_seeds.name=Семена черного кварца
+
+item.ma.menril_seeds.name=Менриловые семена
+
+item.ma.vinteum_seeds.name=Винтеумные семена
+item.ma.chimerite_seeds.name=Чимеритовые семена
+item.ma.blue_topaz_seeds.name=Семена синего топаза
+item.ma.moonstone_seeds.name=Семена лунного камня
+item.ma.sunstone_seeds.name=Семена солнечного камня
+
+item.ma.aquamarine_seeds.name=Аквамариновые семена
+item.ma.starmetal_seeds.name=Семена звездного металла
+item.ma.rock_crystal_seeds.name=Семена горного хрусталя
+
+item.ma.ender_biotite_seeds.name=Семена биотит края
+
+item.ma.slate_seeds.name=Сланцевые семена
+
+item.ma.ender_amethyst_seeds.name=Семена аметист края
+
+item.ma.draconium_seeds.name=Дракониум семена
+
+item.ma.yellorium_seeds.name=Йеллориумные семена
+
+item.ma.sky_stone_seeds.name=Семена небесного камня
+item.ma.certus_quartz_seeds.name=Семена заряженного кварца
+item.ma.fluix_seeds.name=Флюксовые семена
+
+item.ma.quartz_enriched_iron_seeds.name=Семена кварца обогащенного железом
+
+item.ma.constantan_seeds.name=Константовые семена
+
+# GEAR ITEMS
+item.ma.core_remover.name=§cУдалитель ядра
+
+item.ma.gear_inferium_tool_core.name=§eИнфериумное ядро инструмента
+item.ma.gear_prudentium_tool_core.name=§aПрудентиумное ядро инструмента
+item.ma.gear_intermedium_tool_core.name=§6Интермедиумное ядро инструмента
+item.ma.gear_superium_tool_core.name=§bСупериумное ядро инструмента
+item.ma.gear_supremium_tool_core.name=§cСупремиумное ядро инструмента
+
+item.ma.gear_inferium_armor_core.name=§eИнфериумное ядро брони
+item.ma.gear_prudentium_armor_core.name=§aПрудентиумное ядро брони
+item.ma.gear_intermedium_armor_core.name=§6Интермедиумное ядро брони
+item.ma.gear_superium_armor_core.name=§bСупериумное ядро брони
+item.ma.gear_supremium_armor_core.name=§cСупремиумное ядро брони
+
+item.ma.gear_inferium_arrow_head.name=§eИнфериумный наконечник стрелы
+item.ma.gear_prudentium_arrow_head.name=§aПрудентиумный наконечник стрелы
+item.ma.gear_intermedium_arrow_head.name=§6Интермедиумный наконечник стрелы
+item.ma.gear_superium_arrow_head.name=§bСупериумный наконечник стрелы
+item.ma.gear_supremium_arrow_head.name=§cСупремиумный наконечник стрелы
+
+# CHARMS
+item.ma.charm_blank.name=Пустой шарм
+item.ma.charm_nightvision.name=Шарм: Ночное зрение
+item.ma.charm_absorption.name=Шарм: Поглощение
+item.ma.charm_wither.name=Шарм: Сопротивление иссушению
+item.ma.charm_antivenom.name=Шарм: Антитоксин
+item.ma.charm_fire.name=Шарм: Сопротивление огню
+item.ma.charm_resistance.name=Шарм: Сопротивление
+item.ma.charm_strength.name=Шарм: Сила
+item.ma.charm_strength2.name=Шарм: Сила 2
+item.ma.charm_speed.name=Шарм: Скорость
+item.ma.charm_jump.name=Шарм: Увеличение прыжка
+item.ma.charm_miners_vision.name=Шарм: Видение шахтера
+item.ma.charm_rainbow.name=Шарм: Радуга
+item.ma.charm_quick_draw.name=Шарм: Быстрое натягивание
+item.ma.charm_triple_shot.name=Шарм: Тройной выстрел
+item.ma.charm_mining_aoe.name=Шарм: Добыча AOE
+item.ma.charm_attack_aoe.name=Шарм: Атака AOE
+item.ma.charm_tilling_aoe.name=Шарм: Обработка AOE
+item.ma.charm_shearing_aoe.name=Шарм: Стрижка AOE
+item.ma.charm_reaping_aoe.name=Шарм: Жатва AOE
+item.ma.charm_scything_aoe.name=Шарм: Кошение AOE
+
+item.ma.inferium_arrow.name=§eИнфериумная стрела
+item.ma.prudentium_arrow.name=§aПрудентиумная стрела
+item.ma.intermedium_arrow.name=§6Интермедиумная стрела
+item.ma.superium_arrow.name=§bСупериумная стрела
+item.ma.supremium_arrow.name=§cСупремиумная стрела
+
+# TOOLS
+item.ma.inferium_sword.name=§eИнфериумный меч
+item.ma.inferium_pickaxe.name=§eИнфериумная кирка
+item.ma.inferium_shovel.name=§eИнфериумная лопата
+item.ma.inferium_axe.name=§eИнфериумный топор
+item.ma.inferium_hoe.name=§eИнфериумная мотыга
+item.ma.inferium_shears.name=§eИнфериумные ножницы
+item.ma.inferium_bow.name=§eИнфериумный лук
+item.ma.inferium_sickle.name=§eИнфериумный серп
+item.ma.inferium_scythe.name=§eИнфериумная коса
+item.ma.inferium_fishing_rod.name=§eИнфериумная удочка
+
+item.ma.prudentium_sword.name=§aПрудентиумный меч
+item.ma.prudentium_pickaxe.name=§aПрудентиумная кирка
+item.ma.prudentium_shovel.name=§aПрудентиумная лопата
+item.ma.prudentium_axe.name=§aПрудентиумный топор
+item.ma.prudentium_hoe.name=§aПрудентиумная мотыга
+item.ma.prudentium_shears.name=§aПрудентиумные ножницы
+item.ma.prudentium_bow.name=§aПрудентиумный лук
+item.ma.prudentium_sickle.name=§aПрудентиумный серп
+item.ma.prudentium_scythe.name=§aПрудентиумная коса
+item.ma.prudentium_fishing_rod.name=§aПрудентиумная удочка
+
+item.ma.intermedium_sword.name=§6Интермедиумный меч
+item.ma.intermedium_pickaxe.name=§6Интермедиумная кирка
+item.ma.intermedium_shovel.name=§6Интермедиумная лопата
+item.ma.intermedium_axe.name=§6Интермедиумный топор
+item.ma.intermedium_hoe.name=§6Интермедиумная мотыга
+item.ma.intermedium_shears.name=§6Интермедиумные ножницы
+item.ma.intermedium_bow.name=§6Интермедиумный лук
+item.ma.intermedium_sickle.name=§6Интермедиумный серп
+item.ma.intermedium_scythe.name=§6Интермедиумная коса
+item.ma.intermedium_fishing_rod.name=§6Интермедиумная удочка
+
+item.ma.superium_sword.name=§bСупериумный меч
+item.ma.superium_pickaxe.name=§bСупериумная кирка
+item.ma.superium_shovel.name=§bСупериумная лопата
+item.ma.superium_axe.name=§bСупериумный топор
+item.ma.superium_hoe.name=§bСупериумная мотыга
+item.ma.superium_shears.name=§bСупериумные ножницы
+item.ma.superium_bow.name=§bСупериумный лук
+item.ma.superium_sickle.name=§bСупериумный серп
+item.ma.superium_scythe.name=§bСупериумная коса
+item.ma.superium_fishing_rod.name=§bСупериумная удочка
+
+item.ma.supremium_sword.name=§cСупремиумный меч
+item.ma.supremium_pickaxe.name=§cСупремиумная кирка
+item.ma.supremium_shovel.name=§cСупремиумная лопата
+item.ma.supremium_axe.name=§cСупремиумный топор
+item.ma.supremium_hoe.name=§cСупремиумная мотыга
+item.ma.supremium_shears.name=§cСупремиумные ножницы
+item.ma.supremium_bow.name=§cСупремиумный лук
+item.ma.supremium_sickle.name=§cСупремиумный серп
+item.ma.supremium_scythe.name=§cСупремиумная коса
+item.ma.supremium_fishing_rod.name=§cСупремиумная удочка
+
+# ARMOR
+item.ma.inferium_helmet.name=§eИнфериумный шлем
+item.ma.inferium_chestplate.name=§eИнфериумный нагрудник
+item.ma.inferium_leggings.name=§eИнфериумные поножи
+item.ma.inferium_boots.name=§eИнфериумные ботинки
+
+item.ma.prudentium_helmet.name=§aПрудентиумный шлем
+item.ma.prudentium_chestplate.name=§aПрудентиумный нагрудник
+item.ma.prudentium_leggings.name=§aПрудентиумные поножи
+item.ma.prudentium_boots.name=§aПрудентиумные ботинки
+
+item.ma.intermedium_helmet.name=§6Интермедиумный шлем
+item.ma.intermedium_chestplate.name=§6Интермедиумный нагрудник
+item.ma.intermedium_leggings.name=§6Интермедиумные поножи
+item.ma.intermedium_boots.name=§6Интермедиумные ботинки
+
+item.ma.superium_helmet.name=§bСупериумный шлем
+item.ma.superium_chestplate.name=§bСупериумный нагрудник
+item.ma.superium_leggings.name=§bСупериумные поножи
+item.ma.superium_boots.name=§bСупериумные ботинки
+
+item.ma.supremium_helmet.name=§cСупремиумный шлем
+item.ma.supremium_chestplate.name=§cСупремиумный нагрудник
+item.ma.supremium_leggings.name=§cСупремиумные поножи
+item.ma.supremium_boots.name=§cСупремиумные ботинки
+
+# JEI DESCRIPTIONS
+desc.tile.ma.miners_torch=Не-собираемый факел, который может быть размещен только с помощью кирки Супремиума с шармом видения шахтера.
+
+# TOOLTIPS
+tooltip.ma.growth_accelerator=Выращивает растения выше его быстрее.
+tooltip.ma.blast_resistant=Взрывоустойчивость
+
+tooltip.ma.fertilized_essence=Костная мука, которая работает на ресурсе культур.
+tooltip.ma.mystical_fertilizer=Мгновенно выращивает культуру.
+tooltip.ma.core_removal=Может быть повторно использованы с помощью §cУдалителя ядра§7.
+tooltip.ma.soulium_dagger=Используется для получения §cкусков мобов§7.
+
+tooltip.ma.inferium=Инфериум
+tooltip.ma.prudentium=Прудентиум
+tooltip.ma.intermedium=Интермедиум
+tooltip.ma.superium=Супериум
+tooltip.ma.supremium=Супремиум
+
+tooltip.ma.burn_time=Время горения
+tooltip.ma.material=Материал
+tooltip.ma.durability=Прочность
+tooltip.ma.set_bonus=Установ. бонус
+tooltip.ma.charm_slot=Шарм слот
+tooltip.ma.tier=Уровень
+tooltip.ma.drop_chance=Шанс падения
+tooltip.ma.gives_buffs=Дает баффы
+tooltip.ma.gives_debuffs=Дает дебаффы
+tooltip.ma.range=Дальность
+tooltip.ma.uses_left=Осталось использований
+tooltip.ma.damage=Урон
+tooltip.ma.draw_speed=Скорость получения
+tooltip.ma.efficiency=Эффективность
+tooltip.ma.description=Описание
+tooltip.ma.applicable_to=Применимо к
+
+tooltip.ma.hold_shift_for_info=Зажмите §e§oSHIFT §r§7для инфо.
+tooltip.ma.hold=Зажмите
+tooltip.ma.for=для
+
+tooltip.ma.water_breathing=Водное дыхание
+tooltip.ma.step_assist=Ассистент шага
+tooltip.ma.no_fall_damage=Отсутствие урона от падения
+tooltip.ma.flight=Полет
+tooltip.ma.wither_resistance=Сопротивление иссушению
+tooltip.ma.strength=Сила
+tooltip.ma.strength2=Сила 2
+tooltip.ma.speed=Скорость
+tooltip.ma.resistance=Сопротивление
+tooltip.ma.night_vision=Ночное зрение
+tooltip.ma.jump_boost=Увеличение прыжка
+tooltip.ma.fire_resistance=Сопротивление огню
+tooltip.ma.antivenom=Антитоксин
+tooltip.ma.absorption=Поглощение
+tooltip.ma.miners_vision=Видение шахтера
+tooltip.ma.rainbow=Радуга
+tooltip.ma.quick_draw=Быстрое натягивание
+tooltip.ma.triple_shot=Тройной выстрел
+tooltip.ma.attack_aoe=Атака AOE
+tooltip.ma.mining_aoe=Добыча AOE
+tooltip.ma.tilling_aoe=Обработка AOE
+tooltip.ma.shearing_aoe=Стрижка AOE
+tooltip.ma.reaping_aoe=Жатва AOE
+tooltip.ma.scything_aoe=Кошение AOE
+
+tooltip.ma.unlimited=Неограниченный
+
+tooltip.ma.craftable=Верстак
+tooltip.ma.empty=Пусто
+
+tooltip.ma.helmet=Шлем
+tooltip.ma.chestplate=Нагрудник
+tooltip.ma.leggings=Поножи
+tooltip.ma.boots=Ботинки
+
+tooltip.ma.sword=Меч
+tooltip.ma.pickaxe=Кирка
+tooltip.ma.shovel=Лопата
+tooltip.ma.axe=Топор
+tooltip.ma.hoe=Мотыга
+tooltip.ma.shears=Ножницы
+tooltip.ma.bow=Лук
+tooltip.ma.sickle=Серп
+tooltip.ma.scythe=Коса
+
+# CHARM DESCRIPTIONS
+desc.ma.charm_nightvision=Позволяет видеть в темноте.
+desc.ma.charm_absorption=Дает 10 сердец поглощения каждые 8 минут.
+desc.ma.charm_wither=Предотвращает получение эффекта иссушения.
+desc.ma.charm_antivenom=Предотвращает получение эффекта яда.
+desc.ma.charm_fire=Предотвращает повреждение огнем/лавой.
+desc.ma.charm_resistance=Снижает получаемый урон на 20 процентов.
+desc.ma.charm_strength=Увеличивает урон атаки.
+desc.ma.charm_strength2=Увеличивает урон атаки.
+desc.ma.charm_speed=Увеличивает скорость передвижения.
+desc.ma.charm_jump=Увеличивает высоту прыжка.
+desc.ma.charm_miners_vision=Позволяет инструменту устанавливать неограниченные источники света.
+desc.ma.charm_rainbow=Придает шерсти случайный цвет.
+desc.ma.charm_quick_draw=Увеличивает скорость натягивания лука.
+desc.ma.charm_triple_shot=Делает возможность лука стрелять тремя стрелами.
+desc.ma.charm_mining_aoe=Увеличивает радиус добычи инструмента до 3x3.
+desc.ma.charm_attack_aoe=Увеличивает радиус атаки вашего меча до 5x5.
+desc.ma.charm_tilling_aoe=Увеличивает радиус обработки мотыги до 7x7.
+desc.ma.charm_shearing_aoe=Увеличивает Вашим ножницам стрижку животных радиусом до 5х5 и стрижку блока радиусом до 3x3x3.
+desc.ma.charm_reaping_aoe=Увеличивает радиус жатвы серпа до 7x7x7.
+desc.ma.charm_scything_aoe=Увеличивает кошение косой и радиус атаки Вашей косы до 5x5.
