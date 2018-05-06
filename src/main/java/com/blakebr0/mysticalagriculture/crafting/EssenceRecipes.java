@@ -347,8 +347,10 @@ public class EssenceRecipes {
 	    if(type.ROCK_CRYSTAL.isEnabled()){ addEssenceRecipe(new ItemStack(Parts.itemAstralOre, EssenceConfig.rockCrystal, 0), "EEE", "E E", "EEE", 'E', new ItemStack(type.ROCK_CRYSTAL.getCrop(), 1, 0)); }
 	  
 	    if(type.ENDER_BIOTITE.isEnabled()){ addEssenceRecipe("gemEnderBiotite", EssenceConfig.enderBiotite, "EEE", " E ", "EEE", 'E', new ItemStack(type.ENDER_BIOTITE.getCrop(), 1, 0)); }    
-	    
+
 	    if(type.SLATE.isEnabled()){ addEssenceRecipe(new ItemStack(Parts.itemRusticSlate, EssenceConfig.slate, 0), "EEE", "E E", "EEE", 'E', new ItemStack(type.SLATE.getCrop(), 1, 0)); }    
+
+	    if(type.DARK_GEM.isEnabled()){ addEssenceRecipe("gemDark", EssenceConfig.darkGem, "EEE", "E E", "EEE", 'E', new ItemStack(type.DARK_GEM.getCrop(), 1, 0)); }    
 
 	    if(type.ENDER_AMETHYST.isEnabled()){ addEssenceRecipe(new ItemStack(Parts.itemBOPGems, EssenceConfig.enderAmethyst, 0), "EEE", "E E", "EEE", 'E', new ItemStack(type.ENDER_AMETHYST.getCrop(), 1, 0)); }    
 	    

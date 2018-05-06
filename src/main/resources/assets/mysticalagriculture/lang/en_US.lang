@@ -257,6 +257,8 @@ tile.ma.ender_biotite_crop.name=Ender Biotite Crop
 
 tile.ma.slate_crop.name=Slate Crop
 
+tile.ma.dark_gem_crop.name=Dark Gem Crop
+
 tile.ma.ender_amethyst_crop.name=Ender Amethyst Crop
 
 tile.ma.draconium_crop.name=Draconium Crop
@@ -538,6 +540,8 @@ item.ma.ender_biotite_essence.name=Ender Biotite Essence
 
 item.ma.slate_essence.name=Slate Essence
 
+item.ma.dark_gem_essence.name=Dark Gem Essence
+
 item.ma.ender_amethyst_essence.name=Ender Amethyst Essence
 
 item.ma.draconium_essence.name=Draconium Essence
@@ -711,6 +715,8 @@ item.ma.rock_crystal_seeds.name=Rock Crystal Seeds
 item.ma.ender_biotite_seeds.name=Ender Biotite Seeds
 
 item.ma.slate_seeds.name=Slate Seeds
+
+item.ma.dark_gem_seeds.name=Dark Gem Seeds
 
 item.ma.ender_amethyst_seeds.name=Ender Amethyst Seeds
 

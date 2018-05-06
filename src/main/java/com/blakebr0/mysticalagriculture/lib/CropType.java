@@ -168,8 +168,10 @@ public class CropType {
 		
 		SLATE("slate", 2, ModChecker.RUSTIC),
 		
+		DARK_GEM("dark_gem", 3, ModChecker.EVILCRAFT),
+
 		ENDER_AMETHYST("ender_amethyst", 5, ModChecker.BIOMES_O_PLENTY),
-		
+				
 		DRACONIUM("draconium", 5, ModChecker.DRACONIC_EVOLUTION),
 		
 		YELLORIUM("yellorium", 5, ModChecker.BIG_REACTORS),

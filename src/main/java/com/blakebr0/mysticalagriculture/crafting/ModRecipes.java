@@ -519,6 +519,8 @@ public class ModRecipes {
 	    
 	    addSeedRecipe(type.SLATE, new ItemStack(Parts.itemRusticSlate, 1, 0));
 	    
+	    addSeedRecipe(type.DARK_GEM, "gemDark");
+	    
 	    addSeedRecipe(type.ENDER_AMETHYST, new ItemStack(Parts.itemBOPGems, 1, 0));
 	    
 	    addSeedRecipe(type.DRACONIUM, "ingotDraconium");

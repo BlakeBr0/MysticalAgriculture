@@ -37,6 +37,7 @@ public class ModChecker {
 	public static final boolean BASE_METALS = Loader.isModLoaded("basemetals");
 	public static final boolean TWILIGHT_FOREST = Loader.isModLoaded("twilightforest");
 	public static final boolean RUSTIC = Loader.isModLoaded("rustic");
+	public static final boolean EVILCRAFT = Loader.isModLoaded("evilcraft");
 	public static final boolean LIB_VULPES = Loader.isModLoaded("libvulpes");
 	public static final boolean INTEGRATED_DYNAMICS = Loader.isModLoaded("integrateddynamics");
 	
