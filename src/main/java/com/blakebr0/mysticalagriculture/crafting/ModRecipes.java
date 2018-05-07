@@ -521,6 +521,8 @@ public class ModRecipes {
 	    
 	    addSeedRecipe(type.DARK_GEM, "gemDark");
 	    
+	    addSeedRecipe(type.COMPRESSED_IRON, "ingotIronCompressed");
+	    
 	    addSeedRecipe(type.ENDER_AMETHYST, new ItemStack(Parts.itemBOPGems, 1, 0));
 	    
 	    addSeedRecipe(type.DRACONIUM, "ingotDraconium");

@@ -259,6 +259,8 @@ tile.ma.slate_crop.name=Slate Crop
 
 tile.ma.dark_gem_crop.name=Dark Gem Crop
 
+tile.ma.compressed_iron_crop.name=Compressed Iron Crop
+
 tile.ma.ender_amethyst_crop.name=Ender Amethyst Crop
 
 tile.ma.draconium_crop.name=Draconium Crop
@@ -542,6 +544,8 @@ item.ma.slate_essence.name=Slate Essence
 
 item.ma.dark_gem_essence.name=Dark Gem Essence
 
+item.ma.compressed_iron_essence.name=Compressed Iron Essence
+
 item.ma.ender_amethyst_essence.name=Ender Amethyst Essence
 
 item.ma.draconium_essence.name=Draconium Essence
@@ -717,6 +721,8 @@ item.ma.ender_biotite_seeds.name=Ender Biotite Seeds
 item.ma.slate_seeds.name=Slate Seeds
 
 item.ma.dark_gem_seeds.name=Dark Gem Seeds
+
+item.ma.compressed_iron_seeds.name=Compressed Iron Seeds
 
 item.ma.ender_amethyst_seeds.name=Ender Amethyst Seeds
 

@@ -1,0 +1,6 @@
+{
+    "parent": "block/cross",
+    "textures": {
+        "cross": "mysticalagriculture:blocks/compressed_iron_crop"
+    }
+}

@@ -222,6 +222,8 @@ public class EssenceConfig {
 	
 	public static int darkGem;
 	
+	public static int compressedIron;
+	
 	public static int enderAmethyst;
 	
 	public static int draconium;
@@ -490,6 +492,9 @@ public class EssenceConfig {
 		
 		category = "EvilCraft";
 		darkGem = config.get(category, "dark_gem", 6).getInt();
+		
+		category = "PneumaticCraft";
+		compressedIron = config.get(category, "compressed_iron", 6).getInt();
  	
 		category = "Biomes 'O Plenty";
 		enderAmethyst = config.get(category, "ender_amethyst", 3).getInt();

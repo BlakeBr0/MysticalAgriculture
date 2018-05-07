@@ -169,6 +169,8 @@ public class CropType {
 		SLATE("slate", 2, ModChecker.RUSTIC),
 		
 		DARK_GEM("dark_gem", 3, ModChecker.EVILCRAFT),
+		
+		COMPRESSED_IRON("compressed_iron", 4, ModChecker.PNEUMATICCRAFT),
 
 		ENDER_AMETHYST("ender_amethyst", 5, ModChecker.BIOMES_O_PLENTY),
 				

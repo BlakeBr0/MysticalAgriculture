@@ -352,6 +352,8 @@ public class EssenceRecipes {
 
 	    if(type.DARK_GEM.isEnabled()){ addEssenceRecipe("gemDark", EssenceConfig.darkGem, "EEE", "E E", "EEE", 'E', new ItemStack(type.DARK_GEM.getCrop(), 1, 0)); }    
 
+	    if(type.COMPRESSED_IRON.isEnabled()){ addEssenceRecipe("ingotIronCompressed", EssenceConfig.compressedIron, "EEE", "E E", "EEE", 'E', new ItemStack(type.COMPRESSED_IRON.getCrop(), 1, 0)); }    
+
 	    if(type.ENDER_AMETHYST.isEnabled()){ addEssenceRecipe(new ItemStack(Parts.itemBOPGems, EssenceConfig.enderAmethyst, 0), "EEE", "E E", "EEE", 'E', new ItemStack(type.ENDER_AMETHYST.getCrop(), 1, 0)); }    
 	    
 	    if(type.DRACONIUM.isEnabled()){ addEssenceRecipe("ingotDraconium", EssenceConfig.draconium, "EEE", "E E", "EEE", 'E', new ItemStack(type.DRACONIUM.getCrop(), 1, 0)); }
