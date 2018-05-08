@@ -21,6 +21,7 @@ public class ModChecker {
 	public static final boolean REFINED_STORAGE = Loader.isModLoaded("refinedstorage");
 	public static final boolean IMMERSIVE_ENGINEERING = Loader.isModLoaded("immersiveengineering");
 	public static final boolean ARS_MAGICA_2 = Loader.isModLoaded("arsmagica2");
+	public static final boolean PROJECT_RED = Loader.isModLoaded("projectred-core");
 	public static final boolean ASTRAL_SORCERY = Loader.isModLoaded("astralsorcery");
 	public static final boolean GALACTICRAFT_CORE = Loader.isModLoaded("galacticraftcore");
 	public static final boolean GALACTICRAFT_PLANETS = Loader.isModLoaded("galacticraftplanets");
@@ -46,13 +47,13 @@ public class ModChecker {
 	public static final boolean SILICON = !OreDictionary.getOres("itemSilicon", false).isEmpty() || ENDERIO || GALACTICRAFT_CORE || APPLIED_ENERGISTICS_2 || REFINED_STORAGE || LIB_VULPES;
 	public static final boolean SULFUR = !OreDictionary.getOres("dustSulfur", false).isEmpty() || THERMAL_FOUNDATION || RAILCRAFT || TECH_REBORN || SUBSTRATUM;
 	public static final boolean ALUMINUM = !OreDictionary.getOres("ingotAluminum", false).isEmpty() || !OreDictionary.getOres("ingotAluminium", false).isEmpty() || THERMAL_FOUNDATION || IMMERSIVE_ENGINEERING || GALACTICRAFT_CORE || TECH_REBORN || PIXELMON || SUBSTRATUM || BASE_METALS || LIB_VULPES;
-	public static final boolean COPPER = !OreDictionary.getOres("ingotCopper", false).isEmpty() || THERMAL_FOUNDATION || IC2 || IMMERSIVE_ENGINEERING || FORESTRY || TECH_REBORN || MEKANISM || SUBSTRATUM || BASE_METALS || LIB_VULPES;
+	public static final boolean COPPER = !OreDictionary.getOres("ingotCopper", false).isEmpty() || THERMAL_FOUNDATION || IC2 || IMMERSIVE_ENGINEERING || FORESTRY || PROJECT_RED || TECH_REBORN || MEKANISM || SUBSTRATUM || BASE_METALS || LIB_VULPES;
 	public static final boolean SALTPETER = !OreDictionary.getOres("dustSaltpeter", false).isEmpty() || THERMAL_FOUNDATION || RAILCRAFT || TECH_REBORN;
-	public static final boolean TIN = !OreDictionary.getOres("ingotTin", false).isEmpty() || THERMAL_FOUNDATION || IC2 || GALACTICRAFT_CORE || FORESTRY || TECH_REBORN || MEKANISM || SUBSTRATUM || BASE_METALS || LIB_VULPES;
+	public static final boolean TIN = !OreDictionary.getOres("ingotTin", false).isEmpty() || THERMAL_FOUNDATION || IC2 || GALACTICRAFT_CORE || FORESTRY || PROJECT_RED || TECH_REBORN || MEKANISM || SUBSTRATUM || BASE_METALS || LIB_VULPES;
 	public static final boolean BRONZE = !OreDictionary.getOres("ingotBronze", false).isEmpty() || THERMAL_FOUNDATION || IC2 || GALACTICRAFT_CORE || FORESTRY || TECH_REBORN || MEKANISM || SUBSTRATUM || BASE_METALS;
 	public static final boolean ZINC = !OreDictionary.getOres("ingotZinc", false).isEmpty() || TECH_REBORN || SUBSTRATUM || BASE_METALS;
 	public static final boolean BRASS = !OreDictionary.getOres("ingotBrass", false).isEmpty() || THAUMCRAFT || TECH_REBORN || SUBSTRATUM || BASE_METALS;
-	public static final boolean SILVER = !OreDictionary.getOres("ingotSilver", false).isEmpty() || THERMAL_FOUNDATION || IC2 || IMMERSIVE_ENGINEERING || FORESTRY || TECH_REBORN || SUBSTRATUM || BASE_METALS;
+	public static final boolean SILVER = !OreDictionary.getOres("ingotSilver", false).isEmpty() || THERMAL_FOUNDATION || IC2 || IMMERSIVE_ENGINEERING || FORESTRY || PROJECT_RED || TECH_REBORN || SUBSTRATUM || BASE_METALS;
 	public static final boolean LEAD = !OreDictionary.getOres("ingotLead", false).isEmpty() || THERMAL_FOUNDATION || IC2 || IMMERSIVE_ENGINEERING || GALACTICRAFT_PLANETS || TECH_REBORN || SUBSTRATUM || BASE_METALS;
 	public static final boolean STEEL = !OreDictionary.getOres("ingotSteel", false).isEmpty() || THERMAL_FOUNDATION || IC2 || IMMERSIVE_ENGINEERING || TECH_REBORN || MEKANISM || SUBSTRATUM || BASE_METALS || BIG_REACTORS || LIB_VULPES;
 	public static final boolean NICKEL = !OreDictionary.getOres("ingotNickel", false).isEmpty() || THERMAL_FOUNDATION || IMMERSIVE_ENGINEERING || TECH_REBORN || SUBSTRATUM;
@@ -67,9 +68,9 @@ public class ModChecker {
 	public static final boolean PLATINUM = !OreDictionary.getOres("ingotPlatinum", false).isEmpty() || THERMAL_FOUNDATION || SUBSTRATUM || BASE_METALS;
 	public static final boolean IRIDIUM = !OreDictionary.getOres("ingotIridium", false).isEmpty() || THERMAL_FOUNDATION || TECH_REBORN || LIB_VULPES;
 
-	public static final boolean RUBY = !OreDictionary.getOres("gemRuby", false).isEmpty() || BIOMES_O_PLENTY || TECH_REBORN || PIXELMON;
-	public static final boolean SAPPHIRE = !OreDictionary.getOres("gemSapphire", false).isEmpty() || BIOMES_O_PLENTY || TECH_REBORN || PIXELMON;
-	public static final boolean PERIDOT = !OreDictionary.getOres("gemPeridot", false).isEmpty() || BIOMES_O_PLENTY || TECH_REBORN;
+	public static final boolean RUBY = !OreDictionary.getOres("gemRuby", false).isEmpty() || BIOMES_O_PLENTY || PROJECT_RED || TECH_REBORN || PIXELMON;
+	public static final boolean SAPPHIRE = !OreDictionary.getOres("gemSapphire", false).isEmpty() || BIOMES_O_PLENTY || PROJECT_RED || TECH_REBORN || PIXELMON;
+	public static final boolean PERIDOT = !OreDictionary.getOres("gemPeridot", false).isEmpty() || BIOMES_O_PLENTY || PROJECT_RED || TECH_REBORN;
 	public static final boolean AMBER = !OreDictionary.getOres("gemPeridot", false).isEmpty() || BIOMES_O_PLENTY || THAUMCRAFT;
 	
 	public static final boolean SIGNALUM = !OreDictionary.getOres("ingotSignalum", false).isEmpty() || THERMAL_FOUNDATION || SUBSTRATUM;

@@ -491,6 +491,8 @@ public class ModRecipes {
 	    
 	    addSeedRecipe(type.APATITE, "gemApatite");
 	    
+	    addSeedRecipe(type.ELECTROTINE, "dustElectrotine");
+	    
 	    addSeedRecipe(type.ALUMITE, "ingotAlumite");
 	    
 	    addSeedRecipe(type.STEELEAF, "ingotSteeleaf");

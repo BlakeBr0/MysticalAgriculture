@@ -190,6 +190,8 @@ public class EssenceConfig {
 	
 	public static int apatite;
 	
+	public static int electrotine;
+	
 	public static int alumite;
 	
 	public static int steeleaf;
@@ -450,6 +452,9 @@ public class EssenceConfig {
 		
 		category = "Forestry";
 		apatite = config.get(category, "apatite", 8).getInt();
+		
+		category = "Project Red";
+		electrotine = config.get(category, "electrotine", 16).getInt();
 		
 		category = "PlusTiC";
 		alumite = config.get(category, "alumite", 4).getInt();

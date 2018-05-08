@@ -320,6 +320,8 @@ public class EssenceRecipes {
 
 	    if(type.APATITE.isEnabled()){ addEssenceRecipe("gemApatite", EssenceConfig.apatite, "EEE", "   ", "   ", 'E', new ItemStack(type.APATITE.getCrop(), 1, 0)); }    
 
+	    if(type.ELECTROTINE.isEnabled()){ addEssenceRecipe("dustElectrotine", EssenceConfig.electrotine, "EEE", "EEE", "EEE", 'E', new ItemStack(type.ELECTROTINE.getCrop(), 1, 0)); }    
+
 	    if(type.ALUMITE.isEnabled()){ addEssenceRecipe("ingoAlumite", EssenceConfig.alumite, "EEE", "E E", "EEE", 'E', new ItemStack(type.ALUMITE.getCrop(), 1, 0)); }
 
 	    if(type.STEELEAF.isEnabled()){ addEssenceRecipe("ingotSteeleaf", EssenceConfig.steeleaf, "EEE", "E E", "EEE", 'E', new ItemStack(type.STEELEAF.getCrop(), 1, 0)); }
