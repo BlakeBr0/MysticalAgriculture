@@ -159,7 +159,7 @@ public class MobDrops {
     	if(chance == 0){
     		return 0;
     	}
-    	if(rand.nextInt(100 / chance) == 1){
+    	if(rand.nextInt(100) < chance){
     		dropChance++;
     	}
     	return dropChance;
@@ -170,19 +170,17 @@ public class MobDrops {
     	return getChance(chance);
     }
     
-    public EntityItem drop(Entity entity, Item item, int amount, int chance, List<EntityItem> drops){
-    	return drop(entity, item, amount, 0, chance, drops);
+    public void drop(Entity entity, Item item, int amount, int chance, List<EntityItem> drops){
+    	drop(entity, item, amount, 0, chance, drops);
     }
     
-    public EntityItem drop(Entity entity, Item item, int amount, int meta, int chance, List<EntityItem> drops){
-    	ItemStack stack = new ItemStack(item, chance, meta);
-    	if(stack.getCount() > amount){
-    		stack.setCount(amount);
+    public void drop(Entity entity, Item item, int amount, int meta, int chance, List<EntityItem> drops){
+    	if (chance > 0) {
+        	ItemStack stack = new ItemStack(item, amount, meta);
+        	EntityItem drop = new EntityItem(entity.world, entity.posX, entity.posY, entity.posZ, stack);
+        	if(drop != null && stack.getCount() >= 1){
+        		drops.add(drop);
+        	}
     	}
-    	EntityItem drop = new EntityItem(entity.world, entity.posX, entity.posY, entity.posZ, stack);
-    	if(drop != null && stack.getCount() >= 1){
-    		drops.add(drop);
-    	}
-    	return drop;
     }
 }
