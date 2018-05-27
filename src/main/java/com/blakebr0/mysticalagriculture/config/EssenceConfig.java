@@ -202,6 +202,10 @@ public class EssenceConfig {
 	public static int meteoricIron;
 	public static int desh;
 	
+	public static int coralium;
+	public static int abyssalnite;
+	public static int dreadium;
+	
 	public static int blackQuartz;
 	
 	public static int menrilLog;
@@ -468,6 +472,11 @@ public class EssenceConfig {
 		category = "Galacticraft";
 		meteoricIron = config.get(category, "meteoric_iron", 3).getInt();
 		desh = config.get(category, "desh", 2).getInt();
+		
+		category = "AbyssalCraft";
+		coralium = config.get(category, "coralium", 10).getInt();
+		abyssalnite = config.get(category, "abyssalnite", 4).getInt();
+		dreadium = config.get(category, "dreadium", 2).getInt();
 		
 		category = "Actually Additions";
 		blackQuartz = config.get(category, "black_quartz", 6).getInt();

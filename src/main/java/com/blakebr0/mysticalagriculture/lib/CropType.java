@@ -152,6 +152,10 @@ public class CropType {
 		METEORIC_IRON("meteoric_iron", 4,  ModChecker.GALACTICRAFT_CORE),
 		DESH("desh", 5, ModChecker.GALACTICRAFT_PLANETS),
 		
+		CORALIUM("coralium", 3, ModChecker.ABYSSALCRAFT),
+		ABYSSALNITE("abyssalnite", 4, ModChecker.ABYSSALCRAFT),
+		DREADIUM("dreadium", 5, ModChecker.ABYSSALCRAFT),
+		
 		BLACK_QUARTZ("black_quartz", 3, ModChecker.ACTUALLY_ADDITIONS),
 		
 		MENRIL("menril", 2, ModChecker.INTEGRATED_DYNAMICS),

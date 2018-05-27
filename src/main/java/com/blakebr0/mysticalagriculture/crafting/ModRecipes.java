@@ -503,6 +503,10 @@ public class ModRecipes {
 	    addSeedRecipe(type.METEORIC_IRON, "ingotMeteoricIron");
 	    addSeedRecipe(type.DESH, "ingotDesh");
 	    
+	    addSeedRecipe(type.CORALIUM, "gemCoralium");
+	    addSeedRecipe(type.ABYSSALNITE, "ingotAbyssalnite");
+	    addSeedRecipe(type.DREADIUM, "ingotDreadium");
+	    
 	    addSeedRecipe(type.BLACK_QUARTZ, "gemQuartzBlack");
 	    
 	    addSeedRecipe(type.MENRIL, new ItemStack(Parts.itemIDMenrilLog, 1, 0));

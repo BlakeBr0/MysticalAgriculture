@@ -241,6 +241,10 @@ tile.ma.fiery_ingot_crop.name=Fiery Ingot Crop
 tile.ma.meteoric_iron_crop.name=Meteoric Iron Crop
 tile.ma.desh_crop.name=Desh Crop
 
+tile.ma.coralium_crop.name=Coralium Crop
+tile.ma.abyssalnite_crop.name=Abyssalnite Crop
+tile.ma.dreadium_crop.name=Dreadium Crop
+
 tile.ma.black_quartz_crop.name=Black Quartz Crop
 
 tile.ma.menril_crop.name=Menril Crop
@@ -528,6 +532,10 @@ item.ma.fiery_ingot_essence.name=Fiery Ingot Essence
 item.ma.meteoric_iron_essence.name=Meteoric Iron Essence
 item.ma.desh_essence.name=Desh Essence
 
+item.ma.coralium_essence.name=Coralium Essence
+item.ma.abyssalnite_essence.name=Abyssalnite Essence
+item.ma.dreadium_essence.name=Dreadium Essence
+
 item.ma.black_quartz_essence.name=Black Quartz Essence
 
 item.ma.menril_essence.name=Menril Essence
@@ -707,6 +715,10 @@ item.ma.fiery_ingot_seeds.name=Fiery Ingot Seeds
 
 item.ma.meteoric_iron_seeds.name=Meteoric Iron Seeds
 item.ma.desh_seeds.name=Desh Seeds
+
+item.ma.coralium_seeds.name=Coralium Seeds
+item.ma.abyssalnite_seeds.name=Abyssalnite Seeds
+item.ma.dreadium_seeds.name=Dreadium Seeds
 
 item.ma.black_quartz_seeds.name=Black Quartz Seeds
 
