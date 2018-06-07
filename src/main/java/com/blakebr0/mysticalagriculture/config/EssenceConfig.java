@@ -206,6 +206,11 @@ public class EssenceConfig {
 	public static int abyssalnite;
 	public static int dreadium;
 	
+	public static int slimyBone;
+	public static int syrmorite;
+	public static int octine;
+	public static int valonite;
+	
 	public static int blackQuartz;
 	
 	public static int menrilLog;
@@ -477,6 +482,12 @@ public class EssenceConfig {
 		coralium = config.get(category, "coralium", 10).getInt();
 		abyssalnite = config.get(category, "abyssalnite", 4).getInt();
 		dreadium = config.get(category, "dreadium", 2).getInt();
+		
+		category = "The Betweenlands";
+		slimyBone = config.get(category, "slimy_bone", 8).getInt();
+		syrmorite = config.get(category, "syrmorite", 5).getInt();
+		octine = config.get(category, "octine", 5).getInt();
+		valonite = config.get(category, "valonite", 2).getInt();
 		
 		category = "Actually Additions";
 		blackQuartz = config.get(category, "black_quartz", 6).getInt();

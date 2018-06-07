@@ -507,6 +507,11 @@ public class ModRecipes {
 	    addSeedRecipe(type.ABYSSALNITE, "ingotAbyssalnite");
 	    addSeedRecipe(type.DREADIUM, "ingotDreadium");
 	    
+	    addSeedRecipe(type.SLIMY_BONE, new ItemStack(Parts.itemBLMisc, 1, 14));
+	    addSeedRecipe(type.SYRMORITE, "ingotSyrmorite");
+	    addSeedRecipe(type.OCTINE, "ingotOctine");
+	    addSeedRecipe(type.VALONITE, "gemValonite");
+	    
 	    addSeedRecipe(type.BLACK_QUARTZ, "gemQuartzBlack");
 	    
 	    addSeedRecipe(type.MENRIL, new ItemStack(Parts.itemIDMenrilLog, 1, 0));

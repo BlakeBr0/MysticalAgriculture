@@ -156,6 +156,11 @@ public class CropType {
 		ABYSSALNITE("abyssalnite", 4, ModChecker.ABYSSALCRAFT),
 		DREADIUM("dreadium", 5, ModChecker.ABYSSALCRAFT),
 		
+		SLIMY_BONE("slimy_bone", 2, ModChecker.THE_BETWEENLANDS),
+		SYRMORITE("syrmorite", 3, ModChecker.THE_BETWEENLANDS),
+		OCTINE("octine", 3, ModChecker.THE_BETWEENLANDS),
+		VALONITE("valonite", 5, ModChecker.THE_BETWEENLANDS),
+		
 		BLACK_QUARTZ("black_quartz", 3, ModChecker.ACTUALLY_ADDITIONS),
 		
 		MENRIL("menril", 2, ModChecker.INTEGRATED_DYNAMICS),

@@ -245,6 +245,11 @@ tile.ma.coralium_crop.name=Coralium Crop
 tile.ma.abyssalnite_crop.name=Abyssalnite Crop
 tile.ma.dreadium_crop.name=Dreadium Crop
 
+tile.ma.slimy_bone_crop.name=Slimy Bone Crop
+tile.ma.syrmorite_crop.name=Syrmorite Crop
+tile.ma.octine_crop.name=Octine Crop
+tile.ma.valonite_crop.name=Valonite Crop
+
 tile.ma.black_quartz_crop.name=Black Quartz Crop
 
 tile.ma.menril_crop.name=Menril Crop
@@ -536,6 +541,11 @@ item.ma.coralium_essence.name=Coralium Essence
 item.ma.abyssalnite_essence.name=Abyssalnite Essence
 item.ma.dreadium_essence.name=Dreadium Essence
 
+item.ma.slimy_bone_essence.name=Slimy Bone Essence
+item.ma.syrmorite_essence.name=Syrmorite Essence
+item.ma.octine_essence.name=Octine Essence
+item.ma.valonite_essence.name=Valonite Essence
+
 item.ma.black_quartz_essence.name=Black Quartz Essence
 
 item.ma.menril_essence.name=Menril Essence
@@ -719,6 +729,11 @@ item.ma.desh_seeds.name=Desh Seeds
 item.ma.coralium_seeds.name=Coralium Seeds
 item.ma.abyssalnite_seeds.name=Abyssalnite Seeds
 item.ma.dreadium_seeds.name=Dreadium Seeds
+
+item.ma.slimy_bone_seeds.name=Slimy Bone Seeds
+item.ma.syrmorite_seeds.name=Syrmorite Seeds
+item.ma.octine_seeds.name=Octine Seeds
+item.ma.valonite_seeds.name=Valonite Seeds
 
 item.ma.black_quartz_seeds.name=Black Quartz Seeds
 

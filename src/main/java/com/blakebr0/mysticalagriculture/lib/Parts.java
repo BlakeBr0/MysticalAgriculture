@@ -27,6 +27,7 @@ public class Parts {
 	public static Item itemIDMenrilLog;
 	public static Item itemIDMenrilSapling;
 	public static Item itemIDMenrilBerry;
+	public static Item itemBLMisc;
 	
 	public static void getParts(){
 		
@@ -182,6 +183,14 @@ public class Parts {
 	    		itemIDMenrilSapling = getItem("integrateddynamics:menril_sapling");
 	    		itemIDMenrilBerry = getItem("integrateddynamics:menril_berries");
 	    	} catch (Throwable e) {
+				e.printStackTrace();
+			}
+	    }
+	    
+	    if (ModChecker.THE_BETWEENLANDS) {
+	    	try {
+	    		itemBLMisc = getItem("thebetweenlands:items_misc");
+	    	} catch (Exception e) {
 				e.printStackTrace();
 			}
 	    }

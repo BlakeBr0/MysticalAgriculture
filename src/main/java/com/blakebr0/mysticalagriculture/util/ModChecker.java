@@ -26,6 +26,7 @@ public class ModChecker {
 	public static final boolean GALACTICRAFT_CORE = Loader.isModLoaded("galacticraftcore");
 	public static final boolean GALACTICRAFT_PLANETS = Loader.isModLoaded("galacticraftplanets");
 	public static final boolean ABYSSALCRAFT = Loader.isModLoaded("abyssalcraft");
+	public static final boolean THE_BETWEENLANDS = Loader.isModLoaded("thebetweenlands");
 	public static final boolean ACTUALLY_ADDITIONS = Loader.isModLoaded("actuallyadditions");
 	public static final boolean IC2 = Loader.isModLoaded("IC2") || Loader.isModLoaded("ic2");
 	public static final boolean BIOMES_O_PLENTY = Loader.isModLoaded("BiomesOPlenty") || Loader.isModLoaded("biomesoplenty");
