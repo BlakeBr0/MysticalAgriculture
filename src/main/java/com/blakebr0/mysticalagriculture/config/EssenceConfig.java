@@ -211,6 +211,11 @@ public class EssenceConfig {
 	public static int octine;
 	public static int valonite;
 	
+	public static int thorium;
+	public static int boron;
+	public static int lithium;
+	public static int magnesium;
+	
 	public static int blackQuartz;
 	
 	public static int menrilLog;
@@ -488,6 +493,12 @@ public class EssenceConfig {
 		syrmorite = config.get(category, "syrmorite", 5).getInt();
 		octine = config.get(category, "octine", 5).getInt();
 		valonite = config.get(category, "valonite", 2).getInt();
+		
+		category = "NuclearCraft";
+		thorium = config.get(category, "thorium", 3).getInt();
+		boron = config.get(category, "boron", 3).getInt();
+		lithium = config.get(category, "lithium", 3).getInt();
+		magnesium = config.get(category, "magnesium", 3).getInt();
 		
 		category = "Actually Additions";
 		blackQuartz = config.get(category, "black_quartz", 6).getInt();

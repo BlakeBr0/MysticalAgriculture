@@ -161,6 +161,11 @@ public class CropType {
 		OCTINE("octine", 3, ModChecker.THE_BETWEENLANDS),
 		VALONITE("valonite", 5, ModChecker.THE_BETWEENLANDS),
 		
+		THORIUM("thorium", 4, ModChecker.NUCLEARCRAFT),
+		BORON("boron", 4, ModChecker.NUCLEARCRAFT),
+		LITHIUM("lithium", 4, ModChecker.NUCLEARCRAFT),
+		MAGNESIUM("magnesium", 4, ModChecker.NUCLEARCRAFT),
+		
 		BLACK_QUARTZ("black_quartz", 3, ModChecker.ACTUALLY_ADDITIONS),
 		
 		MENRIL("menril", 2, ModChecker.INTEGRATED_DYNAMICS),

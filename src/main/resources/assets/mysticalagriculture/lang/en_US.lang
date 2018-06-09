@@ -250,6 +250,11 @@ tile.ma.syrmorite_crop.name=Syrmorite Crop
 tile.ma.octine_crop.name=Octine Crop
 tile.ma.valonite_crop.name=Valonite Crop
 
+tile.ma.thorium_crop.name=Thorium Crop
+tile.ma.boron_crop.name=Boron Crop
+tile.ma.lithium_crop.name=Lithium Crop
+tile.ma.magnesium_crop.name=Magnesium Crop
+
 tile.ma.black_quartz_crop.name=Black Quartz Crop
 
 tile.ma.menril_crop.name=Menril Crop
@@ -546,6 +551,11 @@ item.ma.syrmorite_essence.name=Syrmorite Essence
 item.ma.octine_essence.name=Octine Essence
 item.ma.valonite_essence.name=Valonite Essence
 
+item.ma.thorium_essence.name=Thorium Essence
+item.ma.boron_essence.name=Boron Essence
+item.ma.lithium_essence.name=Lithium Essence
+item.ma.magnesium_essence.name=Magnesium Essence
+
 item.ma.black_quartz_essence.name=Black Quartz Essence
 
 item.ma.menril_essence.name=Menril Essence
@@ -734,6 +744,11 @@ item.ma.slimy_bone_seeds.name=Slimy Bone Seeds
 item.ma.syrmorite_seeds.name=Syrmorite Seeds
 item.ma.octine_seeds.name=Octine Seeds
 item.ma.valonite_seeds.name=Valonite Seeds
+
+item.ma.thorium_seeds.name=Thorium Seeds
+item.ma.boron_seeds.name=Boron Seeds
+item.ma.lithium_seeds.name=Lithium Seeds
+item.ma.magnesium_seeds.name=Magnesium Seeds
 
 item.ma.black_quartz_seeds.name=Black Quartz Seeds
 

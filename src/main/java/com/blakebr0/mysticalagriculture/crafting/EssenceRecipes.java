@@ -341,6 +341,11 @@ public class EssenceRecipes {
 	    if(type.OCTINE.isEnabled()){ addEssenceRecipe("ingotOctine", EssenceConfig.octine, "EEE", "E E", "EEE", 'E', new ItemStack(type.OCTINE.getCrop(), 1, 0)); }
 	    if(type.VALONITE.isEnabled()){ addEssenceRecipe("gemValonite", EssenceConfig.valonite, "EEE", "E E", "EEE", 'E', new ItemStack(type.VALONITE.getCrop(), 1, 0)); }
 
+	    if(type.THORIUM.isEnabled()){ addEssenceRecipe("ingotThorium", EssenceConfig.thorium, "EEE", "E E", "EEE", 'E', new ItemStack(type.THORIUM.getCrop(), 1, 0)); }
+	    if(type.BORON.isEnabled()){ addEssenceRecipe("ingotBoron", EssenceConfig.boron, "EEE", "E E", "EEE", 'E', new ItemStack(type.BORON.getCrop(), 1, 0)); }
+	    if(type.LITHIUM.isEnabled()){ addEssenceRecipe("ingotLithium", EssenceConfig.lithium, "EEE", "E E", "EEE", 'E', new ItemStack(type.LITHIUM.getCrop(), 1, 0)); }
+	    if(type.MAGNESIUM.isEnabled()){ addEssenceRecipe("ingotMagnesium", EssenceConfig.magnesium, "EEE", "E E", "EEE", 'E', new ItemStack(type.MAGNESIUM.getCrop(), 1, 0)); }
+
 	    if(type.BLACK_QUARTZ.isEnabled()){ addEssenceRecipe("gemQuartzBlack", EssenceConfig.blackQuartz, "EEE", " E ", "EEE", 'E', new ItemStack(type.BLACK_QUARTZ.getCrop(), 1, 0)); }
 
 	    if(type.MENRIL.isEnabled()){ addEssenceRecipe(new ItemStack(Parts.itemIDMenrilLog, EssenceConfig.menrilLog, 0), "EEE", "   ", "   ", 'E', new ItemStack(type.MENRIL.getCrop(), 1, 0)); }

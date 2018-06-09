@@ -512,6 +512,11 @@ public class ModRecipes {
 	    addSeedRecipe(type.OCTINE, "ingotOctine");
 	    addSeedRecipe(type.VALONITE, "gemValonite");
 	    
+	    addSeedRecipe(type.THORIUM, "ingotThorium");
+	    addSeedRecipe(type.BORON, "ingotBoron");
+	    addSeedRecipe(type.LITHIUM, "ingotLithium");
+	    addSeedRecipe(type.MAGNESIUM, "ingotMagnesium");
+	    
 	    addSeedRecipe(type.BLACK_QUARTZ, "gemQuartzBlack");
 	    
 	    addSeedRecipe(type.MENRIL, new ItemStack(Parts.itemIDMenrilLog, 1, 0));
