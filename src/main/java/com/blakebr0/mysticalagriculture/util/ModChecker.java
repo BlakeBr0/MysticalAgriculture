@@ -58,6 +58,7 @@ public class ModChecker {
 	public static final boolean BRASS = !OreDictionary.getOres("ingotBrass", false).isEmpty() || THAUMCRAFT || TECH_REBORN || SUBSTRATUM || BASE_METALS;
 	public static final boolean SILVER = !OreDictionary.getOres("ingotSilver", false).isEmpty() || THERMAL_FOUNDATION || IC2 || IMMERSIVE_ENGINEERING || FORESTRY || PROJECT_RED || TECH_REBORN || SUBSTRATUM || BASE_METALS;
 	public static final boolean LEAD = !OreDictionary.getOres("ingotLead", false).isEmpty() || THERMAL_FOUNDATION || IC2 || IMMERSIVE_ENGINEERING || GALACTICRAFT_PLANETS || TECH_REBORN || SUBSTRATUM || BASE_METALS || NUCLEARCRAFT;
+	public static final boolean GRAPHITE = !OreDictionary.getOres("ingotGraphite", false).isEmpty() || BIG_REACTORS || NUCLEARCRAFT;
 	public static final boolean STEEL = !OreDictionary.getOres("ingotSteel", false).isEmpty() || THERMAL_FOUNDATION || IC2 || IMMERSIVE_ENGINEERING || TECH_REBORN || MEKANISM || SUBSTRATUM || BASE_METALS || BIG_REACTORS || LIB_VULPES || NUCLEARCRAFT;
 	public static final boolean NICKEL = !OreDictionary.getOres("ingotNickel", false).isEmpty() || THERMAL_FOUNDATION || IMMERSIVE_ENGINEERING || TECH_REBORN || SUBSTRATUM;
 	public static final boolean CONSTANTAN = !OreDictionary.getOres("ingotConstantan", false).isEmpty() || THERMAL_FOUNDATION || IMMERSIVE_ENGINEERING || SUBSTRATUM;

@@ -227,6 +227,7 @@ public class EssenceRecipes {
 	    if(type.BRASS.isEnabled()){ addEssenceRecipe("ingotBrass", EssenceConfig.brass, "EEE", "E E", "EEE", 'E', new ItemStack(type.BRASS.getCrop(), 1, 0)); }
 	    if(type.SILVER.isEnabled()){ addEssenceRecipe("ingotSilver", EssenceConfig.silver, "EEE", "E E", "EEE", 'E', new ItemStack(type.SILVER.getCrop(), 1, 0)); }
 	    if(type.LEAD.isEnabled()){ addEssenceRecipe("ingotLead", EssenceConfig.lead, "EEE", "E E", "EEE", 'E', new ItemStack(type.LEAD.getCrop(), 1, 0)); }
+	    if(type.GRAPHITE.isEnabled()){ addEssenceRecipe("ingotGraphite", EssenceConfig.graphite, "EEE", "E E", "EEE", 'E', new ItemStack(type.GRAPHITE.getCrop(), 1, 0)); }
 	    if(type.STEEL.isEnabled()){ addEssenceRecipe("ingotSteel", EssenceConfig.steel, "EEE", "E E", "EEE", 'E', new ItemStack(type.STEEL.getCrop(), 1, 0)); }
 	    if(type.NICKEL.isEnabled()){ addEssenceRecipe("ingotNickel", EssenceConfig.nickel, "EEE", "E E", "EEE", 'E', new ItemStack(type.NICKEL.getCrop(), 1, 0)); }
 	    if(type.CONSTANTAN.isEnabled()){ addEssenceRecipe("ingotConstantan", EssenceConfig.constantan, "EEE", "E E", "EEE", 'E', new ItemStack(type.CONSTANTAN.getCrop(), 1, 0)); }

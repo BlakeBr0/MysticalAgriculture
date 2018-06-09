@@ -115,6 +115,7 @@ public class EssenceConfig {
 	public static int brass;
 	public static int silver;
 	public static int lead;
+	public static int graphite;
 	public static int steel;
 	public static int nickel;
 	public static int electrum;
@@ -378,6 +379,7 @@ public class EssenceConfig {
 		brass = config.get(category, "brass", 4).getInt();
 		silver = config.get(category, "silver", 4).getInt();
 		lead = config.get(category, "lead", 4).getInt();
+		graphite = config.get(category, "graphite", 5).getInt();
 		steel = config.get(category, "steel", 3).getInt();
 		nickel = config.get(category, "nickel", 4).getInt();
 		constantan = config.get(category, "constantan", 4).getInt();

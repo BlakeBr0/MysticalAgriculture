@@ -415,6 +415,7 @@ public class ModRecipes {
 	    addSeedRecipe(type.BRASS, "ingotBrass");
 	    addSeedRecipe(type.SILVER, "ingotSilver");
 	    addSeedRecipe(type.LEAD, "ingotLead");
+	    addSeedRecipe(type.GRAPHITE, "ingotGraphite");
 	    addSeedRecipe(type.STEEL, "ingotSteel");
 	    addSeedRecipe(type.NICKEL, "ingotNickel");
 	    addSeedRecipe(type.CONSTANTAN, "ingotConstantan");

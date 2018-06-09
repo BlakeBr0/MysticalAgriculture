@@ -64,6 +64,7 @@ public class CropType {
 		BRASS("brass", 3, ModChecker.BRASS),
 		SILVER("silver", 3, ModChecker.SILVER),
 		LEAD("lead", 3, ModChecker.LEAD),
+		GRAPHITE("graphite", 3, ModChecker.GRAPHITE),
 		STEEL("steel", 4, ModChecker.STEEL),
 		NICKEL("nickel", 4, ModChecker.NICKEL),
 		CONSTANTAN("constantan", 4, ModChecker.CONSTANTAN),
