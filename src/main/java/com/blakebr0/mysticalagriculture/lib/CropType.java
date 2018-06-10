@@ -95,6 +95,8 @@ public class CropType {
 		
 		FLUXED_ELECTRUM("fluxed_electrum", 4, ModChecker.REDSTONE_ARSENAL),
 		
+		HOP_GRAPHITE("hop_graphite", 4, ModChecker.IMMERSIVE_ENGINEERING),
+		
 		ALUMINUM_BRASS("aluminum_brass", 2, ModChecker.TINKERS_CONSTRUCT),
 		KNIGHTSLIME("knightslime", 3, ModChecker.TINKERS_CONSTRUCT),
 		ARDITE("ardite", 3, ModChecker.TINKERS_CONSTRUCT),

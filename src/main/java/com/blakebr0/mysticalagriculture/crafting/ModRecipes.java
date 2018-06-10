@@ -445,6 +445,8 @@ public class ModRecipes {
 	    addSeedRecipe(type.ENDERIUM, "ingotEnderium");
 	    
 	    addSeedRecipe(type.FLUXED_ELECTRUM, "ingotElectrumFlux");
+	    
+	    addSeedRecipe(type.HOP_GRAPHITE, "ingotHOPGraphite");
 
 	    addSeedRecipe(type.ALUMINUM_BRASS, new ItemStack(Parts.itemTinkersIngots, 1, 5));
 	    addSeedRecipe(type.KNIGHTSLIME, new ItemStack(Parts.itemTinkersIngots, 1, 3));

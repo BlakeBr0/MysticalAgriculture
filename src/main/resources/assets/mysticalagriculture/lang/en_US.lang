@@ -184,6 +184,8 @@ tile.ma.enderium_crop.name=Enderium Crop
 
 tile.ma.fluxed_electrum_crop.name=Fluxed Electrum Crop
 
+tile.ma.hop_graphite_crop.name=HOP Graphite Crop
+
 tile.ma.aluminum_brass_crop.name=Aluminum Brass Crop
 tile.ma.knightslime_crop.name=Knightslime Crop
 tile.ma.ardite_crop.name=Ardite Crop
@@ -486,6 +488,8 @@ item.ma.enderium_essence.name=Enderium Essence
 
 item.ma.fluxed_electrum_essence.name=Fluxed Electrum Essence
 
+item.ma.hop_graphite_essence.name=HOP Graphite Essence
+
 item.ma.aluminum_brass_essence.name=Aluminum Brass Essence
 item.ma.knightslime_essence.name=Knightslime Essence
 item.ma.ardite_essence.name=Ardite Essence
@@ -680,6 +684,8 @@ item.ma.lumium_seeds.name=Lumium Seeds
 item.ma.enderium_seeds.name=Enderium Seeds
 
 item.ma.fluxed_electrum_seeds.name=Fluxed Electrum Seeds
+
+item.ma.hop_graphite_seeds.name=HOP Graphite Seeds
 
 item.ma.aluminum_brass_seeds.name=Aluminum Brass Seeds
 item.ma.knightslime_seeds.name=Knightslime Seeds

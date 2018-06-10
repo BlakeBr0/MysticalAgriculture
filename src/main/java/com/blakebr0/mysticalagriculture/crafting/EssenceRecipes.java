@@ -258,6 +258,8 @@ public class EssenceRecipes {
 
 	    if(type.FLUXED_ELECTRUM.isEnabled()){ addEssenceRecipe("ingotElectrumFlux", EssenceConfig.fluxedElectrum, "EEE", "E E", "EEE", 'E', new ItemStack(type.FLUXED_ELECTRUM.getCrop(), 1, 0)); }
 
+	    if(type.HOP_GRAPHITE.isEnabled()){ addEssenceRecipe("ingotElectrumFlux", EssenceConfig.fluxedElectrum, "EEE", "E E", "EEE", 'E', new ItemStack(type.FLUXED_ELECTRUM.getCrop(), 1, 0)); }
+
 	    if(type.ALUMINUM_BRASS.isEnabled()){ addEssenceRecipe(new ItemStack(Parts.itemTinkersIngots, EssenceConfig.aluminumBrass, 5), "EEE", "E E", "EEE", 'E', new ItemStack(type.ALUMINUM_BRASS.getCrop(), 1, 0)); }
 	    if(type.KNIGHTSLIME.isEnabled()){ addEssenceRecipe(new ItemStack(Parts.itemTinkersIngots, EssenceConfig.knightslime, 3), "EEE", "E E", "EEE", 'E', new ItemStack(type.KNIGHTSLIME.getCrop(), 1, 0)); }
 	    if(type.ARDITE.isEnabled()){ addEssenceRecipe(new ItemStack(Parts.itemTinkersIngots, EssenceConfig.ardite, 1), "EEE", "E E", "EEE", 'E', new ItemStack(type.ARDITE.getCrop(), 1, 0)); }

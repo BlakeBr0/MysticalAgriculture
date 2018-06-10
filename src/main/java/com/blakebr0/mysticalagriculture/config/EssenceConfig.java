@@ -145,6 +145,8 @@ public class EssenceConfig {
 	
 	public static int fluxedElectrum;
 	
+	public static int hopGraphite;
+	
 	public static int aluminumBrass;
 	public static int knightslime;
 	public static int ardite;
@@ -412,6 +414,9 @@ public class EssenceConfig {
 		
 		category = "Redstone Arsenal";
 		fluxedElectrum = config.get(category, "fluxed_electrum", 3).getInt();
+		
+		category = "Immersive Engineering";
+		hopGraphite = config.get(category, "hop_graphite", 3).getInt();
 		
 		category = "Tinkers Construct";
 		aluminumBrass = config.get(category, "aluminum_brass", 6).getInt();
