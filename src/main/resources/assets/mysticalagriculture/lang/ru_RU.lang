@@ -229,6 +229,8 @@ tile.ma.basalt_crop.name=Базальтовая культура
 
 tile.ma.apatite_crop.name=Апатитовая культура
 
+tile.ma.electrotine_crop.name=Электротиновая культура
+
 tile.ma.alumite_crop.name=Алюмитовая культура
 
 tile.ma.steeleaf_crop.name=Культура магического листа
@@ -256,6 +258,10 @@ tile.ma.rock_crystal_crop.name=Культура горного хрусталя
 tile.ma.ender_biotite_crop.name=Культура биотит края
 
 tile.ma.slate_crop.name=Сланцевая культура
+
+tile.ma.dark_gem_crop.name=Культура темного камня
+
+tile.ma.compressed_iron_crop.name=Культура сжатого железа
 
 tile.ma.ender_amethyst_crop.name=Культура аметист края
 
@@ -510,6 +516,8 @@ item.ma.basalt_essence.name=Базальтовая эссенция
 
 item.ma.apatite_essence.name=Апатитовая эссенция
 
+item.ma.electrotine_essence.name=Электротиновая эссенция
+
 item.ma.alumite_essence.name=Алюмитовая эссенция
 
 item.ma.steeleaf_essence.name=Эссенция магического листа
@@ -537,6 +545,10 @@ item.ma.rock_crystal_essence.name=Эссенция горного хрустал
 item.ma.ender_biotite_essence.name=Эссенция биотит края
 
 item.ma.slate_essence.name=Сланцевая эссенция
+
+item.ma.dark_gem_essence.name=Эссенция темного камня
+
+item.ma.compressed_iron_essence.name=Эссенция сжатого железа
 
 item.ma.ender_amethyst_essence.name=Эссенция аметист края
 
@@ -684,6 +696,8 @@ item.ma.basalt_seeds.name=Базальтовые семена
 
 item.ma.apatite_seeds.name=Апатитовые семена
 
+item.ma.electrotine_seeds.name=Электротиновые семена
+
 item.ma.alumite_seeds.name=Алюмитовые семена
 
 item.ma.steeleaf_seeds.name=Семена магического листа
@@ -711,6 +725,10 @@ item.ma.rock_crystal_seeds.name=Семена горного хрусталя
 item.ma.ender_biotite_seeds.name=Семена биотит края
 
 item.ma.slate_seeds.name=Сланцевые семена
+
+item.ma.dark_gem_seeds.name=Семена темного камня
+
+item.ma.compressed_iron_seeds.name=Семена сжатого железа
 
 item.ma.ender_amethyst_seeds.name=Семена аметист края
 
