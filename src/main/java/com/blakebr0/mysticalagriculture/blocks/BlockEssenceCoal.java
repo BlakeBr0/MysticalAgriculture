@@ -48,7 +48,7 @@ public class BlockEssenceCoal extends BlockBase implements IModelHelper, IEnable
     
     @Override
     public void init(){
-        GameRegistry.registerFuelHandler(new FuelHander());
+
     }
 
     @Override
@@ -112,26 +112,4 @@ public class BlockEssenceCoal extends BlockBase implements IModelHelper, IEnable
 	public boolean isEnabled(){
 		return ModConfig.confEssenceCoal;
 	}
-    
-    public class FuelHander implements IFuelHandler {
-
-		@Override
-		public int getBurnTime(ItemStack stack){
-			if(stack.getItem() instanceof ItemBlockEssenceCoal){
-				switch(stack.getMetadata()){
-				case 0:
-					return 21600;
-				case 1:
-					return 43200;
-				case 2:
-					return 86400;
-				case 3: 
-					return 172800;
-				case 4:
-					return 345600;
-				}
-			}
-			return 0;
-		} 	
-    }
 }

@@ -30,11 +30,13 @@ import com.blakebr0.mysticalagriculture.items.tools.ItemEssenceShovel;
 import com.blakebr0.mysticalagriculture.items.tools.ItemEssenceSickle;
 import com.blakebr0.mysticalagriculture.items.tools.ItemEssenceSword;
 import com.blakebr0.mysticalagriculture.items.tools.ItemSupremiumHoe;
+import com.blakebr0.mysticalagriculture.lib.CoalBlockFuelHandler;
 import com.blakebr0.mysticalagriculture.lib.CropType;
 import com.blakebr0.mysticalagriculture.lib.ModToolMaterials;
 
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.util.text.TextFormatting;
+import net.minecraftforge.fml.common.registry.GameRegistry;
 
 public class ModItems {
 	
@@ -311,6 +313,10 @@ public class ModItems {
 	        registry.register(itemSupremiumChestplate, "supremium_chestplate", ModItems.itemCrafting.itemSupremiumIngot);
 	        registry.register(itemSupremiumLeggings, "supremium_leggings", ModItems.itemCrafting.itemSupremiumIngot);
 	        registry.register(itemSupremiumBoots, "supremium_boots", ModItems.itemCrafting.itemSupremiumIngot);
+		}
+		
+		if (ModBlocks.blockEssenceCoal.isEnabled()) {
+	        GameRegistry.registerFuelHandler(new CoalBlockFuelHandler());
 		}
 	}
 }
