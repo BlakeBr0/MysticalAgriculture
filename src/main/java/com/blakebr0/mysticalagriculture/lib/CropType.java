@@ -185,6 +185,9 @@ public class CropType {
 		
 		ENDER_BIOTITE("ender_biotite", 3, ModChecker.QUARK),
 		
+		DILITHIUM("dilithium", 4, ModChecker.MATTER_OVERDRIVE),
+		TRITANIUM("tritanium", 4, ModChecker.MATTER_OVERDRIVE),
+		
 		SLATE("slate", 2, ModChecker.RUSTIC),
 		
 		DARK_GEM("dark_gem", 3, ModChecker.EVILCRAFT),

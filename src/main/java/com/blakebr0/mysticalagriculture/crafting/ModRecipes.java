@@ -536,6 +536,9 @@ public class ModRecipes {
 
 	    addSeedRecipe(type.ENDER_BIOTITE, "gemEnderBiotite");
 	    
+	    addSeedRecipe(type.DILITHIUM, "gemDilithium");
+	    addSeedRecipe(type.TRITANIUM, "ingotTritanium");
+	    
 	    addSeedRecipe(type.SLATE, new ItemStack(Parts.itemRusticSlate, 1, 0));
 	    
 	    addSeedRecipe(type.DARK_GEM, "gemDark");

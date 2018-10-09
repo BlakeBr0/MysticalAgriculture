@@ -367,6 +367,9 @@ public class EssenceRecipes {
 	  
 	    if(type.ENDER_BIOTITE.isEnabled()){ addEssenceRecipe("gemEnderBiotite", EssenceConfig.enderBiotite, "EEE", " E ", "EEE", 'E', new ItemStack(type.ENDER_BIOTITE.getCrop(), 1, 0)); }    
 
+	    if(type.DILITHIUM.isEnabled()){ addEssenceRecipe("gemDilithium", EssenceConfig.dilithium, "EEE", "E E", "EEE", 'E', new ItemStack(type.DILITHIUM.getCrop(), 1, 0)); }    
+	    if(type.TRITANIUM.isEnabled()){ addEssenceRecipe("ingotTritanium", EssenceConfig.tritanium, "EEE", "E E", "EEE", 'E', new ItemStack(type.TRITANIUM.getCrop(), 1, 0)); }    
+	    
 	    if(type.SLATE.isEnabled()){ addEssenceRecipe(new ItemStack(Parts.itemRusticSlate, EssenceConfig.slate, 0), "EEE", "E E", "EEE", 'E', new ItemStack(type.SLATE.getCrop(), 1, 0)); }    
 
 	    if(type.DARK_GEM.isEnabled()){ addEssenceRecipe("gemDark", EssenceConfig.darkGem, "EEE", "E E", "EEE", 'E', new ItemStack(type.DARK_GEM.getCrop(), 1, 0)); }    

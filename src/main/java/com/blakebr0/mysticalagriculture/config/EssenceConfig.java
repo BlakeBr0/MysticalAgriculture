@@ -237,6 +237,9 @@ public class EssenceConfig {
 	
 	public static int enderBiotite;
 	
+	public static int dilithium;
+	public static int tritanium;
+	
 	public static int slate;
 	
 	public static int darkGem;
@@ -529,6 +532,10 @@ public class EssenceConfig {
 		
 		category = "Qyark";
 		enderBiotite = config.get(category, "biotite", 8).getInt();
+		
+		category = "Matter Overdrive";
+		diorite = config.get(category, "dilithium", 4).getInt();
+		tritanium = config.get(category, "tritanium", 3).getInt();
 		
 		category = "Rustic";
 		slate = config.get(category, "slate", 24).getInt();

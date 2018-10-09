@@ -274,6 +274,9 @@ tile.ma.rock_crystal_crop.name=Rock Crystal Crop
 
 tile.ma.ender_biotite_crop.name=Ender Biotite Crop
 
+tile.ma.dilithium_crop.name=Dilithium Crop
+tile.ma.tritanium_crop.name=Tritanium Crop
+
 tile.ma.slate_crop.name=Slate Crop
 
 tile.ma.dark_gem_crop.name=Dark Gem Crop
@@ -578,6 +581,9 @@ item.ma.rock_crystal_essence.name=Rock Crystal Essence
 
 item.ma.ender_biotite_essence.name=Ender Biotite Essence
 
+item.ma.dilithium_essence.name=Dilithium Essence
+item.ma.tritanium_essence.name=Tritanium Essence
+
 item.ma.slate_essence.name=Slate Essence
 
 item.ma.dark_gem_essence.name=Dark Gem Essence
@@ -774,6 +780,9 @@ item.ma.starmetal_seeds.name=Starmetal Seeds
 item.ma.rock_crystal_seeds.name=Rock Crystal Seeds
 
 item.ma.ender_biotite_seeds.name=Ender Biotite Seeds
+
+item.ma.dilithium_seeds.name=Dilithium Seeds
+item.ma.tritanium_seeds.name=Tritanium Seeds
 
 item.ma.slate_seeds.name=Slate Seeds
 
