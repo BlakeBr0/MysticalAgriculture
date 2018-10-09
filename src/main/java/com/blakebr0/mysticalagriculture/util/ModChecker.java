@@ -46,6 +46,7 @@ public class ModChecker {
 	public static final boolean LIB_VULPES = Loader.isModLoaded("libvulpes");
 	public static final boolean INTEGRATED_DYNAMICS = Loader.isModLoaded("integrateddynamics");
 	public static final boolean MATTER_OVERDRIVE = Loader.isModLoaded("matteroverdrive");
+	public static final boolean EREBUS = Loader.isModLoaded("erebus");
 	
 	public static final boolean RUBBER = !OreDictionary.getOres("itemRubber", false).isEmpty() || IC2 || TECH_REBORN;
 	public static final boolean SILICON = !OreDictionary.getOres("itemSilicon", false).isEmpty() || ENDERIO || GALACTICRAFT_CORE || APPLIED_ENERGISTICS_2 || REFINED_STORAGE || LIB_VULPES;

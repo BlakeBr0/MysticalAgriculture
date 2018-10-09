@@ -277,6 +277,8 @@ tile.ma.ender_biotite_crop.name=Ender Biotite Crop
 tile.ma.dilithium_crop.name=Dilithium Crop
 tile.ma.tritanium_crop.name=Tritanium Crop
 
+tile.ma.jade_crop.name=Jade Crop
+
 tile.ma.slate_crop.name=Slate Crop
 
 tile.ma.dark_gem_crop.name=Dark Gem Crop
@@ -584,6 +586,8 @@ item.ma.ender_biotite_essence.name=Ender Biotite Essence
 item.ma.dilithium_essence.name=Dilithium Essence
 item.ma.tritanium_essence.name=Tritanium Essence
 
+item.ma.jade_essence.name=Jade Essence
+
 item.ma.slate_essence.name=Slate Essence
 
 item.ma.dark_gem_essence.name=Dark Gem Essence
@@ -783,6 +787,8 @@ item.ma.ender_biotite_seeds.name=Ender Biotite Seeds
 
 item.ma.dilithium_seeds.name=Dilithium Seeds
 item.ma.tritanium_seeds.name=Tritanium Seeds
+
+item.ma.jade_seeds.name=Jade Seeds
 
 item.ma.slate_seeds.name=Slate Seeds
 

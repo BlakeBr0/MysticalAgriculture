@@ -188,6 +188,8 @@ public class CropType {
 		DILITHIUM("dilithium", 4, ModChecker.MATTER_OVERDRIVE),
 		TRITANIUM("tritanium", 4, ModChecker.MATTER_OVERDRIVE),
 		
+		JADE("jade", 4, ModChecker.EREBUS),
+		
 		SLATE("slate", 2, ModChecker.RUSTIC),
 		
 		DARK_GEM("dark_gem", 3, ModChecker.EVILCRAFT),

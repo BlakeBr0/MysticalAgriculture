@@ -369,6 +369,8 @@ public class EssenceRecipes {
 
 	    if(type.DILITHIUM.isEnabled()){ addEssenceRecipe("gemDilithium", EssenceConfig.dilithium, "EEE", "E E", "EEE", 'E', new ItemStack(type.DILITHIUM.getCrop(), 1, 0)); }    
 	    if(type.TRITANIUM.isEnabled()){ addEssenceRecipe("ingotTritanium", EssenceConfig.tritanium, "EEE", "E E", "EEE", 'E', new ItemStack(type.TRITANIUM.getCrop(), 1, 0)); }    
+	 
+	    if(type.JADE.isEnabled()){ addEssenceRecipe("gemJade", EssenceConfig.jade, "EEE", "E E", "EEE", 'E', new ItemStack(type.JADE.getCrop(), 1, 0)); }    
 	    
 	    if(type.SLATE.isEnabled()){ addEssenceRecipe(new ItemStack(Parts.itemRusticSlate, EssenceConfig.slate, 0), "EEE", "E E", "EEE", 'E', new ItemStack(type.SLATE.getCrop(), 1, 0)); }    
 
