@@ -90,12 +90,12 @@ public class ItemCrafting extends ItemMeta {
 		itemBlankRecord = addItem(14, "blank_record");
 		itemBlankSkull = addItem(15, "blank_skull");
 		
-		itemBaseCraftingSeed = addItem(16, "base_crafting_seed");
-		itemTier1CraftingSeed = addItem(17, "tier1_crafting_seed");
-		itemTier2CraftingSeed = addItem(18, "tier2_crafting_seed");
-		itemTier3CraftingSeed = addItem(19, "tier3_crafting_seed");
-		itemTier4CraftingSeed = addItem(20, "tier4_crafting_seed");
-		itemTier5CraftingSeed = addItem(21, "tier5_crafting_seed");
+		itemBaseCraftingSeed = addItem(16, "base_crafting_seed", true, Utils.asList(Tooltips.CRAFTING_SEED));
+		itemTier1CraftingSeed = addItem(17, "tier1_crafting_seed", true, Utils.asList(Tooltips.CRAFTING_SEED));
+		itemTier2CraftingSeed = addItem(18, "tier2_crafting_seed", true, Utils.asList(Tooltips.CRAFTING_SEED));
+		itemTier3CraftingSeed = addItem(19, "tier3_crafting_seed", true, Utils.asList(Tooltips.CRAFTING_SEED));
+		itemTier4CraftingSeed = addItem(20, "tier4_crafting_seed", true, Utils.asList(Tooltips.CRAFTING_SEED));
+		itemTier5CraftingSeed = addItem(21, "tier5_crafting_seed", true, Utils.asList(Tooltips.CRAFTING_SEED));
 		
 		itemMysticalStick = addItem(22, "mystical_stick");
 		itemMysticalString = addItem(23, "mystical_string");

@@ -16,6 +16,7 @@ public class Tooltips {
 	public static final String MYSTICAL_FERTILIZER = Utils.localize("tooltip.ma.mystical_fertilizer");
 	public static final String CORE_REMOVAL = Utils.localize("tooltip.ma.core_removal");
 	public static final String SOULIUM_DAGGER = Utils.localize("tooltip.ma.soulium_dagger");
+	public static final String CRAFTING_SEED = Utils.localize("tooltip.ma.crafting_seed");
 	
 	public static final String INFERIUM = Colors.YELLOW + Utils.localize("tooltip.ma.inferium");
 	public static final String PRUDENTIUM = Colors.GREEN + Utils.localize("tooltip.ma.prudentium");

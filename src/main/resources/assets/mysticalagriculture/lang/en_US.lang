@@ -953,6 +953,7 @@ tooltip.ma.fertilized_essence=Bonemeal that works on Resource Crops.
 tooltip.ma.mystical_fertilizer=Instantly grows a crop.
 tooltip.ma.core_removal=Can be re-claimed using a §cCore Remover§7.
 tooltip.ma.soulium_dagger=Used to obtain §cMob Chunks§7.
+tooltip.ma.crafting_seed=Used for crafting, not planting.
 
 tooltip.ma.inferium=Inferium
 tooltip.ma.prudentium=Prudentium
