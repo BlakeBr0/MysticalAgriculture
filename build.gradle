@@ -12,7 +12,7 @@ apply plugin: 'net.minecraftforge.gradle.forge'
 
 version = "1.6.13"
 group = "com.blakebr0.mysticalagriculture"
-archivesBaseName = "MysticalAgriculture-1.12.2"
+archivesBaseName = "MysticalAgriculture-1.12"
 
 sourceCompatibility = targetCompatibility = '1.8' // Need this here so eclipse task generates correctly.
 compileJava {
@@ -23,10 +23,13 @@ repositories {
 	maven {
 		url = "http://dvs1.progwml6.com/files/maven"
 	}
+	maven {
+ 		url = "http://tehnut.info/maven"
+ 	}
 }
 
 minecraft {
-    version = "1.12.2-14.23.4.2705"
+    version = "1.12-14.21.1.2387"
     runDir = "run"
     replace '${version}', project.version
    
@@ -40,8 +43,9 @@ minecraft {
 }
 
 dependencies {
-    deobfCompile "mezz.jei:jei_1.12.2:4.10.0.198:api"
-    runtime "mezz.jei:jei_1.12.2:4.10.0.198"
+	deobfCompile "mezz.jei:jei_1.12:4.7.0.67:api"
+	runtime "mezz.jei:jei_1.12:4.7.0.67"
+	deobfCompile "mcp.mobius.waila:Hwyla:1.8.19-B33_1.12"
 }
 
 processResources {

@@ -19,10 +19,10 @@ public class MysticalAgriculture {
 	public static final String MOD_ID = "mysticalagriculture";
 	public static final String NAME = "Mystical Agriculture";
 	public static final String VERSION = "${version}";
-	public static final String DEPENDENCIES = "required-after:cucumber@[1.0.2,)";
+	public static final String DEPENDENCIES = "required-after:cucumber@[1.1.1,)";
 	public static final String GUI_FACTORY = "com.blakebr0.mysticalagriculture.config.GuiFactory";
 	
-	public static final ModRegistry REGISTRY = new ModRegistry(MOD_ID);
+	public static final ModRegistry REGISTRY = ModRegistry.create(MOD_ID);
 		
 	@Mod.Instance(MysticalAgriculture.MOD_ID)
 	public static MysticalAgriculture INSTANCE;
