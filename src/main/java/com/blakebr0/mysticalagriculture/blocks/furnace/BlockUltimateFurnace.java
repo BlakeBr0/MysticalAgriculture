@@ -5,6 +5,7 @@ import java.util.Random;
 
 import com.blakebr0.cucumber.lib.Colors;
 import com.blakebr0.mysticalagriculture.blocks.ModBlocks;
+import com.blakebr0.mysticalagriculture.config.ModConfig;
 import com.blakebr0.mysticalagriculture.lib.Tooltips;
 import com.blakebr0.mysticalagriculture.tileentity.furnace.TileUltimateFurnace;
 
@@ -43,6 +44,11 @@ public class BlockUltimateFurnace extends BlockEssenceFurnace {
     @Override
     public ItemStack getItem(World world, BlockPos pos, IBlockState state) {
         return new ItemStack(ModBlocks.blockUltimateFurnace);
+    }
+    
+    @Override
+    public boolean isEnabled() {
+    	return super.isEnabled() && ModConfig.confUltimateFurnace;
     }
 
     public static void setState(boolean active, World world, BlockPos pos) {

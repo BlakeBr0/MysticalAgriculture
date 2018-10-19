@@ -57,7 +57,7 @@ public class BlockEssenceFurnace extends BlockContainer implements IEnableable {
             IBlockState state2 = world.getBlockState(pos.south());
             IBlockState state3 = world.getBlockState(pos.west());
             IBlockState state4 = world.getBlockState(pos.east());
-            EnumFacing facing = (EnumFacing)state.getValue(FACING);
+            EnumFacing facing = (EnumFacing) state.getValue(FACING);
 
             if (facing == EnumFacing.NORTH && state1.isFullBlock() && !state2.isFullBlock()) {
                 facing = EnumFacing.SOUTH;
@@ -117,8 +117,8 @@ public class BlockEssenceFurnace extends BlockContainer implements IEnableable {
             return true;
         } else {
             TileEntity tile = world.getTileEntity(pos);
-
-            if(tile instanceof TileEssenceFurnace) {
+            
+            if (tile instanceof TileEssenceFurnace) {
                 player.displayGUIChest((TileEssenceFurnace) tile);
                 player.addStat(StatList.FURNACE_INTERACTION);
             }
@@ -162,6 +162,19 @@ public class BlockEssenceFurnace extends BlockContainer implements IEnableable {
         }
 
         super.breakBlock(world, pos, state);
+    }
+    
+    @Override
+    public boolean rotateBlock(World world, BlockPos pos, EnumFacing axis) {
+    	TileEntity tile = world.getTileEntity(pos);
+    	boolean rotate = super.rotateBlock(world, pos, axis);
+    	
+    	if (tile != null && rotate) {
+    		tile.validate();
+    		world.setTileEntity(pos, tile);
+    	}
+    	
+    	return rotate;
     }
 
     @Override

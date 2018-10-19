@@ -40,9 +40,9 @@ import net.minecraftforge.items.wrapper.SidedInvWrapper;
 
 public class TileEssenceFurnace extends TileEntityLockable implements ITickable, ISidedInventory {
 	
-    protected static final int[] SLOTS_TOP = new int[] {0};
-    protected static final int[] SLOTS_BOTTOM = new int[] {2, 1};
-    protected static final int[] SLOTS_SIDES = new int[] {1};
+    protected static final int[] SLOTS_TOP = new int[] { 0 };
+    protected static final int[] SLOTS_BOTTOM = new int[] { 2, 1 };
+    protected static final int[] SLOTS_SIDES = new int[] { 1 };
     protected NonNullList<ItemStack> furnaceItemStacks = NonNullList.withSize(3, ItemStack.EMPTY);
     protected int furnaceBurnTime;
     protected int currentItemBurnTime;
@@ -259,7 +259,7 @@ public class TileEssenceFurnace extends TileEntityLockable implements ITickable,
         }
     }
 
-    public static int getItemBurnTime(ItemStack stack){
+    public static int getItemBurnTime(ItemStack stack) {
         if (stack.isEmpty()) {
             return 0;
         } else {

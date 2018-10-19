@@ -1,6 +1,6 @@
 package com.blakebr0.mysticalagriculture.tileentity.furnace;
 
-import com.blakebr0.mysticalagriculture.blocks.furnace.BlockSuperiumFurnace;
+import com.blakebr0.mysticalagriculture.blocks.furnace.BlockSupremiumFurnace;
 
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -19,6 +19,6 @@ public class TileSupremiumFurnace extends TileEssenceFurnace {
 
 	@Override
 	protected void setState(boolean active, World world, BlockPos pos) {
-		BlockSuperiumFurnace.setState(active, world, pos);
+		BlockSupremiumFurnace.setState(active, world, pos);
 	}
 }
