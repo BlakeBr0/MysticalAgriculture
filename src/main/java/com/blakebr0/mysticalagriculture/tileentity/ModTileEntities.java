@@ -1,6 +1,12 @@
 package com.blakebr0.mysticalagriculture.tileentity;
 
 import com.blakebr0.mysticalagriculture.config.ModConfig;
+import com.blakebr0.mysticalagriculture.tileentity.furnace.TileInferiumFurnace;
+import com.blakebr0.mysticalagriculture.tileentity.furnace.TileIntermediumFurnace;
+import com.blakebr0.mysticalagriculture.tileentity.furnace.TilePrudentiumFurnace;
+import com.blakebr0.mysticalagriculture.tileentity.furnace.TileSuperiumFurnace;
+import com.blakebr0.mysticalagriculture.tileentity.furnace.TileSupremiumFurnace;
+import com.blakebr0.mysticalagriculture.tileentity.furnace.TileUltimateFurnace;
 
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
@@ -13,13 +19,13 @@ public class ModTileEntities {
 		}
 		
 		if(ModConfig.confEssenceFurnaces){
-			GameRegistry.registerTileEntity(TileEntityInferiumFurnace.class, "MA_Inferium_Furnace");
-			GameRegistry.registerTileEntity(TileEntityPrudentiumFurnace.class, "MA_Prudentium_Furnace");
-			GameRegistry.registerTileEntity(TileEntityIntermediumFurnace.class, "MA_Intermedium_Furnace");
-			GameRegistry.registerTileEntity(TileEntitySuperiumFurnace.class, "MA_Superium_Furnace");
-			GameRegistry.registerTileEntity(TileEntitySupremiumFurnace.class, "MA_Supremium_Furnace");
+			GameRegistry.registerTileEntity(TileInferiumFurnace.class, "MA_Inferium_Furnace");
+			GameRegistry.registerTileEntity(TilePrudentiumFurnace.class, "MA_Prudentium_Furnace");
+			GameRegistry.registerTileEntity(TileIntermediumFurnace.class, "MA_Intermedium_Furnace");
+			GameRegistry.registerTileEntity(TileSuperiumFurnace.class, "MA_Superium_Furnace");
+			GameRegistry.registerTileEntity(TileSupremiumFurnace.class, "MA_Supremium_Furnace");
 			if(ModConfig.confUltimateFurnace){
-				GameRegistry.registerTileEntity(TileEntityUltimateFurnace.class, "MA_Ultimate_Furnace");
+				GameRegistry.registerTileEntity(TileUltimateFurnace.class, "MA_Ultimate_Furnace");
 			}
 		}
 	}
