@@ -8,15 +8,15 @@ import net.minecraft.world.World;
 public class TileSuperiumFurnace extends TileEssenceFurnace {
 
 	@Override
-    public String getName() {
-        return this.hasCustomName() ? this.furnaceCustomName : "container.ma.superium_furnace.name";
-    }
+	public String getName() {
+		return this.hasCustomName() ? this.furnaceCustomName : "container.ma.superium_furnace.name";
+	}
 
 	@Override
-    public int getCookTime() {
-        return 30;
-    }
-	
+	public int getCookTime() {
+		return 30;
+	}
+
 	@Override
 	protected void setState(boolean active, World world, BlockPos pos) {
 		BlockSuperiumFurnace.setState(active, world, pos);

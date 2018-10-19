@@ -8,17 +8,17 @@ import net.minecraft.world.World;
 public class TileIntermediumFurnace extends TileEssenceFurnace {
 
 	@Override
-    public String getName() {
-        return this.hasCustomName() ? this.furnaceCustomName : "container.ma.intermedium_furnace.name";
-    }
+	public String getName() {
+		return this.hasCustomName() ? this.furnaceCustomName : "container.ma.intermedium_furnace.name";
+	}
 
-    @Override
-    public int getCookTime() {
-        return 80;
-    }
-    
-    @Override
-    protected void setState(boolean active, World world, BlockPos pos) {
-    	BlockIntermediumFurnace.setState(active, world, pos);
-    }
+	@Override
+	public int getCookTime() {
+		return 80;
+	}
+
+	@Override
+	protected void setState(boolean active, World world, BlockPos pos) {
+		BlockIntermediumFurnace.setState(active, world, pos);
+	}
 }
