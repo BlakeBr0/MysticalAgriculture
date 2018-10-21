@@ -47,7 +47,7 @@ public class ItemWateringCan extends ItemMeta implements IEnableable {
 	
 	public ItemWateringCan(){
 		super("ma.watering_can", MysticalAgriculture.REGISTRY);
-		this.setCreativeTab(MysticalAgriculture.tabMysticalAgriculture);
+		this.setCreativeTab(MysticalAgriculture.CREATIVE_TAB);
 		this.setMaxStackSize(1);
 	}
 	

@@ -26,7 +26,7 @@ public class ItemSupremiumApple extends ItemFood implements IEnableable {
 	public ItemSupremiumApple(){
         super(20, 0.9F, false);
 		this.setUnlocalizedName("ma.supremium_apple");
-		this.setCreativeTab(MysticalAgriculture.tabMysticalAgriculture);
+		this.setCreativeTab(MysticalAgriculture.CREATIVE_TAB);
 		this.setAlwaysEdible();
 	}
 	

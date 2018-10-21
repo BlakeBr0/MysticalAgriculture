@@ -26,7 +26,7 @@ public class ItemPrudentiumApple extends ItemFood implements IEnableable {
 	public ItemPrudentiumApple(){
         super(8, 0.4F, false);
 		this.setUnlocalizedName("ma.prudentium_apple");
-		this.setCreativeTab(MysticalAgriculture.tabMysticalAgriculture);
+		this.setCreativeTab(MysticalAgriculture.CREATIVE_TAB);
 		this.setAlwaysEdible();
 	}
 	

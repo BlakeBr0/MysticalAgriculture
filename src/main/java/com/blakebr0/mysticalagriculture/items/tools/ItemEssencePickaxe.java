@@ -40,7 +40,7 @@ public class ItemEssencePickaxe extends ItemPickaxe implements IRepairMaterial {
 	public ItemEssencePickaxe(String name, ToolMaterial material, TextFormatting color){
 		super(material);
 		this.setUnlocalizedName("ma." + name);
-		this.setCreativeTab(MysticalAgriculture.tabMysticalAgriculture);
+		this.setCreativeTab(MysticalAgriculture.CREATIVE_TAB);
 		this.color = color;
 	}
 	

@@ -34,7 +34,7 @@ public class ItemMysticalFertilizer extends Item implements IEnableable {
 	public ItemMysticalFertilizer(){
 		super();
 		this.setUnlocalizedName("ma.mystical_fertilizer");
-		this.setCreativeTab(MysticalAgriculture.tabMysticalAgriculture);
+		this.setCreativeTab(MysticalAgriculture.CREATIVE_TAB);
 		
         BlockDispenser.DISPENSE_BEHAVIOR_REGISTRY.putObject(this, new Bootstrap.BehaviorDispenseOptional() {
             protected ItemStack dispenseStack(IBlockSource source, ItemStack stack) {

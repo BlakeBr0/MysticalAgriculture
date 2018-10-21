@@ -25,7 +25,7 @@ public class BlockMachineFrame extends BlockBase {
 	
 	public BlockMachineFrame(String name){
 		super("ma." + name, Material.IRON, SoundType.STONE, 4.0F, 6.0F);
-		this.setCreativeTab(MysticalAgriculture.tabMysticalAgriculture);
+		this.setCreativeTab(MysticalAgriculture.CREATIVE_TAB);
 	}
 
 	@Override

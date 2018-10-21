@@ -24,7 +24,7 @@ public class ItemEssenceFishingRod extends ItemFishingRod implements IRepairMate
 	
 	public ItemEssenceFishingRod(String name, ToolMaterial material, TextFormatting color){
 		this.setUnlocalizedName("ma." + name);
-		this.setCreativeTab(MysticalAgriculture.tabMysticalAgriculture);
+		this.setCreativeTab(MysticalAgriculture.CREATIVE_TAB);
 		this.color = color;
 		this.setMaxStackSize(1);
 		this.setMaxDamage(material.getMaxUses());

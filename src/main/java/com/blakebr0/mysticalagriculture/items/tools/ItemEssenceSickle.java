@@ -44,7 +44,7 @@ public class ItemEssenceSickle extends ItemBase implements IRepairMaterial {
 		super("ma." + name);
 		this.setMaxStackSize(1);
 		this.setMaxDamage(material.getMaxUses());
-		this.setCreativeTab(MysticalAgriculture.tabMysticalAgriculture);
+		this.setCreativeTab(MysticalAgriculture.CREATIVE_TAB);
 		this.range = range;
 		this.toolMaterial = material;
 		this.color = color;

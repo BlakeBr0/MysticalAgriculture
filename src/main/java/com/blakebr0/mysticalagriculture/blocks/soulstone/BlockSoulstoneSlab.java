@@ -33,7 +33,7 @@ public class BlockSoulstoneSlab extends BlockSlab {
 		this.setRegistryName(name);
 		if(!isDouble){
 			this.useNeighborBrightness = true;
-			this.setCreativeTab(MysticalAgriculture.tabMysticalAgriculture);
+			this.setCreativeTab(MysticalAgriculture.CREATIVE_TAB);
 		}
 		this.isDouble = isDouble;
 		this.setSoundType(SoundType.STONE);

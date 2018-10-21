@@ -41,7 +41,7 @@ public class ItemEssenceSword extends ItemSword implements IRepairMaterial {
 	public ItemEssenceSword(String name, ToolMaterial material, TextFormatting color){
 		super(material);
 		this.setUnlocalizedName("ma." + name);
-		this.setCreativeTab(MysticalAgriculture.tabMysticalAgriculture);
+		this.setCreativeTab(MysticalAgriculture.CREATIVE_TAB);
 		this.color = color;
 		this.material = material;
 	}

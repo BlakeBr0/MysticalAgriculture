@@ -44,7 +44,7 @@ public class ItemEssenceBow extends ItemBow implements IRepairMaterial {
 	
 	public ItemEssenceBow(String name, ToolMaterial material, float drawSpeed, TextFormatting color){
 		this.setUnlocalizedName("ma." + name);
-		this.setCreativeTab(MysticalAgriculture.tabMysticalAgriculture);
+		this.setCreativeTab(MysticalAgriculture.CREATIVE_TAB);
 		this.toolMaterial = material;
 		this.damage = material.getDamageVsEntity() / 4;
 		this.drawSpeed = drawSpeed;

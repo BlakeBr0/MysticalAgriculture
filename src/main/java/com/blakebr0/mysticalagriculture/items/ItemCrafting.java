@@ -68,7 +68,7 @@ public class ItemCrafting extends ItemMeta {
 	
 	public ItemCrafting(){
 		super("ma.crafting", MysticalAgriculture.REGISTRY);
-		this.setCreativeTab(MysticalAgriculture.tabMysticalAgriculture);
+		this.setCreativeTab(MysticalAgriculture.CREATIVE_TAB);
 	}
 	
 	@Override

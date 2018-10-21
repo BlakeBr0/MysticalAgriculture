@@ -29,7 +29,7 @@ public class ItemEssenceCoal extends ItemMeta implements IEnableable {
 	
 	public ItemEssenceCoal(){
 		super("ma.coal", MysticalAgriculture.REGISTRY);
-		this.setCreativeTab(MysticalAgriculture.tabMysticalAgriculture);
+		this.setCreativeTab(MysticalAgriculture.CREATIVE_TAB);
 	}
 	
 	@Override

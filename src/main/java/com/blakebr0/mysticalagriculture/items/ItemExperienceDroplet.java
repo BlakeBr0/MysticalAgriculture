@@ -16,7 +16,7 @@ public class ItemExperienceDroplet extends ItemBase {
 
 	public ItemExperienceDroplet(){
 		super("ma.xp_droplet");
-		this.setCreativeTab(MysticalAgriculture.tabMysticalAgriculture);
+		this.setCreativeTab(MysticalAgriculture.CREATIVE_TAB);
 	}
 
 	@Override

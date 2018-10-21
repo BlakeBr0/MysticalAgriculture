@@ -1,11 +1,9 @@
 package com.blakebr0.mysticalagriculture;
 
 import com.blakebr0.cucumber.registry.ModRegistry;
-import com.blakebr0.mysticalagriculture.items.ModItems;
 import com.blakebr0.mysticalagriculture.proxy.CommonProxy;
 
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.SidedProxy;
@@ -22,6 +20,7 @@ public class MysticalAgriculture {
 	public static final String DEPENDENCIES = "required-after:cucumber@[1.1.1,)";
 	public static final String GUI_FACTORY = "com.blakebr0.mysticalagriculture.config.GuiFactory";
 	
+	public static final CreativeTabs CREATIVE_TAB = new MACreativeTab();
 	public static final ModRegistry REGISTRY = ModRegistry.create(MOD_ID);
 		
 	@Mod.Instance(MysticalAgriculture.MOD_ID)
@@ -29,28 +28,20 @@ public class MysticalAgriculture {
 	
 	@SidedProxy(clientSide = "com.blakebr0.mysticalagriculture.proxy.ClientProxy",
 				serverSide = "com.blakebr0.mysticalagriculture.proxy.ServerProxy")
-	
 	public static CommonProxy proxy;
 		
 	@EventHandler
-	public void preInit(FMLPreInitializationEvent event){
+	public void preInit(FMLPreInitializationEvent event) {
 		proxy.preInit(event);
 	}
 
 	@EventHandler
-	public void init(FMLInitializationEvent event){
+	public void init(FMLInitializationEvent event) {
 		proxy.init(event);
 	}
 
 	@EventHandler
-	public void postInit(FMLPostInitializationEvent event){
+	public void postInit(FMLPostInitializationEvent event) {
 		proxy.postInit(event);
 	}
-
-	public static CreativeTabs tabMysticalAgriculture = new CreativeTabs("tabMysticalAgriculture"){
-		@Override
-		public ItemStack getTabIconItem(){
-			return ModItems.itemCrafting.itemSupremiumEssence;
-		}
-	};
 }

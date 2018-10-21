@@ -29,7 +29,7 @@ public class BlockWitherproofBlock extends Block implements IEnableable {
 	
 	public BlockWitherproofBlock(){
 		super(Material.ROCK);
-		this.setCreativeTab(MysticalAgriculture.tabMysticalAgriculture);
+		this.setCreativeTab(MysticalAgriculture.CREATIVE_TAB);
 		this.setSoundType(SoundType.STONE);
 		this.setUnlocalizedName("ma.witherproof_block");
 		this.setHardness(24.0F);

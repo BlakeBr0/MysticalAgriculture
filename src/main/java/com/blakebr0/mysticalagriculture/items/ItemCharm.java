@@ -47,7 +47,7 @@ public class ItemCharm extends ItemMeta {
 	
 	public ItemCharm(){
 		super("ma.charm", MysticalAgriculture.REGISTRY);
-		this.setCreativeTab(MysticalAgriculture.tabMysticalAgriculture);
+		this.setCreativeTab(MysticalAgriculture.CREATIVE_TAB);
 	}
 	
 	@Override

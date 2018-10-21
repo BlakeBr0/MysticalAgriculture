@@ -14,7 +14,7 @@ public class BlockSoulstoneWall extends BlockWall {
 		super(modelBlock);
 		this.setUnlocalizedName("ma." + name);
 		this.setRegistryName(name);
-		this.setCreativeTab(MysticalAgriculture.tabMysticalAgriculture);
+		this.setCreativeTab(MysticalAgriculture.CREATIVE_TAB);
 	}
 	
 	@Override

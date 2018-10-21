@@ -25,7 +25,7 @@ public class ItemSeed extends ItemSeeds {
 	public ItemSeed(String name, Block crops, int tier){
 		super(crops, Blocks.FARMLAND);
 		this.setUnlocalizedName("ma." + name);
-		this.setCreativeTab(MysticalAgriculture.tabMysticalAgriculture);
+		this.setCreativeTab(MysticalAgriculture.CREATIVE_TAB);
         this.crops = crops;
         this.tier = tier;
 	}

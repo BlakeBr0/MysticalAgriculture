@@ -45,7 +45,7 @@ public class ItemChunk extends ItemMeta {
 	
 	public ItemChunk(){
 		super("ma.chunk", MysticalAgriculture.REGISTRY);
-		this.setCreativeTab(MysticalAgriculture.tabMysticalAgriculture);
+		this.setCreativeTab(MysticalAgriculture.CREATIVE_TAB);
 	}
 	
 	@Override

@@ -12,7 +12,7 @@ public class BlockMinersTorch extends BlockTorch implements IEnableable {
 
 	public BlockMinersTorch(){
 		this.setUnlocalizedName("ma.miners_torch");
-		this.setCreativeTab(MysticalAgriculture.tabMysticalAgriculture);
+		this.setCreativeTab(MysticalAgriculture.CREATIVE_TAB);
 		this.setLightLevel(1.0F);
 	}
 	

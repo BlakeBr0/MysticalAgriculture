@@ -16,7 +16,7 @@ public class BlockSoulGlass extends BlockGlass {
 	public BlockSoulGlass(){
 		super(Material.GLASS, false);
 		this.setUnlocalizedName("ma.soul_glass");
-		this.setCreativeTab(MysticalAgriculture.tabMysticalAgriculture);
+		this.setCreativeTab(MysticalAgriculture.CREATIVE_TAB);
 		this.setHardness(0.3F);
 		this.setSoundType(SoundType.GLASS);
 	}

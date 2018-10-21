@@ -22,7 +22,7 @@ public class ItemSouliumDagger extends ItemSword {
 	protected ItemSouliumDagger(){
 		super(ModToolMaterials.SOULIUM);
 		this.setUnlocalizedName("ma.soulium_dagger");
-		this.setCreativeTab(MysticalAgriculture.tabMysticalAgriculture);
+		this.setCreativeTab(MysticalAgriculture.CREATIVE_TAB);
 	}
 		
 	@Override

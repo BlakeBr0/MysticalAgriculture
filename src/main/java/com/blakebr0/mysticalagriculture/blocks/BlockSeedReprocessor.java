@@ -47,7 +47,7 @@ public class BlockSeedReprocessor extends BlockContainer implements IEnableable 
         setRegistryName("seed_reprocessor");
         setHarvestLevel("pickaxe", 1);
         this.setResistance(12.0F);
-        setCreativeTab(MysticalAgriculture.tabMysticalAgriculture);
+        setCreativeTab(MysticalAgriculture.CREATIVE_TAB);
     }
 
     @Override

@@ -45,7 +45,7 @@ public class BlockEssenceFurnace extends BlockContainer implements IEnableable {
         this.setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH));
         this.isBurning = isBurning;
 		this.setUnlocalizedName("ma." + name);
-        this.setCreativeTab(MysticalAgriculture.tabMysticalAgriculture);
+        this.setCreativeTab(MysticalAgriculture.CREATIVE_TAB);
 		this.setHardness(5.0F);
 		this.setResistance(10.0F);
     }

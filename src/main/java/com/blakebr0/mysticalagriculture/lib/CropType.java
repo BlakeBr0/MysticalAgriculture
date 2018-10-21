@@ -216,7 +216,7 @@ public class CropType {
 		private ItemBase crop;
 		private ItemSeed seed;
 		
-		private final boolean debug = false;
+		private final boolean debug = true;
 		
 		Type(String name, int defaultTier){
 			this.name = name;
@@ -279,7 +279,7 @@ public class CropType {
 		public void declare(){
 			this.plant = new BlockMysticalCrop(getName() + "_crop");
 			this.crop = new ItemBase("ma." + getName() + "_essence");
-			crop.setCreativeTab(MysticalAgriculture.tabMysticalAgriculture);
+			crop.setCreativeTab(MysticalAgriculture.CREATIVE_TAB);
 			this.seed = new ItemSeed(getName() + "_seeds", getPlant(), getTier());
 		}
 		

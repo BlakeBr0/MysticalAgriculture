@@ -22,7 +22,7 @@ public class ItemPrudentiumArrow extends ItemArrow {
 	
 	public ItemPrudentiumArrow(){
 		this.setUnlocalizedName("ma.prudentium_arrow");
-		this.setCreativeTab(MysticalAgriculture.tabMysticalAgriculture);
+		this.setCreativeTab(MysticalAgriculture.CREATIVE_TAB);
 	}
 	
 	@Override

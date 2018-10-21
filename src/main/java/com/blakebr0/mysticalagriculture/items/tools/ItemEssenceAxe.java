@@ -36,7 +36,7 @@ public class ItemEssenceAxe extends ItemAxe implements IRepairMaterial {
 	public ItemEssenceAxe(String name, ToolMaterial material, float damage, TextFormatting color){
 		super(material, damage, -3.2F);
 		this.setUnlocalizedName("ma." + name);
-		this.setCreativeTab(MysticalAgriculture.tabMysticalAgriculture);
+		this.setCreativeTab(MysticalAgriculture.CREATIVE_TAB);
 		this.color = color;
 	}
 	

@@ -29,7 +29,7 @@ public class ItemEssenceHoe extends ItemHoe implements IRepairMaterial {
 	public ItemEssenceHoe(String name, ToolMaterial material, TextFormatting color){
 		super(material);
 		this.setUnlocalizedName("ma." + name);
-		this.setCreativeTab(MysticalAgriculture.tabMysticalAgriculture);
+		this.setCreativeTab(MysticalAgriculture.CREATIVE_TAB);
 		this.color = color;
 	}
 	

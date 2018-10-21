@@ -34,7 +34,7 @@ public class ItemSuperiumArmor extends ItemArmor implements IRepairMaterial {
 		super(material, index, slot);
 		this.setUnlocalizedName("ma." + name);
 		this.setRegistryName(name);
-		this.setCreativeTab(MysticalAgriculture.tabMysticalAgriculture);
+		this.setCreativeTab(MysticalAgriculture.CREATIVE_TAB);
 	    this.setMaxStackSize(1);
 	}
 		

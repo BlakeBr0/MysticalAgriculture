@@ -29,7 +29,7 @@ public class ItemGear extends ItemMeta {
 	
 	public ItemGear(){
 		super("ma.gear", MysticalAgriculture.REGISTRY);
-		this.setCreativeTab(MysticalAgriculture.tabMysticalAgriculture);
+		this.setCreativeTab(MysticalAgriculture.CREATIVE_TAB);
 	}
 
 	@Override

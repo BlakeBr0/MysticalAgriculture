@@ -32,7 +32,7 @@ public class BlockWitherproofGlass extends BlockGlass implements IEnableable {
 	
 	public BlockWitherproofGlass(){
 		super(Material.GLASS, false);
-		this.setCreativeTab(MysticalAgriculture.tabMysticalAgriculture);
+		this.setCreativeTab(MysticalAgriculture.CREATIVE_TAB);
 		this.setSoundType(SoundType.GLASS);
 		this.setUnlocalizedName("ma.witherproof_glass");
 		this.setHardness(20.0F);
