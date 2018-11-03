@@ -166,8 +166,8 @@ public class TileEssenceFurnace extends TileEntityLockable implements ITickable,
         if (!this.world.isRemote) {
             ItemStack itemstack = this.furnaceItemStacks.get(1);
 
-            if (this.isBurning() || !itemstack.isEmpty() && !this.furnaceItemStacks.get(0).isEmpty()){
-                if (!this.isBurning() && this.canSmelt()){
+            if (this.isBurning() || !itemstack.isEmpty() && !this.furnaceItemStacks.get(0).isEmpty()) {
+                if (!this.isBurning() && this.canSmelt()) {
                     this.furnaceBurnTime = getItemBurnTime(itemstack);
                     this.currentItemBurnTime = this.furnaceBurnTime;
 
@@ -178,7 +178,7 @@ public class TileEssenceFurnace extends TileEntityLockable implements ITickable,
                             Item item = itemstack.getItem();
                             itemstack.shrink(1);
 
-                            if (itemstack.isEmpty()){
+                            if (itemstack.isEmpty()) {
                                 ItemStack item1 = item.getContainerItem(itemstack);
                                 this.furnaceItemStacks.set(1, item1);
                             }

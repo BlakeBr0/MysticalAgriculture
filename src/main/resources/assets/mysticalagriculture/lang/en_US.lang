@@ -76,6 +76,13 @@ desc.tile.ma.glowstone_lamp=To make a Glowstone Lamp, simply right-click on a §
 
 # MACHINE
 tile.ma.seed_reprocessor.name=Seed Reprocessor
+tile.ma.inferium_reprocessor.name=§eInferium Seed Reprocessor
+tile.ma.prudentium_reprocessor.name=§aPrudentium Seed Reprocessor
+tile.ma.intermedium_reprocessor.name=§6Intermedium Seed Reprocessor
+tile.ma.superium_reprocessor.name=§bSuperium Seed Reprocessor
+tile.ma.supremium_reprocessor.name=§cSupremium Seed Reprocessor
+tile.ma.ultimate_reprocessor.name=§8Ultimate Seed Reprocessor
+
 container.ma.seed_reprocessor.name=Seed Reprocessor
 jei.ma.seed_reprocessor=Seed Reprocessor
 desc.tile.ma.seed_reprocessor=Converts seeds into their respective crop output. It runs on the power of theoretical energy, which means you don't need to give it any power.

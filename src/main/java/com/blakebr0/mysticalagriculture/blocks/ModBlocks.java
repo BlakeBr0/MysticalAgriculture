@@ -12,6 +12,12 @@ import com.blakebr0.mysticalagriculture.blocks.furnace.BlockSupremiumFurnace;
 import com.blakebr0.mysticalagriculture.blocks.furnace.BlockUltimateFurnace;
 import com.blakebr0.mysticalagriculture.blocks.ore.BlockInferiumOre;
 import com.blakebr0.mysticalagriculture.blocks.ore.BlockProsperityOre;
+import com.blakebr0.mysticalagriculture.blocks.reprocessor.BlockInferiumReprocessor;
+import com.blakebr0.mysticalagriculture.blocks.reprocessor.BlockIntermediumReprocessor;
+import com.blakebr0.mysticalagriculture.blocks.reprocessor.BlockPrudentiumReprocessor;
+import com.blakebr0.mysticalagriculture.blocks.reprocessor.BlockSuperiumReprocessor;
+import com.blakebr0.mysticalagriculture.blocks.reprocessor.BlockSupremiumReprocessor;
+import com.blakebr0.mysticalagriculture.blocks.reprocessor.BlockUltimateReprocessor;
 import com.blakebr0.mysticalagriculture.blocks.soulstone.BlockSoulstone;
 import com.blakebr0.mysticalagriculture.blocks.soulstone.BlockSoulstoneSlab;
 import com.blakebr0.mysticalagriculture.blocks.soulstone.BlockSoulstoneStairs;
@@ -75,6 +81,12 @@ public class ModBlocks {
 	public static BlockMachineFrame blockGlowstoneLamp = new BlockMachineFrame("glowstone_lamp");
 	
 	public static BlockSeedReprocessor blockSeedReprocessor = new BlockSeedReprocessor();
+	public static final BlockInferiumReprocessor INFERIUM_REPROCESSOR = new BlockInferiumReprocessor();
+	public static final BlockPrudentiumReprocessor PRUDENTIUM_REPROCESSOR = new BlockPrudentiumReprocessor();
+	public static final BlockIntermediumReprocessor INTERMEDIUM_REPROCESSOR = new BlockIntermediumReprocessor();
+	public static final BlockSuperiumReprocessor SUPERIUM_REPROCESSOR = new BlockSuperiumReprocessor();
+	public static final BlockSupremiumReprocessor SUPREMIUM_REPROCESSOR = new BlockSupremiumReprocessor();
+	public static final BlockUltimateReprocessor ULTIMATE_REPROCESSOR = new BlockUltimateReprocessor();
 	
 	public static BlockWitherproofBlock blockWitherproofBlock = new BlockWitherproofBlock();
 	public static BlockWitherproofGlass blockWitherproofGlass = new BlockWitherproofGlass();
@@ -153,6 +165,12 @@ public class ModBlocks {
 		blockGlowstoneLamp.setLightLevel(1.0F);
 
 		registry.register(blockSeedReprocessor, "seed_reprocessor");
+		registry.register(INFERIUM_REPROCESSOR, "inferium_reprocessor");
+		registry.register(PRUDENTIUM_REPROCESSOR, "prudentium_reprocessor");
+		registry.register(INTERMEDIUM_REPROCESSOR, "intermedium_reprocessor");
+		registry.register(SUPERIUM_REPROCESSOR, "superium_reprocessor");
+		registry.register(SUPREMIUM_REPROCESSOR, "supremium_reprocessor");
+		registry.register(ULTIMATE_REPROCESSOR, "ultimate_reprocessor");
 		
 		registry.register(blockWitherproofBlock, "witherproof_block");
 		registry.register(blockWitherproofGlass, "witherproof_glass");

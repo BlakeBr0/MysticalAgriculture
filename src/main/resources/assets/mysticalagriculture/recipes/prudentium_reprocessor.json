@@ -1,0 +1,32 @@
+{
+  "type": "forge:ore_shaped",
+    "conditions": [
+     {
+	    "type": "minecraft:item_exists",
+		"item": "mysticalagriculture:prudentium_reprocessor"
+	 }
+  ],
+  "pattern": [
+	" E ",
+	"EDE",
+	" B "
+  ],
+  "key": {
+    "E": {
+      "item": "mysticalagriculture:crafting",
+	  "data": 1
+    },
+	"D": {
+      "item": "mysticalagriculture:inferium_reprocessor",
+	  "data": 0
+    },
+	"B": {
+      "item": "mysticalagriculture:storage",
+	  "data": 1
+    }
+  },
+  "result": {
+    "item": "mysticalagriculture:prudentium_reprocessor",
+	"data": 0
+  }
+}
