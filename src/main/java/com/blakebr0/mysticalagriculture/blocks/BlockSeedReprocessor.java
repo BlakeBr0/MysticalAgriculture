@@ -164,6 +164,19 @@ public class BlockSeedReprocessor extends BlockContainer implements IEnableable 
         super.breakBlock(world, pos, state);
     }
     
+    @Override
+    public boolean rotateBlock(World world, BlockPos pos, EnumFacing axis) {
+    	TileEntity tile = world.getTileEntity(pos);
+    	boolean rotate = super.rotateBlock(world, pos, axis);
+    	
+    	if (tile != null && rotate) {
+    		tile.validate();
+    		world.setTileEntity(pos, tile);
+    	}
+    	
+    	return rotate;
+    }
+    
     public EnumBlockRenderType getRenderType(IBlockState state){
         return EnumBlockRenderType.MODEL;
     }
