@@ -1,11 +1,9 @@
 package com.blakebr0.mysticalagriculture.crafting;
 
+import com.blakebr0.cucumber.helper.NBTHelper;
 import com.blakebr0.cucumber.helper.StackHelper;
-import com.blakebr0.cucumber.iface.IRepairMaterial;
-import com.blakebr0.mysticalagriculture.items.ModItems;
 import com.blakebr0.mysticalagriculture.items.armor.ArmorType;
 import com.blakebr0.mysticalagriculture.items.tools.ToolType;
-import com.blakebr0.mysticalagriculture.util.NBTHelper;
 
 import net.minecraft.inventory.InventoryCrafting;
 import net.minecraft.item.Item;
@@ -38,9 +36,9 @@ public class UpgradeRecipe extends ShapedOreRecipe {
         ItemStack slotStack;
         for(int i = 0; i < inventoryCrafting.getSizeInventory(); i++){
             slotStack = inventoryCrafting.getStackInSlot(i);
-            if(!StackHelper.isNull(slotStack) && slotStack.getItem() != null){
+            if(!slotStack.isEmpty() && slotStack.getItem() != null){
             	if(slotStack.getItem() == result.getItem()){
-            		tag = NBTHelper.getDataMap(slotStack).copy();
+            		tag = NBTHelper.getTagCompound(slotStack).copy();
             		int newDamage = MathHelper.clamp(slotStack.getItemDamage(), 0, result.getMaxDamage());
             		result.setItemDamage(newDamage);
             		break;
@@ -59,7 +57,7 @@ public class UpgradeRecipe extends ShapedOreRecipe {
     @Override
     public ItemStack getRecipeOutput(){
         ItemStack result = new ItemStack((Item)this.resultItem, 1, this.resultMeta);
-        NBTTagCompound tag = NBTHelper.getDataMap(result);
+        NBTTagCompound tag = NBTHelper.getTagCompound(result);
         if(this.resultItem instanceof ItemArmor){
         	tag.setInteger(ArmorType.ARMOR_TYPE, type);
         } else {

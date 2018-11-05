@@ -1,5 +1,6 @@
 package com.blakebr0.mysticalagriculture.gui;
 
+import com.blakebr0.cucumber.inventory.slot.SlotOutput;
 import com.blakebr0.mysticalagriculture.crafting.ReprocessorManager;
 import com.blakebr0.mysticalagriculture.tileentity.reprocessor.TileEssenceReprocessor;
 
@@ -20,12 +21,7 @@ public class ContainerEssenceReprocessor extends Container {
         
         this.addSlotToContainer(new Slot(machine, 0, 74, 42));
         this.addSlotToContainer(new SlotFurnaceFuel(machine, 1, 36, 50));
-        this.addSlotToContainer(new Slot(machine, 2, 134, 42) {
-        	@Override
-        	public boolean isItemValid(ItemStack stack) {
-        		return false;
-        	}
-        });
+        this.addSlotToContainer(new SlotOutput(machine, 2, 134, 42));
         
         int i;
 

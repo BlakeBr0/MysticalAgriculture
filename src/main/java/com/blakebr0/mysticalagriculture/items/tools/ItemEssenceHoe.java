@@ -4,12 +4,12 @@ import java.util.List;
 
 import javax.annotation.Nullable;
 
+import com.blakebr0.cucumber.helper.NBTHelper;
 import com.blakebr0.cucumber.iface.IRepairMaterial;
 import com.blakebr0.cucumber.lib.Colors;
 import com.blakebr0.mysticalagriculture.MysticalAgriculture;
 import com.blakebr0.mysticalagriculture.items.ModItems;
 import com.blakebr0.mysticalagriculture.lib.Tooltips;
-import com.blakebr0.mysticalagriculture.util.NBTHelper;
 
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.item.ItemHoe;
@@ -39,7 +39,7 @@ public class ItemEssenceHoe extends ItemHoe implements IRepairMaterial {
 		int damage = stack.getMaxDamage() - stack.getItemDamage();
 		tooltip.add(Tooltips.DURABILITY + color + (damage > -1 ? damage : Tooltips.UNLIMITED));
 		if(OreDictionary.itemMatches(getRepairMaterial(), ModItems.itemCrafting.itemSupremiumIngot, false)){
-			NBTTagCompound tag = NBTHelper.getDataMap(stack);
+			NBTTagCompound tag = NBTHelper.getTagCompound(stack);
 			if(tag.hasKey(ToolType.TOOL_TYPE)){
 				tooltip.add(Tooltips.CHARM_SLOT + Colors.RED + ToolType.byIndex(tag.getInteger(ToolType.TOOL_TYPE)).getLocalizedName());
 			} else {

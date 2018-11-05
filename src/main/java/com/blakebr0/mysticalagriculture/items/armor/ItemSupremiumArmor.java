@@ -5,13 +5,13 @@ import java.util.List;
 
 import javax.annotation.Nullable;
 
+import com.blakebr0.cucumber.helper.NBTHelper;
 import com.blakebr0.cucumber.iface.IRepairMaterial;
 import com.blakebr0.cucumber.lib.Colors;
 import com.blakebr0.mysticalagriculture.MysticalAgriculture;
 import com.blakebr0.mysticalagriculture.config.ModConfig;
 import com.blakebr0.mysticalagriculture.items.ModItems;
 import com.blakebr0.mysticalagriculture.lib.Tooltips;
-import com.blakebr0.mysticalagriculture.util.NBTHelper;
 
 import net.minecraft.block.material.Material;
 import net.minecraft.client.util.ITooltipFlag;
@@ -47,7 +47,7 @@ public class ItemSupremiumArmor extends ItemArmor implements IRepairMaterial {
 		int damage = stack.getMaxDamage() - stack.getItemDamage();
 		tooltip.add(Tooltips.DURABILITY + Colors.RED + damage);
 		if(ModConfig.confSupremiumFlight){ tooltip.add(Tooltips.SET_BONUS + Colors.RED + Tooltips.FLIGHT); }
-		NBTTagCompound tag = NBTHelper.getDataMap(stack);
+		NBTTagCompound tag = NBTHelper.getTagCompound(stack);
 		if(tag.hasKey(ArmorType.ARMOR_TYPE)){
 			tooltip.add(Tooltips.CHARM_SLOT + Colors.RED + ArmorType.byIndex(tag.getInteger(ArmorType.ARMOR_TYPE)).getLocalizedName());
 		} else {
@@ -63,7 +63,7 @@ public class ItemSupremiumArmor extends ItemArmor implements IRepairMaterial {
 			}
 		}
 		
-		NBTTagCompound tag = NBTHelper.getDataMap(stack);
+		NBTTagCompound tag = NBTHelper.getTagCompound(stack);
 		if(tag.hasKey(ArmorType.ARMOR_TYPE)){
 			ArmorType type = ArmorType.byIndex(tag.getInteger(ArmorType.ARMOR_TYPE));
 			if(type != null){
@@ -113,7 +113,7 @@ public class ItemSupremiumArmor extends ItemArmor implements IRepairMaterial {
     	public boolean hasSpeed(EntityPlayer player){
     		ItemStack stack = player.getItemStackFromSlot(EntityEquipmentSlot.LEGS);
     		if(stack.getItem() == ModItems.itemSupremiumLeggings){
-            	NBTTagCompound tag = NBTHelper.getDataMap(stack);
+            	NBTTagCompound tag = NBTHelper.getTagCompound(stack);
             	if(tag.hasKey(ArmorType.ARMOR_TYPE)){
             		if(tag.getInteger(ArmorType.ARMOR_TYPE) == ArmorType.SPEED.getIndex()){
             			return true;

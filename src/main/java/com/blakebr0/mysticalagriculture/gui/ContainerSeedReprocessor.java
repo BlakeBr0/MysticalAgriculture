@@ -1,5 +1,6 @@
 package com.blakebr0.mysticalagriculture.gui;
 
+import com.blakebr0.cucumber.inventory.slot.SlotOutput;
 import com.blakebr0.mysticalagriculture.crafting.ReprocessorManager;
 import com.blakebr0.mysticalagriculture.tileentity.TileEntitySeedReprocessor;
 
@@ -16,12 +17,7 @@ public class ContainerSeedReprocessor extends Container {
     public ContainerSeedReprocessor(InventoryPlayer player, TileEntitySeedReprocessor machine){
         this.reprocessor = machine;
         this.addSlotToContainer(new Slot(machine, 0, 56, 27));
-        this.addSlotToContainer(new Slot(machine, 1, 116, 27){
-        	@Override
-        	public boolean isItemValid(ItemStack stack) {
-        		return false;
-        	}
-        });
+        this.addSlotToContainer(new SlotOutput(machine, 1, 116, 27));
         
         int i;
 

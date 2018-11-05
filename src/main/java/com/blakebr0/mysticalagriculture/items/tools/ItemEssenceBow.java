@@ -4,12 +4,13 @@ import java.util.List;
 
 import javax.annotation.Nullable;
 
+import com.blakebr0.cucumber.helper.NBTHelper;
+import com.blakebr0.cucumber.iface.ICustomBow;
 import com.blakebr0.cucumber.iface.IRepairMaterial;
 import com.blakebr0.cucumber.lib.Colors;
 import com.blakebr0.mysticalagriculture.MysticalAgriculture;
 import com.blakebr0.mysticalagriculture.items.ModItems;
 import com.blakebr0.mysticalagriculture.lib.Tooltips;
-import com.blakebr0.mysticalagriculture.util.NBTHelper;
 
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.enchantment.EnchantmentHelper;
@@ -34,7 +35,7 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraftforge.oredict.OreDictionary;
 
-public class ItemEssenceBow extends ItemBow implements IRepairMaterial {
+public class ItemEssenceBow extends ItemBow implements IRepairMaterial, ICustomBow {
 
 	public ItemStack repairMaterial;
 	public ToolMaterial toolMaterial;
@@ -59,7 +60,7 @@ public class ItemEssenceBow extends ItemBow implements IRepairMaterial {
                     return 0.0F;
                 } else {
                     ItemStack itemstack = entity.getActiveItemStack();
-                    return !itemstack.isEmpty() && itemstack.getItem() instanceof ItemEssenceBow ? (float)(stack.getMaxItemUseDuration() - entity.getItemInUseCount()) * getDrawSpeed(stack) / 20.0F : 0.0F;
+                    return !itemstack.isEmpty() && itemstack.getItem() instanceof ItemEssenceBow ? (float)(stack.getMaxItemUseDuration() - entity.getItemInUseCount()) * getDrawSpeedMulti(stack) / 20.0F : 0.0F;
                 }
             }
         });
@@ -79,7 +80,7 @@ public class ItemEssenceBow extends ItemBow implements IRepairMaterial {
 		tooltip.add(Tooltips.DAMAGE + color + "+" + this.damage);
 		tooltip.add(Tooltips.DRAW_SPEED + color +  "+" + (int)(this.drawSpeed * 100) + "%");
 		if(OreDictionary.itemMatches(getRepairMaterial(), ModItems.itemCrafting.itemSupremiumIngot, false)){
-			NBTTagCompound tag = NBTHelper.getDataMap(stack);
+			NBTTagCompound tag = NBTHelper.getTagCompound(stack);
 			if(tag.hasKey(ToolType.TOOL_TYPE)){
 				tooltip.add(Tooltips.CHARM_SLOT + Colors.RED + ToolType.byIndex(tag.getInteger(ToolType.TOOL_TYPE)).getLocalizedName());
 			} else {
@@ -103,10 +104,11 @@ public class ItemEssenceBow extends ItemBow implements IRepairMaterial {
 		return repairMaterial;
 	}
 	
-	public float getDrawSpeed(ItemStack stack){
+	@Override
+	public float getDrawSpeedMulti(ItemStack stack){
 		float multi = 1.0F;
 		if(stack.getItem() == ModItems.itemSupremiumBow){
-			NBTTagCompound tag = NBTHelper.getDataMap(stack);
+			NBTTagCompound tag = NBTHelper.getTagCompound(stack);
 			if(tag.hasKey(ToolType.TOOL_TYPE)){
 				if(tag.getInteger(ToolType.TOOL_TYPE) == ToolType.QUICK_DRAW.getIndex()){
 					multi = 2.0F;
@@ -115,28 +117,13 @@ public class ItemEssenceBow extends ItemBow implements IRepairMaterial {
 				}
 			}
 		}
+		
 		return (this.drawSpeed * multi) + 1.0f;
-	}
-	
-	protected ItemStack findAmmo(EntityPlayer player){
-		if(this.isArrow(player.getHeldItem(EnumHand.OFF_HAND))){
-			return player.getHeldItem(EnumHand.OFF_HAND);
-		} else if(this.isArrow(player.getHeldItem(EnumHand.MAIN_HAND))){
-	            return player.getHeldItem(EnumHand.MAIN_HAND);
-		} else {
-			for(int i = 0; i < player.inventory.getSizeInventory(); ++i){
-				ItemStack itemstack = player.inventory.getStackInSlot(i);
-				if(this.isArrow(itemstack)){
-					return itemstack;
-				}
-			}
-			return ItemStack.EMPTY;
-		}
 	}
 	
 	public int getArrowsShot(ItemStack stack){
 		if(stack.getItem() == ModItems.itemSupremiumBow){
-			NBTTagCompound tag = NBTHelper.getDataMap(stack);
+			NBTTagCompound tag = NBTHelper.getTagCompound(stack);
 			if(tag.hasKey(ToolType.TOOL_TYPE)){
 				if(tag.getInteger(ToolType.TOOL_TYPE) == ToolType.TRIPLE_SHOT.getIndex()){
 					return 3;
@@ -151,9 +138,9 @@ public class ItemEssenceBow extends ItemBow implements IRepairMaterial {
         if(entityLiving instanceof EntityPlayer){
             EntityPlayer entityplayer = (EntityPlayer)entityLiving;
             boolean flag = entityplayer.capabilities.isCreativeMode || EnchantmentHelper.getEnchantmentLevel(Enchantments.INFINITY, stack) > 0;
-            ItemStack itemstack = this.findAmmo(entityplayer);
+            ItemStack itemstack = ICustomBow.findAmmo(entityplayer);
 
-            int i = (int)((this.getMaxItemUseDuration(stack) - timeLeft) * getDrawSpeed(stack));
+            int i = (int)((this.getMaxItemUseDuration(stack) - timeLeft) * this.getDrawSpeedMulti(stack));
             i = net.minecraftforge.event.ForgeEventFactory.onArrowLoose(stack, world, (EntityPlayer)entityLiving, i, !itemstack.isEmpty() || flag);
             if(i < 0) return;
             int ts = getArrowsShot(stack);

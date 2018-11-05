@@ -5,13 +5,13 @@ import java.util.Random;
 
 import javax.annotation.Nullable;
 
+import com.blakebr0.cucumber.helper.NBTHelper;
 import com.blakebr0.cucumber.iface.IRepairMaterial;
 import com.blakebr0.cucumber.lib.Colors;
 import com.blakebr0.cucumber.util.Utils;
 import com.blakebr0.mysticalagriculture.MysticalAgriculture;
 import com.blakebr0.mysticalagriculture.items.ModItems;
 import com.blakebr0.mysticalagriculture.lib.Tooltips;
-import com.blakebr0.mysticalagriculture.util.NBTHelper;
 
 import net.minecraft.block.Block;
 import net.minecraft.client.util.ITooltipFlag;
@@ -52,7 +52,7 @@ public class ItemEssenceShears extends ItemShears implements IRepairMaterial {
 		int damage = stack.getMaxDamage() - stack.getItemDamage();
 		tooltip.add(Tooltips.DURABILITY + color + (damage > -1 ? damage : Tooltips.UNLIMITED));
 		if(OreDictionary.itemMatches(getRepairMaterial(), ModItems.itemCrafting.itemSupremiumIngot, false)){
-			NBTTagCompound tag = NBTHelper.getDataMap(stack);
+			NBTTagCompound tag = NBTHelper.getTagCompound(stack);
 			if(tag.hasKey(ToolType.TOOL_TYPE)){
 				tooltip.add(Tooltips.CHARM_SLOT + Colors.RED + ToolType.byIndex(tag.getInteger(ToolType.TOOL_TYPE)).getLocalizedName());
 			} else {
@@ -79,7 +79,7 @@ public class ItemEssenceShears extends ItemShears implements IRepairMaterial {
     @Override
     public boolean itemInteractionForEntity(ItemStack itemstack, EntityPlayer player, EntityLivingBase entity, EnumHand hand){
     	if(itemstack.getItem() == ModItems.itemSupremiumShears){
-        	NBTTagCompound tag = NBTHelper.getDataMap(itemstack);
+        	NBTTagCompound tag = NBTHelper.getTagCompound(itemstack);
         	if(tag.hasKey(ToolType.TOOL_TYPE)){
         		if(tag.getInteger(ToolType.TOOL_TYPE) == ToolType.RAINBOW.getIndex()){
         	        if(entity.getEntityWorld().isRemote){
@@ -154,7 +154,7 @@ public class ItemEssenceShears extends ItemShears implements IRepairMaterial {
         	return super.onBlockStartBreak(itemstack, pos, player);
         }
         
-        NBTTagCompound tag = NBTHelper.getDataMap(itemstack);
+        NBTTagCompound tag = NBTHelper.getTagCompound(itemstack);
         if(!tag.hasKey(ToolType.TOOL_TYPE)){
         	return super.onBlockStartBreak(itemstack, pos, player);
         } else if(!(tag.getInteger(ToolType.TOOL_TYPE) == ToolType.SHEARING_AOE.getIndex())){

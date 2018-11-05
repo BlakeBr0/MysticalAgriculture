@@ -4,13 +4,13 @@ import java.util.List;
 
 import javax.annotation.Nullable;
 
+import com.blakebr0.cucumber.helper.NBTHelper;
 import com.blakebr0.cucumber.iface.IRepairMaterial;
 import com.blakebr0.cucumber.lib.Colors;
 import com.blakebr0.mysticalagriculture.MysticalAgriculture;
 import com.blakebr0.mysticalagriculture.blocks.ModBlocks;
 import com.blakebr0.mysticalagriculture.items.ModItems;
 import com.blakebr0.mysticalagriculture.lib.Tooltips;
-import com.blakebr0.mysticalagriculture.util.NBTHelper;
 import com.blakebr0.mysticalagriculture.util.ToolTools;
 
 import net.minecraft.block.Block;
@@ -50,7 +50,7 @@ public class ItemEssencePickaxe extends ItemPickaxe implements IRepairMaterial {
 		int damage = stack.getMaxDamage() - stack.getItemDamage();
 		tooltip.add(Tooltips.DURABILITY + color + (damage > -1 ? damage : Tooltips.UNLIMITED));
 		if(OreDictionary.itemMatches(getRepairMaterial(), ModItems.itemCrafting.itemSupremiumIngot, false)){
-			NBTTagCompound tag = NBTHelper.getDataMap(stack);
+			NBTTagCompound tag = NBTHelper.getTagCompound(stack);
 			if(tag.hasKey(ToolType.TOOL_TYPE)){
 				tooltip.add(Tooltips.CHARM_SLOT + Colors.RED + ToolType.byIndex(tag.getInteger(ToolType.TOOL_TYPE)).getLocalizedName());
 			} else {
@@ -95,7 +95,7 @@ public class ItemEssencePickaxe extends ItemPickaxe implements IRepairMaterial {
     public EnumActionResult onItemUse(EntityPlayer player, World world, BlockPos pos, EnumHand hand, EnumFacing side, float hitX, float hitY, float hitZ){
 		ItemStack stack = player.getHeldItem(hand);
 		if(stack.getItem() == ModItems.itemSupremiumPickaxe){
-			NBTTagCompound tag = NBTHelper.getDataMap(stack);
+			NBTTagCompound tag = NBTHelper.getTagCompound(stack);
 			if(tag.hasKey(ToolType.TOOL_TYPE)){
 				if(tag.getInteger(ToolType.TOOL_TYPE) == ToolType.MINERS_VISION.getIndex()){
 			    	ItemStack torch = new ItemStack(ModBlocks.blockMinersTorch);
@@ -111,7 +111,7 @@ public class ItemEssencePickaxe extends ItemPickaxe implements IRepairMaterial {
 	@Override
     public boolean onBlockStartBreak(ItemStack stack, BlockPos pos, EntityPlayer player){
 		if(stack.getItem() == ModItems.itemSupremiumPickaxe){
-			NBTTagCompound tag = NBTHelper.getDataMap(stack);
+			NBTTagCompound tag = NBTHelper.getTagCompound(stack);
 			if(tag.hasKey(ToolType.TOOL_TYPE)){
 				if(tag.getInteger(ToolType.TOOL_TYPE) == ToolType.MINING_AOE.getIndex()){
 			        boolean blocks = false;

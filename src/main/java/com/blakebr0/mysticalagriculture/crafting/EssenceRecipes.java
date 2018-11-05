@@ -20,7 +20,7 @@ public class EssenceRecipes {
 	
 	private static CropType.Type type;
 	
-	public static void addEssenceRecipe(ItemStack output, Object... input){
+	public static void addEssenceRecipe(ItemStack output, Object... input) {
 		if (!output.isEmpty() && output.getCount() > 0 && validate(input)) {
 			ForgeRegistries.RECIPES.register(new ShapedOreRecipe(ModRecipes.EMPTY_GROUP, output, input).setMirrored(false).setRegistryName(RecipeHelper.getRecipeLocation(output)));
 		}
@@ -28,7 +28,7 @@ public class EssenceRecipes {
 	
 	public static void addEssenceRecipe(String output, int amount, Object... input) {
 		if (amount > 0 && validate(input)) {
-			ForgeRegistries.RECIPES.register(new EssenceOreDictRecipe(output, amount, input).setMirrored(false).setRegistryName(getRecipeLocation(output)));
+			ForgeRegistries.RECIPES.register(new EssenceOreDictRecipe(output, amount, input).setMirrored(false).setRegistryName(RecipeHelper.getRecipeLocation(output)));
 		}
 	}
 	
@@ -44,30 +44,11 @@ public class EssenceRecipes {
 		return true;
 	}
 	
-	// TODO: cucumber
-	public static ResourceLocation getRecipeLocation(String name) {
-		String namespace = Loader.instance().activeModContainer().getModId();
-		ResourceLocation baseLoc = new ResourceLocation(namespace, name);
-		ResourceLocation recipeLoc = baseLoc;
-		int index = 0;
-
-		while (CraftingManager.REGISTRY.containsKey(recipeLoc)) {
-			index++;
-			recipeLoc = new ResourceLocation(namespace, baseLoc.getResourcePath() + "_" + index);
-		}
-
-		return recipeLoc;
-	}
-	
-	public static int fromBoolean(boolean enabled){
-		if(enabled){
-			return 1;
-		}
-		return 0;
+	public static int fromBoolean(boolean enabled) {
+		return enabled ? 1 : 0;
 	}
 		
-	public static void init(){
-
+	public static void init() {
 		addEssenceRecipe(new ItemStack(Blocks.COBBLESTONE, EssenceConfig.cobblestone, 0), "EEE", "E E", "EEE", 'E', new ItemStack(type.STONE.getCrop(), 1, 0));
 		addEssenceRecipe(new ItemStack(Blocks.STONE, EssenceConfig.stone, 0), "EEE", "EEE", "EEE", 'E', new ItemStack(type.STONE.getCrop(), 1, 0));
 		addEssenceRecipe(new ItemStack(Blocks.STONE, EssenceConfig.granite, 1), " E ", "EQE", " E ", 'E', new ItemStack(type.STONE.getCrop(), 1, 0), 'Q', new ItemStack(type.NETHER_QUARTZ.getCrop(), 1, 0));

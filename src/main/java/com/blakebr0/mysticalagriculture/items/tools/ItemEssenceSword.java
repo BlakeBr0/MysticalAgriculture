@@ -4,12 +4,12 @@ import java.util.List;
 
 import javax.annotation.Nullable;
 
+import com.blakebr0.cucumber.helper.NBTHelper;
 import com.blakebr0.cucumber.iface.IRepairMaterial;
 import com.blakebr0.cucumber.lib.Colors;
 import com.blakebr0.mysticalagriculture.MysticalAgriculture;
 import com.blakebr0.mysticalagriculture.items.ModItems;
 import com.blakebr0.mysticalagriculture.lib.Tooltips;
-import com.blakebr0.mysticalagriculture.util.NBTHelper;
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
 
@@ -52,7 +52,7 @@ public class ItemEssenceSword extends ItemSword implements IRepairMaterial {
 		int damage = stack.getMaxDamage() - stack.getItemDamage();
 		tooltip.add(Tooltips.DURABILITY + color + (damage > -1 ? damage : Tooltips.UNLIMITED));
 		if(OreDictionary.itemMatches(getRepairMaterial(), ModItems.itemCrafting.itemSupremiumIngot, false)){
-			NBTTagCompound tag = NBTHelper.getDataMap(stack);
+			NBTTagCompound tag = NBTHelper.getTagCompound(stack);
 			if(tag.hasKey(ToolType.TOOL_TYPE)){
 				tooltip.add(Tooltips.CHARM_SLOT + Colors.RED + ToolType.byIndex(tag.getInteger(ToolType.TOOL_TYPE)).getLocalizedName());
 			} else {
@@ -83,7 +83,7 @@ public class ItemEssenceSword extends ItemSword implements IRepairMaterial {
 	
 	public float getDamageVsEntity(ItemStack stack){
 		if(stack.getItem() == ModItems.itemSupremiumSword){
-			NBTTagCompound tag = NBTHelper.getDataMap(stack);
+			NBTTagCompound tag = NBTHelper.getTagCompound(stack);
 			if(tag.hasKey(ToolType.TOOL_TYPE)){
 				if(tag.getInteger(ToolType.TOOL_TYPE) == ToolType.STRENGTH.getIndex()){
 					return ((ItemEssenceSword)stack.getItem()).getDamageVsEntity() + 10.0F;
@@ -98,7 +98,7 @@ public class ItemEssenceSword extends ItemSword implements IRepairMaterial {
     @Override
     public boolean onLeftClickEntity(ItemStack stack, EntityPlayer player, Entity entity){
     	if(stack.getItem() == ModItems.itemSupremiumSword){
-    		NBTTagCompound tag = NBTHelper.getDataMap(stack);
+    		NBTTagCompound tag = NBTHelper.getTagCompound(stack);
     		if(tag.hasKey(ToolType.TOOL_TYPE)){
     			if(tag.getInteger(ToolType.TOOL_TYPE) == ToolType.ATTACK_AOE.getIndex()){
     		    	if(player.getCooledAttackStrength(0.5F) >= 0.95F){

@@ -10,7 +10,6 @@ import com.blakebr0.mysticalagriculture.crafting.EssenceRecipes;
 import com.blakebr0.mysticalagriculture.crafting.ModRecipes;
 import com.blakebr0.mysticalagriculture.crafting.ReprocessorManager;
 import com.blakebr0.mysticalagriculture.entity.ModEntities;
-import com.blakebr0.mysticalagriculture.handler.BowZoomHandler;
 import com.blakebr0.mysticalagriculture.handler.GuiHandler;
 import com.blakebr0.mysticalagriculture.handler.MobDrops;
 import com.blakebr0.mysticalagriculture.items.ModItems;
@@ -55,9 +54,7 @@ public class CommonProxy {
 	    ModEntities.init();
 
 	    MinecraftForge.EVENT_BUS.register(MysticalAgriculture.REGISTRY);
-	    
-	    MinecraftForge.EVENT_BUS.register(new BowZoomHandler());
-	    
+	    	    
 	    MinecraftForge.EVENT_BUS.register(new ItemIntermediumArmor.AbilityHandler());
 	    MinecraftForge.EVENT_BUS.register(new ItemSuperiumArmor.AbilityHandler());
 	    MinecraftForge.EVENT_BUS.register(new ItemSupremiumArmor.AbilityHandler());

@@ -1,8 +1,8 @@
 package com.blakebr0.mysticalagriculture.crafting;
 
+import com.blakebr0.cucumber.helper.NBTHelper;
 import com.blakebr0.mysticalagriculture.items.armor.ArmorType;
 import com.blakebr0.mysticalagriculture.items.tools.ToolType;
-import com.blakebr0.mysticalagriculture.util.NBTHelper;
 
 import net.minecraft.inventory.InventoryCrafting;
 import net.minecraft.item.Item;
@@ -34,7 +34,7 @@ public class CharmRemovalRecipe extends ShapelessOreRecipe {
         for(int i = 0; i < inventoryCrafting.getSizeInventory(); i++){
             slotStack = inventoryCrafting.getStackInSlot(i);
             if(!slotStack.isEmpty() && slotStack.getItem() != null){
-            	tags = (NBTTagCompound) NBTHelper.getDataMap(slotStack).copy();
+            	tags = (NBTTagCompound) NBTHelper.getTagCompound(slotStack).copy();
             	int newDamage = MathHelper.clamp(slotStack.getItemDamage(), 0, result.getMaxDamage());
             	result.setItemDamage(newDamage);
             	break;

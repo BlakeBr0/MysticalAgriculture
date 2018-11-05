@@ -4,10 +4,10 @@ import java.util.List;
 
 import javax.annotation.Nullable;
 
+import com.blakebr0.cucumber.helper.NBTHelper;
 import com.blakebr0.cucumber.lib.Colors;
 import com.blakebr0.mysticalagriculture.items.ModItems;
 import com.blakebr0.mysticalagriculture.lib.Tooltips;
-import com.blakebr0.mysticalagriculture.util.NBTHelper;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockDirt;
@@ -42,7 +42,7 @@ public class ItemSupremiumHoe extends ItemEssenceHoe {
 		int range = (getRange(stack) * 2 + 1);
 		tooltip.add(Tooltips.HOE_TOOLTIP[0] + " " + Colors.GRAY + Minecraft.getMinecraft().gameSettings.keyBindSneak.getDisplayName() +  " " + Tooltips.HOE_TOOLTIP[1] + " " + Colors.RED + range + "x" + range + Colors.GRAY + ".");
 		tooltip.add(Tooltips.DURABILITY + Colors.RED + Tooltips.UNLIMITED);
-		NBTTagCompound tag = NBTHelper.getDataMap(stack);
+		NBTTagCompound tag = NBTHelper.getTagCompound(stack);
 		if(tag.hasKey(ToolType.TOOL_TYPE)){
 			tooltip.add(Tooltips.CHARM_SLOT + Colors.RED + ToolType.byIndex(tag.getInteger(ToolType.TOOL_TYPE)).getLocalizedName());
 		} else {
@@ -52,7 +52,7 @@ public class ItemSupremiumHoe extends ItemEssenceHoe {
 	
 	public int getRange(ItemStack stack){
 		if(stack.getItem() == ModItems.itemSupremiumHoe){
-        	NBTTagCompound tag = NBTHelper.getDataMap(stack);
+        	NBTTagCompound tag = NBTHelper.getTagCompound(stack);
         	if(tag.hasKey(ToolType.TOOL_TYPE)){
         		if(tag.getInteger(ToolType.TOOL_TYPE) == ToolType.TILLING_AOE.getIndex()){
         			return this.range + 2;
