@@ -985,6 +985,10 @@ tooltip.ma.efficiency=Efficiency
 tooltip.ma.description=Description
 tooltip.ma.applicable_to=Applicable To
 
+tooltip.ma.reprocessor_speed=Operation Speed: %st
+tooltip.ma.reprocessor_fuel_rate=Fuel Usage: %s/t
+tooltip.ma.reprocessor_fuel_capacity=Fuel Capacity: %s
+
 tooltip.ma.hold_shift_for_info=Hold §e§oSHIFT §r§7for info.
 tooltip.ma.hold=Hold
 tooltip.ma.for=for

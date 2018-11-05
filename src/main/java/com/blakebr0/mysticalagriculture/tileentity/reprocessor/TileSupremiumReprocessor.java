@@ -12,23 +12,23 @@ public class TileSupremiumReprocessor extends TileEssenceReprocessor {
 	public int getOperationTime() {
 		return 5;
 	}
-	
+
 	@Override
 	public int getFuelUsage() {
-		return 16;
+		return 56;
 	}
 
 	@Override
 	public int getFuelCapacity() {
-		return 102400;
+		return 8960;
 	}
-	
-    @Override
-    public void markDirty() {
-    	super.markDirty();
-    	VanillaPacketDispatcher.dispatchTEToNearbyPlayers(this);
-    }
-    
+
+	@Override
+	public void markDirty() {
+		super.markDirty();
+		VanillaPacketDispatcher.dispatchTEToNearbyPlayers(this);
+	}
+
 	@Override
 	public SPacketUpdateTileEntity getUpdatePacket() {
 		return new SPacketUpdateTileEntity(this.getPos(), -1, this.getUpdateTag());
