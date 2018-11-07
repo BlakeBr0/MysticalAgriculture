@@ -7,11 +7,11 @@ import javax.annotation.Nullable;
 import com.blakebr0.cucumber.helper.NBTHelper;
 import com.blakebr0.cucumber.iface.IRepairMaterial;
 import com.blakebr0.cucumber.lib.Colors;
+import com.blakebr0.cucumber.util.ToolTools;
 import com.blakebr0.mysticalagriculture.MysticalAgriculture;
 import com.blakebr0.mysticalagriculture.blocks.ModBlocks;
 import com.blakebr0.mysticalagriculture.items.ModItems;
 import com.blakebr0.mysticalagriculture.lib.Tooltips;
-import com.blakebr0.mysticalagriculture.util.ToolTools;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
