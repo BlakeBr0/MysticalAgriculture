@@ -10,17 +10,17 @@ public class TileIntermediumReprocessor extends TileEssenceReprocessor {
 
 	@Override
 	public int getOperationTime() {
-		return 55;
+		return 54;
 	}
 
 	@Override
 	public int getFuelUsage() {
-		return 5;
+		return 3;
 	}
 
 	@Override
 	public int getFuelCapacity() {
-		return 8800;
+		return 12800;
 	}
 
 	@Override

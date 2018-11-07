@@ -15,12 +15,12 @@ public class TileSupremiumReprocessor extends TileEssenceReprocessor {
 
 	@Override
 	public int getFuelUsage() {
-		return 56;
+		return 26;
 	}
 
 	@Override
 	public int getFuelCapacity() {
-		return 8960;
+		return 28000;
 	}
 
 	@Override
