@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.annotation.Nullable;
 
+import com.blakebr0.cucumber.helper.CropHelper;
 import com.blakebr0.cucumber.helper.NBTHelper;
 import com.blakebr0.cucumber.iface.IRepairMaterial;
 import com.blakebr0.cucumber.item.ItemBase;
@@ -51,12 +52,6 @@ public class ItemEssenceScythe extends ItemBase implements IRepairMaterial {
 	public ToolMaterial toolMaterial;
 	public ItemStack repairMaterial;
 	public TextFormatting color;
-	
-	private static final Method GET_SEED;
-	
-	static {
-		GET_SEED = ReflectionHelper.findMethod(BlockCrops.class, "getSeed", "func_149866_i");
-	}
 	
 	public ItemEssenceScythe(String name, int range, ToolMaterial material, TextFormatting color){
 		super("ma." + name);
@@ -126,12 +121,13 @@ public class ItemEssenceScythe extends ItemBase implements IRepairMaterial {
 			Block block = state.getBlock();
 			if(block instanceof BlockCrops){
 				BlockCrops crop = (BlockCrops)block;
-				if(crop.isMaxAge(state) && getSeed(crop) != null){
+				Item seed = CropHelper.getSeed(crop);
+				if(crop.isMaxAge(state) && seed != null){
 					int fortune = EnchantmentHelper.getEnchantmentLevel(Enchantments.FORTUNE, stack);
 					NonNullList<ItemStack> drops = NonNullList.create();
 					crop.getDrops(drops, world, aoePos, state, fortune);
 					for(ItemStack drop : drops){
-						if(!drop.isEmpty() && drop.getItem() == getSeed(crop)){
+						if(!drop.isEmpty() && drop.getItem() == seed){
 							drop.shrink(1);;
 							if(drop.getCount() <= 0){
 								drops.remove(drop);
@@ -187,12 +183,4 @@ public class ItemEssenceScythe extends ItemBase implements IRepairMaterial {
         }
         return multimap;
     }
-    
-	public static Item getSeed(Block block){
-		try {
-			return (Item)GET_SEED.invoke(block);
-		} catch(Exception e){
-			return null;
-		}
-	}
 }
