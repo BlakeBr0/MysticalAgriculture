@@ -5,73 +5,74 @@ import java.util.List;
 
 import com.blakebr0.mysticalagriculture.blocks.ModBlocks;
 import com.blakebr0.mysticalagriculture.config.ModConfig;
+import com.blakebr0.mysticalagriculture.crafting.ReprocessorManager;
+import com.blakebr0.mysticalagriculture.crafting.ReprocessorRecipe;
 import com.blakebr0.mysticalagriculture.crafting.TinkeringTableManager;
+import com.blakebr0.mysticalagriculture.crafting.UpgradeRecipe;
 import com.blakebr0.mysticalagriculture.gui.ContainerTinkeringTable;
 import com.blakebr0.mysticalagriculture.gui.GuiSeedReprocessor;
 import com.blakebr0.mysticalagriculture.gui.GuiTinkeringTable;
-import com.blakebr0.mysticalagriculture.lib.EssenceType;
 
 import mezz.jei.api.IGuiHelper;
 import mezz.jei.api.IJeiHelpers;
-import mezz.jei.api.IJeiRuntime;
 import mezz.jei.api.IModPlugin;
 import mezz.jei.api.IModRegistry;
 import mezz.jei.api.JEIPlugin;
+import mezz.jei.api.recipe.IRecipeCategoryRegistration;
 import mezz.jei.api.recipe.transfer.IRecipeTransferRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
-@JEIPlugin //TODO: update to new shit
+@JEIPlugin
 public class CompatJEI implements IModPlugin {
-
-	public static CompatJEI instance;
-    private IJeiRuntime runtime;
 	
 	public static List<Block> blocks = new ArrayList<Block>();
 	public static List<Item> items = new ArrayList<Item>();
 	
+	@Override
+	public void registerCategories(IRecipeCategoryRegistration registry) {
+		IGuiHelper helper = registry.getJeiHelpers().getGuiHelper();
+		
+		if (ModConfig.confSeedReprocessor) {	
+			registry.addRecipeCategories(new ReprocessorCategory(helper));
+		}
+		
+		registry.addRecipeCategories(new TinkeringTableCategory(helper));
+	}
+	
     @Override
-    public void register(IModRegistry registry) {
-        instance = this;
+    public void register(IModRegistry registry) {  
+        IJeiHelpers helpers = registry.getJeiHelpers();
+        IRecipeTransferRegistry transfer = registry.getRecipeTransferRegistry();
         
-        IJeiHelpers jeiHelpers = registry.getJeiHelpers();
-        IGuiHelper guiHelper = jeiHelpers.getGuiHelper();
+        blocks.forEach(block -> registry.addIngredientInfo(new ItemStack(block), ItemStack.class, "desc." + block.getUnlocalizedName()));
+        items.forEach(item -> registry.addIngredientInfo(new ItemStack(item), ItemStack.class, "desc." + item.getUnlocalizedName()));
         
-        for(Block block : blocks){
-        	registry.addIngredientInfo(new ItemStack(block), ItemStack.class, "desc." + block.getUnlocalizedName());
+        if (ModConfig.confSeedReprocessor) {
+        	registry.addRecipeCatalyst(new ItemStack(ModBlocks.blockSeedReprocessor), ReprocessorCategory.UID);
+        	registry.addRecipeCatalyst(new ItemStack(ModBlocks.INFERIUM_REPROCESSOR), ReprocessorCategory.UID);
+        	registry.addRecipeCatalyst(new ItemStack(ModBlocks.PRUDENTIUM_REPROCESSOR), ReprocessorCategory.UID);
+        	registry.addRecipeCatalyst(new ItemStack(ModBlocks.INTERMEDIUM_REPROCESSOR), ReprocessorCategory.UID);
+        	registry.addRecipeCatalyst(new ItemStack(ModBlocks.SUPERIUM_REPROCESSOR), ReprocessorCategory.UID);
+        	registry.addRecipeCatalyst(new ItemStack(ModBlocks.SUPREMIUM_REPROCESSOR), ReprocessorCategory.UID);
+        	registry.handleRecipes(ReprocessorRecipe.class, recipe -> new ReprocessorWrapper(helpers, recipe), ReprocessorCategory.UID);
+        	registry.addRecipeClickArea(GuiSeedReprocessor.class, 79, 26, 24, 17, ReprocessorCategory.UID);
+	        registry.addRecipes(ReprocessorManager.getRecipes(), ReprocessorCategory.UID);
+	        
+	        if (ModConfig.confUltimateFurnace) {
+	        	registry.addRecipeCatalyst(new ItemStack(ModBlocks.ULTIMATE_REPROCESSOR), ReprocessorCategory.UID);
+	        }
         }
-        
-        for(Item item : items){
-        	registry.addIngredientInfo(new ItemStack(item), ItemStack.class, "desc." + item.getUnlocalizedName());
-        }
-        
-        if(ModConfig.confSeedReprocessor){
-	        registry.addRecipeCategories(new ReprocessorCategory(registry.getJeiHelpers().getGuiHelper()));
-	        registry.addRecipeHandlers(new ReprocessorHandler());
-	        registry.addRecipes(ReprocessorRecipeMaker.getRecipes());
-	        registry.addRecipeClickArea(GuiSeedReprocessor.class, 79, 26, 24, 17, ReprocessorCategory.uid);
-	        registry.addRecipeCategoryCraftingItem(new ItemStack(ModBlocks.blockSeedReprocessor, 1, 0), ReprocessorCategory.uid);
-        }
-       
-        // TODO redo all of this (easy port they said, it would be no problem they said)
-        registry.addRecipeCategories(new TinkeringTableCategory(guiHelper));
-        registry.addRecipeHandlers(new TinkeringTableHandler(jeiHelpers));
-        registry.addRecipes(TinkeringTableManager.getInstance().getRecipeList());
+
+        registry.addRecipeCatalyst(new ItemStack(ModBlocks.blockTinkeringTable, 1, 0), TinkeringTableCategory.UID);
+        registry.addRecipeCatalyst(new ItemStack(ModBlocks.blockTinkeringTable, 1, 1), TinkeringTableCategory.UID);
+        registry.addRecipeCatalyst(new ItemStack(ModBlocks.blockTinkeringTable, 1, 2), TinkeringTableCategory.UID);
+        registry.addRecipeCatalyst(new ItemStack(ModBlocks.blockTinkeringTable, 1, 3), TinkeringTableCategory.UID);
+        registry.addRecipeCatalyst(new ItemStack(ModBlocks.blockTinkeringTable, 1, 4), TinkeringTableCategory.UID);
+        registry.handleRecipes(UpgradeRecipe.class, recipe -> new TinkeringTableWrapper(helpers, recipe), TinkeringTableCategory.UID);
         registry.addRecipeClickArea(GuiTinkeringTable.class, 109, 50, 22, 15, TinkeringTableCategory.UID);
-        IRecipeTransferRegistry transferRegistry = registry.getRecipeTransferRegistry();
-        transferRegistry.addRecipeTransferHandler(ContainerTinkeringTable.class, TinkeringTableCategory.UID, 1, 9, 10, 36);
-        for(EssenceType.Type type : EssenceType.Type.values()){
-            registry.addRecipeCatalyst(new ItemStack(ModBlocks.blockTinkeringTable, 1, type.getMetadata()), TinkeringTableCategory.UID);
-        }
-    }
-
-    @Override
-    public void onRuntimeAvailable(IJeiRuntime runtime) {
-        this.runtime = runtime;
-    }
-
-    public IJeiRuntime getRuntime() {
-        return runtime;
+        registry.addRecipes(TinkeringTableManager.getInstance().getRecipeList(), TinkeringTableCategory.UID);
+        transfer.addRecipeTransferHandler(ContainerTinkeringTable.class, TinkeringTableCategory.UID, 1, 9, 10, 36);
     }
 }

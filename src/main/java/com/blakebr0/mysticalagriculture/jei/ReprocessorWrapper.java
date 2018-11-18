@@ -1,41 +1,45 @@
 package com.blakebr0.mysticalagriculture.jei;
 
+import com.blakebr0.mysticalagriculture.crafting.ReprocessorRecipe;
+
+import mezz.jei.api.IJeiHelpers;
 import mezz.jei.api.ingredients.IIngredients;
 import mezz.jei.api.recipe.IRecipeWrapper;
 import net.minecraft.item.ItemStack;
 
 public class ReprocessorWrapper implements IRecipeWrapper {
+	
     private ItemStack input;
     private ItemStack output;
 
-    public ReprocessorWrapper(ItemStack input, ItemStack output) {
-        this.input = input;
-        this.output = output;
+    public ReprocessorWrapper(IJeiHelpers helper, ReprocessorRecipe recipe) {
+        this.input = recipe.getInput();
+        this.output = recipe.getOutput();
     }
 
     @Override
     public void getIngredients(IIngredients ingredients) {
-        ingredients.setInput(ItemStack.class, input);
-        ingredients.setOutput(ItemStack.class, output);
+        ingredients.setInput(ItemStack.class, this.input);
+        ingredients.setOutput(ItemStack.class, this.output);
     }
 
     @Override
     public boolean equals(Object obj) {
-        if(!(obj instanceof ReprocessorWrapper)) {
+        if (!(obj instanceof ReprocessorWrapper)) {
             return false;
         }
 
-        ReprocessorWrapper other = (ReprocessorWrapper)obj;
+        ReprocessorWrapper other = (ReprocessorWrapper) obj;
 
-        if(!ItemStack.areItemStacksEqual(input, other.input)){
+        if (!ItemStack.areItemStacksEqual(this.input, other.input)){
         	return false;
         }
 
-        return ItemStack.areItemStacksEqual(output, other.output);
+        return ItemStack.areItemStacksEqual(this.output, other.output);
     }
 
     @Override
     public String toString() {
-        return input + " = " + output;
+        return this.input + " = " + this.output;
     }
 }

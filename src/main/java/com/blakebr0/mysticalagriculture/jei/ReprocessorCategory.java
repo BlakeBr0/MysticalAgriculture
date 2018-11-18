@@ -1,5 +1,7 @@
 package com.blakebr0.mysticalagriculture.jei;
 
+import com.blakebr0.cucumber.helper.ResourceHelper;
+import com.blakebr0.cucumber.util.Utils;
 import com.blakebr0.mysticalagriculture.MysticalAgriculture;
 
 import mezz.jei.api.IGuiHelper;
@@ -13,39 +15,40 @@ import mezz.jei.api.recipe.IRecipeCategory;
 import net.minecraft.client.Minecraft;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.text.TextComponentTranslation;
 
 public class ReprocessorCategory implements IRecipeCategory<ReprocessorWrapper> {
 	
-    public static final String uid = "mysticalagriculture:reprocessor_jei";
+    public static final String UID = "mysticalagriculture:reprocessor_jei";
+    private static final ResourceLocation TEXTURE = ResourceHelper.getResource(MysticalAgriculture.MOD_ID, "textures/gui/seed_reprocessor_gui.png");
 
     private IDrawable background;
 	protected final IDrawableAnimated arrow;
 
     public ReprocessorCategory(IGuiHelper helper) {
-        background = helper.createDrawable(new ResourceLocation("mysticalagriculture", "textures/gui/seed_reprocessor_gui.png"), 43, 19, 101, 54);
-		IDrawableStatic arrow = helper.createDrawable(new ResourceLocation("mysticalagriculture", "textures/gui/seed_reprocessor_gui.png"), 176, 14, 24, 17);
+        this.background = helper.createDrawable(TEXTURE, 55, 22, 82, 26);
+        
+		IDrawableStatic arrow = helper.createDrawable(TEXTURE, 176, 14, 24, 17);
 		this.arrow = helper.createAnimatedDrawable(arrow, 100, IDrawableAnimated.StartDirection.LEFT, false);
     }
 
     @Override
     public String getUid() {
-        return uid;
+        return UID;
     }
 
     @Override
     public String getTitle() {
-        return new TextComponentTranslation("jei.ma.seed_reprocessor").getFormattedText();
+        return Utils.localize("jei.ma.seed_reprocessor");
     }
 
     @Override
     public IDrawable getBackground() {
-        return background;
+        return this.background;
     }
     
     @Override
     public void drawExtras(Minecraft minecraft) {
-    	arrow.draw(minecraft, 36, 7);
+    	this.arrow.draw(minecraft, 24, 4);
     }
 
 	@Override
@@ -57,8 +60,9 @@ public class ReprocessorCategory implements IRecipeCategory<ReprocessorWrapper> 
 	public void setRecipe(IRecipeLayout recipeLayout, ReprocessorWrapper recipeWrapper, IIngredients ingredients) {
         IGuiItemStackGroup group = recipeLayout.getItemStacks();
 
-        group.init(0, true, 12, 7);
-        group.init(1, false, 72, 7);
+        group.init(0, true, 0, 4);
+        group.init(1, false, 60, 4);
+        
         group.set(0, ingredients.getInputs(ItemStack.class).get(0));
         group.set(1, ingredients.getOutputs(ItemStack.class).get(0));
 	}
