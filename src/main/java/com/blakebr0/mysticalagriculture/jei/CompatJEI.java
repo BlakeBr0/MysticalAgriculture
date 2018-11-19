@@ -10,6 +10,7 @@ import com.blakebr0.mysticalagriculture.crafting.ReprocessorRecipe;
 import com.blakebr0.mysticalagriculture.crafting.TinkeringTableManager;
 import com.blakebr0.mysticalagriculture.crafting.UpgradeRecipe;
 import com.blakebr0.mysticalagriculture.gui.ContainerTinkeringTable;
+import com.blakebr0.mysticalagriculture.gui.GuiEssenceReprocessor;
 import com.blakebr0.mysticalagriculture.gui.GuiSeedReprocessor;
 import com.blakebr0.mysticalagriculture.gui.GuiTinkeringTable;
 
@@ -57,7 +58,8 @@ public class CompatJEI implements IModPlugin {
         	registry.addRecipeCatalyst(new ItemStack(ModBlocks.SUPERIUM_REPROCESSOR), ReprocessorCategory.UID);
         	registry.addRecipeCatalyst(new ItemStack(ModBlocks.SUPREMIUM_REPROCESSOR), ReprocessorCategory.UID);
         	registry.handleRecipes(ReprocessorRecipe.class, recipe -> new ReprocessorWrapper(helpers, recipe), ReprocessorCategory.UID);
-        	registry.addRecipeClickArea(GuiSeedReprocessor.class, 79, 26, 24, 17, ReprocessorCategory.UID);
+        	registry.addRecipeClickArea(GuiSeedReprocessor.class, 79, 26, 21, 15, ReprocessorCategory.UID);
+        	registry.addRecipeClickArea(GuiEssenceReprocessor.class, 99, 42, 21, 15, ReprocessorCategory.UID);
 	        registry.addRecipes(ReprocessorManager.getRecipes(), ReprocessorCategory.UID);
 	        
 	        if (ModConfig.confUltimateFurnace) {
@@ -71,7 +73,7 @@ public class CompatJEI implements IModPlugin {
         registry.addRecipeCatalyst(new ItemStack(ModBlocks.blockTinkeringTable, 1, 3), TinkeringTableCategory.UID);
         registry.addRecipeCatalyst(new ItemStack(ModBlocks.blockTinkeringTable, 1, 4), TinkeringTableCategory.UID);
         registry.handleRecipes(UpgradeRecipe.class, recipe -> new TinkeringTableWrapper(helpers, recipe), TinkeringTableCategory.UID);
-        registry.addRecipeClickArea(GuiTinkeringTable.class, 109, 50, 22, 15, TinkeringTableCategory.UID);
+        registry.addRecipeClickArea(GuiTinkeringTable.class, 109, 50, 21, 15, TinkeringTableCategory.UID);
         registry.addRecipes(TinkeringTableManager.getInstance().getRecipeList(), TinkeringTableCategory.UID);
         transfer.addRecipeTransferHandler(ContainerTinkeringTable.class, TinkeringTableCategory.UID, 1, 9, 10, 36);
     }
