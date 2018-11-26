@@ -56,11 +56,17 @@ public class TinkeringTableCategory implements IRecipeCategory<TinkeringTableWra
         stacks.init(7, true, 68, 47);
         stacks.init(8, true, 19, 68);
         stacks.init(9, true, 49, 68);
-
-        layout.setRecipeTransferButton(141, 60);
-
+        
         List<List<ItemStack>> inputs = ingredients.getInputs(ItemStack.class);
         List<ItemStack> outputs = ingredients.getOutputs(ItemStack.class).get(0);
+        
+        stacks.set(0, outputs);
+        
+        for (int i = 1; i <= 9; i++) {
+        	stacks.set(i, inputs.get(i - 1));
+        }
+
+        layout.setRecipeTransferButton(141, 60);
     }
 
 	@Override
