@@ -1,4 +1,4 @@
-package com.blakebr0.mysticalagriculture.jei;
+package com.blakebr0.mysticalagriculture.compat.jei.tinkeringtable;
 
 import java.util.List;
 

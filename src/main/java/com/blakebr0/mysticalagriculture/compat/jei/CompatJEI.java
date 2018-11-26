@@ -1,9 +1,13 @@
-package com.blakebr0.mysticalagriculture.jei;
+package com.blakebr0.mysticalagriculture.compat.jei;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import com.blakebr0.mysticalagriculture.blocks.ModBlocks;
+import com.blakebr0.mysticalagriculture.compat.jei.reprocessor.ReprocessorCategory;
+import com.blakebr0.mysticalagriculture.compat.jei.reprocessor.ReprocessorWrapper;
+import com.blakebr0.mysticalagriculture.compat.jei.tinkeringtable.TinkeringTableCategory;
+import com.blakebr0.mysticalagriculture.compat.jei.tinkeringtable.TinkeringTableWrapper;
 import com.blakebr0.mysticalagriculture.config.ModConfig;
 import com.blakebr0.mysticalagriculture.crafting.ReprocessorManager;
 import com.blakebr0.mysticalagriculture.crafting.ReprocessorRecipe;
