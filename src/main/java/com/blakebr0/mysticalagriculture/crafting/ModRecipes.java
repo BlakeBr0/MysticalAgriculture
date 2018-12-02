@@ -12,6 +12,7 @@ import com.blakebr0.mysticalagriculture.items.armor.ArmorType;
 import com.blakebr0.mysticalagriculture.items.tools.ToolType;
 import com.blakebr0.mysticalagriculture.lib.CropType;
 import com.blakebr0.mysticalagriculture.lib.Parts;
+import com.blakebr0.mysticalagriculture.util.ModChecker;
 
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
@@ -488,7 +489,7 @@ public class ModRecipes {
 	    addSeedRecipe(type.STAR_STEEL, "ingotStarsteel");
 	    addSeedRecipe(type.ADAMANTINE, "ingotAdamantine");
 
-	    addSeedRecipe(type.MARBLE, new ItemStack(Parts.itemChiselMarble, 1, 7));
+	    if (ModChecker.CHISEL) addSeedRecipe(type.MARBLE, new ItemStack(Parts.itemChiselMarble, 1, 7));
 	    addSeedRecipe(type.LIMESTONE, new ItemStack(Parts.itemChiselLimestone, 1, 7));
 	    addSeedRecipe(type.BASALT, new ItemStack(Parts.itemChiselBasalt, 1, 7));
 	    
@@ -530,6 +531,7 @@ public class ModRecipes {
 	    addSeedRecipe(type.MOONSTONE, "gemMoonstone");
 	    addSeedRecipe(type.SUNSTONE, "gemSunstone");
 	    
+	    if (ModChecker.ASTRAL_SORCERY) addSeedRecipe(type, new ItemStack(Parts.itemAstralMarble, 1, 0));
 	    addSeedRecipe(type.AQUAMARINE, new ItemStack(Parts.itemAstralCrafting, 1, 0));
 	    addSeedRecipe(type.STARMETAL, new ItemStack(Parts.itemAstralCrafting, 1, 1));
 	    addSeedRecipe(type.ROCK_CRYSTAL, new ItemStack(Parts.itemAstralRockCrystal, 1, 0));

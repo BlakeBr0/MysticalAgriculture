@@ -137,7 +137,7 @@ public class CropType {
 		STAR_STEEL("star_steel", 4, ModChecker.BASE_METALS),
 		ADAMANTINE("adamantine", 5, ModChecker.BASE_METALS),
 		
-		MARBLE("marble", 2, ModChecker.CHISEL),
+		MARBLE("marble", 2, ModChecker.CHISEL || ModChecker.ASTRAL_SORCERY),
 		LIMESTONE("limestone", 2, ModChecker.CHISEL),
 		BASALT("basalt", 2, ModChecker.CHISEL),
 		

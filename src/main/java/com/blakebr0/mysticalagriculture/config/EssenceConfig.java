@@ -231,6 +231,7 @@ public class EssenceConfig {
 	public static int moonstone;
 	public static int sunstone;
 	
+	public static int marbleAS;
 	public static int aquamarine;
 	public static int starmetal;
 	public static int rockCrystal;
@@ -528,6 +529,7 @@ public class EssenceConfig {
 		sunstone = config.get(category, "sunstone", 3).getInt();
 		
 		category = "Astral Sorcery";
+		marbleAS = config.get(category, "marble", 16).getInt();
 		aquamarine = config.get(category, "aquamarine", 8).getInt();
 		starmetal = config.get(category, "starmetal", 3).getInt();
 		rockCrystal = config.get(category, "rock_crystal", 1).getInt();

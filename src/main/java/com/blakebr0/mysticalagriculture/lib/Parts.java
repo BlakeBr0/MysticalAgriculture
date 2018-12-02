@@ -20,6 +20,7 @@ public class Parts {
 	public static Item itemGCPMars;
 	public static Item itemIC2MiscResource;
 	public static Item itemIC2Nuclear;
+	public static Item itemAstralMarble;
 	public static Item itemAstralCrafting;
 	public static Item itemAstralOre;
 	public static Item itemAstralRockCrystal;
@@ -147,8 +148,8 @@ public class Parts {
 	    
 	    if(ModChecker.ASTRAL_SORCERY){
 	    	try {
-	    		Item item = getItem("astralsorcery:ItemCraftingComponent");
-	    		itemAstralCrafting = item;
+	    		itemAstralMarble = getItem("astralsorcery:blockmarble");
+	    		itemAstralCrafting = getItem("astralsorcery:ItemCraftingComponent");
 	    	} catch(Throwable e){
 	    		e.printStackTrace();
 	    	}
