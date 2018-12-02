@@ -6,9 +6,12 @@ import javax.annotation.Nullable;
 
 import com.blakebr0.cucumber.lib.Colors;
 import com.blakebr0.mysticalagriculture.MysticalAgriculture;
+import com.blakebr0.mysticalagriculture.config.ModConfig;
+import com.blakebr0.mysticalagriculture.lib.BehaviorSeeds;
 import com.blakebr0.mysticalagriculture.lib.Tooltips;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockDispenser;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemSeeds;
@@ -28,6 +31,10 @@ public class ItemSeed extends ItemSeeds {
 		this.setCreativeTab(MysticalAgriculture.CREATIVE_TAB);
         this.crops = crops;
         this.tier = tier;
+        
+        if (ModConfig.confDispenserPlanting) {
+        	BlockDispenser.DISPENSE_BEHAVIOR_REGISTRY.putObject(this, new BehaviorSeeds(this.crops));
+        }
 	}
 	
 	public int getTier(){

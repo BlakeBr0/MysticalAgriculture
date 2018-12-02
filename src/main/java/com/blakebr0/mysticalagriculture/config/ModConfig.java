@@ -45,6 +45,7 @@ public class ModConfig {
 	public static boolean confEssenceCoal;
 	public static boolean confWateringCans;
 	public static boolean confFakePlayerWatering;
+	public static boolean confDispenserPlanting;
 	
 	public static boolean confGenerateRegular;
 	public static boolean confGenerateNether;
@@ -157,6 +158,7 @@ public class ModConfig {
 		confEssenceCoal = config.getBoolean("essence_coal", category, true, "Essence Coal enabled?");
 		confWateringCans = config.getBoolean("watering_cans", category, true, "Should the essence Watering Cans be enabled?");
 		confFakePlayerWatering = config.getBoolean("fake_player_watering", category, false, "Should fake players be able to use the watering cans?");
+		confDispenserPlanting = config.getBoolean("dispenser_planting", category, true, "Should Mystical Crops be plantable via dispensers?");
 		
 		category = "World";
 		config.addCustomCategoryComment(category, "Settings for any World Generation in Mystical Agriculture.");
