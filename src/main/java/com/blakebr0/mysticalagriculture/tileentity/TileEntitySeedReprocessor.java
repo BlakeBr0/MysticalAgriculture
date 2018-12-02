@@ -116,7 +116,7 @@ public class TileEntitySeedReprocessor extends TileEntityUtil implements ISidedI
 	                    processing = ReprocessorManager.getOutput(input);
 	                    target = ReprocessorManager.getCost(input);
 	                    ingredient = ReprocessorManager.getName(input);
-	                    this.setTimeLeft(100);
+	                    this.setTimeLeft(140);
 	                }
 	                if(ReprocessorManager.getOutput(input).isItemEqual(processing)) {
 	                    int needed = target - progress;
