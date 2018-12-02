@@ -209,6 +209,7 @@ public class EssenceConfig {
 	public static int abyssalnite;
 	public static int dreadium;
 	
+	public static int sulfurBL;
 	public static int slimyBone;
 	public static int syrmorite;
 	public static int octine;
@@ -502,6 +503,7 @@ public class EssenceConfig {
 		dreadium = config.get(category, "dreadium", 2).getInt();
 		
 		category = "The Betweenlands";
+		sulfurBL = config.get(category, "sulfur", 8).getInt();
 		slimyBone = config.get(category, "slimy_bone", 8).getInt();
 		syrmorite = config.get(category, "syrmorite", 5).getInt();
 		octine = config.get(category, "octine", 5).getInt();

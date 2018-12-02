@@ -50,7 +50,7 @@ public class ModChecker {
 	
 	public static final boolean RUBBER = !OreDictionary.getOres("itemRubber", false).isEmpty() || IC2 || TECH_REBORN;
 	public static final boolean SILICON = !OreDictionary.getOres("itemSilicon", false).isEmpty() || ENDERIO || GALACTICRAFT_CORE || APPLIED_ENERGISTICS_2 || REFINED_STORAGE || LIB_VULPES;
-	public static final boolean SULFUR = !OreDictionary.getOres("dustSulfur", false).isEmpty() || THERMAL_FOUNDATION || RAILCRAFT || TECH_REBORN || SUBSTRATUM || ABYSSALCRAFT || NUCLEARCRAFT;
+	public static final boolean SULFUR = !OreDictionary.getOres("dustSulfur", false).isEmpty() || THERMAL_FOUNDATION || RAILCRAFT || TECH_REBORN || SUBSTRATUM || ABYSSALCRAFT || NUCLEARCRAFT || THE_BETWEENLANDS;
 	public static final boolean ALUMINUM = !OreDictionary.getOres("ingotAluminum", false).isEmpty() || !OreDictionary.getOres("ingotAluminium", false).isEmpty() || THERMAL_FOUNDATION || IMMERSIVE_ENGINEERING || GALACTICRAFT_CORE || TECH_REBORN || PIXELMON || SUBSTRATUM || BASE_METALS || LIB_VULPES;
 	public static final boolean COPPER = !OreDictionary.getOres("ingotCopper", false).isEmpty() || THERMAL_FOUNDATION || IC2 || IMMERSIVE_ENGINEERING || FORESTRY || PROJECT_RED || TECH_REBORN || MEKANISM || SUBSTRATUM || BASE_METALS || LIB_VULPES || ABYSSALCRAFT || NUCLEARCRAFT;
 	public static final boolean SALTPETER = !OreDictionary.getOres("dustSaltpeter", false).isEmpty() || THERMAL_FOUNDATION || RAILCRAFT || TECH_REBORN || ABYSSALCRAFT;

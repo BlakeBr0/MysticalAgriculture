@@ -511,6 +511,7 @@ public class ModRecipes {
 	    addSeedRecipe(type.ABYSSALNITE, "ingotAbyssalnite");
 	    addSeedRecipe(type.DREADIUM, "ingotDreadium");
 	    
+	    if (ModChecker.THE_BETWEENLANDS) addSeedRecipe(type.SULFUR, new ItemStack(Parts.itemBLMisc, 1, 18));
 	    addSeedRecipe(type.SLIMY_BONE, new ItemStack(Parts.itemBLMisc, 1, 14));
 	    addSeedRecipe(type.SYRMORITE, "ingotSyrmorite");
 	    addSeedRecipe(type.OCTINE, "ingotOctine");
