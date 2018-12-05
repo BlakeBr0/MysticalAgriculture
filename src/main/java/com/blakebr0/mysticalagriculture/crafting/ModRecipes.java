@@ -532,7 +532,7 @@ public class ModRecipes {
 	    addSeedRecipe(type.MOONSTONE, "gemMoonstone");
 	    addSeedRecipe(type.SUNSTONE, "gemSunstone");
 	    
-	    if (ModChecker.ASTRAL_SORCERY) addSeedRecipe(type, new ItemStack(Parts.itemAstralMarble, 1, 0));
+	    if (ModChecker.ASTRAL_SORCERY) addSeedRecipe(type.MARBLE, new ItemStack(Parts.itemAstralMarble, 1, 0));
 	    addSeedRecipe(type.AQUAMARINE, new ItemStack(Parts.itemAstralCrafting, 1, 0));
 	    addSeedRecipe(type.STARMETAL, new ItemStack(Parts.itemAstralCrafting, 1, 1));
 	    addSeedRecipe(type.ROCK_CRYSTAL, new ItemStack(Parts.itemAstralRockCrystal, 1, 0));

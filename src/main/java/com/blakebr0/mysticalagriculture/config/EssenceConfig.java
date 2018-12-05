@@ -540,7 +540,7 @@ public class EssenceConfig {
 		enderBiotite = config.get(category, "biotite", 8).getInt();
 		
 		category = "Matter Overdrive";
-		diorite = config.get(category, "dilithium", 4).getInt();
+		dilithium = config.get(category, "dilithium", 4).getInt();
 		tritanium = config.get(category, "tritanium", 3).getInt();
 		
 		category = "Erebus";

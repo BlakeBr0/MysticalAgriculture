@@ -322,7 +322,7 @@ public class EssenceRecipes {
 	    if(type.ABYSSALNITE.isEnabled()){ addEssenceRecipe("ingotAbyssalnite", EssenceConfig.abyssalnite, "EEE", "E E", "EEE", 'E', new ItemStack(type.ABYSSALNITE.getCrop(), 1, 0)); }
 	    if(type.DREADIUM.isEnabled()){ addEssenceRecipe("ingotDreadium", EssenceConfig.dreadium, "EEE", "E E", "EEE", 'E', new ItemStack(type.DREADIUM.getCrop(), 1, 0)); }
 	   
-	    if(type.SULFUR.isEnabled()){ addEssenceRecipe(new ItemStack(Parts.itemBLMisc, EssenceConfig.sulfurBL, 18), "EEE", "E E", "EEE", 'E', new ItemStack(type.SULFUR.getCrop(), 1, 0)); }
+	    if(type.SULFUR.isEnabled() && ModChecker.THE_BETWEENLANDS){ addEssenceRecipe(new ItemStack(Parts.itemBLMisc, EssenceConfig.sulfurBL, 18), "EEE", "E E", "EEE", 'E', new ItemStack(type.SULFUR.getCrop(), 1, 0)); }
 	    if(type.SLIMY_BONE.isEnabled()){ addEssenceRecipe(new ItemStack(Parts.itemBLMisc, EssenceConfig.slimyBone, 14), "EEE", "E E", "EEE", 'E', new ItemStack(type.SLIMY_BONE.getCrop(), 1, 0)); }
 	    if(type.SYRMORITE.isEnabled()){ addEssenceRecipe("ingotSyrmorite", EssenceConfig.syrmorite, "EEE", "E E", "EEE", 'E', new ItemStack(type.SYRMORITE.getCrop(), 1, 0)); }
 	    if(type.OCTINE.isEnabled()){ addEssenceRecipe("ingotOctine", EssenceConfig.octine, "EEE", "E E", "EEE", 'E', new ItemStack(type.OCTINE.getCrop(), 1, 0)); }
@@ -345,7 +345,7 @@ public class EssenceRecipes {
 	    if(type.MOONSTONE.isEnabled()){ addEssenceRecipe("gemMoonstone", EssenceConfig.moonstone, "EEE", "E E", "EEE", 'E', new ItemStack(type.MOONSTONE.getCrop(), 1, 0)); }    
 	    if(type.SUNSTONE.isEnabled()){ addEssenceRecipe("gemSunstone", EssenceConfig.sunstone, "EEE", "E E", "EEE", 'E', new ItemStack(type.SUNSTONE.getCrop(), 1, 0)); }    
 	    
-	    if(type.MARBLE.isEnabled() && ModChecker.ASTRAL_SORCERY){ addEssenceRecipe(new ItemStack(Parts.itemAstralMarble, EssenceConfig.marbleAS, 0), "EEE", "EAE", "EEE", 'E', new ItemStack(type.MARBLE.getCrop(), 1, 0), new ItemStack(type.AQUAMARINE.getCrop(), 1, 0)); }
+	    if(type.MARBLE.isEnabled() && ModChecker.ASTRAL_SORCERY){ addEssenceRecipe(new ItemStack(Parts.itemAstralMarble, EssenceConfig.marbleAS, 0), "EEE", "EAE", "EEE", 'E', new ItemStack(type.MARBLE.getCrop(), 1, 0), 'A', new ItemStack(type.AQUAMARINE.getCrop(), 1, 0)); }
 	    if(type.AQUAMARINE.isEnabled()){ addEssenceRecipe(new ItemStack(Parts.itemAstralCrafting, EssenceConfig.aquamarine, 0), " E ", "EEE", " E ", 'E', new ItemStack(type.AQUAMARINE.getCrop(), 1, 0)); }
 	    if(type.STARMETAL.isEnabled()){ addEssenceRecipe(new ItemStack(Parts.itemAstralCrafting, EssenceConfig.starmetal, 1), "EEE", "E E", "EEE", 'E', new ItemStack(type.STARMETAL.getCrop(), 1, 0)); }
 	    if(type.ROCK_CRYSTAL.isEnabled()){ addEssenceRecipe(new ItemStack(Parts.itemAstralOre, EssenceConfig.rockCrystal, 0), "EEE", "E E", "EEE", 'E', new ItemStack(type.ROCK_CRYSTAL.getCrop(), 1, 0)); }
