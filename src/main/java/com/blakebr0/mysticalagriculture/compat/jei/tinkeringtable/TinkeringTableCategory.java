@@ -22,7 +22,7 @@ public class TinkeringTableCategory implements IRecipeCategory<TinkeringTableWra
 
     private final IDrawable background;
 
-    public TinkeringTableCategory(IGuiHelper helper){
+    public TinkeringTableCategory(IGuiHelper helper) {
         this.background = helper.createDrawable(TEXTURE, 17, 15, 146, 86);
     }
 

@@ -77,7 +77,7 @@ public class ItemWateringCan extends ItemMeta implements IEnableable {
     public EnumActionResult onItemUse(EntityPlayer player, World world, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
     	ItemStack stack = player.getHeldItem(hand);
     	
-		if(!player.canPlayerEdit(pos.offset(facing), facing, stack))
+		if (!player.canPlayerEdit(pos.offset(facing), facing, stack))
 			return EnumActionResult.FAIL;
 		
 		if (!ModConfig.confFakePlayerWatering && player instanceof FakePlayer)

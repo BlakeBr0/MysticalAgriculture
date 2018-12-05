@@ -57,7 +57,7 @@ public class BlockEssenceFurnace extends BlockContainer implements IEnableable {
             IBlockState state2 = world.getBlockState(pos.south());
             IBlockState state3 = world.getBlockState(pos.west());
             IBlockState state4 = world.getBlockState(pos.east());
-            EnumFacing facing = (EnumFacing) state.getValue(FACING);
+            EnumFacing facing = state.getValue(FACING);
 
             if (facing == EnumFacing.NORTH && state1.isFullBlock() && !state2.isFullBlock()) {
                 facing = EnumFacing.SOUTH;
@@ -77,7 +77,7 @@ public class BlockEssenceFurnace extends BlockContainer implements IEnableable {
     @Override
     public void randomDisplayTick(IBlockState state, World world, BlockPos pos, Random rand) {
         if (this.isBurning) {
-            EnumFacing enumfacing = (EnumFacing)state.getValue(FACING);
+            EnumFacing enumfacing = state.getValue(FACING);
             double d0 = (double) pos.getX() + 0.5D;
             double d1 = (double) pos.getY() + rand.nextDouble() * 6.0D / 16.0D;
             double d2 = (double) pos.getZ() + 0.5D;
@@ -205,17 +205,17 @@ public class BlockEssenceFurnace extends BlockContainer implements IEnableable {
 
     @Override
     public int getMetaFromState(IBlockState state) {
-        return ((EnumFacing) state.getValue(FACING)).getIndex();
+        return state.getValue(FACING).getIndex();
     }
 
     @Override
     public IBlockState withRotation(IBlockState state, Rotation rotation) {
-        return state.withProperty(FACING, rotation.rotate((EnumFacing) state.getValue(FACING)));
+        return state.withProperty(FACING, rotation.rotate(state.getValue(FACING)));
     }
 
     @Override
     public IBlockState withMirror(IBlockState state, Mirror mirror) {
-        return state.withRotation(mirror.toRotation((EnumFacing) state.getValue(FACING)));
+        return state.withRotation(mirror.toRotation(state.getValue(FACING)));
     }
 
     @Override

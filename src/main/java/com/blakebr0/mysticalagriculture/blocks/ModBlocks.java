@@ -23,8 +23,8 @@ import com.blakebr0.mysticalagriculture.blocks.soulstone.BlockSoulstoneSlab;
 import com.blakebr0.mysticalagriculture.blocks.soulstone.BlockSoulstoneStairs;
 import com.blakebr0.mysticalagriculture.blocks.soulstone.BlockSoulstoneWall;
 import com.blakebr0.mysticalagriculture.blocks.soulstone.ItemBlockSoulstone;
+import com.blakebr0.mysticalagriculture.compat.jei.CompatJEI;
 import com.blakebr0.mysticalagriculture.config.ModConfig;
-import com.blakebr0.mysticalagriculture.jei.CompatJEI;
 import com.blakebr0.mysticalagriculture.lib.CropType;
 
 import net.minecraft.block.Block;
