@@ -61,13 +61,13 @@ public abstract class TileEssenceReprocessor extends TileEntityUtil implements I
 		
 		boolean mark = false;
 
-		int fuelPerTick = Math.min(this.fuelLeft, this.getFuelUsage() * 2);
-		if (this.getFuel() <= this.getFuelCapacity() - fuelPerTick) {
+		int fuelPerTick = Math.min(Math.min(this.fuelLeft, this.getFuelUsage() * 2), this.getFuelCapacity() - this.fuel);
+		if (this.fuel < this.getFuelCapacity()) {
 			ItemStack fuel = this.getStackInSlot(1);
 			if (this.fuelLeft <= 0 && !fuel.isEmpty()) {
 				this.fuelItemValue = TileEntityFurnace.getItemBurnTime(fuel);
 				this.fuelLeft = this.fuelItemValue;
-				fuel.shrink(1);
+				this.decrStackSize(1, 1);
 			}
 
 			if (this.fuelLeft > 0) {
@@ -82,7 +82,7 @@ public abstract class TileEssenceReprocessor extends TileEntityUtil implements I
 			}
 		}
 
-		if (this.getFuel() >= this.getFuelUsage()) {
+		if (this.fuel >= this.getFuelUsage()) {
 			ItemStack input = this.getStackInSlot(0);
 			ItemStack output = this.getStackInSlot(2);
 
@@ -94,7 +94,7 @@ public abstract class TileEssenceReprocessor extends TileEntityUtil implements I
 					this.fuel -= this.getFuelUsage();
 
 					if (this.progress >= this.getOperationTime()) {
-						input.shrink(1);
+						this.decrStackSize(0, 1);
 
 						if (output.isEmpty()) {
 							this.setInventorySlotContents(2, recipeOutput.copy());
