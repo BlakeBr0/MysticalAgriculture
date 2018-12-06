@@ -42,6 +42,7 @@ public class EssenceConfig {
 	public static int mossyCobblestone;
 	public static int mossyStonebrick;
 	public static int apple;
+	public static int tallGrass;
 	public static int wood;
 	public static int sapling;
 	public static boolean waterBucket;
@@ -312,6 +313,7 @@ public class EssenceConfig {
 		mossyCobblestone = config.get(category, "mossy_cobblestone", 16).getInt();
 		mossyStonebrick = config.get(category, "mossy_stonebrick", 16).getInt();
 		apple = config.get(category, "apple", 8).getInt();
+		tallGrass = config.get(category, "grass", 16).getInt();
 		wood = config.get(category, "wood", 16).getInt();
 		sapling = config.get(category, "sapling", 4).getInt();
 		waterBucket = config.get(category, "water_bucket", true).getBoolean();
