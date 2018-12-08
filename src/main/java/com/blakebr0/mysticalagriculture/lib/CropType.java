@@ -216,7 +216,7 @@ public class CropType {
 		private ItemBase crop;
 		private ItemSeed seed;
 		
-		private final boolean debug = true;
+		private final boolean debug = false;
 		
 		Type(String name, int defaultTier){
 			this.name = name;
