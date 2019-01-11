@@ -221,7 +221,7 @@ public abstract class TileEssenceReprocessor extends TileEntityUtil implements I
 
 	@Override
 	public int[] getSlotsForFace(EnumFacing side) {
-		return side == EnumFacing.UP ? new int[] { 0 } : side == EnumFacing.DOWN ? new int[] { 1 } : new int[] { 0, 1 };
+		return side == EnumFacing.UP ? new int[] { 0 } : side == EnumFacing.DOWN ? new int[] { 2 } : new int[] { 1 };
 	}
 
 	@Override
