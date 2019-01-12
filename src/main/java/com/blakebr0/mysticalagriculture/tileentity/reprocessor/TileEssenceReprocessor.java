@@ -231,7 +231,7 @@ public abstract class TileEssenceReprocessor extends TileEntityUtil implements I
 
 	@Override
 	public boolean canExtractItem(int index, ItemStack stack, EnumFacing facing) {
-		return index == 1;
+		return index == 2;
 	}
 
 	@Override
