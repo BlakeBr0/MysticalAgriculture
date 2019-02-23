@@ -45,7 +45,7 @@ public class TinkeringTableCategory implements IRecipeCategory<TinkeringTableWra
     public void setRecipe(IRecipeLayout layout, TinkeringTableWrapper wrapper, IIngredients ingredients) {
         IGuiItemStackGroup stacks = layout.getItemStacks();
 
-        stacks.init(0, false, 126, 34);
+        stacks.init(0, false, 124, 34);
 
         stacks.init(1, true, 34, 34);
         stacks.init(2, true, 19, 0);
@@ -66,7 +66,7 @@ public class TinkeringTableCategory implements IRecipeCategory<TinkeringTableWra
         	stacks.set(i, inputs.get(i - 1));
         }
 
-        layout.setRecipeTransferButton(141, 60);
+        layout.setRecipeTransferButton(132, 72);
     }
 
 	@Override
