@@ -1,5 +1,5 @@
 # CREATIVE TAB
-itemGroup.tabMysticalAgriculture=Mystical Agriculture
+itemGroup.mysticalagriculture=Mystical Agriculture
 
 # STORAGE BLOCKS
 tile.ma.storage_inferium.name=§eБлок Инфериумной эссенции
@@ -76,6 +76,13 @@ desc.tile.ma.glowstone_lamp=Чтобы сделать лампу светяще�
 
 # MACHINE
 tile.ma.seed_reprocessor.name=Переработчик семени
+tile.ma.inferium_reprocessor.name=§eИнфериумный переработчик семени
+tile.ma.prudentium_reprocessor.name=§aПрудентиумный переработчик семени
+tile.ma.intermedium_reprocessor.name=§6Интермедиумный переработчик семени
+tile.ma.superium_reprocessor.name=§bСупериумный переработчик семени
+tile.ma.supremium_reprocessor.name=§cСупремиумный переработчик семени
+tile.ma.ultimate_reprocessor.name=§8Максимальный переработчик семени
+
 container.ma.seed_reprocessor.name=Переработчик семени
 jei.ma.seed_reprocessor=Переработчик семени
 desc.tile.ma.seed_reprocessor=Преобразует семена в соответствующую культуру. Он работает на мощности теоретической энергии, что означает, что Вам не нужно давать ему никакой энергии.
@@ -154,6 +161,7 @@ tile.ma.zinc_crop.name=Цинковая культура
 tile.ma.brass_crop.name=Латунная культура
 tile.ma.silver_crop.name=Серебряная культура
 tile.ma.lead_crop.name=Свинцовая культура
+tile.ma.graphite_crop.name=Графитовая культура
 tile.ma.steel_crop.name=Стальная культура
 tile.ma.nickel_crop.name=Никелевая культура
 tile.ma.electrum_crop.name=Электрумовая культура
@@ -182,6 +190,8 @@ tile.ma.lumium_crop.name=Люмиумная культура
 tile.ma.enderium_crop.name=Эндериумная культура
 
 tile.ma.fluxed_electrum_crop.name=Флаксо-электрумовая культура
+
+tile.ma.hop_graphite_crop.name=HOP графитовая культура
 
 tile.ma.aluminum_brass_crop.name=Алюминиево-латунная культура
 tile.ma.knightslime_crop.name=Слизесталевая культура
@@ -241,6 +251,20 @@ tile.ma.fiery_ingot_crop.name=Культура пламенного слитка
 tile.ma.meteoric_iron_crop.name=Культура метеоритного железа
 tile.ma.desh_crop.name=Деш культура
 
+tile.ma.coralium_crop.name=Коралиумная культура
+tile.ma.abyssalnite_crop.name=Абиссалнитовая культура
+tile.ma.dreadium_crop.name=Дреадиумная культура
+
+tile.ma.slimy_bone_crop.name=Культура слизневой кости
+tile.ma.syrmorite_crop.name=Сирморитовая культура
+tile.ma.octine_crop.name=Октиновая культура
+tile.ma.valonite_crop.name=Валонитовая культура
+
+tile.ma.thorium_crop.name=Ториевая культура
+tile.ma.boron_crop.name=Боровая культура
+tile.ma.lithium_crop.name=Литиевая культура
+tile.ma.magnesium_crop.name=Магниевая культура
+
 tile.ma.black_quartz_crop.name=Культура черного кварца
 
 tile.ma.menril_crop.name=Менриловая культура
@@ -256,6 +280,11 @@ tile.ma.starmetal_crop.name=Культура звездного металла
 tile.ma.rock_crystal_crop.name=Культура горного хрусталя
 
 tile.ma.ender_biotite_crop.name=Культура биотит края
+
+tile.ma.dilithium_crop.name=Дилитиевая культура
+tile.ma.tritanium_crop.name=Тританиевая культура
+
+tile.ma.jade_crop.name=Культура нефрита
 
 tile.ma.slate_crop.name=Сланцевая культура
 
@@ -441,6 +470,7 @@ item.ma.zinc_essence.name=Цинковая эссенция
 item.ma.brass_essence.name=Латунная эссенция
 item.ma.silver_essence.name=Серебряная эссенция
 item.ma.lead_essence.name=Свинцовая эссенция
+item.ma.graphite_essence.name=Графитовая эссенция
 item.ma.steel_essence.name=Стальная эссенция
 item.ma.nickel_essence.name=Никелевая эссенция
 item.ma.electrum_essence.name=Электрумовая эссенция
@@ -469,6 +499,8 @@ item.ma.lumium_essence.name=Люмиумная эссенция
 item.ma.enderium_essence.name=Эндериумная эссенция
 
 item.ma.fluxed_electrum_essence.name=Флаксо-электрумовая эссенция
+
+item.ma.hop_graphite_essence.name=HOP графитовая эссенция
 
 item.ma.aluminum_brass_essence.name=Алюминиево-латунная эссенция
 item.ma.knightslime_essence.name=Слизесталевая эссенция
@@ -528,6 +560,20 @@ item.ma.fiery_ingot_essence.name=Эссенция пламенного слит�
 item.ma.meteoric_iron_essence.name=Эссенция метеоритного железа
 item.ma.desh_essence.name=Деш эссенция
 
+item.ma.coralium_essence.name=Коралиумная эссенция
+item.ma.abyssalnite_essence.name=Абиссалнитовая эссенция
+item.ma.dreadium_essence.name=Дреадиумная эссенция
+
+item.ma.slimy_bone_essence.name=Эссенция слизневой кости
+item.ma.syrmorite_essence.name=Сирморитовая эссенция
+item.ma.octine_essence.name=Октиновая эссенция
+item.ma.valonite_essence.name=Валонитовая эссенция
+
+item.ma.thorium_essence.name=Ториевая эссенция
+item.ma.boron_essence.name=Боровая эссенция
+item.ma.lithium_essence.name=Литиевая эссенция
+item.ma.magnesium_essence.name=Магниевая эссенция
+
 item.ma.black_quartz_essence.name=Эссенция черного кварца
 
 item.ma.menril_essence.name=Менриловая эссенция
@@ -543,6 +589,11 @@ item.ma.starmetal_essence.name=Эссенция звездного металл�
 item.ma.rock_crystal_essence.name=Эссенция горного хрусталя
 
 item.ma.ender_biotite_essence.name=Эссенция биотит края
+
+item.ma.dilithium_essence.name=Дилитиевая эссенция
+item.ma.tritanium_essence.name=Тританиевая эссенция
+
+item.ma.jade_essence.name=Эссенция нефрита
 
 item.ma.slate_essence.name=Сланцевая эссенция
 
@@ -621,6 +672,7 @@ item.ma.zinc_seeds.name=Цинковые семена
 item.ma.brass_seeds.name=Латунные семена
 item.ma.silver_seeds.name=Серебряные семена
 item.ma.lead_seeds.name=Свинцовые семена
+item.ma.graphite_seeds.name=Графитовые семена
 item.ma.steel_seeds.name=Стальные семена
 item.ma.nickel_seeds.name=Никелевые семена
 item.ma.electrum_seeds.name=Электрумовые семена
@@ -649,6 +701,8 @@ item.ma.lumium_seeds.name=Люмиумные семена
 item.ma.enderium_seeds.name=Эндериумные семена
 
 item.ma.fluxed_electrum_seeds.name=Флаксо-электрумовые семена
+
+item.ma.hop_graphite_seeds.name=HOP графитовые семена
 
 item.ma.aluminum_brass_seeds.name=Алюминиево-латунные семена
 item.ma.knightslime_seeds.name=Слизесталевые семена
@@ -708,6 +762,20 @@ item.ma.fiery_ingot_seeds.name=Семена пламенного слитка
 item.ma.meteoric_iron_seeds.name=Семена метеоритного железа
 item.ma.desh_seeds.name=Деш семена
 
+item.ma.coralium_seeds.name=Коралиумные семена
+item.ma.abyssalnite_seeds.name=Абиссалнитовые семена
+item.ma.dreadium_seeds.name=Дреадиумные семена
+
+item.ma.slimy_bone_seeds.name=Семена слизневой кости
+item.ma.syrmorite_seeds.name=Сирморитовые семена
+item.ma.octine_seeds.name=Октиновые семена
+item.ma.valonite_seeds.name=Валонитовые семена
+
+item.ma.thorium_seeds.name=Ториевые семена
+item.ma.boron_seeds.name=Боровые семена
+item.ma.lithium_seeds.name=Литиевые семена
+item.ma.magnesium_seeds.name=Магниевые семена
+
 item.ma.black_quartz_seeds.name=Семена черного кварца
 
 item.ma.menril_seeds.name=Менриловые семена
@@ -723,6 +791,11 @@ item.ma.starmetal_seeds.name=Семена звездного металла
 item.ma.rock_crystal_seeds.name=Семена горного хрусталя
 
 item.ma.ender_biotite_seeds.name=Семена биотит края
+
+item.ma.dilithium_seeds.name=Дилитиевые семена
+item.ma.tritanium_seeds.name=Тританиевые семена
+
+item.ma.jade_seeds.name=Семена нефрита
 
 item.ma.slate_seeds.name=Сланцевые семена
 
@@ -887,6 +960,7 @@ tooltip.ma.fertilized_essence=Костная мука, которая работ
 tooltip.ma.mystical_fertilizer=Мгновенно выращивает культуру.
 tooltip.ma.core_removal=Может быть повторно использованы с помощью §cУдалителя ядра§7.
 tooltip.ma.soulium_dagger=Используется для получения §cкусков мобов§7.
+tooltip.ma.crafting_seed=Используется для создания, а не посадки.
 
 tooltip.ma.inferium=Инфериум
 tooltip.ma.prudentium=Прудентиум
@@ -910,6 +984,10 @@ tooltip.ma.draw_speed=Скорость получения
 tooltip.ma.efficiency=Эффективность
 tooltip.ma.description=Описание
 tooltip.ma.applicable_to=Применимо к
+
+tooltip.ma.reprocessor_speed=Скорость операции: %st
+tooltip.ma.reprocessor_fuel_rate=Использование топлива: %s/t
+tooltip.ma.reprocessor_fuel_capacity=Емкость топлива: %s
 
 tooltip.ma.hold_shift_for_info=Зажмите §e§oSHIFT §r§7для инфо.
 tooltip.ma.hold=Зажмите
