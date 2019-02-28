@@ -1,8 +1,0 @@
-{
-    "parent": "block/orientable",
-    "textures": {
-        "top": "mysticalagriculture:blocks/intermedium_reprocessor_side",
-        "front": "mysticalagriculture:blocks/intermedium_reprocessor_front",
-        "side": "mysticalagriculture:blocks/intermedium_reprocessor_side"
-    }
-}

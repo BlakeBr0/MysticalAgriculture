@@ -1,8 +1,0 @@
-{
-  "ctm": {
-    "ctm_version": 1,
-    "type": "ctm",
-    "layer": "SOLID",
-    "textures": [ "mysticalagriculture:blocks/witherproof_block_ctm" ]
-  }
-}

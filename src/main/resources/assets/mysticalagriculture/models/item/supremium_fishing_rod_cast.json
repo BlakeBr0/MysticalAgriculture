@@ -1,6 +1,0 @@
-{
-    "parent": "mysticalagriculture:item/supremium_fishing_rod",
-    "textures": {
-        "layer0": "mysticalagriculture:items/supremium_fishing_rod_cast"
-    }
-}

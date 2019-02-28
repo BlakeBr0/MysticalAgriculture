@@ -1,17 +1,14 @@
 package com.blakebr0.mysticalagriculture;
 
-import com.blakebr0.cucumber.registry.ModRegistry;
-import com.blakebr0.mysticalagriculture.proxy.CommonProxy;
-
-import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.item.ItemGroup;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.common.Mod.EventHandler;
-import net.minecraftforge.fml.common.SidedProxy;
-import net.minecraftforge.fml.common.event.FMLInitializationEvent;
-import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
-import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
+import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
+import net.minecraftforge.fml.event.lifecycle.InterModEnqueueEvent;
+import net.minecraftforge.fml.event.lifecycle.InterModProcessEvent;
+import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 
-@Mod(modid = MysticalAgriculture.MOD_ID, name = MysticalAgriculture.NAME, version = MysticalAgriculture.VERSION, dependencies = MysticalAgriculture.DEPENDENCIES, guiFactory = MysticalAgriculture.GUI_FACTORY)
+@Mod(MysticalAgriculture.MOD_ID)
 public class MysticalAgriculture {
 	
 	public static final String MOD_ID = "mysticalagriculture";
@@ -20,28 +17,28 @@ public class MysticalAgriculture {
 	public static final String DEPENDENCIES = "required-after:cucumber@[1.1.2,)";
 	public static final String GUI_FACTORY = "com.blakebr0.mysticalagriculture.config.GuiFactory";
 	
-	public static final CreativeTabs CREATIVE_TAB = new MACreativeTab();
-	public static final ModRegistry REGISTRY = ModRegistry.create(MOD_ID);
+	public static final ItemGroup ITEM_GROUP = new MAItemGroup();
+
+	public MysticalAgriculture() {
+		FMLJavaModLoadingContext.get().getModEventBus().addListener(this::preInit);
+		FMLJavaModLoadingContext.get().getModEventBus().addListener(this::init);
+		FMLJavaModLoadingContext.get().getModEventBus().addListener(this::postInit);
+		FMLJavaModLoadingContext.get().getModEventBus().addListener(this::clientInit);
+	}
 		
-	@Mod.Instance(MysticalAgriculture.MOD_ID)
-	public static MysticalAgriculture INSTANCE;
-	
-	@SidedProxy(clientSide = "com.blakebr0.mysticalagriculture.proxy.ClientProxy",
-				serverSide = "com.blakebr0.mysticalagriculture.proxy.ServerProxy")
-	public static CommonProxy proxy;
-		
-	@EventHandler
-	public void preInit(FMLPreInitializationEvent event) {
-		proxy.preInit(event);
+	public void preInit(FMLCommonSetupEvent event) {
+
 	}
 
-	@EventHandler
-	public void init(FMLInitializationEvent event) {
-		proxy.init(event);
+	public void init(InterModEnqueueEvent event) {
+
 	}
 
-	@EventHandler
-	public void postInit(FMLPostInitializationEvent event) {
-		proxy.postInit(event);
+	public void postInit(InterModProcessEvent event) {
+
+	}
+
+	public void clientInit(FMLClientSetupEvent event) {
+
 	}
 }
