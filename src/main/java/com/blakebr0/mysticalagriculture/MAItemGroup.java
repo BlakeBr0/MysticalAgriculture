@@ -1,5 +1,6 @@
 package com.blakebr0.mysticalagriculture;
 
+import com.blakebr0.mysticalagriculture.items.ModItems;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.api.distmarker.Dist;
@@ -14,6 +15,6 @@ public class MAItemGroup extends ItemGroup {
 	@OnlyIn(Dist.CLIENT)
 	@Override
 	public ItemStack createIcon() {
-		return ItemStack.EMPTY;
+		return new ItemStack(ModItems.INFERIUM_ESSENCE);
 	}
 }

@@ -50,3 +50,9 @@ Grow all your resources!
     versionRange="[1.13.2]"
     ordering="NONE"
     side="BOTH"
+#[[dependencies.mysticalagriculture]]
+#    modId="cucumber"
+#    mandatory=true
+#    versionRange="[2.0.0,)"
+#    ordering="NONE"
+#    side="BOTH"
