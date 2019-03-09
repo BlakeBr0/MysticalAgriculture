@@ -1,0 +1,6 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "mysticalagriculture:block/intermedium_gemstone_block"
+  }
+}
