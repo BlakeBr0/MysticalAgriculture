@@ -39,6 +39,11 @@ public class ModBlocks {
     public static final BlockBase SOULIUM_BLOCK = new BlockBase("soulium_block", Material.ROCK, SoundType.STONE, 4.0F, 6.0F);
     public static final BlockBase SOULIUM_INGOT_BLOCK = new BlockBase("soulium_ingot_block", Material.IRON, SoundType.METAL, 5.0F, 6.0F);
     public static final BlockBase SOULIUM_GEMSTONE_BLOCK = new BlockBase("soulium_gemstone_block", Material.IRON, SoundType.METAL, 5.0F, 6.0F);
+    public static final BlockBase SOULSTONE = new BlockBase("soulstone", Material.ROCK, SoundType.STONE, 1.5F, 6.0F);
+    public static final BlockBase SOULSTONE_COBBLE = new BlockBase("soulstone_cobble", Material.ROCK, SoundType.STONE, 2.0F, 6.0F);
+    public static final BlockBase SOULSTONE_BRICKS = new BlockBase("soulstone_bricks", Material.ROCK, SoundType.STONE, 1.5F, 6.0F);
+    public static final BlockBase SOULSTONE_CRACKED_BRICKS = new BlockBase("soulstone_cracked_bricks", Material.ROCK, SoundType.STONE, 1.5F, 6.0F);
+    public static final BlockBase SOULSTONE_CHISELED_BRICKS = new BlockBase("soulstone_chiseled_bricks", Material.ROCK, SoundType.STONE, 1.5F, 6.0F);
 
     @SubscribeEvent
     public static void onRegisterBlocks(RegistryEvent.Register<Block> event) {
@@ -65,6 +70,11 @@ public class ModBlocks {
         register(registry, SOULIUM_BLOCK);
         register(registry, SOULIUM_INGOT_BLOCK);
         register(registry, SOULIUM_GEMSTONE_BLOCK);
+        register(registry, SOULSTONE);
+        register(registry, SOULSTONE_COBBLE);
+        register(registry, SOULSTONE_BRICKS);
+        register(registry, SOULSTONE_CRACKED_BRICKS);
+        register(registry, SOULSTONE_CHISELED_BRICKS);
     }
 
     private static void register(IForgeRegistry<Block> registry, Block block) {

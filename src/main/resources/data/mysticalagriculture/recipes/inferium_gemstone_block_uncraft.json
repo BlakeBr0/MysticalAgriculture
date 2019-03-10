@@ -1,0 +1,12 @@
+{
+  "type": "crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "mysticalagriculture:inferium_gemstone_block"
+    }
+  ],
+  "result": {
+    "item": "mysticalagriculture:inferium_gemstone",
+    "count": 9
+  }
+}

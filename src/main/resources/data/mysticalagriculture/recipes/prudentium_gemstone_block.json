@@ -1,0 +1,16 @@
+{
+  "type": "crafting_shaped",
+  "pattern": [
+    "###",
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "mysticalagriculture:prudentium_gemstone_essence"
+    }
+  },
+  "result": {
+    "item": "mysticalagriculture:prudentium_gemstone_block"
+  }
+}

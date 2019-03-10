@@ -1,0 +1,16 @@
+{
+  "type": "crafting_shaped",
+  "pattern": [
+    "###",
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "mysticalagriculture:soulium_ingot_dust"
+    }
+  },
+  "result": {
+    "item": "mysticalagriculture:soulium_ingot_block"
+  }
+}
