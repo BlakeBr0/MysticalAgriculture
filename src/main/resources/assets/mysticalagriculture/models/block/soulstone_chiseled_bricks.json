@@ -1,0 +1,6 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "mysticalagriculture:block/soulstone_chiseled_bricks"
+  }
+}

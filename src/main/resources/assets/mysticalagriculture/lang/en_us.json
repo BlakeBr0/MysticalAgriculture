@@ -22,6 +22,11 @@
   "block.mysticalagriculture.soulium_block": "Soulium Block",
   "block.mysticalagriculture.soulium_ingot_block": "Soulium Ingot Block",
   "block.mysticalagriculture.soulium_gemstone_block": "Soulium Gemstone Block",
+  "block.mysticalagriculture.soulstone": "Soulstone",
+  "block.mysticalagriculture.soulstone_cobble": "Soulstone Cobble",
+  "block.mysticalagriculture.soulstone_bricks": "Soulstone Bricks",
+  "block.mysticalagriculture.soulstone_cracked_bricks": "Cracked Soulstone Bricks",
+  "block.mysticalagriculture.soulstone_chiseled_bricks": "Chiseled Soulstone Bricks",
 
   "item.mysticalagriculture.prosperity_shard": "Prosperity Shard",
   "item.mysticalagriculture.prosperity_ingot": "Prosperity Ingot",
