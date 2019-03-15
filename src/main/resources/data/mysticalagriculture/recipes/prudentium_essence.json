@@ -1,0 +1,19 @@
+{
+  "type": "crafting_shaped",
+  "pattern": [
+    " # ",
+    "#X#",
+    " # "
+  ],
+  "key": {
+    "#": {
+      "item": "mysticalagriculture:inferium_essence"
+    },
+    "X": {
+      "tag": "mysticalagriculture:infusion_crystals"
+    }
+  },
+  "result": {
+    "item": "mysticalagriculture:prudentium_essence"
+  }
+}

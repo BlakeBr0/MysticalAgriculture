@@ -49,6 +49,8 @@ public class ModItems {
     public static final ItemBase SOULIUM_NUGGET = new ItemBase("soulium_nugget", p -> p.group(ITEM_GROUP));
     public static final ItemBase SOULIUM_GEMSTONE = new ItemBase("soulium_gemstone", p -> p.group(ITEM_GROUP));
     public static final ItemBase SOULIUM_SEED_BASE = new ItemBase("soulium_seed_base", p -> p.group(ITEM_GROUP));
+    public static final ItemInfusionCrystal INFUSION_CRYSTAL = new ItemInfusionCrystal("infusion_crystal", 1000, p -> p.group(ITEM_GROUP));
+    public static final ItemMasterInfusionCrystal MASTER_INFUSION_CRYSTAL = new ItemMasterInfusionCrystal("master_infusion_crystal", p -> p.group(ITEM_GROUP));
 
     @SubscribeEvent
     public static void onRegisterItems(RegistryEvent.Register<Item> event) {
@@ -85,5 +87,7 @@ public class ModItems {
         registry.register(SOULIUM_NUGGET);
         registry.register(SOULIUM_GEMSTONE);
         registry.register(SOULIUM_SEED_BASE);
+        registry.register(INFUSION_CRYSTAL);
+        registry.register(MASTER_INFUSION_CRYSTAL);
     }
 }

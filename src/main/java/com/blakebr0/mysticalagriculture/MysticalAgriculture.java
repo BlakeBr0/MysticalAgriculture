@@ -1,5 +1,8 @@
 package com.blakebr0.mysticalagriculture;
 
+import com.blakebr0.cucumber.render.ColorHandler;
+import com.blakebr0.cucumber.util.Utils;
+import com.blakebr0.mysticalagriculture.items.ModItems;
 import net.minecraft.item.ItemGroup;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
@@ -39,6 +42,6 @@ public class MysticalAgriculture {
 	}
 
 	public void clientInit(FMLClientSetupEvent event) {
-
+		ColorHandler.registerItems((stack, tint) -> Utils.saturate(0x00D9D9, (float) (stack.getMaxDamage() - stack.getDamage()) / stack.getMaxDamage()), ModItems.INFUSION_CRYSTAL);
 	}
 }

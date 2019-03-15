@@ -57,5 +57,7 @@
   "item.mysticalagriculture.soulium_ingot": "Soulium Ingot",
   "item.mysticalagriculture.soulium_nugget": "Soulium Nugget",
   "item.mysticalagriculture.soulium_gemstone": "Soulium Gemstone",
-  "item.mysticalagriculture.soulium_seed_base": "Soulium Seed Base"
+  "item.mysticalagriculture.soulium_seed_base": "Soulium Seed Base",
+  "item.mysticalagriculture.infusion_crystal": "Infusion Crystal",
+  "item.mysticalagriculture.master_infusion_crystal": "Master Infusion Crystal"
 }
