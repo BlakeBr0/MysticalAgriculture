@@ -1,0 +1,16 @@
+{
+  "type": "crafting_shaped",
+  "pattern": [
+    "###",
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "mysticalagriculture:intermedium_nugget"
+    }
+  },
+  "result": {
+    "item": "mysticalagriculture:intermedium_ingot"
+  }
+}

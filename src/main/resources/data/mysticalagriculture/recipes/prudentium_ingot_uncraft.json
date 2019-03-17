@@ -1,0 +1,12 @@
+{
+  "type": "crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "mysticalagriculture:prudentium_ingot"
+    }
+  ],
+  "result": {
+    "item": "mysticalagriculture:prudentium_nugget",
+    "count": 9
+  }
+}
