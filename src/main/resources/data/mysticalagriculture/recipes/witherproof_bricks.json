@@ -1,0 +1,16 @@
+{
+  "type": "crafting_shaped",
+  "pattern": [
+    "##",
+    "##"
+  ],
+  "key": {
+    "#": {
+      "item": "mysticalagriculture:witherproof_block"
+    }
+  },
+  "result": {
+    "item": "mysticalagriculture:witherproof_bricks",
+    "count": 4
+  }
+}
