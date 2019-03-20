@@ -22,6 +22,7 @@ import com.blakebr0.mysticalagriculture.tileentity.ModTileEntities;
 import com.blakebr0.mysticalagriculture.util.ModChecker;
 import com.blakebr0.mysticalagriculture.world.OreGeneration;
 
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.IRecipe;
 import net.minecraftforge.common.MinecraftForge;
@@ -36,21 +37,9 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 
 public class CommonProxy {
 	
-	public void preInit(FMLPreInitializationEvent e){
-		ModConfig.init(new File(e.getModConfigurationDirectory(), "mysticalagriculture.cfg"));
-		EssenceConfig.init(new File(e.getModConfigurationDirectory(), "mysticalagriculture_recipes.cfg"));
-		MinecraftForge.EVENT_BUS.register(new ModConfig());
-		MinecraftForge.EVENT_BUS.register(new EssenceConfig());
-		
+	public void preInit(FMLPreInitializationEvent e){		
 		MinecraftForge.EVENT_BUS.register(this);
-
-		for(CropType.Type type : CropType.Type.values()){
-			type.declare();
-			type.set();
-		}
 		
-		ModBlocks.init();
-	    ModItems.init();
 	    ModEntities.init();
 
 	    MinecraftForge.EVENT_BUS.register(MysticalAgriculture.REGISTRY);
@@ -98,6 +87,21 @@ public class CommonProxy {
 
 	public void postInit(FMLPostInitializationEvent e) {
 		
+	}
+	
+	public void registerItems(RegistryEvent.Register<Item> e) {
+		ModConfig.init(new File(new File(".", "config").getPath(), "mysticalagriculture.cfg"));
+		EssenceConfig.init(new File(new File(".", "config").getPath(), "mysticalagriculture_recipes.cfg"));
+		MinecraftForge.EVENT_BUS.register(new ModConfig());
+		MinecraftForge.EVENT_BUS.register(new EssenceConfig());
+		
+		for(CropType.Type type : CropType.Type.values()){
+			type.declare();
+			type.set();
+		}
+		
+		ModBlocks.init();
+	    ModItems.init();
 	}
 	
 	@SubscribeEvent

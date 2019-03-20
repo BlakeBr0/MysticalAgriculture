@@ -77,7 +77,8 @@ public class ModChecker {
 	public static final boolean RUBY = !OreDictionary.getOres("gemRuby", false).isEmpty() || BIOMES_O_PLENTY || PROJECT_RED || TECH_REBORN || PIXELMON;
 	public static final boolean SAPPHIRE = !OreDictionary.getOres("gemSapphire", false).isEmpty() || BIOMES_O_PLENTY || PROJECT_RED || TECH_REBORN || PIXELMON;
 	public static final boolean PERIDOT = !OreDictionary.getOres("gemPeridot", false).isEmpty() || BIOMES_O_PLENTY || PROJECT_RED || TECH_REBORN;
-	public static final boolean AMBER = !OreDictionary.getOres("gemPeridot", false).isEmpty() || BIOMES_O_PLENTY || THAUMCRAFT;
+	public static final boolean AMBER = !OreDictionary.getOres("gemAmber", false).isEmpty() || BIOMES_O_PLENTY || THAUMCRAFT;
+	public static final boolean TOPAZ = !OreDictionary.getOres("gemTopaz", false).isEmpty() || BIOMES_O_PLENTY;
 	
 	public static final boolean SIGNALUM = !OreDictionary.getOres("ingotSignalum", false).isEmpty() || THERMAL_FOUNDATION || SUBSTRATUM;
 	public static final boolean LUMIUM = !OreDictionary.getOres("ingotLumium", false).isEmpty() || THERMAL_FOUNDATION || SUBSTRATUM;

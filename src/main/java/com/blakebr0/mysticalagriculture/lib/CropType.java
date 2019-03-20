@@ -82,7 +82,7 @@ public class CropType {
 		SAPPHIRE("sapphire", 4, ModChecker.SAPPHIRE),
 		PERIDOT("peridot", 4, ModChecker.PERIDOT),
 		AMBER("amber", 4, ModChecker.AMBER),
-		TOPAZ("topaz", 4, ModChecker.BIOMES_O_PLENTY),
+		TOPAZ("topaz", 4, ModChecker.TOPAZ),
 		MALACHITE("malachite", 4, ModChecker.BIOMES_O_PLENTY),
 		TANZANITE("tanzanite", 4, ModChecker.BIOMES_O_PLENTY),
 		
