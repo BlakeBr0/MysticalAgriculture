@@ -1,7 +1,7 @@
 package com.blakebr0.mysticalagriculture;
 
-import com.blakebr0.cucumber.registry.LateModRegistry;
 import com.blakebr0.mysticalagriculture.proxy.CommonProxy;
+import com.blakebr0.mysticalagriculture.registry.LateModRegistry;
 
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
