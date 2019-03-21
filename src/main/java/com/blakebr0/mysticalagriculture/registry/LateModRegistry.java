@@ -16,14 +16,13 @@ public class LateModRegistry extends ModRegistry {
 	public LateModRegistry(String modid) {
 		super(modid);
 	}
-	
+
 	public static LateModRegistry create(String modid) {
 		LateModRegistry registry = new LateModRegistry(modid);
 		MinecraftForge.EVENT_BUS.register(registry);
 		return registry;
 	}
 
-	@SubscribeEvent(priority=EventPriority.LOWEST)
 	public void registerBlocksLate(Register<Item> event) {
 		for (RegistryObject<Block> block : blocks) {
 			if (block.get().getRegistryName() == null) {
@@ -33,9 +32,7 @@ public class LateModRegistry extends ModRegistry {
 		}
 	}
 
-	@Override
-	@SubscribeEvent(priority=EventPriority.LOWEST)
-	public void registerItems(Register<Item> event) {
+	public void registerItemsLate(Register<Item> event) {
 		super.registerItems(event);
 	}
 

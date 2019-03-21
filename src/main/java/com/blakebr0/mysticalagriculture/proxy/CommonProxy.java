@@ -102,6 +102,8 @@ public class CommonProxy {
 		
 		ModBlocks.init();
 	    ModItems.init();
+	    MysticalAgriculture.REGISTRY.registerBlocksLate(e);
+	    MysticalAgriculture.REGISTRY.registerItemsLate(e);
 	}
 	
 	@SubscribeEvent
