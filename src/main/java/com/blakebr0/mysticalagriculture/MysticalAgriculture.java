@@ -1,6 +1,6 @@
 package com.blakebr0.mysticalagriculture;
 
-import com.blakebr0.cucumber.registry.ModRegistry;
+import com.blakebr0.cucumber.registry.LateModRegistry;
 import com.blakebr0.mysticalagriculture.proxy.CommonProxy;
 
 import net.minecraft.creativetab.CreativeTabs;
@@ -27,7 +27,7 @@ public class MysticalAgriculture {
 	public static final String GUI_FACTORY = "com.blakebr0.mysticalagriculture.config.GuiFactory";
 	
 	public static final CreativeTabs CREATIVE_TAB = new MACreativeTab();
-	public static final ModRegistry REGISTRY = ModRegistry.create(MOD_ID);
+	public static final LateModRegistry REGISTRY = LateModRegistry.create(MOD_ID);
 		
 	@Mod.Instance(MysticalAgriculture.MOD_ID)
 	public static MysticalAgriculture INSTANCE;
