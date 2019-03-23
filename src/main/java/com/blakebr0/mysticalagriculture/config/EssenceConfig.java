@@ -3,6 +3,7 @@ package com.blakebr0.mysticalagriculture.config;
 import java.io.File;
 
 import com.blakebr0.mysticalagriculture.MysticalAgriculture;
+import com.blakebr0.mysticalagriculture.lib.CropType;
 
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.fml.client.event.ConfigChangedEvent;
@@ -281,6 +282,10 @@ public class EssenceConfig {
 	public static void syncConfig(){
 		
 		String category;
+		
+		for(CropType.Type type : CropType.Type.values()){
+			type.configure(config);
+		}
 		
 		category = "Common Resources";
 		cobblestone = config.get(category, "cobblestone", 32).getInt();

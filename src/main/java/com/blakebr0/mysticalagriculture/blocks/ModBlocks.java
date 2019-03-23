@@ -183,13 +183,15 @@ public class ModBlocks {
 		registry.register(blockTier4InferiumCrop, "tier4_inferium_crop");
 		registry.register(blockTier5InferiumCrop, "tier5_inferium_crop");
 		
+		registry.register(blockMinersTorch, "miners_torch", new ItemBlockMinersTorch(blockMinersTorch));
+	}
+	
+	public static void initCrops() {
 		for(CropType.Type type : CropType.Type.values()){
 			if(type.isEnabled()){
-				registry.register(type.getPlant(), type.getName() + "_crop");
+				MysticalAgriculture.REGISTRY.register(type.getPlant(), type.getName() + "_crop");
 			}
 		}
-		
-		registry.register(blockMinersTorch, "miners_torch", new ItemBlockMinersTorch(blockMinersTorch));
 	}
 	
 	public static void initOreDict(){

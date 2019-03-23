@@ -61,13 +61,13 @@ public class ModItems {
 	public static ItemEssenceCoal itemEssenceCoal = new ItemEssenceCoal();
 	
 	public static ItemWateringCan itemWateringCan = new ItemWateringCan();
-
+	
 	public static ItemSouliumDagger itemSouliumDagger = new ItemSouliumDagger();
 	
 	public static ItemExperienceDroplet itemExperienceDroplet = new ItemExperienceDroplet();
-		
+	
 	public static ItemChunk itemChunk = new ItemChunk();
-		
+	
 	public static ItemSeed itemTier1InferiumSeeds = new ItemSeed("tier1_inferium_seeds", ModBlocks.blockTier1InferiumCrop, 1);
 	public static ItemSeed itemTier2InferiumSeeds = new ItemSeed("tier2_inferium_seeds", ModBlocks.blockTier2InferiumCrop, 2);
 	public static ItemSeed itemTier3InferiumSeeds = new ItemSeed("tier3_inferium_seeds", ModBlocks.blockTier3InferiumCrop, 3);
@@ -167,8 +167,6 @@ public class ModItems {
 	public static void init(){
 		final ModRegistry registry = MysticalAgriculture.REGISTRY;
 		
-		registry.register(itemCrafting, "crafting");
-		
 		registry.register(itemInfusionCrystal, "infusion_crystal");
 		registry.register(itemInfusionCrystalMaster, "master_infusion_crystal");
 		
@@ -186,22 +184,11 @@ public class ModItems {
 		registry.register(itemEssenceCoal, "coal");
 		
 		registry.register(itemWateringCan, "watering_can");
-
+		
 		registry.register(itemSouliumDagger, "soulium_dagger");
 		
 		registry.register(itemExperienceDroplet, "xp_droplet");
-								
-		registry.register(itemChunk, "chunk");
 		
-		for(CropType.Type type : CropType.Type.values()){
-			if(type.isEnabled()){
-				registry.register(type.getCrop(), type.getName() + "_essence");
-				if(ModConfig.confGenericOreDictEssence){
-					registry.addOre(type.getCrop(), "essenceTier" + type.getTier());
-				}
-			}
-		}
-
 		registry.register(itemTier1InferiumSeeds, "tier1_inferium_seeds");
 		registry.register(itemTier2InferiumSeeds, "tier2_inferium_seeds");
 		registry.register(itemTier3InferiumSeeds, "tier3_inferium_seeds");
@@ -214,26 +201,31 @@ public class ModItems {
 		ModBlocks.blockTier4InferiumCrop.setSeed(itemTier4InferiumSeeds);
 		ModBlocks.blockTier5InferiumCrop.setSeed(itemTier5InferiumSeeds);
 		
-		for(CropType.Type type : CropType.Type.values()){
-			if(type.isEnabled()){
-				registry.register(type.getSeed(), type.getName() + "_seeds");
-				if(ModConfig.confGenericOreDictEssence) {
-					registry.addOre(type.getSeed(), "seedsTier" + type.getTier());
-				}
-			}
-		}
-		
 		if(ModConfig.confGearModuleOverride){
 			registry.register(itemGear, "gear");
 			
 			registry.register(itemCharm, "charm");
-						
+				
 			registry.register(itemInferiumArrow, "inferium_arrow");
 			registry.register(itemPrudentiumArrow, "prudentium_arrow");
 			registry.register(itemIntermediumArrow, "intermedium_arrow");
 			registry.register(itemSuperiumArrow, "superium_arrow");
 			registry.register(itemSupremiumArrow, "supremium_arrow");
-			
+		}
+		
+		if (ModBlocks.blockEssenceCoal.isEnabled()) {
+	        GameRegistry.registerFuelHandler(new CoalBlockFuelHandler());
+		}
+	}
+	
+	public static void initCrops() {
+		final ModRegistry registry = MysticalAgriculture.REGISTRY;
+		
+		registry.register(itemCrafting, "crafting");
+		
+		registry.register(itemChunk, "chunk");
+		
+		if(ModConfig.confGearModuleOverride) {
 			registry.register(itemInferiumSword, "inferium_sword", ModItems.itemCrafting.itemInferiumIngot);
 			registry.register(itemInferiumPickaxe, "inferium_pickaxe", ModItems.itemCrafting.itemInferiumIngot);
 			registry.register(itemInferiumShovel, "inferium_shovel", ModItems.itemCrafting.itemInferiumIngot);
@@ -315,8 +307,22 @@ public class ModItems {
 	        registry.register(itemSupremiumBoots, "supremium_boots", ModItems.itemCrafting.itemSupremiumIngot);
 		}
 		
-		if (ModBlocks.blockEssenceCoal.isEnabled()) {
-	        GameRegistry.registerFuelHandler(new CoalBlockFuelHandler());
+		for(CropType.Type type : CropType.Type.values()){
+			if(type.isEnabled()){
+				registry.register(type.getCrop(), type.getName() + "_essence");
+				if(ModConfig.confGenericOreDictEssence){
+					registry.addOre(type.getCrop(), "essenceTier" + type.getTier());
+				}
+			}
+		}
+		
+		for(CropType.Type type : CropType.Type.values()){
+			if(type.isEnabled()){
+				registry.register(type.getSeed(), type.getName() + "_seeds");
+				if(ModConfig.confGenericOreDictEssence) {
+					registry.addOre(type.getSeed(), "seedsTier" + type.getTier());
+				}
+			}
 		}
 	}
 }

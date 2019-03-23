@@ -37,11 +37,17 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 
 public class CommonProxy {
 	
-	public void preInit(FMLPreInitializationEvent e){		
+	public void preInit(FMLPreInitializationEvent e){
+		ModConfig.init(new File(e.getModConfigurationDirectory(), "mysticalagriculture.cfg"));
+		MinecraftForge.EVENT_BUS.register(new ModConfig());
+		MinecraftForge.EVENT_BUS.register(new EssenceConfig());
+		
 		MinecraftForge.EVENT_BUS.register(this);
 		
+		ModBlocks.init();
+	    ModItems.init();
 	    ModEntities.init();
-
+	    
 	    MinecraftForge.EVENT_BUS.register(MysticalAgriculture.REGISTRY);
 	    	    
 	    MinecraftForge.EVENT_BUS.register(new ItemIntermediumArmor.AbilityHandler());
@@ -84,26 +90,24 @@ public class CommonProxy {
 	    GameRegistry.registerWorldGenerator(new OreGeneration(), 0);
 	    MinecraftForge.EVENT_BUS.register(new MobDrops());
 	}
-
+	
 	public void postInit(FMLPostInitializationEvent e) {
 		
 	}
 	
-	public void registerItems(RegistryEvent.Register<Item> e) {
-		ModConfig.init(new File(new File(".", "config").getPath(), "mysticalagriculture.cfg"));
+	public void registerItems(RegistryEvent.Register<Item> event) {
 		EssenceConfig.init(new File(new File(".", "config").getPath(), "mysticalagriculture_recipes.cfg"));
-		MinecraftForge.EVENT_BUS.register(new ModConfig());
-		MinecraftForge.EVENT_BUS.register(new EssenceConfig());
 		
 		for(CropType.Type type : CropType.Type.values()){
 			type.declare();
 			type.set();
 		}
 		
-		ModBlocks.init();
-	    ModItems.init();
-	    MysticalAgriculture.REGISTRY.registerBlocksLate(e);
-	    MysticalAgriculture.REGISTRY.registerItemsLate(e);
+		ModItems.initCrops();
+		ModBlocks.initCrops();
+		
+		MysticalAgriculture.REGISTRY.registerItemsLate(event);
+		MysticalAgriculture.REGISTRY.registerBlocksLate(event);
 	}
 	
 	@SubscribeEvent

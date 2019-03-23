@@ -137,10 +137,6 @@ public class ModConfig {
 				+ "\nTier 3: Intermedium"
 				+ "\nTier 4: Superium"
 				+ "\nTier 5: Supremium");
-
-		for(CropType.Type type : CropType.Type.values()){
-			type.configure(config);
-		}
 		
 		category = "Gear";
 		config.addCustomCategoryComment(category, "Settings for the Mystical Agriculture: Gear module.");
