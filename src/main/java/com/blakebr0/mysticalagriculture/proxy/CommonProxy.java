@@ -103,11 +103,11 @@ public class CommonProxy {
 			type.set();
 		}
 		
-		ModItems.initCrops();
 		ModBlocks.initCrops();
+		ModItems.initCrops();
 		
-		MysticalAgriculture.REGISTRY.registerItemsLate(event);
 		MysticalAgriculture.REGISTRY.registerBlocksLate(event);
+		MysticalAgriculture.REGISTRY.registerItemsLate(event);
 	}
 	
 	@SubscribeEvent
