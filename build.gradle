@@ -53,6 +53,7 @@ minecraft {
 
             // Recommended logging level for the console
             property 'forge.logging.console.level', 'debug'
+            property 'username', 'Player'
 
             mods {
                 mysticalagriculture {
@@ -110,6 +111,7 @@ dependencies {
 
 // Example for how to get properties into the manifest for reading by the runtime..
 jar {
+    from sourceSets.main.output
     manifest {
         attributes([
             "Specification-Title": "Mystical Agriculture",
