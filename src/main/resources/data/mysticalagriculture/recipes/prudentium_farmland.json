@@ -1,0 +1,15 @@
+{
+  "type": "crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "mysticalagriculture:prudentium_essence"
+    },
+    {
+      "item": "minecraft:farmland"
+    }
+  ],
+  "result": {
+    "item": "mysticalagriculture:prudentium_farmland",
+    "count": 1
+  }
+}

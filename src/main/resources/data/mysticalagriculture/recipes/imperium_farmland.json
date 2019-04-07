@@ -1,0 +1,15 @@
+{
+  "type": "crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "mysticalagriculture:imperium_essence"
+    },
+    {
+      "item": "minecraft:farmland"
+    }
+  ],
+  "result": {
+    "item": "mysticalagriculture:imperium_farmland",
+    "count": 1
+  }
+}

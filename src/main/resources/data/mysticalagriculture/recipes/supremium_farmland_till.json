@@ -1,0 +1,18 @@
+{
+  "type": "mysticalagriculture:farmland_till",
+  "ingredients": [
+    {
+      "tag": "mysticalagriculture:all_hoes"
+    },
+    {
+      "item": "mysticalagriculture:supremium_essence"
+    },
+    {
+      "item": "minecraft:dirt"
+    }
+  ],
+  "result": {
+    "item": "mysticalagriculture:supremium_farmland",
+    "count": 1
+  }
+}

@@ -1,7 +1,9 @@
 package com.blakebr0.mysticalagriculture;
 
+import com.blakebr0.cucumber.iface.IColored;
 import com.blakebr0.cucumber.render.ColorHandler;
 import com.blakebr0.cucumber.util.Utils;
+import com.blakebr0.mysticalagriculture.blocks.BlockInfusedFarmland;
 import com.blakebr0.mysticalagriculture.config.ModConfigs;
 import com.blakebr0.mysticalagriculture.items.ModItems;
 import net.minecraft.item.ItemGroup;
@@ -48,6 +50,11 @@ public class MysticalAgriculture {
 	}
 
 	public void clientInit(FMLClientSetupEvent event) {
-		ColorHandler.registerItems((stack, tint) -> Utils.saturate(0x00D9D9, (float) (stack.getMaxDamage() - stack.getDamage()) / stack.getMaxDamage()), ModItems.INFUSION_CRYSTAL);
+		ColorHandler.registerBlocks(new IColored.BlockColors(), BlockInfusedFarmland.FARMLANDS.toArray(new BlockInfusedFarmland[0]));
+		ColorHandler.registerItems(new IColored.ItemBlockColors(), BlockInfusedFarmland.FARMLANDS.toArray(new BlockInfusedFarmland[0]));
+		ColorHandler.registerItems((stack, tint) -> {
+			float damage = (float) (stack.getMaxDamage() - stack.getDamage()) / stack.getMaxDamage();
+			return Utils.saturate(0x00D9D9, damage);
+		}, ModItems.INFUSION_CRYSTAL);
 	}
 }
