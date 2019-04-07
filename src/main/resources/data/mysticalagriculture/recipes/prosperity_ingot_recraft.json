@@ -7,10 +7,10 @@
   ],
   "key": {
     "#": {
-      "item": "mysticalagriculture:prosperity_gemstone"
+      "item": "mysticalagriculture:prosperity_nugget"
     }
   },
   "result": {
-    "item": "mysticalagriculture:prosperity_gemstone_block"
+    "item": "mysticalagriculture:prosperity_ingot"
   }
 }

@@ -1,0 +1,12 @@
+{
+  "type": "crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "mysticalagriculture:prosperity_ingot"
+    }
+  ],
+  "result": {
+    "item": "mysticalagriculture:prosperity_nugget",
+    "count": 9
+  }
+}
