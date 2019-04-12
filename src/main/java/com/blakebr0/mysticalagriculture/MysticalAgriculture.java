@@ -5,8 +5,10 @@ import com.blakebr0.cucumber.render.ColorHandler;
 import com.blakebr0.cucumber.util.Utils;
 import com.blakebr0.mysticalagriculture.blocks.BlockInfusedFarmland;
 import com.blakebr0.mysticalagriculture.config.ModConfigs;
+import com.blakebr0.mysticalagriculture.crafting.ModRecipeSerializers;
 import com.blakebr0.mysticalagriculture.items.ModItems;
 import net.minecraft.item.ItemGroup;
+import net.minecraftforge.fml.DeferredWorkQueue;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.config.ModConfig;
@@ -18,7 +20,6 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 
 @Mod(MysticalAgriculture.MOD_ID)
 public class MysticalAgriculture {
-	
 	public static final String MOD_ID = "mysticalagriculture";
 	public static final String NAME = "Mystical Agriculture";
 	public static final String VERSION = "${version}";
@@ -38,7 +39,7 @@ public class MysticalAgriculture {
 	}
 		
 	public void preInit(FMLCommonSetupEvent event) {
-
+		DeferredWorkQueue.runLater(ModRecipeSerializers::new);
 	}
 
 	public void init(InterModEnqueueEvent event) {

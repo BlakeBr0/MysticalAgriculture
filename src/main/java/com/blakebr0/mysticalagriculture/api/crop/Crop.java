@@ -1,31 +1,39 @@
 package com.blakebr0.mysticalagriculture.api.crop;
 
-import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.fml.ModLoadingContext;
 
 public class Crop implements ICrop {
-
     private final String name;
     private CropTier tier;
     private CropType type;
     private int flowerColor = -1, essenceColor = -1, seedColor = -1;
-    private ResourceLocation flowerTexture, essenceTexture, seedTexture;
+    private CropTextures textures;
+    private String modid;
 
     /**
      * Represents a new crop for registration
      * @param name the name of the crop, MUST be all lowercase and use underscores for spaces
      * @param tier the tier of this crop
      * @param type the type of this crop, like resource or mob
-     * @param flowerTexture the resource location of the flower texture
-     * @param essenceTexture the resource location of the essence texture
-     * @param seedTexture the resource location of the seed texture
+     * @param modid the modid to use for getting the textures of this crop
      */
-    public Crop(String name, CropTier tier, CropType type, ResourceLocation flowerTexture, ResourceLocation essenceTexture, ResourceLocation seedTexture) {
+    public Crop(String name, CropTier tier, CropType type, String modid) {
+        this(name, tier, type, new CropTextures(modid, name));
+    }
+
+    /**
+     * Represents a new crop for registration
+     * @param name the name of the crop, MUST be all lowercase and use underscores for spaces
+     * @param tier the tier of this crop
+     * @param type the type of this crop, like resource or mob
+     * @param textures the textures of this crop
+     */
+    public Crop(String name, CropTier tier, CropType type, CropTextures textures) {
         this.name = name;
         this.tier = tier;
         this.type = type;
-        this.flowerTexture = flowerTexture;
-        this.essenceTexture = essenceTexture;
-        this.seedTexture = seedTexture;
+        this.textures = textures;
+        this.modid = ModLoadingContext.get().getActiveContainer().getModId();
     }
 
     @Override
@@ -54,8 +62,8 @@ public class Crop implements ICrop {
     }
 
     @Override
-    public ResourceLocation getFlowerTexture() {
-        return this.flowerTexture;
+    public CropTextures getTextures() {
+        return this.textures;
     }
 
     @Override
@@ -69,13 +77,8 @@ public class Crop implements ICrop {
     }
 
     @Override
-    public ResourceLocation getEssenceTexture() {
-        return this.essenceTexture;
-    }
-
-    @Override
     public int getSeedColor() {
-        return -1;
+        return this.seedColor;
     }
 
     public Crop setSeedColor(int color) {
@@ -84,7 +87,7 @@ public class Crop implements ICrop {
     }
 
     @Override
-    public ResourceLocation getSeedTexture() {
-        return this.seedTexture;
+    public String getModId() {
+        return this.modid;
     }
 }

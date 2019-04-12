@@ -4,7 +4,6 @@ import com.blakebr0.mysticalagriculture.api.MysticalAgricultureAPI;
 import net.minecraft.util.text.TextFormatting;
 
 public class CropTiers {
-
     public static final CropTier ELEMENTAL = new CropTier("elemental", 1, TextFormatting.GRAY, MysticalAgricultureAPI.MOD_ID);
     public static final CropTier ONE = new CropTier("1", 1, TextFormatting.YELLOW, MysticalAgricultureAPI.MOD_ID);
     public static final CropTier TWO = new CropTier("2", 2, TextFormatting.GREEN, MysticalAgricultureAPI.MOD_ID);

@@ -6,11 +6,10 @@ import net.minecraftforge.eventbus.api.Event;
  * Fired on the {@link net.minecraftforge.common.MinecraftForge#EVENT_BUS}
  * Use this event to update or modify registered crops
  */
-public class PostRegisterCropsEvent extends Event {
-
+public class ModifyCropsEvent extends Event {
     private final ICropRegistry registry;
 
-    public PostRegisterCropsEvent(ICropRegistry registry) {
+    public ModifyCropsEvent(ICropRegistry registry) {
         this.registry = registry;
     }
 

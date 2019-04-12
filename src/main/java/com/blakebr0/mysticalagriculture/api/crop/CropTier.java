@@ -5,7 +5,6 @@ import net.minecraft.util.text.TextFormatting;
 import net.minecraftforge.fml.ModLoadingContext;
 
 public class CropTier {
-
     private final String name;
     private final int tier;
     private final TextFormatting color;
@@ -29,7 +28,7 @@ public class CropTier {
      * @param name the name of the tier
      * @param tier the level of the tier, higher number = higher tier
      * @param color the text color of this tier
-     * @param modid  the modid that created this tier
+     * @param modid the modid that created this tier
      */
     public CropTier(String name, int tier, TextFormatting color, String modid) {
         this.name = name;
@@ -72,6 +71,6 @@ public class CropTier {
      * @return the localized name of this tier
      */
     public String getDisplayName() {
-        return new TextComponentTranslation(String.format("cropTier.%s.%s", getModId(), getName())).applyTextStyle(getColor()).getFormattedText();
+        return new TextComponentTranslation(String.format("cropTier.%s.%s", this.getModId(), this.getName())).applyTextStyle(this.getColor()).getFormattedText();
     }
 }

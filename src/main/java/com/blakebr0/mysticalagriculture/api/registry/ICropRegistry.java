@@ -5,7 +5,6 @@ import com.blakebr0.mysticalagriculture.api.crop.ICrop;
 import java.util.List;
 
 public interface ICropRegistry {
-
     /**
      * Register a crop in the crop registry
      * @param crop the crop to register

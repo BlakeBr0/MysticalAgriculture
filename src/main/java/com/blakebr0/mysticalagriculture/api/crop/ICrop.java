@@ -1,9 +1,7 @@
 package com.blakebr0.mysticalagriculture.api.crop;
 
-import net.minecraft.util.ResourceLocation;
-
 /**
- * Represents a crop and all its information
+ * Represents a crop and all of its information
  */
 public interface ICrop {
     /**
@@ -40,10 +38,10 @@ public interface ICrop {
     int getFlowerColor();
 
     /**
-     * The resource location of the flower texture for this crop
-     * @return the crop's flower texture location
+     * All the textures related to this crop
+     * @return the crop's textures
      */
-    ResourceLocation getFlowerTexture();
+    CropTextures getTextures();
 
     /**
      * Whether or not this crop's essence should be colored using the color defined by {@link #getEssenceColor()}
@@ -60,12 +58,6 @@ public interface ICrop {
     int getEssenceColor();
 
     /**
-     * The resource location of the essence texture for this crop
-     * @return the crop's essence texture location
-     */
-    ResourceLocation getEssenceTexture();
-
-    /**
      * Whether or not this crop's seed should be colored using the color defined by {@link #getSeedColor()}
      * @return is the crop's seed colored
      */
@@ -80,8 +72,8 @@ public interface ICrop {
     int getSeedColor();
 
     /**
-     * The resource location of the seed texture for this crop
-     * @return the crop's seed texture location
+     * The modid of the mod that registered this crop
+     * @return the modid of this crop
      */
-    ResourceLocation getSeedTexture();
+    String getModId();
 }

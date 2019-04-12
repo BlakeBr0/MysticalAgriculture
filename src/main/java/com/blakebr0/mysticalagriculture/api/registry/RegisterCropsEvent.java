@@ -8,7 +8,6 @@ import net.minecraftforge.eventbus.api.Event;
  * Use this event to register your crops
  */
 public class RegisterCropsEvent extends Event {
-
     private final ICropRegistry registry;
 
     public RegisterCropsEvent(ICropRegistry registry) {
