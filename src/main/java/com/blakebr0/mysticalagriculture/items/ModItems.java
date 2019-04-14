@@ -2,6 +2,7 @@ package com.blakebr0.mysticalagriculture.items;
 
 import com.blakebr0.cucumber.item.ItemBase;
 import com.blakebr0.mysticalagriculture.MysticalAgriculture;
+import com.blakebr0.mysticalagriculture.registry.CropRegistry;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraftforge.event.RegistryEvent;
@@ -89,5 +90,7 @@ public class ModItems {
         registry.register(SOULIUM_SEED_BASE);
         registry.register(INFUSION_CRYSTAL);
         registry.register(MASTER_INFUSION_CRYSTAL);
+
+        CropRegistry.getInstance().onRegisterItems(registry);
     }
 }

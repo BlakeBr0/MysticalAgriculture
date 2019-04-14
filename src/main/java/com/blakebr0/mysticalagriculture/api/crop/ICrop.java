@@ -1,5 +1,9 @@
 package com.blakebr0.mysticalagriculture.api.crop;
 
+import net.minecraft.block.BlockCrops;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemSeeds;
+
 /**
  * Represents a crop and all of its information
  */
@@ -10,6 +14,15 @@ public interface ICrop {
      * @return the name of this crop
      */
     String getName();
+
+    /**
+     * Used to get the internal name of this crop with an _suffix
+     * @param suffix the suffix to append (without the initial underscore)
+     * @return the name with _suffix
+     */
+    default String getNameWithSuffix(String suffix) {
+        return this.getName() + "_" + suffix;
+    }
 
     /**
      * The tier/group this crop belongs to
@@ -28,7 +41,7 @@ public interface ICrop {
      * @return is the crop's flower colored
      */
     default boolean isFlowerColored() {
-        return getFlowerColor() > -1;
+        return this.getFlowerColor() > -1;
     }
 
     /**
@@ -48,7 +61,7 @@ public interface ICrop {
      * @return is the crop's essence colored
      */
     default boolean isEssenceColored() {
-        return getEssenceColor() > -1;
+        return this.getEssenceColor() > -1;
     }
 
     /**
@@ -62,7 +75,7 @@ public interface ICrop {
      * @return is the crop's seed colored
      */
     default boolean isSeedColored() {
-        return getSeedColor() > -1;
+        return this.getSeedColor() > -1;
     }
 
     /**
@@ -76,4 +89,46 @@ public interface ICrop {
      * @return the modid of this crop
      */
     String getModId();
+
+    /**
+     * The crop block for this crop type
+     * @param <T> crop block type
+     * @return the crop block
+     */
+    <T extends BlockCrops> T getCrop();
+
+    /**
+     * Used to set the crop block instance for this crop
+     * @param crop the crop block
+     * @return this crop
+     */
+    ICrop setCrop(BlockCrops crop);
+
+    /**
+     * The essence item for this crop type
+     * @param <T> essence item type
+     * @return the essence item
+     */
+    <T extends Item> T getEssence();
+
+    /**
+     * Used to set the essence item instance for this crop
+     * @param essence the essence item
+     * @return this crop
+     */
+    ICrop setEssence(Item essence);
+
+    /**
+     * The seeds item for this crop type
+     * @param <T> seed item type
+     * @return the seed item
+     */
+    <T extends ItemSeeds> T getSeeds();
+
+    /**
+     * Used to set the seeds item instance for this crop
+     * @param seeds the seeds item
+     * @return this crop
+     */
+    ICrop setSeeds(ItemSeeds seeds);
 }

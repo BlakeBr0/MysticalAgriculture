@@ -2,26 +2,12 @@ package com.blakebr0.mysticalagriculture.api.crop;
 
 import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.util.text.TextFormatting;
-import net.minecraftforge.fml.ModLoadingContext;
 
 public class CropTier {
     private final String name;
     private final int tier;
     private final TextFormatting color;
     private final String modid;
-
-    /**
-     * Represents a tier/group of crops
-     * @param name the name of the tier
-     * @param tier the level of the tier, higher number = higher tier
-     * @param color the text color of this tier
-     */
-    public CropTier(String name, int tier, TextFormatting color) {
-        this.name = name;
-        this.tier = tier;
-        this.color = color;
-        this.modid = ModLoadingContext.get().getActiveContainer().getModId();
-    }
 
     /**
      * Represents a tier/group of crops

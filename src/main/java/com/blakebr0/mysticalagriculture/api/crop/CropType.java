@@ -2,12 +2,10 @@ package com.blakebr0.mysticalagriculture.api.crop;
 
 import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.registries.ForgeRegistries;
 
 public class CropType {
     private final String name;
     private final ResourceLocation stemTexture;
-    private final ResourceLocation craftingSeedId;
     private Item craftingSeed;
 
     /**
@@ -15,10 +13,9 @@ public class CropType {
      * @param name the name of this type
      * @param stemTexture the stem texture for all crops of this type
      */
-    public CropType(String name, ResourceLocation stemTexture, ResourceLocation craftingSeedId) {
+    public CropType(String name, ResourceLocation stemTexture) {
         this.name = name;
         this.stemTexture = stemTexture;
-        this.craftingSeedId = craftingSeedId;
     }
 
     /**
@@ -35,14 +32,16 @@ public class CropType {
         return this.stemTexture;
     }
 
+    /**
+     * The crafting seed used in recipes for all crops of this type
+     * @return the crafting seed of this type
+     */
+    public Item getCraftingSeed() {
+        return this.craftingSeed;
+    }
+
     public CropType setCraftingSeed(Item item) {
         this.craftingSeed = item;
         return this;
-    }
-
-    public void bindCraftingSeed() {
-        if (this.craftingSeedId != null) {
-            this.craftingSeed = ForgeRegistries.ITEMS.getValue(this.craftingSeedId);
-        }
     }
 }

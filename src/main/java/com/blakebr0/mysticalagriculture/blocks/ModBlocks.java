@@ -4,6 +4,7 @@ import com.blakebr0.cucumber.block.BlockBase;
 import com.blakebr0.cucumber.item.ItemBlockBase;
 import com.blakebr0.mysticalagriculture.MysticalAgriculture;
 import com.blakebr0.mysticalagriculture.items.ModItems;
+import com.blakebr0.mysticalagriculture.registry.CropRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
@@ -89,6 +90,11 @@ public class ModBlocks {
         register(registry, SOULSTONE_CHISELED_BRICKS);
         register(registry, WITHERPROOF_BLOCK);
         register(registry, WITHERPROOF_BRICKS);
+
+        CropRegistry cropRegistry = CropRegistry.getInstance();
+        cropRegistry.allowRegistration();
+        cropRegistry.onRegisterBlocks(registry);
+        cropRegistry.denyRegistration();
     }
 
     private static void register(IForgeRegistry<Block> registry, Block block) {

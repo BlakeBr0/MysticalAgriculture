@@ -7,7 +7,9 @@ import com.blakebr0.mysticalagriculture.blocks.BlockInfusedFarmland;
 import com.blakebr0.mysticalagriculture.config.ModConfigs;
 import com.blakebr0.mysticalagriculture.crafting.ModRecipeSerializers;
 import com.blakebr0.mysticalagriculture.items.ModItems;
+import com.blakebr0.mysticalagriculture.lib.ModCrops;
 import net.minecraft.item.ItemGroup;
+import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.DeferredWorkQueue;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
@@ -36,6 +38,8 @@ public class MysticalAgriculture {
 
 		ModLoadingContext.get().registerConfig(ModConfig.Type.CLIENT, ModConfigs.CLIENT);
 		ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, ModConfigs.COMMON);
+
+		MinecraftForge.EVENT_BUS.register(new ModCrops());
 	}
 		
 	public void preInit(FMLCommonSetupEvent event) {
