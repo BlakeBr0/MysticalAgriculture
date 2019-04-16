@@ -3,6 +3,7 @@ package com.blakebr0.mysticalagriculture.registry;
 import com.blakebr0.mysticalagriculture.MysticalAgriculture;
 import com.blakebr0.mysticalagriculture.api.crop.ICrop;
 import com.blakebr0.mysticalagriculture.api.registry.ICropRegistry;
+import com.blakebr0.mysticalagriculture.api.registry.ModifyCropsEvent;
 import com.blakebr0.mysticalagriculture.api.registry.RegisterCropsEvent;
 import com.blakebr0.mysticalagriculture.blocks.BlockMysticalCrop;
 import com.blakebr0.mysticalagriculture.items.ItemMysticalEssence;
@@ -83,6 +84,7 @@ public class CropRegistry implements ICropRegistry {
         if (this.isAllowedToFuckWithStuff()) {
             this.getRegisteredCrops().forEach(c -> registry.register(c.getEssence()));
             this.getRegisteredCrops().forEach(c -> registry.register(c.getSeeds()));
+            MinecraftForge.EVENT_BUS.post(new ModifyCropsEvent(this));
         }
     }
 
