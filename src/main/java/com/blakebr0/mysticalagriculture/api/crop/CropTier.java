@@ -1,5 +1,7 @@
 package com.blakebr0.mysticalagriculture.api.crop;
 
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockFarmland;
 import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.util.text.TextFormatting;
 
@@ -8,6 +10,7 @@ public class CropTier {
     private final int tier;
     private final TextFormatting color;
     private final String modid;
+    private BlockFarmland farmland;
 
     /**
      * Represents a tier/group of crops
@@ -49,6 +52,35 @@ public class CropTier {
      */
     public String getModId() {
         return this.modid;
+    }
+
+    /**
+     * Gets the block instance of the effective farmland for this tier
+     * @param <T> block type
+     * @return the farmland for this tier
+     */
+    @SuppressWarnings("unchecked")
+    public <T extends BlockFarmland> T getFarmland() {
+        return (T) this.farmland;
+    }
+
+    /**
+     * Used to set the farmland block instance for this tier
+     * @param farmland the farmland block
+     * @return this tier
+     */
+    public CropTier setFarmland(BlockFarmland farmland) {
+        this.farmland = farmland;
+        return this;
+    }
+
+    /**
+     * Checks whether or not the supplied block is this tier's effective farmland
+     * @param block the block to check
+     * @return is the correct farmland
+     */
+    public boolean isEffectiveFarmland(Block block) {
+        return this.farmland.equals(block);
     }
 
     /**

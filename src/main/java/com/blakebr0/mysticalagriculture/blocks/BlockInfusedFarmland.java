@@ -1,6 +1,7 @@
 package com.blakebr0.mysticalagriculture.blocks;
 
 import com.blakebr0.cucumber.iface.IColored;
+import com.blakebr0.mysticalagriculture.api.farmland.IEssenceFarmland;
 import net.minecraft.block.BlockFarmland;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
@@ -13,7 +14,7 @@ import net.minecraftforge.common.IPlantable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class BlockInfusedFarmland extends BlockFarmland implements IColored {
+public class BlockInfusedFarmland extends BlockFarmland implements IColored, IEssenceFarmland {
     public static final List<BlockInfusedFarmland> FARMLANDS = new ArrayList<>();
     private final int color;
 

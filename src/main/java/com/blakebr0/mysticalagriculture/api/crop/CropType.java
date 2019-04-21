@@ -40,6 +40,11 @@ public class CropType {
         return this.craftingSeed;
     }
 
+    /**
+     * Used to set the seeds item instance for this crop
+     * @param item the crafting seed item
+     * @return this crop type
+     */
     public CropType setCraftingSeed(Item item) {
         this.craftingSeed = item;
         return this;

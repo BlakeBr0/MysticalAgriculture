@@ -31,10 +31,10 @@ public class MysticalAgriculture {
 	public static final ItemGroup ITEM_GROUP = new MAItemGroup();
 
 	public MysticalAgriculture() {
-		FMLJavaModLoadingContext.get().getModEventBus().addListener(this::preInit);
-		FMLJavaModLoadingContext.get().getModEventBus().addListener(this::init);
-		FMLJavaModLoadingContext.get().getModEventBus().addListener(this::postInit);
-		FMLJavaModLoadingContext.get().getModEventBus().addListener(this::clientInit);
+		FMLJavaModLoadingContext.get().getModEventBus().addListener(this::onCommonSetup);
+		FMLJavaModLoadingContext.get().getModEventBus().addListener(this::onInterModEnqueue);
+		FMLJavaModLoadingContext.get().getModEventBus().addListener(this::onInterModProcess);
+		FMLJavaModLoadingContext.get().getModEventBus().addListener(this::onClientSetup);
 
 		ModLoadingContext.get().registerConfig(ModConfig.Type.CLIENT, ModConfigs.CLIENT);
 		ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, ModConfigs.COMMON);
@@ -42,19 +42,21 @@ public class MysticalAgriculture {
 		MinecraftForge.EVENT_BUS.register(new ModCrops());
 	}
 		
-	public void preInit(FMLCommonSetupEvent event) {
+	public void onCommonSetup(FMLCommonSetupEvent event) {
+		// TODO: Do this properly
 		DeferredWorkQueue.runLater(ModRecipeSerializers::new);
+		ModCrops.onCommonSetup(event);
 	}
 
-	public void init(InterModEnqueueEvent event) {
-
-	}
-
-	public void postInit(InterModProcessEvent event) {
+	public void onInterModEnqueue(InterModEnqueueEvent event) {
 
 	}
 
-	public void clientInit(FMLClientSetupEvent event) {
+	public void onInterModProcess(InterModProcessEvent event) {
+
+	}
+
+	public void onClientSetup(FMLClientSetupEvent event) {
 		ColorHandler.registerBlocks(new IColored.BlockColors(), BlockInfusedFarmland.FARMLANDS.toArray(new BlockInfusedFarmland[0]));
 		ColorHandler.registerItems(new IColored.ItemBlockColors(), BlockInfusedFarmland.FARMLANDS.toArray(new BlockInfusedFarmland[0]));
 		ColorHandler.registerItems((stack, tint) -> {
