@@ -1,6 +1,7 @@
 package com.blakebr0.mysticalagriculture.blocks.reprocessor;
 
 import com.blakebr0.cucumber.lib.Colors;
+import com.blakebr0.mysticalagriculture.config.ModConfig;
 import com.blakebr0.mysticalagriculture.tileentity.reprocessor.TileEssenceReprocessor;
 import com.blakebr0.mysticalagriculture.tileentity.reprocessor.TileUltimateReprocessor;
 
@@ -28,5 +29,10 @@ public class BlockUltimateReprocessor extends BlockEssenceReprocessor {
 	@Override
 	public TileEssenceReprocessor getTileForInfo() {
 		return this.tileForInfo;
+	}
+
+	@Override
+	public boolean isEnabled() {
+		return super.isEnabled() && ModConfig.confUltimateReprocessor;
 	}
 }

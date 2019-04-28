@@ -46,6 +46,7 @@ public class ModConfig {
 	public static boolean confWateringCans;
 	public static boolean confFakePlayerWatering;
 	public static boolean confDispenserPlanting;
+	public static boolean confUltimateReprocessor;
 	
 	public static boolean confGenerateRegular;
 	public static boolean confGenerateNether;
@@ -159,7 +160,8 @@ public class ModConfig {
 		confWateringCans = config.getBoolean("watering_cans", category, true, "Should the essence Watering Cans be enabled?");
 		confFakePlayerWatering = config.getBoolean("fake_player_watering", category, false, "Should fake players be able to use the watering cans?");
 		confDispenserPlanting = config.getBoolean("dispenser_planting", category, true, "Should Mystical Crops be plantable via dispensers?");
-		
+		confUltimateReprocessor = config.getBoolean("ultimate_reprocessor", category, true, "Should the Ultimate Seed Reprocessor be enabled?");
+
 		category = "World";
 		config.addCustomCategoryComment(category, "Settings for any World Generation in Mystical Agriculture.");
 		confGenerateRegular = config.getBoolean("generate_regular", category, true, "Should the regular ores generate in the world?");

@@ -10,7 +10,7 @@ buildscript {
 apply plugin: 'net.minecraftforge.gradle.forge'
 //Only edit below this line, the above code adds and enables the necessary things for Forge to be setup.
 
-version = "1.7.3"
+version = "1.7.3" 
 group = "com.blakebr0.mysticalagriculture"
 archivesBaseName = "MysticalAgriculture-1.12.2"
 
@@ -23,6 +23,9 @@ repositories {
 	maven {
 		url = "http://dvs1.progwml6.com/files/maven"
 	}
+    maven {
+        url = "http://tehnut.info/maven"
+    }
 }
 
 minecraft {
@@ -42,6 +45,7 @@ minecraft {
 dependencies {
     deobfCompile "mezz.jei:jei_1.12.2:4.10.0.198:api"
     runtime "mezz.jei:jei_1.12.2:4.10.0.198"
+    deobfCompile "mcp.mobius.waila:Hwyla:1.8.26-B41_1.12.2"
 }
 
 processResources {

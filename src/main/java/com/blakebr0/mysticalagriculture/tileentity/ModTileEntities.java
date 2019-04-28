@@ -29,7 +29,7 @@ public class ModTileEntities {
 			GameRegistry.registerTileEntity(TileSuperiumReprocessor.class, ResourceHelper.getResource(MysticalAgriculture.MOD_ID, "superium_reprocessor"));
 			GameRegistry.registerTileEntity(TileSupremiumReprocessor.class, ResourceHelper.getResource(MysticalAgriculture.MOD_ID, "supremium_reprocessor"));
 			
-			if (ModConfig.confUltimateFurnace) {
+			if (ModConfig.confUltimateReprocessor) {
 				GameRegistry.registerTileEntity(TileUltimateReprocessor.class, ResourceHelper.getResource(MysticalAgriculture.MOD_ID, "ultimate_reprocessor"));
 			}
 		}
