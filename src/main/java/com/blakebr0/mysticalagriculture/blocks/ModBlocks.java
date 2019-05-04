@@ -1,6 +1,7 @@
 package com.blakebr0.mysticalagriculture.blocks;
 
 import com.blakebr0.cucumber.block.BlockBase;
+import com.blakebr0.cucumber.block.BlockGlassBase;
 import com.blakebr0.cucumber.item.ItemBlockBase;
 import com.blakebr0.mysticalagriculture.MysticalAgriculture;
 import com.blakebr0.mysticalagriculture.items.ModItems;
@@ -50,8 +51,10 @@ public class ModBlocks {
     public static final BlockBase SOULSTONE_BRICKS = new BlockBase("soulstone_bricks", Material.ROCK, SoundType.STONE, 1.5F, 6.0F);
     public static final BlockBase SOULSTONE_CRACKED_BRICKS = new BlockBase("soulstone_cracked_bricks", Material.ROCK, SoundType.STONE, 1.5F, 6.0F);
     public static final BlockBase SOULSTONE_CHISELED_BRICKS = new BlockBase("soulstone_chiseled_bricks", Material.ROCK, SoundType.STONE, 1.5F, 6.0F);
+    public static final BlockGlassBase SOUL_GLASS = new BlockGlassBase("soul_glass", Material.GLASS, SoundType.GLASS, 0.3F, 0.3F);
     public static final BlockWitherproof WITHERPROOF_BLOCK = new BlockWitherproof("witherproof_block", Material.ROCK, SoundType.STONE, 20.0F, 2000.0F);
     public static final BlockWitherproof WITHERPROOF_BRICKS = new BlockWitherproof("witherproof_bricks", Material.ROCK, SoundType.STONE, 20.0F, 2000.0F);
+    public static final BlockWitherproofGlass WITHERPROOF_GLASS = new BlockWitherproofGlass("witherproof_glass", Material.GLASS, SoundType.STONE, 18.0F, 2000.0F);
 
     @SubscribeEvent
     public static void onRegisterBlocks(RegistryEvent.Register<Block> event) {
@@ -88,13 +91,14 @@ public class ModBlocks {
         register(registry, SOULSTONE_BRICKS);
         register(registry, SOULSTONE_CRACKED_BRICKS);
         register(registry, SOULSTONE_CHISELED_BRICKS);
+        register(registry, SOUL_GLASS);
         register(registry, WITHERPROOF_BLOCK);
         register(registry, WITHERPROOF_BRICKS);
+        register(registry, WITHERPROOF_GLASS);
 
-        CropRegistry cropRegistry = CropRegistry.getInstance();
-        cropRegistry.allowRegistration();
-        cropRegistry.onRegisterBlocks(registry);
-        cropRegistry.denyRegistration();
+        CropRegistry.getInstance().allowRegistration();
+        CropRegistry.getInstance().onRegisterBlocks(registry);
+        CropRegistry.getInstance().denyRegistration();
     }
 
     private static void register(IForgeRegistry<Block> registry, Block block) {

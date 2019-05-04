@@ -2,6 +2,7 @@ package com.blakebr0.mysticalagriculture.items;
 
 import com.blakebr0.cucumber.item.ItemBase;
 import com.blakebr0.mysticalagriculture.MysticalAgriculture;
+import com.blakebr0.mysticalagriculture.api.crop.CropTiers;
 import com.blakebr0.mysticalagriculture.registry.CropRegistry;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
@@ -50,6 +51,7 @@ public class ModItems {
     public static final ItemBase SOULIUM_GEMSTONE = new ItemBase("soulium_gemstone", p -> p.group(ITEM_GROUP));
     public static final ItemBase PROSPERITY_SEED_BASE = new ItemBase("prosperity_seed_base", p -> p.group(ITEM_GROUP));
     public static final ItemBase SOULIUM_SEED_BASE = new ItemBase("soulium_seed_base", p -> p.group(ITEM_GROUP));
+    public static final ItemBase SOUL_DUST = new ItemBase("soul_dust", p -> p.group(ITEM_GROUP));
     public static final ItemInfusionCrystal INFUSION_CRYSTAL = new ItemInfusionCrystal("infusion_crystal", 1000, p -> p.group(ITEM_GROUP));
     public static final ItemMasterInfusionCrystal MASTER_INFUSION_CRYSTAL = new ItemMasterInfusionCrystal("master_infusion_crystal", p -> p.group(ITEM_GROUP));
 
@@ -88,6 +90,7 @@ public class ModItems {
         registry.register(SOULIUM_GEMSTONE);
         registry.register(PROSPERITY_SEED_BASE);
         registry.register(SOULIUM_SEED_BASE);
+        registry.register(SOUL_DUST);
         registry.register(INFUSION_CRYSTAL);
         registry.register(MASTER_INFUSION_CRYSTAL);
 
