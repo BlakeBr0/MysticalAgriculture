@@ -22,11 +22,11 @@ public class ModItems {
     public static final List<ItemBlock> ITEM_BLOCKS = new ArrayList<>();
 
     public static final ItemBase PROSPERITY_SHARD = new ItemBase("prosperity_shard", p -> p.group(ITEM_GROUP));
-    public static final ItemBase INFERIUM_ESSENCE = new ItemBase("inferium_essence", p -> p.group(ITEM_GROUP));
-    public static final ItemBase PRUDENTIUM_ESSENCE = new ItemBase("prudentium_essence", p -> p.group(ITEM_GROUP));
-    public static final ItemBase INTERMEDIUM_ESSENCE = new ItemBase("intermedium_essence", p -> p.group(ITEM_GROUP));
-    public static final ItemBase IMPERIUM_ESSENCE = new ItemBase("imperium_essence", p -> p.group(ITEM_GROUP));
-    public static final ItemBase SUPREMIUM_ESSENCE = new ItemBase("supremium_essence", p -> p.group(ITEM_GROUP));
+    public static final ItemEssence INFERIUM_ESSENCE = new ItemEssence("inferium_essence", CropTiers.ONE, p -> p.group(ITEM_GROUP));
+    public static final ItemEssence PRUDENTIUM_ESSENCE = new ItemEssence("prudentium_essence", CropTiers.TWO, p -> p.group(ITEM_GROUP));
+    public static final ItemEssence INTERMEDIUM_ESSENCE = new ItemEssence("intermedium_essence", CropTiers.THREE, p -> p.group(ITEM_GROUP));
+    public static final ItemEssence IMPERIUM_ESSENCE = new ItemEssence("imperium_essence", CropTiers.FOUR, p -> p.group(ITEM_GROUP));
+    public static final ItemEssence SUPREMIUM_ESSENCE = new ItemEssence("supremium_essence", CropTiers.FIVE, p -> p.group(ITEM_GROUP));
     public static final ItemBase SOULIUM_DUST = new ItemBase("soulium_dust", p -> p.group(ITEM_GROUP));
     public static final ItemBase PROSPERITY_INGOT = new ItemBase("prosperity_ingot", p -> p.group(ITEM_GROUP));
     public static final ItemBase INFERIUM_INGOT = new ItemBase("inferium_ingot", p -> p.group(ITEM_GROUP));
