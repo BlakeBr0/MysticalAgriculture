@@ -1,10 +1,10 @@
-package com.blakebr0.mysticalagriculture.blocks;
+package com.blakebr0.mysticalagriculture.block;
 
 import com.blakebr0.cucumber.block.BlockBase;
 import com.blakebr0.cucumber.block.BlockGlassBase;
 import com.blakebr0.cucumber.item.ItemBlockBase;
 import com.blakebr0.mysticalagriculture.MysticalAgriculture;
-import com.blakebr0.mysticalagriculture.items.ModItems;
+import com.blakebr0.mysticalagriculture.item.ModItems;
 import com.blakebr0.mysticalagriculture.registry.CropRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;

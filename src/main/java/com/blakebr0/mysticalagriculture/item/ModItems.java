@@ -1,4 +1,4 @@
-package com.blakebr0.mysticalagriculture.items;
+package com.blakebr0.mysticalagriculture.item;
 
 import com.blakebr0.cucumber.item.ItemBase;
 import com.blakebr0.mysticalagriculture.MysticalAgriculture;

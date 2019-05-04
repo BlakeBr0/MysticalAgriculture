@@ -1,4 +1,4 @@
-package com.blakebr0.mysticalagriculture.blocks;
+package com.blakebr0.mysticalagriculture.block;
 
 import com.blakebr0.cucumber.iface.IColored;
 import com.blakebr0.mysticalagriculture.api.farmland.IEssenceFarmland;

@@ -1,4 +1,4 @@
-package com.blakebr0.mysticalagriculture.items;
+package com.blakebr0.mysticalagriculture.item;
 
 import com.blakebr0.cucumber.item.ItemReusable;
 import net.minecraft.item.ItemStack;

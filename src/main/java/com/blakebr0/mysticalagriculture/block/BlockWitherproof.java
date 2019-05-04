@@ -1,4 +1,4 @@
-package com.blakebr0.mysticalagriculture.blocks;
+package com.blakebr0.mysticalagriculture.block;
 
 import com.blakebr0.cucumber.block.BlockBase;
 import net.minecraft.block.SoundType;

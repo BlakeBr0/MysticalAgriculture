@@ -4,8 +4,8 @@ import com.blakebr0.mysticalagriculture.api.crop.Crop;
 import com.blakebr0.mysticalagriculture.api.crop.CropTiers;
 import com.blakebr0.mysticalagriculture.api.crop.CropTypes;
 import com.blakebr0.mysticalagriculture.api.registry.RegisterCropsEvent;
-import com.blakebr0.mysticalagriculture.blocks.ModBlocks;
-import com.blakebr0.mysticalagriculture.items.ModItems;
+import com.blakebr0.mysticalagriculture.block.ModBlocks;
+import com.blakebr0.mysticalagriculture.item.ModItems;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 
