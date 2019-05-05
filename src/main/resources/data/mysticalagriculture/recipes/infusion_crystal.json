@@ -13,7 +13,7 @@
       "item": "mysticalagriculture:inferium_essence"
     },
     "X": {
-      "item": "minecraft:diamond"
+      "tag": "forge:gems/diamond"
     }
   },
   "result": {
