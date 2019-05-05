@@ -54,6 +54,8 @@ public class ModItems {
     public static final ItemBase SOUL_DUST = new ItemBase("soul_dust", p -> p.group(ITEM_GROUP));
     public static final ItemInfusionCrystal INFUSION_CRYSTAL = new ItemInfusionCrystal("infusion_crystal", 1000, p -> p.group(ITEM_GROUP));
     public static final ItemMasterInfusionCrystal MASTER_INFUSION_CRYSTAL = new ItemMasterInfusionCrystal("master_infusion_crystal", p -> p.group(ITEM_GROUP));
+    public static final ItemFertilizedEssence FERTILIZED_ESSENCE = new ItemFertilizedEssence("fertilized_essence", p -> p.group(ITEM_GROUP));
+    public static final ItemMysticalFertilizer MYSTICAL_FERTILIZER = new ItemMysticalFertilizer("mystical_fertilizer", p -> p.group(ITEM_GROUP));
 
     @SubscribeEvent
     public static void onRegisterItems(RegistryEvent.Register<Item> event) {
@@ -93,6 +95,8 @@ public class ModItems {
         registry.register(SOUL_DUST);
         registry.register(INFUSION_CRYSTAL);
         registry.register(MASTER_INFUSION_CRYSTAL);
+        registry.register(FERTILIZED_ESSENCE);
+        registry.register(MYSTICAL_FERTILIZER);
 
         CropRegistry.getInstance().onRegisterItems(registry);
     }
