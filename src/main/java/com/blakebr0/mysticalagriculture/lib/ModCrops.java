@@ -20,12 +20,12 @@ public class ModCrops {
     }
 
     public static void onCommonSetup(FMLCommonSetupEvent event) {
-        CropTiers.ELEMENTAL.setFarmland(ModBlocks.INFERIUM_FARMLAND);
-        CropTiers.ONE.setFarmland(ModBlocks.INFERIUM_FARMLAND);
-        CropTiers.TWO.setFarmland(ModBlocks.PRUDENTIUM_FARMLAND);
-        CropTiers.THREE.setFarmland(ModBlocks.INTERMEDIUM_FARMLAND);
-        CropTiers.FOUR.setFarmland(ModBlocks.IMPERIUM_FARMLAND);
-        CropTiers.FIVE.setFarmland(ModBlocks.SUPREMIUM_FARMLAND);
+        CropTiers.ELEMENTAL.setFarmland(ModBlocks.INFERIUM_FARMLAND).setEssence(ModItems.INFERIUM_ESSENCE);
+        CropTiers.ONE.setFarmland(ModBlocks.INFERIUM_FARMLAND).setEssence(ModItems.INFERIUM_ESSENCE);
+        CropTiers.TWO.setFarmland(ModBlocks.PRUDENTIUM_FARMLAND).setEssence(ModItems.PRUDENTIUM_ESSENCE);
+        CropTiers.THREE.setFarmland(ModBlocks.INTERMEDIUM_FARMLAND).setEssence(ModItems.INTERMEDIUM_ESSENCE);
+        CropTiers.FOUR.setFarmland(ModBlocks.IMPERIUM_FARMLAND).setEssence(ModItems.IMPERIUM_ESSENCE);
+        CropTiers.FIVE.setFarmland(ModBlocks.SUPREMIUM_FARMLAND).setEssence(ModItems.SUPREMIUM_ESSENCE);
 
         CropTypes.RESOURCE.setCraftingSeed(ModItems.PROSPERITY_SEED_BASE);
         CropTypes.MOB.setCraftingSeed(ModItems.SOULIUM_SEED_BASE);

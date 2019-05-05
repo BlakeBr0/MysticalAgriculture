@@ -30,7 +30,7 @@ public interface IFarmlandConverter {
         IBlockState state = world.getBlockState(pos);
         if (state.getBlock() == Blocks.FARMLAND) {
             IBlockState newState = this.getConvertedFarmland().getDefaultState().with(BlockFarmland.MOISTURE, state.get(BlockFarmland.MOISTURE));
-            context.getWorld().setBlockState(pos, newState);
+            world.setBlockState(pos, newState);
             context.getItem().shrink(1);
 
             return EnumActionResult.SUCCESS;

@@ -2,15 +2,19 @@ package com.blakebr0.mysticalagriculture.api.crop;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockFarmland;
+import net.minecraft.item.Item;
 import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.util.text.TextFormatting;
 
+@SuppressWarnings("unchecked")
 public class CropTier {
     private final String name;
     private final int tier;
-    private final TextFormatting color;
+    private final int color;
+    private final TextFormatting textColor;
     private final String modid;
     private BlockFarmland farmland;
+    private Item essence;
 
     /**
      * Represents a tier/group of crops
@@ -19,10 +23,11 @@ public class CropTier {
      * @param color the text color of this tier
      * @param modid the modid that created this tier
      */
-    public CropTier(String name, int tier, TextFormatting color, String modid) {
+    public CropTier(String name, int tier, int color, TextFormatting textColor, String modid) {
         this.name = name;
         this.tier = tier;
         this.color = color;
+        this.textColor = textColor;
         this.modid = modid;
     }
 
@@ -41,10 +46,17 @@ public class CropTier {
     }
 
     /**
+     * @return the color of this tier
+     */
+    public int getColor() {
+        return this.color;
+    }
+
+    /**
      * @return the text color of this tier
      */
-    public TextFormatting getColor() {
-        return this.color;
+    public TextFormatting getTextColor() {
+        return this.textColor;
     }
 
     /**
@@ -59,7 +71,6 @@ public class CropTier {
      * @param <T> block type
      * @return the farmland for this tier
      */
-    @SuppressWarnings("unchecked")
     public <T extends BlockFarmland> T getFarmland() {
         return (T) this.farmland;
     }
@@ -71,6 +82,25 @@ public class CropTier {
      */
     public CropTier setFarmland(BlockFarmland farmland) {
         this.farmland = farmland;
+        return this;
+    }
+
+    /**
+     * Gets the item instance of the essence for this tier
+     * @param <T> item type
+     * @return the essence for this tier
+     */
+    public <T extends Item> T getEssence() {
+        return (T) this.essence;
+    }
+
+    /**
+     * Used to se the essence item instance for this tier
+     * @param essence the essence item
+     * @return this tier
+     */
+    public CropTier setEssence(Item essence) {
+        this.essence = essence;
         return this;
     }
 
@@ -89,6 +119,6 @@ public class CropTier {
      * @return the localized name of this tier
      */
     public String getDisplayName() {
-        return new TextComponentTranslation(String.format("cropTier.%s.%s", this.getModId(), this.getName())).applyTextStyle(this.getColor()).getFormattedText();
+        return new TextComponentTranslation(String.format("cropTier.%s.%s", this.getModId(), this.getName())).applyTextStyle(this.getTextColor()).getFormattedText();
     }
 }
