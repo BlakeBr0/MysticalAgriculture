@@ -50,6 +50,11 @@ public class ModBlocks {
     public static final BlockInfusedFarmland INTERMEDIUM_FARMLAND = new BlockInfusedFarmland("intermedium_farmland", CropTiers.THREE);
     public static final BlockInfusedFarmland IMPERIUM_FARMLAND = new BlockInfusedFarmland("imperium_farmland", CropTiers.FOUR);
     public static final BlockInfusedFarmland SUPREMIUM_FARMLAND = new BlockInfusedFarmland("supremium_farmland", CropTiers.FIVE);
+    public static final BlockGrowthAccelerator INFERIUM_GROWTH_ACCELERATOR = new BlockGrowthAccelerator("inferium_growth_accelerator");
+    public static final BlockGrowthAccelerator PRUDENTIUM_GROWTH_ACCELERATOR = new BlockGrowthAccelerator("prudentium_growth_accelerator");
+    public static final BlockGrowthAccelerator INTERMEDIUM_GROWTH_ACCELERATOR = new BlockGrowthAccelerator("intermedium_growth_accelerator");
+    public static final BlockGrowthAccelerator IMPERIUM_GROWTH_ACCELERATOR = new BlockGrowthAccelerator("imperium_growth_accelerator");
+    public static final BlockGrowthAccelerator SUPREMIUM_GROWTH_ACCELERATOR = new BlockGrowthAccelerator("supremium_growth_accelerator");
     public static final BlockBase SOULSTONE = new BlockBase("soulstone", Material.ROCK, SoundType.STONE, 1.5F, 6.0F);
     public static final BlockBase SOULSTONE_COBBLE = new BlockBase("soulstone_cobble", Material.ROCK, SoundType.STONE, 2.0F, 6.0F);
     public static final BlockBase SOULSTONE_BRICKS = new BlockBase("soulstone_bricks", Material.ROCK, SoundType.STONE, 1.5F, 6.0F);
@@ -64,9 +69,9 @@ public class ModBlocks {
     public static final BlockStairsBase SOULSTONE_BRICKS_STAIRS = new BlockStairsBase("soulstone_bricks_stairs", SOULSTONE_BRICKS);
     public static final BlockWallBase SOULSTONE_COBBLE_WALL = new BlockWallBase("soulstone_cobble_wall", SOULSTONE_COBBLE);
     public static final BlockWallBase SOULSTONE_BRICKS_WALL = new BlockWallBase("soulstone_bricks_wall", SOULSTONE_BRICKS);
-    public static final BlockWitherproof WITHERPROOF_BLOCK = new BlockWitherproof("witherproof_block", Material.ROCK, SoundType.STONE, 20.0F, 2000.0F);
-    public static final BlockWitherproof WITHERPROOF_BRICKS = new BlockWitherproof("witherproof_bricks", Material.ROCK, SoundType.STONE, 20.0F, 2000.0F);
-    public static final BlockWitherproofGlass WITHERPROOF_GLASS = new BlockWitherproofGlass("witherproof_glass", Material.GLASS, SoundType.STONE, 18.0F, 2000.0F);
+    public static final BlockWitherproof WITHERPROOF_BLOCK = new BlockWitherproof("witherproof_block");
+    public static final BlockWitherproof WITHERPROOF_BRICKS = new BlockWitherproof("witherproof_bricks");
+    public static final BlockWitherproofGlass WITHERPROOF_GLASS = new BlockWitherproofGlass("witherproof_glass");
 
     @SubscribeEvent
     public static void onRegisterBlocks(RegistryEvent.Register<Block> event) {
@@ -98,6 +103,11 @@ public class ModBlocks {
         register(registry, INTERMEDIUM_FARMLAND);
         register(registry, IMPERIUM_FARMLAND);
         register(registry, SUPREMIUM_FARMLAND);
+        register(registry, INFERIUM_GROWTH_ACCELERATOR);
+        register(registry, PRUDENTIUM_GROWTH_ACCELERATOR);
+        register(registry, INTERMEDIUM_GROWTH_ACCELERATOR);
+        register(registry, IMPERIUM_GROWTH_ACCELERATOR);
+        register(registry, SUPREMIUM_GROWTH_ACCELERATOR);
         register(registry, SOULSTONE);
         register(registry, SOULSTONE_COBBLE);
         register(registry, SOULSTONE_BRICKS);

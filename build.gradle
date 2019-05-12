@@ -103,7 +103,7 @@ dependencies {
     // For more info...
     // http://www.gradle.org/docs/current/userguide/artifact_dependencies_tutorial.html
     // http://www.gradle.org/docs/current/userguide/dependency_management.html
-    compile files('libs/Cucumber-1.13.2-2.0.0.jar')
+    compile fg.deobf(files('libs/Cucumber-1.13.2-2.0.0.jar'))
     compile fg.deobf('mcp.mobius.waila:Hwyla:1.10.1-B53_1.13.2')
 //    deobf "mezz.jei:jei_1.13.2:5.0.0.11:api"
     compile fg.deobf("mezz.jei:jei-1.13.2:5.0.0.12")
