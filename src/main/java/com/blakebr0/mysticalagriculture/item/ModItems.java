@@ -1,14 +1,11 @@
 package com.blakebr0.mysticalagriculture.item;
 
 import com.blakebr0.cucumber.item.ItemBase;
-import com.blakebr0.mysticalagriculture.MysticalAgriculture;
 import com.blakebr0.mysticalagriculture.api.crop.CropTiers;
 import com.blakebr0.mysticalagriculture.registry.CropRegistry;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraftforge.event.RegistryEvent;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.IForgeRegistry;
 
 import java.util.ArrayList;
@@ -16,9 +13,7 @@ import java.util.List;
 
 import static com.blakebr0.mysticalagriculture.MysticalAgriculture.ITEM_GROUP;
 
-@Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD, modid = MysticalAgriculture.MOD_ID)
 public class ModItems {
-
     public static final List<ItemBlock> ITEM_BLOCKS = new ArrayList<>();
 
     public static final ItemBase PROSPERITY_SHARD = new ItemBase("prosperity_shard", p -> p.group(ITEM_GROUP));
@@ -57,7 +52,6 @@ public class ModItems {
     public static final ItemFertilizedEssence FERTILIZED_ESSENCE = new ItemFertilizedEssence("fertilized_essence", p -> p.group(ITEM_GROUP));
     public static final ItemMysticalFertilizer MYSTICAL_FERTILIZER = new ItemMysticalFertilizer("mystical_fertilizer", p -> p.group(ITEM_GROUP));
 
-    @SubscribeEvent
     public static void onRegisterItems(RegistryEvent.Register<Item> event) {
         IForgeRegistry<Item> registry = event.getRegistry();
         ITEM_BLOCKS.forEach(registry::register);

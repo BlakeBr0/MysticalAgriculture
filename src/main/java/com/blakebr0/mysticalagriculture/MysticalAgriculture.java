@@ -3,11 +3,16 @@ package com.blakebr0.mysticalagriculture;
 import com.blakebr0.cucumber.iface.IColored;
 import com.blakebr0.cucumber.render.ColorHandler;
 import com.blakebr0.cucumber.util.Utils;
+import com.blakebr0.mysticalagriculture.api.MysticalAgricultureAPI;
 import com.blakebr0.mysticalagriculture.block.BlockInfusedFarmland;
+import com.blakebr0.mysticalagriculture.block.ModBlocks;
 import com.blakebr0.mysticalagriculture.config.ModConfigs;
 import com.blakebr0.mysticalagriculture.crafting.ModRecipeSerializers;
 import com.blakebr0.mysticalagriculture.item.ModItems;
 import com.blakebr0.mysticalagriculture.lib.ModCrops;
+import com.blakebr0.mysticalagriculture.registry.CropRegistry;
+import net.minecraft.block.Block;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.DeferredWorkQueue;
@@ -36,10 +41,15 @@ public class MysticalAgriculture {
 		FMLJavaModLoadingContext.get().getModEventBus().addListener(this::onInterModProcess);
 		FMLJavaModLoadingContext.get().getModEventBus().addListener(this::onClientSetup);
 
+		FMLJavaModLoadingContext.get().getModEventBus().addGenericListener(Block.class, ModBlocks::onRegisterBlocks);
+		FMLJavaModLoadingContext.get().getModEventBus().addGenericListener(Item.class, ModItems::onRegisterItems);
+
 		ModLoadingContext.get().registerConfig(ModConfig.Type.CLIENT, ModConfigs.CLIENT);
 		ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, ModConfigs.COMMON);
 
-		MinecraftForge.EVENT_BUS.register(new ModCrops());
+		MinecraftForge.EVENT_BUS.register(ModCrops.class);
+
+		MysticalAgricultureAPI.setCropRegistry(CropRegistry.getInstance());
 	}
 		
 	public void onCommonSetup(FMLCommonSetupEvent event) {

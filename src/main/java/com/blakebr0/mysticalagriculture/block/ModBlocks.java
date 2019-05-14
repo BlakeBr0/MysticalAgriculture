@@ -6,7 +6,6 @@ import com.blakebr0.cucumber.block.BlockSlabBase;
 import com.blakebr0.cucumber.block.BlockStairsBase;
 import com.blakebr0.cucumber.block.BlockWallBase;
 import com.blakebr0.cucumber.item.ItemBlockBase;
-import com.blakebr0.mysticalagriculture.MysticalAgriculture;
 import com.blakebr0.mysticalagriculture.api.crop.CropTiers;
 import com.blakebr0.mysticalagriculture.item.ModItems;
 import com.blakebr0.mysticalagriculture.registry.CropRegistry;
@@ -15,15 +14,11 @@ import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.ItemBlock;
 import net.minecraftforge.event.RegistryEvent;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.IForgeRegistry;
 
 import static com.blakebr0.mysticalagriculture.MysticalAgriculture.ITEM_GROUP;
 
-@Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD, modid = MysticalAgriculture.MOD_ID)
 public class ModBlocks {
-
     public static final BlockBase PROSPERITY_BLOCK = new BlockBase("prosperity_block", Material.ROCK, SoundType.STONE, 4.0F, 6.0F);
     public static final BlockBase INFERIUM_BLOCK = new BlockBase("inferium_block", Material.ROCK, SoundType.STONE, 4.0F, 6.0F);
     public static final BlockBase PRUDENTIUM_BLOCK = new BlockBase("prudentium_block", Material.ROCK, SoundType.STONE, 4.0F, 6.0F);
@@ -73,7 +68,6 @@ public class ModBlocks {
     public static final BlockWitherproof WITHERPROOF_BRICKS = new BlockWitherproof("witherproof_bricks");
     public static final BlockWitherproofGlass WITHERPROOF_GLASS = new BlockWitherproofGlass("witherproof_glass");
 
-    @SubscribeEvent
     public static void onRegisterBlocks(RegistryEvent.Register<Block> event) {
         IForgeRegistry<Block> registry = event.getRegistry();
 
