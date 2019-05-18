@@ -1,0 +1,1063 @@
+## Localizated to Portuguese (Brazil) by SAMUELPV
+
+# CREATIVE TAB
+itemGroup.mysticalagriculture=Mystical Agriculture
+
+# STORAGE BLOCKS
+tile.ma.storage_inferium.name=§eBloco de Essência de Inferium
+tile.ma.storage_prudentium.name=§aBloco de Essência de Prudentium
+tile.ma.storage_intermedium.name=§6Bloco de Essência de Intermedium
+tile.ma.storage_superium.name=§bBloco de Essência de Superium
+tile.ma.storage_supremium.name=§cBloco de Essência de Supremium
+tile.ma.storage_prosperity.name=Bloco de Prosperidade
+
+tile.ma.ingot_storage_base_essence.name=Bloco de Essência Inicial
+tile.ma.ingot_storage_inferium.name=§eBloco de Inferium
+tile.ma.ingot_storage_prudentium.name=§aBloco de Prudentium
+tile.ma.ingot_storage_intermedium.name=§6Bloco de Intermedium
+tile.ma.ingot_storage_superium.name=§bBloco de Superium
+tile.ma.ingot_storage_supremium.name=§cBloco de Supremium
+tile.ma.ingot_storage_soulium.name=§dBloco de Soulium
+
+tile.ma.coal_block_inferium.name=§eBloco de Carvão de Inferium
+tile.ma.coal_block_prudentium.name=§aBloco de Carvão de Prudentium
+tile.ma.coal_block_intermedium.name=§6Bloco de Carvão de Intermedium
+tile.ma.coal_block_superium.name=§bBloco de Carvão de Superium
+tile.ma.coal_block_supremium.name=§cBloco de Carvão de Supremium
+
+# SOULSTONE
+tile.ma.soulstone_smooth.name=Pedra de Alma
+tile.ma.soulstone_cobbled.name=Pedregulho de Alma
+tile.ma.soulstone_polished.name=Pedra de Alma Polida
+tile.ma.soulstone_brick.name=Tijolos de Pedra de Alma
+tile.ma.soulstone_cracked.name=Tijolos de Pedra de Alma Rachados
+tile.ma.soulstone_chiseled.name=Tijolos de Pedra de Alma Talhados
+tile.ma.soulstone_slab_block.name=Laje de Bloco de Pedra de Alma
+
+tile.ma.soulstone_slab.name=Laje de Pedra de Alma
+tile.ma.cobbled_soulstone_slab.name=Laje de Pedregulho de Alma
+tile.ma.soulstone_brick_slab.name=Laje de Tijolo de Pedra de Alma
+
+tile.ma.cobbled_soulstone_stairs.name=Escada de Pedregulho de Alma
+tile.ma.soulstone_brick_stairs.name=Escada de Tijolo de Pedra de Alma
+
+tile.ma.cobbled_soulstone_wall.name=Parede de Pedregulho de Alma
+tile.ma.soulstone_brick_wall.name=Parede de Tijol de Pedra de Alma
+
+tile.ma.soul_glass.name=Vidro de Alma
+tile.ma.soul_glass_pane.name=Painel de Vidro de Alma
+
+# FURNACES
+tile.ma.inferium_furnace.name=§eFornalha de Inferium
+tile.ma.inferium_furnace_active.name=§eFornalha de Inferium
+container.ma.inferium_furnace.name=Fornalha de Inferium
+
+tile.ma.prudentium_furnace.name=§aFornalha de Prudentium
+tile.ma.prudentium_furnace_active.name=§aFornalha de Prudentium
+container.ma.prudentium_furnace.name=Fornalha de Prudentium
+
+tile.ma.intermedium_furnace.name=§6Fornalha de Intermedium
+tile.ma.intermedium_furnace_active.name=§6Fornalha de Intermedium
+container.ma.intermedium_furnace.name=Fornalha de Intermedium
+
+tile.ma.superium_furnace.name=§bFornalha de Superium
+tile.ma.superium_furnace_active.name=§bFornalha de Superium
+container.ma.superium_furnace.name=Fornalha de Superium
+
+tile.ma.supremium_furnace.name=§cFornalha de Supremium
+tile.ma.supremium_furnace_active.name=§cFornalha de Supremium
+container.ma.supremium_furnace.name=Fornalha de Supremium
+
+tile.ma.ultimate_furnace.name=§8Fornalha Suprema
+tile.ma.ultimate_furnace_active.name=§8Fornalha Suprema
+container.ma.ultimate_furnace.name=Fornalha Suprema
+
+tile.ma.mystical_machine_frame.name=Moldura de Máquina Mística
+tile.ma.glowstone_lamp.name=Lâmpada de Pedra Luminosa
+desc.tile.ma.glowstone_lamp=Para fazer uma Lâmpada de Pedra Luminosa, simplesmente clique com o botão direito numa §8Moldura de Máquina Mística §0com um bloco de Pedra Luminosa. \n\nVocê pode tirar Pó de Pedra Luminosa a qualquer momento com shift+clique direito no bloco com uma mão vazia.
+
+# MACHINE
+tile.ma.seed_reprocessor.name=Reprocessador de Sementes
+tile.ma.inferium_reprocessor.name=§eReprocessador de Sementes de Inferium
+tile.ma.prudentium_reprocessor.name=§aReprocessador de Sementes de Prudentium
+tile.ma.intermedium_reprocessor.name=§6Reprocessador de Sementes de Intermedium
+tile.ma.superium_reprocessor.name=§bReprocessador de Sementes de Superium
+tile.ma.supremium_reprocessor.name=§cReprocessador de Sementes de Supremium
+tile.ma.ultimate_reprocessor.name=§8Reprocessador de Sementes Supremo
+
+container.ma.seed_reprocessor.name=Reprocessador de Sementes
+jei.ma.seed_reprocessor=Reprocessador de Sementes
+desc.tile.ma.seed_reprocessor=Converte sementes nas suas respectivas produções das plantas. Ele funciona com o poder da energia teórica, o que significa que você não precisa alimentar com energia.
+
+tile.ma.tinkering_table.name=Mesa de Oficina
+container.ma.tinkering_table.name=Mesa de Oficina
+jei.ma.tinkering_table=Mesa de Oficina
+
+# ORES
+tile.ma.prosperity_ore.name=Minério de Prosperidade
+tile.ma.nether_prosperity_ore.name=Minério de Prosperidade do Nether
+tile.ma.end_prosperity_ore.name=Minério de Prosperidade do End
+tile.ma.inferium_ore.name=§eMinério de Inferium Ore
+tile.ma.nether_inferium_ore.name=§eMinério de Inferium do Nether
+tile.ma.end_inferium_ore.name=§eMinério de Inferium do End
+
+tile.ma.growth_accelerator.name=§eAcelerador de Crescimento
+
+tile.ma.witherproof_block.name=Bloco à Prova de Wither
+tile.ma.witherproof_glass.name=Vidro à Prova de Wither
+
+# CROPS
+tile.ma.tier1_inferium_crop.name=Planta de Inferium Nível 1
+tile.ma.tier2_inferium_crop.name=Planta de Inferium Nível 2
+tile.ma.tier3_inferium_crop.name=Planta de Inferium Nível 3
+tile.ma.tier4_inferium_crop.name=Planta de Inferium Nível 4
+tile.ma.tier5_inferium_crop.name=Planta de Inferium Nível 5
+
+tile.ma.stone_crop.name=Planta de Pedra
+tile.ma.dirt_crop.name=Planta de Terra
+tile.ma.nature_crop.name=Planta de Natureza
+tile.ma.wood_crop.name=Planta de Madeira
+tile.ma.water_crop.name=Planta de Água
+tile.ma.ice_crop.name=Planta de Gelo
+tile.ma.fire_crop.name=Planta de Fogo
+tile.ma.dye_crop.name=Planta de Corante
+tile.ma.nether_crop.name=Planta do Nether
+tile.ma.coal_crop.name=Planta de Carvão
+tile.ma.iron_crop.name=Planta de Ferro
+tile.ma.nether_quartz_crop.name=Planta de Quartzo do Nether
+tile.ma.glowstone_crop.name=Planta de Pedra Luminosa
+tile.ma.redstone_crop.name=Planta de Redstone
+tile.ma.obsidian_crop.name=Planta de Obsidiana
+tile.ma.gold_crop.name=Planta de Ouro
+tile.ma.lapis_lazuli_crop.name=Planta de Lápis Lazúli
+tile.ma.end_crop.name=Planta do End
+tile.ma.experience_crop.name=Planta de Experiência
+tile.ma.diamond_crop.name=Planta de Diamante
+tile.ma.emerald_crop.name=Planta de Esmeralda
+
+tile.ma.zombie_crop.name=Planta de Zumbi
+tile.ma.pig_crop.name=Planta de Porco
+tile.ma.chicken_crop.name=Planta de Galinha
+tile.ma.cow_crop.name=Planta de Vaca
+tile.ma.sheep_crop.name=Planta de Ovelha
+tile.ma.slime_crop.name=Planta de Slime
+tile.ma.skeleton_crop.name=Planta de Esqueleto
+tile.ma.creeper_crop.name=Planta de Creeper
+tile.ma.spider_crop.name=Planta de Aranha
+tile.ma.rabbit_crop.name=Planta de Coelho
+tile.ma.guardian_crop.name=Planta de Guardião
+tile.ma.blaze_crop.name=Planta de Blaze
+tile.ma.ghast_crop.name=Planta de Ghast
+tile.ma.enderman_crop.name=Planta de Enderman
+tile.ma.wither_skeleton_crop.name=Planta de Esqueleto Wither
+
+tile.ma.rubber_crop.name=Planta de Borracha
+tile.ma.silicon_crop.name=Planta de Silício
+tile.ma.sulfur_crop.name=Planta de Enxofre
+tile.ma.aluminum_crop.name=Planta de Alumínio
+tile.ma.copper_crop.name=Planta de Cobre
+tile.ma.saltpeter_crop.name=Planta de Salitre
+tile.ma.tin_crop.name=Planta de Estanho
+tile.ma.bronze_crop.name=Planta de Bronze
+tile.ma.zinc_crop.name=Planta de Zinco
+tile.ma.brass_crop.name=Planta de Latão
+tile.ma.silver_crop.name=Planta de Prata
+tile.ma.lead_crop.name=Planta de Chumbo
+tile.ma.graphite_crop.name=Planta de Grafite
+tile.ma.steel_crop.name=Planta de Aço
+tile.ma.nickel_crop.name=Planta de Níquel
+tile.ma.electrum_crop.name=Planta de Electro
+tile.ma.invar_crop.name=Planta de Invar
+tile.ma.mithril_crop.name=Planta de Mithril
+tile.ma.tungsten_crop.name=Planta de Tungstênio
+tile.ma.titanium_crop.name=Planta de Titânio
+tile.ma.uranium_crop.name=Planta de Urânio
+tile.ma.chrome_crop.name=Planta de Cromo
+tile.ma.platinum_crop.name=Planta de Platina
+tile.ma.iridium_crop.name=Planta de Iridio
+
+tile.ma.ruby_crop.name=Planta de Rubi
+tile.ma.sapphire_crop.name=Planta de Safira
+tile.ma.peridot_crop.name=Planta de Peridoto
+tile.ma.amber_crop.name=Planta de Âmbar
+tile.ma.topaz_crop.name=Planta de Topázio
+tile.ma.malachite_crop.name=Planta de Malaquita
+tile.ma.tanzanite_crop.name=Planta de Tanzanita
+
+tile.ma.blizz_crop.name=Planta de Blizz
+tile.ma.blitz_crop.name=Planta de Blitz
+tile.ma.basalz_crop.name=Planta de Basalz
+tile.ma.signalum_crop.name=Planta de Signalo
+tile.ma.lumium_crop.name=Planta de Lúmio
+tile.ma.enderium_crop.name=Planta de Endério
+
+tile.ma.fluxed_electrum_crop.name=Planta de Electrum Fluxado
+
+tile.ma.hop_graphite_crop.name=Planta de Grafite PAO
+
+tile.ma.aluminum_brass_crop.name=Planta de Latão de Alumínio
+tile.ma.knightslime_crop.name=Planta de Knightslime
+tile.ma.ardite_crop.name=Planta de Ardite
+tile.ma.cobalt_crop.name=Planta de Cobalto
+tile.ma.manyullyn_crop.name=Planta de Manyullyn
+
+tile.ma.grains_of_infinity_crop.name=Planta de Grains of Infinity
+tile.ma.electrical_steel_crop.name=Planta de Electrical Steel
+tile.ma.redstone_alloy_crop.name=Planta de Redstone Alloy
+tile.ma.conductive_iron_crop.name=Planta de Conductive Iron
+tile.ma.soularium_crop.name=Planta de Soularium
+tile.ma.dark_steel_crop.name=Planta de Dark Steel
+tile.ma.pulsating_iron_crop.name=Planta de Pulsating Iron
+tile.ma.energetic_alloy_crop.name=Planta de Energetic Alloy
+tile.ma.vibrant_alloy_crop.name=Planta de Vibrant Alloy
+tile.ma.end_steel_crop.name=Planta de End Steel
+
+tile.ma.mystical_flower_crop.name=Planta de Flores Místicas
+tile.ma.manasteel_crop.name=Planta de Manasteel
+tile.ma.elementium_crop.name=Planta de Elementium
+tile.ma.terrasteel_crop.name=Planta de Terrasteel
+
+tile.ma.quicksilver_crop.name=Planta de Mercúrio
+tile.ma.thaumium_crop.name=Planta de Táumio
+tile.ma.void_metal_crop.name=Planta de Metal do Vazio
+
+tile.ma.dawnstone_crop.name=Planta de Dawnstone
+
+tile.ma.uranium_238_crop.name=Planta de Urânio 238
+tile.ma.iridium_ore_crop.name=Planta de Minério de Irídio
+
+tile.ma.osmium_crop.name=Planta de Ósmio
+tile.ma.glowstone_ingot_crop.name=Planta de Barra de Pedra Luminosa
+tile.ma.refined_obsidian_crop.name=Planta de Obsidiana Refinada
+
+tile.ma.aquarium_crop.name=Planta de Aço-Peixe
+tile.ma.cold_iron_crop.name=Planta de Ferro-Frio
+tile.ma.star_steel_crop.name=Planta de Ferro-Estrela
+tile.ma.adamantine_crop.name=Planta de Magnetita
+
+tile.ma.marble_crop.name=Planta de Mármore
+tile.ma.limestone_crop.name=Planta de Calcário
+tile.ma.basalt_crop.name=Planta de Basalto
+
+tile.ma.apatite_crop.name=Planta de Apatita
+
+tile.ma.electrotine_crop.name=Planta de Eletrotine
+
+tile.ma.alumite_crop.name=Planta de Alumite
+
+tile.ma.steeleaf_crop.name=Planta de Steeleaf
+tile.ma.ironwood_crop.name=Planta de Ironwood
+tile.ma.knightmetal_crop.name=Planta de Knightmetal
+tile.ma.fiery_ingot_crop.name=Planta de Fiery Ingot
+
+tile.ma.meteoric_iron_crop.name=Planta de Ferro Meteórico
+tile.ma.desh_crop.name=Planta de Desh
+
+tile.ma.coralium_crop.name=Planta de Coralium
+tile.ma.abyssalnite_crop.name=Planta de Abyssalnite
+tile.ma.dreadium_crop.name=Planta de Dreadium
+
+tile.ma.slimy_bone_crop.name=Planta de Slimy Bone
+tile.ma.syrmorite_crop.name=Planta de Syrmorite
+tile.ma.octine_crop.name=Planta de Octine
+tile.ma.valonite_crop.name=Planta de Valonite
+
+tile.ma.thorium_crop.name=Planta de Tório
+tile.ma.boron_crop.name=Planta de Boro
+tile.ma.lithium_crop.name=Planta de Lítio
+tile.ma.magnesium_crop.name=Planta de Magnésio
+
+tile.ma.black_quartz_crop.name=Planta de Quartzo Preto
+
+tile.ma.menril_crop.name=Planta de Menril
+
+tile.ma.vinteum_crop.name=Planta de Vinteum
+tile.ma.chimerite_crop.name=Planta de Chimerite
+tile.ma.blue_topaz_crop.name=Planta de Topázio Azul
+tile.ma.moonstone_crop.name=Planta de Moonstone
+tile.ma.sunstone_crop.name=Planta de Sunstone
+
+tile.ma.aquamarine_crop.name=Planta de Aquamarine
+tile.ma.starmetal_crop.name=Planta de Starmetal
+tile.ma.rock_crystal_crop.name=Planta de Rock Crystal
+
+tile.ma.ender_biotite_crop.name=Planta de Biotita do End
+
+tile.ma.dilithium_crop.name=Planta de Dilithium
+tile.ma.tritanium_crop.name=Planta de Tritanium
+
+tile.ma.jade_crop.name=Planta de Jade
+
+tile.ma.slate_crop.name=Planta de Ardósia
+
+tile.ma.dark_gem_crop.name=Planta de Dark Gem
+
+tile.ma.compressed_iron_crop.name=Planta de Ferro Compresso
+
+tile.ma.ender_amethyst_crop.name=Planta de Ametista do End
+
+tile.ma.draconium_crop.name=Planta de Dracônio
+
+tile.ma.yellorium_crop.name=Planta de Yellorium
+
+tile.ma.sky_stone_crop.name=Planta de Pedra do Céu
+tile.ma.certus_quartz_crop.name=Planta de Quartzo Certus
+tile.ma.fluix_crop.name=Planta de Fluix
+
+tile.ma.quartz_enriched_iron_crop.name=Planta de Ferro Enriquecido com Quartzo
+
+tile.ma.constantan_crop.name=Planta de Constantan
+
+tile.ma.miners_torch.name=Tocha de Mineiro
+
+# CRAFTING ITEMS
+item.ma.crafting_inferium_essence.name=§eEssência de Inferium
+item.ma.crafting_prudentium_essence.name=§aEssência de Prudentium
+item.ma.crafting_intermedium_essence.name=§6Essência de Intermedium
+item.ma.crafting_superium_essence.name=§bEssência de Superium
+item.ma.crafting_supremium_essence.name=§cEssência de Supremium
+
+item.ma.crafting_prosperity_shard.name=Estilhaço de Prosperidade
+
+item.ma.crafting_nature_cluster.name=Aglomerado de Natureza
+item.ma.crafting_dye_cluster.name=Aglomerado de Corante
+item.ma.crafting_nether_cluster.name=Aglomerado do Nether
+item.ma.crafting_end_cluster.name=Aglomerado do End
+item.ma.crafting_mystical_flower_cluster.name=Aglomerado de Flores Místicas
+
+item.ma.crafting_blank_record.name=Disco em Branco
+item.ma.crafting_blank_skull.name=Crânio em Branco
+
+item.ma.crafting_base_crafting_seed.name=Semente de Fabricação Inicial
+item.ma.crafting_tier1_crafting_seed.name=Semente de Fabricação Nível 1
+item.ma.crafting_tier2_crafting_seed.name=Semente de Fabricação Nível 2
+item.ma.crafting_tier3_crafting_seed.name=Semente de Fabricação Nível 3
+item.ma.crafting_tier4_crafting_seed.name=Semente de Fabricação Nível 4
+item.ma.crafting_tier5_crafting_seed.name=Semente de Fabricação Nível 5
+
+item.ma.crafting_mystical_stick.name=Vara Mística
+item.ma.crafting_mystical_string.name=Linha Mística
+item.ma.crafting_mystical_feather.name=Pena Mística
+
+item.ma.crafting_soul_dust.name=Pó de Alma
+item.ma.crafting_soulium_dust.name=§dPó de Soulium
+
+item.ma.crafting_base_essence_ingot.name=Barra de Essência Inicial
+item.ma.crafting_inferium_ingot.name=§eBarra de Inferium
+item.ma.crafting_prudentium_ingot.name=§aBarra de Prudentium
+item.ma.crafting_intermedium_ingot.name=§6Barra de Intermedium
+item.ma.crafting_superium_ingot.name=§bBarra de Superium
+item.ma.crafting_supremium_ingot.name=§cBarra de Supremium
+item.ma.crafting_soulium_ingot.name=§dBarra de Soulium
+
+item.ma.crafting_base_essence_nugget.name=Pepita de Essência Inicial
+item.ma.crafting_inferium_nugget.name=§ePepita de Inferium
+item.ma.crafting_prudentium_nugget.name=§aPepita de Prudentium
+item.ma.crafting_intermedium_nugget.name=§6Pepita de Intermedium
+item.ma.crafting_superium_nugget.name=§bPepita de Superium
+item.ma.crafting_supremium_nugget.name=§cPepita de Supremium
+item.ma.crafting_soulium_nugget.name=§dPepita de Soulium
+
+item.ma.crafting_theoretical_water.name=Fonte de Água Infinita Teórica
+
+item.ma.crafting_inferium_fert_core.name=§eNúcleo de Fertilização de Inferium
+item.ma.crafting_prudentium_fert_core.name=§aNúcleo de Fertilização de Prudentium
+item.ma.crafting_intermedium_fert_core.name=§6Núcleo de Fertilização de Intermedium
+item.ma.crafting_superium_fert_core.name=§bNúcleo de Fertilização de Superium
+item.ma.crafting_supremium_fert_core.name=§cNúcleo de Fertilização de Supremium
+
+item.ma.infusion_crystal.name=Cristal de Infusão
+item.ma.master_infusion_crystal.name=§cCristal de Infusão Supremo
+
+item.ma.mystical_fertilizer.name=§dFertilizante Místico
+item.ma.fertilized_essence.name=§dEssência Fertilizada
+
+item.ma.inferium_apple.name=§eMaçã de Inferium
+item.ma.prudentium_apple.name=§aMaçã de Prudentium
+item.ma.intermedium_apple.name=§6Maçã de Intermedium
+item.ma.superium_apple.name=§bMaçã de Superium
+item.ma.supremium_apple.name=§cMaçã de Supremium
+
+item.ma.coal_inferium.name=§eCarvão de Inferium
+item.ma.coal_prudentium.name=§aCarvão de Prudentium
+item.ma.coal_intermedium.name=§6Carvão de Intermedium
+item.ma.coal_superium.name=§bCarvão de Superium
+item.ma.coal_supremium.name=§cCarvão de Supremium
+
+item.ma.watering_can_inferium.name=§eRegador de Inferium
+item.ma.watering_can_prudentium.name=§aRegador de Prudentium
+item.ma.watering_can_intermedium.name=§6Regador de Intermedium
+item.ma.watering_can_superium.name=§bRegador de Superium
+item.ma.watering_can_supremium.name=§cRegador de Supremium
+
+item.ma.soulium_dagger.name=§dAdaga de Soulium
+
+item.ma.xp_droplet.name=Gotícula de Experiência
+
+# CHUNKS
+item.ma.chunk_tier1_mob_chunk.name=Pedaço de Mob Nível 1
+item.ma.chunk_tier2_mob_chunk.name=Pedaço de Mob Nível 2
+item.ma.chunk_tier3_mob_chunk.name=Pedaço de Mob Nível 3
+item.ma.chunk_tier4_mob_chunk.name=Pedaço de Mob Nível 4
+item.ma.chunk_tier5_mob_chunk.name=Pedaço de Mob Nível 5
+
+item.ma.chunk_experience_chunk.name=Pedaço de Experiência
+item.ma.chunk_zombie_chunk.name=Pedaço de Zumbi
+item.ma.chunk_pig_chunk.name=Pedaço de Porco
+item.ma.chunk_chicken_chunk.name=Pedaço de Galinha
+item.ma.chunk_cow_chunk.name=Pedaço de Vaca
+item.ma.chunk_sheep_chunk.name=Pedaço de Ovelha
+item.ma.chunk_slime_chunk.name=Pedaço de Slime
+item.ma.chunk_skeleton_chunk.name=Pedaço de Esqueleto
+item.ma.chunk_creeper_chunk.name=Pedaço de Creeper
+item.ma.chunk_spider_chunk.name=Pedaço de Aranha
+item.ma.chunk_rabbit_chunk.name=Pedaço de Coelho
+item.ma.chunk_guardian_chunk.name=Pedaço de Guardião
+item.ma.chunk_blaze_chunk.name=Pedaço de Blaze
+item.ma.chunk_ghast_chunk.name=Pedaço de Ghast
+item.ma.chunk_enderman_chunk.name=Pedaço de Enderman
+item.ma.chunk_wither_skeleton_chunk.name=Pedaço de Esqueleto Wither
+item.ma.chunk_blizz_chunk.name=Pedaço de Blizz
+item.ma.chunk_blitz_chunk.name=Pedaço de Blitz
+item.ma.chunk_basalz_chunk.name=Pedaço de Basalz
+
+# RESOURCES
+item.ma.stone_essence.name=Essência de Pedra
+item.ma.dirt_essence.name=Essência de Terra
+item.ma.nature_essence.name=Essência de Natureza
+item.ma.wood_essence.name=Essência de Madeira
+item.ma.water_essence.name=Essência de Água
+item.ma.ice_essence.name=Essência de Gelo
+item.ma.fire_essence.name=Essência de Fogo
+item.ma.dye_essence.name=Essência de Corante
+item.ma.nether_essence.name=Essência do Nether
+item.ma.coal_essence.name=Essência de Carvão
+item.ma.iron_essence.name=Essência de Ferro
+item.ma.nether_quartz_essence.name=Essência de Quartzo do Nether
+item.ma.glowstone_essence.name=Essência de Pedra Luminosa
+item.ma.redstone_essence.name=Essência de Redstone
+item.ma.obsidian_essence.name=Essência de Obsidiana
+item.ma.gold_essence.name=Essência de Ouro
+item.ma.lapis_lazuli_essence.name=Essência de Lápis Lazúli
+item.ma.end_essence.name=Essência do End
+item.ma.experience_essence.name=Essência de Experiência
+item.ma.diamond_essence.name=Essência de Diamante
+item.ma.emerald_essence.name=Essência de Esmeralda
+
+item.ma.zombie_essence.name=Essência de Zumbi
+item.ma.pig_essence.name=Essência de Porco
+item.ma.chicken_essence.name=Essência de Galinha
+item.ma.cow_essence.name=Essência de Vaca
+item.ma.sheep_essence.name=Essência de Ovelha
+item.ma.slime_essence.name=Essência de Slime
+item.ma.skeleton_essence.name=Essência de Esqueleto
+item.ma.creeper_essence.name=Essência de Creeper
+item.ma.spider_essence.name=Essência de Aranha
+item.ma.rabbit_essence.name=Essência de Coelho
+item.ma.guardian_essence.name=Essência de Guardião
+item.ma.blaze_essence.name=Essência de Blaze
+item.ma.ghast_essence.name=Essência de Ghast
+item.ma.enderman_essence.name=Essência de Enderman
+item.ma.wither_skeleton_essence.name=Essência de Esqueleto Wither
+
+item.ma.rubber_essence.name=Essência de Borracha
+item.ma.silicon_essence.name=Essência de Silício
+item.ma.sulfur_essence.name=Essência de Enxofre
+item.ma.aluminum_essence.name=Essência de Alumínio
+item.ma.copper_essence.name=Essência de Cobre
+item.ma.saltpeter_essence.name=Essência de Salitre
+item.ma.tin_essence.name=Essência de Estanho
+item.ma.bronze_essence.name=Essência de Bronze
+item.ma.zinc_essence.name=Essência de Zinco
+item.ma.brass_essence.name=Essência de Latão
+item.ma.silver_essence.name=Essência de Prata
+item.ma.lead_essence.name=Essência de Chumbo
+item.ma.graphite_essence.name=Essência de Grafite
+item.ma.steel_essence.name=Essência de Aço
+item.ma.nickel_essence.name=Essência de Níquel
+item.ma.electrum_essence.name=Essência de Electro
+item.ma.invar_essence.name=Essência de Invar
+item.ma.mithril_essence.name=Essência de Mithril
+item.ma.tungsten_essence.name=Essência de Tungstênio
+item.ma.titanium_essence.name=Essência de Titânio
+item.ma.uranium_essence.name=Essência de Urânio
+item.ma.chrome_essence.name=Essência de Cromo
+item.ma.platinum_essence.name=Essência de Platina
+item.ma.iridium_essence.name=Essência de Iridio
+
+item.ma.ruby_essence.name=Essência de Rubi
+item.ma.sapphire_essence.name=Essência de Safira
+item.ma.peridot_essence.name=Essência de Peridoto
+item.ma.amber_essence.name=Essência de Âmbar
+item.ma.topaz_essence.name=Essência de Topázio
+item.ma.malachite_essence.name=Essência de Malaquita
+item.ma.tanzanite_essence.name=Essência de Tanzanita
+
+item.ma.blizz_essence.name=Essência de Blizz
+item.ma.blitz_essence.name=Essência de Blitz
+item.ma.basalz_essence.name=Essência de Basalz
+item.ma.signalum_essence.name=Essência de Signalo
+item.ma.lumium_essence.name=Essência de Lúmio
+item.ma.enderium_essence.name=Essência de Endério
+
+item.ma.fluxed_electrum_essence.name=Essência de Electrum Fluxado
+
+item.ma.hop_graphite_essence.name=Essência de Grafite PAO
+
+item.ma.aluminum_brass_essence.name=Essência de Latão de Alumínio
+item.ma.knightslime_essence.name=Essência de Knightslime
+item.ma.ardite_essence.name=Essência de Ardite
+item.ma.cobalt_essence.name=Essência de Cobalto
+item.ma.manyullyn_essence.name=Essência de Manyullyn
+
+item.ma.grains_of_infinity_essence.name=Essência de Grains of Infinity
+item.ma.electrical_steel_essence.name=Essência de Electrical Steel
+item.ma.redstone_alloy_essence.name=Essência de Redstone Alloy
+item.ma.conductive_iron_essence.name=Essência de Conductive Iron
+item.ma.soularium_essence.name=Essência de Soularium
+item.ma.dark_steel_essence.name=Essência de Dark Steel
+item.ma.pulsating_iron_essence.name=Essência de Pulsating Iron
+item.ma.energetic_alloy_essence.name=Essência de Energetic Alloy
+item.ma.vibrant_alloy_essence.name=Essência de Vibrant Alloy
+item.ma.end_steel_essence.name=Essência de End Steel
+
+item.ma.mystical_flower_essence.name=Essência de Flores Místicas
+item.ma.manasteel_essence.name=Essência de Manasteel
+item.ma.elementium_essence.name=Essência de Elementium
+item.ma.terrasteel_essence.name=Essência de Terrasteel
+
+item.ma.quicksilver_essence.name=Essência de Mercúrio
+item.ma.thaumium_essence.name=Essência de Táumio
+item.ma.void_metal_essence.name=Essência de Metal do Vazio
+
+item.ma.dawnstone_essence.name=Essência de Dawnstone
+
+item.ma.uranium_238_essence.name=Essência de Urânio 238
+item.ma.iridium_ore_essence.name=Essência de Minério de Irídio
+
+item.ma.osmium_essence.name=Essência de Ósmio
+item.ma.glowstone_ingot_essence.name=Essência de Barra de Pedra Luminosa
+item.ma.refined_obsidian_essence.name=Essência de Obsidiana Refinada
+
+item.ma.aquarium_essence.name=Essência de Aço-Peixe
+item.ma.cold_iron_essence.name=Essência de Ferro-Frio
+item.ma.star_steel_essence.name=Essência de Ferro-Estrela
+item.ma.adamantine_essence.name=Essência de Magnetita
+
+item.ma.marble_essence.name=Essência de Mármore
+item.ma.limestone_essence.name=Essência de Calcário
+item.ma.basalt_essence.name=Essência de Basalto
+
+item.ma.apatite_essence.name=Essência de Apatita
+
+item.ma.electrotine_essence.name=Essência de Eletrotine
+
+item.ma.alumite_essence.name=Essência de Alumite
+
+item.ma.steeleaf_essence.name=Essência de Steeleaf
+item.ma.ironwood_essence.name=Essência de Ironwood
+item.ma.knightmetal_essence.name=Essência de Knightmetal
+item.ma.fiery_ingot_essence.name=Essência de Fiery Ingot
+
+item.ma.meteoric_iron_essence.name=Essência de Ferro Meteórico
+item.ma.desh_essence.name=Essência de Desh
+
+item.ma.coralium_essence.name=Essência de Coralium
+item.ma.abyssalnite_essence.name=Essência de Abyssalnite
+item.ma.dreadium_essence.name=Essência de Dreadium
+
+item.ma.slimy_bone_essence.name=Essência de Slimy Bone
+item.ma.syrmorite_essence.name=Essência de Syrmorite
+item.ma.octine_essence.name=Essência de Octine
+item.ma.valonite_essence.name=Essência de Valonite
+
+item.ma.thorium_essence.name=Essência de Tório
+item.ma.boron_essence.name=Essência de Boro
+item.ma.lithium_essence.name=Essência de Lítio
+item.ma.magnesium_essence.name=Essência de Magnésio
+
+item.ma.black_quartz_essence.name=Essência de Quartzo Preto
+
+item.ma.menril_essence.name=Essência de Menril
+
+item.ma.vinteum_essence.name=Essência de Vinteum
+item.ma.chimerite_essence.name=Essência de Chimerite
+item.ma.blue_topaz_essence.name=Essência de Topázio Azul
+item.ma.moonstone_essence.name=Essência de Moonstone
+item.ma.sunstone_essence.name=Essência de Sunstone
+
+item.ma.aquamarine_essence.name=Essência de Aquamarine
+item.ma.starmetal_essence.name=Essência de Starmetal
+item.ma.rock_crystal_essence.name=Essência de Rock Crystal
+
+item.ma.ender_biotite_essence.name=Essência de Biotita do End
+
+item.ma.dilithium_essence.name=Essência de Dilithium
+item.ma.tritanium_essence.name=Essência de Tritanium
+
+item.ma.jade_essence.name=Essência de Jade
+
+item.ma.slate_essence.name=Essência de Ardósia
+
+item.ma.dark_gem_essence.name=Essência de Dark Gem
+
+item.ma.compressed_iron_essence.name=Essência de Ferro Compresso
+
+item.ma.ender_amethyst_essence.name=Essência de Ametista do End
+
+item.ma.draconium_essence.name=Essência de Dracônio
+
+item.ma.yellorium_essence.name=Essência de Yellorium
+
+item.ma.sky_stone_essence.name=Essência de Pedra do Céu
+item.ma.certus_quartz_essence.name=Essência de Quartzo Certus
+item.ma.fluix_essence.name=Essência de Fluix
+
+item.ma.quartz_enriched_iron_essence.name=Essência de Ferro Enriquecido com Quartzo
+
+item.ma.constantan_essence.name=Essência de Constantan
+
+# SEEDS
+item.ma.tier1_inferium_seeds.name=Sementes de Inferium
+item.ma.tier2_inferium_seeds.name=Sementes de Inferium
+item.ma.tier3_inferium_seeds.name=Sementes de Inferium
+item.ma.tier4_inferium_seeds.name=Sementes de Inferium
+item.ma.tier5_inferium_seeds.name=Sementes de Inferium
+
+item.ma.stone_seeds.name=Sementes de Pedra
+item.ma.dirt_seeds.name=Sementes de Terra
+item.ma.nature_seeds.name=Sementes de Natureza
+item.ma.wood_seeds.name=Sementes de Madeira
+item.ma.water_seeds.name=Sementes de Água
+item.ma.ice_seeds.name=Sementes de Gelo
+item.ma.fire_seeds.name=Sementes de Fogo
+item.ma.dye_seeds.name=Sementes de Corante
+item.ma.nether_seeds.name=Sementes do Nether
+item.ma.coal_seeds.name=Sementes de Carvão
+item.ma.iron_seeds.name=Sementes de Ferro
+item.ma.nether_quartz_seeds.name=Sementes de Quartzo do Nether
+item.ma.glowstone_seeds.name=Sementes de Pedra Luminosa
+item.ma.redstone_seeds.name=Sementes de Redstone
+item.ma.obsidian_seeds.name=Sementes de Obsidiana
+item.ma.gold_seeds.name=Sementes de Ouro
+item.ma.lapis_lazuli_seeds.name=Sementes de Lápis Lazúli
+item.ma.end_seeds.name=Sementes do End
+item.ma.experience_seeds.name=Sementes de Experiência
+item.ma.diamond_seeds.name=Sementes de Diamante
+item.ma.emerald_seeds.name=Sementes de Esmeralda
+
+item.ma.zombie_seeds.name=Sementes de Zumbi
+item.ma.pig_seeds.name=Sementes de Porco
+item.ma.chicken_seeds.name=Sementes de Galinha
+item.ma.cow_seeds.name=Sementes de Vaca
+item.ma.sheep_seeds.name=Sementes de Ovelha
+item.ma.slime_seeds.name=Sementes de Slime
+item.ma.skeleton_seeds.name=Sementes de Esqueleto
+item.ma.creeper_seeds.name=Sementes de Creeper
+item.ma.spider_seeds.name=Sementes de Aranha
+item.ma.rabbit_seeds.name=Sementes de Coelho
+item.ma.guardian_seeds.name=Sementes de Guardião
+item.ma.blaze_seeds.name=Sementes de Blaze
+item.ma.ghast_seeds.name=Sementes de Ghast
+item.ma.enderman_seeds.name=Sementes de Enderman
+item.ma.wither_skeleton_seeds.name=Sementes de Esqueleto Wither
+
+item.ma.rubber_seeds.name=Sementes de Borracha
+item.ma.silicon_seeds.name=Sementes de Silício
+item.ma.sulfur_seeds.name=Sementes de Enxofre
+item.ma.aluminum_seeds.name=Sementes de Alumínio
+item.ma.copper_seeds.name=Sementes de Cobre
+item.ma.saltpeter_seeds.name=Sementes de Salitre
+item.ma.tin_seeds.name=Sementes de Estanho
+item.ma.bronze_seeds.name=Sementes de Bronze
+item.ma.zinc_seeds.name=Sementes de Zinco
+item.ma.brass_seeds.name=Sementes de Latão
+item.ma.silver_seeds.name=Sementes de Prata
+item.ma.lead_seeds.name=Sementes de Chumbo
+item.ma.graphite_seeds.name=Sementes de Grafite
+item.ma.steel_seeds.name=Sementes de Aço
+item.ma.nickel_seeds.name=Sementes de Níquel
+item.ma.electrum_seeds.name=Sementes de Electro
+item.ma.invar_seeds.name=Sementes de Invar
+item.ma.mithril_seeds.name=Sementes de Mithril
+item.ma.tungsten_seeds.name=Sementes de Tungstênio
+item.ma.titanium_seeds.name=Sementes de Titânio
+item.ma.uranium_seeds.name=Sementes de Urânio
+item.ma.chrome_seeds.name=Sementes de Cromo
+item.ma.platinum_seeds.name=Sementes de Platina
+item.ma.iridium_seeds.name=Sementes de Iridio
+
+item.ma.ruby_seeds.name=Sementes de Rubi
+item.ma.sapphire_seeds.name=Sementes de Safira
+item.ma.peridot_seeds.name=Sementes de Peridoto
+item.ma.amber_seeds.name=Sementes de Âmbar
+item.ma.topaz_seeds.name=Sementes de Topázio
+item.ma.malachite_seeds.name=Sementes de Malaquita
+item.ma.tanzanite_seeds.name=Sementes de Tanzanite
+
+item.ma.blizz_seeds.name=Sementes de Blizz
+item.ma.blitz_seeds.name=Sementes de Blitz
+item.ma.basalz_seeds.name=Sementes de Basalz
+item.ma.signalum_seeds.name=Sementes de Signalo
+item.ma.lumium_seeds.name=Sementes de Lúmio
+item.ma.enderium_seeds.name=Sementes de Endério
+
+item.ma.fluxed_electrum_seeds.name=Sementes de Electrum Fluxado
+
+item.ma.hop_graphite_seeds.name=Sementes de Grafite PAO
+
+item.ma.aluminum_brass_seeds.name=Sementes de Latão de Alumínio
+item.ma.knightslime_seeds.name=Sementes de Knightslime
+item.ma.ardite_seeds.name=Sementes de Ardite
+item.ma.cobalt_seeds.name=Sementes de Cobalto
+item.ma.manyullyn_seeds.name=Sementes de Manyullyn
+
+item.ma.grains_of_infinity_seeds.name=Sementes de Grains of Infinity
+item.ma.electrical_steel_seeds.name=Sementes de Electrical Steel
+item.ma.redstone_alloy_seeds.name=Sementes de Redstone Alloy
+item.ma.conductive_iron_seeds.name=Sementes de Conductive Iron
+item.ma.soularium_seeds.name=Sementes de Soularium
+item.ma.dark_steel_seeds.name=Sementes de Dark Steel
+item.ma.pulsating_iron_seeds.name=Sementes de Pulsating Iron
+item.ma.energetic_alloy_seeds.name=Sementes de Energetic Alloy
+item.ma.vibrant_alloy_seeds.name=Sementes de Vibrant Alloy
+item.ma.end_steel_seeds.name=Sementes de End Steel
+
+item.ma.mystical_flower_seeds.name=Sementes de Flores Místicas
+item.ma.manasteel_seeds.name=Sementes de Manasteel
+item.ma.elementium_seeds.name=Sementes de Elementium
+item.ma.terrasteel_seeds.name=Sementes de Terrasteel
+
+item.ma.quicksilver_seeds.name=Sementes de Mercúrio
+item.ma.thaumium_seeds.name=Sementes de Táumio
+item.ma.void_metal_seeds.name=Sementes de Metal do Vazio
+
+item.ma.dawnstone_seeds.name=Sementes de Dawnstone
+
+item.ma.uranium_238_seeds.name=Sementes de Urânio 238
+item.ma.iridium_ore_seeds.name=Sementes de Minério de Irídio
+
+item.ma.osmium_seeds.name=Sementes de Ósmio
+item.ma.glowstone_ingot_seeds.name=Sementes de Barra de Pedra Luminosa
+item.ma.refined_obsidian_seeds.name=Sementes de Obsidiana Refinada
+
+item.ma.aquarium_seeds.name=Sementes de Aço-Peixe
+item.ma.cold_iron_seeds.name=Sementes de Ferro-Frio
+item.ma.star_steel_seeds.name=Sementes de Ferro-Estrela
+item.ma.adamantine_seeds.name=Sementes de Magnetita
+
+item.ma.marble_seeds.name=Sementes de Mármore
+item.ma.limestone_seeds.name=Sementes de Calcário
+item.ma.basalt_seeds.name=Sementes de Basalto
+
+item.ma.apatite_seeds.name=Sementes de Apatita
+
+item.ma.electrotine_seeds.name=Sementes de Eletrotine
+
+item.ma.alumite_seeds.name=Sementes de Alumite
+
+item.ma.steeleaf_seeds.name=Sementes de Steeleaf
+item.ma.ironwood_seeds.name=Sementes de Ironwood
+item.ma.knightmetal_seeds.name=Sementes de Knightmetal
+item.ma.fiery_ingot_seeds.name=Sementes de Fiery Ingot
+
+item.ma.meteoric_iron_seeds.name=Sementes de Ferro Meteórico
+item.ma.desh_seeds.name=Sementes de Desh
+
+item.ma.coralium_seeds.name=Sementes de Coralium
+item.ma.abyssalnite_seeds.name=Sementes de Abyssalnite
+item.ma.dreadium_seeds.name=Sementes de Dreadium
+
+item.ma.slimy_bone_seeds.name=Sementes de Slimy Bone
+item.ma.syrmorite_seeds.name=Sementes de Syrmorite
+item.ma.octine_seeds.name=Sementes de Octine
+item.ma.valonite_seeds.name=Sementes de Valonite
+
+item.ma.thorium_seeds.name=Sementes de Tório
+item.ma.boron_seeds.name=Sementes de Boro
+item.ma.lithium_seeds.name=Sementes de Lítio
+item.ma.magnesium_seeds.name=Sementes de Magnésio
+
+item.ma.black_quartz_seeds.name=Sementes de Quartzo Preto
+
+item.ma.menril_seeds.name=Sementes de Menril
+
+item.ma.vinteum_seeds.name=Sementes de Vinteum
+item.ma.chimerite_seeds.name=Sementes de Chimerite
+item.ma.blue_topaz_seeds.name=Sementes de Topázio Azul
+item.ma.moonstone_seeds.name=Sementes de Moonstone
+item.ma.sunstone_seeds.name=Sementes de Sunstone
+
+item.ma.aquamarine_seeds.name=Sementes de Aquamarine
+item.ma.starmetal_seeds.name=Sementes de Starmetal
+item.ma.rock_crystal_seeds.name=Sementes de Rock Crystal
+
+item.ma.ender_biotite_seeds.name=Sementes de Biotita do End
+
+item.ma.dilithium_seeds.name=Sementes de Dilithium
+item.ma.tritanium_seeds.name=Sementes de Tritanium
+
+item.ma.jade_seeds.name=Sementes de Jade
+
+item.ma.slate_seeds.name=Sementes de Ardósia
+
+item.ma.dark_gem_seeds.name=Sementes de Dark Gem
+
+item.ma.compressed_iron_seeds.name=Sementes de Ferro Compresso
+
+item.ma.ender_amethyst_seeds.name=Sementes de Ametista do End
+
+item.ma.draconium_seeds.name=Sementes de Dracônio
+
+item.ma.yellorium_seeds.name=Sementes de Yellorium
+
+item.ma.sky_stone_seeds.name=Sementes de Pedra do Céu
+item.ma.certus_quartz_seeds.name=Sementes de Quartzo Certus
+item.ma.fluix_seeds.name=Sementes de Fluix
+
+item.ma.quartz_enriched_iron_seeds.name=Sementes de Ferro Enriquecido com Quartzo
+
+item.ma.constantan_seeds.name=Sementes de Constantan
+
+# GEAR ITEMS
+item.ma.core_remover.name=§cRemovedor de Núcleo
+
+item.ma.gear_inferium_tool_core.name=§eNúcleo de Ferramenta de Inferium
+item.ma.gear_prudentium_tool_core.name=§aNúcleo de Ferramenta de Prudentium
+item.ma.gear_intermedium_tool_core.name=§6Núcleo de Ferramenta de Intermedium
+item.ma.gear_superium_tool_core.name=§bNúcleo de Ferramenta de Superium
+item.ma.gear_supremium_tool_core.name=§cNúcleo de Ferramenta de Supremium
+
+item.ma.gear_inferium_armor_core.name=§eNúcleo de Armadura de Inferium
+item.ma.gear_prudentium_armor_core.name=§aNúcleo de Armadura de Prudentium
+item.ma.gear_intermedium_armor_core.name=§6Núcleo de Armadura de Intermedium
+item.ma.gear_superium_armor_core.name=§bNúcleo de Armadura de Superium
+item.ma.gear_supremium_armor_core.name=§cNúcleo de Armadura de Supremium
+
+item.ma.gear_inferium_arrow_head.name=§ePonta de Flecha de Inferium
+item.ma.gear_prudentium_arrow_head.name=§aPonta de Flecha de Prudentium
+item.ma.gear_intermedium_arrow_head.name=§6Ponta de Flecha de Intermedium
+item.ma.gear_superium_arrow_head.name=§bPonta de Flecha de Superium
+item.ma.gear_supremium_arrow_head.name=§cPonta de Flecha de Supremium
+
+# CHARMS
+item.ma.charm_blank.name=Amuleto em Branco
+item.ma.charm_nightvision.name=Amuleto: Visão Noturna
+item.ma.charm_absorption.name=Amuleto: Absorção
+item.ma.charm_wither.name=Amuleto: Resistência ao Wither
+item.ma.charm_antivenom.name=Amuleto: Antiveneno
+item.ma.charm_fire.name=Amuleto: Resistência ao Fogo
+item.ma.charm_resistance.name=Amuleto: Resistência
+item.ma.charm_strength.name=Amuleto: Força
+item.ma.charm_strength2.name=Amuleto: Força 2
+item.ma.charm_speed.name=Amuleto: Velocidade
+item.ma.charm_jump.name=Amuleto: Aumento de Salto
+item.ma.charm_miners_vision.name=Amuleto: Visão de Mineiro
+item.ma.charm_rainbow.name=Amuleto: Arco-Ìris
+item.ma.charm_quick_draw.name=Amuleto: Puxar Rápido
+item.ma.charm_triple_shot.name=Amuleto: Disparo Triplo
+item.ma.charm_mining_aoe.name=Amuleto: Mineração AOE
+item.ma.charm_attack_aoe.name=Amuleto: Ataque AOE
+item.ma.charm_tilling_aoe.name=Amuleto: Cultivo AOE
+item.ma.charm_shearing_aoe.name=Amuleto: Tosquiamento AOE
+item.ma.charm_reaping_aoe.name=Amuleto: Colheita AOE
+item.ma.charm_scything_aoe.name=Amuleto: Corte AOE
+
+item.ma.inferium_arrow.name=§eFlecha de Inferium
+item.ma.prudentium_arrow.name=§aFlecha de Prudentium
+item.ma.intermedium_arrow.name=§6Flecha de Intermedium
+item.ma.superium_arrow.name=§bFlecha de Superium
+item.ma.supremium_arrow.name=§cFlecha de Supremium
+
+# TOOLS
+item.ma.inferium_sword.name=§eEspada de Inferium
+item.ma.inferium_pickaxe.name=§ePicareta de Inferium
+item.ma.inferium_shovel.name=§ePá de Inferium
+item.ma.inferium_axe.name=§eMachado de Inferium
+item.ma.inferium_hoe.name=§eEnxada de Inferium
+item.ma.inferium_shears.name=§eTesoura de Inferium
+item.ma.inferium_bow.name=§eArco de Inferium
+item.ma.inferium_sickle.name=§eFoice de Inferium
+item.ma.inferium_scythe.name=§eFoice Longa de Inferium
+item.ma.inferium_fishing_rod.name=§eVara de Pescar de Inferium
+
+item.ma.prudentium_sword.name=§aEspada de Prudentium
+item.ma.prudentium_pickaxe.name=§aPicareta de Prudentium
+item.ma.prudentium_shovel.name=§aPá de Prudentium
+item.ma.prudentium_axe.name=§aMachado de Prudentium
+item.ma.prudentium_hoe.name=§aEnxada de Prudentium
+item.ma.prudentium_shears.name=§aTesoura de Prudentium
+item.ma.prudentium_bow.name=§aArco de Prudentium
+item.ma.prudentium_sickle.name=§aFoice de Prudentium
+item.ma.prudentium_scythe.name=§aFoice Longa de Prudentium
+item.ma.prudentium_fishing_rod.name=§aVara de Pescar de Prudentium
+
+item.ma.intermedium_sword.name=§6Espada de Intermedium
+item.ma.intermedium_pickaxe.name=§6Picareta de Intermedium
+item.ma.intermedium_shovel.name=§6Pá de Intermedium
+item.ma.intermedium_axe.name=§6Machado de Intermedium
+item.ma.intermedium_hoe.name=§6Enxada de Intermedium
+item.ma.intermedium_shears.name=§6Tesoura de Intermedium
+item.ma.intermedium_bow.name=§6Arco de Intermedium
+item.ma.intermedium_sickle.name=§6Foice de Intermedium
+item.ma.intermedium_scythe.name=§6Foice Longa de Intermedium
+item.ma.intermedium_fishing_rod.name=§6Vara de Pescar de Intermedium
+
+item.ma.superium_sword.name=§bEspada de Superium
+item.ma.superium_pickaxe.name=§bPicareta de Superium
+item.ma.superium_shovel.name=§bPá de Superium
+item.ma.superium_axe.name=§bMachado de Superium
+item.ma.superium_hoe.name=§bEnxada de Superium
+item.ma.superium_shears.name=§bTesoura de Superium
+item.ma.superium_bow.name=§bArco de Superium
+item.ma.superium_sickle.name=§bFoice de Superium
+item.ma.superium_scythe.name=§bFoice Longa de Superium
+item.ma.superium_fishing_rod.name=§bVara de Pescar de Superium
+
+item.ma.supremium_sword.name=§cEspada de Supremium
+item.ma.supremium_pickaxe.name=§cPicareta de Supremium
+item.ma.supremium_shovel.name=§cPá de Supremium
+item.ma.supremium_axe.name=§cMachado de Supremium
+item.ma.supremium_hoe.name=§cEnxada de Supremium
+item.ma.supremium_shears.name=§cTesoura de Supremium
+item.ma.supremium_bow.name=§cArco de Supremium
+item.ma.supremium_sickle.name=§cFoice de Supremium
+item.ma.supremium_scythe.name=§cFoice Longa de Supremium
+item.ma.supremium_fishing_rod.name=§cVara de Pescar de Supremium
+
+# ARMOR
+item.ma.inferium_helmet.name=§eCapacete de Inferium
+item.ma.inferium_chestplate.name=§ePeitoral de Inferium
+item.ma.inferium_leggings.name=§eCalça de Inferium
+item.ma.inferium_boots.name=§eBotas de Inferium
+
+item.ma.prudentium_helmet.name=§aCapacete de Prudentium
+item.ma.prudentium_chestplate.name=§aPeitoral de Prudentium
+item.ma.prudentium_leggings.name=§aCalça de Prudentium
+item.ma.prudentium_boots.name=§aBotas de Prudentium
+
+item.ma.intermedium_helmet.name=§6Capacete de Intermedium
+item.ma.intermedium_chestplate.name=§6Peitoral de Intermedium
+item.ma.intermedium_leggings.name=§6Calça de Intermedium
+item.ma.intermedium_boots.name=§6Botas de Intermedium
+
+item.ma.superium_helmet.name=§bCapacete de Superium
+item.ma.superium_chestplate.name=§bPeitoral de Superium
+item.ma.superium_leggings.name=§bCalça de Superium
+item.ma.superium_boots.name=§bBotas de Superium
+
+item.ma.supremium_helmet.name=§cCapacete de Supremium
+item.ma.supremium_chestplate.name=§cPeitoral de Supremium
+item.ma.supremium_leggings.name=§cCalça de Supremium
+item.ma.supremium_boots.name=§cBotas de Supremium
+
+# JEI DESCRIPTIONS
+desc.tile.ma.miners_torch=Uma tocha não coletável que só pode ser colocada por uma Picareta de Supremium com amuleto de Visão de Mineiro.
+
+# TOOLTIPS
+tooltip.ma.growth_accelerator=Acelera o crescimento das plantas acima dele.
+tooltip.ma.blast_resistant=Resistente a Explosão
+
+tooltip.ma.fertilized_essence=Farinha de osso que funciona em Plantas de Recursos.
+tooltip.ma.mystical_fertilizer=Faz uma planta crescer instantaneamente.
+tooltip.ma.core_removal=Pode ser recuperado usando um §cRemovedor de Núcleo§7.
+tooltip.ma.soulium_dagger=Usado para obter §cPedaços de Mobs§7.
+tooltip.ma.crafting_seed=Usado para fabricação, não para plantação.
+
+tooltip.ma.inferium=Inferium
+tooltip.ma.prudentium=Prudentium
+tooltip.ma.intermedium=Intermedium
+tooltip.ma.superium=Superium
+tooltip.ma.supremium=Supremium
+
+tooltip.ma.burn_time=Tempo de Queima
+tooltip.ma.material=Material
+tooltip.ma.durability=Durabilidade
+tooltip.ma.set_bonus=Definir Bônus
+tooltip.ma.charm_slot=Slot de Amuleto
+tooltip.ma.tier=Nível
+tooltip.ma.drop_chance=Chance de Dropar
+tooltip.ma.gives_buffs=Concede Buffs
+tooltip.ma.gives_debuffs=Concede Debuffs
+tooltip.ma.range=Alcance
+tooltip.ma.uses_left=Usos Restantes
+tooltip.ma.damage=Dano
+tooltip.ma.draw_speed=Velocidade de Puxar
+tooltip.ma.efficiency=Eficiência
+tooltip.ma.description=Descrição
+tooltip.ma.applicable_to=Aplicável em
+
+tooltip.ma.reprocessor_speed=Velocidade de Operação: %st
+tooltip.ma.reprocessor_fuel_rate=Uso de Combustível: %s/t
+tooltip.ma.reprocessor_fuel_capacity=Capacidade de Combustível: %s
+
+tooltip.ma.hold_shift_for_info=Segure §e§oSHIFT §r§7para mais info.
+tooltip.ma.hold=Segurar
+tooltip.ma.for=para
+
+tooltip.ma.water_breathing=Respiração Aquática
+tooltip.ma.step_assist=Salto Automático
+tooltip.ma.no_fall_damage=Queda Sem Dano
+tooltip.ma.flight=Voar
+tooltip.ma.wither_resistance=Resistência ao Wither
+tooltip.ma.strength=Força
+tooltip.ma.strength2=Força 2
+tooltip.ma.speed=Velocidade
+tooltip.ma.resistance=Resistência
+tooltip.ma.night_vision=Visão Noturna
+tooltip.ma.jump_boost=Aumento de Salto
+tooltip.ma.fire_resistance=Resistência ao Fogo
+tooltip.ma.antivenom=Antiveneno
+tooltip.ma.absorption=Absorção
+tooltip.ma.miners_vision=Visão de Mineiro
+tooltip.ma.rainbow=Arco-Íris
+tooltip.ma.quick_draw=Puxar Rápido
+tooltip.ma.triple_shot=Disparo Triplo
+tooltip.ma.attack_aoe=Ataque AOE
+tooltip.ma.mining_aoe=Mineração AOE
+tooltip.ma.tilling_aoe=Cultivo AOE
+tooltip.ma.shearing_aoe=Tosquiamento AOE
+tooltip.ma.reaping_aoe=Colheita AOE
+tooltip.ma.scything_aoe=Corte AOE
+
+tooltip.ma.unlimited=Ilimitado
+
+tooltip.ma.craftable=Fabricável
+tooltip.ma.empty=Vazio
+
+tooltip.ma.helmet=Capacete
+tooltip.ma.chestplate=Peitoral
+tooltip.ma.leggings=Calça
+tooltip.ma.boots=Botas
+
+tooltip.ma.sword=Espada
+tooltip.ma.pickaxe=Picareta
+tooltip.ma.shovel=Pá
+tooltip.ma.axe=Machado
+tooltip.ma.hoe=Enxada
+tooltip.ma.shears=Tesoura
+tooltip.ma.bow=Arco
+tooltip.ma.sickle=Foice
+tooltip.ma.scythe=Foice Longa
+
+# CHARM DESCRIPTIONS
+desc.ma.charm_nightvision=Te permite enxergar no escuro.
+desc.ma.charm_absorption=Dá 10 corações de Absorção a cada 8 minutos.
+desc.ma.charm_wither=Impede que você sofra efeito de Decomposição.
+desc.ma.charm_antivenom=Impede que você sofra efeito de Envenenamento.
+desc.ma.charm_fire=Impede que você sofra dano de fogo/lava.
+desc.ma.charm_resistance=Reduz o dano recebido em 20%.
+desc.ma.charm_strength=Aumenta seu dano de ataque.
+desc.ma.charm_strength2=Aumenta seu dano de ataque.
+desc.ma.charm_speed=Aumenta sua velocidade de movimento.
+desc.ma.charm_jump=Aumenta sua altura de salto.
+desc.ma.charm_miners_vision=Permite que sua ferramenta coloque fontes de luz ilimitadas.
+desc.ma.charm_rainbow=Dá lã de cor aleatória.
+desc.ma.charm_quick_draw=Aumenta sua velocidade de puxar o arco.
+desc.ma.charm_triple_shot=Faz seu arco disparar 3 flechas.
+desc.ma.charm_mining_aoe=Aumenta o raio de mineração da sua ferramenta para 3x3.
+desc.ma.charm_attack_aoe=Aumenta o raio de ataque da sua ferramenta para 5x5.
+desc.ma.charm_tilling_aoe=Aumenta o raio de cultivo da sua ferramenta para 7x7.
+desc.ma.charm_shearing_aoe=Aumenta o raio de tosquiamento da sua tesoura para 5x5 e o raio de coleta de blocos para 3x3x3.
+desc.ma.charm_reaping_aoe=Aumenta o raio de colheita da sua foice para 7x7x7.
+desc.ma.charm_scything_aoe=Aumenta o raio de corte da sua foice longa e ataque para 5x5.
