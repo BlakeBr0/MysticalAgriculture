@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "mysticalagriculture:block/soulstone_smooth_slab"
+    },
+    "type=top": {
+      "model": "mysticalagriculture:block/soulstone_smooth_slab_top"
+    },
+    "type=double": {
+      "model": "mysticalagriculture:block/soulstone_smooth_slab_double"
+    }
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "type": "smelting",
+  "ingredient": {
+    "item": "mysticalagriculture:soulstone"
+  },
+  "result": "mysticalagriculture:soulstone_smooth",
+  "experience": 0.1,
+  "cookingtime": 200
+}

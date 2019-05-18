@@ -1,0 +1,16 @@
+{
+  "type": "crafting_shaped",
+  "group": "mysticalagriculture:soulstone_slabs",
+  "pattern": [
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "mysticalagriculture:soulstone_smooth"
+    }
+  },
+  "result": {
+    "item": "mysticalagriculture:soulstone_smooth_slab",
+    "count": 6
+  }
+}
