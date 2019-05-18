@@ -55,10 +55,12 @@ public class ModBlocks {
     public static final BlockBase SOULSTONE_BRICKS = new BlockBase("soulstone_bricks", Material.ROCK, SoundType.STONE, 1.5F, 6.0F);
     public static final BlockBase SOULSTONE_CRACKED_BRICKS = new BlockBase("soulstone_cracked_bricks", Material.ROCK, SoundType.STONE, 1.5F, 6.0F);
     public static final BlockBase SOULSTONE_CHISELED_BRICKS = new BlockBase("soulstone_chiseled_bricks", Material.ROCK, SoundType.STONE, 1.5F, 6.0F);
+    public static final BlockBase SOULSTONE_SMOOTH = new BlockBase("soulstone_smooth", Material.ROCK, SoundType.STONE, 1.5F, 6.0F);
     public static final BlockGlassBase SOUL_GLASS = new BlockGlassBase("soul_glass", Material.GLASS, SoundType.GLASS, 0.3F, 0.3F);
     public static final BlockSlabBase SOULSTONE_SLAB = new BlockSlabBase("soulstone_slab", SOULSTONE);
     public static final BlockSlabBase SOULSTONE_COBBLE_SLAB = new BlockSlabBase("soulstone_cobble_slab", SOULSTONE_COBBLE);
     public static final BlockSlabBase SOULSTONE_BRICKS_SLAB = new BlockSlabBase("soulstone_bricks_slab", SOULSTONE_BRICKS);
+    public static final BlockSlabBase SOULSTONE_SMOOTH_SLAB = new BlockSlabBase("soulstone_smooth_slab", SOULSTONE_SMOOTH);
     public static final BlockStairsBase SOULSTONE_STAIRS = new BlockStairsBase("soulstone_stairs", SOULSTONE);
     public static final BlockStairsBase SOULSTONE_COBBLE_STAIRS = new BlockStairsBase("soulstone_cobble_stairs", SOULSTONE_COBBLE);
     public static final BlockStairsBase SOULSTONE_BRICKS_STAIRS = new BlockStairsBase("soulstone_bricks_stairs", SOULSTONE_BRICKS);
@@ -107,10 +109,12 @@ public class ModBlocks {
         register(registry, SOULSTONE_BRICKS);
         register(registry, SOULSTONE_CRACKED_BRICKS);
         register(registry, SOULSTONE_CHISELED_BRICKS);
+        register(registry, SOULSTONE_SMOOTH);
         register(registry, SOUL_GLASS);
         register(registry, SOULSTONE_SLAB);
         register(registry, SOULSTONE_COBBLE_SLAB);
         register(registry, SOULSTONE_BRICKS_SLAB);
+        register(registry, SOULSTONE_SMOOTH_SLAB);
         register(registry, SOULSTONE_STAIRS);
         register(registry, SOULSTONE_COBBLE_STAIRS);
         register(registry, SOULSTONE_BRICKS_STAIRS);

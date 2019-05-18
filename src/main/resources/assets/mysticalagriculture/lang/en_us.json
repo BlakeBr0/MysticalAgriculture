@@ -86,5 +86,16 @@
   "item.mysticalagriculture.infusion_crystal": "Infusion Crystal",
   "item.mysticalagriculture.master_infusion_crystal": "Master Infusion Crystal",
   "item.mysticalagriculture.fertilized_essence": "Fertilized Essence",
-  "item.mysticalagriculture.mystical_fertilizer": "Mystical Fertilizer"
+  "item.mysticalagriculture.mystical_fertilizer": "Mystical Fertilizer",
+  "item.mysticalagriculture.mystical_essence": "%s Essence",
+  "item.mysticalagriculture.mystical_seeds": "%s Seeds",
+
+  "tooltip.mysticalagriculture.crop_tier": "Tier %s",
+
+  "cropTier.mysticalagriculture.elemental": "Elemental",
+  "cropTier.mysticalagriculture.1": "1",
+  "cropTier.mysticalagriculture.2": "2",
+  "cropTier.mysticalagriculture.3": "3",
+  "cropTier.mysticalagriculture.4": "4",
+  "cropTier.mysticalagriculture.5": "5"
 }
