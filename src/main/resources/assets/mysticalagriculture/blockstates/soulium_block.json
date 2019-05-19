@@ -1,5 +1,7 @@
 {
   "variants": {
-    "": { "model": "mysticalagriculture:block/soulium_block" }
+    "": {
+      "model": "mysticalagriculture:block/soulium_block"
+    }
   }
 }

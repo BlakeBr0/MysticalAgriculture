@@ -1,5 +1,7 @@
 {
   "variants": {
-    "": { "model": "mysticalagriculture:block/supremium_block" }
+    "": {
+      "model": "mysticalagriculture:block/supremium_block"
+    }
   }
 }

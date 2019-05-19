@@ -1,5 +1,7 @@
 {
   "variants": {
-    "": { "model": "mysticalagriculture:block/intermedium_growth_accelerator" }
+    "": {
+      "model": "mysticalagriculture:block/intermedium_growth_accelerator"
+    }
   }
 }

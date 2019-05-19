@@ -1,7 +1,13 @@
 {
   "variants": {
-    "type=bottom": { "model": "mysticalagriculture:block/soulstone_cobble_slab" },
-    "type=top": { "model": "mysticalagriculture:block/soulstone_cobble_slab_top" },
-    "type=double": { "model": "mysticalagriculture:block/soulstone_cobble" }
+    "type=bottom": {
+      "model": "mysticalagriculture:block/soulstone_cobble_slab"
+    },
+    "type=top": {
+      "model": "mysticalagriculture:block/soulstone_cobble_slab_top"
+    },
+    "type=double": {
+      "model": "mysticalagriculture:block/soulstone_cobble"
+    }
   }
 }

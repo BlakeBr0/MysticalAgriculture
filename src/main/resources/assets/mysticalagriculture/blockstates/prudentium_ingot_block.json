@@ -1,5 +1,7 @@
 {
   "variants": {
-    "": { "model": "mysticalagriculture:block/prudentium_ingot_block" }
+    "": {
+      "model": "mysticalagriculture:block/prudentium_ingot_block"
+    }
   }
 }

@@ -1,5 +1,7 @@
 {
   "variants": {
-    "": { "model": "mysticalagriculture:block/intermedium_gemstone_block" }
+    "": {
+      "model": "mysticalagriculture:block/intermedium_gemstone_block"
+    }
   }
 }

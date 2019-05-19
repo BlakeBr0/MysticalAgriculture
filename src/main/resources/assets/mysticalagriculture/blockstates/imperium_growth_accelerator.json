@@ -1,5 +1,7 @@
 {
   "variants": {
-    "": { "model": "mysticalagriculture:block/imperium_growth_accelerator" }
+    "": {
+      "model": "mysticalagriculture:block/imperium_growth_accelerator"
+    }
   }
 }

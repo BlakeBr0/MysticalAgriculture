@@ -1,5 +1,7 @@
 {
   "variants": {
-    "": { "model": "mysticalagriculture:block/soulstone_cobble" }
+    "": {
+      "model": "mysticalagriculture:block/soulstone_cobble"
+    }
   }
 }

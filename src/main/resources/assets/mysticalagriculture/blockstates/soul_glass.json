@@ -1,5 +1,7 @@
 {
   "variants": {
-    "": { "model": "mysticalagriculture:block/soul_glass" }
+    "": {
+      "model": "mysticalagriculture:block/soul_glass"
+    }
   }
 }

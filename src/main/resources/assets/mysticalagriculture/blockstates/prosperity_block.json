@@ -1,5 +1,7 @@
 {
   "variants": {
-    "": { "model": "mysticalagriculture:block/prosperity_block" }
+    "": {
+      "model": "mysticalagriculture:block/prosperity_block"
+    }
   }
 }

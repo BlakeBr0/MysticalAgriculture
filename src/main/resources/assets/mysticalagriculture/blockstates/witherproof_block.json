@@ -1,5 +1,7 @@
 {
   "variants": {
-    "": { "model": "mysticalagriculture:block/witherproof_block" }
+    "": {
+      "model": "mysticalagriculture:block/witherproof_block"
+    }
   }
 }

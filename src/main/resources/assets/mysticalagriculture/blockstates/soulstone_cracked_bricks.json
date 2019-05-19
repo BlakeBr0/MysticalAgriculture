@@ -1,5 +1,7 @@
 {
   "variants": {
-    "": { "model": "mysticalagriculture:block/soulstone_cracked_bricks" }
+    "": {
+      "model": "mysticalagriculture:block/soulstone_cracked_bricks"
+    }
   }
 }

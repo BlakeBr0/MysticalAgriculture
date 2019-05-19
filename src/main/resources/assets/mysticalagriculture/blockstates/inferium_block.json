@@ -1,5 +1,7 @@
 {
   "variants": {
-    "": { "model": "mysticalagriculture:block/inferium_block" }
+    "": {
+      "model": "mysticalagriculture:block/inferium_block"
+    }
   }
 }
