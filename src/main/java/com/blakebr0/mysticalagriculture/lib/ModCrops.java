@@ -7,7 +7,6 @@ import com.blakebr0.mysticalagriculture.api.registry.RegisterCropsEvent;
 import com.blakebr0.mysticalagriculture.block.ModBlocks;
 import com.blakebr0.mysticalagriculture.item.ModItems;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 
 import static com.blakebr0.mysticalagriculture.MysticalAgriculture.MOD_ID;
 
@@ -19,7 +18,7 @@ public class ModCrops {
         event.register(STONE);
     }
 
-    public static void onCommonSetup(FMLCommonSetupEvent event) {
+    public static void onCommonSetup() {
         CropTiers.ELEMENTAL.setFarmland(ModBlocks.INFERIUM_FARMLAND).setEssence(ModItems.INFERIUM_ESSENCE);
         CropTiers.ONE.setFarmland(ModBlocks.INFERIUM_FARMLAND).setEssence(ModItems.INFERIUM_ESSENCE);
         CropTiers.TWO.setFarmland(ModBlocks.PRUDENTIUM_FARMLAND).setEssence(ModItems.PRUDENTIUM_ESSENCE);

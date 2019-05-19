@@ -16,7 +16,6 @@ import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.fml.DeferredWorkQueue;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.config.ModConfig;
@@ -51,14 +50,14 @@ public class MysticalAgriculture {
 		MinecraftForge.EVENT_BUS.register(ModCrops.class);
 
 		MysticalAgricultureAPI.setCropRegistry(CropRegistry.getInstance());
+
+		new ModRecipeSerializers();
+		new ModIngredients();
 	}
 		
 	public void onCommonSetup(FMLCommonSetupEvent event) {
-		// TODO: Do this properly
-		DeferredWorkQueue.runLater(ModRecipeSerializers::new);
-		DeferredWorkQueue.runLater(ModIngredients::new);
-		ModCrops.onCommonSetup(event);
-		ModIngredients.onCommonSetup(event);
+		ModCrops.onCommonSetup();
+		ModIngredients.onCommonSetup();
 	}
 
 	public void onInterModEnqueue(InterModEnqueueEvent event) {
