@@ -8,6 +8,7 @@ import com.blakebr0.mysticalagriculture.block.BlockInfusedFarmland;
 import com.blakebr0.mysticalagriculture.block.ModBlocks;
 import com.blakebr0.mysticalagriculture.config.ModConfigs;
 import com.blakebr0.mysticalagriculture.crafting.ModRecipeSerializers;
+import com.blakebr0.mysticalagriculture.crafting.ingredient.ModIngredients;
 import com.blakebr0.mysticalagriculture.item.ModItems;
 import com.blakebr0.mysticalagriculture.lib.ModCrops;
 import com.blakebr0.mysticalagriculture.registry.CropRegistry;
@@ -55,7 +56,9 @@ public class MysticalAgriculture {
 	public void onCommonSetup(FMLCommonSetupEvent event) {
 		// TODO: Do this properly
 		DeferredWorkQueue.runLater(ModRecipeSerializers::new);
+		DeferredWorkQueue.runLater(ModIngredients::new);
 		ModCrops.onCommonSetup(event);
+		ModIngredients.onCommonSetup(event);
 	}
 
 	public void onInterModEnqueue(InterModEnqueueEvent event) {

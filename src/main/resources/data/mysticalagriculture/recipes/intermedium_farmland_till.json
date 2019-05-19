@@ -1,8 +1,9 @@
 {
   "type": "mysticalagriculture:farmland_till",
+  "group": "mysticalagriculture:farmland_till",
   "ingredients": [
     {
-      "tag": "mysticalagriculture:all_hoes"
+      "type": "mysticalagriculture:all_hoes"
     },
     {
       "item": "mysticalagriculture:intermedium_essence"

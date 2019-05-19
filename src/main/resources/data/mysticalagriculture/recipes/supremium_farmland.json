@@ -1,5 +1,6 @@
 {
   "type": "crafting_shapeless",
+  "group": "mysticalagriculture:farmland",
   "ingredients": [
     {
       "item": "mysticalagriculture:supremium_essence"

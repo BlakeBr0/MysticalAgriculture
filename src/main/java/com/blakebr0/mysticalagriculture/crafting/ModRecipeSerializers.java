@@ -4,7 +4,6 @@ import net.minecraft.item.crafting.IRecipeSerializer;
 import net.minecraft.item.crafting.RecipeSerializers;
 
 public class ModRecipeSerializers {
-
     public static final IRecipeSerializer<FarmlandTillRecipe> CRAFTING_FARMLAND_TILL;
 
     static {
