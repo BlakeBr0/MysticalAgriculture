@@ -1,74 +1,75 @@
 package com.blakebr0.mysticalagriculture.block;
 
-import com.blakebr0.cucumber.block.BlockBase;
-import com.blakebr0.cucumber.block.BlockGlassBase;
-import com.blakebr0.cucumber.block.BlockSlabBase;
-import com.blakebr0.cucumber.block.BlockStairsBase;
-import com.blakebr0.cucumber.block.BlockWallBase;
-import com.blakebr0.cucumber.item.ItemBlockBase;
+import com.blakebr0.cucumber.block.BaseBlock;
+import com.blakebr0.cucumber.block.BaseGlassBlock;
+import com.blakebr0.cucumber.block.BaseSlabBlock;
+import com.blakebr0.cucumber.block.BaseStairsBlock;
+import com.blakebr0.cucumber.block.BaseWallBlock;
+import com.blakebr0.cucumber.item.BaseBlockItem;
 import com.blakebr0.mysticalagriculture.api.crop.CropTiers;
 import com.blakebr0.mysticalagriculture.item.ModItems;
 import com.blakebr0.mysticalagriculture.registry.CropRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
-import net.minecraft.item.ItemBlock;
+import net.minecraft.item.BlockItem;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.registries.IForgeRegistry;
 
 import static com.blakebr0.mysticalagriculture.MysticalAgriculture.ITEM_GROUP;
 
 public class ModBlocks {
-    public static final BlockBase PROSPERITY_BLOCK = new BlockBase("prosperity_block", Material.ROCK, SoundType.STONE, 4.0F, 6.0F);
-    public static final BlockBase INFERIUM_BLOCK = new BlockBase("inferium_block", Material.ROCK, SoundType.STONE, 4.0F, 6.0F);
-    public static final BlockBase PRUDENTIUM_BLOCK = new BlockBase("prudentium_block", Material.ROCK, SoundType.STONE, 4.0F, 6.0F);
-    public static final BlockBase INTERMEDIUM_BLOCK = new BlockBase("intermedium_block", Material.ROCK, SoundType.STONE, 4.0F, 6.0F);
-    public static final BlockBase IMPERIUM_BLOCK = new BlockBase("imperium_block", Material.ROCK, SoundType.STONE, 4.0F, 5.0F);
-    public static final BlockBase SUPREMIUM_BLOCK = new BlockBase("supremium_block", Material.ROCK, SoundType.STONE, 4.0F, 6.0F);
-    public static final BlockBase SOULIUM_BLOCK = new BlockBase("soulium_block", Material.ROCK, SoundType.STONE, 4.0F, 6.0F);
-    public static final BlockBase PROSPERITY_INGOT_BLOCK = new BlockBase("prosperity_ingot_block", Material.IRON, SoundType.METAL, 5.0F, 6.0F);
-    public static final BlockBase INFERIUM_INGOT_BLOCK = new BlockBase("inferium_ingot_block", Material.IRON, SoundType.METAL, 5.0F, 6.0F);
-    public static final BlockBase PRUDENTIUM_INGOT_BLOCK = new BlockBase("prudentium_ingot_block", Material.IRON, SoundType.METAL, 5.0F, 6.0F);
-    public static final BlockBase INTERMEDIUM_INGOT_BLOCK = new BlockBase("intermedium_ingot_block", Material.IRON, SoundType.METAL, 5.0F, 6.0F);
-    public static final BlockBase IMPERIUM_INGOT_BLOCK = new BlockBase("imperium_ingot_block", Material.IRON, SoundType.METAL, 5.0F, 6.0F);
-    public static final BlockBase SUPREMIUM_INGOT_BLOCK = new BlockBase("supremium_ingot_block", Material.IRON, SoundType.METAL, 5.0F, 6.0F);
-    public static final BlockBase SOULIUM_INGOT_BLOCK = new BlockBase("soulium_ingot_block", Material.IRON, SoundType.METAL, 5.0F, 6.0F);
-    public static final BlockBase PROSPERITY_GEMSTONE_BLOCK = new BlockBase("prosperity_gemstone_block", Material.IRON, SoundType.METAL, 5.0F, 6.0F);
-    public static final BlockBase INFERIUM_GEMSTONE_BLOCK = new BlockBase("inferium_gemstone_block", Material.IRON, SoundType.METAL, 5.0F, 6.0F);
-    public static final BlockBase PRUDENTIUM_GEMSTONE_BLOCK = new BlockBase("prudentium_gemstone_block", Material.IRON, SoundType.METAL, 5.0F, 6.0F);
-    public static final BlockBase INTERMEDIUM_GEMSTONE_BLOCK = new BlockBase("intermedium_gemstone_block", Material.IRON, SoundType.METAL, 5.0F, 6.0F);
-    public static final BlockBase IMPERIUM_GEMSTONE_BLOCK = new BlockBase("imperium_gemstone_block", Material.IRON, SoundType.METAL, 5.0F, 6.0F);
-    public static final BlockBase SUPREMIUM_GEMSTONE_BLOCK = new BlockBase("supremium_gemstone_block", Material.IRON, SoundType.METAL, 5.0F, 6.0F);
-    public static final BlockBase SOULIUM_GEMSTONE_BLOCK = new BlockBase("soulium_gemstone_block", Material.IRON, SoundType.METAL, 5.0F, 6.0F);
-    public static final BlockInfusedFarmland INFERIUM_FARMLAND = new BlockInfusedFarmland("inferium_farmland", CropTiers.ONE);
-    public static final BlockInfusedFarmland PRUDENTIUM_FARMLAND = new BlockInfusedFarmland("prudentium_farmland", CropTiers.TWO);
-    public static final BlockInfusedFarmland INTERMEDIUM_FARMLAND = new BlockInfusedFarmland("intermedium_farmland", CropTiers.THREE);
-    public static final BlockInfusedFarmland IMPERIUM_FARMLAND = new BlockInfusedFarmland("imperium_farmland", CropTiers.FOUR);
-    public static final BlockInfusedFarmland SUPREMIUM_FARMLAND = new BlockInfusedFarmland("supremium_farmland", CropTiers.FIVE);
-    public static final BlockGrowthAccelerator INFERIUM_GROWTH_ACCELERATOR = new BlockGrowthAccelerator("inferium_growth_accelerator");
-    public static final BlockGrowthAccelerator PRUDENTIUM_GROWTH_ACCELERATOR = new BlockGrowthAccelerator("prudentium_growth_accelerator");
-    public static final BlockGrowthAccelerator INTERMEDIUM_GROWTH_ACCELERATOR = new BlockGrowthAccelerator("intermedium_growth_accelerator");
-    public static final BlockGrowthAccelerator IMPERIUM_GROWTH_ACCELERATOR = new BlockGrowthAccelerator("imperium_growth_accelerator");
-    public static final BlockGrowthAccelerator SUPREMIUM_GROWTH_ACCELERATOR = new BlockGrowthAccelerator("supremium_growth_accelerator");
-    public static final BlockBase SOULSTONE = new BlockBase("soulstone", Material.ROCK, SoundType.STONE, 1.5F, 6.0F);
-    public static final BlockBase SOULSTONE_COBBLE = new BlockBase("soulstone_cobble", Material.ROCK, SoundType.STONE, 2.0F, 6.0F);
-    public static final BlockBase SOULSTONE_BRICKS = new BlockBase("soulstone_bricks", Material.ROCK, SoundType.STONE, 1.5F, 6.0F);
-    public static final BlockBase SOULSTONE_CRACKED_BRICKS = new BlockBase("soulstone_cracked_bricks", Material.ROCK, SoundType.STONE, 1.5F, 6.0F);
-    public static final BlockBase SOULSTONE_CHISELED_BRICKS = new BlockBase("soulstone_chiseled_bricks", Material.ROCK, SoundType.STONE, 1.5F, 6.0F);
-    public static final BlockBase SOULSTONE_SMOOTH = new BlockBase("soulstone_smooth", Material.ROCK, SoundType.STONE, 1.5F, 6.0F);
-    public static final BlockGlassBase SOUL_GLASS = new BlockGlassBase("soul_glass", Material.GLASS, SoundType.GLASS, 0.3F, 0.3F);
-    public static final BlockSlabBase SOULSTONE_SLAB = new BlockSlabBase("soulstone_slab", SOULSTONE);
-    public static final BlockSlabBase SOULSTONE_COBBLE_SLAB = new BlockSlabBase("soulstone_cobble_slab", SOULSTONE_COBBLE);
-    public static final BlockSlabBase SOULSTONE_BRICKS_SLAB = new BlockSlabBase("soulstone_bricks_slab", SOULSTONE_BRICKS);
-    public static final BlockSlabBase SOULSTONE_SMOOTH_SLAB = new BlockSlabBase("soulstone_smooth_slab", SOULSTONE_SMOOTH);
-    public static final BlockStairsBase SOULSTONE_STAIRS = new BlockStairsBase("soulstone_stairs", SOULSTONE);
-    public static final BlockStairsBase SOULSTONE_COBBLE_STAIRS = new BlockStairsBase("soulstone_cobble_stairs", SOULSTONE_COBBLE);
-    public static final BlockStairsBase SOULSTONE_BRICKS_STAIRS = new BlockStairsBase("soulstone_bricks_stairs", SOULSTONE_BRICKS);
-    public static final BlockWallBase SOULSTONE_COBBLE_WALL = new BlockWallBase("soulstone_cobble_wall", SOULSTONE_COBBLE);
-    public static final BlockWallBase SOULSTONE_BRICKS_WALL = new BlockWallBase("soulstone_bricks_wall", SOULSTONE_BRICKS);
-    public static final BlockWitherproof WITHERPROOF_BLOCK = new BlockWitherproof("witherproof_block");
-    public static final BlockWitherproof WITHERPROOF_BRICKS = new BlockWitherproof("witherproof_bricks");
-    public static final BlockWitherproofGlass WITHERPROOF_GLASS = new BlockWitherproofGlass("witherproof_glass");
+    public static final BaseBlock PROSPERITY_BLOCK = new BaseBlock("prosperity_block", Material.ROCK, SoundType.STONE, 4.0F, 6.0F);
+    public static final BaseBlock INFERIUM_BLOCK = new BaseBlock("inferium_block", Material.ROCK, SoundType.STONE, 4.0F, 6.0F);
+    public static final BaseBlock PRUDENTIUM_BLOCK = new BaseBlock("prudentium_block", Material.ROCK, SoundType.STONE, 4.0F, 6.0F);
+    public static final BaseBlock INTERMEDIUM_BLOCK = new BaseBlock("intermedium_block", Material.ROCK, SoundType.STONE, 4.0F, 6.0F);
+    public static final BaseBlock IMPERIUM_BLOCK = new BaseBlock("imperium_block", Material.ROCK, SoundType.STONE, 4.0F, 5.0F);
+    public static final BaseBlock SUPREMIUM_BLOCK = new BaseBlock("supremium_block", Material.ROCK, SoundType.STONE, 4.0F, 6.0F);
+    public static final BaseBlock SOULIUM_BLOCK = new BaseBlock("soulium_block", Material.ROCK, SoundType.STONE, 4.0F, 6.0F);
+    public static final BaseBlock PROSPERITY_INGOT_BLOCK = new BaseBlock("prosperity_ingot_block", Material.IRON, SoundType.METAL, 5.0F, 6.0F);
+    public static final BaseBlock INFERIUM_INGOT_BLOCK = new BaseBlock("inferium_ingot_block", Material.IRON, SoundType.METAL, 5.0F, 6.0F);
+    public static final BaseBlock PRUDENTIUM_INGOT_BLOCK = new BaseBlock("prudentium_ingot_block", Material.IRON, SoundType.METAL, 5.0F, 6.0F);
+    public static final BaseBlock INTERMEDIUM_INGOT_BLOCK = new BaseBlock("intermedium_ingot_block", Material.IRON, SoundType.METAL, 5.0F, 6.0F);
+    public static final BaseBlock IMPERIUM_INGOT_BLOCK = new BaseBlock("imperium_ingot_block", Material.IRON, SoundType.METAL, 5.0F, 6.0F);
+    public static final BaseBlock SUPREMIUM_INGOT_BLOCK = new BaseBlock("supremium_ingot_block", Material.IRON, SoundType.METAL, 5.0F, 6.0F);
+    public static final BaseBlock SOULIUM_INGOT_BLOCK = new BaseBlock("soulium_ingot_block", Material.IRON, SoundType.METAL, 5.0F, 6.0F);
+    public static final BaseBlock PROSPERITY_GEMSTONE_BLOCK = new BaseBlock("prosperity_gemstone_block", Material.IRON, SoundType.METAL, 5.0F, 6.0F);
+    public static final BaseBlock INFERIUM_GEMSTONE_BLOCK = new BaseBlock("inferium_gemstone_block", Material.IRON, SoundType.METAL, 5.0F, 6.0F);
+    public static final BaseBlock PRUDENTIUM_GEMSTONE_BLOCK = new BaseBlock("prudentium_gemstone_block", Material.IRON, SoundType.METAL, 5.0F, 6.0F);
+    public static final BaseBlock INTERMEDIUM_GEMSTONE_BLOCK = new BaseBlock("intermedium_gemstone_block", Material.IRON, SoundType.METAL, 5.0F, 6.0F);
+    public static final BaseBlock IMPERIUM_GEMSTONE_BLOCK = new BaseBlock("imperium_gemstone_block", Material.IRON, SoundType.METAL, 5.0F, 6.0F);
+    public static final BaseBlock SUPREMIUM_GEMSTONE_BLOCK = new BaseBlock("supremium_gemstone_block", Material.IRON, SoundType.METAL, 5.0F, 6.0F);
+    public static final BaseBlock SOULIUM_GEMSTONE_BLOCK = new BaseBlock("soulium_gemstone_block", Material.IRON, SoundType.METAL, 5.0F, 6.0F);
+    public static final InfusedFarmlandBlock INFERIUM_FARMLAND = new InfusedFarmlandBlock("inferium_farmland", CropTiers.ONE);
+    public static final InfusedFarmlandBlock PRUDENTIUM_FARMLAND = new InfusedFarmlandBlock("prudentium_farmland", CropTiers.TWO);
+    public static final InfusedFarmlandBlock INTERMEDIUM_FARMLAND = new InfusedFarmlandBlock("intermedium_farmland", CropTiers.THREE);
+    public static final InfusedFarmlandBlock IMPERIUM_FARMLAND = new InfusedFarmlandBlock("imperium_farmland", CropTiers.FOUR);
+    public static final InfusedFarmlandBlock SUPREMIUM_FARMLAND = new InfusedFarmlandBlock("supremium_farmland", CropTiers.FIVE);
+    public static final GrowthAcceleratorBlock INFERIUM_GROWTH_ACCELERATOR = new GrowthAcceleratorBlock("inferium_growth_accelerator");
+    public static final GrowthAcceleratorBlock PRUDENTIUM_GROWTH_ACCELERATOR = new GrowthAcceleratorBlock("prudentium_growth_accelerator");
+    public static final GrowthAcceleratorBlock INTERMEDIUM_GROWTH_ACCELERATOR = new GrowthAcceleratorBlock("intermedium_growth_accelerator");
+    public static final GrowthAcceleratorBlock IMPERIUM_GROWTH_ACCELERATOR = new GrowthAcceleratorBlock("imperium_growth_accelerator");
+    public static final GrowthAcceleratorBlock SUPREMIUM_GROWTH_ACCELERATOR = new GrowthAcceleratorBlock("supremium_growth_accelerator");
+    public static final BaseBlock SOULSTONE = new BaseBlock("soulstone", Material.ROCK, SoundType.STONE, 1.5F, 6.0F);
+    public static final BaseBlock SOULSTONE_COBBLE = new BaseBlock("soulstone_cobble", Material.ROCK, SoundType.STONE, 2.0F, 6.0F);
+    public static final BaseBlock SOULSTONE_BRICKS = new BaseBlock("soulstone_bricks", Material.ROCK, SoundType.STONE, 1.5F, 6.0F);
+    public static final BaseBlock SOULSTONE_CRACKED_BRICKS = new BaseBlock("soulstone_cracked_bricks", Material.ROCK, SoundType.STONE, 1.5F, 6.0F);
+    public static final BaseBlock SOULSTONE_CHISELED_BRICKS = new BaseBlock("soulstone_chiseled_bricks", Material.ROCK, SoundType.STONE, 1.5F, 6.0F);
+    public static final BaseBlock SOULSTONE_SMOOTH = new BaseBlock("soulstone_smooth", Material.ROCK, SoundType.STONE, 1.5F, 6.0F);
+    public static final BaseGlassBlock SOUL_GLASS = new BaseGlassBlock("soul_glass", Material.GLASS, SoundType.GLASS, 0.3F, 0.3F);
+    public static final BaseSlabBlock SOULSTONE_SLAB = new BaseSlabBlock("soulstone_slab", SOULSTONE);
+    public static final BaseSlabBlock SOULSTONE_COBBLE_SLAB = new BaseSlabBlock("soulstone_cobble_slab", SOULSTONE_COBBLE);
+    public static final BaseSlabBlock SOULSTONE_BRICKS_SLAB = new BaseSlabBlock("soulstone_bricks_slab", SOULSTONE_BRICKS);
+    public static final BaseSlabBlock SOULSTONE_SMOOTH_SLAB = new BaseSlabBlock("soulstone_smooth_slab", SOULSTONE_SMOOTH);
+    public static final BaseStairsBlock SOULSTONE_STAIRS = new BaseStairsBlock("soulstone_stairs", SOULSTONE);
+    public static final BaseStairsBlock SOULSTONE_COBBLE_STAIRS = new BaseStairsBlock("soulstone_cobble_stairs", SOULSTONE_COBBLE);
+    public static final BaseStairsBlock SOULSTONE_BRICKS_STAIRS = new BaseStairsBlock("soulstone_bricks_stairs", SOULSTONE_BRICKS);
+    public static final BaseWallBlock SOULSTONE_COBBLE_WALL = new BaseWallBlock("soulstone_cobble_wall", SOULSTONE_COBBLE);
+    public static final BaseWallBlock SOULSTONE_BRICKS_WALL = new BaseWallBlock("soulstone_bricks_wall", SOULSTONE_BRICKS);
+    public static final WitherproofBlock WITHERPROOF_BLOCK = new WitherproofBlock("witherproof_block");
+    public static final WitherproofBlock WITHERPROOF_BRICKS = new WitherproofBlock("witherproof_bricks");
+    public static final WitherproofGlassBlock WITHERPROOF_GLASS = new WitherproofGlassBlock("witherproof_glass");
+    public static final InfusionPedestalBlock INFUSION_PEDESTAL = new InfusionPedestalBlock("infusion_pedestal");
 
     public static void onRegisterBlocks(RegistryEvent.Register<Block> event) {
         IForgeRegistry<Block> registry = event.getRegistry();
@@ -123,6 +124,7 @@ public class ModBlocks {
         register(registry, WITHERPROOF_BLOCK);
         register(registry, WITHERPROOF_BRICKS);
         register(registry, WITHERPROOF_GLASS);
+        register(registry, INFUSION_PEDESTAL);
 
         CropRegistry.getInstance().allowRegistration();
         CropRegistry.getInstance().onRegisterBlocks(registry);
@@ -130,12 +132,12 @@ public class ModBlocks {
     }
 
     private static void register(IForgeRegistry<Block> registry, Block block) {
-        ItemBlockBase itemBlock = new ItemBlockBase(block, p -> p.group(ITEM_GROUP));
-        register(registry, block, itemBlock);
+        BaseBlockItem item = new BaseBlockItem(block, p -> p.group(ITEM_GROUP));
+        register(registry, block, item);
     }
 
-    private static void register(IForgeRegistry<Block> registry, Block block, ItemBlock itemBlock) {
+    private static void register(IForgeRegistry<Block> registry, Block block, BlockItem item) {
         registry.register(block);
-        ModItems.ITEM_BLOCKS.add(itemBlock);
+        ModItems.ITEM_BLOCKS.add(item);
     }
 }

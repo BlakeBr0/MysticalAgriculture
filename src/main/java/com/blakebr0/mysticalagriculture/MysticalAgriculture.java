@@ -4,7 +4,7 @@ import com.blakebr0.cucumber.iface.IColored;
 import com.blakebr0.cucumber.render.ColorHandler;
 import com.blakebr0.cucumber.util.Utils;
 import com.blakebr0.mysticalagriculture.api.MysticalAgricultureAPI;
-import com.blakebr0.mysticalagriculture.block.BlockInfusedFarmland;
+import com.blakebr0.mysticalagriculture.block.InfusedFarmlandBlock;
 import com.blakebr0.mysticalagriculture.block.ModBlocks;
 import com.blakebr0.mysticalagriculture.config.ModConfigs;
 import com.blakebr0.mysticalagriculture.crafting.ModRecipeSerializers;
@@ -30,8 +30,6 @@ public class MysticalAgriculture {
 	public static final String MOD_ID = "mysticalagriculture";
 	public static final String NAME = "Mystical Agriculture";
 	public static final String VERSION = "${version}";
-	public static final String DEPENDENCIES = "required-after:cucumber@[1.1.2,)";
-	public static final String GUI_FACTORY = "com.blakebr0.mysticalagriculture.config.GuiFactory";
 	
 	public static final ItemGroup ITEM_GROUP = new MAItemGroup();
 
@@ -69,8 +67,8 @@ public class MysticalAgriculture {
 	}
 
 	public void onClientSetup(FMLClientSetupEvent event) {
-		ColorHandler.registerBlocks(new IColored.BlockColors(), BlockInfusedFarmland.FARMLANDS.toArray(new BlockInfusedFarmland[0]));
-		ColorHandler.registerItems(new IColored.ItemBlockColors(), BlockInfusedFarmland.FARMLANDS.toArray(new BlockInfusedFarmland[0]));
+		ColorHandler.registerBlocks(new IColored.BlockColors(), InfusedFarmlandBlock.FARMLANDS.toArray(new InfusedFarmlandBlock[0]));
+		ColorHandler.registerItems(new IColored.ItemBlockColors(), InfusedFarmlandBlock.FARMLANDS.toArray(new InfusedFarmlandBlock[0]));
 		ColorHandler.registerItems((stack, tint) -> {
 			float damage = (float) (stack.getMaxDamage() - stack.getDamage()) / stack.getMaxDamage();
 			return Utils.saturate(0x00D9D9, damage);

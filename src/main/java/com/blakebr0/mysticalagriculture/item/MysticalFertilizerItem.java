@@ -1,51 +1,51 @@
 package com.blakebr0.mysticalagriculture.item;
 
-import com.blakebr0.cucumber.item.ItemBase;
+import com.blakebr0.cucumber.item.BaseItem;
 import com.blakebr0.mysticalagriculture.api.crop.ICropGetter;
-import net.minecraft.block.BlockCrops;
+import net.minecraft.block.BlockState;
+import net.minecraft.block.CropsBlock;
 import net.minecraft.block.IGrowable;
-import net.minecraft.block.state.IBlockState;
-import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUseContext;
-import net.minecraft.util.EnumActionResult;
-import net.minecraft.util.EnumFacing;
+import net.minecraft.util.ActionResultType;
+import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.event.ForgeEventFactory;
 
 import java.util.function.Function;
 
-public class ItemMysticalFertilizer extends ItemBase {
-    public ItemMysticalFertilizer(String name, Function<Properties, Properties> properties) {
+public class MysticalFertilizerItem extends BaseItem {
+    public MysticalFertilizerItem(String name, Function<Properties, Properties> properties) {
         super(name, properties);
     }
 
     @Override
-    public EnumActionResult onItemUse(ItemUseContext context) {
+    public ActionResultType onItemUse(ItemUseContext context) {
         ItemStack stack = context.getItem();
         BlockPos pos = context.getPos();
-        EntityPlayer player = context.getPlayer();
+        PlayerEntity player = context.getPlayer();
         World world = context.getWorld();
-        EnumFacing facing = context.getFace();
+        Direction direction = context.getFace();
 
-        if (!player.canPlayerEdit(pos.offset(facing), facing, stack)) {
-            return EnumActionResult.FAIL;
+        if (!player.canPlayerEdit(pos.offset(direction), direction, stack)) {
+            return ActionResultType.FAIL;
         } else {
             if (applyFertilizer(stack, world, pos, player)) {
                 if (!world.isRemote){
                     world.playEvent(2005, pos, 0);
                 }
 
-                return EnumActionResult.SUCCESS;
+                return ActionResultType.SUCCESS;
             }
         }
 
-        return EnumActionResult.PASS;
+        return ActionResultType.PASS;
     }
 
-    public static boolean applyFertilizer(ItemStack stack, World world, BlockPos pos, EntityPlayer player){
-        IBlockState state = world.getBlockState(pos);
+    public static boolean applyFertilizer(ItemStack stack, World world, BlockPos pos, PlayerEntity player){
+        BlockState state = world.getBlockState(pos);
 
         int hook = ForgeEventFactory.onApplyBonemeal(player, world, pos, state, stack);
         if (hook != 0) return hook > 0;
@@ -56,8 +56,8 @@ public class ItemMysticalFertilizer extends ItemBase {
             if (growable.canGrow(world, pos, state, world.isRemote)) {
                 if (!world.isRemote) {
                     if (growable.canUseBonemeal(world, world.getRandom(), pos, state) || growable instanceof ICropGetter) {
-                        if (growable instanceof BlockCrops) {
-                            BlockCrops crop = (BlockCrops) state.getBlock();
+                        if (growable instanceof CropsBlock) {
+                            CropsBlock crop = (CropsBlock) state.getBlock();
                             world.setBlockState(pos, crop.withAge(crop.getMaxAge()), 2);
                         } else {
                             growable.grow(world, world.getRandom(), pos, state);

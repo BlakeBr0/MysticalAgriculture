@@ -6,7 +6,7 @@ import com.google.gson.JsonObject;
 import it.unimi.dsi.fastutil.ints.IntArrayList;
 import it.unimi.dsi.fastutil.ints.IntComparators;
 import it.unimi.dsi.fastutil.ints.IntList;
-import net.minecraft.item.ItemHoe;
+import net.minecraft.item.HoeItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.item.crafting.RecipeItemHelper;
@@ -19,7 +19,7 @@ import java.util.List;
 import java.util.stream.Stream;
 
 public class HoeIngredient extends Ingredient {
-    public static final List<ItemHoe> ALL_HOES = new ArrayList<>();
+    public static final List<HoeItem> ALL_HOES = new ArrayList<>();
     private ItemStack[] stacks;
     private IntList stacksPacked;
 

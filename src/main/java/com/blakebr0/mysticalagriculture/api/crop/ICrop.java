@@ -1,9 +1,9 @@
 package com.blakebr0.mysticalagriculture.api.crop;
 
-import net.minecraft.block.BlockCrops;
+import net.minecraft.block.CropsBlock;
+import net.minecraft.item.BlockNamedItem;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemSeeds;
-import net.minecraft.util.text.TextComponentTranslation;
+import net.minecraft.util.text.TranslationTextComponent;
 
 /**
  * Represents a crop and all of its information
@@ -30,7 +30,7 @@ public interface ICrop {
      * @return the localized name of this crop
      */
     default String getDisplayName() {
-        return new TextComponentTranslation(String.format("crop.%s.%s", this.getModId(), this.getName())).getFormattedText();
+        return new TranslationTextComponent(String.format("crop.%s.%s", this.getModId(), this.getName())).getFormattedText();
     }
 
     /**
@@ -104,14 +104,14 @@ public interface ICrop {
      * @param <T> crop block type
      * @return the crop block
      */
-    <T extends BlockCrops> T getCrop();
+    <T extends CropsBlock> T getCrop();
 
     /**
      * Used to set the crop block instance for this crop
      * @param crop the crop block
      * @return this crop
      */
-    ICrop setCrop(BlockCrops crop);
+    ICrop setCrop(CropsBlock crop);
 
     /**
      * The essence item for this crop type
@@ -132,12 +132,12 @@ public interface ICrop {
      * @param <T> seed item type
      * @return the seed item
      */
-    <T extends ItemSeeds> T getSeeds();
+    <T extends BlockNamedItem> T getSeeds();
 
     /**
      * Used to set the seeds item instance for this crop
      * @param seeds the seeds item
      * @return this crop
      */
-    ICrop setSeeds(ItemSeeds seeds);
+    ICrop setSeeds(BlockNamedItem seeds);
 }

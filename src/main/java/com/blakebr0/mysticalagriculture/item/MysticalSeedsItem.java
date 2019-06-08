@@ -5,7 +5,7 @@ import com.blakebr0.mysticalagriculture.api.crop.ICrop;
 import com.blakebr0.mysticalagriculture.api.crop.ICropGetter;
 import com.blakebr0.mysticalagriculture.lib.ModTooltips;
 import net.minecraft.client.util.ITooltipFlag;
-import net.minecraft.item.ItemSeeds;
+import net.minecraft.item.BlockNamedItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.world.World;
@@ -13,10 +13,10 @@ import net.minecraft.world.World;
 import java.util.List;
 import java.util.function.Function;
 
-public class ItemMysticalSeeds extends ItemSeeds implements ICropGetter {
+public class MysticalSeedsItem extends BlockNamedItem implements ICropGetter {
     private final ICrop crop;
 
-    public ItemMysticalSeeds(ICrop crop, Function<Properties, Properties> properties) {
+    public MysticalSeedsItem(ICrop crop, Function<Properties, Properties> properties) {
         super(crop.getCrop(), properties.apply(new Properties()));
         this.setRegistryName(crop.getNameWithSuffix("seeds"));
         this.crop = crop;

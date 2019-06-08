@@ -1,35 +1,33 @@
 package com.blakebr0.mysticalagriculture.crafting;
 
-import com.blakebr0.mysticalagriculture.MysticalAgriculture;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
-import net.minecraft.inventory.IInventory;
-import net.minecraft.item.ItemHoe;
+import net.minecraft.inventory.CraftingInventory;
+import net.minecraft.item.HoeItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.IRecipeSerializer;
 import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.item.crafting.ShapedRecipe;
 import net.minecraft.item.crafting.ShapelessRecipe;
 import net.minecraft.network.PacketBuffer;
-import net.minecraft.util.JsonUtils;
+import net.minecraft.util.JSONUtils;
 import net.minecraft.util.NonNullList;
 import net.minecraft.util.ResourceLocation;
 
 import java.util.Random;
 
 public class FarmlandTillRecipe extends ShapelessRecipe {
-
     public FarmlandTillRecipe(ResourceLocation id, String group, ItemStack output, NonNullList<Ingredient> inputs) {
         super(id, group, output, inputs);
     }
 
     @Override
-    public NonNullList<ItemStack> getRemainingItems(IInventory inv) {
+    public NonNullList<ItemStack> getRemainingItems(CraftingInventory inv) {
         NonNullList<ItemStack> remaining = super.getRemainingItems(inv);
         for (int i = 0; i < inv.getSizeInventory(); i++) {
             ItemStack stack = inv.getStackInSlot(i);
-            if (stack.getItem() instanceof ItemHoe) {
+            if (stack.getItem() instanceof HoeItem) {
                 ItemStack hoe = stack.copy();
                 hoe.attemptDamageItem(1, new Random(), null);
                 remaining.set(i, hoe);
@@ -45,17 +43,14 @@ public class FarmlandTillRecipe extends ShapelessRecipe {
     }
 
     public static class Serializer implements IRecipeSerializer<FarmlandTillRecipe> {
-
-        private static final ResourceLocation NAME = new ResourceLocation(MysticalAgriculture.MOD_ID, "farmland_till");
-
         @Override
         public FarmlandTillRecipe read(ResourceLocation recipeId, JsonObject json) {
-            String s = JsonUtils.getString(json, "group", "");
-            NonNullList<Ingredient> ingredients = readIngredients(JsonUtils.getJsonArray(json, "ingredients"));
+            String s = JSONUtils.getString(json, "group", "");
+            NonNullList<Ingredient> ingredients = readIngredients(JSONUtils.getJsonArray(json, "ingredients"));
             if (ingredients.isEmpty()) {
                 throw new JsonParseException("No ingredients for shapeless recipe");
             } else {
-                ItemStack itemstack = ShapedRecipe.deserializeItem(JsonUtils.getJsonObject(json, "result"));
+                ItemStack itemstack = ShapedRecipe.deserializeItem(JSONUtils.getJsonObject(json, "result"));
                 return new FarmlandTillRecipe(recipeId, s, itemstack, ingredients);
             }
         }
@@ -71,11 +66,6 @@ public class FarmlandTillRecipe extends ShapelessRecipe {
             }
 
             return ingredients;
-        }
-
-        @Override
-        public ResourceLocation getName() {
-            return NAME;
         }
 
         @Override

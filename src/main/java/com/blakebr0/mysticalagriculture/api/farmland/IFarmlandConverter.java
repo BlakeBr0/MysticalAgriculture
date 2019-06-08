@@ -1,11 +1,11 @@
 package com.blakebr0.mysticalagriculture.api.farmland;
 
-import net.minecraft.block.BlockFarmland;
-import net.minecraft.block.state.IBlockState;
-import net.minecraft.init.Blocks;
+import net.minecraft.block.BlockState;
+import net.minecraft.block.Blocks;
+import net.minecraft.block.FarmlandBlock;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemUseContext;
-import net.minecraft.util.EnumActionResult;
+import net.minecraft.util.ActionResultType;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
@@ -19,23 +19,23 @@ public interface IFarmlandConverter {
      * Gets the farmland block that this converter should convert farmland to
      * @return the converted farmland block
      */
-    BlockFarmland getConvertedFarmland();
+    FarmlandBlock getConvertedFarmland();
 
     /**
      * Call this using {@link Item#onItemUse(ItemUseContext)} to allow default farmland conversion mechanics
      */
-    default EnumActionResult convert(ItemUseContext context) {
+    default ActionResultType convert(ItemUseContext context) {
         BlockPos pos = context.getPos();
         World world = context.getWorld();
-        IBlockState state = world.getBlockState(pos);
+        BlockState state = world.getBlockState(pos);
         if (state.getBlock() == Blocks.FARMLAND) {
-            IBlockState newState = this.getConvertedFarmland().getDefaultState().with(BlockFarmland.MOISTURE, state.get(BlockFarmland.MOISTURE));
+            BlockState newState = this.getConvertedFarmland().getDefaultState().with(FarmlandBlock.MOISTURE, state.get(FarmlandBlock.MOISTURE));
             world.setBlockState(pos, newState);
             context.getItem().shrink(1);
 
-            return EnumActionResult.SUCCESS;
+            return ActionResultType.SUCCESS;
         }
 
-        return EnumActionResult.PASS;
+        return ActionResultType.PASS;
     }
 }

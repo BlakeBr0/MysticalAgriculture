@@ -5,9 +5,9 @@ import com.blakebr0.mysticalagriculture.api.crop.ICrop;
 import com.blakebr0.mysticalagriculture.api.registry.ICropRegistry;
 import com.blakebr0.mysticalagriculture.api.registry.ModifyCropsEvent;
 import com.blakebr0.mysticalagriculture.api.registry.RegisterCropsEvent;
-import com.blakebr0.mysticalagriculture.block.BlockMysticalCrop;
-import com.blakebr0.mysticalagriculture.item.ItemMysticalEssence;
-import com.blakebr0.mysticalagriculture.item.ItemMysticalSeeds;
+import com.blakebr0.mysticalagriculture.block.MysticalCropBlock;
+import com.blakebr0.mysticalagriculture.item.MysticalEssenceItem;
+import com.blakebr0.mysticalagriculture.item.MysticalSeedsItem;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraftforge.common.MinecraftForge;
@@ -51,13 +51,13 @@ public class CropRegistry implements ICropRegistry {
         if (this.allowRegistration) {
             if (this.crops.stream().noneMatch(c -> c.getName().equals(crop.getName()))) {
                 if (crop.getCrop() == null)
-                    crop.setCrop(new BlockMysticalCrop(crop));
+                    crop.setCrop(new MysticalCropBlock(crop));
 
                 if (crop.getEssence() == null)
-                    crop.setEssence(new ItemMysticalEssence(crop, p -> p.group(MysticalAgriculture.ITEM_GROUP)));
+                    crop.setEssence(new MysticalEssenceItem(crop, p -> p.group(MysticalAgriculture.ITEM_GROUP)));
 
                 if (crop.getSeeds() == null)
-                    crop.setSeeds(new ItemMysticalSeeds(crop, p -> p.group(MysticalAgriculture.ITEM_GROUP)));
+                    crop.setSeeds(new MysticalSeedsItem(crop, p -> p.group(MysticalAgriculture.ITEM_GROUP)));
 
                 this.crops.add(crop);
             } else {

@@ -1,10 +1,10 @@
 package com.blakebr0.mysticalagriculture.api.crop;
 
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockFarmland;
+import net.minecraft.block.FarmlandBlock;
 import net.minecraft.item.Item;
-import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.util.text.TextFormatting;
+import net.minecraft.util.text.TranslationTextComponent;
 
 @SuppressWarnings("unchecked")
 public class CropTier {
@@ -13,7 +13,7 @@ public class CropTier {
     private final int color;
     private final TextFormatting textColor;
     private final String modid;
-    private BlockFarmland farmland;
+    private FarmlandBlock farmland;
     private Item essence;
 
     /**
@@ -71,7 +71,7 @@ public class CropTier {
      * @param <T> block type
      * @return the farmland for this tier
      */
-    public <T extends BlockFarmland> T getFarmland() {
+    public <T extends FarmlandBlock> T getFarmland() {
         return (T) this.farmland;
     }
 
@@ -80,7 +80,7 @@ public class CropTier {
      * @param farmland the farmland block
      * @return this tier
      */
-    public CropTier setFarmland(BlockFarmland farmland) {
+    public CropTier setFarmland(FarmlandBlock farmland) {
         this.farmland = farmland;
         return this;
     }
@@ -119,6 +119,6 @@ public class CropTier {
      * @return the localized name of this tier
      */
     public String getDisplayName() {
-        return new TextComponentTranslation(String.format("cropTier.%s.%s", this.getModId(), this.getName())).applyTextStyle(this.getTextColor()).getFormattedText();
+        return new TranslationTextComponent(String.format("cropTier.%s.%s", this.getModId(), this.getName())).applyTextStyle(this.getTextColor()).getFormattedText();
     }
 }

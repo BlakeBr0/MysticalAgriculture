@@ -1,7 +1,7 @@
 package com.blakebr0.mysticalagriculture.crafting.ingredient;
 
 import com.blakebr0.mysticalagriculture.MysticalAgriculture;
-import net.minecraft.item.ItemHoe;
+import net.minecraft.item.HoeItem;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.crafting.CraftingHelper;
 import net.minecraftforge.common.crafting.IIngredientSerializer;
@@ -18,8 +18,8 @@ public class ModIngredients {
     }
 
     public static void onCommonSetup() {
-        List<ItemHoe> hoes = new ArrayList<>();
-        ForgeRegistries.ITEMS.getValues().stream().filter(i -> i instanceof ItemHoe).forEach(i -> hoes.add((ItemHoe) i));
+        List<HoeItem> hoes = new ArrayList<>();
+        ForgeRegistries.ITEMS.getValues().stream().filter(i -> i instanceof HoeItem).forEach(i -> hoes.add((HoeItem) i));
         HoeIngredient.ALL_HOES.addAll(hoes);
     }
 }

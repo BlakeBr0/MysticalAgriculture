@@ -1,30 +1,30 @@
 package com.blakebr0.mysticalagriculture.block;
 
-import com.blakebr0.cucumber.block.BlockGlassBase;
+import com.blakebr0.cucumber.block.BaseGlassBlock;
+import net.minecraft.block.BlockState;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
-import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.boss.EntityWither;
-import net.minecraft.entity.projectile.EntityWitherSkull;
+import net.minecraft.entity.boss.WitherEntity;
+import net.minecraft.entity.projectile.WitherSkullEntity;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.Explosion;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.World;
 
-public class BlockWitherproofGlass extends BlockGlassBase {
-    public BlockWitherproofGlass(String name) {
+public class WitherproofGlassBlock extends BaseGlassBlock {
+    public WitherproofGlassBlock(String name) {
         super(name, Material.GLASS, SoundType.STONE, 18.0F, 2000.0F);
     }
 
     @Override
-    public int getHarvestLevel(IBlockState state) {
+    public int getHarvestLevel(BlockState state) {
         return 1;
     }
 
     @Override
-    public boolean canEntityDestroy(IBlockState state, IBlockReader world, BlockPos pos, Entity entity) {
-        return !(entity instanceof EntityWither) && !(entity instanceof EntityWitherSkull);
+    public boolean canEntityDestroy(BlockState state, IBlockReader world, BlockPos pos, Entity entity) {
+        return !(entity instanceof WitherEntity) && !(entity instanceof WitherSkullEntity);
     }
 
     @Override

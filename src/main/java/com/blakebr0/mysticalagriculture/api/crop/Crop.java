@@ -1,8 +1,8 @@
 package com.blakebr0.mysticalagriculture.api.crop;
 
-import net.minecraft.block.BlockCrops;
+import net.minecraft.block.CropsBlock;
+import net.minecraft.item.BlockNamedItem;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemSeeds;
 
 /**
  * The default implementation of {@link ICrop}
@@ -17,9 +17,9 @@ public class Crop implements ICrop {
     private int flowerColor = -1, essenceColor = -1, seedColor = -1;
     private CropTextures textures;
     private String modid;
-    private BlockCrops crop;
+    private CropsBlock crop;
     private Item essence;
-    private ItemSeeds seeds;
+    private BlockNamedItem seeds;
 
     /**
      * Represents a new crop for registration
@@ -104,12 +104,12 @@ public class Crop implements ICrop {
     }
 
     @Override
-    public <T extends BlockCrops> T getCrop() {
+    public <T extends CropsBlock> T getCrop() {
         return (T) this.crop;
     }
 
     @Override
-    public ICrop setCrop(BlockCrops crop) {
+    public ICrop setCrop(CropsBlock crop) {
         this.crop = crop;
         return this;
     }
@@ -126,12 +126,12 @@ public class Crop implements ICrop {
     }
 
     @Override
-    public <T extends ItemSeeds> T getSeeds() {
+    public <T extends BlockNamedItem> T getSeeds() {
         return (T) this.seeds;
     }
 
     @Override
-    public ICrop setSeeds(ItemSeeds seeds) {
+    public ICrop setSeeds(BlockNamedItem seeds) {
         this.seeds = seeds;
         return this;
     }

@@ -4,30 +4,31 @@ import com.blakebr0.mysticalagriculture.api.crop.ICrop;
 import com.blakebr0.mysticalagriculture.api.crop.ICropGetter;
 import com.blakebr0.mysticalagriculture.api.farmland.IEssenceFarmland;
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockCrops;
-import net.minecraft.block.state.IBlockState;
-import net.minecraft.init.Blocks;
+import net.minecraft.block.BlockState;
+import net.minecraft.block.Blocks;
+import net.minecraft.block.CropsBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IItemProvider;
-import net.minecraft.util.NonNullList;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.shapes.ISelectionContext;
 import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.World;
+import net.minecraft.world.storage.loot.LootContext;
 
+import java.util.List;
 import java.util.Random;
 
-public class BlockMysticalCrop extends BlockCrops implements ICropGetter {
+public class MysticalCropBlock extends CropsBlock implements ICropGetter {
     private static final VoxelShape SHAPE = Block.makeCuboidShape(0.0D, 0.0D, 0.0D, 16.0D, 4.0D, 16.0D);
     private final ICrop crop;
 
-    public BlockMysticalCrop(ICrop crop) {
+    public MysticalCropBlock(ICrop crop) {
         super(Properties.from(Blocks.WHEAT));
         this.setRegistryName(crop.getNameWithSuffix("crop"));
         this.crop = crop;
     }
 
-    @Override
     protected IItemProvider getCropsItem() {
         return this.crop.getEssence();
     }
@@ -38,17 +39,17 @@ public class BlockMysticalCrop extends BlockCrops implements ICropGetter {
     }
 
     @Override
-    public VoxelShape getShape(IBlockState state, IBlockReader world, BlockPos pos) {
+    public VoxelShape getShape(BlockState state, IBlockReader world, BlockPos pos, ISelectionContext context) {
         return SHAPE;
     }
 
     @Override
-    public boolean canUseBonemeal(World world, Random rand, BlockPos pos, IBlockState state) {
+    public boolean canUseBonemeal(World world, Random rand, BlockPos pos, BlockState state) {
         return false;
     }
 
-    @Override
-    public void getDrops(IBlockState state, NonNullList<ItemStack> drops, World world, BlockPos pos, int fortune) {
+    @Override // TODO: Loot tables?
+    public List<ItemStack> getDrops(BlockState state, LootContext.Builder builder) {
         int age = state.get(AGE);
 
         int crop = 0;
@@ -64,17 +65,20 @@ public class BlockMysticalCrop extends BlockCrops implements ICropGetter {
             if (this.crop.getTier().isEffectiveFarmland(state.getBlock()))
                 chance += 10;
 
-            if (world.getRandom().nextInt(100) < chance)
+            if (builder.func_216018_a().getRandom().nextInt(100) < chance)
                 crop = 2;
 
-            if (world.getRandom().nextInt(100) < chance)
+            if (builder.func_216018_a().getRandom().nextInt(100) < chance)
                 seed = 2;
         }
 
+        List<ItemStack> drops = super.getDrops(state, builder);
         if (crop > 0)
             drops.add(new ItemStack(this.getCropsItem(), crop));
 
         drops.add(new ItemStack(this.getSeedsItem(), seed));
+
+        return drops;
     }
 
     @Override
