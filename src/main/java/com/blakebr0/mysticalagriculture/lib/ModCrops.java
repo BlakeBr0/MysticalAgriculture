@@ -14,7 +14,7 @@ public class ModCrops {
     public static final Crop STONE = new Crop("stone", CropTiers.ONE, CropTypes.RESOURCE, MOD_ID);
 
     @SubscribeEvent
-    public static void onRegisterCrops(RegisterCropsEvent event) {
+    public void onRegisterCrops(RegisterCropsEvent event) {
         event.register(STONE);
     }
 

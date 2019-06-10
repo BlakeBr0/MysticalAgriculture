@@ -14,6 +14,7 @@ import net.minecraft.network.PacketBuffer;
 import net.minecraft.util.JSONUtils;
 import net.minecraft.util.NonNullList;
 import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.registries.ForgeRegistryEntry;
 
 import java.util.Random;
 
@@ -42,7 +43,11 @@ public class FarmlandTillRecipe extends ShapelessRecipe {
         return ModRecipeSerializers.CRAFTING_FARMLAND_TILL;
     }
 
-    public static class Serializer implements IRecipeSerializer<FarmlandTillRecipe> {
+    public static class Serializer extends ForgeRegistryEntry<IRecipeSerializer<?>> implements IRecipeSerializer<FarmlandTillRecipe> {
+        public Serializer() {
+            this.setRegistryName("mysticalagriculture:farmland_till");
+        }
+
         @Override
         public FarmlandTillRecipe read(ResourceLocation recipeId, JsonObject json) {
             String s = JSONUtils.getString(json, "group", "");
