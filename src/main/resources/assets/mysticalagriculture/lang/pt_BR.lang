@@ -4,26 +4,26 @@
 itemGroup.mysticalagriculture=Mystical Agriculture
 
 # STORAGE BLOCKS
-tile.ma.storage_inferium.name=§eBloco de Essência de Inferium
-tile.ma.storage_prudentium.name=§aBloco de Essência de Prudentium
-tile.ma.storage_intermedium.name=§6Bloco de Essência de Intermedium
-tile.ma.storage_superium.name=§bBloco de Essência de Superium
-tile.ma.storage_supremium.name=§cBloco de Essência de Supremium
+tile.ma.storage_inferium.name=§eBloco de Essência de Infério
+tile.ma.storage_prudentium.name=§aBloco de Essência de Prudêntio
+tile.ma.storage_intermedium.name=§6Bloco de Essência de Intermédio
+tile.ma.storage_superium.name=§bBloco de Essência de Supério
+tile.ma.storage_supremium.name=§cBloco de Essência de Suprêmio
 tile.ma.storage_prosperity.name=Bloco de Prosperidade
 
 tile.ma.ingot_storage_base_essence.name=Bloco de Essência Inicial
-tile.ma.ingot_storage_inferium.name=§eBloco de Inferium
-tile.ma.ingot_storage_prudentium.name=§aBloco de Prudentium
-tile.ma.ingot_storage_intermedium.name=§6Bloco de Intermedium
-tile.ma.ingot_storage_superium.name=§bBloco de Superium
-tile.ma.ingot_storage_supremium.name=§cBloco de Supremium
-tile.ma.ingot_storage_soulium.name=§dBloco de Soulium
+tile.ma.ingot_storage_inferium.name=§eBloco de Infério
+tile.ma.ingot_storage_prudentium.name=§aBloco de Prudêntio
+tile.ma.ingot_storage_intermedium.name=§6Bloco de Intermédio
+tile.ma.ingot_storage_superium.name=§bBloco de Supério
+tile.ma.ingot_storage_supremium.name=§cBloco de Suprêmio
+tile.ma.ingot_storage_soulium.name=§dBloco de Soulio
 
-tile.ma.coal_block_inferium.name=§eBloco de Carvão de Inferium
-tile.ma.coal_block_prudentium.name=§aBloco de Carvão de Prudentium
-tile.ma.coal_block_intermedium.name=§6Bloco de Carvão de Intermedium
-tile.ma.coal_block_superium.name=§bBloco de Carvão de Superium
-tile.ma.coal_block_supremium.name=§cBloco de Carvão de Supremium
+tile.ma.coal_block_inferium.name=§eBloco de Carvão de Infério
+tile.ma.coal_block_prudentium.name=§aBloco de Carvão de Prudêntio
+tile.ma.coal_block_intermedium.name=§6Bloco de Carvão de Intermédio
+tile.ma.coal_block_superium.name=§bBloco de Carvão de Supério
+tile.ma.coal_block_supremium.name=§cBloco de Carvão de Suprêmio
 
 # SOULSTONE
 tile.ma.soulstone_smooth.name=Pedra de Alma
@@ -42,31 +42,31 @@ tile.ma.cobbled_soulstone_stairs.name=Escada de Pedregulho de Alma
 tile.ma.soulstone_brick_stairs.name=Escada de Tijolo de Pedra de Alma
 
 tile.ma.cobbled_soulstone_wall.name=Parede de Pedregulho de Alma
-tile.ma.soulstone_brick_wall.name=Parede de Tijol de Pedra de Alma
+tile.ma.soulstone_brick_wall.name=Parede de Tijolo de Pedra de Alma
 
 tile.ma.soul_glass.name=Vidro de Alma
 tile.ma.soul_glass_pane.name=Painel de Vidro de Alma
 
 # FURNACES
-tile.ma.inferium_furnace.name=§eFornalha de Inferium
-tile.ma.inferium_furnace_active.name=§eFornalha de Inferium
-container.ma.inferium_furnace.name=Fornalha de Inferium
+tile.ma.inferium_furnace.name=§eFornalha de Infério
+tile.ma.inferium_furnace_active.name=§eFornalha de Infério
+container.ma.inferium_furnace.name=Fornalha de Infério
 
-tile.ma.prudentium_furnace.name=§aFornalha de Prudentium
-tile.ma.prudentium_furnace_active.name=§aFornalha de Prudentium
-container.ma.prudentium_furnace.name=Fornalha de Prudentium
+tile.ma.prudentium_furnace.name=§aFornalha de Prudêntio
+tile.ma.prudentium_furnace_active.name=§aFornalha de Prudêntio
+container.ma.prudentium_furnace.name=Fornalha de Prudêntio
 
-tile.ma.intermedium_furnace.name=§6Fornalha de Intermedium
-tile.ma.intermedium_furnace_active.name=§6Fornalha de Intermedium
-container.ma.intermedium_furnace.name=Fornalha de Intermedium
+tile.ma.intermedium_furnace.name=§6Fornalha de Intermédio
+tile.ma.intermedium_furnace_active.name=§6Fornalha de Intermédio
+container.ma.intermedium_furnace.name=Fornalha de Intermédio
 
-tile.ma.superium_furnace.name=§bFornalha de Superium
-tile.ma.superium_furnace_active.name=§bFornalha de Superium
-container.ma.superium_furnace.name=Fornalha de Superium
+tile.ma.superium_furnace.name=§bFornalha de Supério
+tile.ma.superium_furnace_active.name=§bFornalha de Supério
+container.ma.superium_furnace.name=Fornalha de Supério
 
-tile.ma.supremium_furnace.name=§cFornalha de Supremium
-tile.ma.supremium_furnace_active.name=§cFornalha de Supremium
-container.ma.supremium_furnace.name=Fornalha de Supremium
+tile.ma.supremium_furnace.name=§cFornalha de Suprêmio
+tile.ma.supremium_furnace_active.name=§cFornalha de Suprêmio
+container.ma.supremium_furnace.name=Fornalha de Suprêmio
 
 tile.ma.ultimate_furnace.name=§8Fornalha Suprema
 tile.ma.ultimate_furnace_active.name=§8Fornalha Suprema
@@ -78,11 +78,11 @@ desc.tile.ma.glowstone_lamp=Para fazer uma Lâmpada de Pedra Luminosa, simplesme
 
 # MACHINE
 tile.ma.seed_reprocessor.name=Reprocessador de Sementes
-tile.ma.inferium_reprocessor.name=§eReprocessador de Sementes de Inferium
-tile.ma.prudentium_reprocessor.name=§aReprocessador de Sementes de Prudentium
-tile.ma.intermedium_reprocessor.name=§6Reprocessador de Sementes de Intermedium
-tile.ma.superium_reprocessor.name=§bReprocessador de Sementes de Superium
-tile.ma.supremium_reprocessor.name=§cReprocessador de Sementes de Supremium
+tile.ma.inferium_reprocessor.name=§eReprocessador de Sementes de Infério
+tile.ma.prudentium_reprocessor.name=§aReprocessador de Sementes de Prudêntio
+tile.ma.intermedium_reprocessor.name=§6Reprocessador de Sementes de Intermédio
+tile.ma.superium_reprocessor.name=§bReprocessador de Sementes de Supério
+tile.ma.supremium_reprocessor.name=§cReprocessador de Sementes de Suprêmio
 tile.ma.ultimate_reprocessor.name=§8Reprocessador de Sementes Supremo
 
 container.ma.seed_reprocessor.name=Reprocessador de Sementes
@@ -97,9 +97,9 @@ jei.ma.tinkering_table=Mesa de Oficina
 tile.ma.prosperity_ore.name=Minério de Prosperidade
 tile.ma.nether_prosperity_ore.name=Minério de Prosperidade do Nether
 tile.ma.end_prosperity_ore.name=Minério de Prosperidade do End
-tile.ma.inferium_ore.name=§eMinério de Inferium Ore
-tile.ma.nether_inferium_ore.name=§eMinério de Inferium do Nether
-tile.ma.end_inferium_ore.name=§eMinério de Inferium do End
+tile.ma.inferium_ore.name=§eMinério de Infério
+tile.ma.nether_inferium_ore.name=§eMinério de Infério do Nether
+tile.ma.end_inferium_ore.name=§eMinério de Infério do End
 
 tile.ma.growth_accelerator.name=§eAcelerador de Crescimento
 
@@ -107,11 +107,11 @@ tile.ma.witherproof_block.name=Bloco à Prova de Wither
 tile.ma.witherproof_glass.name=Vidro à Prova de Wither
 
 # CROPS
-tile.ma.tier1_inferium_crop.name=Planta de Inferium Nível 1
-tile.ma.tier2_inferium_crop.name=Planta de Inferium Nível 2
-tile.ma.tier3_inferium_crop.name=Planta de Inferium Nível 3
-tile.ma.tier4_inferium_crop.name=Planta de Inferium Nível 4
-tile.ma.tier5_inferium_crop.name=Planta de Inferium Nível 5
+tile.ma.tier1_inferium_crop.name=Planta de Infério Nível 1
+tile.ma.tier2_inferium_crop.name=Planta de Infério Nível 2
+tile.ma.tier3_inferium_crop.name=Planta de Infério Nível 3
+tile.ma.tier4_inferium_crop.name=Planta de Infério Nível 4
+tile.ma.tier5_inferium_crop.name=Planta de Infério Nível 5
 
 tile.ma.stone_crop.name=Planta de Pedra
 tile.ma.dirt_crop.name=Planta de Terra
@@ -311,11 +311,11 @@ tile.ma.constantan_crop.name=Planta de Constantan
 tile.ma.miners_torch.name=Tocha de Mineiro
 
 # CRAFTING ITEMS
-item.ma.crafting_inferium_essence.name=§eEssência de Inferium
-item.ma.crafting_prudentium_essence.name=§aEssência de Prudentium
-item.ma.crafting_intermedium_essence.name=§6Essência de Intermedium
-item.ma.crafting_superium_essence.name=§bEssência de Superium
-item.ma.crafting_supremium_essence.name=§cEssência de Supremium
+item.ma.crafting_inferium_essence.name=§eEssência de Infério
+item.ma.crafting_prudentium_essence.name=§aEssência de Prudêntio
+item.ma.crafting_intermedium_essence.name=§6Essência de Intermédio
+item.ma.crafting_superium_essence.name=§bEssência de Supério
+item.ma.crafting_supremium_essence.name=§cEssência de Suprêmio
 
 item.ma.crafting_prosperity_shard.name=Estilhaço de Prosperidade
 
@@ -340,31 +340,31 @@ item.ma.crafting_mystical_string.name=Linha Mística
 item.ma.crafting_mystical_feather.name=Pena Mística
 
 item.ma.crafting_soul_dust.name=Pó de Alma
-item.ma.crafting_soulium_dust.name=§dPó de Soulium
+item.ma.crafting_soulium_dust.name=§dPó de Soulio
 
 item.ma.crafting_base_essence_ingot.name=Barra de Essência Inicial
-item.ma.crafting_inferium_ingot.name=§eBarra de Inferium
-item.ma.crafting_prudentium_ingot.name=§aBarra de Prudentium
-item.ma.crafting_intermedium_ingot.name=§6Barra de Intermedium
-item.ma.crafting_superium_ingot.name=§bBarra de Superium
-item.ma.crafting_supremium_ingot.name=§cBarra de Supremium
-item.ma.crafting_soulium_ingot.name=§dBarra de Soulium
+item.ma.crafting_inferium_ingot.name=§eBarra de Infério
+item.ma.crafting_prudentium_ingot.name=§aBarra de Prudêntio
+item.ma.crafting_intermedium_ingot.name=§6Barra de Intermédio
+item.ma.crafting_superium_ingot.name=§bBarra de Supério
+item.ma.crafting_supremium_ingot.name=§cBarra de Suprêmio
+item.ma.crafting_soulium_ingot.name=§dBarra de Soulio
 
 item.ma.crafting_base_essence_nugget.name=Pepita de Essência Inicial
-item.ma.crafting_inferium_nugget.name=§ePepita de Inferium
-item.ma.crafting_prudentium_nugget.name=§aPepita de Prudentium
-item.ma.crafting_intermedium_nugget.name=§6Pepita de Intermedium
-item.ma.crafting_superium_nugget.name=§bPepita de Superium
-item.ma.crafting_supremium_nugget.name=§cPepita de Supremium
-item.ma.crafting_soulium_nugget.name=§dPepita de Soulium
+item.ma.crafting_inferium_nugget.name=§ePepita de Infério
+item.ma.crafting_prudentium_nugget.name=§aPepita de Prudêntio
+item.ma.crafting_intermedium_nugget.name=§6Pepita de Intermédio
+item.ma.crafting_superium_nugget.name=§bPepita de Supério
+item.ma.crafting_supremium_nugget.name=§cPepita de Suprêmio
+item.ma.crafting_soulium_nugget.name=§dPepita de Soulio
 
 item.ma.crafting_theoretical_water.name=Fonte de Água Infinita Teórica
 
-item.ma.crafting_inferium_fert_core.name=§eNúcleo de Fertilização de Inferium
-item.ma.crafting_prudentium_fert_core.name=§aNúcleo de Fertilização de Prudentium
-item.ma.crafting_intermedium_fert_core.name=§6Núcleo de Fertilização de Intermedium
-item.ma.crafting_superium_fert_core.name=§bNúcleo de Fertilização de Superium
-item.ma.crafting_supremium_fert_core.name=§cNúcleo de Fertilização de Supremium
+item.ma.crafting_inferium_fert_core.name=§eNúcleo de Fertilização de Infério
+item.ma.crafting_prudentium_fert_core.name=§aNúcleo de Fertilização de Prudêntio
+item.ma.crafting_intermedium_fert_core.name=§6Núcleo de Fertilização de Intermédio
+item.ma.crafting_superium_fert_core.name=§bNúcleo de Fertilização de Supério
+item.ma.crafting_supremium_fert_core.name=§cNúcleo de Fertilização de Suprêmio
 
 item.ma.infusion_crystal.name=Cristal de Infusão
 item.ma.master_infusion_crystal.name=§cCristal de Infusão Supremo
@@ -372,25 +372,25 @@ item.ma.master_infusion_crystal.name=§cCristal de Infusão Supremo
 item.ma.mystical_fertilizer.name=§dFertilizante Místico
 item.ma.fertilized_essence.name=§dEssência Fertilizada
 
-item.ma.inferium_apple.name=§eMaçã de Inferium
-item.ma.prudentium_apple.name=§aMaçã de Prudentium
-item.ma.intermedium_apple.name=§6Maçã de Intermedium
-item.ma.superium_apple.name=§bMaçã de Superium
-item.ma.supremium_apple.name=§cMaçã de Supremium
+item.ma.inferium_apple.name=§eMaçã de Infério
+item.ma.prudentium_apple.name=§aMaçã de Prudêntio
+item.ma.intermedium_apple.name=§6Maçã de Intermédio
+item.ma.superium_apple.name=§bMaçã de Supério
+item.ma.supremium_apple.name=§cMaçã de Suprêmio
 
-item.ma.coal_inferium.name=§eCarvão de Inferium
-item.ma.coal_prudentium.name=§aCarvão de Prudentium
-item.ma.coal_intermedium.name=§6Carvão de Intermedium
-item.ma.coal_superium.name=§bCarvão de Superium
-item.ma.coal_supremium.name=§cCarvão de Supremium
+item.ma.coal_inferium.name=§eCarvão de Infério
+item.ma.coal_prudentium.name=§aCarvão de Prudêntio
+item.ma.coal_intermedium.name=§6Carvão de Intermédio
+item.ma.coal_superium.name=§bCarvão de Supério
+item.ma.coal_supremium.name=§cCarvão de Suprêmio
 
-item.ma.watering_can_inferium.name=§eRegador de Inferium
-item.ma.watering_can_prudentium.name=§aRegador de Prudentium
-item.ma.watering_can_intermedium.name=§6Regador de Intermedium
-item.ma.watering_can_superium.name=§bRegador de Superium
-item.ma.watering_can_supremium.name=§cRegador de Supremium
+item.ma.watering_can_inferium.name=§eRegador de Infério
+item.ma.watering_can_prudentium.name=§aRegador de Prudêntio
+item.ma.watering_can_intermedium.name=§6Regador de Intermédio
+item.ma.watering_can_superium.name=§bRegador de Supério
+item.ma.watering_can_supremium.name=§cRegador de Suprêmio
 
-item.ma.soulium_dagger.name=§dAdaga de Soulium
+item.ma.soulium_dagger.name=§dAdaga de Soulio
 
 item.ma.xp_droplet.name=Gotícula de Experiência
 
@@ -618,11 +618,11 @@ item.ma.quartz_enriched_iron_essence.name=Essência de Ferro Enriquecido com Qua
 item.ma.constantan_essence.name=Essência de Constantan
 
 # SEEDS
-item.ma.tier1_inferium_seeds.name=Sementes de Inferium
-item.ma.tier2_inferium_seeds.name=Sementes de Inferium
-item.ma.tier3_inferium_seeds.name=Sementes de Inferium
-item.ma.tier4_inferium_seeds.name=Sementes de Inferium
-item.ma.tier5_inferium_seeds.name=Sementes de Inferium
+item.ma.tier1_inferium_seeds.name=Sementes de Infério
+item.ma.tier2_inferium_seeds.name=Sementes de Infério
+item.ma.tier3_inferium_seeds.name=Sementes de Infério
+item.ma.tier4_inferium_seeds.name=Sementes de Infério
+item.ma.tier5_inferium_seeds.name=Sementes de Infério
 
 item.ma.stone_seeds.name=Sementes de Pedra
 item.ma.dirt_seeds.name=Sementes de Terra
@@ -822,23 +822,23 @@ item.ma.constantan_seeds.name=Sementes de Constantan
 # GEAR ITEMS
 item.ma.core_remover.name=§cRemovedor de Núcleo
 
-item.ma.gear_inferium_tool_core.name=§eNúcleo de Ferramenta de Inferium
-item.ma.gear_prudentium_tool_core.name=§aNúcleo de Ferramenta de Prudentium
-item.ma.gear_intermedium_tool_core.name=§6Núcleo de Ferramenta de Intermedium
-item.ma.gear_superium_tool_core.name=§bNúcleo de Ferramenta de Superium
-item.ma.gear_supremium_tool_core.name=§cNúcleo de Ferramenta de Supremium
+item.ma.gear_inferium_tool_core.name=§eNúcleo de Ferramenta de Infério
+item.ma.gear_prudentium_tool_core.name=§aNúcleo de Ferramenta de Prudêntio
+item.ma.gear_intermedium_tool_core.name=§6Núcleo de Ferramenta de Intermédio
+item.ma.gear_superium_tool_core.name=§bNúcleo de Ferramenta de Supério
+item.ma.gear_supremium_tool_core.name=§cNúcleo de Ferramenta de Suprêmio
 
-item.ma.gear_inferium_armor_core.name=§eNúcleo de Armadura de Inferium
-item.ma.gear_prudentium_armor_core.name=§aNúcleo de Armadura de Prudentium
-item.ma.gear_intermedium_armor_core.name=§6Núcleo de Armadura de Intermedium
-item.ma.gear_superium_armor_core.name=§bNúcleo de Armadura de Superium
-item.ma.gear_supremium_armor_core.name=§cNúcleo de Armadura de Supremium
+item.ma.gear_inferium_armor_core.name=§eNúcleo de Armadura de Infério
+item.ma.gear_prudentium_armor_core.name=§aNúcleo de Armadura de Prudêntio
+item.ma.gear_intermedium_armor_core.name=§6Núcleo de Armadura de Intermédio
+item.ma.gear_superium_armor_core.name=§bNúcleo de Armadura de Supério
+item.ma.gear_supremium_armor_core.name=§cNúcleo de Armadura de Suprêmio
 
-item.ma.gear_inferium_arrow_head.name=§ePonta de Flecha de Inferium
-item.ma.gear_prudentium_arrow_head.name=§aPonta de Flecha de Prudentium
-item.ma.gear_intermedium_arrow_head.name=§6Ponta de Flecha de Intermedium
-item.ma.gear_superium_arrow_head.name=§bPonta de Flecha de Superium
-item.ma.gear_supremium_arrow_head.name=§cPonta de Flecha de Supremium
+item.ma.gear_inferium_arrow_head.name=§ePonta de Flecha de Infério
+item.ma.gear_prudentium_arrow_head.name=§aPonta de Flecha de Prudêntio
+item.ma.gear_intermedium_arrow_head.name=§6Ponta de Flecha de Intermédio
+item.ma.gear_superium_arrow_head.name=§bPonta de Flecha de Supério
+item.ma.gear_supremium_arrow_head.name=§cPonta de Flecha de Suprêmio
 
 # CHARMS
 item.ma.charm_blank.name=Amuleto em Branco
@@ -863,96 +863,96 @@ item.ma.charm_shearing_aoe.name=Amuleto: Tosquiamento AOE
 item.ma.charm_reaping_aoe.name=Amuleto: Colheita AOE
 item.ma.charm_scything_aoe.name=Amuleto: Corte AOE
 
-item.ma.inferium_arrow.name=§eFlecha de Inferium
-item.ma.prudentium_arrow.name=§aFlecha de Prudentium
-item.ma.intermedium_arrow.name=§6Flecha de Intermedium
-item.ma.superium_arrow.name=§bFlecha de Superium
-item.ma.supremium_arrow.name=§cFlecha de Supremium
+item.ma.inferium_arrow.name=§eFlecha de Infério
+item.ma.prudentium_arrow.name=§aFlecha de Prudêntio
+item.ma.intermedium_arrow.name=§6Flecha de Intermédio
+item.ma.superium_arrow.name=§bFlecha de Supério
+item.ma.supremium_arrow.name=§cFlecha de Suprêmio
 
 # TOOLS
-item.ma.inferium_sword.name=§eEspada de Inferium
-item.ma.inferium_pickaxe.name=§ePicareta de Inferium
-item.ma.inferium_shovel.name=§ePá de Inferium
-item.ma.inferium_axe.name=§eMachado de Inferium
-item.ma.inferium_hoe.name=§eEnxada de Inferium
-item.ma.inferium_shears.name=§eTesoura de Inferium
-item.ma.inferium_bow.name=§eArco de Inferium
-item.ma.inferium_sickle.name=§eFoice de Inferium
-item.ma.inferium_scythe.name=§eFoice Longa de Inferium
-item.ma.inferium_fishing_rod.name=§eVara de Pescar de Inferium
+item.ma.inferium_sword.name=§eEspada de Infério
+item.ma.inferium_pickaxe.name=§ePicareta de Infério
+item.ma.inferium_shovel.name=§ePá de Infério
+item.ma.inferium_axe.name=§eMachado de Infério
+item.ma.inferium_hoe.name=§eEnxada de Infério
+item.ma.inferium_shears.name=§eTesoura de Infério
+item.ma.inferium_bow.name=§eArco de Infério
+item.ma.inferium_sickle.name=§eFoice de Infério
+item.ma.inferium_scythe.name=§eFoice Longa de Infério
+item.ma.inferium_fishing_rod.name=§eVara de Pescar de Infério
 
-item.ma.prudentium_sword.name=§aEspada de Prudentium
-item.ma.prudentium_pickaxe.name=§aPicareta de Prudentium
-item.ma.prudentium_shovel.name=§aPá de Prudentium
-item.ma.prudentium_axe.name=§aMachado de Prudentium
-item.ma.prudentium_hoe.name=§aEnxada de Prudentium
-item.ma.prudentium_shears.name=§aTesoura de Prudentium
-item.ma.prudentium_bow.name=§aArco de Prudentium
-item.ma.prudentium_sickle.name=§aFoice de Prudentium
-item.ma.prudentium_scythe.name=§aFoice Longa de Prudentium
-item.ma.prudentium_fishing_rod.name=§aVara de Pescar de Prudentium
+item.ma.prudentium_sword.name=§aEspada de Prudêntio
+item.ma.prudentium_pickaxe.name=§aPicareta de Prudêntio
+item.ma.prudentium_shovel.name=§aPá de Prudêntio
+item.ma.prudentium_axe.name=§aMachado de Prudêntio
+item.ma.prudentium_hoe.name=§aEnxada de Prudêntio
+item.ma.prudentium_shears.name=§aTesoura de Prudêntio
+item.ma.prudentium_bow.name=§aArco de Prudêntio
+item.ma.prudentium_sickle.name=§aFoice de Prudêntio
+item.ma.prudentium_scythe.name=§aFoice Longa de Prudêntio
+item.ma.prudentium_fishing_rod.name=§aVara de Pescar de Prudêntio
 
-item.ma.intermedium_sword.name=§6Espada de Intermedium
-item.ma.intermedium_pickaxe.name=§6Picareta de Intermedium
-item.ma.intermedium_shovel.name=§6Pá de Intermedium
-item.ma.intermedium_axe.name=§6Machado de Intermedium
-item.ma.intermedium_hoe.name=§6Enxada de Intermedium
-item.ma.intermedium_shears.name=§6Tesoura de Intermedium
-item.ma.intermedium_bow.name=§6Arco de Intermedium
-item.ma.intermedium_sickle.name=§6Foice de Intermedium
-item.ma.intermedium_scythe.name=§6Foice Longa de Intermedium
-item.ma.intermedium_fishing_rod.name=§6Vara de Pescar de Intermedium
+item.ma.intermedium_sword.name=§6Espada de Intermédio
+item.ma.intermedium_pickaxe.name=§6Picareta de Intermédio
+item.ma.intermedium_shovel.name=§6Pá de Intermédio
+item.ma.intermedium_axe.name=§6Machado de Intermédio
+item.ma.intermedium_hoe.name=§6Enxada de Intermédio
+item.ma.intermedium_shears.name=§6Tesoura de Intermédio
+item.ma.intermedium_bow.name=§6Arco de Intermédio
+item.ma.intermedium_sickle.name=§6Foice de Intermédio
+item.ma.intermedium_scythe.name=§6Foice Longa de Intermédio
+item.ma.intermedium_fishing_rod.name=§6Vara de Pescar de Intermédio
 
-item.ma.superium_sword.name=§bEspada de Superium
-item.ma.superium_pickaxe.name=§bPicareta de Superium
-item.ma.superium_shovel.name=§bPá de Superium
-item.ma.superium_axe.name=§bMachado de Superium
-item.ma.superium_hoe.name=§bEnxada de Superium
-item.ma.superium_shears.name=§bTesoura de Superium
-item.ma.superium_bow.name=§bArco de Superium
-item.ma.superium_sickle.name=§bFoice de Superium
-item.ma.superium_scythe.name=§bFoice Longa de Superium
-item.ma.superium_fishing_rod.name=§bVara de Pescar de Superium
+item.ma.superium_sword.name=§bEspada de Supério
+item.ma.superium_pickaxe.name=§bPicareta de Supério
+item.ma.superium_shovel.name=§bPá de Supério
+item.ma.superium_axe.name=§bMachado de Supério
+item.ma.superium_hoe.name=§bEnxada de Supério
+item.ma.superium_shears.name=§bTesoura de Supério
+item.ma.superium_bow.name=§bArco de Supério
+item.ma.superium_sickle.name=§bFoice de Supério
+item.ma.superium_scythe.name=§bFoice Longa de Supério
+item.ma.superium_fishing_rod.name=§bVara de Pescar de Supério
 
-item.ma.supremium_sword.name=§cEspada de Supremium
-item.ma.supremium_pickaxe.name=§cPicareta de Supremium
-item.ma.supremium_shovel.name=§cPá de Supremium
-item.ma.supremium_axe.name=§cMachado de Supremium
-item.ma.supremium_hoe.name=§cEnxada de Supremium
-item.ma.supremium_shears.name=§cTesoura de Supremium
-item.ma.supremium_bow.name=§cArco de Supremium
-item.ma.supremium_sickle.name=§cFoice de Supremium
-item.ma.supremium_scythe.name=§cFoice Longa de Supremium
-item.ma.supremium_fishing_rod.name=§cVara de Pescar de Supremium
+item.ma.supremium_sword.name=§cEspada de Suprêmio
+item.ma.supremium_pickaxe.name=§cPicareta de Suprêmio
+item.ma.supremium_shovel.name=§cPá de Suprêmio
+item.ma.supremium_axe.name=§cMachado de Suprêmio
+item.ma.supremium_hoe.name=§cEnxada de Suprêmio
+item.ma.supremium_shears.name=§cTesoura de Suprêmio
+item.ma.supremium_bow.name=§cArco de Suprêmio
+item.ma.supremium_sickle.name=§cFoice de Suprêmio
+item.ma.supremium_scythe.name=§cFoice Longa de Suprêmio
+item.ma.supremium_fishing_rod.name=§cVara de Pescar de Suprêmio
 
 # ARMOR
-item.ma.inferium_helmet.name=§eCapacete de Inferium
-item.ma.inferium_chestplate.name=§ePeitoral de Inferium
-item.ma.inferium_leggings.name=§eCalça de Inferium
-item.ma.inferium_boots.name=§eBotas de Inferium
+item.ma.inferium_helmet.name=§eCapacete de Infério
+item.ma.inferium_chestplate.name=§ePeitoral de Infério
+item.ma.inferium_leggings.name=§eCalça de Infério
+item.ma.inferium_boots.name=§eBotas de Infério
 
-item.ma.prudentium_helmet.name=§aCapacete de Prudentium
-item.ma.prudentium_chestplate.name=§aPeitoral de Prudentium
-item.ma.prudentium_leggings.name=§aCalça de Prudentium
-item.ma.prudentium_boots.name=§aBotas de Prudentium
+item.ma.prudentium_helmet.name=§aCapacete de Prudêntio
+item.ma.prudentium_chestplate.name=§aPeitoral de Prudêntio
+item.ma.prudentium_leggings.name=§aCalça de Prudêntio
+item.ma.prudentium_boots.name=§aBotas de Prudêntio
 
-item.ma.intermedium_helmet.name=§6Capacete de Intermedium
-item.ma.intermedium_chestplate.name=§6Peitoral de Intermedium
-item.ma.intermedium_leggings.name=§6Calça de Intermedium
-item.ma.intermedium_boots.name=§6Botas de Intermedium
+item.ma.intermedium_helmet.name=§6Capacete de Intermédio
+item.ma.intermedium_chestplate.name=§6Peitoral de Intermédio
+item.ma.intermedium_leggings.name=§6Calça de Intermédio
+item.ma.intermedium_boots.name=§6Botas de Intermédio
 
-item.ma.superium_helmet.name=§bCapacete de Superium
-item.ma.superium_chestplate.name=§bPeitoral de Superium
-item.ma.superium_leggings.name=§bCalça de Superium
-item.ma.superium_boots.name=§bBotas de Superium
+item.ma.superium_helmet.name=§bCapacete de Supério
+item.ma.superium_chestplate.name=§bPeitoral de Supério
+item.ma.superium_leggings.name=§bCalça de Supério
+item.ma.superium_boots.name=§bBotas de Supério
 
-item.ma.supremium_helmet.name=§cCapacete de Supremium
-item.ma.supremium_chestplate.name=§cPeitoral de Supremium
-item.ma.supremium_leggings.name=§cCalça de Supremium
-item.ma.supremium_boots.name=§cBotas de Supremium
+item.ma.supremium_helmet.name=§cCapacete de Suprêmio
+item.ma.supremium_chestplate.name=§cPeitoral de Suprêmio
+item.ma.supremium_leggings.name=§cCalça de Suprêmio
+item.ma.supremium_boots.name=§cBotas de Suprêmio
 
 # JEI DESCRIPTIONS
-desc.tile.ma.miners_torch=Uma tocha não coletável que só pode ser colocada por uma Picareta de Supremium com amuleto de Visão de Mineiro.
+desc.tile.ma.miners_torch=Uma tocha não coletável que só pode ser colocada por uma Picareta de Suprêmio com amuleto de Visão de Mineiro.
 
 # TOOLTIPS
 tooltip.ma.growth_accelerator=Acelera o crescimento das plantas acima dele.
@@ -964,11 +964,11 @@ tooltip.ma.core_removal=Pode ser recuperado usando um §cRemovedor de Núcleo§7
 tooltip.ma.soulium_dagger=Usado para obter §cPedaços de Mobs§7.
 tooltip.ma.crafting_seed=Usado para fabricação, não para plantação.
 
-tooltip.ma.inferium=Inferium
-tooltip.ma.prudentium=Prudentium
-tooltip.ma.intermedium=Intermedium
-tooltip.ma.superium=Superium
-tooltip.ma.supremium=Supremium
+tooltip.ma.inferium=Infério
+tooltip.ma.prudentium=Prudêntio
+tooltip.ma.intermedium=Intermédio
+tooltip.ma.superium=Supério
+tooltip.ma.supremium=Suprêmio
 
 tooltip.ma.burn_time=Tempo de Queima
 tooltip.ma.material=Material
