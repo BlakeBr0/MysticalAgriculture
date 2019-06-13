@@ -47,7 +47,6 @@ public class CropRegistry implements ICropRegistry {
 
     @Override
     public void register(ICrop crop) {
-        String mod = ModLoadingContext.get().getActiveContainer().getModId();
         if (this.allowRegistration) {
             if (this.crops.stream().noneMatch(c -> c.getName().equals(crop.getName()))) {
                 if (crop.getCrop() == null)
@@ -61,10 +60,10 @@ public class CropRegistry implements ICropRegistry {
 
                 this.crops.add(crop);
             } else {
-                LOGGER.info(String.format("%s tried to register a duplicate crop with name %s, skipping", mod, crop.getName()));
+                LOGGER.info(String.format("%s tried to register a duplicate crop with name %s, skipping", crop.getModId(), crop.getName()));
             }
         } else {
-            throw new RuntimeException(String.format("%s tried to register crop %s outside of the RegisterCropsEvent", mod, crop.getName()));
+            LOGGER.error(String.format("%s tried to register crop %s outside of the RegisterCropsEvent", crop.getModId(), crop.getName()));
         }
     }
 
