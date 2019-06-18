@@ -8,7 +8,6 @@ public interface ICropRegistry {
     /**
      * Register a crop in the crop registry
      * @param crop the crop to register
-     * @throws RuntimeException when registering outside of the {@link RegisterCropsEvent}
      */
     void register(ICrop crop);
 

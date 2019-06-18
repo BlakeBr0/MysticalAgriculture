@@ -37,7 +37,7 @@ minecraft {
     // stable_#            Stables are built at the discretion of the MCP team.
     // Use non-default mappings at your own risk. they may not always work.
     // Simply re-run your setup task after changing the mappings to update your workspace.
-    mappings channel: 'snapshot', version: '20190609-1.14.2'
+    mappings channel: 'snapshot', version: '20190613-1.14.2'
     // makeObfSourceJar = false // an Srg named sources jar is made by default. uncomment this to disable.
     
     // accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg')
@@ -84,7 +84,7 @@ dependencies {
     // Specify the version of Minecraft to use, If this is any group other then 'net.minecraft' it is assumed
     // that the dep is a ForgeGradle 'patcher' dependency. And it's patches will be applied.
     // The userdev artifact is a special name and will get all sorts of transformations applied to it.
-    minecraft 'net.minecraftforge:forge:1.14.2-26.0.13'
+    minecraft 'net.minecraftforge:forge:1.14.2-26.0.33'
 
     // You may put jars on which you depend on in ./libs or you may define them like so..
     // compile "some.group:artifact:version:classifier"
@@ -104,7 +104,7 @@ dependencies {
     // http://www.gradle.org/docs/current/userguide/artifact_dependencies_tutorial.html
     // http://www.gradle.org/docs/current/userguide/dependency_management.html
     compile fg.deobf(files('libs/Cucumber-1.14.2-2.0.0.jar'))
-//    compile fg.deobf('mcp.mobius.waila:Hwyla:1.10.1-B53_1.13.2')
+  //  compile fg.deobf('mcp.mobius.waila:Hwyla:1.10.3-B61_1.14.2')
 //    deobf "mezz.jei:jei_1.13.2:5.0.0.11:api"
 //   compile fg.deobf("mezz.jei:jei-1.13.2:5.0.0.12")
 }

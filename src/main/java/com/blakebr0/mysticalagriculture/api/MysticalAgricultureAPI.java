@@ -26,7 +26,7 @@ public class MysticalAgricultureAPI {
         }
     }
 
-    private static final boolean isAllowedToFuckWithStuff() {
+    private static boolean isAllowedToFuckWithStuff() {
         return ModLoadingContext.get().getActiveContainer().getModId().equals(MOD_ID);
     }
 }
