@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "values": [
+    "mysticalagriculture:soulstone_stairs",
+    "mysticalagriculture:soulstone_cobble_stairs",
+    "mysticalagriculture:soulstone_bricks_stairs"
+  ]
+}
