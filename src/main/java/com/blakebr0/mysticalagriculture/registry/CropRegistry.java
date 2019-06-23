@@ -10,7 +10,7 @@ import com.blakebr0.mysticalagriculture.item.MysticalEssenceItem;
 import com.blakebr0.mysticalagriculture.item.MysticalSeedsItem;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
-import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.fml.ModLoader;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
@@ -74,7 +74,7 @@ public class CropRegistry implements ICropRegistry {
 
     public void onRegisterBlocks(IForgeRegistry<Block> registry) {
         if (this.isAllowedToFuckWithStuff()) {
-            MinecraftForge.EVENT_BUS.post(new RegisterCropsEvent(this));
+            ModLoader.get().postEvent(new RegisterCropsEvent(this));
             this.getRegisteredCrops().forEach(c -> registry.register(c.getCrop()));
         }
     }
@@ -83,7 +83,7 @@ public class CropRegistry implements ICropRegistry {
         if (this.isAllowedToFuckWithStuff()) {
             this.getRegisteredCrops().forEach(c -> registry.register(c.getEssence()));
             this.getRegisteredCrops().forEach(c -> registry.register(c.getSeeds()));
-            MinecraftForge.EVENT_BUS.post(new ModifyCropsEvent(this));
+            ModLoader.get().postEvent(new ModifyCropsEvent(this));
         }
     }
 

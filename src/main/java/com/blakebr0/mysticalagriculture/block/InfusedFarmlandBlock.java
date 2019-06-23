@@ -39,7 +39,7 @@ public class InfusedFarmlandBlock extends FarmlandBlock implements IColored, IEs
     public List<ItemStack> getDrops(BlockState state, LootContext.Builder builder) {
         List<ItemStack> drops = new ArrayList<>();
         drops.add(new ItemStack(Blocks.DIRT)); // TODO: Loot tables_?
-        if (builder.func_216018_a().getRandom().nextInt(100) < 25)
+        if (builder.getWorld().getRandom().nextInt(100) < 25)
             drops.add(new ItemStack(this.tier.getEssence(), 1));
 
         return drops;

@@ -65,10 +65,10 @@ public class MysticalCropBlock extends CropsBlock implements ICropGetter {
             if (this.crop.getTier().isEffectiveFarmland(state.getBlock()))
                 chance += 10;
 
-            if (builder.func_216018_a().getRandom().nextInt(100) < chance)
+            if (builder.getWorld().getRandom().nextInt(100) < chance)
                 crop = 2;
 
-            if (builder.func_216018_a().getRandom().nextInt(100) < chance)
+            if (builder.getWorld().getRandom().nextInt(100) < chance)
                 seed = 2;
         }
 

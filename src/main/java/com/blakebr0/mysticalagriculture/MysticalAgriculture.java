@@ -50,7 +50,7 @@ public class MysticalAgriculture {
 		ModLoadingContext.get().registerConfig(ModConfig.Type.CLIENT, ModConfigs.CLIENT);
 		ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, ModConfigs.COMMON);
 
-		MinecraftForge.EVENT_BUS.register(new ModCrops());
+		bus.register(new ModCrops());
 
 		MysticalAgricultureAPI.setCropRegistry(CropRegistry.getInstance());
 
