@@ -1,7 +1,6 @@
 package com.blakebr0.mysticalagriculture;
 
 import com.blakebr0.cucumber.iface.IColored;
-import com.blakebr0.cucumber.render.ColorHandler;
 import com.blakebr0.cucumber.util.Utils;
 import com.blakebr0.mysticalagriculture.api.MysticalAgricultureAPI;
 import com.blakebr0.mysticalagriculture.block.InfusedFarmlandBlock;
@@ -13,10 +12,12 @@ import com.blakebr0.mysticalagriculture.item.ModItems;
 import com.blakebr0.mysticalagriculture.lib.ModCrops;
 import com.blakebr0.mysticalagriculture.registry.CropRegistry;
 import net.minecraft.block.Block;
+import net.minecraft.client.renderer.color.BlockColors;
+import net.minecraft.client.renderer.color.ItemColors;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.crafting.IRecipeSerializer;
-import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.client.event.ColorHandlerEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
@@ -42,6 +43,8 @@ public class MysticalAgriculture {
 		bus.addListener(this::onInterModEnqueue);
 		bus.addListener(this::onInterModProcess);
 		bus.addListener(this::onClientSetup);
+		bus.addListener(this::onBlockColors);
+		bus.addListener(this::onItemColors);
 
 		bus.addGenericListener(Block.class, ModBlocks::onRegisterBlocks);
 		bus.addGenericListener(Item.class, ModItems::onRegisterItems);
@@ -71,9 +74,20 @@ public class MysticalAgriculture {
 	}
 
 	public void onClientSetup(FMLClientSetupEvent event) {
-		ColorHandler.registerBlocks(new IColored.BlockColors(), InfusedFarmlandBlock.FARMLANDS.toArray(new InfusedFarmlandBlock[0]));
-		ColorHandler.registerItems(new IColored.ItemBlockColors(), InfusedFarmlandBlock.FARMLANDS.toArray(new InfusedFarmlandBlock[0]));
-		ColorHandler.registerItems((stack, tint) -> {
+
+	}
+
+	public void onBlockColors(ColorHandlerEvent.Block event) {
+		BlockColors colors = event.getBlockColors();
+
+		colors.register(new IColored.BlockColors(), InfusedFarmlandBlock.FARMLANDS.toArray(new InfusedFarmlandBlock[0]));
+	}
+
+	public void onItemColors(ColorHandlerEvent.Item event) {
+		ItemColors colors = event.getItemColors();
+
+		colors.register(new IColored.ItemBlockColors(), InfusedFarmlandBlock.FARMLANDS.toArray(new InfusedFarmlandBlock[0]));
+		colors.register((stack, tint) -> {
 			float damage = (float) (stack.getMaxDamage() - stack.getDamage()) / stack.getMaxDamage();
 			return Utils.saturate(0x00D9D9, damage);
 		}, ModItems.INFUSION_CRYSTAL);
