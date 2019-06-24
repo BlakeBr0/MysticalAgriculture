@@ -4,7 +4,7 @@ import com.blakebr0.mysticalagriculture.api.crop.ICrop;
 import net.minecraftforge.eventbus.api.Event;
 
 /**
- * Fired on the {@link net.minecraftforge.common.MinecraftForge#EVENT_BUS}
+ * Fired on the mod event bus
  * Use this event to register your crops
  */
 public class RegisterCropsEvent extends Event {

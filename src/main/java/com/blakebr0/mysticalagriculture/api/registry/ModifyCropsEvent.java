@@ -3,7 +3,7 @@ package com.blakebr0.mysticalagriculture.api.registry;
 import net.minecraftforge.eventbus.api.Event;
 
 /**
- * Fired on the {@link net.minecraftforge.common.MinecraftForge#EVENT_BUS}
+ * Fired on the mod event bus
  * Use this event to update or modify registered crops
  */
 public class ModifyCropsEvent extends Event {
