@@ -92,6 +92,7 @@
   "item.mysticalagriculture.mystical_seeds": "%s Seeds",
 
   "tooltip.mysticalagriculture.crop_tier": "Tier %s",
+  "tooltip.mysticalagriculture.internal_name": "Internal name: %s",
 
   "cropTier.mysticalagriculture.elemental": "Elemental",
   "cropTier.mysticalagriculture.1": "1",

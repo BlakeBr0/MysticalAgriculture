@@ -60,10 +60,10 @@ public class CropRegistry implements ICropRegistry {
 
                 this.crops.add(crop);
             } else {
-                LOGGER.info(String.format("%s tried to register a duplicate crop with name %s, skipping", crop.getModId(), crop.getName()));
+                LOGGER.info("{} tried to register a duplicate crop with name {}, skipping", crop.getModId(), crop.getName());
             }
         } else {
-            LOGGER.error(String.format("%s tried to register crop %s outside of the RegisterCropsEvent", crop.getModId(), crop.getName()));
+            LOGGER.error("{} tried to register crop {} outside of the RegisterCropsEvent", crop.getModId(), crop.getName());
         }
     }
 

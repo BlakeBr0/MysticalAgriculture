@@ -8,6 +8,7 @@ import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.item.BlockNamedItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.text.ITextComponent;
+import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 
 import java.util.List;
@@ -31,6 +32,8 @@ public class MysticalSeedsItem extends BlockNamedItem implements ICropGetter {
     public void addInformation(ItemStack stack, World world, List<ITextComponent> tooltip, ITooltipFlag flag) {
         String tier = this.crop.getTier().getDisplayName();
         tooltip.add(ModTooltips.CROP_TIER.args(tier).build());
+        if (flag.isAdvanced())
+            tooltip.add(ModTooltips.INTERNAL_NAME.args(this.crop.getName()).color(TextFormatting.DARK_GRAY).build());
     }
 
     @Override
