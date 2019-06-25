@@ -49,14 +49,23 @@ public class CropRegistry implements ICropRegistry {
     public void register(ICrop crop) {
         if (this.allowRegistration) {
             if (this.crops.stream().noneMatch(c -> c.getName().equals(crop.getName()))) {
-                if (crop.getCrop() == null)
-                    crop.setCrop(new MysticalCropBlock(crop));
+                if (crop.getCrop() == null) {
+                    MysticalCropBlock cropBlock = new MysticalCropBlock(crop);
+                    cropBlock.setRegistryName(crop.getNameWithSuffix("crop"));
+                    crop.setCrop(cropBlock);
+                }
 
-                if (crop.getEssence() == null)
-                    crop.setEssence(new MysticalEssenceItem(crop, p -> p.group(MysticalAgriculture.ITEM_GROUP)));
+                if (crop.getEssence() == null) {
+                    MysticalEssenceItem essenceItem = new MysticalEssenceItem(crop, p -> p.group(MysticalAgriculture.ITEM_GROUP));
+                    essenceItem.setRegistryName(crop.getNameWithSuffix("essence"));
+                    crop.setEssence(essenceItem);
+                }
 
-                if (crop.getSeeds() == null)
-                    crop.setSeeds(new MysticalSeedsItem(crop, p -> p.group(MysticalAgriculture.ITEM_GROUP)));
+                if (crop.getSeeds() == null) {
+                    MysticalSeedsItem seedsItem = new MysticalSeedsItem(crop, p -> p.group(MysticalAgriculture.ITEM_GROUP));
+                    seedsItem.setRegistryName(crop.getNameWithSuffix("seeds"));
+                    crop.setSeeds(seedsItem);
+                }
 
                 this.crops.add(crop);
             } else {

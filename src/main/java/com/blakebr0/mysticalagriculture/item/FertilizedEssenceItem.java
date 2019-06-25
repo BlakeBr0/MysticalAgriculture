@@ -11,13 +11,14 @@ import net.minecraft.util.ActionResultType;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import net.minecraftforge.common.util.Constants;
 import net.minecraftforge.event.ForgeEventFactory;
 
 import java.util.function.Function;
 
 public class FertilizedEssenceItem extends BaseItem {
-    public FertilizedEssenceItem(String name, Function<Properties, Properties> properties) {
-        super(name, properties);
+    public FertilizedEssenceItem(Function<Properties, Properties> properties) {
+        super(properties);
     }
 
     @Override
@@ -33,7 +34,7 @@ public class FertilizedEssenceItem extends BaseItem {
         } else {
             if (applyFertilizer(stack, world, pos, player)) {
                 if (!world.isRemote){
-                    world.playEvent(2005, pos, 0);
+                    world.playEvent(Constants.WorldEvents.BONEMEAL_PARTICLES, pos, 0);
                 }
 
                 return ActionResultType.SUCCESS;

@@ -44,10 +44,6 @@ public class FarmlandTillRecipe extends ShapelessRecipe {
     }
 
     public static class Serializer extends ForgeRegistryEntry<IRecipeSerializer<?>> implements IRecipeSerializer<FarmlandTillRecipe> {
-        public Serializer() {
-            this.setRegistryName("mysticalagriculture:farmland_till");
-        }
-
         @Override
         public FarmlandTillRecipe read(ResourceLocation recipeId, JsonObject json) {
             String s = JSONUtils.getString(json, "group", "");

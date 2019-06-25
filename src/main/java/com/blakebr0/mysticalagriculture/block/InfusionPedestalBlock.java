@@ -27,8 +27,8 @@ public class InfusionPedestalBlock extends BaseBlock {
             PEDESTAL_TOP_1_SHAPE, PEDESTAL_TOP_2_SHAPE, PEDESTAL_TOP_3_SHAPE, PEDESTAL_TOP_4_SHAPE
     ).build();
 
-    public InfusionPedestalBlock(String name) {
-        super(name, Material.ROCK, SoundType.STONE, 10.0F, 12.0F);
+    public InfusionPedestalBlock() {
+        super(Material.ROCK, SoundType.STONE, 10.0F, 12.0F);
     }
 
     @Override

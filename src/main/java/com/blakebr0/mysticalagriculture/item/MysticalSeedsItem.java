@@ -19,7 +19,6 @@ public class MysticalSeedsItem extends BlockNamedItem implements ICropGetter {
 
     public MysticalSeedsItem(ICrop crop, Function<Properties, Properties> properties) {
         super(crop.getCrop(), properties.apply(new Properties()));
-        this.setRegistryName(crop.getNameWithSuffix("seeds"));
         this.crop = crop;
     }
 

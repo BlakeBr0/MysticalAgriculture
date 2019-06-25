@@ -13,8 +13,8 @@ import net.minecraft.world.IBlockReader;
 import net.minecraft.world.World;
 
 public class WitherproofGlassBlock extends BaseGlassBlock {
-    public WitherproofGlassBlock(String name) {
-        super(name, Material.GLASS, SoundType.STONE, 18.0F, 2000.0F);
+    public WitherproofGlassBlock() {
+        super(Material.GLASS, SoundType.STONE, 18.0F, 2000.0F);
     }
 
     @Override

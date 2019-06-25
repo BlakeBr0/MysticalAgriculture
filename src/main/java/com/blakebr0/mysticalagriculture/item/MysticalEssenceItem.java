@@ -13,7 +13,7 @@ public class MysticalEssenceItem extends BaseItem implements ICropGetter {
     private final ICrop crop;
 
     public MysticalEssenceItem(ICrop crop, Function<Properties, Properties> properties) {
-        super(crop.getNameWithSuffix("essence"), properties);
+        super(properties);
         this.crop = crop;
     }
 

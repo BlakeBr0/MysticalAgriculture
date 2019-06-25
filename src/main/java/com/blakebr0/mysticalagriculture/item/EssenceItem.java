@@ -12,8 +12,8 @@ import java.util.function.Function;
 public class EssenceItem extends BaseItem implements IFarmlandConverter {
     private final CropTier tier;
 
-    public EssenceItem(String name, CropTier tier, Function<Properties, Properties> properties) {
-        super(name, properties);
+    public EssenceItem(CropTier tier, Function<Properties, Properties> properties) {
+        super(properties);
         this.tier = tier;
     }
 

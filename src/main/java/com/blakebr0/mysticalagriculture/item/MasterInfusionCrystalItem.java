@@ -6,8 +6,8 @@ import net.minecraft.item.ItemStack;
 import java.util.function.Function;
 
 public class MasterInfusionCrystalItem extends ReusableItem {
-    public MasterInfusionCrystalItem(String name, Function<Properties, Properties> properties) {
-        super(name, properties);
+    public MasterInfusionCrystalItem(Function<Properties, Properties> properties) {
+        super(properties);
     }
 
     @Override

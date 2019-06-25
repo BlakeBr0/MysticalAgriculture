@@ -21,9 +21,8 @@ public class InfusedFarmlandBlock extends FarmlandBlock implements IColored, IEs
     public static final List<InfusedFarmlandBlock> FARMLANDS = new ArrayList<>();
     private final CropTier tier;
 
-    public InfusedFarmlandBlock(String name, CropTier tier) {
+    public InfusedFarmlandBlock(CropTier tier) {
         super(Properties.from(Blocks.FARMLAND));
-        this.setRegistryName(name);
         this.tier = tier;
 
         FARMLANDS.add(this);

@@ -25,7 +25,6 @@ public class MysticalCropBlock extends CropsBlock implements ICropGetter {
 
     public MysticalCropBlock(ICrop crop) {
         super(Properties.from(Blocks.WHEAT));
-        this.setRegistryName(crop.getNameWithSuffix("crop"));
         this.crop = crop;
     }
 
