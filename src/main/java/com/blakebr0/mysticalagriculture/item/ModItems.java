@@ -2,12 +2,19 @@ package com.blakebr0.mysticalagriculture.item;
 
 import com.blakebr0.cucumber.item.BaseItem;
 import com.blakebr0.mysticalagriculture.api.crop.CropTiers;
+import com.blakebr0.mysticalagriculture.item.tool.EssenceAxeItem;
+import com.blakebr0.mysticalagriculture.item.tool.EssenceHoeItem;
+import com.blakebr0.mysticalagriculture.item.tool.EssencePickaxeItem;
+import com.blakebr0.mysticalagriculture.item.tool.EssenceShovelItem;
+import com.blakebr0.mysticalagriculture.item.tool.EssenceSwordItem;
+import com.blakebr0.mysticalagriculture.lib.ModItemTier;
 import com.blakebr0.mysticalagriculture.registry.CropRegistry;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.registries.IForgeRegistry;
 
+import java.awt.image.PixelGrabber;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -52,6 +59,32 @@ public class ModItems {
     public static final FertilizedEssenceItem FERTILIZED_ESSENCE = new FertilizedEssenceItem(p -> p.group(ITEM_GROUP));
     public static final MysticalFertilizerItem MYSTICAL_FERTILIZER = new MysticalFertilizerItem(p -> p.group(ITEM_GROUP));
 
+    public static final EssenceSwordItem INFERIUM_SWORD = new EssenceSwordItem(ModItemTier.INFERIUM, 3, -2.4F, p -> p.group(ITEM_GROUP));
+    public static final EssencePickaxeItem INFERIUM_PICKAXE = new EssencePickaxeItem(ModItemTier.INFERIUM, 1, -2.8F, p -> p.group(ITEM_GROUP));
+    public static final EssenceShovelItem INFERIUM_SHOVEL = new EssenceShovelItem(ModItemTier.INFERIUM, 1.5F, -3.0F, p -> p.group(ITEM_GROUP));
+    public static final EssenceAxeItem INFERIUM_AXE = new EssenceAxeItem(ModItemTier.INFERIUM, 5.0F, -3.0F, p -> p.group(ITEM_GROUP));
+    public static final EssenceHoeItem INFERIUM_HOE = new EssenceHoeItem(ModItemTier.INFERIUM, 0.0F, p -> p.group(ITEM_GROUP));
+    public static final EssenceSwordItem PRUDENTIUM_SWORD = new EssenceSwordItem(ModItemTier.PRUDENTIUM, 3, -2.4F, p -> p.group(ITEM_GROUP));
+    public static final EssencePickaxeItem PRUDENTIUM_PICKAXE = new EssencePickaxeItem(ModItemTier.PRUDENTIUM, 1, -2.8F, p -> p.group(ITEM_GROUP));
+    public static final EssenceShovelItem PRUDENTIUM_SHOVEL = new EssenceShovelItem(ModItemTier.PRUDENTIUM, 1.5F, -3.0F, p -> p.group(ITEM_GROUP));
+    public static final EssenceAxeItem PRUDENTIUM_AXE = new EssenceAxeItem(ModItemTier.PRUDENTIUM, 5.0F, -3.0F, p -> p.group(ITEM_GROUP));
+    public static final EssenceHoeItem PRUDENTIUM_HOE = new EssenceHoeItem(ModItemTier.PRUDENTIUM, 0.0F, p -> p.group(ITEM_GROUP));
+    public static final EssenceSwordItem INTERMEDIUM_SWORD = new EssenceSwordItem(ModItemTier.INTERMEDIUM, 3, -2.4F, p -> p.group(ITEM_GROUP));
+    public static final EssencePickaxeItem INTERMEDIUM_PICKAXE = new EssencePickaxeItem(ModItemTier.INTERMEDIUM, 1, -2.8F, p -> p.group(ITEM_GROUP));
+    public static final EssenceShovelItem INTERMEDIUM_SHOVEL = new EssenceShovelItem(ModItemTier.INTERMEDIUM, 1.5F, -3.0F, p -> p.group(ITEM_GROUP));
+    public static final EssenceAxeItem INTERMEDIUM_AXE = new EssenceAxeItem(ModItemTier.INTERMEDIUM, 5.0F, -3.0F, p -> p.group(ITEM_GROUP));
+    public static final EssenceHoeItem INTERMEDIUM_HOE = new EssenceHoeItem(ModItemTier.INTERMEDIUM, 0.0F, p -> p.group(ITEM_GROUP));
+    public static final EssenceSwordItem IMPERIUM_SWORD = new EssenceSwordItem(ModItemTier.IMPERIUM, 3, -2.4F, p -> p.group(ITEM_GROUP));
+    public static final EssencePickaxeItem IMPERIUM_PICKAXE = new EssencePickaxeItem(ModItemTier.IMPERIUM, 1, -2.8F, p -> p.group(ITEM_GROUP));
+    public static final EssenceShovelItem IMPERIUM_SHOVEL = new EssenceShovelItem(ModItemTier.IMPERIUM, 1.5F, -3.0F, p -> p.group(ITEM_GROUP));
+    public static final EssenceAxeItem IMPERIUM_AXE = new EssenceAxeItem(ModItemTier.IMPERIUM, 5.0F, -3.0F, p -> p.group(ITEM_GROUP));
+    public static final EssenceHoeItem IMPERIUM_HOE = new EssenceHoeItem(ModItemTier.IMPERIUM, 0.0F, p -> p.group(ITEM_GROUP));
+    public static final EssenceSwordItem SUPREMIUM_SWORD = new EssenceSwordItem(ModItemTier.SUPREMIUM, 3, -2.4F, p -> p.group(ITEM_GROUP));
+    public static final EssencePickaxeItem SUPREMIUM_PICKAXE = new EssencePickaxeItem(ModItemTier.SUPREMIUM, 1, -2.8F, p -> p.group(ITEM_GROUP));
+    public static final EssenceShovelItem SUPREMIUM_SHOVEL = new EssenceShovelItem(ModItemTier.SUPREMIUM, 1.5F, -3.0F, p -> p.group(ITEM_GROUP));
+    public static final EssenceAxeItem SUPREMIUM_AXE = new EssenceAxeItem(ModItemTier.SUPREMIUM, 5.0F, -3.0F, p -> p.group(ITEM_GROUP));
+    public static final EssenceHoeItem SUPREMIUM_HOE = new EssenceHoeItem(ModItemTier.SUPREMIUM, 0.0F, p -> p.group(ITEM_GROUP));
+
     public static void onRegisterItems(RegistryEvent.Register<Item> event) {
         IForgeRegistry<Item> registry = event.getRegistry();
         ITEM_BLOCKS.forEach(registry::register);
@@ -93,5 +126,31 @@ public class ModItems {
         registry.register(MYSTICAL_FERTILIZER.setRegistryName("mystical_fertilizer"));
 
         CropRegistry.getInstance().onRegisterItems(registry);
+
+        registry.register(INFERIUM_SWORD.setRegistryName("inferium_sword"));
+        registry.register(INFERIUM_PICKAXE.setRegistryName("inferium_pickaxe"));
+        registry.register(INFERIUM_SHOVEL.setRegistryName("inferium_shovel"));
+        registry.register(INFERIUM_AXE.setRegistryName("inferium_axe"));
+        registry.register(INFERIUM_HOE.setRegistryName("inferium_hoe"));
+        registry.register(PRUDENTIUM_SWORD.setRegistryName("prudentium_sword"));
+        registry.register(PRUDENTIUM_PICKAXE.setRegistryName("prudentium_pickaxe"));
+        registry.register(PRUDENTIUM_SHOVEL.setRegistryName("prudentium_shovel"));
+        registry.register(PRUDENTIUM_AXE.setRegistryName("prudentium_axe"));
+        registry.register(PRUDENTIUM_HOE.setRegistryName("prudentium_hoe"));
+        registry.register(INTERMEDIUM_SWORD.setRegistryName("intermedium_sword"));
+        registry.register(INTERMEDIUM_PICKAXE.setRegistryName("intermedium_pickaxe"));
+        registry.register(INTERMEDIUM_SHOVEL.setRegistryName("intermedium_shovel"));
+        registry.register(INTERMEDIUM_AXE.setRegistryName("intermedium_axe"));
+        registry.register(INTERMEDIUM_HOE.setRegistryName("intermedium_hoe"));
+        registry.register(IMPERIUM_SWORD.setRegistryName("imperium_sword"));
+        registry.register(IMPERIUM_PICKAXE.setRegistryName("imperium_pickaxe"));
+        registry.register(IMPERIUM_SHOVEL.setRegistryName("imperium_shovel"));
+        registry.register(IMPERIUM_AXE.setRegistryName("imperium_axe"));
+        registry.register(IMPERIUM_HOE.setRegistryName("imperium_hoe"));
+        registry.register(SUPREMIUM_SWORD.setRegistryName("supremium_sword"));
+        registry.register(SUPREMIUM_PICKAXE.setRegistryName("supremium_pickaxe"));
+        registry.register(SUPREMIUM_SHOVEL.setRegistryName("supremium_shovel"));
+        registry.register(SUPREMIUM_AXE.setRegistryName("supremium_axe"));
+        registry.register(SUPREMIUM_HOE.setRegistryName("supremium_hoe"));
     }
 }
