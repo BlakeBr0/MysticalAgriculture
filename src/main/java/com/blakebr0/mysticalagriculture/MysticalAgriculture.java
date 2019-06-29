@@ -17,8 +17,11 @@ import net.minecraft.client.renderer.color.ItemColors;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.crafting.IRecipeSerializer;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.client.event.ColorHandlerEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.fml.DistExecutor;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.config.ModConfig;
@@ -43,8 +46,11 @@ public class MysticalAgriculture {
 		bus.addListener(this::onInterModEnqueue);
 		bus.addListener(this::onInterModProcess);
 		bus.addListener(this::onClientSetup);
-		bus.addListener(this::onBlockColors);
-		bus.addListener(this::onItemColors);
+
+		DistExecutor.runWhenOn(Dist.CLIENT, () -> () -> {
+			bus.addListener(this::onBlockColors);
+			bus.addListener(this::onItemColors);
+		});
 
 		bus.addGenericListener(Block.class, ModBlocks::onRegisterBlocks);
 		bus.addGenericListener(Item.class, ModItems::onRegisterItems);
@@ -77,12 +83,14 @@ public class MysticalAgriculture {
 
 	}
 
+	@OnlyIn(Dist.CLIENT)
 	public void onBlockColors(ColorHandlerEvent.Block event) {
 		BlockColors colors = event.getBlockColors();
 
 		colors.register(new IColored.BlockColors(), InfusedFarmlandBlock.FARMLANDS.toArray(new InfusedFarmlandBlock[0]));
 	}
 
+	@OnlyIn(Dist.CLIENT)
 	public void onItemColors(ColorHandlerEvent.Item event) {
 		ItemColors colors = event.getItemColors();
 
