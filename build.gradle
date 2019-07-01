@@ -63,12 +63,12 @@ minecraft {
 }
 
 dependencies {
-    minecraft 'net.minecraftforge:forge:1.14.3-27.0.2'
-    
-    compile fg.deobf(files('libs/Cucumber-1.14.3-2.0.0.jar'))
-  //  compile fg.deobf('mcp.mobius.waila:Hwyla:1.10.3-B61_1.14.2')
-//    deobf "mezz.jei:jei_1.13.2:5.0.0.11:api"
-    compile fg.deobf("mezz.jei:jei-1.14.2:6.0.0.2")
+    minecraft 'net.minecraftforge:forge:1.14.3-27.0.16'
+
+    compile files('../Cucumber/build/libs/Cucumber-1.14.3-2.0.0-deobf.jar')
+//    compile fg.deobf('mcp.mobius.waila:Hwyla:1.10.3-B64_1.14.2')
+    compileOnly fg.deobf("mezz.jei:jei-1.14.3:6.0.0.5:api")
+    runtimeOnly fg.deobf("mezz.jei:jei-1.14.3:6.0.0.5")
 }
 
 jar {

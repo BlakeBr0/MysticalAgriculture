@@ -11,12 +11,14 @@ import com.blakebr0.mysticalagriculture.crafting.ingredient.ModIngredients;
 import com.blakebr0.mysticalagriculture.item.ModItems;
 import com.blakebr0.mysticalagriculture.lib.ModCrops;
 import com.blakebr0.mysticalagriculture.registry.CropRegistry;
+import com.blakebr0.mysticalagriculture.tileentity.ModTileEntities;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.color.BlockColors;
 import net.minecraft.client.renderer.color.ItemColors;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.crafting.IRecipeSerializer;
+import net.minecraft.tileentity.TileEntityType;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.client.event.ColorHandlerEvent;
@@ -55,6 +57,7 @@ public class MysticalAgriculture {
 		bus.addGenericListener(Block.class, ModBlocks::onRegisterBlocks);
 		bus.addGenericListener(Item.class, ModItems::onRegisterItems);
 		bus.addGenericListener(IRecipeSerializer.class, ModRecipeSerializers::onRegisterSerializers);
+		bus.addGenericListener(TileEntityType.class, ModTileEntities::onRegisterTypes);
 
 		ModLoadingContext.get().registerConfig(ModConfig.Type.CLIENT, ModConfigs.CLIENT);
 		ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, ModConfigs.COMMON);
@@ -80,7 +83,7 @@ public class MysticalAgriculture {
 	}
 
 	public void onClientSetup(FMLClientSetupEvent event) {
-
+		ModTileEntities.onClientSetup();
 	}
 
 	@OnlyIn(Dist.CLIENT)
