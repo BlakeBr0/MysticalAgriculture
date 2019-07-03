@@ -89,7 +89,7 @@ public class InfusionAltarTileEntity extends BaseTileEntity implements ISidedInv
 
     @Override
     public boolean canInsertItem(int i, ItemStack stack, Direction direction) {
-        return i == 0 && this.getStackInSlot(1).isEmpty();
+        return i == 0 && this.getStackInSlot(0).getCount() < this.getInventoryStackLimit() && this.getStackInSlot(1).isEmpty();
     }
 
     @Override
