@@ -12,15 +12,15 @@ import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.IItemHandler;
-import net.minecraftforge.items.wrapper.SidedInvWrapper;
+import net.minecraftforge.items.wrapper.InvWrapper;
 
-public class InfusionAltarTileEntity extends TileEntity implements ISidedInventory {
-    private static final int[] SLOTS = { 0, 1 };
-    private NonNullList<ItemStack> inventory = NonNullList.withSize(2, ItemStack.EMPTY);
-    private LazyOptional<? extends IItemHandler> wrapper = LazyOptional.of(() -> new SidedInvWrapper(this, Direction.DOWN));
+public class InfusionPedestalTileEntity extends TileEntity implements ISidedInventory {
+    private static final int[] SLOTS = { 0 };
+    private NonNullList<ItemStack> inventory = NonNullList.withSize(1, ItemStack.EMPTY);
+    private LazyOptional<? extends IItemHandler> wrapper = LazyOptional.of(() -> new InvWrapper(this));
 
-    public InfusionAltarTileEntity() {
-        super(ModTileEntities.INFUSION_ALTAR);
+    public InfusionPedestalTileEntity() {
+        super(ModTileEntities.INFUSION_PEDESTAL);
     }
 
     @Override
@@ -89,12 +89,12 @@ public class InfusionAltarTileEntity extends TileEntity implements ISidedInvento
 
     @Override
     public boolean canInsertItem(int i, ItemStack stack, Direction direction) {
-        return i == 0 && this.getStackInSlot(0).getCount() < this.getInventoryStackLimit() && this.getStackInSlot(1).isEmpty();
+        return this.getStackInSlot(0).getCount() < this.getInventoryStackLimit();
     }
 
     @Override
     public boolean canExtractItem(int i, ItemStack stack, Direction direction) {
-        return i == 1;
+        return true;
     }
 
     @Override

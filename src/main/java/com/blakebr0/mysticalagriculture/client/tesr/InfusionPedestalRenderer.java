@@ -1,6 +1,6 @@
-package com.blakebr0.mysticalagriculture.tileentity.tesr;
+package com.blakebr0.mysticalagriculture.client.tesr;
 
-import com.blakebr0.mysticalagriculture.tileentity.InfusionAltarTileEntity;
+import com.blakebr0.mysticalagriculture.tileentity.InfusionPedestalTileEntity;
 import com.mojang.blaze3d.platform.GlStateManager;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.RenderHelper;
@@ -9,13 +9,13 @@ import net.minecraft.client.renderer.tileentity.TileEntityRenderer;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.ItemStack;
 
-public class InfusionAltarRenderer extends TileEntityRenderer<InfusionAltarTileEntity> {
+public class InfusionPedestalRenderer extends TileEntityRenderer<InfusionPedestalTileEntity> {
     @Override
-    public void render(InfusionAltarTileEntity tile, double x, double y, double z, float partialTicks, int destroyStage) {
+    public void render(InfusionPedestalTileEntity tile, double x, double y, double z, float partialTicks, int destroyStage) {
         ItemStack stack = tile.getStackInSlot(1).isEmpty() ? tile.getStackInSlot(0) : tile.getStackInSlot(1);
         if (!stack.isEmpty()) {
             GlStateManager.pushMatrix();
-            GlStateManager.translated(x + 0.5D, y + 1.1D, z + 0.5D);
+            GlStateManager.translated(x + 0.5D, y + 1.2D, z + 0.5D);
             float scale = stack.getItem() instanceof BlockItem ? 0.95F : 0.75F;
             GlStateManager.scalef(scale, scale, scale);
             double tick = System.currentTimeMillis() / 800.0D;
@@ -31,3 +31,4 @@ public class InfusionAltarRenderer extends TileEntityRenderer<InfusionAltarTileE
         }
     }
 }
+
