@@ -12,7 +12,7 @@ import net.minecraft.item.ItemStack;
 public class InfusionPedestalRenderer extends TileEntityRenderer<InfusionPedestalTileEntity> {
     @Override
     public void render(InfusionPedestalTileEntity tile, double x, double y, double z, float partialTicks, int destroyStage) {
-        ItemStack stack = tile.getStackInSlot(1).isEmpty() ? tile.getStackInSlot(0) : tile.getStackInSlot(1);
+        ItemStack stack = tile.getStackInSlot(0);
         if (!stack.isEmpty()) {
             GlStateManager.pushMatrix();
             GlStateManager.translated(x + 0.5D, y + 1.2D, z + 0.5D);

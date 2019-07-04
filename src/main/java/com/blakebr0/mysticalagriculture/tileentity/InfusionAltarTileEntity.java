@@ -1,11 +1,11 @@
 package com.blakebr0.mysticalagriculture.tileentity;
 
+import com.blakebr0.cucumber.tileentity.BaseTileEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.ISidedInventory;
 import net.minecraft.inventory.ItemStackHelper;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.CompoundNBT;
-import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.Direction;
 import net.minecraft.util.NonNullList;
 import net.minecraftforge.common.capabilities.Capability;
@@ -14,7 +14,7 @@ import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.wrapper.SidedInvWrapper;
 
-public class InfusionAltarTileEntity extends TileEntity implements ISidedInventory {
+public class InfusionAltarTileEntity extends BaseTileEntity implements ISidedInventory {
     private static final int[] SLOTS = { 0, 1 };
     private NonNullList<ItemStack> inventory = NonNullList.withSize(2, ItemStack.EMPTY);
     private LazyOptional<? extends IItemHandler> wrapper = LazyOptional.of(() -> new SidedInvWrapper(this, Direction.DOWN));
