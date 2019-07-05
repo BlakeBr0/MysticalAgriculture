@@ -20,7 +20,7 @@ public class CropTextures {
     }
 
     /**
-     * Setup all crop related textures using thier resource locations
+     * Setup all crop related textures using their resource locations
      * @param flowerTexture flower texture location
      * @param essenceTexture essence texture location
      * @param seedTexture seed texture location
