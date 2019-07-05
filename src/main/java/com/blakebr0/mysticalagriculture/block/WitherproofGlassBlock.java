@@ -23,11 +23,6 @@ public class WitherproofGlassBlock extends BaseGlassBlock {
     }
 
     @Override
-    public boolean canEntityDestroy(BlockState state, IBlockReader world, BlockPos pos, Entity entity) {
-        return !(entity instanceof WitherEntity) && !(entity instanceof WitherSkullEntity);
-    }
-
-    @Override
     public void onExplosionDestroy(World world, BlockPos pos, Explosion explosion) { }
 
     @Override
