@@ -2,11 +2,16 @@ package com.blakebr0.mysticalagriculture.item;
 
 import com.blakebr0.cucumber.item.BaseItem;
 import com.blakebr0.mysticalagriculture.api.crop.CropTiers;
+import com.blakebr0.mysticalagriculture.item.armor.EssenceBootsItem;
+import com.blakebr0.mysticalagriculture.item.armor.EssenceChestplateItem;
+import com.blakebr0.mysticalagriculture.item.armor.EssenceHelmetItem;
+import com.blakebr0.mysticalagriculture.item.armor.EssenceLeggingsItem;
 import com.blakebr0.mysticalagriculture.item.tool.EssenceAxeItem;
 import com.blakebr0.mysticalagriculture.item.tool.EssenceHoeItem;
 import com.blakebr0.mysticalagriculture.item.tool.EssencePickaxeItem;
 import com.blakebr0.mysticalagriculture.item.tool.EssenceShovelItem;
 import com.blakebr0.mysticalagriculture.item.tool.EssenceSwordItem;
+import com.blakebr0.mysticalagriculture.lib.ModArmorMaterial;
 import com.blakebr0.mysticalagriculture.lib.ModItemTier;
 import com.blakebr0.mysticalagriculture.registry.CropRegistry;
 import net.minecraft.item.BlockItem;
@@ -84,6 +89,26 @@ public class ModItems {
     public static final EssenceShovelItem SUPREMIUM_SHOVEL = new EssenceShovelItem(ModItemTier.SUPREMIUM, 1.5F, -3.0F, p -> p.group(ITEM_GROUP));
     public static final EssenceAxeItem SUPREMIUM_AXE = new EssenceAxeItem(ModItemTier.SUPREMIUM, 5.0F, -3.0F, p -> p.group(ITEM_GROUP));
     public static final EssenceHoeItem SUPREMIUM_HOE = new EssenceHoeItem(ModItemTier.SUPREMIUM, 0.0F, p -> p.group(ITEM_GROUP));
+    public static final EssenceHelmetItem INFERIUM_HELMET = new EssenceHelmetItem(ModArmorMaterial.INFERIUM, p -> p.group(ITEM_GROUP));
+    public static final EssenceChestplateItem INFERIUM_CHESTPLATE = new EssenceChestplateItem(ModArmorMaterial.INFERIUM, p -> p.group(ITEM_GROUP));
+    public static final EssenceLeggingsItem INFERIUM_LEGGINGS = new EssenceLeggingsItem(ModArmorMaterial.INFERIUM, p -> p.group(ITEM_GROUP));
+    public static final EssenceBootsItem INFERIUM_BOOTS = new EssenceBootsItem(ModArmorMaterial.INFERIUM, p -> p.group(ITEM_GROUP));
+    public static final EssenceHelmetItem PRUDENTIUM_HELMET = new EssenceHelmetItem(ModArmorMaterial.PRUDENTIUM, p -> p.group(ITEM_GROUP));
+    public static final EssenceChestplateItem PRUDENTIUM_CHESTPLATE = new EssenceChestplateItem(ModArmorMaterial.PRUDENTIUM, p -> p.group(ITEM_GROUP));
+    public static final EssenceLeggingsItem PRUDENTIUM_LEGGINGS = new EssenceLeggingsItem(ModArmorMaterial.PRUDENTIUM, p -> p.group(ITEM_GROUP));
+    public static final EssenceBootsItem PRUDENTIUM_BOOTS = new EssenceBootsItem(ModArmorMaterial.PRUDENTIUM, p -> p.group(ITEM_GROUP));
+    public static final EssenceHelmetItem INTERMEDIUM_HELMET = new EssenceHelmetItem(ModArmorMaterial.INTERMEDIUM, p -> p.group(ITEM_GROUP));
+    public static final EssenceChestplateItem INTERMEDIUM_CHESTPLATE = new EssenceChestplateItem(ModArmorMaterial.INTERMEDIUM, p -> p.group(ITEM_GROUP));
+    public static final EssenceLeggingsItem INTERMEDIUM_LEGGINGS = new EssenceLeggingsItem(ModArmorMaterial.INTERMEDIUM, p -> p.group(ITEM_GROUP));
+    public static final EssenceBootsItem INTERMEDIUM_BOOTS = new EssenceBootsItem(ModArmorMaterial.INTERMEDIUM, p -> p.group(ITEM_GROUP));
+    public static final EssenceHelmetItem IMPERIUM_HELMET = new EssenceHelmetItem(ModArmorMaterial.IMPERIUM, p -> p.group(ITEM_GROUP));
+    public static final EssenceChestplateItem IMPERIUM_CHESTPLATE = new EssenceChestplateItem(ModArmorMaterial.IMPERIUM, p -> p.group(ITEM_GROUP));
+    public static final EssenceLeggingsItem IMPERIUM_LEGGINGS = new EssenceLeggingsItem(ModArmorMaterial.IMPERIUM, p -> p.group(ITEM_GROUP));
+    public static final EssenceBootsItem IMPERIUM_BOOTS = new EssenceBootsItem(ModArmorMaterial.IMPERIUM, p -> p.group(ITEM_GROUP));
+    public static final EssenceHelmetItem SUPREMIUM_HELMET = new EssenceHelmetItem(ModArmorMaterial.SUPREMIUM, p -> p.group(ITEM_GROUP));
+    public static final EssenceChestplateItem SUPREMIUM_CHESTPLATE = new EssenceChestplateItem(ModArmorMaterial.SUPREMIUM, p -> p.group(ITEM_GROUP));
+    public static final EssenceLeggingsItem SUPREMIUM_LEGGINGS = new EssenceLeggingsItem(ModArmorMaterial.SUPREMIUM, p -> p.group(ITEM_GROUP));
+    public static final EssenceBootsItem SUPREMIUM_BOOTS = new EssenceBootsItem(ModArmorMaterial.SUPREMIUM, p -> p.group(ITEM_GROUP));
 
     public static void onRegisterItems(RegistryEvent.Register<Item> event) {
         IForgeRegistry<Item> registry = event.getRegistry();
@@ -152,5 +177,25 @@ public class ModItems {
         registry.register(SUPREMIUM_SHOVEL.setRegistryName("supremium_shovel"));
         registry.register(SUPREMIUM_AXE.setRegistryName("supremium_axe"));
         registry.register(SUPREMIUM_HOE.setRegistryName("supremium_hoe"));
+        registry.register(INFERIUM_HELMET.setRegistryName("inferium_helmet"));
+        registry.register(INFERIUM_CHESTPLATE.setRegistryName("inferium_chestplate"));
+        registry.register(INFERIUM_LEGGINGS.setRegistryName("inferium_leggings"));
+        registry.register(INFERIUM_BOOTS.setRegistryName("inferium_boots"));
+        registry.register(PRUDENTIUM_HELMET.setRegistryName("prudentium_helmet"));
+        registry.register(PRUDENTIUM_CHESTPLATE.setRegistryName("prudentium_chestplate"));
+        registry.register(PRUDENTIUM_LEGGINGS.setRegistryName("prudentium_leggings"));
+        registry.register(PRUDENTIUM_BOOTS.setRegistryName("prudentium_boots"));
+        registry.register(INTERMEDIUM_HELMET.setRegistryName("intermedium_helmet"));
+        registry.register(INTERMEDIUM_CHESTPLATE.setRegistryName("intermedium_chestplate"));
+        registry.register(INTERMEDIUM_LEGGINGS.setRegistryName("intermedium_leggings"));
+        registry.register(INTERMEDIUM_BOOTS.setRegistryName("intermedium_boots"));
+        registry.register(IMPERIUM_HELMET.setRegistryName("imperium_helmet"));
+        registry.register(IMPERIUM_CHESTPLATE.setRegistryName("imperium_chestplate"));
+        registry.register(IMPERIUM_LEGGINGS.setRegistryName("imperium_leggings"));
+        registry.register(IMPERIUM_BOOTS.setRegistryName("imperium_boots"));
+        registry.register(SUPREMIUM_HELMET.setRegistryName("supremium_helmet"));
+        registry.register(SUPREMIUM_CHESTPLATE.setRegistryName("supremium_chestplate"));
+        registry.register(SUPREMIUM_LEGGINGS.setRegistryName("supremium_leggings"));
+        registry.register(SUPREMIUM_BOOTS.setRegistryName("supremium_boots"));
     }
 }
