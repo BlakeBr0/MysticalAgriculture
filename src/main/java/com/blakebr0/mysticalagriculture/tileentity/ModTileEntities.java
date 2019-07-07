@@ -11,12 +11,14 @@ import net.minecraftforge.registries.IForgeRegistry;
 public class ModTileEntities {
     public static final TileEntityType<InfusionPedestalTileEntity> INFUSION_PEDESTAL = TileEntityType.Builder.create(InfusionPedestalTileEntity::new, ModBlocks.INFUSION_PEDESTAL).build(null);
     public static final TileEntityType<InfusionAltarTileEntity> INFUSION_ALTAR = TileEntityType.Builder.create(InfusionAltarTileEntity::new, ModBlocks.INFUSION_ALTAR).build(null);
+    public static final TileEntityType<TinkeringTableTileEntity> TINKERING_TABLE = TileEntityType.Builder.create(TinkeringTableTileEntity::new, ModBlocks.TINKERING_TABLE).build(null);
 
     public static void onRegisterTypes(RegistryEvent.Register<TileEntityType<?>> event) {
         IForgeRegistry<TileEntityType<?>> registry = event.getRegistry();
 
         registry.register(INFUSION_PEDESTAL.setRegistryName("infusion_pedestal"));
         registry.register(INFUSION_ALTAR.setRegistryName("infusion_altar"));
+        registry.register(TINKERING_TABLE.setRegistryName("tinkering_table"));
     }
 
     public static void onClientSetup() {

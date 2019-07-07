@@ -71,6 +71,7 @@ public class ModBlocks {
     public static final WitherproofGlassBlock WITHERPROOF_GLASS = new WitherproofGlassBlock();
     public static final InfusionPedestalBlock INFUSION_PEDESTAL = new InfusionPedestalBlock();
     public static final InfusionAltarBlock INFUSION_ALTAR = new InfusionAltarBlock();
+    public static final TinkeringTableBlock TINKERING_TABLE = new TinkeringTableBlock();
 
     public static void onRegisterBlocks(RegistryEvent.Register<Block> event) {
         IForgeRegistry<Block> registry = event.getRegistry();
@@ -127,6 +128,7 @@ public class ModBlocks {
         register(registry, WITHERPROOF_GLASS.setRegistryName("witherproof_glass"));
         register(registry, INFUSION_PEDESTAL.setRegistryName("infusion_pedestal"));
         register(registry, INFUSION_ALTAR.setRegistryName("infusion_altar"));
+        register(registry, TINKERING_TABLE.setRegistryName("tinkering_table"));
 
         CropRegistry.getInstance().allowRegistration();
         CropRegistry.getInstance().onRegisterBlocks(registry);
