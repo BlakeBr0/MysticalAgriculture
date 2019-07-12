@@ -7,7 +7,6 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 
 public class MAItemGroup extends ItemGroup {
-
 	public MAItemGroup() {
 		super(MysticalAgriculture.MOD_ID);
 	}
