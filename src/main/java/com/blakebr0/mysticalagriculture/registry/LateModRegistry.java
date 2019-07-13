@@ -40,6 +40,11 @@ public class LateModRegistry extends ModRegistry {
 		}
 	}
 	
+	@Override
+	public void registerBlocks(Register<Block> arg0) {
+		//do nothing to prevent registering some stuff twice
+	}
+	
 	public void registerItemsLate(Register<Item> event) {
 		for (RegistryObject<Item> item : items) {
 			if (item.get().getRegistryName() == null) {
@@ -59,6 +64,11 @@ public class LateModRegistry extends ModRegistry {
 		for (Map.Entry<ItemStack, String> ore : ores.entrySet()) {
 			OreDictionary.registerOre(ore.getValue(), ore.getKey());
 		}
+	}
+	
+	@Override
+	public void registerItems(Register<Item> arg0) {
+		//do nothing to prevent registering some stuff twice
 	}
 	
 }
