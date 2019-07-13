@@ -34,40 +34,21 @@ public class LateModRegistry extends ModRegistry {
 			if (block.get().getRegistryName() == null) {
 				block.get().setRegistryName(block.getName());
 			}
-			if(!ForgeRegistries.BLOCKS.containsValue(block.get())) {
-				ForgeRegistries.BLOCKS.register(block.get());
-			}
+			ForgeRegistries.BLOCKS.register(block.get());
 		}
 	}
 	
 	@Override
-	public void registerBlocks(Register<Block> arg0) {
+	public void registerBlocks(Register<Block> event) {
 		//do nothing to prevent registering some stuff twice
 	}
 	
 	public void registerItemsLate(Register<Item> event) {
-		for (RegistryObject<Item> item : items) {
-			if (item.get().getRegistryName() == null) {
-				item.get().setRegistryName(item.getName());
-			}
-			if(!event.getRegistry().containsValue(item.get())) {
-				event.getRegistry().register(item.get());
-			}
-			
-			if (item.getOreNames() != null) {
-				for (Ore o : item.getOreNames()) {
-					OreDictionary.registerOre(o.getName(), StackHelper.to(item.get(), 1, o.getMeta()));
-				}
-			}
-		}
-		
-		for (Map.Entry<ItemStack, String> ore : ores.entrySet()) {
-			OreDictionary.registerOre(ore.getValue(), ore.getKey());
-		}
+		super.registerItems(event);
 	}
 	
 	@Override
-	public void registerItems(Register<Item> arg0) {
+	public void registerItems(Register<Item> event) {
 		//do nothing to prevent registering some stuff twice
 	}
 	
