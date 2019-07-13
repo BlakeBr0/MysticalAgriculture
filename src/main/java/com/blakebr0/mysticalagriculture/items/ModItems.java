@@ -310,16 +310,9 @@ public class ModItems {
 		for(CropType.Type type : CropType.Type.values()){
 			if(type.isEnabled()){
 				registry.register(type.getCrop(), type.getName() + "_essence");
+				registry.register(type.getSeed(), type.getName() + "_seeds");
 				if(ModConfig.confGenericOreDictEssence){
 					registry.addOre(type.getCrop(), "essenceTier" + type.getTier());
-				}
-			}
-		}
-		
-		for(CropType.Type type : CropType.Type.values()){
-			if(type.isEnabled()){
-				registry.register(type.getSeed(), type.getName() + "_seeds");
-				if(ModConfig.confGenericOreDictEssence) {
 					registry.addOre(type.getSeed(), "seedsTier" + type.getTier());
 				}
 			}
