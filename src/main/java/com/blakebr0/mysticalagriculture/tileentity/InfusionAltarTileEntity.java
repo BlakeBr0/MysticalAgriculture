@@ -17,7 +17,7 @@ import net.minecraftforge.items.wrapper.SidedInvWrapper;
 public class InfusionAltarTileEntity extends BaseTileEntity implements ISidedInventory {
     private static final int[] SLOTS = { 0, 1 };
     private NonNullList<ItemStack> inventory = NonNullList.withSize(2, ItemStack.EMPTY);
-    private LazyOptional<? extends IItemHandler> wrapper = LazyOptional.of(() -> new SidedInvWrapper(this, null));
+    private LazyOptional<IItemHandler> wrapper = LazyOptional.of(() -> new SidedInvWrapper(this, null));
 
     public InfusionAltarTileEntity() {
         super(ModTileEntities.INFUSION_ALTAR);
@@ -71,7 +71,7 @@ public class InfusionAltarTileEntity extends BaseTileEntity implements ISidedInv
     @Override
     public <T> LazyOptional<T> getCapability(Capability<T> cap, Direction side) {
         if (!this.removed && cap == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY) {
-            return this.wrapper.cast();
+            return CapabilityItemHandler.ITEM_HANDLER_CAPABILITY.orEmpty(cap, this.wrapper);
         }
 
         return super.getCapability(cap, side);
