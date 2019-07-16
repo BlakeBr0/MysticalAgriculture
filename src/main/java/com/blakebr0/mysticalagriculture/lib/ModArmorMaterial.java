@@ -17,16 +17,16 @@ public enum ModArmorMaterial implements IArmorMaterial {
         return Ingredient.fromItems(ModItems.INFERIUM_INGOT);
     }),
     PRUDENTIUM("prudentium", 40, new int[] { 2, 4, 6, 3 }, 20, SoundEvents.ITEM_ARMOR_EQUIP_GOLD, 0.75F, () -> {
-        return Ingredient.fromItems(ModItems.INFERIUM_INGOT);
+        return Ingredient.fromItems(ModItems.PRUDENTIUM_INGOT);
     }),
     INTERMEDIUM("intermedium", 80, new int[] { 3, 6, 7, 3 }, 25, SoundEvents.ITEM_ARMOR_EQUIP_GOLD, 1.0F, () -> {
-       return Ingredient.fromItems(ModItems.INFERIUM_INGOT);
+       return Ingredient.fromItems(ModItems.INTERMEDIUM_INGOT);
     }),
     IMPERIUM("imperium", 160, new int[] { 4, 7, 8, 4 }, 35, SoundEvents.ITEM_ARMOR_EQUIP_GOLD, 1.25F, () -> {
-        return Ingredient.fromItems(ModItems.INFERIUM_INGOT);
+        return Ingredient.fromItems(ModItems.IMPERIUM_INGOT);
     }),
     SUPREMIUM("supremium", 280, new int[] { 4, 8, 9, 5 }, 0, SoundEvents.ITEM_ARMOR_EQUIP_GOLD, 1.5F, () -> {
-        return Ingredient.fromItems(ModItems.INFERIUM_INGOT);
+        return Ingredient.fromItems(ModItems.SUPREMIUM_INGOT);
     });
 
     private static final int[] MAX_DAMAGE_ARRAY = new int[] { 13, 15, 16, 11 };
