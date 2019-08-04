@@ -9,9 +9,9 @@ import net.minecraftforge.fml.client.registry.ClientRegistry;
 import net.minecraftforge.registries.IForgeRegistry;
 
 public class ModTileEntities {
-    public static final TileEntityType<InfusionPedestalTileEntity> INFUSION_PEDESTAL = TileEntityType.Builder.create(InfusionPedestalTileEntity::new, ModBlocks.INFUSION_PEDESTAL).build(null);
-    public static final TileEntityType<InfusionAltarTileEntity> INFUSION_ALTAR = TileEntityType.Builder.create(InfusionAltarTileEntity::new, ModBlocks.INFUSION_ALTAR).build(null);
-    public static final TileEntityType<TinkeringTableTileEntity> TINKERING_TABLE = TileEntityType.Builder.create(TinkeringTableTileEntity::new, ModBlocks.TINKERING_TABLE).build(null);
+    public static final TileEntityType<InfusionPedestalTileEntity> INFUSION_PEDESTAL = TileEntityType.Builder.create(InfusionPedestalTileEntity::new, ModBlocks.INFUSION_PEDESTAL.orElse(null)).build(null);
+    public static final TileEntityType<InfusionAltarTileEntity> INFUSION_ALTAR = TileEntityType.Builder.create(InfusionAltarTileEntity::new, ModBlocks.INFUSION_ALTAR.orElse(null)).build(null);
+    public static final TileEntityType<TinkeringTableTileEntity> TINKERING_TABLE = TileEntityType.Builder.create(TinkeringTableTileEntity::new, ModBlocks.TINKERING_TABLE.orElse(null)).build(null);
 
     public static void onRegisterTypes(RegistryEvent.Register<TileEntityType<?>> event) {
         IForgeRegistry<TileEntityType<?>> registry = event.getRegistry();
