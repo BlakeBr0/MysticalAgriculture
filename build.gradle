@@ -13,7 +13,7 @@ apply plugin: 'eclipse'
 
 version = '2.0.0'
 group = 'com.blakebr0.mysticalagriculture'
-archivesBaseName = 'MysticalAgriculture-1.14.3'
+archivesBaseName = 'MysticalAgriculture-1.14.4'
 
 sourceCompatibility = targetCompatibility = compileJava.sourceCompatibility = compileJava.targetCompatibility = '1.8'
 
@@ -31,7 +31,7 @@ repositories {
 }
 
 minecraft {
-    mappings channel: 'snapshot', version: '20190622-1.14.2'
+    mappings channel: 'snapshot', version: '20190803-1.14.3'
 
     runs {
         client {
@@ -63,9 +63,9 @@ minecraft {
 }
 
 dependencies {
-    minecraft 'net.minecraftforge:forge:1.14.3-27.0.49'
+    minecraft 'net.minecraftforge:forge:1.14.4-28.0.40'
 
-    compile files('../Cucumber/build/libs/Cucumber-1.14.3-2.0.0-deobf.jar')
+    compile files('../Cucumber/build/libs/Cucumber-1.14.4-2.0.1-deobf.jar')
     compile fg.deobf('mcp.mobius.waila:Hwyla:1.10.4-B65_1.14.2')
     compileOnly fg.deobf("mezz.jei:jei-1.14.3:6.0.0.8:api")
     runtimeOnly fg.deobf("mezz.jei:jei-1.14.3:6.0.0.8")
