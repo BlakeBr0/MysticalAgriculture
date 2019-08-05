@@ -17,9 +17,10 @@ import com.blakebr0.mysticalagriculture.registry.CropRegistry;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.IForgeRegistry;
 
-import java.awt.image.PixelGrabber;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -110,7 +111,8 @@ public class ModItems {
     public static final EssenceLeggingsItem SUPREMIUM_LEGGINGS = new EssenceLeggingsItem(ModArmorMaterial.SUPREMIUM, p -> p.group(ITEM_GROUP));
     public static final EssenceBootsItem SUPREMIUM_BOOTS = new EssenceBootsItem(ModArmorMaterial.SUPREMIUM, p -> p.group(ITEM_GROUP));
 
-    public static void onRegisterItems(RegistryEvent.Register<Item> event) {
+    @SubscribeEvent
+    public void onRegisterItems(RegistryEvent.Register<Item> event) {
         IForgeRegistry<Item> registry = event.getRegistry();
         ITEM_BLOCKS.forEach(registry::register);
 

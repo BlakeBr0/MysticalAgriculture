@@ -14,6 +14,8 @@ import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.BlockItem;
 import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.IForgeRegistry;
 
 import static com.blakebr0.mysticalagriculture.MysticalAgriculture.ITEM_GROUP;
@@ -73,7 +75,8 @@ public class ModBlocks {
     public static final InfusionAltarBlock INFUSION_ALTAR = new InfusionAltarBlock();
     public static final TinkeringTableBlock TINKERING_TABLE = new TinkeringTableBlock();
 
-    public static void onRegisterBlocks(RegistryEvent.Register<Block> event) {
+    @SubscribeEvent
+    public void onRegisterBlocks(RegistryEvent.Register<Block> event) {
         IForgeRegistry<Block> registry = event.getRegistry();
 
         register(registry, PROSPERITY_BLOCK.setRegistryName("prosperity_block"));
