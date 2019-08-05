@@ -9,22 +9,22 @@ import java.util.function.Supplier;
 
 public enum ModItemTier implements IItemTier {
     INFERIUM(2, 500, 8.0F, 2.0F, 20, () -> {
-        return Ingredient.fromItems(ModItems.INFERIUM_INGOT.orElse(null));
+        return Ingredient.fromItems(ModItems.INFERIUM_INGOT);
     }),
     PRUDENTIUM(2, 1000, 10.0F, 4.0F, 25, () -> {
-        return Ingredient.fromItems(ModItems.PRUDENTIUM_INGOT.orElse(null));
+        return Ingredient.fromItems(ModItems.PRUDENTIUM_INGOT);
     }),
     INTERMEDIUM(3, 2000, 14.0F, 7.0F, 30, () -> {
-        return Ingredient.fromItems(ModItems.INTERMEDIUM_INGOT.orElse(null));
+        return Ingredient.fromItems(ModItems.INTERMEDIUM_INGOT);
     }),
     IMPERIUM(4, 4000, 19.0F, 11.0F, 35, () -> {
-        return Ingredient.fromItems(ModItems.IMPERIUM_INGOT.orElse(null));
+        return Ingredient.fromItems(ModItems.IMPERIUM_INGOT);
     }),
     SUPREMIUM(5, -1, 25.0F, 17.0F, 0, () -> {
-        return Ingredient.fromItems(ModItems.SUPREMIUM_INGOT.orElse(null));
+        return Ingredient.fromItems(ModItems.SUPREMIUM_INGOT);
     }),
     SOULIUM(0, 400, 5.0F, 3.0F, 40, () -> {
-        return Ingredient.fromItems(ModItems.SOULIUM_INGOT.orElse(null));
+        return Ingredient.fromItems(ModItems.SOULIUM_INGOT);
     });
 
     private final int harvestLevel;

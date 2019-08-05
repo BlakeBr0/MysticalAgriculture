@@ -14,6 +14,6 @@ public class MAItemGroup extends ItemGroup {
 	@OnlyIn(Dist.CLIENT)
 	@Override
 	public ItemStack createIcon() {
-		return new ItemStack(ModItems.INFERIUM_ESSENCE.orElse(null));
+		return new ItemStack(ModItems.INFERIUM_ESSENCE);
 	}
 }

@@ -19,14 +19,14 @@ public class ModCrops {
     }
 
     public static void onCommonSetup() {
-        CropTiers.ELEMENTAL.setFarmland(ModBlocks.INFERIUM_FARMLAND.orElse(null)).setEssence(ModItems.INFERIUM_ESSENCE.orElse(null));
-        CropTiers.ONE.setFarmland(ModBlocks.INFERIUM_FARMLAND.orElse(null)).setEssence(ModItems.INFERIUM_ESSENCE.orElse(null));
-        CropTiers.TWO.setFarmland(ModBlocks.PRUDENTIUM_FARMLAND.orElse(null)).setEssence(ModItems.PRUDENTIUM_ESSENCE.orElse(null));
-        CropTiers.THREE.setFarmland(ModBlocks.INTERMEDIUM_FARMLAND.orElse(null)).setEssence(ModItems.INTERMEDIUM_ESSENCE.orElse(null));
-        CropTiers.FOUR.setFarmland(ModBlocks.IMPERIUM_FARMLAND.orElse(null)).setEssence(ModItems.IMPERIUM_ESSENCE.orElse(null));
-        CropTiers.FIVE.setFarmland(ModBlocks.SUPREMIUM_FARMLAND.orElse(null)).setEssence(ModItems.SUPREMIUM_ESSENCE.orElse(null));
+        CropTiers.ELEMENTAL.setFarmland(ModBlocks.INFERIUM_FARMLAND).setEssence(ModItems.INFERIUM_ESSENCE);
+        CropTiers.ONE.setFarmland(ModBlocks.INFERIUM_FARMLAND).setEssence(ModItems.INFERIUM_ESSENCE);
+        CropTiers.TWO.setFarmland(ModBlocks.PRUDENTIUM_FARMLAND).setEssence(ModItems.PRUDENTIUM_ESSENCE);
+        CropTiers.THREE.setFarmland(ModBlocks.INTERMEDIUM_FARMLAND).setEssence(ModItems.INTERMEDIUM_ESSENCE);
+        CropTiers.FOUR.setFarmland(ModBlocks.IMPERIUM_FARMLAND).setEssence(ModItems.IMPERIUM_ESSENCE);
+        CropTiers.FIVE.setFarmland(ModBlocks.SUPREMIUM_FARMLAND).setEssence(ModItems.SUPREMIUM_ESSENCE);
 
-        CropTypes.RESOURCE.setCraftingSeed(ModItems.PROSPERITY_SEED_BASE.orElse(null));
-        CropTypes.MOB.setCraftingSeed(ModItems.SOULIUM_SEED_BASE.orElse(null));
+        CropTypes.RESOURCE.setCraftingSeed(ModItems.PROSPERITY_SEED_BASE);
+        CropTypes.MOB.setCraftingSeed(ModItems.SOULIUM_SEED_BASE);
     }
 }
