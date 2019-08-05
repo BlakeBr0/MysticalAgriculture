@@ -101,6 +101,6 @@ public class MysticalAgriculture {
 		colors.register((stack, tint) -> {
 			float damage = (float) (stack.getMaxDamage() - stack.getDamage()) / stack.getMaxDamage();
 			return Utils.saturate(0x00D9D9, damage);
-		}, ModItems.INFUSION_CRYSTAL);
+		}, ModItems.INFUSION_CRYSTAL.orElse(null));
 	}
 }

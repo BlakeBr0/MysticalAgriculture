@@ -14,135 +14,125 @@ import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.BlockItem;
 import net.minecraftforge.event.RegistryEvent;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.IForgeRegistry;
 
 import static com.blakebr0.mysticalagriculture.MysticalAgriculture.ITEM_GROUP;
 
 public class ModBlocks {
-    public static final RegistryObject<BaseBlock> PROSPERITY_BLOCK = get("prosperity_block");
-    public static final RegistryObject<BaseBlock> INFERIUM_BLOCK = get("inferium_block");
-    public static final RegistryObject<BaseBlock> PRUDENTIUM_BLOCK = get("prudentium_block");
-    public static final RegistryObject<BaseBlock> INTERMEDIUM_BLOCK = get("intermedium_block");
-    public static final RegistryObject<BaseBlock> IMPERIUM_BLOCK = get("imperium_block");
-    public static final RegistryObject<BaseBlock> SUPREMIUM_BLOCK = get("supremium_block");
-    public static final RegistryObject<BaseBlock> SOULIUM_BLOCK = get("soulium_block");
-    public static final RegistryObject<BaseBlock> PROSPERITY_INGOT_BLOCK = get("prosperity_ingot_block");
-    public static final RegistryObject<BaseBlock> INFERIUM_INGOT_BLOCK = get("inferium_ingot_block");
-    public static final RegistryObject<BaseBlock> PRUDENTIUM_INGOT_BLOCK = get("prudentium_ingot_block");
-    public static final RegistryObject<BaseBlock> INTERMEDIUM_INGOT_BLOCK = get("intermedium_ingot_block");
-    public static final RegistryObject<BaseBlock> IMPERIUM_INGOT_BLOCK = get("imperium_ingot_block");
-    public static final RegistryObject<BaseBlock> SUPREMIUM_INGOT_BLOCK = get("supremium_ingot_block");
-    public static final RegistryObject<BaseBlock> SOULIUM_INGOT_BLOCK = get("soulium_ingot_block");
-    public static final RegistryObject<BaseBlock> PROSPERITY_GEMSTONE_BLOCK = get("prosperity_gemstone_block");
-    public static final RegistryObject<BaseBlock> INFERIUM_GEMSTONE_BLOCK = get("inferium_gemstone_block");
-    public static final RegistryObject<BaseBlock> PRUDENTIUM_GEMSTONE_BLOCK = get("prudentium_gemstone_block");
-    public static final RegistryObject<BaseBlock> INTERMEDIUM_GEMSTONE_BLOCK = get("intermedium_gemstone_block");
-    public static final RegistryObject<BaseBlock> IMPERIUM_GEMSTONE_BLOCK = get("imperium_gemstone_block");
-    public static final RegistryObject<BaseBlock> SUPREMIUM_GEMSTONE_BLOCK = get("supremium_gemstone_block");
-    public static final RegistryObject<BaseBlock> SOULIUM_GEMSTONE_BLOCK = get("soulium_gemstone_block");
-    public static final RegistryObject<InfusedFarmlandBlock> INFERIUM_FARMLAND = get("inferium_farmland");
-    public static final RegistryObject<InfusedFarmlandBlock> PRUDENTIUM_FARMLAND = get("prudentium_farmland");
-    public static final RegistryObject<InfusedFarmlandBlock> INTERMEDIUM_FARMLAND = get("intermedium_farmland");
-    public static final RegistryObject<InfusedFarmlandBlock> IMPERIUM_FARMLAND = get("imperium_farmland");
-    public static final RegistryObject<InfusedFarmlandBlock> SUPREMIUM_FARMLAND = get("supremium_farmland");
-    public static final RegistryObject<GrowthAcceleratorBlock> INFERIUM_GROWTH_ACCELERATOR = get("inferium_growth_accelerator");
-    public static final RegistryObject<GrowthAcceleratorBlock> PRUDENTIUM_GROWTH_ACCELERATOR = get("prudentium_growth_accelerator");
-    public static final RegistryObject<GrowthAcceleratorBlock> INTERMEDIUM_GROWTH_ACCELERATOR = get("intermedium_growth_accelerator");
-    public static final RegistryObject<GrowthAcceleratorBlock> IMPERIUM_GROWTH_ACCELERATOR = get("imperium_growth_accelerator");
-    public static final RegistryObject<GrowthAcceleratorBlock> SUPREMIUM_GROWTH_ACCELERATOR = get("supremium_growth_accelerator");
-    public static final RegistryObject<BaseBlock> SOULSTONE = get("soulstone");
-    public static final RegistryObject<BaseBlock> SOULSTONE_COBBLE = get("soulstone_cobble");
-    public static final RegistryObject<BaseBlock> SOULSTONE_BRICKS = get("soulstone_bricks");
-    public static final RegistryObject<BaseBlock> SOULSTONE_CRACKED_BRICKS = get("soulstone_cracked_bricks");
-    public static final RegistryObject<BaseBlock> SOULSTONE_CHISELED_BRICKS = get("soulstone_chiseled_bricks");
-    public static final RegistryObject<BaseBlock> SOULSTONE_SMOOTH = get("soulstone_smooth");
-    public static final RegistryObject<BaseGlassBlock> SOUL_GLASS = get("soul_glass");
-    public static final RegistryObject<BaseSlabBlock> SOULSTONE_SLAB = get("soulstone_slab");
-    public static final RegistryObject<BaseSlabBlock> SOULSTONE_COBBLE_SLAB = get("soulstone_cobble_slab");
-    public static final RegistryObject<BaseSlabBlock> SOULSTONE_BRICKS_SLAB = get("soulstone_bricks_slab");
-    public static final RegistryObject<BaseSlabBlock> SOULSTONE_SMOOTH_SLAB = get("soulstone_smooth_slab");
-    public static final RegistryObject<BaseStairsBlock> SOULSTONE_STAIRS = get("soulstone_stairs");
-    public static final RegistryObject<BaseStairsBlock> SOULSTONE_COBBLE_STAIRS = get("soulstone_cobble_stairs");
-    public static final RegistryObject<BaseStairsBlock> SOULSTONE_BRICKS_STAIRS = get("soulstone_bricks_stairs");
-    public static final RegistryObject<BaseWallBlock> SOULSTONE_COBBLE_WALL = get("soulstone_cobble_wall");
-    public static final RegistryObject<BaseWallBlock> SOULSTONE_BRICKS_WALL = get("soulstone_bricks_wall");
-    public static final RegistryObject<WitherproofBlock> WITHERPROOF_BLOCK = get("witherproof_block");
-    public static final RegistryObject<WitherproofBlock> WITHERPROOF_BRICKS = get("witherproof_bricks");
-    public static final RegistryObject<WitherproofGlassBlock> WITHERPROOF_GLASS = get("witherproof_glass");
-    public static final RegistryObject<InfusionPedestalBlock> INFUSION_PEDESTAL = get("infusion_pedestal");
-    public static final RegistryObject<InfusionAltarBlock> INFUSION_ALTAR = get("infusion_altar");
-    public static final RegistryObject<TinkeringTableBlock> TINKERING_TABLE = get("tinkering_table");
+    public static final BaseBlock PROSPERITY_BLOCK = new BaseBlock(Material.ROCK, SoundType.STONE, 4.0F, 6.0F);
+    public static final BaseBlock INFERIUM_BLOCK = new BaseBlock(Material.ROCK, SoundType.STONE, 4.0F, 6.0F);
+    public static final BaseBlock PRUDENTIUM_BLOCK = new BaseBlock(Material.ROCK, SoundType.STONE, 4.0F, 6.0F);
+    public static final BaseBlock INTERMEDIUM_BLOCK = new BaseBlock(Material.ROCK, SoundType.STONE, 4.0F, 6.0F);
+    public static final BaseBlock IMPERIUM_BLOCK = new BaseBlock(Material.ROCK, SoundType.STONE, 4.0F, 5.0F);
+    public static final BaseBlock SUPREMIUM_BLOCK = new BaseBlock(Material.ROCK, SoundType.STONE, 4.0F, 6.0F);
+    public static final BaseBlock SOULIUM_BLOCK = new BaseBlock(Material.ROCK, SoundType.STONE, 4.0F, 6.0F);
+    public static final BaseBlock PROSPERITY_INGOT_BLOCK = new BaseBlock(Material.IRON, SoundType.METAL, 5.0F, 6.0F);
+    public static final BaseBlock INFERIUM_INGOT_BLOCK = new BaseBlock(Material.IRON, SoundType.METAL, 5.0F, 6.0F);
+    public static final BaseBlock PRUDENTIUM_INGOT_BLOCK = new BaseBlock(Material.IRON, SoundType.METAL, 5.0F, 6.0F);
+    public static final BaseBlock INTERMEDIUM_INGOT_BLOCK = new BaseBlock(Material.IRON, SoundType.METAL, 5.0F, 6.0F);
+    public static final BaseBlock IMPERIUM_INGOT_BLOCK = new BaseBlock(Material.IRON, SoundType.METAL, 5.0F, 6.0F);
+    public static final BaseBlock SUPREMIUM_INGOT_BLOCK = new BaseBlock(Material.IRON, SoundType.METAL, 5.0F, 6.0F);
+    public static final BaseBlock SOULIUM_INGOT_BLOCK = new BaseBlock(Material.IRON, SoundType.METAL, 5.0F, 6.0F);
+    public static final BaseBlock PROSPERITY_GEMSTONE_BLOCK = new BaseBlock(Material.IRON, SoundType.METAL, 5.0F, 6.0F);
+    public static final BaseBlock INFERIUM_GEMSTONE_BLOCK = new BaseBlock(Material.IRON, SoundType.METAL, 5.0F, 6.0F);
+    public static final BaseBlock PRUDENTIUM_GEMSTONE_BLOCK = new BaseBlock(Material.IRON, SoundType.METAL, 5.0F, 6.0F);
+    public static final BaseBlock INTERMEDIUM_GEMSTONE_BLOCK = new BaseBlock(Material.IRON, SoundType.METAL, 5.0F, 6.0F);
+    public static final BaseBlock IMPERIUM_GEMSTONE_BLOCK = new BaseBlock(Material.IRON, SoundType.METAL, 5.0F, 6.0F);
+    public static final BaseBlock SUPREMIUM_GEMSTONE_BLOCK = new BaseBlock(Material.IRON, SoundType.METAL, 5.0F, 6.0F);
+    public static final BaseBlock SOULIUM_GEMSTONE_BLOCK = new BaseBlock(Material.IRON, SoundType.METAL, 5.0F, 6.0F);
+    public static final InfusedFarmlandBlock INFERIUM_FARMLAND = new InfusedFarmlandBlock(CropTiers.ONE);
+    public static final InfusedFarmlandBlock PRUDENTIUM_FARMLAND = new InfusedFarmlandBlock(CropTiers.TWO);
+    public static final InfusedFarmlandBlock INTERMEDIUM_FARMLAND = new InfusedFarmlandBlock(CropTiers.THREE);
+    public static final InfusedFarmlandBlock IMPERIUM_FARMLAND = new InfusedFarmlandBlock(CropTiers.FOUR);
+    public static final InfusedFarmlandBlock SUPREMIUM_FARMLAND = new InfusedFarmlandBlock(CropTiers.FIVE);
+    public static final GrowthAcceleratorBlock INFERIUM_GROWTH_ACCELERATOR = new GrowthAcceleratorBlock();
+    public static final GrowthAcceleratorBlock PRUDENTIUM_GROWTH_ACCELERATOR = new GrowthAcceleratorBlock();
+    public static final GrowthAcceleratorBlock INTERMEDIUM_GROWTH_ACCELERATOR = new GrowthAcceleratorBlock();
+    public static final GrowthAcceleratorBlock IMPERIUM_GROWTH_ACCELERATOR = new GrowthAcceleratorBlock();
+    public static final GrowthAcceleratorBlock SUPREMIUM_GROWTH_ACCELERATOR = new GrowthAcceleratorBlock();
+    public static final BaseBlock SOULSTONE = new BaseBlock(Material.ROCK, SoundType.STONE, 1.5F, 6.0F);
+    public static final BaseBlock SOULSTONE_COBBLE = new BaseBlock(Material.ROCK, SoundType.STONE, 2.0F, 6.0F);
+    public static final BaseBlock SOULSTONE_BRICKS = new BaseBlock(Material.ROCK, SoundType.STONE, 1.5F, 6.0F);
+    public static final BaseBlock SOULSTONE_CRACKED_BRICKS = new BaseBlock(Material.ROCK, SoundType.STONE, 1.5F, 6.0F);
+    public static final BaseBlock SOULSTONE_CHISELED_BRICKS = new BaseBlock(Material.ROCK, SoundType.STONE, 1.5F, 6.0F);
+    public static final BaseBlock SOULSTONE_SMOOTH = new BaseBlock(Material.ROCK, SoundType.STONE, 1.5F, 6.0F);
+    public static final BaseGlassBlock SOUL_GLASS = new BaseGlassBlock(Material.GLASS, SoundType.GLASS, 0.3F, 0.3F);
+    public static final BaseSlabBlock SOULSTONE_SLAB = new BaseSlabBlock(SOULSTONE);
+    public static final BaseSlabBlock SOULSTONE_COBBLE_SLAB = new BaseSlabBlock(SOULSTONE_COBBLE);
+    public static final BaseSlabBlock SOULSTONE_BRICKS_SLAB = new BaseSlabBlock(SOULSTONE_BRICKS);
+    public static final BaseSlabBlock SOULSTONE_SMOOTH_SLAB = new BaseSlabBlock(SOULSTONE_SMOOTH);
+    public static final BaseStairsBlock SOULSTONE_STAIRS = new BaseStairsBlock(SOULSTONE);
+    public static final BaseStairsBlock SOULSTONE_COBBLE_STAIRS = new BaseStairsBlock(SOULSTONE_COBBLE);
+    public static final BaseStairsBlock SOULSTONE_BRICKS_STAIRS = new BaseStairsBlock(SOULSTONE_BRICKS);
+    public static final BaseWallBlock SOULSTONE_COBBLE_WALL = new BaseWallBlock(SOULSTONE_COBBLE);
+    public static final BaseWallBlock SOULSTONE_BRICKS_WALL = new BaseWallBlock(SOULSTONE_BRICKS);
+    public static final WitherproofBlock WITHERPROOF_BLOCK = new WitherproofBlock();
+    public static final WitherproofBlock WITHERPROOF_BRICKS = new WitherproofBlock();
+    public static final WitherproofGlassBlock WITHERPROOF_GLASS = new WitherproofGlassBlock();
+    public static final InfusionPedestalBlock INFUSION_PEDESTAL = new InfusionPedestalBlock();
+    public static final InfusionAltarBlock INFUSION_ALTAR = new InfusionAltarBlock();
+    public static final TinkeringTableBlock TINKERING_TABLE = new TinkeringTableBlock();
 
-    @SubscribeEvent
-    public void onRegisterBlocks(RegistryEvent.Register<Block> event) {
+    public static void onRegisterBlocks(RegistryEvent.Register<Block> event) {
         IForgeRegistry<Block> registry = event.getRegistry();
 
-        registerAll(registry,
-                new BaseBlock(Material.ROCK, SoundType.STONE, 4.0F, 6.0F).setRegistryName("prosperity_block"),
-                new BaseBlock(Material.ROCK, SoundType.STONE, 4.0F, 6.0F).setRegistryName("inferium_block"),
-                new BaseBlock(Material.ROCK, SoundType.STONE, 4.0F, 6.0F).setRegistryName("prudentium_block"),
-                new BaseBlock(Material.ROCK, SoundType.STONE, 4.0F, 6.0F).setRegistryName("intermedium_block"),
-                new BaseBlock(Material.ROCK, SoundType.STONE, 4.0F, 5.0F).setRegistryName("imperium_block"),
-                new BaseBlock(Material.ROCK, SoundType.STONE, 4.0F, 6.0F).setRegistryName("supremium_block"),
-                new BaseBlock(Material.ROCK, SoundType.STONE, 4.0F, 6.0F).setRegistryName("soulium_block"),
-                new BaseBlock(Material.IRON, SoundType.METAL, 5.0F, 6.0F).setRegistryName("prosperity_ingot_block"),
-                new BaseBlock(Material.IRON, SoundType.METAL, 5.0F, 6.0F).setRegistryName("inferium_ingot_block"),
-                new BaseBlock(Material.IRON, SoundType.METAL, 5.0F, 6.0F).setRegistryName("prudentium_ingot_block"),
-                new BaseBlock(Material.IRON, SoundType.METAL, 5.0F, 6.0F).setRegistryName("intermedium_ingot_block"),
-                new BaseBlock(Material.IRON, SoundType.METAL, 5.0F, 6.0F).setRegistryName("imperium_ingot_block"),
-                new BaseBlock(Material.IRON, SoundType.METAL, 5.0F, 6.0F).setRegistryName("supremium_ingot_block"),
-                new BaseBlock(Material.IRON, SoundType.METAL, 5.0F, 6.0F).setRegistryName("soulium_ingot_block"),
-                new BaseBlock(Material.IRON, SoundType.METAL, 5.0F, 6.0F).setRegistryName("prosperity_gemstone_block"),
-                new BaseBlock(Material.IRON, SoundType.METAL, 5.0F, 6.0F).setRegistryName("inferium_gemstone_block"),
-                new BaseBlock(Material.IRON, SoundType.METAL, 5.0F, 6.0F).setRegistryName("prudentium_gemstone_block"),
-                new BaseBlock(Material.IRON, SoundType.METAL, 5.0F, 6.0F).setRegistryName("intermedium_gemstone_block"),
-                new BaseBlock(Material.IRON, SoundType.METAL, 5.0F, 6.0F).setRegistryName("imperium_gemstone_block"),
-                new BaseBlock(Material.IRON, SoundType.METAL, 5.0F, 6.0F).setRegistryName("supremium_gemstone_block"),
-                new BaseBlock(Material.IRON, SoundType.METAL, 5.0F, 6.0F).setRegistryName("soulium_gemstone_block"),
-                new InfusedFarmlandBlock(CropTiers.ONE).setRegistryName("inferium_farmland"),
-                new InfusedFarmlandBlock(CropTiers.TWO).setRegistryName("prudentium_farmland"),
-                new InfusedFarmlandBlock(CropTiers.THREE).setRegistryName("intermedium_farmland"),
-                new InfusedFarmlandBlock(CropTiers.FOUR).setRegistryName("imperium_farmland"),
-                new InfusedFarmlandBlock(CropTiers.FIVE).setRegistryName("supremium_farmland"),
-                new GrowthAcceleratorBlock().setRegistryName("inferium_growth_accelerator"),
-                new GrowthAcceleratorBlock().setRegistryName("prudentium_growth_accelerator"),
-                new GrowthAcceleratorBlock().setRegistryName("intermedium_growth_accelerator"),
-                new GrowthAcceleratorBlock().setRegistryName("imperium_growth_accelerator"),
-                new GrowthAcceleratorBlock().setRegistryName("supremium_growth_accelerator"),
-                new BaseBlock(Material.ROCK, SoundType.STONE, 1.5F, 6.0F).setRegistryName("soulstone"),
-                new BaseBlock(Material.ROCK, SoundType.STONE, 2.0F, 6.0F).setRegistryName("soulstone_cobble"),
-                new BaseBlock(Material.ROCK, SoundType.STONE, 1.5F, 6.0F).setRegistryName("soulstone_bricks"),
-                new BaseBlock(Material.ROCK, SoundType.STONE, 1.5F, 6.0F).setRegistryName("soulstone_cracked_bricks"),
-                new BaseBlock(Material.ROCK, SoundType.STONE, 1.5F, 6.0F).setRegistryName("soulstone_chiseled_bricks"),
-                new BaseBlock(Material.ROCK, SoundType.STONE, 1.5F, 6.0F).setRegistryName("soulstone_smooth"),
-                new BaseGlassBlock(Material.GLASS, SoundType.GLASS, 0.3F, 0.3F).setRegistryName("soul_glass"),
-                new BaseSlabBlock(SOULSTONE.orElse(null)).setRegistryName("soulstone_slab"),
-                new BaseSlabBlock(SOULSTONE_COBBLE.orElse(null)).setRegistryName("soulstone_cobble_slab"),
-                new BaseSlabBlock(SOULSTONE_BRICKS.orElse(null)).setRegistryName("soulstone_bricks_slab"),
-                new BaseSlabBlock(SOULSTONE_SMOOTH.orElse(null)).setRegistryName("soulstone_smooth_slab"),
-                new BaseStairsBlock(SOULSTONE.orElse(null)).setRegistryName("soulstone_stairs"),
-                new BaseStairsBlock(SOULSTONE_COBBLE.orElse(null)).setRegistryName("soulstone_cobble_stairs"),
-                new BaseStairsBlock(SOULSTONE_BRICKS.orElse(null)).setRegistryName("soulstone_bricks_stairs"),
-                new BaseWallBlock(SOULSTONE_COBBLE.orElse(null)).setRegistryName("soulstone_cobble_wall"),
-                new BaseWallBlock(SOULSTONE_BRICKS.orElse(null)).setRegistryName("soulstone_bricks_wall"),
-                new WitherproofBlock().setRegistryName("witherproof_block"),
-                new WitherproofBlock().setRegistryName("witherproof_bricks"),
-                new WitherproofGlassBlock().setRegistryName("witherproof_glass"),
-                new InfusionPedestalBlock().setRegistryName("infusion_pedestal"),
-                new InfusionAltarBlock().setRegistryName("infusion_altar"),
-                new TinkeringTableBlock().setRegistryName("tinkering_table")
-        );
+        register(registry, PROSPERITY_BLOCK.setRegistryName("prosperity_block"));
+        register(registry, INFERIUM_BLOCK.setRegistryName("inferium_block"));
+        register(registry, PRUDENTIUM_BLOCK.setRegistryName("prudentium_block"));
+        register(registry, INTERMEDIUM_BLOCK.setRegistryName("intermedium_block"));
+        register(registry, IMPERIUM_BLOCK.setRegistryName("imperium_block"));
+        register(registry, SUPREMIUM_BLOCK.setRegistryName("supremium_block"));
+        register(registry, SOULIUM_BLOCK.setRegistryName("soulium_block"));
+        register(registry, PROSPERITY_INGOT_BLOCK.setRegistryName("prosperity_ingot_block"));
+        register(registry, INFERIUM_INGOT_BLOCK.setRegistryName("inferium_ingot_block"));
+        register(registry, PRUDENTIUM_INGOT_BLOCK.setRegistryName("prudentium_ingot_block"));
+        register(registry, INTERMEDIUM_INGOT_BLOCK.setRegistryName("intermedium_ingot_block"));
+        register(registry, IMPERIUM_INGOT_BLOCK.setRegistryName("imperium_ingot_block"));
+        register(registry, SUPREMIUM_INGOT_BLOCK.setRegistryName("supremium_ingot_block"));
+        register(registry, SOULIUM_INGOT_BLOCK.setRegistryName("soulium_ingot_block"));
+        register(registry, PROSPERITY_GEMSTONE_BLOCK.setRegistryName("prosperity_gemstone_block"));
+        register(registry, INFERIUM_GEMSTONE_BLOCK.setRegistryName("inferium_gemstone_block"));
+        register(registry, PRUDENTIUM_GEMSTONE_BLOCK.setRegistryName("prudentium_gemstone_block"));
+        register(registry, INTERMEDIUM_GEMSTONE_BLOCK.setRegistryName("intermedium_gemstone_block"));
+        register(registry, IMPERIUM_GEMSTONE_BLOCK.setRegistryName("imperium_gemstone_block"));
+        register(registry, SUPREMIUM_GEMSTONE_BLOCK.setRegistryName("supremium_gemstone_block"));
+        register(registry, SOULIUM_GEMSTONE_BLOCK.setRegistryName("soulium_gemstone_block"));
+        register(registry, INFERIUM_FARMLAND.setRegistryName("inferium_farmland"));
+        register(registry, PRUDENTIUM_FARMLAND.setRegistryName("prudentium_farmland"));
+        register(registry, INTERMEDIUM_FARMLAND.setRegistryName("intermedium_farmland"));
+        register(registry, IMPERIUM_FARMLAND.setRegistryName("imperium_farmland"));
+        register(registry, SUPREMIUM_FARMLAND.setRegistryName("supremium_farmland"));
+        register(registry, INFERIUM_GROWTH_ACCELERATOR.setRegistryName("inferium_growth_accelerator"));
+        register(registry, PRUDENTIUM_GROWTH_ACCELERATOR.setRegistryName("prudentium_growth_accelerator"));
+        register(registry, INTERMEDIUM_GROWTH_ACCELERATOR.setRegistryName("intermedium_growth_accelerator"));
+        register(registry, IMPERIUM_GROWTH_ACCELERATOR.setRegistryName("imperium_growth_accelerator"));
+        register(registry, SUPREMIUM_GROWTH_ACCELERATOR.setRegistryName("supremium_growth_accelerator"));
+        register(registry, SOULSTONE.setRegistryName("soulstone"));
+        register(registry, SOULSTONE_COBBLE.setRegistryName("soulstone_cobble"));
+        register(registry, SOULSTONE_BRICKS.setRegistryName("soulstone_bricks"));
+        register(registry, SOULSTONE_CRACKED_BRICKS.setRegistryName("soulstone_cracked_bricks"));
+        register(registry, SOULSTONE_CHISELED_BRICKS.setRegistryName("soulstone_chiseled_bricks"));
+        register(registry, SOULSTONE_SMOOTH.setRegistryName("soulstone_smooth"));
+        register(registry, SOUL_GLASS.setRegistryName("soul_glass"));
+        register(registry, SOULSTONE_SLAB.setRegistryName("soulstone_slab"));
+        register(registry, SOULSTONE_COBBLE_SLAB.setRegistryName("soulstone_cobble_slab"));
+        register(registry, SOULSTONE_BRICKS_SLAB.setRegistryName("soulstone_bricks_slab"));
+        register(registry, SOULSTONE_SMOOTH_SLAB.setRegistryName("soulstone_smooth_slab"));
+        register(registry, SOULSTONE_STAIRS.setRegistryName("soulstone_stairs"));
+        register(registry, SOULSTONE_COBBLE_STAIRS.setRegistryName("soulstone_cobble_stairs"));
+        register(registry, SOULSTONE_BRICKS_STAIRS.setRegistryName("soulstone_bricks_stairs"));
+        register(registry, SOULSTONE_COBBLE_WALL.setRegistryName("soulstone_cobble_wall"));
+        register(registry, SOULSTONE_BRICKS_WALL.setRegistryName("soulstone_bricks_wall"));
+        register(registry, WITHERPROOF_BLOCK.setRegistryName("witherproof_block"));
+        register(registry, WITHERPROOF_BRICKS.setRegistryName("witherproof_bricks"));
+        register(registry, WITHERPROOF_GLASS.setRegistryName("witherproof_glass"));
+        register(registry, INFUSION_PEDESTAL.setRegistryName("infusion_pedestal"));
+        register(registry, INFUSION_ALTAR.setRegistryName("infusion_altar"));
+        register(registry, TINKERING_TABLE.setRegistryName("tinkering_table"));
 
         CropRegistry.getInstance().allowRegistration();
         CropRegistry.getInstance().onRegisterBlocks(registry);
         CropRegistry.getInstance().denyRegistration();
-    }
-
-    private static void registerAll(IForgeRegistry<Block> registry, Block... blocks) {
-        for (Block block : blocks)
-            register(registry, block);
     }
 
     private static void register(IForgeRegistry<Block> registry, Block block) {
@@ -156,9 +146,5 @@ public class ModBlocks {
     private static void register(IForgeRegistry<Block> registry, Block block, BlockItem item) {
         registry.register(block);
         ModItems.ITEM_BLOCKS.add(item);
-    }
-
-    private static <T extends Block> RegistryObject<T> get(String name) {
-        return RegistryObject.of("mysticalagriculture:" + name, () -> Block.class);
     }
 }
