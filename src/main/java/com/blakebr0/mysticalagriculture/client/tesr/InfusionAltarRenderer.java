@@ -8,11 +8,13 @@ import net.minecraft.client.renderer.model.ItemCameraTransforms;
 import net.minecraft.client.renderer.tileentity.TileEntityRenderer;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.ItemStack;
+import net.minecraftforge.items.ItemStackHandler;
 
 public class InfusionAltarRenderer extends TileEntityRenderer<InfusionAltarTileEntity> {
     @Override
     public void render(InfusionAltarTileEntity tile, double x, double y, double z, float partialTicks, int destroyStage) {
-        ItemStack stack = tile.getStackInSlot(1).isEmpty() ? tile.getStackInSlot(0) : tile.getStackInSlot(1);
+        ItemStackHandler inventory = tile.getInventory();
+        ItemStack stack = inventory.getStackInSlot(1).isEmpty() ? inventory.getStackInSlot(0) : inventory.getStackInSlot(1);
         if (!stack.isEmpty()) {
             GlStateManager.pushMatrix();
             GlStateManager.translated(x + 0.5D, y + 1.1D, z + 0.5D);

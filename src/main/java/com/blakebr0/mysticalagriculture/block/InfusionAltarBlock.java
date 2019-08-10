@@ -21,6 +21,7 @@ import net.minecraft.util.math.shapes.ISelectionContext;
 import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.World;
+import net.minecraftforge.items.ItemStackHandler;
 
 public class InfusionAltarBlock extends BaseTileEntityBlock {
     public static final VoxelShape ALTAR_SHAPE = new VoxelShapeBuilder()
@@ -50,24 +51,25 @@ public class InfusionAltarBlock extends BaseTileEntityBlock {
         TileEntity tile = world.getTileEntity(pos);
         if (tile instanceof InfusionAltarTileEntity) {
             InfusionAltarTileEntity altar = (InfusionAltarTileEntity) tile;
-            ItemStack input = altar.getStackInSlot(0);
-            ItemStack output = altar.getStackInSlot(1);
+            ItemStackHandler inventory = altar.getInventory();
+            ItemStack input = inventory.getStackInSlot(0);
+            ItemStack output = inventory.getStackInSlot(1);
             if (!output.isEmpty()) {
                 ItemEntity item = new ItemEntity(world, player.posX, player.posY, player.posZ, output);
                 item.setNoPickupDelay();
                 world.addEntity(item);
-                altar.setInventorySlotContents(1, ItemStack.EMPTY);
+                inventory.setStackInSlot(1, ItemStack.EMPTY);
             } else {
                 ItemStack held = player.getHeldItem(hand);
                 if (input.isEmpty() && !held.isEmpty()) {
-                    altar.setInventorySlotContents(0, StackHelper.withSize(held.copy(), 1, false));
+                    inventory.setStackInSlot(0, StackHelper.withSize(held.copy(), 1, false));
                     player.setHeldItem(hand, StackHelper.decrease(held, 1, false));
                     world.playSound(null, pos, SoundEvents.ENTITY_ITEM_PICKUP, SoundCategory.BLOCKS, 1.0F, 1.0F);
                 } else if (!input.isEmpty()) {
                     ItemEntity item = new ItemEntity(world, player.posX, player.posY, player.posZ, input);
                     item.setNoPickupDelay();
                     world.addEntity(item);
-                    altar.setInventorySlotContents(0, ItemStack.EMPTY);
+                    inventory.setStackInSlot(0, ItemStack.EMPTY);
                 }
             }
         }
@@ -79,7 +81,8 @@ public class InfusionAltarBlock extends BaseTileEntityBlock {
     public void onReplaced(BlockState state, World world, BlockPos pos, BlockState newState, boolean isMoving) {
         TileEntity tile = world.getTileEntity(pos);
         if (tile instanceof InfusionAltarTileEntity) {
-            InventoryHelper.dropInventoryItems(world, pos, (InfusionAltarTileEntity) tile);
+            InfusionAltarTileEntity altar = (InfusionAltarTileEntity) tile;
+            InventoryHelper.dropItems(world, pos, altar.getInventory().getStacks());
         }
 
         super.onReplaced(state, world, pos, newState, isMoving);

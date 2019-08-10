@@ -2,6 +2,7 @@ package com.blakebr0.mysticalagriculture.block;
 
 import com.blakebr0.cucumber.block.BaseTileEntityBlock;
 import com.blakebr0.cucumber.helper.StackHelper;
+import com.blakebr0.cucumber.inventory.BaseItemStackHandler;
 import com.blakebr0.cucumber.util.VoxelShapeBuilder;
 import com.blakebr0.mysticalagriculture.tileentity.InfusionPedestalTileEntity;
 import net.minecraft.block.BlockState;
@@ -43,17 +44,18 @@ public class InfusionPedestalBlock extends BaseTileEntityBlock {
         TileEntity tile = world.getTileEntity(pos);
         if (tile instanceof InfusionPedestalTileEntity) {
             InfusionPedestalTileEntity pedestal = (InfusionPedestalTileEntity) tile;
-            ItemStack input = pedestal.getStackInSlot(0);
+            BaseItemStackHandler inventory = pedestal.getInventory();
+            ItemStack input = inventory.getStackInSlot(0);
             ItemStack held = player.getHeldItem(hand);
             if (input.isEmpty() && !held.isEmpty()) {
-                pedestal.setInventorySlotContents(0, StackHelper.withSize(held.copy(), 1, false));
+                inventory.setStackInSlot(0, StackHelper.withSize(held.copy(), 1, false));
                 player.setHeldItem(hand, StackHelper.decrease(held, 1, false));
                 world.playSound(null, pos, SoundEvents.ENTITY_ITEM_PICKUP, SoundCategory.BLOCKS, 1.0F, 1.0F);
             } else if (!input.isEmpty()) {
                 ItemEntity item = new ItemEntity(world, player.posX, player.posY, player.posZ, input);
                 item.setNoPickupDelay();
                 world.addEntity(item);
-                pedestal.setInventorySlotContents(0, ItemStack.EMPTY);
+                inventory.setStackInSlot(0, ItemStack.EMPTY);
             }
         }
 
