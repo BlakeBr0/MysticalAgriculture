@@ -10,6 +10,7 @@ import com.blakebr0.mysticalagriculture.item.ModItems;
 import com.blakebr0.mysticalagriculture.lib.ModCrops;
 import com.blakebr0.mysticalagriculture.registry.CropRegistry;
 import com.blakebr0.mysticalagriculture.tileentity.ModTileEntities;
+import com.blakebr0.mysticalagriculture.world.ModWorldFeatures;
 import net.minecraft.item.ItemGroup;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -62,6 +63,10 @@ public class MysticalAgriculture {
 	public void onCommonSetup(FMLCommonSetupEvent event) {
 		ModCrops.onCommonSetup();
 		ModIngredients.onCommonSetup();
+
+		DeferredWorkQueue.runLater(() -> {
+			ModWorldFeatures.onCommonSetup();
+		});
 	}
 
 	public void onInterModEnqueue(InterModEnqueueEvent event) {
