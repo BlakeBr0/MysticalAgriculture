@@ -14,6 +14,8 @@ import com.blakebr0.mysticalagriculture.world.ModWorldFeatures;
 import net.minecraft.item.ItemGroup;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.DeferredWorkQueue;
 import net.minecraftforge.fml.DistExecutor;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
@@ -28,38 +30,32 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 public class MysticalAgriculture {
 	public static final String MOD_ID = "mysticalagriculture";
 	public static final String NAME = "Mystical Agriculture";
-	public static final String VERSION = "${version}";
 	
 	public static final ItemGroup ITEM_GROUP = new MAItemGroup();
 
 	public MysticalAgriculture() {
 		IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
 
-		bus.addListener(this::onCommonSetup);
-		bus.addListener(this::onInterModEnqueue);
-		bus.addListener(this::onInterModProcess);
-		bus.addListener(this::onClientSetup);
+		bus.register(this);
+		bus.register(new ModBlocks());
+		bus.register(new ModItems());
+		bus.register(new ModRecipeSerializers());
+		bus.register(new ModTileEntities());
+		bus.register(new ModCrops());
 
 		DistExecutor.runWhenOn(Dist.CLIENT, () -> () -> {
-			bus.addListener(this::onBlockColors);
-			bus.addListener(this::onItemColors);
+			bus.register(new ColorHandler());
 		});
-
-		bus.addGenericListener(Block.class, ModBlocks::onRegisterBlocks);
-		bus.addGenericListener(Item.class, ModItems::onRegisterItems);
-		bus.addGenericListener(IRecipeSerializer.class, ModRecipeSerializers::onRegisterSerializers);
-		bus.addGenericListener(TileEntityType.class, ModTileEntities::onRegisterTypes);
 
 		ModLoadingContext.get().registerConfig(ModConfig.Type.CLIENT, ModConfigs.CLIENT);
 		ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, ModConfigs.COMMON);
-
-		bus.register(new ModCrops());
 
 		MysticalAgricultureAPI.setCropRegistry(CropRegistry.getInstance());
 
 		new ModIngredients();
 	}
-		
+
+	@SubscribeEvent
 	public void onCommonSetup(FMLCommonSetupEvent event) {
 		ModCrops.onCommonSetup();
 		ModIngredients.onCommonSetup();
@@ -69,33 +65,18 @@ public class MysticalAgriculture {
 		});
 	}
 
+	@SubscribeEvent
 	public void onInterModEnqueue(InterModEnqueueEvent event) {
 
 	}
 
+	@SubscribeEvent
 	public void onInterModProcess(InterModProcessEvent event) {
 
 	}
 
+	@SubscribeEvent
 	public void onClientSetup(FMLClientSetupEvent event) {
 		ModTileEntities.onClientSetup();
-	}
-
-	@OnlyIn(Dist.CLIENT)
-	public void onBlockColors(ColorHandlerEvent.Block event) {
-		BlockColors colors = event.getBlockColors();
-
-		colors.register(new IColored.BlockColors(), InfusedFarmlandBlock.FARMLANDS.toArray(new InfusedFarmlandBlock[0]));
-	}
-
-	@OnlyIn(Dist.CLIENT)
-	public void onItemColors(ColorHandlerEvent.Item event) {
-		ItemColors colors = event.getItemColors();
-
-		colors.register(new IColored.ItemBlockColors(), InfusedFarmlandBlock.FARMLANDS.toArray(new InfusedFarmlandBlock[0]));
-		colors.register((stack, tint) -> {
-			float damage = (float) (stack.getMaxDamage() - stack.getDamage()) / stack.getMaxDamage();
-			return Utils.saturate(0x00D9D9, damage);
-		}, ModItems.INFUSION_CRYSTAL);
 	}
 }
