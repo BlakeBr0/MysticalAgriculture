@@ -2,6 +2,7 @@ package com.blakebr0.mysticalagriculture.block;
 
 import com.blakebr0.cucumber.block.BaseBlock;
 import com.blakebr0.cucumber.block.BaseGlassBlock;
+import com.blakebr0.cucumber.block.BaseOreBlock;
 import com.blakebr0.cucumber.block.BaseSlabBlock;
 import com.blakebr0.cucumber.block.BaseStairsBlock;
 import com.blakebr0.cucumber.block.BaseWallBlock;
@@ -51,6 +52,9 @@ public class ModBlocks {
     public static final GrowthAcceleratorBlock INTERMEDIUM_GROWTH_ACCELERATOR = new GrowthAcceleratorBlock();
     public static final GrowthAcceleratorBlock IMPERIUM_GROWTH_ACCELERATOR = new GrowthAcceleratorBlock();
     public static final GrowthAcceleratorBlock SUPREMIUM_GROWTH_ACCELERATOR = new GrowthAcceleratorBlock();
+    public static final BaseOreBlock PROSPERITY_ORE = new BaseOreBlock(Material.ROCK, SoundType.STONE, 3.0F, 3.0F, 2, 5);
+    public static final BaseOreBlock INFERIUM_ORE = new BaseOreBlock(Material.ROCK, SoundType.STONE, 3.0F, 3.0F, 2, 5);
+    public static final BaseOreBlock SOULIUM_ORE = new BaseOreBlock(Material.ROCK, SoundType.STONE, 3.0F, 3.0F, 3, 7);
     public static final BaseBlock SOULSTONE = new BaseBlock(Material.ROCK, SoundType.STONE, 1.5F, 6.0F);
     public static final BaseBlock SOULSTONE_COBBLE = new BaseBlock(Material.ROCK, SoundType.STONE, 2.0F, 6.0F);
     public static final BaseBlock SOULSTONE_BRICKS = new BaseBlock(Material.ROCK, SoundType.STONE, 1.5F, 6.0F);
@@ -109,6 +113,9 @@ public class ModBlocks {
         register(registry, INTERMEDIUM_GROWTH_ACCELERATOR.setRegistryName("intermedium_growth_accelerator"));
         register(registry, IMPERIUM_GROWTH_ACCELERATOR.setRegistryName("imperium_growth_accelerator"));
         register(registry, SUPREMIUM_GROWTH_ACCELERATOR.setRegistryName("supremium_growth_accelerator"));
+        register(registry, PROSPERITY_ORE.setRegistryName("prosperity_ore"));
+        register(registry, INFERIUM_ORE.setRegistryName("inferium_ore"));
+        register(registry, SOULIUM_ORE.setRegistryName("soulium_ore"));
         register(registry, SOULSTONE.setRegistryName("soulstone"));
         register(registry, SOULSTONE_COBBLE.setRegistryName("soulstone_cobble"));
         register(registry, SOULSTONE_BRICKS.setRegistryName("soulstone_bricks"));
@@ -147,6 +154,6 @@ public class ModBlocks {
 
     private static void register(IForgeRegistry<Block> registry, Block block, BlockItem item) {
         registry.register(block);
-        ModItems.ITEM_BLOCKS.add(item);
+        ModItems.BLOCK_ITEMS.add(item);
     }
 }

@@ -26,7 +26,7 @@ import java.util.List;
 import static com.blakebr0.mysticalagriculture.MysticalAgriculture.ITEM_GROUP;
 
 public class ModItems {
-    public static final List<BlockItem> ITEM_BLOCKS = new ArrayList<>();
+    public static final List<BlockItem> BLOCK_ITEMS = new ArrayList<>();
 
     public static final BaseItem PROSPERITY_SHARD = new BaseItem(p -> p.group(ITEM_GROUP));
     public static final EssenceItem INFERIUM_ESSENCE = new EssenceItem(CropTiers.ONE, p -> p.group(ITEM_GROUP));
@@ -113,7 +113,7 @@ public class ModItems {
     @SubscribeEvent
     public void onRegisterItems(RegistryEvent.Register<Item> event) {
         IForgeRegistry<Item> registry = event.getRegistry();
-        ITEM_BLOCKS.forEach(registry::register);
+        BLOCK_ITEMS.forEach(registry::register);
 
         registry.register(PROSPERITY_SHARD.setRegistryName("prosperity_shard"));
         registry.register(INFERIUM_ESSENCE.setRegistryName("inferium_essence"));

@@ -1,6 +1,7 @@
 package com.blakebr0.mysticalagriculture.world;
 
 import com.blakebr0.mysticalagriculture.block.ModBlocks;
+import com.blakebr0.mysticalagriculture.world.feature.SoulstoneFeature;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.GenerationStage;
 import net.minecraft.world.gen.feature.Feature;
@@ -14,10 +15,26 @@ public class ModWorldFeatures {
         ForgeRegistries.BIOMES.forEach(biome -> {
             if (biome.getCategory() == Biome.Category.NETHER) {
                 biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(
-                        Feature.ORE,
+                        SoulstoneFeature.INSTANCE,
                         new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NETHERRACK, ModBlocks.SOULSTONE.getDefaultState(), 64),
                         Placement.COUNT_RANGE,
                         new CountRangeConfig(4, 0, 0, 128)
+                ));
+            } else if (biome.getCategory() == Biome.Category.THEEND) {
+                // the end
+            } else {
+                biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(
+                        Feature.ORE,
+                        new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, ModBlocks.PROSPERITY_ORE.getDefaultState(), 8),
+                        Placement.COUNT_RANGE,
+                        new CountRangeConfig(12, 0, 0, 50)
+                ));
+
+                biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(
+                        Feature.ORE,
+                        new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, ModBlocks.INFERIUM_ORE.getDefaultState(), 8),
+                        Placement.COUNT_RANGE,
+                        new CountRangeConfig(16, 0, 0, 50)
                 ));
             }
         });
