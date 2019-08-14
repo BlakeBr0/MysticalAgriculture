@@ -3,6 +3,7 @@ package com.blakebr0.mysticalagriculture;
 import com.blakebr0.mysticalagriculture.api.MysticalAgricultureAPI;
 import com.blakebr0.mysticalagriculture.block.ModBlocks;
 import com.blakebr0.mysticalagriculture.config.ModConfigs;
+import com.blakebr0.mysticalagriculture.container.ModContainerTypes;
 import com.blakebr0.mysticalagriculture.crafting.ModRecipeSerializers;
 import com.blakebr0.mysticalagriculture.crafting.ingredient.ModIngredients;
 import com.blakebr0.mysticalagriculture.handler.ColorHandler;
@@ -41,6 +42,7 @@ public class MysticalAgriculture {
 		bus.register(new ModItems());
 		bus.register(new ModRecipeSerializers());
 		bus.register(new ModTileEntities());
+		bus.register(new ModContainerTypes());
 		bus.register(new ModCrops());
 
 		DistExecutor.runWhenOn(Dist.CLIENT, () -> () -> {
@@ -78,5 +80,6 @@ public class MysticalAgriculture {
 	@SubscribeEvent
 	public void onClientSetup(FMLClientSetupEvent event) {
 		ModTileEntities.onClientSetup();
+		ModContainerTypes.onClientSetup();
 	}
 }

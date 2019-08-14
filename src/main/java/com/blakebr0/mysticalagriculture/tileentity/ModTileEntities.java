@@ -3,6 +3,7 @@ package com.blakebr0.mysticalagriculture.tileentity;
 import com.blakebr0.mysticalagriculture.block.ModBlocks;
 import com.blakebr0.mysticalagriculture.client.tesr.InfusionAltarRenderer;
 import com.blakebr0.mysticalagriculture.client.tesr.InfusionPedestalRenderer;
+import com.blakebr0.mysticalagriculture.client.tesr.TinkeringTableRenderer;
 import net.minecraft.tileentity.TileEntityType;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -26,5 +27,6 @@ public class ModTileEntities {
     public static void onClientSetup() {
         ClientRegistry.bindTileEntitySpecialRenderer(InfusionPedestalTileEntity.class, new InfusionPedestalRenderer());
         ClientRegistry.bindTileEntitySpecialRenderer(InfusionAltarTileEntity.class, new InfusionAltarRenderer());
+        ClientRegistry.bindTileEntitySpecialRenderer(TinkeringTableTileEntity.class, new TinkeringTableRenderer());
     }
 }

@@ -9,7 +9,7 @@ public class InfusionAltarTileEntity extends BaseInventoryTileEntity {
 
     public InfusionAltarTileEntity() {
         super(ModTileEntities.INFUSION_ALTAR);
-        this.inventory.setSlotLimit(1);
+        this.inventory.setDefaultSlotLimit(1);
         this.inventory.setSlotValidator(this::canInsertStack);
         this.inventory.setOutputSlots(1);
     }
