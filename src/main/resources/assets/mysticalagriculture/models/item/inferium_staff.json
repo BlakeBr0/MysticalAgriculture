@@ -1,0 +1,81 @@
+{
+	"credit": "Made with Blockbench",
+	"textures": {
+		"0": "mysticalagriculture:item/inferium_staff",
+		"particle": "mysticalagriculture:item/inferium_staff"
+	},
+	"elements": [
+		{
+			"name": "Rod",
+			"from": [7, 0, 7],
+			"to": [9, 19, 9],
+			"faces": {
+				"north": {"uv": [2, 0, 4, 16], "texture": "#0"},
+				"east": {"uv": [0, 0, 2, 16], "texture": "#0"},
+				"south": {"uv": [2, 0, 4, 16], "texture": "#0"},
+				"west": {"uv": [0, 0, 2, 16], "texture": "#0"},
+				"up": {"uv": [0, 0, 2, 2], "texture": "#0"},
+				"down": {"uv": [5, 14, 7, 16], "texture": "#0"}
+			}
+		},
+		{
+			"name": "Cap",
+			"from": [6, 19, 6],
+			"to": [10, 23, 10],
+			"faces": {
+				"north": {"uv": [7, 0, 11, 4], "texture": "#0"},
+				"east": {"uv": [7, 0, 11, 4], "texture": "#0"},
+				"south": {"uv": [7, 0, 11, 4], "texture": "#0"},
+				"west": {"uv": [7, 0, 11, 4], "texture": "#0"},
+				"up": {"uv": [7, 4, 11, 8], "texture": "#0"},
+				"down": {"uv": [7, 4, 11, 8], "texture": "#0"}
+			}
+		},
+		{
+			"name": "Guard",
+			"from": [6.5, 8, 6.5],
+			"to": [9.5, 9, 9.5],
+			"faces": {
+				"north": {"uv": [4, 0, 7, 1], "texture": "#0"},
+				"east": {"uv": [4, 3, 7, 4], "texture": "#0"},
+				"south": {"uv": [4, 0, 7, 1], "texture": "#0"},
+				"west": {"uv": [4, 0, 7, 1], "texture": "#0"},
+				"up": {"uv": [4, 1, 7, 4], "texture": "#0"},
+				"down": {"uv": [4, 1, 7, 4], "texture": "#0"}
+			}
+		}
+	],
+	"display": {
+		"thirdperson_righthand": {
+			"scale": [0.75, 0.75, 0.75]
+		},
+		"thirdperson_lefthand": {
+			"scale": [0.75, 0.75, 0.75]
+		},
+		"firstperson_righthand": {
+			"rotation": [-11.25, 16.5, 0],
+			"scale": [0.75, 0.75, 0.75]
+		},
+		"firstperson_lefthand": {
+			"rotation": [-11.25, 16.5, 0],
+			"scale": [0.75, 0.75, 0.75]
+		},
+		"ground": {
+			"translation": [0, 2.5, 0],
+			"scale": [0.75, 0.75, 0.75]
+		},
+		"gui": {
+			"rotation": [45, 225, 70],
+			"translation": [-2, -2, 0],
+			"scale": [0.75, 0.75, 0.75]
+		},
+		"head": {
+			"translation": [0, 12, 0],
+			"scale": [0.76, 0.75, 0.75]
+		},
+		"fixed": {
+			"translation": [0, -2.5, 0],
+			"scale": [0.75, 0.75, 0.75]
+		}
+	}
+}
