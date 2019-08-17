@@ -1,7 +1,7 @@
 package com.blakebr0.mysticalagriculture.item;
 
 import com.blakebr0.cucumber.item.BaseItem;
-import com.blakebr0.mysticalagriculture.api.crop.CropTiers;
+import com.blakebr0.mysticalagriculture.api.crop.CropTier;
 import com.blakebr0.mysticalagriculture.item.armor.EssenceBootsItem;
 import com.blakebr0.mysticalagriculture.item.armor.EssenceChestplateItem;
 import com.blakebr0.mysticalagriculture.item.armor.EssenceHelmetItem;
@@ -30,11 +30,11 @@ public class ModItems {
     public static final List<BlockItem> BLOCK_ITEMS = new ArrayList<>();
 
     public static final BaseItem PROSPERITY_SHARD = new BaseItem(p -> p.group(ITEM_GROUP));
-    public static final EssenceItem INFERIUM_ESSENCE = new EssenceItem(CropTiers.ONE, p -> p.group(ITEM_GROUP));
-    public static final EssenceItem PRUDENTIUM_ESSENCE = new EssenceItem(CropTiers.TWO, p -> p.group(ITEM_GROUP));
-    public static final EssenceItem INTERMEDIUM_ESSENCE = new EssenceItem(CropTiers.THREE, p -> p.group(ITEM_GROUP));
-    public static final EssenceItem IMPERIUM_ESSENCE = new EssenceItem(CropTiers.FOUR, p -> p.group(ITEM_GROUP));
-    public static final EssenceItem SUPREMIUM_ESSENCE = new EssenceItem(CropTiers.FIVE, p -> p.group(ITEM_GROUP));
+    public static final EssenceItem INFERIUM_ESSENCE = new EssenceItem(CropTier.ONE, p -> p.group(ITEM_GROUP));
+    public static final EssenceItem PRUDENTIUM_ESSENCE = new EssenceItem(CropTier.TWO, p -> p.group(ITEM_GROUP));
+    public static final EssenceItem INTERMEDIUM_ESSENCE = new EssenceItem(CropTier.THREE, p -> p.group(ITEM_GROUP));
+    public static final EssenceItem IMPERIUM_ESSENCE = new EssenceItem(CropTier.FOUR, p -> p.group(ITEM_GROUP));
+    public static final EssenceItem SUPREMIUM_ESSENCE = new EssenceItem(CropTier.FIVE, p -> p.group(ITEM_GROUP));
     public static final BaseItem SOULIUM_DUST = new BaseItem(p -> p.group(ITEM_GROUP));
     public static final BaseItem PROSPERITY_INGOT = new BaseItem(p -> p.group(ITEM_GROUP));
     public static final BaseItem INFERIUM_INGOT = new BaseItem(p -> p.group(ITEM_GROUP));

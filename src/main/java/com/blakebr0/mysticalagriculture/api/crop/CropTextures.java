@@ -2,10 +2,16 @@ package com.blakebr0.mysticalagriculture.api.crop;
 
 import net.minecraft.util.ResourceLocation;
 
+import static com.blakebr0.mysticalagriculture.api.MysticalAgricultureAPI.MOD_ID;
+
 /**
  * Helper class used to specify crop texture locations
  */
 public class CropTextures {
+    public static final ResourceLocation ESSENCE_ROCK_BLANK = new ResourceLocation(MOD_ID, "mystical_rock_essence");
+
+    public static final ResourceLocation SEED_BLANK = new ResourceLocation(MOD_ID, "mystical_seeds");
+
     private ResourceLocation flowerTexture, essenceTexture, seedTexture;
 
     /**
@@ -29,6 +35,17 @@ public class CropTextures {
         this.flowerTexture = flowerTexture;
         this.essenceTexture = essenceTexture;
         this.seedTexture = seedTexture;
+    }
+
+    /**
+     * Setup all crop related textures using the provided resource locations, with seeds defaulting to blank
+     * @param flowerTexture flower texture location
+     * @param essenceTexture essence texture location
+     */
+    public CropTextures(ResourceLocation flowerTexture, ResourceLocation essenceTexture) {
+        this.flowerTexture = flowerTexture;
+        this.essenceTexture = essenceTexture;
+        this.seedTexture = SEED_BLANK;
     }
 
     public ResourceLocation getFlowerTexture() {

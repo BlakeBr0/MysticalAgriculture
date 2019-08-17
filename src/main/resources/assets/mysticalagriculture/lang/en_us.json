@@ -156,5 +156,12 @@
   "cropTier.mysticalagriculture.2": "2",
   "cropTier.mysticalagriculture.3": "3",
   "cropTier.mysticalagriculture.4": "4",
-  "cropTier.mysticalagriculture.5": "5"
+  "cropTier.mysticalagriculture.5": "5",
+
+  "crop.mysticalagriculture.air": "Air",
+  "crop.mysticalagriculture.earth": "Earth",
+  "crop.mysticalagriculture.water": "Water",
+  "crop.mysticalagriculture.fire": "Fire",
+
+  "crop.mysticalagriculture.stone": "Stone"
 }

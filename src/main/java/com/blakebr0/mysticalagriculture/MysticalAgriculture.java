@@ -2,6 +2,7 @@ package com.blakebr0.mysticalagriculture;
 
 import com.blakebr0.mysticalagriculture.api.MysticalAgricultureAPI;
 import com.blakebr0.mysticalagriculture.block.ModBlocks;
+import com.blakebr0.mysticalagriculture.client.ModelHandler;
 import com.blakebr0.mysticalagriculture.config.ModConfigs;
 import com.blakebr0.mysticalagriculture.container.ModContainerTypes;
 import com.blakebr0.mysticalagriculture.crafting.ModRecipeSerializers;
@@ -47,6 +48,7 @@ public class MysticalAgriculture {
 
 		DistExecutor.runWhenOn(Dist.CLIENT, () -> () -> {
 			bus.register(new ColorHandler());
+			bus.register(new ModelHandler());
 		});
 
 		ModLoadingContext.get().registerConfig(ModConfig.Type.CLIENT, ModConfigs.CLIENT);

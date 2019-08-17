@@ -98,6 +98,14 @@ public class Crop implements ICrop {
         return this;
     }
 
+    public Crop setColor(int color) {
+        this.setFlowerColor(color);
+        this.setEssenceColor(color);
+        this.setSeedColor(color);
+
+        return this;
+    }
+
     @Override
     public String getModId() {
         return this.modid;
