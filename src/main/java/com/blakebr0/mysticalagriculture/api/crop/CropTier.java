@@ -3,6 +3,7 @@ package com.blakebr0.mysticalagriculture.api.crop;
 import net.minecraft.block.Block;
 import net.minecraft.block.FarmlandBlock;
 import net.minecraft.item.Item;
+import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.util.text.TranslationTextComponent;
 
@@ -127,7 +128,7 @@ public class CropTier {
      * Example: cropTier.mysticalagriculture.1
      * @return the localized name of this tier
      */
-    public String getDisplayName() {
-        return new TranslationTextComponent(String.format("cropTier.%s.%s", this.getModId(), this.getName())).applyTextStyle(this.getTextColor()).getFormattedText();
+    public ITextComponent getDisplayName() {
+        return new TranslationTextComponent(String.format("cropTier.%s.%s", this.getModId(), this.getName())).applyTextStyle(this.getTextColor());
     }
 }

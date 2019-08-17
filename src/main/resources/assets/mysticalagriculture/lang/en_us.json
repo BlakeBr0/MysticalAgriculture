@@ -149,7 +149,7 @@
   "item.mysticalagriculture.supremium_boots": "Supremium Boots",
 
   "tooltip.mysticalagriculture.crop_tier": "Tier %s",
-  "tooltip.mysticalagriculture.internal_name": "Internal name: %s",
+  "tooltip.mysticalagriculture.internal_name": "Internal Name: %s",
 
   "cropTier.mysticalagriculture.elemental": "Elemental",
   "cropTier.mysticalagriculture.1": "1",

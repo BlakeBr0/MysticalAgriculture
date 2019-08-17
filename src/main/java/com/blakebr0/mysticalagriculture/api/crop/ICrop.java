@@ -3,6 +3,7 @@ package com.blakebr0.mysticalagriculture.api.crop;
 import net.minecraft.block.CropsBlock;
 import net.minecraft.item.BlockNamedItem;
 import net.minecraft.item.Item;
+import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.TranslationTextComponent;
 
 /**
@@ -29,8 +30,8 @@ public interface ICrop {
      * Get the localized name of this crop using the key crop.{modid}.{name}
      * @return the localized name of this crop
      */
-    default String getDisplayName() {
-        return new TranslationTextComponent(String.format("crop.%s.%s", this.getModId(), this.getName())).getFormattedText();
+    default ITextComponent getDisplayName() {
+        return new TranslationTextComponent(String.format("crop.%s.%s", this.getModId(), this.getName()));
     }
 
     /**
