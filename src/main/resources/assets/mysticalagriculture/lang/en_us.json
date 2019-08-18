@@ -153,6 +153,12 @@
   "item.mysticalagriculture.supremium_leggings": "Supremium Leggings",
   "item.mysticalagriculture.supremium_boots": "Supremium Boots",
 
+  "container.mysticalagriculture.inferium_furnace": "Inferium Furnace",
+  "container.mysticalagriculture.prudentium_furnace": "Prudentium Furnace",
+  "container.mysticalagriculture.tertium_furnace": "Tertium Furnace",
+  "container.mysticalagriculture.imperium_furnace": "Imperium Furnace",
+  "container.mysticalagriculture.supremium_furnace": "Supremium Furnace",
+
   "tooltip.mysticalagriculture.crop_tier": "Tier %s",
   "tooltip.mysticalagriculture.internal_name": "Internal Name: %s",
   "tooltip.mysticalagriculture.secondary_chance": "Secondary Chance: %s",

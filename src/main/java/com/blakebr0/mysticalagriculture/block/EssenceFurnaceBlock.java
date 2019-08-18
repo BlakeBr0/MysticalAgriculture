@@ -63,19 +63,21 @@ public class EssenceFurnaceBlock extends AbstractFurnaceBlock {
     }
 
     public enum FurnaceTier {
-        INFERIUM("inferium", 1.0, InferiumFurnaceTileEntity::new),
-        PRUDENTIUM("prudentium", 1.0, PrudentiumFurnaceTileEntity::new),
-        TERTIUM("tertium", 1.0, TertiumFurnaceTileEntity::new),
-        IMPERIUM("imperium", 1.0, ImperiumFurnaceTileEntity::new),
-        SUPREMIUM("supremium", 1.0, SupremiumFurnaceTileEntity::new);
+        INFERIUM("inferium", 0.85, 1.0, InferiumFurnaceTileEntity::new),
+        PRUDENTIUM("prudentium", 0.65, 0.85, PrudentiumFurnaceTileEntity::new),
+        TERTIUM("tertium", 0.4, 0.7, TertiumFurnaceTileEntity::new),
+        IMPERIUM("imperium", 0.15, 0.5, ImperiumFurnaceTileEntity::new),
+        SUPREMIUM("supremium", 0.025, 0.20, SupremiumFurnaceTileEntity::new);
 
         private String name;
         private double cookTimeMultiplier;
+        private double burnTimeMultiplier;
         private Supplier<EssenceFurnaceTileEntity> tileEntitySupplier;
 
-        FurnaceTier(String name, double cookTimeMultiplier, Supplier<EssenceFurnaceTileEntity> tileEntitySupplier) {
+        FurnaceTier(String name, double cookTimeMultiplier, double burnTimeMultiplier, Supplier<EssenceFurnaceTileEntity> tileEntitySupplier) {
             this.name = name;
             this.cookTimeMultiplier = cookTimeMultiplier;
+            this.burnTimeMultiplier = burnTimeMultiplier;
             this.tileEntitySupplier = tileEntitySupplier;
         }
 
@@ -85,6 +87,10 @@ public class EssenceFurnaceBlock extends AbstractFurnaceBlock {
 
         public double getCookTimeMultiplier() {
             return this.cookTimeMultiplier;
+        }
+
+        public double getBurnTimeMultiplier() {
+            return this.burnTimeMultiplier;
         }
 
         public Supplier<EssenceFurnaceTileEntity> getTileEntitySupplier() {

@@ -1,0 +1,25 @@
+{
+  "type": "crafting_shaped",
+  "pattern": [
+    " E ",
+    "IFI",
+    " B "
+  ],
+  "key": {
+    "E": {
+      "item": "mysticalagriculture:inferium_essence"
+    },
+    "I": {
+      "item": "mysticalagriculture:inferium_ingot"
+    },
+    "F": {
+      "item": "minecraft:furnace"
+    },
+    "B": {
+      "item": "mysticalagriculture:inferium_block"
+    }
+  },
+  "result": {
+    "item": "mysticalagriculture:inferium_furnace"
+  }
+}
