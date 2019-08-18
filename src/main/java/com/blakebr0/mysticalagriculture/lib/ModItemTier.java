@@ -14,8 +14,8 @@ public enum ModItemTier implements IItemTier {
     PRUDENTIUM(2, 1000, 10.0F, 4.0F, 25, () -> {
         return Ingredient.fromItems(ModItems.PRUDENTIUM_INGOT);
     }),
-    INTERMEDIUM(3, 2000, 14.0F, 7.0F, 30, () -> {
-        return Ingredient.fromItems(ModItems.INTERMEDIUM_INGOT);
+    TERTIUM(3, 2000, 14.0F, 7.0F, 30, () -> {
+        return Ingredient.fromItems(ModItems.TERTIUM_INGOT);
     }),
     IMPERIUM(4, 4000, 19.0F, 11.0F, 35, () -> {
         return Ingredient.fromItems(ModItems.IMPERIUM_INGOT);

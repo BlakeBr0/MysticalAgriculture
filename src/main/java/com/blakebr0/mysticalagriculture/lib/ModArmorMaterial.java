@@ -19,8 +19,8 @@ public enum ModArmorMaterial implements IArmorMaterial {
     PRUDENTIUM("prudentium", 40, new int[] { 2, 4, 6, 3 }, 20, SoundEvents.ITEM_ARMOR_EQUIP_GOLD, 0.75F, () -> {
         return Ingredient.fromItems(ModItems.PRUDENTIUM_INGOT);
     }),
-    INTERMEDIUM("intermedium", 80, new int[] { 3, 6, 7, 3 }, 25, SoundEvents.ITEM_ARMOR_EQUIP_GOLD, 1.0F, () -> {
-       return Ingredient.fromItems(ModItems.INTERMEDIUM_INGOT);
+    TERTIUM("tertium", 80, new int[] { 3, 6, 7, 3 }, 25, SoundEvents.ITEM_ARMOR_EQUIP_GOLD, 1.0F, () -> {
+       return Ingredient.fromItems(ModItems.TERTIUM_INGOT);
     }),
     IMPERIUM("imperium", 160, new int[] { 4, 7, 8, 4 }, 35, SoundEvents.ITEM_ARMOR_EQUIP_GOLD, 1.25F, () -> {
         return Ingredient.fromItems(ModItems.IMPERIUM_INGOT);

@@ -3,7 +3,7 @@ package com.blakebr0.mysticalagriculture.block;
 import com.blakebr0.mysticalagriculture.tileentity.furnace.EssenceFurnaceTileEntity;
 import com.blakebr0.mysticalagriculture.tileentity.furnace.ImperiumFurnaceTileEntity;
 import com.blakebr0.mysticalagriculture.tileentity.furnace.InferiumFurnaceTileEntity;
-import com.blakebr0.mysticalagriculture.tileentity.furnace.IntermediumFurnaceTileEntity;
+import com.blakebr0.mysticalagriculture.tileentity.furnace.TertiumFurnaceTileEntity;
 import com.blakebr0.mysticalagriculture.tileentity.furnace.PrudentiumFurnaceTileEntity;
 import com.blakebr0.mysticalagriculture.tileentity.furnace.SupremiumFurnaceTileEntity;
 import net.minecraft.block.AbstractFurnaceBlock;
@@ -65,7 +65,7 @@ public class EssenceFurnaceBlock extends AbstractFurnaceBlock {
     public enum FurnaceTier {
         INFERIUM("inferium", 1.0, InferiumFurnaceTileEntity::new),
         PRUDENTIUM("prudentium", 1.0, PrudentiumFurnaceTileEntity::new),
-        INTERMEDIUM("intermedium", 1.0, IntermediumFurnaceTileEntity::new),
+        TERTIUM("tertium", 1.0, TertiumFurnaceTileEntity::new),
         IMPERIUM("imperium", 1.0, ImperiumFurnaceTileEntity::new),
         SUPREMIUM("supremium", 1.0, SupremiumFurnaceTileEntity::new);
 
