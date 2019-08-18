@@ -1,5 +1,7 @@
 package com.blakebr0.mysticalagriculture.api.crop;
 
+import com.blakebr0.mysticalagriculture.api.farmland.IEssenceFarmland;
+import net.minecraft.block.Block;
 import net.minecraft.block.CropsBlock;
 import net.minecraft.item.BlockNamedItem;
 import net.minecraft.item.Item;
@@ -141,4 +143,19 @@ public interface ICrop {
      * @return this crop
      */
     ICrop setSeeds(BlockNamedItem seeds);
+
+    /**
+     * Get the chance of a second seed/essence dropping based on the block below
+     * @param block the block below the crop
+     * @return the chance of a second seed/essence dropping
+     */
+    default int getSecondaryChance(Block block) {
+        int chance = 0;
+        if (block instanceof IEssenceFarmland)
+            chance += 10;
+        if (this.getTier().isEffectiveFarmland(block))
+            chance += 10;
+
+        return chance;
+    }
 }

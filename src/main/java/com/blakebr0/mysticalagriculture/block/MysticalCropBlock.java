@@ -2,7 +2,6 @@ package com.blakebr0.mysticalagriculture.block;
 
 import com.blakebr0.mysticalagriculture.api.crop.ICrop;
 import com.blakebr0.mysticalagriculture.api.crop.ICropGetter;
-import com.blakebr0.mysticalagriculture.api.farmland.IEssenceFarmland;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -15,6 +14,7 @@ import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.World;
 import net.minecraft.world.storage.loot.LootContext;
+import net.minecraft.world.storage.loot.LootParameters;
 
 import java.util.List;
 import java.util.Random;
@@ -57,18 +57,17 @@ public class MysticalCropBlock extends CropsBlock implements ICropGetter {
         if (age == this.getMaxAge()) {
             crop = 1;
 
-            int chance = 0;
-            if (state.getBlock() instanceof IEssenceFarmland)
-                chance += 10;
+            BlockPos pos = builder.get(LootParameters.POSITION);
+            if (pos != null) {
+                Block below = builder.getWorld().getBlockState(pos.down()).getBlock();
+                int chance = this.crop.getSecondaryChance(below);
 
-            if (this.crop.getTier().isEffectiveFarmland(state.getBlock()))
-                chance += 10;
+                if (builder.getWorld().getRandom().nextInt(100) < chance)
+                    crop = 2;
 
-            if (builder.getWorld().getRandom().nextInt(100) < chance)
-                crop = 2;
-
-            if (builder.getWorld().getRandom().nextInt(100) < chance)
-                seed = 2;
+                if (builder.getWorld().getRandom().nextInt(100) < chance)
+                    seed = 2;
+            }
         }
 
         List<ItemStack> drops = super.getDrops(state, builder);

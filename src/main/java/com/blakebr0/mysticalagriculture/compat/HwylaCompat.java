@@ -12,7 +12,9 @@ import mcp.mobius.waila.api.IWailaPlugin;
 import mcp.mobius.waila.api.TooltipPosition;
 import mcp.mobius.waila.api.WailaPlugin;
 import net.minecraft.block.Block;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.ITextComponent;
+import net.minecraft.util.text.StringTextComponent;
 import net.minecraft.util.text.TextFormatting;
 
 import java.util.List;
@@ -35,6 +37,15 @@ public class HwylaCompat implements IWailaPlugin {
                 ICrop crop = ((ICropGetter) block).getCrop();
 
                 tooltip.add(ModTooltips.CROP_TIER.args(crop.getTier().getDisplayName()).build());
+
+                BlockPos downPos = accessor.getPosition().down();
+                Block belowBlock = accessor.getWorld().getBlockState(downPos).getBlock();
+                int secondaryChance = crop.getSecondaryChance(belowBlock);
+
+                if (secondaryChance > 0) {
+                    ITextComponent chanceText = new StringTextComponent(String.valueOf(secondaryChance)).appendText("%").applyTextStyle(crop.getTier().getTextColor());
+                    tooltip.add(ModTooltips.SECONDARY_CHANCE.args(chanceText).build());
+                }
             }
         }, TooltipPosition.BODY, MysticalCropBlock.class);
     }
