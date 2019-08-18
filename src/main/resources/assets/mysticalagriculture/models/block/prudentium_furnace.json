@@ -1,0 +1,8 @@
+{
+  "parent": "block/orientable",
+  "textures": {
+    "top": "mysticalagriculture:block/prudentium_furnace_top",
+    "front": "mysticalagriculture:block/prudentium_furnace_front",
+    "side": "mysticalagriculture:block/prudentium_furnace_side"
+  }
+}

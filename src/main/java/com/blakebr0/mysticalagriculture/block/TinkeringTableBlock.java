@@ -9,6 +9,7 @@ import net.minecraft.block.HorizontalBlock;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.inventory.InventoryHelper;
 import net.minecraft.item.BlockItemUseContext;
 import net.minecraft.state.DirectionProperty;
 import net.minecraft.state.StateContainer;
@@ -60,6 +61,17 @@ public class TinkeringTableBlock extends BaseTileEntityBlock {
 
             return true;
         }
+    }
+
+    @Override
+    public void onReplaced(BlockState state, World world, BlockPos pos, BlockState newState, boolean isMoving) {
+        TileEntity tile = world.getTileEntity(pos);
+        if (tile instanceof TinkeringTableTileEntity) {
+            TinkeringTableTileEntity table = (TinkeringTableTileEntity) tile;
+            InventoryHelper.dropItems(world, pos, table.getInventory().getStacks());
+        }
+
+        super.onReplaced(state, world, pos, newState, isMoving);
     }
 
     @Override

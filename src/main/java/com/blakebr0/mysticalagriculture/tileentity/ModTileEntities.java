@@ -11,6 +11,7 @@ import net.minecraftforge.fml.client.registry.ClientRegistry;
 import net.minecraftforge.registries.IForgeRegistry;
 
 public class ModTileEntities {
+    public static final TileEntityType<EssenceFurnaceTileEntity> ESSENCE_FURNACE = TileEntityType.Builder.create(EssenceFurnaceTileEntity::new, ModBlocks.INFERIUM_FURNACE, ModBlocks.PRUDENTIUM_FURNACE, ModBlocks.INTERMEDIUM_FURNACE, ModBlocks.IMPERIUM_FURNACE, ModBlocks.SUPREMIUM_FURNACE).build(null);
     public static final TileEntityType<InfusionPedestalTileEntity> INFUSION_PEDESTAL = TileEntityType.Builder.create(InfusionPedestalTileEntity::new, ModBlocks.INFUSION_PEDESTAL).build(null);
     public static final TileEntityType<InfusionAltarTileEntity> INFUSION_ALTAR = TileEntityType.Builder.create(InfusionAltarTileEntity::new, ModBlocks.INFUSION_ALTAR).build(null);
     public static final TileEntityType<TinkeringTableTileEntity> TINKERING_TABLE = TileEntityType.Builder.create(TinkeringTableTileEntity::new, ModBlocks.TINKERING_TABLE).build(null);
@@ -19,6 +20,7 @@ public class ModTileEntities {
     public void onRegisterTypes(RegistryEvent.Register<TileEntityType<?>> event) {
         IForgeRegistry<TileEntityType<?>> registry = event.getRegistry();
 
+        registry.register(ESSENCE_FURNACE.setRegistryName("essence_furnace"));
         registry.register(INFUSION_PEDESTAL.setRegistryName("infusion_pedestal"));
         registry.register(INFUSION_ALTAR.setRegistryName("infusion_altar"));
         registry.register(TINKERING_TABLE.setRegistryName("tinkering_table"));
