@@ -1,6 +1,11 @@
 package com.blakebr0.mysticalagriculture.block;
 
-import com.blakebr0.mysticalagriculture.tileentity.EssenceFurnaceTileEntity;
+import com.blakebr0.mysticalagriculture.tileentity.furnace.EssenceFurnaceTileEntity;
+import com.blakebr0.mysticalagriculture.tileentity.furnace.ImperiumFurnaceTileEntity;
+import com.blakebr0.mysticalagriculture.tileentity.furnace.InferiumFurnaceTileEntity;
+import com.blakebr0.mysticalagriculture.tileentity.furnace.IntermediumFurnaceTileEntity;
+import com.blakebr0.mysticalagriculture.tileentity.furnace.PrudentiumFurnaceTileEntity;
+import com.blakebr0.mysticalagriculture.tileentity.furnace.SupremiumFurnaceTileEntity;
 import net.minecraft.block.AbstractFurnaceBlock;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -14,9 +19,14 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.World;
 
+import java.util.function.Supplier;
+
 public class EssenceFurnaceBlock extends AbstractFurnaceBlock {
-    public EssenceFurnaceBlock() {
+    private final FurnaceTier tier;
+
+    public EssenceFurnaceBlock(FurnaceTier tier) {
         super(Properties.from(Blocks.FURNACE));
+        this.tier = tier;
     }
 
     @Override
@@ -30,7 +40,7 @@ public class EssenceFurnaceBlock extends AbstractFurnaceBlock {
 
     @Override
     public TileEntity createNewTileEntity(IBlockReader world) {
-        return new EssenceFurnaceTileEntity();
+        return this.tier.getTileEntitySupplier().get();
     }
 
     @Override
@@ -49,6 +59,36 @@ public class EssenceFurnaceBlock extends AbstractFurnaceBlock {
 
             if (state.hasTileEntity())
                 world.removeTileEntity(pos);
+        }
+    }
+
+    public enum FurnaceTier {
+        INFERIUM("inferium", 1.0, InferiumFurnaceTileEntity::new),
+        PRUDENTIUM("prudentium", 1.0, PrudentiumFurnaceTileEntity::new),
+        INTERMEDIUM("intermedium", 1.0, IntermediumFurnaceTileEntity::new),
+        IMPERIUM("imperium", 1.0, ImperiumFurnaceTileEntity::new),
+        SUPREMIUM("supremium", 1.0, SupremiumFurnaceTileEntity::new);
+
+        private String name;
+        private double cookTimeMultiplier;
+        private Supplier<EssenceFurnaceTileEntity> tileEntitySupplier;
+
+        FurnaceTier(String name, double cookTimeMultiplier, Supplier<EssenceFurnaceTileEntity> tileEntitySupplier) {
+            this.name = name;
+            this.cookTimeMultiplier = cookTimeMultiplier;
+            this.tileEntitySupplier = tileEntitySupplier;
+        }
+
+        public String getName() {
+            return this.name;
+        }
+
+        public double getCookTimeMultiplier() {
+            return this.cookTimeMultiplier;
+        }
+
+        public Supplier<EssenceFurnaceTileEntity> getTileEntitySupplier() {
+            return this.tileEntitySupplier;
         }
     }
 }
