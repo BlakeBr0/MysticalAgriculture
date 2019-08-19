@@ -2,11 +2,11 @@
   "type": "crafting_shapeless",
   "ingredients": [
     {
-      "item": "mysticalagriculture:intermedium_block"
+      "item": "mysticalagriculture:tertium_block"
     }
   ],
   "result": {
-    "item": "mysticalagriculture:intermedium_essence",
+    "item": "mysticalagriculture:tertium_essence",
     "count": 9
   }
 }

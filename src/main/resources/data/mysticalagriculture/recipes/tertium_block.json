@@ -7,10 +7,10 @@
   ],
   "key": {
     "#": {
-      "item": "mysticalagriculture:intermedium_essence"
+      "item": "mysticalagriculture:tertium_essence"
     }
   },
   "result": {
-    "item": "mysticalagriculture:intermedium_block"
+    "item": "mysticalagriculture:tertium_block"
   }
 }

@@ -3,14 +3,14 @@
   "group": "mysticalagriculture:farmland",
   "ingredients": [
     {
-      "item": "mysticalagriculture:intermedium_essence"
+      "item": "mysticalagriculture:tertium_essence"
     },
     {
       "item": "minecraft:farmland"
     }
   ],
   "result": {
-    "item": "mysticalagriculture:intermedium_farmland",
+    "item": "mysticalagriculture:tertium_farmland",
     "count": 1
   }
 }

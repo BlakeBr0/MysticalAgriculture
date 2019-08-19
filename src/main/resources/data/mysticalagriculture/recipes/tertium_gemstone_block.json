@@ -7,10 +7,10 @@
   ],
   "key": {
     "#": {
-      "item": "mysticalagriculture:intermedium_gemstone"
+      "item": "mysticalagriculture:tertium_gemstone"
     }
   },
   "result": {
-    "item": "mysticalagriculture:intermedium_gemstone_block"
+    "item": "mysticalagriculture:tertium_gemstone_block"
   }
 }

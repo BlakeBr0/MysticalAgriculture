@@ -7,10 +7,10 @@
   ],
   "key": {
     "#": {
-      "item": "mysticalagriculture:intermedium_ingot"
+      "item": "mysticalagriculture:tertium_ingot"
     }
   },
   "result": {
-    "item": "mysticalagriculture:intermedium_ingot_block"
+    "item": "mysticalagriculture:tertium_ingot_block"
   }
 }

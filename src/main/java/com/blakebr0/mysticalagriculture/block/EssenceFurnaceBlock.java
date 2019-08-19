@@ -1,5 +1,6 @@
 package com.blakebr0.mysticalagriculture.block;
 
+import com.blakebr0.mysticalagriculture.lib.ModTooltips;
 import com.blakebr0.mysticalagriculture.tileentity.furnace.EssenceFurnaceTileEntity;
 import com.blakebr0.mysticalagriculture.tileentity.furnace.ImperiumFurnaceTileEntity;
 import com.blakebr0.mysticalagriculture.tileentity.furnace.InferiumFurnaceTileEntity;
@@ -9,6 +10,7 @@ import com.blakebr0.mysticalagriculture.tileentity.furnace.SupremiumFurnaceTileE
 import net.minecraft.block.AbstractFurnaceBlock;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
+import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.InventoryHelper;
@@ -16,9 +18,13 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.stats.Stats;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.text.ITextComponent;
+import net.minecraft.util.text.StringTextComponent;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.World;
 
+import javax.annotation.Nullable;
+import java.util.List;
 import java.util.function.Supplier;
 
 public class EssenceFurnaceBlock extends AbstractFurnaceBlock {
@@ -60,6 +66,15 @@ public class EssenceFurnaceBlock extends AbstractFurnaceBlock {
             if (state.hasTileEntity())
                 world.removeTileEntity(pos);
         }
+    }
+
+    @Override
+    public void addInformation(ItemStack stack, IBlockReader world, List<ITextComponent> tooltip, ITooltipFlag flag) {
+        ITextComponent cookingSpeed = new StringTextComponent(Double.toString(this.tier.getCookTimeMultiplier() * 100)).appendText("%");
+        ITextComponent fuelEfficiency = new StringTextComponent(Double.toString(this.tier.getBurnTimeMultiplier() * 100)).appendText("%");
+
+        tooltip.add(ModTooltips.COOKING_SPEED.args(cookingSpeed).build());
+        tooltip.add(ModTooltips.FUEL_EFFICIENCY.args(fuelEfficiency).build());
     }
 
     public enum FurnaceTier {
