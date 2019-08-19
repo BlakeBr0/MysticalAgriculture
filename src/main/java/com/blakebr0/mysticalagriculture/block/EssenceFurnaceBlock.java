@@ -23,7 +23,6 @@ import net.minecraft.util.text.StringTextComponent;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.World;
 
-import javax.annotation.Nullable;
 import java.util.List;
 import java.util.function.Supplier;
 
@@ -73,7 +72,7 @@ public class EssenceFurnaceBlock extends AbstractFurnaceBlock {
         ITextComponent cookingSpeed = new StringTextComponent(Double.toString(this.tier.getCookTimeMultiplier() * 100)).appendText("%");
         ITextComponent fuelEfficiency = new StringTextComponent(Double.toString(this.tier.getBurnTimeMultiplier() * 100)).appendText("%");
 
-        tooltip.add(ModTooltips.COOKING_SPEED.args(cookingSpeed).build());
+        tooltip.add(ModTooltips.COOKING_TIME.args(cookingSpeed).build());
         tooltip.add(ModTooltips.FUEL_EFFICIENCY.args(fuelEfficiency).build());
     }
 

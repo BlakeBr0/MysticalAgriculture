@@ -162,7 +162,7 @@
   "tooltip.mysticalagriculture.crop_tier": "Tier %s",
   "tooltip.mysticalagriculture.internal_name": "Internal Name: %s",
   "tooltip.mysticalagriculture.secondary_chance": "Secondary Chance: %s",
-  "tooltip.mysticalagriculture.cooking_speed": "Cooking Speed: %s",
+  "tooltip.mysticalagriculture.cooking_time": "Cooking Time: %s",
   "tooltip.mysticalagriculture.fuel_efficiency": "Fuel Efficiency: %s",
 
   "cropTier.mysticalagriculture.elemental": "Elemental",
