@@ -69,19 +69,23 @@ public class EssenceFurnaceBlock extends AbstractFurnaceBlock {
 
     @Override
     public void addInformation(ItemStack stack, IBlockReader world, List<ITextComponent> tooltip, ITooltipFlag flag) {
-        ITextComponent cookingSpeed = new StringTextComponent(Double.toString(this.tier.getCookTimeMultiplier() * 100)).appendText("%");
-        ITextComponent fuelEfficiency = new StringTextComponent(Double.toString(this.tier.getBurnTimeMultiplier() * 100)).appendText("%");
+        double cookingSpeedDifference = 200D * this.tier.getCookTimeMultiplier();
+        double cookingSpeedValue = Math.ceil(((200D - cookingSpeedDifference) / cookingSpeedDifference) * 100D) + 100D;
+        ITextComponent cookingSpeed = new StringTextComponent(String.valueOf((int) cookingSpeedValue)).appendText("%");
+        double burnTimeDifference = (1600D * this.tier.getBurnTimeMultiplier()) / cookingSpeedDifference;
+        double burnTimeValue = Math.ceil(((burnTimeDifference - 8D) / 8D) * 100D) + 100D;
+        ITextComponent fuelEfficiency = new StringTextComponent(String.valueOf((int) burnTimeValue)).appendText("%");
 
-        tooltip.add(ModTooltips.COOKING_TIME.args(cookingSpeed).build());
+        tooltip.add(ModTooltips.COOKING_SPEED.args(cookingSpeed).build());
         tooltip.add(ModTooltips.FUEL_EFFICIENCY.args(fuelEfficiency).build());
     }
 
     public enum FurnaceTier {
-        INFERIUM("inferium", 0.85, 1.0, InferiumFurnaceTileEntity::new),
-        PRUDENTIUM("prudentium", 0.65, 0.85, PrudentiumFurnaceTileEntity::new),
-        TERTIUM("tertium", 0.4, 0.7, TertiumFurnaceTileEntity::new),
-        IMPERIUM("imperium", 0.15, 0.5, ImperiumFurnaceTileEntity::new),
-        SUPREMIUM("supremium", 0.025, 0.20, SupremiumFurnaceTileEntity::new);
+        INFERIUM("inferium", 0.84D, 0.84D, InferiumFurnaceTileEntity::new),
+        PRUDENTIUM("prudentium", 0.625D, 0.84D, PrudentiumFurnaceTileEntity::new),
+        TERTIUM("tertium", 0.4D, 0.68D, TertiumFurnaceTileEntity::new),
+        IMPERIUM("imperium", 0.145D, 0.5D, ImperiumFurnaceTileEntity::new),
+        SUPREMIUM("supremium", 0.025D, 0.2D, SupremiumFurnaceTileEntity::new);
 
         private String name;
         private double cookTimeMultiplier;
