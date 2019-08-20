@@ -1,7 +1,9 @@
 {
   "ambientocclusion": false,
   "textures": {
-    "particle": "#stem"
+    "stem": "mysticalagriculture:block/mystical_mob_crop_7",
+    "flower": "mysticalagriculture:block/mystical_mob_crop_7",
+    "particle": "mysticalagriculture:block/mystical_mob_crop_7"
   },
   "elements": [
     {
@@ -30,8 +32,8 @@
       "rotation": { "origin": [ 8, 8, 8 ], "axis": "y", "angle": 45, "rescale": true },
       "shade": false,
       "faces": {
-        "north": { "uv": [ 0, 0, 16, 16 ], "texture": "#flower" },
-        "south": { "uv": [ 0, 0, 16, 16 ], "texture": "#flower" }
+        "north": { "uv": [ 0, 0, 16, 16 ], "texture": "#flower", "tintindex": 0 },
+        "south": { "uv": [ 0, 0, 16, 16 ], "texture": "#flower", "tintindex": 0 }
       }
     },
     {
@@ -40,8 +42,8 @@
       "rotation": { "origin": [ 8, 8, 8 ], "axis": "y", "angle": 45, "rescale": true },
       "shade": false,
       "faces": {
-        "west": { "uv": [ 0, 0, 16, 16 ], "texture": "#flower" },
-        "east": { "uv": [ 0, 0, 16, 16 ], "texture": "#flower" }
+        "west": { "uv": [ 0, 0, 16, 16 ], "texture": "#flower", "tintindex": 0 },
+        "east": { "uv": [ 0, 0, 16, 16 ], "texture": "#flower", "tintindex": 0 }
       }
     }
   ]

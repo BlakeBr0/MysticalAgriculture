@@ -1,6 +1,7 @@
 package com.blakebr0.mysticalagriculture.lib;
 
 import com.blakebr0.mysticalagriculture.api.crop.Crop;
+import com.blakebr0.mysticalagriculture.api.crop.CropTextures;
 import com.blakebr0.mysticalagriculture.api.crop.CropTier;
 import com.blakebr0.mysticalagriculture.api.crop.CropType;
 import com.blakebr0.mysticalagriculture.api.registry.RegisterCropsEvent;
@@ -11,12 +12,12 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import static com.blakebr0.mysticalagriculture.MysticalAgriculture.MOD_ID;
 
 public class ModCrops {
-    public static final Crop AIR = new Crop("air", CropTier.ELEMENTAL, CropType.RESOURCE, MOD_ID);
-    public static final Crop EARTH = new Crop("earth", CropTier.ELEMENTAL, CropType.RESOURCE, MOD_ID);
-    public static final Crop WATER = new Crop("water", CropTier.ELEMENTAL, CropType.RESOURCE, MOD_ID);
-    public static final Crop FIRE = new Crop("fire", CropTier.ELEMENTAL, CropType.RESOURCE, MOD_ID);
+    public static final Crop AIR = new Crop("air", CropTier.ELEMENTAL, CropType.RESOURCE, new CropTextures(CropTextures.FLOWER_INGOT_BLANK, CropTextures.ESSENCE_FLAME_BLANK), MOD_ID, 0xDAD64D);
+    public static final Crop EARTH = new Crop("earth", CropTier.ELEMENTAL, CropType.RESOURCE, new CropTextures(CropTextures.FLOWER_INGOT_BLANK, CropTextures.ESSENCE_FLAME_BLANK), MOD_ID, 0x54DA4D);
+    public static final Crop WATER = new Crop("water", CropTier.ELEMENTAL, CropType.RESOURCE, new CropTextures(CropTextures.FLOWER_INGOT_BLANK, CropTextures.ESSENCE_FLAME_BLANK), MOD_ID, 0x4D7EDA);
+    public static final Crop FIRE = new Crop("fire", CropTier.ELEMENTAL, CropType.RESOURCE, new CropTextures(CropTextures.FLOWER_INGOT_BLANK, CropTextures.ESSENCE_FLAME_BLANK), MOD_ID, 0xDA4D4D);
 
-    public static final Crop STONE = new Crop("stone", CropTier.ONE, CropType.RESOURCE, MOD_ID).setColor(0x7F7F7F);
+    public static final Crop STONE = new Crop("stone", CropTier.ONE, CropType.RESOURCE, new CropTextures(CropTextures.FLOWER_ROCK_BLANK, CropTextures.ESSENCE_ROCK_BLANK), MOD_ID, 0x7F7F7F);
 
     @SubscribeEvent
     public void onRegisterCrops(RegisterCropsEvent event) {

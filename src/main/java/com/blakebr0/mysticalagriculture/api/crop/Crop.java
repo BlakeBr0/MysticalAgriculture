@@ -14,7 +14,9 @@ public class Crop implements ICrop {
     private final String name;
     private CropTier tier;
     private CropType type;
-    private int flowerColor = -1, essenceColor = -1, seedColor = -1;
+    private int flowerColor;
+    private int essenceColor;
+    private int seedColor;
     private CropTextures textures;
     private String modid;
     private CropsBlock crop;
@@ -41,11 +43,25 @@ public class Crop implements ICrop {
      * @param modid the modid of the mod who registered this crop
      */
     public Crop(String name, CropTier tier, CropType type, CropTextures textures, String modid) {
+        this(name, tier, type, textures, modid, -1);
+    }
+
+    /**
+     * Represents a new crop for registration
+     * @param name the name of the crop, MUST be all lowercase and use underscores for spaces
+     * @param tier the tier of this crop
+     * @param type the type of this crop, like resource or mob
+     * @param textures the textures of this crop
+     * @param modid the modid of the mod who registered this crop
+     * @param color the color to color the textures with
+     */
+    public Crop(String name, CropTier tier, CropType type, CropTextures textures, String modid, int color) {
         this.name = name;
         this.tier = tier;
         this.type = type;
         this.textures = textures;
         this.modid = modid;
+        this.setColor(color);
     }
 
     @Override

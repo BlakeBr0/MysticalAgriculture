@@ -81,6 +81,11 @@ public class CropRegistry implements ICropRegistry {
         return Collections.unmodifiableList(this.crops);
     }
 
+    @Override
+    public ICrop getCropByName(String name) {
+        return this.getRegisteredCrops().stream().filter(c -> name.equals(c.getName())).findFirst().orElse(null);
+    }
+
     public void onRegisterBlocks(IForgeRegistry<Block> registry) {
         if (this.isAllowedToFuckWithStuff()) {
             ModLoader.get().postEvent(new RegisterCropsEvent(this));

@@ -16,4 +16,11 @@ public interface ICropRegistry {
      * @return a list of registered crops
      */
     List<ICrop> getRegisteredCrops();
+
+    /**
+     * Get the crop with the specified internal name from the crop registry
+     * @param name the internal name of the crop (found in the seed with advanced tooltips enabled)
+     * @return the crop for this name
+     */
+    ICrop getCropByName(String name);
 }

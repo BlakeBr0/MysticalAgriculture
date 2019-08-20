@@ -2,12 +2,12 @@
   "type": "minecraft:block",
   "pools": [
     {
-      "name": "mysticalagriculture:intermedium_ingot_block",
+      "name": "mysticalagriculture:tertium_ingot_block",
       "rolls": 1,
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "mysticalagriculture:intermedium_ingot_block"
+          "name": "mysticalagriculture:tertium_ingot_block"
         }
       ],
       "conditions": [

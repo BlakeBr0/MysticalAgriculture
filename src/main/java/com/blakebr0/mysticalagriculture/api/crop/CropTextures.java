@@ -8,11 +8,23 @@ import static com.blakebr0.mysticalagriculture.api.MysticalAgricultureAPI.MOD_ID
  * Helper class used to specify crop texture locations
  */
 public class CropTextures {
-    public static final ResourceLocation ESSENCE_ROCK_BLANK = new ResourceLocation(MOD_ID, "mystical_rock_essence");
+    public static final ResourceLocation FLOWER_INGOT_BLANK = new ResourceLocation(MOD_ID, "block/flower_ingot");
+    public static final ResourceLocation FLOWER_ROCK_BLANK = new ResourceLocation(MOD_ID, "block/flower_rock");
+    public static final ResourceLocation FLOWER_DUST_BLANK = new ResourceLocation(MOD_ID, "block/flower_dust");
 
-    public static final ResourceLocation SEED_BLANK = new ResourceLocation(MOD_ID, "mystical_seeds");
+    public static final ResourceLocation ESSENCE_INGOT_BLANK = new ResourceLocation(MOD_ID, "item/essence_ingot");
+    public static final ResourceLocation ESSENCE_ROCK_BLANK = new ResourceLocation(MOD_ID, "item/essence_rock");
+    public static final ResourceLocation ESSENCE_DUST_BLANK = new ResourceLocation(MOD_ID, "item/essence_dust");
+    public static final ResourceLocation ESSENCE_GEM_BLANK = new ResourceLocation(MOD_ID, "item/essence_gem");
+    public static final ResourceLocation ESSENCE_DIAMOND_BLANK = new ResourceLocation(MOD_ID, "item/essence_diamond");
+    public static final ResourceLocation ESSENCE_QUARTZ_BLANK = new ResourceLocation(MOD_ID, "item/essence_quartz");
+    public static final ResourceLocation ESSENCE_FLAME_BLANK = new ResourceLocation(MOD_ID, "item/essence_flame");
 
-    private ResourceLocation flowerTexture, essenceTexture, seedTexture;
+    public static final ResourceLocation SEED_BLANK = new ResourceLocation(MOD_ID, "item/mystical_seeds");
+
+    private ResourceLocation flowerTexture;
+    private ResourceLocation essenceTexture;
+    private ResourceLocation seedTexture;
 
     /**
      * Setup all crop related textures using a single name
@@ -43,9 +55,7 @@ public class CropTextures {
      * @param essenceTexture essence texture location
      */
     public CropTextures(ResourceLocation flowerTexture, ResourceLocation essenceTexture) {
-        this.flowerTexture = flowerTexture;
-        this.essenceTexture = essenceTexture;
-        this.seedTexture = SEED_BLANK;
+        this(flowerTexture, essenceTexture, SEED_BLANK);
     }
 
     public ResourceLocation getFlowerTexture() {

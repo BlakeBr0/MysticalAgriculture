@@ -5,21 +5,21 @@ import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
 
 public class CropType {
-    public static final CropType RESOURCE = new CropType("resource", new ResourceLocation(MysticalAgricultureAPI.MOD_ID, "stem_resource"));
-    public static final CropType MOB = new CropType("mob", new ResourceLocation(MysticalAgricultureAPI.MOD_ID, "stem_mob"));
+    public static final CropType RESOURCE = new CropType("resource", new ResourceLocation(MysticalAgricultureAPI.MOD_ID, "mystical_resource_crop"));
+    public static final CropType MOB = new CropType("mob", new ResourceLocation(MysticalAgricultureAPI.MOD_ID, "mystical_mob_crop"));
 
     private final String name;
-    private final ResourceLocation stemTexture;
+    private final ResourceLocation stemModel;
     private Item craftingSeed;
 
     /**
      * Represents a type of crop, such as resource or mob
      * @param name the name of this type
-     * @param stemTexture the stem texture for all crops of this type
+     * @param stemModel the stem texture for all crops of this type
      */
-    public CropType(String name, ResourceLocation stemTexture) {
+    public CropType(String name, ResourceLocation stemModel) {
         this.name = name;
-        this.stemTexture = stemTexture;
+        this.stemModel = stemModel;
     }
 
     /**
@@ -32,8 +32,8 @@ public class CropType {
     /**
      * @return the resource location of the stem texture for this type
      */
-    public ResourceLocation getStemTexture() {
-        return this.stemTexture;
+    public ResourceLocation getStemModel() {
+        return this.stemModel;
     }
 
     /**
