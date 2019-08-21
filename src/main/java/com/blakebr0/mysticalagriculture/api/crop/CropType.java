@@ -15,7 +15,7 @@ public class CropType {
     /**
      * Represents a type of crop, such as resource or mob
      * @param name the name of this type
-     * @param stemModel the stem texture for all crops of this type
+     * @param stemModel the stem model for all crops of this type
      */
     public CropType(String name, ResourceLocation stemModel) {
         this.name = name;
@@ -30,7 +30,7 @@ public class CropType {
     }
 
     /**
-     * @return the resource location of the stem texture for this type
+     * @return the resource location of the stem model for this type
      */
     public ResourceLocation getStemModel() {
         return this.stemModel;

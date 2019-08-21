@@ -15,7 +15,7 @@ public interface ICropRegistry {
      * Get an unmodifiable list of all the registered crops
      * @return a list of registered crops
      */
-    List<ICrop> getRegisteredCrops();
+    List<ICrop> getCrops();
 
     /**
      * Get the crop with the specified internal name from the crop registry

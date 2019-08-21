@@ -17,7 +17,7 @@ public class ColorHandler {
 
         colors.register(new IColored.BlockColors(), InfusedFarmlandBlock.FARMLANDS.toArray(new InfusedFarmlandBlock[0]));
 
-        CropRegistry.getInstance().getRegisteredCrops().forEach(crop -> {
+        CropRegistry.getInstance().getCrops().forEach(crop -> {
             if (crop.isFlowerColored())
                 colors.register((state, world, pos, tint) -> crop.getFlowerColor(), crop.getCrop());
         });
@@ -33,7 +33,7 @@ public class ColorHandler {
             return Utils.saturate(0x00D9D9, damage);
         }, ModItems.INFUSION_CRYSTAL);
 
-        CropRegistry.getInstance().getRegisteredCrops().forEach(crop -> {
+        CropRegistry.getInstance().getCrops().forEach(crop -> {
             if (crop.isEssenceColored())
                 colors.register((stack, tint) -> crop.getEssenceColor(), crop.getEssence());
             if (crop.isSeedColored())

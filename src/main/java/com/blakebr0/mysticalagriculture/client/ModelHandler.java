@@ -126,7 +126,7 @@ public class ModelHandler {
 
     @SubscribeEvent
     public void onTextureStitch(TextureStitchEvent.Pre event) {
-        CropRegistry.getInstance().getRegisteredCrops().forEach(crop -> {
+        CropRegistry.getInstance().getCrops().forEach(crop -> {
             CropTextures textures = crop.getTextures();
 
             event.addSprite(textures.getFlowerTexture());

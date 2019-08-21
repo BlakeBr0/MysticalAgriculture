@@ -19,7 +19,7 @@ public class CropTier {
     public static final CropTier FIVE = new CropTier("5", 5, 0xC40000, TextFormatting.RED, MOD_ID);
 
     private final String name;
-    private final int tier;
+    private final int value;
     private final int color;
     private final TextFormatting textColor;
     private final String modid;
@@ -29,13 +29,13 @@ public class CropTier {
     /**
      * Represents a tier/group of crops
      * @param name the name of the tier
-     * @param tier the level of the tier, higher number = higher tier
+     * @param value the level of the tier, higher number = higher tier
      * @param color the text color of this tier
      * @param modid the modid that created this tier
      */
-    public CropTier(String name, int tier, int color, TextFormatting textColor, String modid) {
+    public CropTier(String name, int value, int color, TextFormatting textColor, String modid) {
         this.name = name;
-        this.tier = tier;
+        this.value = value;
         this.color = color;
         this.textColor = textColor;
         this.modid = modid;
@@ -51,8 +51,8 @@ public class CropTier {
     /**
      * @return the tier value of this tier
      */
-    public int getTier() {
-        return this.tier;
+    public int getValue() {
+        return this.value;
     }
 
     /**

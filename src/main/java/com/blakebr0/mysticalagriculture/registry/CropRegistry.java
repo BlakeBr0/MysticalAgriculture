@@ -20,30 +20,15 @@ import org.apache.logging.log4j.Logger;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 public class CropRegistry implements ICropRegistry {
     private static final Logger LOGGER = LogManager.getLogger();
     private static final CropRegistry INSTANCE = new CropRegistry();
 
-    public static CropRegistry getInstance() {
-        return INSTANCE;
-    }
-
     private final List<ICrop> crops = new ArrayList<>();
     private boolean allowRegistration = false;
-
-    public void allowRegistration() {
-        if (this.isAllowedToFuckWithStuff()) {
-            this.allowRegistration = true;
-        }
-    }
-
-    public void denyRegistration() {
-        if (this.isAllowedToFuckWithStuff()) {
-            this.allowRegistration = false;
-        }
-    }
 
     @Override
     public void register(ICrop crop) {
@@ -77,43 +62,45 @@ public class CropRegistry implements ICropRegistry {
     }
 
     @Override
-    public List<ICrop> getRegisteredCrops() {
+    public List<ICrop> getCrops() {
         return Collections.unmodifiableList(this.crops);
     }
 
     @Override
     public ICrop getCropByName(String name) {
-        return this.getRegisteredCrops().stream().filter(c -> name.equals(c.getName())).findFirst().orElse(null);
+        return this.crops.stream().filter(c -> name.equals(c.getName())).findFirst().orElse(null);
+    }
+
+    public static CropRegistry getInstance() {
+        return INSTANCE;
+    }
+
+    public void allowRegistration() {
+        this.allowRegistration = true;
+    }
+
+    public void denyRegistration() {
+        this.allowRegistration = false;
     }
 
     public void onRegisterBlocks(IForgeRegistry<Block> registry) {
-        if (this.isAllowedToFuckWithStuff()) {
-            ModLoader.get().postEvent(new RegisterCropsEvent(this));
-            this.getRegisteredCrops().forEach(c -> registry.register(c.getCrop()));
-        }
+        ModLoader.get().postEvent(new RegisterCropsEvent(this));
+        this.crops.forEach(c -> registry.register(c.getCrop()));
+        this.crops.sort((o1, o2) -> o1.getModId().equals(MysticalAgriculture.MOD_ID) && o2.getModId().equals(MysticalAgriculture.MOD_ID) ? 0 : o1.getModId().equals(MysticalAgriculture.MOD_ID) ? -1 : 0);
+        this.crops.sort(Comparator.comparingInt(c -> c.getTier().getValue()));
     }
 
     public void onRegisterItems(IForgeRegistry<Item> registry) {
-        if (this.isAllowedToFuckWithStuff()) {
-            this.getRegisteredCrops().forEach(c -> registry.register(c.getEssence()));
-            this.getRegisteredCrops().forEach(c -> registry.register(c.getSeeds()));
-            ModLoader.get().postEvent(new ModifyCropsEvent(this));
-        }
+        this.crops.forEach(c -> registry.register(c.getEssence()));
+        this.crops.forEach(c -> registry.register(c.getSeeds()));
+        ModLoader.get().postEvent(new ModifyCropsEvent(this));
     }
 
     public void onCommonSetup(FMLCommonSetupEvent event) {
-        if (this.isAllowedToFuckWithStuff()) {
 
-        }
     }
 
     public void onClientSetup(FMLClientSetupEvent event) {
-        if (this.isAllowedToFuckWithStuff()) {
 
-        }
-    }
-
-    private boolean isAllowedToFuckWithStuff() {
-        return ModLoadingContext.get().getActiveContainer().getModId().equals(MysticalAgriculture.MOD_ID);
     }
 }
