@@ -16,6 +16,7 @@ public class CropTextures {
     public static final ResourceLocation ESSENCE_ROCK_BLANK = new ResourceLocation(MOD_ID, "item/essence_rock");
     public static final ResourceLocation ESSENCE_DUST_BLANK = new ResourceLocation(MOD_ID, "item/essence_dust");
     public static final ResourceLocation ESSENCE_GEM_BLANK = new ResourceLocation(MOD_ID, "item/essence_gem");
+    public static final ResourceLocation ESSENCE_TALL_GEM_BLANK = new ResourceLocation(MOD_ID, "item/essence_tall_gem");
     public static final ResourceLocation ESSENCE_DIAMOND_BLANK = new ResourceLocation(MOD_ID, "item/essence_diamond");
     public static final ResourceLocation ESSENCE_QUARTZ_BLANK = new ResourceLocation(MOD_ID, "item/essence_quartz");
     public static final ResourceLocation ESSENCE_FLAME_BLANK = new ResourceLocation(MOD_ID, "item/essence_flame");
@@ -27,26 +28,10 @@ public class CropTextures {
     private ResourceLocation seedTexture;
 
     /**
-     * Setup all crop related textures using a single name
-     * @param modid the resource domain
-     * @param name the name of this crop
+     * Setup all crop related textures using its specific textures
      */
-    public CropTextures(String modid, String name) {
-        this.flowerTexture = new ResourceLocation(modid, name.concat("_flower"));
-        this.essenceTexture = new ResourceLocation(modid, name.concat("_essence"));
-        this.seedTexture = new ResourceLocation(modid, name.concat("_seeds"));
-    }
-
-    /**
-     * Setup all crop related textures using their resource locations
-     * @param flowerTexture flower texture location
-     * @param essenceTexture essence texture location
-     * @param seedTexture seed texture location
-     */
-    public CropTextures(ResourceLocation flowerTexture, ResourceLocation essenceTexture, ResourceLocation seedTexture) {
-        this.flowerTexture = flowerTexture;
-        this.essenceTexture = essenceTexture;
-        this.seedTexture = seedTexture;
+    public CropTextures() {
+        this(null, null, null);
     }
 
     /**
@@ -56,6 +41,18 @@ public class CropTextures {
      */
     public CropTextures(ResourceLocation flowerTexture, ResourceLocation essenceTexture) {
         this(flowerTexture, essenceTexture, SEED_BLANK);
+    }
+
+    /**
+     * Setup all crop related textures using their resource locations, pass null to default to the crop specific texture
+     * @param flowerTexture flower texture location
+     * @param essenceTexture essence texture location
+     * @param seedTexture seed texture location
+     */
+    public CropTextures(ResourceLocation flowerTexture, ResourceLocation essenceTexture, ResourceLocation seedTexture) {
+        this.flowerTexture = flowerTexture;
+        this.essenceTexture = essenceTexture;
+        this.seedTexture = seedTexture;
     }
 
     public ResourceLocation getFlowerTexture() {
@@ -82,6 +79,19 @@ public class CropTextures {
 
     public CropTextures setSeedTexture(ResourceLocation location) {
         this.seedTexture = location;
+        return this;
+    }
+
+    /**
+     * Used to add fallback locations (the crop specific locations) if any of the locations are null
+     * @param name crop name
+     * @param modid mod id
+     * @return this crop textures instance with non-null locations
+     */
+    public CropTextures init(String name, String modid) {
+        this.flowerTexture = this.flowerTexture != null ? this.flowerTexture : new ResourceLocation(modid, "block/" + name + "_flower");
+        this.essenceTexture = this.essenceTexture != null ? this.essenceTexture : new ResourceLocation(modid, "item/" + name + "_essence");
+        this.seedTexture = this.seedTexture != null ? this.seedTexture : new ResourceLocation(modid, "item/" + name + "_seeds");
         return this;
     }
 }

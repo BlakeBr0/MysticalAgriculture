@@ -177,5 +177,27 @@
   "crop.mysticalagriculture.water": "Water",
   "crop.mysticalagriculture.fire": "Fire",
 
-  "crop.mysticalagriculture.stone": "Stone"
+  "crop.mysticalagriculture.stone": "Stone",
+  "crop.mysticalagriculture.dirt": "Dirt",
+  "crop.mysticalagriculture.wood": "Wood",
+  "crop.mysticalagriculture.ice": "Ice",
+
+  "crop.mysticalagriculture.nature": "Nature",
+  "crop.mysticalagriculture.dye": "Dye",
+  "crop.mysticalagriculture.nether": "Nether",
+  "crop.mysticalagriculture.coal": "Coal",
+
+  "crop.mysticalagriculture.iron": "Iron",
+  "crop.mysticalagriculture.nether_quartz": "Nether Quartz",
+  "crop.mysticalagriculture.glowstone": "Glowstone",
+  "crop.mysticalagriculture.redstone": "Redstone",
+  "crop.mysticalagriculture.obsidian": "Obsidian",
+
+  "crop.mysticalagriculture.gold": "Gold",
+  "crop.mysticalagriculture.lapis_lazuli": "Lapis Lazuli",
+  "crop.mysticalagriculture.end": "End",
+  "crop.mysticalagriculture.experience": "Experience",
+
+  "crop.mysticalagriculture.diamond": "Diamond",
+  "crop.mysticalagriculture.emerald": "Emerald"
 }

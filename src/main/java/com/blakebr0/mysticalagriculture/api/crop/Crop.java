@@ -31,7 +31,11 @@ public class Crop implements ICrop {
      * @param modid the modid of the mod who registered this crop, also used do generate texture locations
      */
     public Crop(String name, CropTier tier, CropType type, String modid) {
-        this(name, tier, type, new CropTextures(modid, name), modid);
+        this(name, tier, type, new CropTextures(), modid);
+    }
+
+    public Crop(String name, CropTier tier, CropType type, String modid, int color) {
+        this(name, tier, type, new CropTextures(), modid, color);
     }
 
     /**
@@ -59,7 +63,7 @@ public class Crop implements ICrop {
         this.name = name;
         this.tier = tier;
         this.type = type;
-        this.textures = textures;
+        this.textures = textures.init(name, modid);
         this.modid = modid;
         this.setColor(color);
     }

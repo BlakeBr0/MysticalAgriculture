@@ -18,6 +18,28 @@ public class ModCrops {
     public static final Crop FIRE = new Crop("fire", CropTier.ELEMENTAL, CropType.RESOURCE, new CropTextures(CropTextures.FLOWER_INGOT_BLANK, CropTextures.ESSENCE_FLAME_BLANK), MOD_ID, 0xDA4D4D);
 
     public static final Crop STONE = new Crop("stone", CropTier.ONE, CropType.RESOURCE, new CropTextures(CropTextures.FLOWER_ROCK_BLANK, CropTextures.ESSENCE_ROCK_BLANK), MOD_ID, 0x7F7F7F);
+    public static final Crop DIRT = new Crop("dirt", CropTier.ONE, CropType.RESOURCE, MOD_ID);
+    public static final Crop WOOD = new Crop("wood", CropTier.ONE, CropType.RESOURCE, MOD_ID);
+    public static final Crop ICE = new Crop("ice", CropTier.ONE, CropType.RESOURCE, MOD_ID);
+
+    public static final Crop NATURE = new Crop("nature", CropTier.TWO, CropType.RESOURCE, MOD_ID);
+    public static final Crop DYE = new Crop("dye", CropTier.TWO, CropType.RESOURCE, MOD_ID);
+    public static final Crop NETHER = new Crop("nether", CropTier.TWO, CropType.RESOURCE, new CropTextures(CropTextures.FLOWER_ROCK_BLANK, CropTextures.ESSENCE_ROCK_BLANK), MOD_ID, 0x723232);
+    public static final Crop COAL = new Crop("coal", CropTier.TWO, CropType.RESOURCE, MOD_ID);
+
+    public static final Crop IRON = new Crop("iron", CropTier.THREE, CropType.RESOURCE, new CropTextures(CropTextures.FLOWER_INGOT_BLANK, CropTextures.ESSENCE_INGOT_BLANK), MOD_ID, 0xD8D8D8);
+    public static final Crop NETHER_QUARTZ = new Crop("nether_quartz", CropTier.THREE, CropType.RESOURCE, MOD_ID);
+    public static final Crop GLOWSTONE = new Crop("glowstone", CropTier.THREE, CropType.RESOURCE, new CropTextures(CropTextures.FLOWER_DUST_BLANK, CropTextures.ESSENCE_DUST_BLANK), MOD_ID, 0xFFBC5E);
+    public static final Crop REDSTONE = new Crop("redstone", CropTier.THREE, CropType.RESOURCE, new CropTextures(CropTextures.FLOWER_DUST_BLANK, CropTextures.ESSENCE_DUST_BLANK), MOD_ID, 0xAA0F01);
+    public static final Crop OBSIDIAN = new Crop("obsidian", CropTier.THREE, CropType.RESOURCE, new CropTextures(CropTextures.FLOWER_ROCK_BLANK, CropTextures.ESSENCE_ROCK_BLANK), MOD_ID, 0x271E3D);
+
+    public static final Crop GOLD = new Crop("gold", CropTier.FOUR, CropType.RESOURCE, MOD_ID);
+    public static final Crop LAPIS_LAZULI = new Crop("lapis_lazuli", CropTier.FOUR, CropType.RESOURCE, MOD_ID);
+    public static final Crop END = new Crop("end", CropTier.FOUR, CropType.RESOURCE, new CropTextures(CropTextures.FLOWER_ROCK_BLANK, CropTextures.ESSENCE_ROCK_BLANK), MOD_ID, 0xEEF6B4);
+    public static final Crop EXPERIENCE = new Crop("experience", CropTier.FOUR, CropType.RESOURCE, MOD_ID);
+
+    public static final Crop DIAMOND = new Crop("diamond", CropTier.FIVE, CropType.RESOURCE, new CropTextures(CropTextures.FLOWER_ROCK_BLANK, CropTextures.ESSENCE_DIAMOND_BLANK), MOD_ID, 0x4AEDD9);
+    public static final Crop EMERALD = new Crop("emerald", CropTier.FIVE, CropType.RESOURCE, new CropTextures(CropTextures.FLOWER_ROCK_BLANK, CropTextures.ESSENCE_TALL_GEM_BLANK), MOD_ID, 0x17DD62);
 
     @SubscribeEvent
     public void onRegisterCrops(RegisterCropsEvent event) {
@@ -27,6 +49,28 @@ public class ModCrops {
         event.register(FIRE);
 
         event.register(STONE);
+        event.register(DIRT);
+        event.register(WOOD);
+        event.register(ICE);
+
+        event.register(NATURE);
+        event.register(DYE);
+        event.register(NETHER);
+        event.register(COAL);
+
+        event.register(IRON);
+        event.register(NETHER_QUARTZ);
+        event.register(GLOWSTONE);
+        event.register(REDSTONE);
+        event.register(OBSIDIAN);
+
+        event.register(GOLD);
+        event.register(LAPIS_LAZULI);
+        event.register(END);
+        event.register(EXPERIENCE);
+
+        event.register(DIAMOND);
+        event.register(EMERALD);
     }
 
     public static void onCommonSetup() {
