@@ -32,6 +32,7 @@ public class ModCrops {
     public static final Crop GLOWSTONE = new Crop("glowstone", CropTier.THREE, CropType.RESOURCE, MOD_ID);
     public static final Crop REDSTONE = new Crop("redstone", CropTier.THREE, CropType.RESOURCE, MOD_ID);
     public static final Crop OBSIDIAN = new Crop("obsidian", CropTier.THREE, CropType.RESOURCE, new CropTextures(CropTextures.FLOWER_ROCK_BLANK, CropTextures.ESSENCE_ROCK_BLANK), MOD_ID, 0x271E3D);
+    public static final Crop PRISMARINE = new Crop("prismarine", CropTier.THREE, CropType.RESOURCE, MOD_ID);
 
     public static final Crop GOLD = new Crop("gold", CropTier.FOUR, CropType.RESOURCE, MOD_ID);
     public static final Crop LAPIS_LAZULI = new Crop("lapis_lazuli", CropTier.FOUR, CropType.RESOURCE, MOD_ID);
@@ -63,6 +64,7 @@ public class ModCrops {
         event.register(GLOWSTONE);
         event.register(REDSTONE);
         event.register(OBSIDIAN);
+        event.register(PRISMARINE);
 
         event.register(GOLD);
         event.register(LAPIS_LAZULI);
