@@ -146,7 +146,7 @@ public interface ICrop {
     ICrop setSeeds(BlockNamedItem seeds);
 
     /**
-     * Get the chance of a second seed/essence dropping based on the block below
+     * Get the chance of a second seed/essence dropping based on the block provided
      * @param block the block below the crop
      * @return the chance of a second seed/essence dropping
      */
@@ -161,7 +161,7 @@ public interface ICrop {
     }
 
     /**
-     * Get the crafting ingredient for this crop using a registry name or a tag location prefixed with 'tag:'
+     * Get the crafting ingredient for this crop from the underlying {@link CropIngredient}
      * @return the crafting material of this crop
      */
     Ingredient getCraftingMaterial();

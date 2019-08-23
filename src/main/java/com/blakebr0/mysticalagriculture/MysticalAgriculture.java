@@ -5,6 +5,7 @@ import com.blakebr0.mysticalagriculture.block.ModBlocks;
 import com.blakebr0.mysticalagriculture.client.ModelHandler;
 import com.blakebr0.mysticalagriculture.config.ModConfigs;
 import com.blakebr0.mysticalagriculture.container.ModContainerTypes;
+import com.blakebr0.mysticalagriculture.crafting.DynamicRecipeManager;
 import com.blakebr0.mysticalagriculture.crafting.ModRecipeSerializers;
 import com.blakebr0.mysticalagriculture.crafting.ingredient.ModIngredients;
 import com.blakebr0.mysticalagriculture.handler.ColorHandler;
@@ -14,7 +15,9 @@ import com.blakebr0.mysticalagriculture.registry.CropRegistry;
 import com.blakebr0.mysticalagriculture.tileentity.ModTileEntities;
 import com.blakebr0.mysticalagriculture.world.ModWorldFeatures;
 import net.minecraft.item.ItemGroup;
+import net.minecraft.resources.IReloadableResourceManager;
 import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.DeferredWorkQueue;
@@ -26,6 +29,7 @@ import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.InterModEnqueueEvent;
 import net.minecraftforge.fml.event.lifecycle.InterModProcessEvent;
+import net.minecraftforge.fml.event.server.FMLServerAboutToStartEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 
 @Mod(MysticalAgriculture.MOD_ID)
@@ -61,6 +65,8 @@ public class MysticalAgriculture {
 
 	@SubscribeEvent
 	public void onCommonSetup(FMLCommonSetupEvent event) {
+		MinecraftForge.EVENT_BUS.register(this);
+
 		ModCrops.onCommonSetup();
 		ModIngredients.onCommonSetup();
 
@@ -83,5 +89,12 @@ public class MysticalAgriculture {
 	public void onClientSetup(FMLClientSetupEvent event) {
 		ModTileEntities.onClientSetup();
 		ModContainerTypes.onClientSetup();
+	}
+
+	@SubscribeEvent
+	public void onServerAboutToStart(FMLServerAboutToStartEvent event) {
+		IReloadableResourceManager manager = event.getServer().getResourceManager();
+
+		manager.addReloadListener(new DynamicRecipeManager());
 	}
 }
