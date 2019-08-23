@@ -10,7 +10,6 @@ import net.minecraft.item.crafting.Ingredient;
  *
  * Use or extend this class for your crops
  */
-@SuppressWarnings("unchecked")
 public class Crop implements ICrop {
     private final String name;
     private CropTier tier;
@@ -146,8 +145,8 @@ public class Crop implements ICrop {
     }
 
     @Override
-    public <T extends CropsBlock> T getCrop() {
-        return (T) this.crop;
+    public CropsBlock getCrop() {
+        return this.crop;
     }
 
     @Override
@@ -157,8 +156,8 @@ public class Crop implements ICrop {
     }
 
     @Override
-    public <T extends Item> T getEssence() {
-        return (T) this.essence;
+    public Item getEssence() {
+        return this.essence;
     }
 
     @Override
@@ -168,8 +167,8 @@ public class Crop implements ICrop {
     }
 
     @Override
-    public <T extends BlockNamedItem> T getSeeds() {
-        return (T) this.seeds;
+    public BlockNamedItem getSeeds() {
+        return this.seeds;
     }
 
     @Override

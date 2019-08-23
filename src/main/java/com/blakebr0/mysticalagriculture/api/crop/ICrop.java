@@ -108,7 +108,7 @@ public interface ICrop {
      * @param <T> crop block type
      * @return the crop block
      */
-    <T extends CropsBlock> T getCrop();
+    CropsBlock getCrop();
 
     /**
      * Used to set the crop block instance for this crop
@@ -122,7 +122,7 @@ public interface ICrop {
      * @param <T> essence item type
      * @return the essence item
      */
-    <T extends Item> T getEssence();
+    Item getEssence();
 
     /**
      * Used to set the essence item instance for this crop
@@ -136,7 +136,7 @@ public interface ICrop {
      * @param <T> seed item type
      * @return the seed item
      */
-    <T extends BlockNamedItem> T getSeeds();
+    BlockNamedItem getSeeds();
 
     /**
      * Used to set the seeds item instance for this crop

@@ -9,7 +9,6 @@ import net.minecraft.util.text.TranslationTextComponent;
 
 import static com.blakebr0.mysticalagriculture.api.MysticalAgricultureAPI.MOD_ID;
 
-@SuppressWarnings("unchecked")
 public class CropTier {
     public static final CropTier ELEMENTAL = new CropTier("elemental", 1, 0x748E00, TextFormatting.YELLOW, MOD_ID);
     public static final CropTier ONE = new CropTier("1", 1, 0x748E00, TextFormatting.YELLOW, MOD_ID);
@@ -78,11 +77,10 @@ public class CropTier {
 
     /**
      * Gets the block instance of the effective farmland for this tier
-     * @param <T> block type
      * @return the farmland for this tier
      */
-    public <T extends FarmlandBlock> T getFarmland() {
-        return (T) this.farmland;
+    public FarmlandBlock getFarmland() {
+        return this.farmland;
     }
 
     /**
@@ -97,11 +95,10 @@ public class CropTier {
 
     /**
      * Gets the item instance of the essence for this tier
-     * @param <T> item type
      * @return the essence for this tier
      */
-    public <T extends Item> T getEssence() {
-        return (T) this.essence;
+    public Item getEssence() {
+        return this.essence;
     }
 
     /**
