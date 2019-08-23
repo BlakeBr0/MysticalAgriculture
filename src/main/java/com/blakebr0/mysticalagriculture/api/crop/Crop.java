@@ -3,6 +3,7 @@ package com.blakebr0.mysticalagriculture.api.crop;
 import net.minecraft.block.CropsBlock;
 import net.minecraft.item.BlockNamedItem;
 import net.minecraft.item.Item;
+import net.minecraft.item.crafting.Ingredient;
 
 /**
  * The default implementation of {@link ICrop}
@@ -22,6 +23,7 @@ public class Crop implements ICrop {
     private CropsBlock crop;
     private Item essence;
     private BlockNamedItem seeds;
+    private CropIngredient craftingMaterial;
 
     /**
      * Represents a new crop for registration
@@ -29,13 +31,22 @@ public class Crop implements ICrop {
      * @param tier the tier of this crop
      * @param type the type of this crop, like resource or mob
      * @param modid the modid of the mod who registered this crop, also used do generate texture locations
+     * @param craftingMaterial the crafting ingredient for this crop
      */
-    public Crop(String name, CropTier tier, CropType type, String modid) {
-        this(name, tier, type, new CropTextures(), modid);
+    public Crop(String name, CropTier tier, CropType type, String modid, CropIngredient craftingMaterial) {
+        this(name, tier, type, new CropTextures(), modid, craftingMaterial);
     }
 
-    public Crop(String name, CropTier tier, CropType type, String modid, int color) {
-        this(name, tier, type, new CropTextures(), modid, color);
+    /**
+     * Represents a new crop for registration
+     * @param name the name of the crop, MUST be all lowercase and use underscores for spaces
+     * @param tier the tier of this crop
+     * @param type the type of this crop, like resource or mob
+     * @param modid the modid of the mod who registered this crop
+     * @param craftingMaterial the crafting ingredient for this crop
+     */
+    public Crop(String name, CropTier tier, CropType type, String modid, int color, CropIngredient craftingMaterial) {
+        this(name, tier, type, new CropTextures(), modid, color, craftingMaterial);
     }
 
     /**
@@ -45,9 +56,10 @@ public class Crop implements ICrop {
      * @param type the type of this crop, like resource or mob
      * @param textures the textures of this crop
      * @param modid the modid of the mod who registered this crop
+     * @param craftingMaterial the crafting ingredient for this crop
      */
-    public Crop(String name, CropTier tier, CropType type, CropTextures textures, String modid) {
-        this(name, tier, type, textures, modid, -1);
+    public Crop(String name, CropTier tier, CropType type, CropTextures textures, String modid, CropIngredient craftingMaterial) {
+        this(name, tier, type, textures, modid, -1, craftingMaterial);
     }
 
     /**
@@ -58,14 +70,16 @@ public class Crop implements ICrop {
      * @param textures the textures of this crop
      * @param modid the modid of the mod who registered this crop
      * @param color the color to color the textures with
+     * @param craftingMaterial the crafting ingredient for this crop
      */
-    public Crop(String name, CropTier tier, CropType type, CropTextures textures, String modid, int color) {
+    public Crop(String name, CropTier tier, CropType type, CropTextures textures, String modid, int color, CropIngredient craftingMaterial) {
         this.name = name;
         this.tier = tier;
         this.type = type;
         this.textures = textures.init(name, modid);
         this.modid = modid;
         this.setColor(color);
+        this.craftingMaterial = craftingMaterial;
     }
 
     @Override
@@ -161,6 +175,17 @@ public class Crop implements ICrop {
     @Override
     public ICrop setSeeds(BlockNamedItem seeds) {
         this.seeds = seeds;
+        return this;
+    }
+
+    @Override
+    public Ingredient getCraftingMaterial() {
+        return this.craftingMaterial.getIngredient();
+    }
+
+    @Override
+    public ICrop setCraftingMaterial(CropIngredient ingredient) {
+        this.craftingMaterial = ingredient;
         return this;
     }
 }

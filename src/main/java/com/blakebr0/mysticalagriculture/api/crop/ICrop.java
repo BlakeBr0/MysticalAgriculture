@@ -5,6 +5,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.CropsBlock;
 import net.minecraft.item.BlockNamedItem;
 import net.minecraft.item.Item;
+import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.TranslationTextComponent;
 
@@ -158,4 +159,17 @@ public interface ICrop {
 
         return chance;
     }
+
+    /**
+     * Get the crafting ingredient for this crop using a registry name or a tag location prefixed with 'tag:'
+     * @return the crafting material of this crop
+     */
+    Ingredient getCraftingMaterial();
+
+    /**
+     * Used to set the underlying {@link CropIngredient} for this crop
+     * @param ingredient the crafting ingredient for this crop
+     * @return this crop
+     */
+    ICrop setCraftingMaterial(CropIngredient ingredient);
 }
