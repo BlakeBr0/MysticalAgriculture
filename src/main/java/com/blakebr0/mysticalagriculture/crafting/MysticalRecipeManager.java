@@ -18,6 +18,7 @@ import net.minecraftforge.common.crafting.CraftingHelper;
 import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.event.server.FMLServerAboutToStartEvent;
+import net.minecraftforge.items.IItemHandler;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -32,7 +33,7 @@ public class MysticalRecipeManager extends JsonReloadListener {
     private Map<ISpecialRecipeType<?>, Map<ResourceLocation, ISpecialRecipe>> recipes = new HashMap<>();
 
     private MysticalRecipeManager() {
-        super(GSON, "recipes/mysticalagriculture");
+        super(GSON, "mysticalagriculture");
     }
 
     @Override
@@ -67,6 +68,14 @@ public class MysticalRecipeManager extends JsonReloadListener {
 
     public <T extends ISpecialRecipe> Map<ResourceLocation, ISpecialRecipe> getRecipes(ISpecialRecipeType<T> type) {
         return this.recipes.getOrDefault(type, new HashMap<>());
+    }
+
+    public <T extends ISpecialRecipe> ISpecialRecipe getRecipe(ISpecialRecipeType<T> type, IItemHandler inventory) {
+        return this.getRecipe(type, inventory, 0, inventory.getSlots());
+    }
+
+    public <T extends ISpecialRecipe> ISpecialRecipe getRecipe(ISpecialRecipeType<T> type, IItemHandler inventory, int startIndex, int endIndex) {
+        return this.getRecipes(type).values().stream().filter(r -> r.matches(inventory, startIndex, endIndex)).findFirst().orElse(null);
     }
 
     public <T extends ISpecialRecipe> void addRecipe(T recipe) {

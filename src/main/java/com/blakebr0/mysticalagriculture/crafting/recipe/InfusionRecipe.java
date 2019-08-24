@@ -14,6 +14,7 @@ import net.minecraft.network.PacketBuffer;
 import net.minecraft.util.JSONUtils;
 import net.minecraft.util.NonNullList;
 import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.items.IItemHandler;
 
 public class InfusionRecipe implements ISpecialRecipe {
     private final ResourceLocation recipeId;
@@ -49,6 +50,12 @@ public class InfusionRecipe implements ISpecialRecipe {
     @Override
     public ISpecialRecipeType<?> getType() {
         return SpecialRecipeTypes.INFUSION;
+    }
+
+    @Override
+    public boolean matches(IItemHandler inventory) {
+        ItemStack altarStack = inventory.getStackInSlot(0);
+        return this.inputs.get(0).test(altarStack) && ISpecialRecipe.super.matches(inventory);
     }
 
     public static class Serializer implements ISpecialRecipeSerializer<InfusionRecipe> {
