@@ -28,6 +28,7 @@ public class InfusionAltarTileEntity extends BaseInventoryTileEntity implements 
             .pos(3, 0, 0).pos(0, 0, 3).pos(-3, 0, 0).pos(0, 0, -3)
             .pos(2, 0, 2).pos(2, 0, -2).pos(-2, 0, 2).pos(-2, 0, -2).build();
     private int progress;
+    private boolean active;
 
     public InfusionAltarTileEntity() {
         super(ModTileEntities.INFUSION_ALTAR);
@@ -45,12 +46,14 @@ public class InfusionAltarTileEntity extends BaseInventoryTileEntity implements 
     public void read(CompoundNBT tag) {
         super.read(tag);
         this.progress = tag.getInt("Progress");
+        this.active = tag.getBoolean("Active");
     }
 
     @Override
     public CompoundNBT write(CompoundNBT tag) {
         tag = super.write(tag);
         tag.putInt("Progress", this.progress);
+        tag.putBoolean("Active", this.active);
         return tag;
     }
 
@@ -58,7 +61,12 @@ public class InfusionAltarTileEntity extends BaseInventoryTileEntity implements 
     public void tick() {
         if (this.getWorld() != null && !this.getWorld().isRemote()) {
             ItemStack input = this.inventory.getStackInSlot(0);
-            if (!input.isEmpty()) {
+            if (input.isEmpty()) {
+                this.reset();
+                return;
+            }
+
+            if (this.isActive()) {
                 List<InfusionPedestalTileEntity> pedestals = this.getPedestalsWithStuff();
                 InfusionRecipe recipe = this.getRecipe(pedestals);
                 if (recipe != null) {
@@ -72,7 +80,7 @@ public class InfusionAltarTileEntity extends BaseInventoryTileEntity implements 
                         }
 
                         this.setOutput(recipe.getOutput());
-                        this.progress = 0;
+                        this.reset();
                         this.markDirtyAndDispatch();
                         this.spawnParticles(ParticleTypes.HAPPY_VILLAGER, this.getPos(), 1.0D, 10);
                     } else {
@@ -83,7 +91,7 @@ public class InfusionAltarTileEntity extends BaseInventoryTileEntity implements 
                         });
                     }
                 } else {
-                    this.progress = 0;
+                    this.reset();
                 }
             } else {
                 this.progress = 0;
@@ -93,6 +101,22 @@ public class InfusionAltarTileEntity extends BaseInventoryTileEntity implements 
 
     public List<BlockPos> getPedestalPositions() {
         return this.pedestalLocations.get(this.getPos());
+    }
+
+    public boolean isActive() {
+        if (!this.active)
+            this.active = this.getWorld() != null && this.getWorld().isBlockPowered(this.getPos());
+
+        return this.active;
+    }
+
+    public void setActive() {
+        this.active = true;
+    }
+
+    private void reset() {
+        this.progress = 0;
+        this.active = false;
     }
 
     private InfusionRecipe getRecipe(List<InfusionPedestalTileEntity> pedestals) {
