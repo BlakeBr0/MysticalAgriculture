@@ -61,9 +61,9 @@ public class DynamicRecipeManager implements IResourceManagerReloadListener {
         Ingredient essence = Ingredient.fromItems(essenceItem);
         Ingredient craftingSeed = Ingredient.fromItems(craftingSeedItem);
         NonNullList<Ingredient> inputs = NonNullList.from(Ingredient.EMPTY,
-                craftingSeed, essence, material,
-                essence, material, essence,
-                material, essence, material
+                craftingSeed, material, essence,
+                material, essence, material,
+                essence, material, essence
         );
 
         ResourceLocation name = new ResourceLocation(MysticalAgriculture.MOD_ID, crop.getNameWithSuffix("_seeds"));

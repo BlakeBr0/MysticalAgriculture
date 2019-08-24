@@ -165,6 +165,8 @@
   "tooltip.mysticalagriculture.cooking_speed": "Cooking Speed: %s",
   "tooltip.mysticalagriculture.fuel_efficiency": "Fuel Efficiency: %s",
 
+  "jei.category.mysticalagriculture.infusion": "Infusion Crafting",
+
   "cropTier.mysticalagriculture.elemental": "Elemental",
   "cropTier.mysticalagriculture.1": "1",
   "cropTier.mysticalagriculture.2": "2",

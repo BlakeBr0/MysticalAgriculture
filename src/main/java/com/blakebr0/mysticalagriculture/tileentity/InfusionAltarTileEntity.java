@@ -96,7 +96,7 @@ public class InfusionAltarTileEntity extends BaseInventoryTileEntity implements 
     }
 
     private InfusionRecipe getRecipe(List<InfusionPedestalTileEntity> pedestals) {
-        this.recipe.getStacks().replaceAll(s -> ItemStack.EMPTY);
+        this.recipe.getStacks().clear();
         this.recipe.setStackInSlot(0, this.inventory.getStackInSlot(0));
         for (int i = 0; i < pedestals.size(); i++) {
             ItemStack stack = pedestals.get(i).getInventory().getStackInSlot(0);
