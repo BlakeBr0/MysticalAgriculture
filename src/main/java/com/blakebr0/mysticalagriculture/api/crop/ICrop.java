@@ -6,6 +6,7 @@ import net.minecraft.block.CropsBlock;
 import net.minecraft.item.BlockNamedItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.crafting.Ingredient;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.TranslationTextComponent;
 
@@ -14,11 +15,20 @@ import net.minecraft.util.text.TranslationTextComponent;
  */
 public interface ICrop {
     /**
+     * The id of this crop, the modid is taken from the namespace for {@link ICrop#getModId()},
+     * and the path is used for {@link ICrop#getName()}
+     * @return the id of this crop
+     */
+    ResourceLocation getId();
+
+    /**
      * The internal name of this crop.
      * This is used for registration, so it MUST be all lowercase with underscores for spaces
-     * @return the name of this crop
+     * @return the internal name of this crop
      */
-    String getName();
+    default String getName() {
+        return this.getId().getPath();
+    }
 
     /**
      * Used to get the internal name of this crop with an _suffix
@@ -30,7 +40,7 @@ public interface ICrop {
     }
 
     /**
-     * Get the localized name of this crop using the key crop.{modid}.{name}
+     * Get the localized name of this crop using the key crop.{@link ICrop#getModId()}.{@link ICrop#getName()}
      * @return the localized name of this crop
      */
     default ITextComponent getDisplayName() {
@@ -101,11 +111,12 @@ public interface ICrop {
      * The modid of the mod that registered this crop
      * @return the modid of this crop
      */
-    String getModId();
+    default String getModId() {
+        return this.getId().getNamespace();
+    }
 
     /**
      * The crop block for this crop type
-     * @param <T> crop block type
      * @return the crop block
      */
     CropsBlock getCrop();
@@ -119,7 +130,6 @@ public interface ICrop {
 
     /**
      * The essence item for this crop type
-     * @param <T> essence item type
      * @return the essence item
      */
     Item getEssence();
@@ -133,7 +143,6 @@ public interface ICrop {
 
     /**
      * The seeds item for this crop type
-     * @param <T> seed item type
      * @return the seed item
      */
     BlockNamedItem getSeeds();

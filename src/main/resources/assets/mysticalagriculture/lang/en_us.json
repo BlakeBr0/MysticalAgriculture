@@ -160,7 +160,7 @@
   "container.mysticalagriculture.supremium_furnace": "Supremium Furnace",
 
   "tooltip.mysticalagriculture.crop_tier": "Tier %s",
-  "tooltip.mysticalagriculture.internal_name": "Internal Name: %s",
+  "tooltip.mysticalagriculture.crop_id": "Crop id: %s",
   "tooltip.mysticalagriculture.secondary_chance": "Secondary Chance: %s",
   "tooltip.mysticalagriculture.cooking_speed": "Cooking Speed: %s",
   "tooltip.mysticalagriculture.fuel_efficiency": "Fuel Efficiency: %s",

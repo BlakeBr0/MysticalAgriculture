@@ -32,7 +32,7 @@ public class MysticalSeedsItem extends BlockNamedItem implements ICropGetter {
         ITextComponent tier = this.crop.getTier().getDisplayName();
         tooltip.add(ModTooltips.CROP_TIER.args(tier).build());
         if (flag.isAdvanced())
-            tooltip.add(ModTooltips.INTERNAL_NAME.args(this.crop.getName()).color(TextFormatting.DARK_GRAY).build());
+            tooltip.add(ModTooltips.CROP_ID.args(this.crop.getId()).color(TextFormatting.DARK_GRAY).build());
     }
 
     @Override

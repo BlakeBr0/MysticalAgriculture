@@ -8,6 +8,7 @@ import com.blakebr0.mysticalagriculture.api.crop.CropType;
 import com.blakebr0.mysticalagriculture.api.registry.RegisterCropsEvent;
 import com.blakebr0.mysticalagriculture.block.ModBlocks;
 import com.blakebr0.mysticalagriculture.item.ModItems;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 
 import static com.blakebr0.mysticalagriculture.MysticalAgriculture.MOD_ID;
@@ -16,49 +17,49 @@ public class ModCrops {
     private static final CropTextures ELEMENTAL_CROP_TEXTURES = new CropTextures(CropTextures.FLOWER_INGOT_BLANK, CropTextures.ESSENCE_FLAME_BLANK);
     private static final CropTextures ROCK_CROP_TEXTURES = new CropTextures(CropTextures.FLOWER_ROCK_BLANK, CropTextures.ESSENCE_ROCK_BLANK);
 
-    public static final Crop AIR = new Crop("air", CropTier.ELEMENTAL, CropType.RESOURCE, ELEMENTAL_CROP_TEXTURES, MOD_ID, 0xDAD64D, CropIngredient.EMPTY);
-    public static final Crop EARTH = new Crop("earth", CropTier.ELEMENTAL, CropType.RESOURCE, ELEMENTAL_CROP_TEXTURES, MOD_ID, 0x54DA4D, CropIngredient.EMPTY);
-    public static final Crop WATER = new Crop("water", CropTier.ELEMENTAL, CropType.RESOURCE, ELEMENTAL_CROP_TEXTURES, MOD_ID, 0x4D7EDA, CropIngredient.EMPTY);
-    public static final Crop FIRE = new Crop("fire", CropTier.ELEMENTAL, CropType.RESOURCE, ELEMENTAL_CROP_TEXTURES, MOD_ID, 0xDA4D4D, CropIngredient.EMPTY);
+    public static final Crop AIR = new Crop(new ResourceLocation(MOD_ID, "air"), CropTier.ELEMENTAL, CropType.RESOURCE, ELEMENTAL_CROP_TEXTURES, 0xDAD64D, CropIngredient.EMPTY);
+    public static final Crop EARTH = new Crop(new ResourceLocation(MOD_ID, "earth"), CropTier.ELEMENTAL, CropType.RESOURCE, ELEMENTAL_CROP_TEXTURES, 0x54DA4D, CropIngredient.EMPTY);
+    public static final Crop WATER = new Crop(new ResourceLocation(MOD_ID, "water"), CropTier.ELEMENTAL, CropType.RESOURCE, ELEMENTAL_CROP_TEXTURES, 0x4D7EDA, CropIngredient.EMPTY);
+    public static final Crop FIRE = new Crop(new ResourceLocation(MOD_ID, "fire"), CropTier.ELEMENTAL, CropType.RESOURCE, ELEMENTAL_CROP_TEXTURES, 0xDA4D4D, CropIngredient.EMPTY);
 
-    public static final Crop STONE = new Crop("stone", CropTier.ONE, CropType.RESOURCE, ROCK_CROP_TEXTURES, MOD_ID, 0x7F7F7F, CropIngredient.tag("forge:stone"));
-    public static final Crop DIRT = new Crop("dirt", CropTier.ONE, CropType.RESOURCE, MOD_ID, CropIngredient.item("minecraft:dirt"));
-    public static final Crop WOOD = new Crop("wood", CropTier.ONE, CropType.RESOURCE, MOD_ID, CropIngredient.tag("minecraft:logs"));
-    public static final Crop ICE = new Crop("ice", CropTier.ONE, CropType.RESOURCE, MOD_ID, CropIngredient.item("minecraft:ice"));
-    public static final Crop ZOMBIE = new Crop("zombie", CropTier.ONE, CropType.MOB, MOD_ID, CropIngredient.EMPTY);
+    public static final Crop STONE = new Crop(new ResourceLocation(MOD_ID, "stone"), CropTier.ONE, CropType.RESOURCE, ROCK_CROP_TEXTURES, 0x7F7F7F, CropIngredient.tag("forge:stone"));
+    public static final Crop DIRT = new Crop(new ResourceLocation(MOD_ID, "dirt"), CropTier.ONE, CropType.RESOURCE, CropIngredient.item("minecraft:dirt"));
+    public static final Crop WOOD = new Crop(new ResourceLocation(MOD_ID, "wood"), CropTier.ONE, CropType.RESOURCE, CropIngredient.tag("minecraft:logs"));
+    public static final Crop ICE = new Crop(new ResourceLocation(MOD_ID, "ice"), CropTier.ONE, CropType.RESOURCE, CropIngredient.item("minecraft:ice"));
+    public static final Crop ZOMBIE = new Crop(new ResourceLocation(MOD_ID, "zombie"), CropTier.ONE, CropType.MOB, CropIngredient.EMPTY);
 
-    public static final Crop NATURE = new Crop("nature", CropTier.TWO, CropType.RESOURCE, MOD_ID, CropIngredient.EMPTY);
-    public static final Crop DYE = new Crop("dye", CropTier.TWO, CropType.RESOURCE, MOD_ID, CropIngredient.EMPTY);
-    public static final Crop NETHER = new Crop("nether", CropTier.TWO, CropType.RESOURCE, ROCK_CROP_TEXTURES, MOD_ID, 0x723232, CropIngredient.EMPTY);
-    public static final Crop COAL = new Crop("coal", CropTier.TWO, CropType.RESOURCE, MOD_ID, CropIngredient.item("minecraft:coal"));
-    public static final Crop PIG = new Crop("pig", CropTier.TWO, CropType.MOB, MOD_ID, CropIngredient.EMPTY);
-    public static final Crop CHICKEN = new Crop("chicken", CropTier.TWO, CropType.MOB, MOD_ID, CropIngredient.EMPTY);
-    public static final Crop COW = new Crop("cow", CropTier.TWO, CropType.MOB, MOD_ID, CropIngredient.EMPTY);
-    public static final Crop SHEEP = new Crop("sheep", CropTier.TWO, CropType.MOB, MOD_ID, CropIngredient.EMPTY);
-    public static final Crop SLIME = new Crop("slime", CropTier.TWO, CropType.MOB, MOD_ID, CropIngredient.EMPTY);
+    public static final Crop NATURE = new Crop(new ResourceLocation(MOD_ID, "nature"), CropTier.TWO, CropType.RESOURCE, CropIngredient.EMPTY);
+    public static final Crop DYE = new Crop(new ResourceLocation(MOD_ID, "dye"), CropTier.TWO, CropType.RESOURCE, CropIngredient.EMPTY);
+    public static final Crop NETHER = new Crop(new ResourceLocation(MOD_ID, "nether"), CropTier.TWO, CropType.RESOURCE, ROCK_CROP_TEXTURES, 0x723232, CropIngredient.EMPTY);
+    public static final Crop COAL = new Crop(new ResourceLocation(MOD_ID, "coal"), CropTier.TWO, CropType.RESOURCE, CropIngredient.item("minecraft:coal"));
+    public static final Crop PIG = new Crop(new ResourceLocation(MOD_ID, "pig"), CropTier.TWO, CropType.MOB, CropIngredient.EMPTY);
+    public static final Crop CHICKEN = new Crop(new ResourceLocation(MOD_ID, "chicken"), CropTier.TWO, CropType.MOB, CropIngredient.EMPTY);
+    public static final Crop COW = new Crop(new ResourceLocation(MOD_ID, "cow"), CropTier.TWO, CropType.MOB, CropIngredient.EMPTY);
+    public static final Crop SHEEP = new Crop(new ResourceLocation(MOD_ID, "sheep"), CropTier.TWO, CropType.MOB, CropIngredient.EMPTY);
+    public static final Crop SLIME = new Crop(new ResourceLocation(MOD_ID, "slime"), CropTier.TWO, CropType.MOB, CropIngredient.EMPTY);
 
-    public static final Crop IRON = new Crop("iron", CropTier.THREE, CropType.RESOURCE, MOD_ID, CropIngredient.tag("forge:ingots/iron"));
-    public static final Crop NETHER_QUARTZ = new Crop("nether_quartz", CropTier.THREE, CropType.RESOURCE, MOD_ID, CropIngredient.tag("forge:gems/quartz"));
-    public static final Crop GLOWSTONE = new Crop("glowstone", CropTier.THREE, CropType.RESOURCE, MOD_ID, CropIngredient.tag("forge:dusts/glowstone"));
-    public static final Crop REDSTONE = new Crop("redstone", CropTier.THREE, CropType.RESOURCE, MOD_ID, CropIngredient.tag("forge:dusts/redstone"));
-    public static final Crop OBSIDIAN = new Crop("obsidian", CropTier.THREE, CropType.RESOURCE, ROCK_CROP_TEXTURES, MOD_ID, 0x271E3D, CropIngredient.item("minecraft:obsidian"));
-    public static final Crop PRISMARINE = new Crop("prismarine", CropTier.THREE, CropType.RESOURCE, MOD_ID, CropIngredient.EMPTY);
-    public static final Crop SKELETON = new Crop("skeleton", CropTier.THREE, CropType.MOB, MOD_ID, CropIngredient.EMPTY);
-    public static final Crop CREEPER = new Crop("creeper", CropTier.THREE, CropType.MOB, MOD_ID, CropIngredient.EMPTY);
-    public static final Crop SPIDER = new Crop("spider", CropTier.THREE, CropType.MOB, MOD_ID, CropIngredient.EMPTY);
-    public static final Crop RABBIT = new Crop("rabbit", CropTier.THREE, CropType.MOB, MOD_ID, CropIngredient.EMPTY);
+    public static final Crop IRON = new Crop(new ResourceLocation(MOD_ID, "iron"), CropTier.THREE, CropType.RESOURCE, CropIngredient.tag("forge:ingots/iron"));
+    public static final Crop NETHER_QUARTZ = new Crop(new ResourceLocation(MOD_ID, "nether_quartz"), CropTier.THREE, CropType.RESOURCE, CropIngredient.tag("forge:gems/quartz"));
+    public static final Crop GLOWSTONE = new Crop(new ResourceLocation(MOD_ID, "glowstone"), CropTier.THREE, CropType.RESOURCE, CropIngredient.tag("forge:dusts/glowstone"));
+    public static final Crop REDSTONE = new Crop(new ResourceLocation(MOD_ID, "redstone"), CropTier.THREE, CropType.RESOURCE, CropIngredient.tag("forge:dusts/redstone"));
+    public static final Crop OBSIDIAN = new Crop(new ResourceLocation(MOD_ID, "obsidian"), CropTier.THREE, CropType.RESOURCE, ROCK_CROP_TEXTURES, 0x271E3D, CropIngredient.item("minecraft:obsidian"));
+    public static final Crop PRISMARINE = new Crop(new ResourceLocation(MOD_ID, "prismarine"), CropTier.THREE, CropType.RESOURCE, CropIngredient.EMPTY);
+    public static final Crop SKELETON = new Crop(new ResourceLocation(MOD_ID, "skeleton"), CropTier.THREE, CropType.MOB, CropIngredient.EMPTY);
+    public static final Crop CREEPER = new Crop(new ResourceLocation(MOD_ID, "creeper"), CropTier.THREE, CropType.MOB, CropIngredient.EMPTY);
+    public static final Crop SPIDER = new Crop(new ResourceLocation(MOD_ID, "spider"), CropTier.THREE, CropType.MOB, CropIngredient.EMPTY);
+    public static final Crop RABBIT = new Crop(new ResourceLocation(MOD_ID, "rabbit"), CropTier.THREE, CropType.MOB, CropIngredient.EMPTY);
 
-    public static final Crop GOLD = new Crop("gold", CropTier.FOUR, CropType.RESOURCE, MOD_ID, CropIngredient.tag("forge:ingots/gold"));
-    public static final Crop LAPIS_LAZULI = new Crop("lapis_lazuli", CropTier.FOUR, CropType.RESOURCE, MOD_ID, CropIngredient.tag("forge:gems/lapis"));
-    public static final Crop END = new Crop("end", CropTier.FOUR, CropType.RESOURCE, ROCK_CROP_TEXTURES, MOD_ID, 0xEEF6B4, CropIngredient.EMPTY);
-    public static final Crop EXPERIENCE = new Crop("experience", CropTier.FOUR, CropType.RESOURCE, MOD_ID, CropIngredient.EMPTY);
-    public static final Crop BLAZE = new Crop("blaze", CropTier.FOUR, CropType.MOB, MOD_ID, CropIngredient.EMPTY);
-    public static final Crop GHAST = new Crop("ghast", CropTier.FOUR, CropType.MOB, MOD_ID, CropIngredient.EMPTY);
-    public static final Crop ENDERMAN = new Crop("enderman", CropTier.FOUR, CropType.MOB, MOD_ID, CropIngredient.EMPTY);
+    public static final Crop GOLD = new Crop(new ResourceLocation(MOD_ID, "gold"), CropTier.FOUR, CropType.RESOURCE, CropIngredient.tag("forge:ingots/gold"));
+    public static final Crop LAPIS_LAZULI = new Crop(new ResourceLocation(MOD_ID, "lapis_lazuli"), CropTier.FOUR, CropType.RESOURCE, CropIngredient.tag("forge:gems/lapis"));
+    public static final Crop END = new Crop(new ResourceLocation(MOD_ID, "end"), CropTier.FOUR, CropType.RESOURCE, ROCK_CROP_TEXTURES, 0xEEF6B4, CropIngredient.EMPTY);
+    public static final Crop EXPERIENCE = new Crop(new ResourceLocation(MOD_ID, "experience"), CropTier.FOUR, CropType.RESOURCE, CropIngredient.EMPTY);
+    public static final Crop BLAZE = new Crop(new ResourceLocation(MOD_ID, "blaze"), CropTier.FOUR, CropType.MOB, CropIngredient.EMPTY);
+    public static final Crop GHAST = new Crop(new ResourceLocation(MOD_ID, "ghast"), CropTier.FOUR, CropType.MOB, CropIngredient.EMPTY);
+    public static final Crop ENDERMAN = new Crop(new ResourceLocation(MOD_ID, "enderman"), CropTier.FOUR, CropType.MOB, CropIngredient.EMPTY);
 
-    public static final Crop DIAMOND = new Crop("diamond", CropTier.FIVE, CropType.RESOURCE, MOD_ID, CropIngredient.tag("forge:gems/diamond"));
-    public static final Crop EMERALD = new Crop("emerald", CropTier.FIVE, CropType.RESOURCE, MOD_ID, CropIngredient.tag("forge:gems/emerald"));
-    public static final Crop WITHER_SKELETON = new Crop("wither_skeleton", CropTier.FIVE, CropType.MOB, MOD_ID, CropIngredient.EMPTY);
+    public static final Crop DIAMOND = new Crop(new ResourceLocation(MOD_ID, "diamond"), CropTier.FIVE, CropType.RESOURCE, CropIngredient.tag("forge:gems/diamond"));
+    public static final Crop EMERALD = new Crop(new ResourceLocation(MOD_ID, "emerald"), CropTier.FIVE, CropType.RESOURCE, CropIngredient.tag("forge:gems/emerald"));
+    public static final Crop WITHER_SKELETON = new Crop(new ResourceLocation(MOD_ID, "wither_skeleton"), CropTier.FIVE, CropType.MOB, CropIngredient.EMPTY);
 
     @SubscribeEvent
     public void onRegisterCrops(RegisterCropsEvent event) {

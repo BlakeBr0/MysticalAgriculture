@@ -85,14 +85,20 @@ public class CropTextures {
 
     /**
      * Used to add fallback locations (the crop specific locations) if any of the locations are null
-     * @param name crop name
-     * @param modid mod id
+     * @param id the id of the crop to generate texture locations for
      * @return this crop textures instance with non-null locations
      */
-    public CropTextures init(String name, String modid) {
-        this.flowerTexture = this.flowerTexture != null ? this.flowerTexture : new ResourceLocation(modid, "block/" + name + "_flower");
-        this.essenceTexture = this.essenceTexture != null ? this.essenceTexture : new ResourceLocation(modid, "item/" + name + "_essence");
-        this.seedTexture = this.seedTexture != null ? this.seedTexture : new ResourceLocation(modid, "item/" + name + "_seeds");
+    public CropTextures init(ResourceLocation id) {
+        String modid = id.getNamespace();
+        String name = id.getPath();
+
+        if (this.flowerTexture == null)
+            this.flowerTexture = new ResourceLocation(modid, "block/" + name + "_flower");
+        if (this.essenceTexture == null)
+            this.essenceTexture = new ResourceLocation(modid, "item/" + name + "_essence");
+        if (this.seedTexture == null)
+            this.seedTexture = new ResourceLocation(modid, "item/" + name + "_seeds");
+
         return this;
     }
 }
