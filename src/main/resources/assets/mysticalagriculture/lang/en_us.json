@@ -183,11 +183,17 @@
   "crop.mysticalagriculture.dirt": "Dirt",
   "crop.mysticalagriculture.wood": "Wood",
   "crop.mysticalagriculture.ice": "Ice",
+  "crop.mysticalagriculture.zombie": "Zombie",
 
   "crop.mysticalagriculture.nature": "Nature",
   "crop.mysticalagriculture.dye": "Dye",
   "crop.mysticalagriculture.nether": "Nether",
   "crop.mysticalagriculture.coal": "Coal",
+  "crop.mysticalagriculture.pig": "Pig",
+  "crop.mysticalagriculture.chicken": "Chicken",
+  "crop.mysticalagriculture.cow": "Cow",
+  "crop.mysticalagriculture.sheep": "Sheep",
+  "crop.mysticalagriculture.slime": "Slime",
 
   "crop.mysticalagriculture.iron": "Iron",
   "crop.mysticalagriculture.nether_quartz": "Nether Quartz",
@@ -195,12 +201,20 @@
   "crop.mysticalagriculture.redstone": "Redstone",
   "crop.mysticalagriculture.obsidian": "Obsidian",
   "crop.mysticalagriculture.prismarine": "Prismarine",
+  "crop.mysticalagriculture.skeleton": "Skeleton",
+  "crop.mysticalagriculture.creeper": "Creeper",
+  "crop.mysticalagriculture.spider": "Spider",
+  "crop.mysticalagriculture.rabbit": "Rabbit",
 
   "crop.mysticalagriculture.gold": "Gold",
   "crop.mysticalagriculture.lapis_lazuli": "Lapis Lazuli",
   "crop.mysticalagriculture.end": "End",
   "crop.mysticalagriculture.experience": "Experience",
+  "crop.mysticalagriculture.blaze": "Blaze",
+  "crop.mysticalagriculture.ghast": "Ghast",
+  "crop.mysticalagriculture.enderman": "Enderman",
 
   "crop.mysticalagriculture.diamond": "Diamond",
-  "crop.mysticalagriculture.emerald": "Emerald"
+  "crop.mysticalagriculture.emerald": "Emerald",
+  "crop.mysticalagriculture.wither_skeleton": "Wither Skeleton"
 }

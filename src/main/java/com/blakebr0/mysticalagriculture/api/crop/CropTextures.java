@@ -11,6 +11,7 @@ public class CropTextures {
     public static final ResourceLocation FLOWER_INGOT_BLANK = new ResourceLocation(MOD_ID, "block/flower_ingot");
     public static final ResourceLocation FLOWER_ROCK_BLANK = new ResourceLocation(MOD_ID, "block/flower_rock");
     public static final ResourceLocation FLOWER_DUST_BLANK = new ResourceLocation(MOD_ID, "block/flower_dust");
+    public static final ResourceLocation FLOWER_FACE_BLANK = new ResourceLocation(MOD_ID, "block/flower_face");
 
     public static final ResourceLocation ESSENCE_INGOT_BLANK = new ResourceLocation(MOD_ID, "item/essence_ingot");
     public static final ResourceLocation ESSENCE_ROCK_BLANK = new ResourceLocation(MOD_ID, "item/essence_rock");
