@@ -1,12 +1,12 @@
 package com.blakebr0.mysticalagriculture.item.tool;
 
+import com.blakebr0.cucumber.item.tool.BaseShovelItem;
 import net.minecraft.item.IItemTier;
-import net.minecraft.item.ShovelItem;
 
 import java.util.function.Function;
 
-public class EssenceShovelItem extends ShovelItem {
-    public EssenceShovelItem(IItemTier tier, float attackDamage, float attackSpeed, Function<Properties, Properties> properties) {
-        super(tier, attackDamage, attackSpeed, properties.apply(new Properties()));
+public class EssenceShovelItem extends BaseShovelItem {
+    public EssenceShovelItem(IItemTier tier, Function<Properties, Properties> properties) {
+        super(tier, properties);
     }
 }

@@ -1,12 +1,12 @@
 package com.blakebr0.mysticalagriculture.item.tool;
 
+import com.blakebr0.cucumber.item.tool.BasePickaxeItem;
 import net.minecraft.item.IItemTier;
-import net.minecraft.item.PickaxeItem;
 
 import java.util.function.Function;
 
-public class EssencePickaxeItem extends PickaxeItem {
-    public EssencePickaxeItem(IItemTier tier, int attackDamage, float attackSpeed, Function<Properties, Properties> properties) {
-        super(tier, attackDamage, attackSpeed, properties.apply(new Properties()));
+public class EssencePickaxeItem extends BasePickaxeItem {
+    public EssencePickaxeItem(IItemTier tier, Function<Properties, Properties> properties) {
+        super(tier, properties);
     }
 }
