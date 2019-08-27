@@ -29,7 +29,7 @@ public class FertilizedEssenceItem extends BaseItem {
         World world = context.getWorld();
         Direction direction = context.getFace();
 
-        if (!player.canPlayerEdit(pos.offset(direction), direction, stack)) {
+        if (player == null || !player.canPlayerEdit(pos.offset(direction), direction, stack)) {
             return ActionResultType.FAIL;
         } else {
             if (applyFertilizer(stack, world, pos, player)) {

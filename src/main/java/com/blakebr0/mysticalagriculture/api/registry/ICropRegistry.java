@@ -1,6 +1,7 @@
 package com.blakebr0.mysticalagriculture.api.registry;
 
 import com.blakebr0.mysticalagriculture.api.crop.ICrop;
+import net.minecraft.util.ResourceLocation;
 
 import java.util.List;
 
@@ -19,8 +20,8 @@ public interface ICropRegistry {
 
     /**
      * Get the crop with the specified internal name from the crop registry
-     * @param name the internal name of the crop (found in the seed with advanced tooltips enabled)
-     * @return the crop for this name
+     * @param id the resource location id of the crop
+     * @return the crop for this id
      */
-    ICrop getCropByName(String name);
+    ICrop getCropById(ResourceLocation id);
 }

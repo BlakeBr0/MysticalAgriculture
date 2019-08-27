@@ -10,8 +10,8 @@ import com.blakebr0.mysticalagriculture.item.MysticalEssenceItem;
 import com.blakebr0.mysticalagriculture.item.MysticalSeedsItem;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.ModLoader;
-import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.registries.IForgeRegistry;
@@ -67,8 +67,8 @@ public class CropRegistry implements ICropRegistry {
     }
 
     @Override
-    public ICrop getCropByName(String name) {
-        return this.crops.stream().filter(c -> name.equals(c.getName())).findFirst().orElse(null);
+    public ICrop getCropById(ResourceLocation id) {
+        return this.crops.stream().filter(c -> id.equals(c.getId())).findFirst().orElse(null);
     }
 
     public static CropRegistry getInstance() {
