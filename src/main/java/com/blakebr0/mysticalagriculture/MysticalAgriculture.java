@@ -11,9 +11,10 @@ import com.blakebr0.mysticalagriculture.crafting.MysticalRecipeManager;
 import com.blakebr0.mysticalagriculture.crafting.ingredient.ModIngredients;
 import com.blakebr0.mysticalagriculture.handler.ColorHandler;
 import com.blakebr0.mysticalagriculture.item.ModItems;
-import com.blakebr0.mysticalagriculture.lib.ModCrops;
+import com.blakebr0.mysticalagriculture.lib.ModCorePlugin;
 import com.blakebr0.mysticalagriculture.registry.AugmentRegistry;
 import com.blakebr0.mysticalagriculture.registry.CropRegistry;
+import com.blakebr0.mysticalagriculture.registry.PluginRegistry;
 import com.blakebr0.mysticalagriculture.tileentity.ModTileEntities;
 import com.blakebr0.mysticalagriculture.world.ModWorldFeatures;
 import net.minecraft.item.ItemGroup;
@@ -51,7 +52,6 @@ public class MysticalAgriculture {
 		bus.register(new ModRecipeSerializers());
 		bus.register(new ModTileEntities());
 		bus.register(new ModContainerTypes());
-		bus.register(new ModCrops());
 
 		DistExecutor.runWhenOn(Dist.CLIENT, () -> () -> {
 			bus.register(new ColorHandler());
@@ -60,6 +60,8 @@ public class MysticalAgriculture {
 
 		ModLoadingContext.get().registerConfig(ModConfig.Type.CLIENT, ModConfigs.CLIENT);
 		ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, ModConfigs.COMMON);
+
+		PluginRegistry.getInstance().loadPlugins();
 
 		MysticalAgricultureAPI.setCropRegistry(CropRegistry.getInstance());
 		MysticalAgricultureAPI.setAugmentRegistry(AugmentRegistry.getInstance());
@@ -72,7 +74,7 @@ public class MysticalAgriculture {
 		MinecraftForge.EVENT_BUS.register(this);
 		MinecraftForge.EVENT_BUS.register(MysticalRecipeManager.getInstance());
 
-		ModCrops.onCommonSetup();
+		ModCorePlugin.onCommonSetup();
 		ModIngredients.onCommonSetup();
 
 		DeferredWorkQueue.runLater(() -> {

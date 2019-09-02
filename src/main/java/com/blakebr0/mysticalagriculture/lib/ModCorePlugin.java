@@ -1,19 +1,19 @@
 package com.blakebr0.mysticalagriculture.lib;
 
+import com.blakebr0.mysticalagriculture.api.IMysticalAgriculturePlugin;
 import com.blakebr0.mysticalagriculture.api.crop.Crop;
 import com.blakebr0.mysticalagriculture.api.crop.CropIngredient;
 import com.blakebr0.mysticalagriculture.api.crop.CropTextures;
 import com.blakebr0.mysticalagriculture.api.crop.CropTier;
 import com.blakebr0.mysticalagriculture.api.crop.CropType;
-import com.blakebr0.mysticalagriculture.api.registry.RegisterCropsEvent;
+import com.blakebr0.mysticalagriculture.api.registry.ICropRegistry;
 import com.blakebr0.mysticalagriculture.block.ModBlocks;
 import com.blakebr0.mysticalagriculture.item.ModItems;
 import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
 
 import static com.blakebr0.mysticalagriculture.MysticalAgriculture.MOD_ID;
 
-public class ModCrops {
+public class ModCorePlugin implements IMysticalAgriculturePlugin {
     private static final CropTextures ELEMENTAL_CROP_TEXTURES = new CropTextures(CropTextures.FLOWER_INGOT_BLANK, CropTextures.ESSENCE_FLAME_BLANK);
     private static final CropTextures ROCK_CROP_TEXTURES = new CropTextures(CropTextures.FLOWER_ROCK_BLANK, CropTextures.ESSENCE_ROCK_BLANK);
 
@@ -60,52 +60,51 @@ public class ModCrops {
     public static final Crop DIAMOND = new Crop(new ResourceLocation(MOD_ID, "diamond"), CropTier.FIVE, CropType.RESOURCE, CropIngredient.tag("forge:gems/diamond"));
     public static final Crop EMERALD = new Crop(new ResourceLocation(MOD_ID, "emerald"), CropTier.FIVE, CropType.RESOURCE, CropIngredient.tag("forge:gems/emerald"));
     public static final Crop WITHER_SKELETON = new Crop(new ResourceLocation(MOD_ID, "wither_skeleton"), CropTier.FIVE, CropType.MOB, CropIngredient.EMPTY);
+    
+    public void onRegisterCrops(ICropRegistry registry) {
+        registry.register(AIR);
+        registry.register(EARTH);
+        registry.register(WATER);
+        registry.register(FIRE);
 
-    @SubscribeEvent
-    public void onRegisterCrops(RegisterCropsEvent event) {
-        event.register(AIR);
-        event.register(EARTH);
-        event.register(WATER);
-        event.register(FIRE);
+        registry.register(STONE);
+        registry.register(DIRT);
+        registry.register(WOOD);
+        registry.register(ICE);
+        registry.register(ZOMBIE);
 
-        event.register(STONE);
-        event.register(DIRT);
-        event.register(WOOD);
-        event.register(ICE);
-        event.register(ZOMBIE);
+        registry.register(NATURE);
+        registry.register(DYE);
+        registry.register(NETHER);
+        registry.register(COAL);
+        registry.register(PIG);
+        registry.register(CHICKEN);
+        registry.register(COW);
+        registry.register(SHEEP);
+        registry.register(SLIME);
 
-        event.register(NATURE);
-        event.register(DYE);
-        event.register(NETHER);
-        event.register(COAL);
-        event.register(PIG);
-        event.register(CHICKEN);
-        event.register(COW);
-        event.register(SHEEP);
-        event.register(SLIME);
+        registry.register(IRON);
+        registry.register(NETHER_QUARTZ);
+        registry.register(GLOWSTONE);
+        registry.register(REDSTONE);
+        registry.register(OBSIDIAN);
+        registry.register(PRISMARINE);
+        registry.register(SKELETON);
+        registry.register(CREEPER);
+        registry.register(SPIDER);
+        registry.register(RABBIT);
 
-        event.register(IRON);
-        event.register(NETHER_QUARTZ);
-        event.register(GLOWSTONE);
-        event.register(REDSTONE);
-        event.register(OBSIDIAN);
-        event.register(PRISMARINE);
-        event.register(SKELETON);
-        event.register(CREEPER);
-        event.register(SPIDER);
-        event.register(RABBIT);
+        registry.register(GOLD);
+        registry.register(LAPIS_LAZULI);
+        registry.register(END);
+        registry.register(EXPERIENCE);
+        registry.register(BLAZE);
+        registry.register(GHAST);
+        registry.register(ENDERMAN);
 
-        event.register(GOLD);
-        event.register(LAPIS_LAZULI);
-        event.register(END);
-        event.register(EXPERIENCE);
-        event.register(BLAZE);
-        event.register(GHAST);
-        event.register(ENDERMAN);
-
-        event.register(DIAMOND);
-        event.register(EMERALD);
-        event.register(WITHER_SKELETON);
+        registry.register(DIAMOND);
+        registry.register(EMERALD);
+        registry.register(WITHER_SKELETON);
     }
 
     public static void onCommonSetup() {

@@ -4,7 +4,6 @@ import com.blakebr0.mysticalagriculture.MysticalAgriculture;
 import com.blakebr0.mysticalagriculture.api.crop.ICrop;
 import com.blakebr0.mysticalagriculture.api.registry.ICropRegistry;
 import com.blakebr0.mysticalagriculture.api.registry.ModifyCropsEvent;
-import com.blakebr0.mysticalagriculture.api.registry.RegisterCropsEvent;
 import com.blakebr0.mysticalagriculture.block.MysticalCropBlock;
 import com.blakebr0.mysticalagriculture.item.MysticalEssenceItem;
 import com.blakebr0.mysticalagriculture.item.MysticalSeedsItem;
@@ -24,7 +23,7 @@ import java.util.Comparator;
 import java.util.List;
 
 public class CropRegistry implements ICropRegistry {
-    private static final Logger LOGGER = LogManager.getLogger();
+    private static final Logger LOGGER = LogManager.getLogger(MysticalAgriculture.NAME);
     private static final CropRegistry INSTANCE = new CropRegistry();
 
     private final List<ICrop> crops = new ArrayList<>();
@@ -84,9 +83,8 @@ public class CropRegistry implements ICropRegistry {
     }
 
     public void onRegisterBlocks(IForgeRegistry<Block> registry) {
-        ModLoader.get().postEvent(new RegisterCropsEvent(this));
+        PluginRegistry.getInstance().forEach(plugin -> plugin.onRegisterCrops(this));
         this.crops.forEach(c -> registry.register(c.getCrop()));
-        this.crops.sort((o1, o2) -> o1.getModId().equals(MysticalAgriculture.MOD_ID) && o2.getModId().equals(MysticalAgriculture.MOD_ID) ? 0 : o1.getModId().equals(MysticalAgriculture.MOD_ID) ? -1 : 0);
         this.crops.sort(Comparator.comparingInt(c -> c.getTier().getValue()));
     }
 
