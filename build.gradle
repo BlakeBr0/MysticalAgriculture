@@ -64,12 +64,26 @@ minecraft {
 }
 
 dependencies {
-    minecraft 'net.minecraftforge:forge:1.14.4-28.0.49'
+    minecraft 'net.minecraftforge:forge:1.14.4-28.0.75'
 
     compile files('../Cucumber/build/libs/Cucumber-1.14.4-2.0.3-deobf.jar')
     compile fg.deobf('mcp.mobius.waila:Hwyla:1.10.5-B66_1.14.4')
     compileOnly fg.deobf("mezz.jei:jei-1.14.4:6.0.0.10:api")
     runtimeOnly fg.deobf("mezz.jei:jei-1.14.4:6.0.0.10")
+}
+
+task apiJar(type: Jar) {
+    // Remove sources from the api jar when MinecraftForge/ForgeGradle#369 is fixed
+    from(sourceSets.main.allJava)
+    from(sourceSets.main.output)
+    include 'com/blakebr0/mysticalagriculture/api/**'
+
+    classifier = 'api'
+    archiveName = "${baseName}-${version}-api.${extension}"
+}
+
+artifacts {
+    archives apiJar
 }
 
 jar {
