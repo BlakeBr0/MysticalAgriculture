@@ -1,14 +1,17 @@
 package com.blakebr0.mysticalagriculture.client.tesr;
 
+import com.blakebr0.mysticalagriculture.block.ModBlocks;
 import com.blakebr0.mysticalagriculture.tileentity.InfusionAltarTileEntity;
 import com.mojang.blaze3d.platform.GlStateManager;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.RenderHelper;
 import net.minecraft.client.renderer.model.ItemCameraTransforms;
+import net.minecraft.client.renderer.texture.AtlasTexture;
 import net.minecraft.client.renderer.tileentity.TileEntityRenderer;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.items.ItemStackHandler;
+import org.lwjgl.opengl.GL14;
 
 public class InfusionAltarRenderer extends TileEntityRenderer<InfusionAltarTileEntity> {
     @Override
@@ -31,5 +34,37 @@ public class InfusionAltarRenderer extends TileEntityRenderer<InfusionAltarTileE
             GlStateManager.enableLighting();
             GlStateManager.popMatrix();
         }
+
+        double posX = Minecraft.getInstance().getRenderManager().renderPosX;
+        double posY = Minecraft.getInstance().getRenderManager().renderPosY;
+        double posZ = Minecraft.getInstance().getRenderManager().renderPosZ;
+
+        GlStateManager.pushMatrix();
+        GlStateManager.disableLighting();
+        GlStateManager.enableBlend();
+        GL14.glBlendColor(1.0F, 1.0F, 1.0F, 0.25F);
+        GlStateManager.blendFunc(GlStateManager.SourceFactor.CONSTANT_ALPHA, GlStateManager.DestFactor.ONE_MINUS_CONSTANT_ALPHA);
+
+        tile.getPedestalPositions().forEach(pos -> {
+            if (this.getWorld().isAirBlock(pos)) {
+                GlStateManager.pushMatrix();
+                GlStateManager.translated(-posX, -posY, -posZ);
+                GlStateManager.translated(pos.getX(), pos.getY(), pos.getZ() + 1);
+                Minecraft.getInstance().getTextureManager().bindTexture(AtlasTexture.LOCATION_BLOCKS_TEXTURE);
+                Minecraft.getInstance().getBlockRendererDispatcher().renderBlockBrightness(ModBlocks.INFUSION_PEDESTAL.getDefaultState(), 1.0F);
+                GlStateManager.color4f(1F, 1F, 1F, 1F);
+                GlStateManager.popMatrix();
+            }
+        });
+
+        GL14.glBlendColor(1.0F, 1.0F, 1.0F, 1.0F);
+        GlStateManager.blendFunc(GlStateManager.SourceFactor.SRC_ALPHA, GlStateManager.DestFactor.ONE_MINUS_SRC_ALPHA);
+        GlStateManager.enableLighting();
+        GlStateManager.popMatrix();
+    }
+
+    @Override
+    public boolean isGlobalRenderer(InfusionAltarTileEntity tile) {
+        return true;
     }
 }
