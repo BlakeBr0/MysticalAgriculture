@@ -1,4 +1,4 @@
-package com.blakebr0.mysticalagriculture.api.crop;
+package com.blakebr0.mysticalagriculture.api.lib;
 
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -9,8 +9,8 @@ import net.minecraft.tags.Tag;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.registries.ForgeRegistries;
 
-public class CropIngredient {
-    public static final CropIngredient EMPTY = new CropIngredient(null, null, null) {
+public class LazyIngredient {
+    public static final LazyIngredient EMPTY = new LazyIngredient(null, null, null) {
         @Override
         public Ingredient getIngredient() {
             return Ingredient.EMPTY;
@@ -22,22 +22,22 @@ public class CropIngredient {
     private Type type;
     private Ingredient ingredient;
 
-    private CropIngredient(String name, Type type, CompoundNBT nbt) {
+    private LazyIngredient(String name, Type type, CompoundNBT nbt) {
         this.name = name;
         this.type = type;
         this.nbt = nbt;
     }
 
-    public static CropIngredient item(String name) {
+    public static LazyIngredient item(String name) {
         return item(name, null);
     }
 
-    public static CropIngredient item(String name, CompoundNBT nbt) {
-        return new CropIngredient(name, Type.ITEM, nbt);
+    public static LazyIngredient item(String name, CompoundNBT nbt) {
+        return new LazyIngredient(name, Type.ITEM, nbt);
     }
 
-    public static CropIngredient tag(String name) {
-        return new CropIngredient(name, Type.TAG, null);
+    public static LazyIngredient tag(String name) {
+        return new LazyIngredient(name, Type.TAG, null);
     }
 
     public boolean isItem() {

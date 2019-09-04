@@ -1,10 +1,15 @@
 package com.blakebr0.mysticalagriculture.api.crop;
 
+import com.blakebr0.mysticalagriculture.api.lib.LazyIngredient;
 import net.minecraft.block.CropsBlock;
 import net.minecraft.item.BlockNamedItem;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.util.ResourceLocation;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * The default implementation of {@link ICrop}
@@ -22,7 +27,8 @@ public class Crop implements ICrop {
     private CropsBlock crop;
     private Item essence;
     private BlockNamedItem seeds;
-    private CropIngredient craftingMaterial;
+    private LazyIngredient craftingMaterial;
+    private List<EssenceRecipe> essenceRecipes = new ArrayList<>();
 
     /**
      * Represents a new crop for registration
@@ -31,7 +37,7 @@ public class Crop implements ICrop {
      * @param type the type of this crop, like resource or mob
      * @param craftingMaterial the crafting ingredient for this crop
      */
-    public Crop(ResourceLocation id, CropTier tier, CropType type, CropIngredient craftingMaterial) {
+    public Crop(ResourceLocation id, CropTier tier, CropType type, LazyIngredient craftingMaterial) {
         this(id, tier, type, new CropTextures(), craftingMaterial);
     }
 
@@ -42,7 +48,7 @@ public class Crop implements ICrop {
      * @param type the type of this crop, like resource or mob
      * @param craftingMaterial the crafting ingredient for this crop
      */
-    public Crop(ResourceLocation id, CropTier tier, CropType type, int color, CropIngredient craftingMaterial) {
+    public Crop(ResourceLocation id, CropTier tier, CropType type, int color, LazyIngredient craftingMaterial) {
         this(id, tier, type, new CropTextures(), color, craftingMaterial);
     }
 
@@ -54,7 +60,7 @@ public class Crop implements ICrop {
      * @param textures the textures of this crop
      * @param craftingMaterial the crafting ingredient for this crop
      */
-    public Crop(ResourceLocation id, CropTier tier, CropType type, CropTextures textures, CropIngredient craftingMaterial) {
+    public Crop(ResourceLocation id, CropTier tier, CropType type, CropTextures textures, LazyIngredient craftingMaterial) {
         this(id, tier, type, textures, -1, craftingMaterial);
     }
 
@@ -67,7 +73,7 @@ public class Crop implements ICrop {
      * @param color the color to color the textures with
      * @param craftingMaterial the crafting ingredient for this crop
      */
-    public Crop(ResourceLocation id, CropTier tier, CropType type, CropTextures textures, int color, CropIngredient craftingMaterial) {
+    public Crop(ResourceLocation id, CropTier tier, CropType type, CropTextures textures, int color, LazyIngredient craftingMaterial) {
         this.id = id;
         this.tier = tier;
         this.type = type;
@@ -173,8 +179,18 @@ public class Crop implements ICrop {
     }
 
     @Override
-    public ICrop setCraftingMaterial(CropIngredient ingredient) {
+    public ICrop setCraftingMaterial(LazyIngredient ingredient) {
         this.craftingMaterial = ingredient;
         return this;
+    }
+
+    @Override
+    public List<EssenceRecipe> getEssenceRecipes() {
+        return this.essenceRecipes;
+    }
+
+    @Override
+    public void addEssenceRecipe(String pattern, ItemStack output, Object... inputs) {
+        this.essenceRecipes.add(new EssenceRecipe(pattern, this, output, inputs));
     }
 }

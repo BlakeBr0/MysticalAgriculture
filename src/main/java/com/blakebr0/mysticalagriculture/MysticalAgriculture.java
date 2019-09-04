@@ -84,12 +84,12 @@ public class MysticalAgriculture {
 
 	@SubscribeEvent
 	public void onInterModEnqueue(InterModEnqueueEvent event) {
-
+		PluginRegistry.getInstance().forEach(plugin -> plugin.onRegisterEssenceRecipes(CropRegistry.getInstance()));
 	}
 
 	@SubscribeEvent
 	public void onInterModProcess(InterModProcessEvent event) {
-
+		PluginRegistry.getInstance().forEach(plugin -> plugin.onModifyEssenceRecipes(CropRegistry.getInstance()));
 	}
 
 	@SubscribeEvent

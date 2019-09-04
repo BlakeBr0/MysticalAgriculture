@@ -1,14 +1,19 @@
 package com.blakebr0.mysticalagriculture.api.crop;
 
 import com.blakebr0.mysticalagriculture.api.farmland.IEssenceFarmland;
+import com.blakebr0.mysticalagriculture.api.lib.LazyIngredient;
 import net.minecraft.block.Block;
 import net.minecraft.block.CropsBlock;
 import net.minecraft.item.BlockNamedItem;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.TranslationTextComponent;
+
+import java.util.List;
+import java.util.Objects;
 
 /**
  * Represents a crop and all of its information
@@ -170,15 +175,39 @@ public interface ICrop {
     }
 
     /**
-     * Get the crafting ingredient for this crop from the underlying {@link CropIngredient}
+     * Get the crafting ingredient for this crop from the underlying {@link LazyIngredient}
      * @return the crafting material of this crop
      */
     Ingredient getCraftingMaterial();
 
     /**
-     * Used to set the underlying {@link CropIngredient} for this crop
+     * Used to set the underlying {@link LazyIngredient} for this crop
      * @param ingredient the crafting ingredient for this crop
      * @return this crop
      */
-    ICrop setCraftingMaterial(CropIngredient ingredient);
+    ICrop setCraftingMaterial(LazyIngredient ingredient);
+
+    /**
+     * Get the list of {@link EssenceRecipe}s for this crop
+     * @return the essence recipes
+     */
+    List<EssenceRecipe> getEssenceRecipes();
+
+    /**
+     * Add a simple essence recipe using the essence for this crop
+     * @param pattern the pattern of this essence recipe
+     * @param output the result stack
+     */
+    default void addEssenceRecipe(String pattern, ItemStack output) {
+        String essenceId = Objects.requireNonNull(this.getEssence().getRegistryName()).toString();
+        this.addEssenceRecipe(pattern, output, 'E', LazyIngredient.item(essenceId));
+    }
+
+    /**
+     * Add an essence recipe using the specified inputs
+     * @param pattern the pattern of this essence recipe
+     * @param output the result stack
+     * @param inputs the inputs ('<char>, <lazyingredient>')
+     */
+    void addEssenceRecipe(String pattern, ItemStack output, Object... inputs);
 }
