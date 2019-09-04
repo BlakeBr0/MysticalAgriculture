@@ -210,4 +210,12 @@ public interface ICrop {
      * @param inputs the inputs ('<char>, <lazyingredient>')
      */
     void addEssenceRecipe(String pattern, ItemStack output, Object... inputs);
+
+    /**
+     * Removes all essence recipes for the specified output item
+     * @param output the output item
+     */
+    default void removeEssenceRecipes(ItemStack output) {
+        this.getEssenceRecipes().removeIf(er -> er.getOutput().isItemEqual(output));
+    }
 }
