@@ -2,7 +2,6 @@ package com.blakebr0.mysticalagriculture.crafting;
 
 import com.blakebr0.cucumber.crafting.ISpecialRecipe;
 import com.blakebr0.mysticalagriculture.MysticalAgriculture;
-import com.blakebr0.mysticalagriculture.api.crop.EssenceRecipe;
 import com.blakebr0.mysticalagriculture.api.crop.ICrop;
 import com.blakebr0.mysticalagriculture.crafting.recipe.InfusionRecipe;
 import com.blakebr0.mysticalagriculture.registry.CropRegistry;
@@ -43,12 +42,6 @@ public class DynamicRecipeManager implements IResourceManagerReloadListener {
                 manager.addRecipe(seed);
             if (seed2 != null)
                 recipes.put(seed2.getId(), seed2);
-
-            crop.getEssenceRecipes().stream().filter(EssenceRecipe::isValid).forEach(er -> {
-                ResourceLocation id = new ResourceLocation(MysticalAgriculture.MOD_ID, crop.getName() + er.hashCode());
-                ShapedRecipe shapedRecipe = new ShapedRecipe(id, crop.getId().toString(), 3, 3, er.getInputs(), er.getOutput());
-                recipes.put(id, shapedRecipe);
-            });
         });
     }
 

@@ -2,16 +2,13 @@ package com.blakebr0.mysticalagriculture.lib;
 
 import com.blakebr0.mysticalagriculture.api.IMysticalAgriculturePlugin;
 import com.blakebr0.mysticalagriculture.api.crop.Crop;
-import com.blakebr0.mysticalagriculture.api.lib.LazyIngredient;
 import com.blakebr0.mysticalagriculture.api.crop.CropTextures;
 import com.blakebr0.mysticalagriculture.api.crop.CropTier;
 import com.blakebr0.mysticalagriculture.api.crop.CropType;
-import com.blakebr0.mysticalagriculture.api.lib.RecipeShape;
+import com.blakebr0.mysticalagriculture.api.lib.LazyIngredient;
 import com.blakebr0.mysticalagriculture.api.registry.ICropRegistry;
 import com.blakebr0.mysticalagriculture.block.ModBlocks;
 import com.blakebr0.mysticalagriculture.item.ModItems;
-import net.minecraft.block.Blocks;
-import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 
 import static com.blakebr0.mysticalagriculture.MysticalAgriculture.MOD_ID;
@@ -109,11 +106,6 @@ public class ModCorePlugin implements IMysticalAgriculturePlugin {
         registry.register(DIAMOND);
         registry.register(EMERALD);
         registry.register(WITHER_SKELETON);
-    }
-
-    @Override
-    public void onRegisterEssenceRecipes(ICropRegistry registry) {
-        STONE.addEssenceRecipe(RecipeShape.DONUT, new ItemStack(Blocks.COBBLESTONE, 24));
     }
 
     public static void onCommonSetup() {

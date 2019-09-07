@@ -4,12 +4,8 @@ import com.blakebr0.mysticalagriculture.api.lib.LazyIngredient;
 import net.minecraft.block.CropsBlock;
 import net.minecraft.item.BlockNamedItem;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.util.ResourceLocation;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * The default implementation of {@link ICrop}
@@ -28,7 +24,6 @@ public class Crop implements ICrop {
     private Item essence;
     private BlockNamedItem seeds;
     private LazyIngredient craftingMaterial;
-    private List<EssenceRecipe> essenceRecipes = new ArrayList<>();
 
     /**
      * Represents a new crop for registration
@@ -182,15 +177,5 @@ public class Crop implements ICrop {
     public ICrop setCraftingMaterial(LazyIngredient ingredient) {
         this.craftingMaterial = ingredient;
         return this;
-    }
-
-    @Override
-    public List<EssenceRecipe> getEssenceRecipes() {
-        return this.essenceRecipes;
-    }
-
-    @Override
-    public void addEssenceRecipe(String pattern, ItemStack output, Object... inputs) {
-        this.essenceRecipes.add(new EssenceRecipe(pattern, this, output, inputs));
     }
 }

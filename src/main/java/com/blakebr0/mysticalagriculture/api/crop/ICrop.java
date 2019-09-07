@@ -186,36 +186,4 @@ public interface ICrop {
      * @return this crop
      */
     ICrop setCraftingMaterial(LazyIngredient ingredient);
-
-    /**
-     * Get the list of {@link EssenceRecipe}s for this crop
-     * @return the essence recipes
-     */
-    List<EssenceRecipe> getEssenceRecipes();
-
-    /**
-     * Add a simple essence recipe using the essence for this crop
-     * @param pattern the pattern of this essence recipe
-     * @param output the result stack
-     */
-    default void addEssenceRecipe(String pattern, ItemStack output) {
-        String essenceId = Objects.requireNonNull(this.getEssence().getRegistryName()).toString();
-        this.addEssenceRecipe(pattern, output, 'E', LazyIngredient.item(essenceId));
-    }
-
-    /**
-     * Add an essence recipe using the specified inputs
-     * @param pattern the pattern of this essence recipe
-     * @param output the result stack
-     * @param inputs the inputs ('<char>, <lazyingredient>')
-     */
-    void addEssenceRecipe(String pattern, ItemStack output, Object... inputs);
-
-    /**
-     * Removes all essence recipes for the specified output item
-     * @param output the output item
-     */
-    default void removeEssenceRecipes(ItemStack output) {
-        this.getEssenceRecipes().removeIf(er -> er.getOutput().isItemEqual(output));
-    }
 }
