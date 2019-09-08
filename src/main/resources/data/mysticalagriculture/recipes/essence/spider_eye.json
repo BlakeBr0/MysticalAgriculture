@@ -3,7 +3,7 @@
   "conditions": [
     {
       "type": "mysticalagriculture:crop_enabled",
-      "crop": "mysticalagriculture:spider_eye"
+      "crop": "mysticalagriculture:spider"
     }
   ],
   "pattern": [

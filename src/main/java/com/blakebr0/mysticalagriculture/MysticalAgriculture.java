@@ -8,7 +8,6 @@ import com.blakebr0.mysticalagriculture.container.ModContainerTypes;
 import com.blakebr0.mysticalagriculture.crafting.DynamicRecipeManager;
 import com.blakebr0.mysticalagriculture.crafting.ModRecipeSerializers;
 import com.blakebr0.mysticalagriculture.crafting.MysticalRecipeManager;
-import com.blakebr0.mysticalagriculture.crafting.ingredient.ModIngredients;
 import com.blakebr0.mysticalagriculture.handler.ColorHandler;
 import com.blakebr0.mysticalagriculture.item.ModItems;
 import com.blakebr0.mysticalagriculture.lib.ModCorePlugin;
@@ -65,8 +64,6 @@ public class MysticalAgriculture {
 
 		MysticalAgricultureAPI.setCropRegistry(CropRegistry.getInstance());
 		MysticalAgricultureAPI.setAugmentRegistry(AugmentRegistry.getInstance());
-
-		new ModIngredients();
 	}
 
 	@SubscribeEvent
@@ -75,7 +72,7 @@ public class MysticalAgriculture {
 		MinecraftForge.EVENT_BUS.register(MysticalRecipeManager.getInstance());
 
 		ModCorePlugin.onCommonSetup();
-		ModIngredients.onCommonSetup();
+		ModRecipeSerializers.onCommonSetup();
 
 		DeferredWorkQueue.runLater(() -> {
 			ModWorldFeatures.onCommonSetup();

@@ -1,5 +1,6 @@
 package com.blakebr0.mysticalagriculture.crafting.ingredient;
 
+import com.blakebr0.mysticalagriculture.crafting.ModRecipeSerializers;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
@@ -99,7 +100,7 @@ public class HoeIngredient extends Ingredient {
 
     @Override
     public IIngredientSerializer<? extends Ingredient> getSerializer() {
-        return ModIngredients.HOE_INGREDIENT;
+        return ModRecipeSerializers.HOE_INGREDIENT;
     }
 
     public static class Serializer implements IIngredientSerializer<HoeIngredient> {

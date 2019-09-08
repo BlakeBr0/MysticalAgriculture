@@ -1,7 +1,7 @@
 {
   "type": "smelting",
   "ingredient": {
-    "item": "mysticalagriculture:soulstone"
+    "item": "mysticalagriculture:soulstone_smooth"
   },
   "result": "mysticalagriculture:soul_dust",
   "experience": 0.1,
