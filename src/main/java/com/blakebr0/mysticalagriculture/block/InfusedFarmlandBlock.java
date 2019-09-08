@@ -48,4 +48,9 @@ public class InfusedFarmlandBlock extends FarmlandBlock implements IColored, IEs
     public int getColor(int index) {
         return this.tier.getColor();
     }
+
+    @Override
+    public CropTier getTier() {
+        return this.tier;
+    }
 }

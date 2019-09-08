@@ -28,10 +28,6 @@ public class MysticalCropBlock extends CropsBlock implements ICropGetter {
         this.crop = crop;
     }
 
-    protected IItemProvider getCropsItem() {
-        return this.crop.getEssence();
-    }
-
     @Override
     protected IItemProvider getSeedsItem() {
         return this.crop.getSeeds();
@@ -82,5 +78,9 @@ public class MysticalCropBlock extends CropsBlock implements ICropGetter {
     @Override
     public ICrop getCrop() {
         return this.crop;
+    }
+
+    protected IItemProvider getCropsItem() {
+        return this.crop.getEssence();
     }
 }

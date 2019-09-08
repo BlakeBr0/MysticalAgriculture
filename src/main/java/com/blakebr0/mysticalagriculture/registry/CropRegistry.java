@@ -29,7 +29,7 @@ public class CropRegistry implements ICropRegistry {
     private final List<ICrop> crops = new ArrayList<>();
     private boolean allowRegistration = false;
 
-    @Override
+    @Override // TODO: set registry names when registering into the actual registries
     public void register(ICrop crop) {
         if (this.allowRegistration) {
             if (this.crops.stream().noneMatch(c -> c.getName().equals(crop.getName()))) {
@@ -37,6 +37,8 @@ public class CropRegistry implements ICropRegistry {
                     MysticalCropBlock cropBlock = new MysticalCropBlock(crop);
                     cropBlock.setRegistryName(crop.getNameWithSuffix("crop"));
                     crop.setCrop(cropBlock);
+                } else if (crop.getCrop().getRegistryName() == null) {
+                    crop.getCrop().setRegistryName(crop.getNameWithSuffix("crop"));
                 }
 
                 if (crop.getEssence() == null) {

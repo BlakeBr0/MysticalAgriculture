@@ -7,6 +7,7 @@ import com.blakebr0.mysticalagriculture.api.crop.CropTier;
 import com.blakebr0.mysticalagriculture.api.crop.CropType;
 import com.blakebr0.mysticalagriculture.api.lib.LazyIngredient;
 import com.blakebr0.mysticalagriculture.api.registry.ICropRegistry;
+import com.blakebr0.mysticalagriculture.block.InferiumCropBlock;
 import com.blakebr0.mysticalagriculture.block.ModBlocks;
 import com.blakebr0.mysticalagriculture.item.ModItems;
 import net.minecraft.util.ResourceLocation;
@@ -22,6 +23,7 @@ public class ModCorePlugin implements IMysticalAgriculturePlugin {
     public static final Crop WATER = new Crop(new ResourceLocation(MOD_ID, "water"), CropTier.ELEMENTAL, CropType.RESOURCE, ELEMENTAL_CROP_TEXTURES, 0x4D7EDA, LazyIngredient.EMPTY);
     public static final Crop FIRE = new Crop(new ResourceLocation(MOD_ID, "fire"), CropTier.ELEMENTAL, CropType.RESOURCE, ELEMENTAL_CROP_TEXTURES, 0xDA4D4D, LazyIngredient.EMPTY);
 
+    public static final Crop INFERIUM = new Crop(new ResourceLocation(MOD_ID, "inferium"), CropTier.ONE, CropType.RESOURCE, LazyIngredient.EMPTY);
     public static final Crop STONE = new Crop(new ResourceLocation(MOD_ID, "stone"), CropTier.ONE, CropType.RESOURCE, ROCK_CROP_TEXTURES, 0x7F7F7F, LazyIngredient.tag("forge:stone"));
     public static final Crop DIRT = new Crop(new ResourceLocation(MOD_ID, "dirt"), CropTier.ONE, CropType.RESOURCE, LazyIngredient.item("minecraft:dirt"));
     public static final Crop WOOD = new Crop(new ResourceLocation(MOD_ID, "wood"), CropTier.ONE, CropType.RESOURCE, LazyIngredient.tag("minecraft:logs"));
@@ -63,11 +65,14 @@ public class ModCorePlugin implements IMysticalAgriculturePlugin {
 
     @Override
     public void onRegisterCrops(ICropRegistry registry) {
+        INFERIUM.setCrop(new InferiumCropBlock(INFERIUM)).setEssence(ModItems.INFERIUM_ESSENCE);
+
         registry.register(AIR);
         registry.register(EARTH);
         registry.register(WATER);
         registry.register(FIRE);
 
+        registry.register(INFERIUM);
         registry.register(STONE);
         registry.register(DIRT);
         registry.register(WOOD);
