@@ -8,6 +8,8 @@ import com.blakebr0.mysticalagriculture.block.MysticalCropBlock;
 import com.blakebr0.mysticalagriculture.item.MysticalEssenceItem;
 import com.blakebr0.mysticalagriculture.item.MysticalSeedsItem;
 import net.minecraft.block.Block;
+import net.minecraft.block.CropsBlock;
+import net.minecraft.item.BlockNamedItem;
 import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.ModLoader;
@@ -29,27 +31,22 @@ public class CropRegistry implements ICropRegistry {
     private final List<ICrop> crops = new ArrayList<>();
     private boolean allowRegistration = false;
 
-    @Override // TODO: set registry names when registering into the actual registries
+    @Override
     public void register(ICrop crop) {
         if (this.allowRegistration) {
             if (this.crops.stream().noneMatch(c -> c.getName().equals(crop.getName()))) {
                 if (crop.getCrop() == null) {
                     MysticalCropBlock cropBlock = new MysticalCropBlock(crop);
-                    cropBlock.setRegistryName(crop.getNameWithSuffix("crop"));
                     crop.setCrop(cropBlock);
-                } else if (crop.getCrop().getRegistryName() == null) {
-                    crop.getCrop().setRegistryName(crop.getNameWithSuffix("crop"));
                 }
 
                 if (crop.getEssence() == null) {
                     MysticalEssenceItem essenceItem = new MysticalEssenceItem(crop, p -> p.group(MysticalAgriculture.ITEM_GROUP));
-                    essenceItem.setRegistryName(crop.getNameWithSuffix("essence"));
                     crop.setEssence(essenceItem);
                 }
 
                 if (crop.getSeeds() == null) {
                     MysticalSeedsItem seedsItem = new MysticalSeedsItem(crop, p -> p.group(MysticalAgriculture.ITEM_GROUP));
-                    seedsItem.setRegistryName(crop.getNameWithSuffix("seeds"));
                     crop.setSeeds(seedsItem);
                 }
 
@@ -86,13 +83,28 @@ public class CropRegistry implements ICropRegistry {
 
     public void onRegisterBlocks(IForgeRegistry<Block> registry) {
         PluginRegistry.getInstance().forEach(plugin -> plugin.onRegisterCrops(this));
-        this.crops.forEach(c -> registry.register(c.getCrop()));
+        this.crops.forEach(c -> {
+            CropsBlock crop = c.getCrop();
+            if (crop.getRegistryName() == null)
+                crop.setRegistryName(c.getNameWithSuffix("crop"));
+            registry.register(crop);
+        });
         this.crops.sort(Comparator.comparingInt(c -> c.getTier().getValue()));
     }
 
     public void onRegisterItems(IForgeRegistry<Item> registry) {
-        this.crops.forEach(c -> registry.register(c.getEssence()));
-        this.crops.forEach(c -> registry.register(c.getSeeds()));
+        this.crops.forEach(c -> {
+            Item essence = c.getEssence();
+            if (essence.getRegistryName() == null)
+                essence.setRegistryName(c.getNameWithSuffix("essence"));
+            registry.register(essence);
+        });
+        this.crops.forEach(c -> {
+            BlockNamedItem seeds = c.getSeeds();
+            if (seeds.getRegistryName() == null)
+                seeds.setRegistryName(c.getNameWithSuffix("seeds"));
+            registry.register(seeds);
+        });
         ModLoader.get().postEvent(new ModifyCropsEvent(this));
     }
 
