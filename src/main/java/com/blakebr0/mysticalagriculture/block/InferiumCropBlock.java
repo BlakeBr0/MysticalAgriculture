@@ -35,7 +35,7 @@ public class InferiumCropBlock extends MysticalCropBlock {
                 if (below instanceof IEssenceFarmland) {
                     IEssenceFarmland farmland = (IEssenceFarmland) below;
                     int tier = farmland.getTier().getValue();
-                    crop = (int) Math.max(1, Math.floor(0.5 * tier));
+                    crop = (int) ((0.5D * tier) + 0.5D);
                     if (tier > 1 && tier % 2 > 0 && Math.random() < 0.5D)
                         crop++;
                 }
