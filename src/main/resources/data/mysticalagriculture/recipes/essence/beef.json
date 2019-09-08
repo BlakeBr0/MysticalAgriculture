@@ -1,0 +1,23 @@
+{
+  "type": "cucumber:shaped_no_mirror",
+  "conditions": [
+    {
+      "type": "mysticalagriculture:crop_enabled",
+      "crop": "mysticalagriculture:cow"
+    }
+  ],
+  "pattern": [
+    "EEE",
+    "   ",
+    "   "
+  ],
+  "key": {
+    "E": {
+      "item": "mysticalagriculture:cow_essence"
+    }
+  },
+  "result": {
+    "item": "minecraft:beef",
+    "count": 6
+  }
+}

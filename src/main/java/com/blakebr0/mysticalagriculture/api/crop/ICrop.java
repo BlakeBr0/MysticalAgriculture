@@ -186,4 +186,10 @@ public interface ICrop {
      * @return this crop
      */
     ICrop setCraftingMaterial(LazyIngredient ingredient);
+
+    /**
+     * Whether or not this crop has recipes and shows up in the creative menu
+     * @return is this crop enabled
+     */
+    boolean isEnabled();
 }

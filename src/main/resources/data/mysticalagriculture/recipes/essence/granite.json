@@ -1,0 +1,30 @@
+{
+  "type": "cucumber:shaped_no_mirror",
+  "conditions": [
+    {
+      "type": "mysticalagriculture:crop_enabled",
+      "crop": "mysticalagriculture:stone"
+    },
+    {
+      "type": "mysticalagriculture:crop_enabled",
+      "crop": "mysticalagriculture:nether_quartz"
+    }
+  ],
+  "pattern": [
+    " E ",
+    "EQE",
+    " E "
+  ],
+  "key": {
+    "E": {
+      "item": "mysticalagriculture:stone_essence"
+    },
+    "Q": {
+      "item": "mysticalagriculture:nether_quartz_essence"
+    }
+  },
+  "result": {
+    "item": "minecraft:granite",
+    "count": 16
+  }
+}

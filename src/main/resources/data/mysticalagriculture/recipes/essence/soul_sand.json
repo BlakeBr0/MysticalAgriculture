@@ -1,0 +1,30 @@
+{
+  "type": "cucumber:shaped_no_mirror",
+  "conditions": [
+    {
+      "type": "mysticalagriculture:crop_enabled",
+      "crop": "mysticalagriculture:nether"
+    },
+    {
+      "type": "mysticalagriculture:crop_enabled",
+      "crop": "mysticalagriculture:fire"
+    }
+  ],
+  "pattern": [
+    "EEE",
+    "EFE",
+    "EEE"
+  ],
+  "key": {
+    "E": {
+      "item": "mysticalagriculture:nether_essence"
+    },
+    "F": {
+      "item": "mysticalagriculture:fire_essence"
+    }
+  },
+  "result": {
+    "item": "minecraft:soul_sand",
+    "count": 16
+  }
+}

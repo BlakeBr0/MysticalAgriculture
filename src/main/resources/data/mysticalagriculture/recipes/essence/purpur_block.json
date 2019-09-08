@@ -1,0 +1,23 @@
+{
+  "type": "cucumber:shaped_no_mirror",
+  "conditions": [
+    {
+      "type": "mysticalagriculture:crop_enabled",
+      "crop": "mysticalagriculture:end"
+    }
+  ],
+  "pattern": [
+    " E ",
+    "E E",
+    " E "
+  ],
+  "key": {
+    "E": {
+      "item": "mysticalagriculture:end_essence"
+    }
+  },
+  "result": {
+    "item": "minecraft:purpur_block",
+    "count": 8
+  }
+}

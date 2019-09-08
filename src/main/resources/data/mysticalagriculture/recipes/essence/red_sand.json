@@ -1,0 +1,30 @@
+{
+  "type": "cucumber:shaped_no_mirror",
+  "conditions": [
+    {
+      "type": "mysticalagriculture:crop_enabled",
+      "crop": "mysticalagriculture:fire"
+    },
+    {
+      "type": "mysticalagriculture:crop_enabled",
+      "crop": "mysticalagriculture:dirt"
+    }
+  ],
+  "pattern": [
+    "FE ",
+    "EF ",
+    "   "
+  ],
+  "key": {
+    "E": {
+      "item": "mysticalagriculture:fire_essence"
+    },
+    "F": {
+      "item": "mysticalagriculture:dirt_essence"
+    }
+  },
+  "result": {
+    "item": "minecraft:red_sand",
+    "count": 16
+  }
+}

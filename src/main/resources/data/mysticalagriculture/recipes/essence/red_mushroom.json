@@ -1,0 +1,30 @@
+{
+  "type": "cucumber:shaped_no_mirror",
+  "conditions": [
+    {
+      "type": "mysticalagriculture:crop_enabled",
+      "crop": "mysticalagriculture:nature"
+    },
+    {
+      "type": "mysticalagriculture:crop_enabled",
+      "crop": "mysticalagriculture:dirt"
+    }
+  ],
+  "pattern": [
+    " E ",
+    " F ",
+    " E "
+  ],
+  "key": {
+    "E": {
+      "item": "mysticalagriculture:nature_essence"
+    },
+    "F": {
+      "item": "mysticalagriculture:dirt_essence"
+    }
+  },
+  "result": {
+    "item": "minecraft:red_mushroom",
+    "count": 8
+  }
+}

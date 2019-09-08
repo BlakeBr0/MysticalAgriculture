@@ -178,4 +178,9 @@ public class Crop implements ICrop {
         this.craftingMaterial = ingredient;
         return this;
     }
+
+    @Override
+    public boolean isEnabled() {
+        return true;
+    }
 }

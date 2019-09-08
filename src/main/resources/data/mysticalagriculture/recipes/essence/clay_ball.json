@@ -1,0 +1,30 @@
+{
+  "type": "cucumber:shaped_no_mirror",
+  "conditions": [
+    {
+      "type": "mysticalagriculture:crop_enabled",
+      "crop": "mysticalagriculture:water"
+    },
+    {
+      "type": "mysticalagriculture:crop_enabled",
+      "crop": "mysticalagriculture:dirt"
+    }
+  ],
+  "pattern": [
+    "EF ",
+    "FE ",
+    "   "
+  ],
+  "key": {
+    "E": {
+      "item": "mysticalagriculture:water_essence"
+    },
+    "F": {
+      "item": "mysticalagriculture:dirt_essence"
+    }
+  },
+  "result": {
+    "item": "minecraft:clay_ball",
+    "count": 24
+  }
+}

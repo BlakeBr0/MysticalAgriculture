@@ -1,0 +1,30 @@
+{
+  "type": "cucumber:shaped_no_mirror",
+  "conditions": [
+    {
+      "type": "mysticalagriculture:crop_enabled",
+      "crop": "mysticalagriculture:dirt"
+    },
+    {
+      "type": "mysticalagriculture:crop_enabled",
+      "crop": "mysticalagriculture:stone"
+    }
+  ],
+  "pattern": [
+    "EF ",
+    "FE ",
+    "   "
+  ],
+  "key": {
+    "E": {
+      "item": "mysticalagriculture:dirt_essence"
+    },
+    "F": {
+      "item": "mysticalagriculture:stone_essence"
+    }
+  },
+  "result": {
+    "item": "minecraft:gravel",
+    "count": 16
+  }
+}

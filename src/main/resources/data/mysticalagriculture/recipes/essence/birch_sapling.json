@@ -1,0 +1,30 @@
+{
+  "type": "cucumber:shaped_no_mirror",
+  "conditions": [
+    {
+      "type": "mysticalagriculture:crop_enabled",
+      "crop": "mysticalagriculture:wood"
+    },
+    {
+      "type": "mysticalagriculture:crop_enabled",
+      "crop": "mysticalagriculture:nature"
+    }
+  ],
+  "pattern": [
+    "   ",
+    "   ",
+    "EFE"
+  ],
+  "key": {
+    "E": {
+      "item": "mysticalagriculture:wood_essence"
+    },
+    "F": {
+      "item": "mysticalagriculture:nature_essence"
+    }
+  },
+  "result": {
+    "item": "minecraft:birch_sapling",
+    "count": 8
+  }
+}

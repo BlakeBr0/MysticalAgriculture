@@ -53,6 +53,6 @@ Grow all your resources!
 [[dependencies.mysticalagriculture]]
     modId="cucumber"
     mandatory=true
-    versionRange="[2.0.2,)"
+    versionRange="[2.0.4,)"
     ordering="NONE"
     side="BOTH"

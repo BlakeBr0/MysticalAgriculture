@@ -2,10 +2,12 @@ package com.blakebr0.mysticalagriculture.crafting;
 
 import com.blakebr0.cucumber.crafting.ISpecialRecipeSerializer;
 import com.blakebr0.mysticalagriculture.MysticalAgriculture;
+import com.blakebr0.mysticalagriculture.crafting.condition.CropEnabledCondition;
 import com.blakebr0.mysticalagriculture.crafting.recipe.FarmlandTillRecipe;
 import com.blakebr0.mysticalagriculture.crafting.recipe.InfusionRecipe;
 import net.minecraft.item.crafting.IRecipeSerializer;
 import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.common.crafting.CraftingHelper;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.registries.IForgeRegistry;
@@ -23,5 +25,7 @@ public class ModRecipeSerializers {
         registry.register(CRAFTING_FARMLAND_TILL.setRegistryName(new ResourceLocation(MysticalAgriculture.MOD_ID, "farmland_till")));
 
         manager.addSerializer(new ResourceLocation(MysticalAgriculture.MOD_ID, "infusion"), SPECIAL_INFUSION);
+
+        CraftingHelper.register(CropEnabledCondition.Serializer.INSTANCE);
     }
 }

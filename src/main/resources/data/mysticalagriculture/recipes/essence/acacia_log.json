@@ -1,0 +1,23 @@
+{
+  "type": "cucumber:shaped_no_mirror",
+  "conditions": [
+    {
+      "type": "mysticalagriculture:crop_enabled",
+      "crop": "mysticalagriculture:wood"
+    }
+  ],
+  "pattern": [
+    " E ",
+    " E ",
+    " E "
+  ],
+  "key": {
+    "E": {
+      "item": "mysticalagriculture:wood_essence"
+    }
+  },
+  "result": {
+    "item": "minecraft:acacia_log",
+    "count": 16
+  }
+}

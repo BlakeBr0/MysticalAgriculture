@@ -1,0 +1,23 @@
+{
+  "type": "cucumber:shaped_no_mirror",
+  "conditions": [
+    {
+      "type": "mysticalagriculture:crop_enabled",
+      "crop": "mysticalagriculture:chicken"
+    }
+  ],
+  "pattern": [
+    "   ",
+    "EEE",
+    "   "
+  ],
+  "key": {
+    "E": {
+      "item": "mysticalagriculture:chicken_essence"
+    }
+  },
+  "result": {
+    "item": "minecraft:feather",
+    "count": 8
+  }
+}

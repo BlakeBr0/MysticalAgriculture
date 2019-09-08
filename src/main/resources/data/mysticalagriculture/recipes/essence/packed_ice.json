@@ -1,0 +1,23 @@
+{
+  "type": "cucumber:shaped_no_mirror",
+  "conditions": [
+    {
+      "type": "mysticalagriculture:crop_enabled",
+      "crop": "mysticalagriculture:ice"
+    }
+  ],
+  "pattern": [
+    "EEE",
+    "EEE",
+    "EEE"
+  ],
+  "key": {
+    "E": {
+      "item": "mysticalagriculture:ice_essence"
+    }
+  },
+  "result": {
+    "item": "minecraft:packed_ice",
+    "count": 20
+  }
+}

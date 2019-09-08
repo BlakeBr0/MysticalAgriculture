@@ -1,0 +1,30 @@
+{
+  "type": "cucumber:shaped_no_mirror",
+  "conditions": [
+    {
+      "type": "mysticalagriculture:crop_enabled",
+      "crop": "mysticalagriculture:stone"
+    },
+    {
+      "type": "mysticalagriculture:crop_enabled",
+      "crop": "mysticalagriculture:fire"
+    }
+  ],
+  "pattern": [
+    "EF ",
+    "FE ",
+    "   "
+  ],
+  "key": {
+    "E": {
+      "item": "mysticalagriculture:stone_essence"
+    },
+    "F": {
+      "item": "mysticalagriculture:fire_essence"
+    }
+  },
+  "result": {
+    "item": "minecraft:flint",
+    "count": 8
+  }
+}

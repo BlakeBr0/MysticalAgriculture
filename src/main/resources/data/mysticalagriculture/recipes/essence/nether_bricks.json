@@ -1,0 +1,23 @@
+{
+  "type": "cucumber:shaped_no_mirror",
+  "conditions": [
+    {
+      "type": "mysticalagriculture:crop_enabled",
+      "crop": "mysticalagriculture:nether"
+    }
+  ],
+  "pattern": [
+    " E ",
+    "E E",
+    " E "
+  ],
+  "key": {
+    "E": {
+      "item": "mysticalagriculture:nether_essence"
+    }
+  },
+  "result": {
+    "item": "minecraft:nether_bricks",
+    "count": 8
+  }
+}

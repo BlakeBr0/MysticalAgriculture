@@ -1,0 +1,23 @@
+{
+  "type": "cucumber:shaped_no_mirror",
+  "conditions": [
+    {
+      "type": "mysticalagriculture:crop_enabled",
+      "crop": "mysticalagriculture:emerald"
+    }
+  ],
+  "pattern": [
+    "EEE",
+    "EEE",
+    "EEE"
+  ],
+  "key": {
+    "E": {
+      "item": "mysticalagriculture:emerald_essence"
+    }
+  },
+  "result": {
+    "item": "minecraft:emerald",
+    "count": 1
+  }
+}

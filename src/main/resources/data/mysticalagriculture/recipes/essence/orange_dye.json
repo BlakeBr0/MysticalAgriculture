@@ -1,0 +1,23 @@
+{
+  "type": "cucumber:shaped_no_mirror",
+  "conditions": [
+    {
+      "type": "mysticalagriculture:crop_enabled",
+      "crop": "mysticalagriculture:dye"
+    }
+  ],
+  "pattern": [
+    "   ",
+    "EEE",
+    "   "
+  ],
+  "key": {
+    "E": {
+      "item": "mysticalagriculture:dye_essence"
+    }
+  },
+  "result": {
+    "item": "minecraft:orange_dye",
+    "count": 6
+  }
+}

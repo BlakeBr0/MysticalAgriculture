@@ -1,0 +1,26 @@
+{
+  "type": "cucumber:shaped_no_mirror",
+  "conditions": [
+    {
+      "type": "mysticalagriculture:crop_enabled",
+      "crop": "mysticalagriculture:cow"
+    }
+  ],
+  "pattern": [
+    " E ",
+    "EBE",
+    " E "
+  ],
+  "key": {
+    "E": {
+      "item": "mysticalagriculture:cow_essence"
+    },
+    "B": {
+      "item": "minecraft:bucket"
+    }
+  },
+  "result": {
+    "item": "minecraft:milk_bucket",
+    "count": 1
+  }
+}

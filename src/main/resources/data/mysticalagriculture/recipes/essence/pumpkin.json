@@ -1,0 +1,23 @@
+{
+  "type": "cucumber:shaped_no_mirror",
+  "conditions": [
+    {
+      "type": "mysticalagriculture:crop_enabled",
+      "crop": "mysticalagriculture:nature"
+    }
+  ],
+  "pattern": [
+    "EEE",
+    "E E",
+    "EEE"
+  ],
+  "key": {
+    "E": {
+      "item": "mysticalagriculture:nature_essence"
+    }
+  },
+  "result": {
+    "item": "minecraft:pumpkin",
+    "count": 16
+  }
+}

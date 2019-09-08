@@ -1,0 +1,23 @@
+{
+  "type": "cucumber:shaped_no_mirror",
+  "conditions": [
+    {
+      "type": "mysticalagriculture:crop_enabled",
+      "crop": "mysticalagriculture:dye"
+    }
+  ],
+  "pattern": [
+    "   ",
+    " E ",
+    "E E"
+  ],
+  "key": {
+    "E": {
+      "item": "mysticalagriculture:dye_essence"
+    }
+  },
+  "result": {
+    "item": "minecraft:blue_dye",
+    "count": 6
+  }
+}
