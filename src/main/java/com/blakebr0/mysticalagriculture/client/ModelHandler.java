@@ -126,12 +126,14 @@ public class ModelHandler {
 
     @SubscribeEvent
     public void onTextureStitch(TextureStitchEvent.Pre event) {
-        CropRegistry.getInstance().getCrops().forEach(crop -> {
-            CropTextures textures = crop.getTextures();
+        if (event.getMap().getBasePath().equals("textures")) {
+            CropRegistry.getInstance().getCrops().forEach(crop -> {
+                CropTextures textures = crop.getTextures();
 
-            event.addSprite(textures.getFlowerTexture());
-            event.addSprite(textures.getEssenceTexture());
-            event.addSprite(textures.getSeedTexture());
-        });
+                event.addSprite(textures.getFlowerTexture());
+                event.addSprite(textures.getEssenceTexture());
+                event.addSprite(textures.getSeedTexture());
+            });
+        }
     }
 }
