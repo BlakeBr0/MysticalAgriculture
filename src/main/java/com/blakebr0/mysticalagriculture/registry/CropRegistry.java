@@ -3,7 +3,6 @@ package com.blakebr0.mysticalagriculture.registry;
 import com.blakebr0.mysticalagriculture.MysticalAgriculture;
 import com.blakebr0.mysticalagriculture.api.crop.ICrop;
 import com.blakebr0.mysticalagriculture.api.registry.ICropRegistry;
-import com.blakebr0.mysticalagriculture.api.registry.ModifyCropsEvent;
 import com.blakebr0.mysticalagriculture.block.MysticalCropBlock;
 import com.blakebr0.mysticalagriculture.item.MysticalEssenceItem;
 import com.blakebr0.mysticalagriculture.item.MysticalSeedsItem;
@@ -12,7 +11,6 @@ import net.minecraft.block.CropsBlock;
 import net.minecraft.item.BlockNamedItem;
 import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.fml.ModLoader;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.registries.IForgeRegistry;
@@ -105,7 +103,7 @@ public class CropRegistry implements ICropRegistry {
                 seeds.setRegistryName(c.getNameWithSuffix("seeds"));
             registry.register(seeds);
         });
-        ModLoader.get().postEvent(new ModifyCropsEvent(this));
+        PluginRegistry.getInstance().forEach(plugin -> plugin.onPostRegisterCrops(this));
     }
 
     public void onCommonSetup(FMLCommonSetupEvent event) {

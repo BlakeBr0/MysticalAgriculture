@@ -11,6 +11,12 @@ public interface IMysticalAgriculturePlugin {
     default void onRegisterCrops(ICropRegistry registry) { }
 
     /**
+     * Override this method and use the supplied registry to modify crops from the crop registry
+     * @param registry the crop registry
+     */
+    default void onPostRegisterCrops(ICropRegistry registry) { }
+
+    /**
      * Override this method and use the supplied registry to register all of your augments
      * @param registry the augment registry
      */
