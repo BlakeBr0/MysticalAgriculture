@@ -47,7 +47,7 @@ public class ModCorePlugin implements IMysticalAgriculturePlugin {
     public static final Crop REDSTONE = new Crop(new ResourceLocation(MOD_ID, "redstone"), CropTier.THREE, CropType.RESOURCE, LazyIngredient.tag("forge:dusts/redstone"));
     public static final Crop OBSIDIAN = new Crop(new ResourceLocation(MOD_ID, "obsidian"), CropTier.THREE, CropType.RESOURCE, ROCK_CROP_TEXTURES, 0x271E3D, LazyIngredient.item("minecraft:obsidian"));
     public static final Crop PRISMARINE = new Crop(new ResourceLocation(MOD_ID, "prismarine"), CropTier.THREE, CropType.RESOURCE, LazyIngredient.EMPTY);
-    public static final Crop ZOMBIE = new Crop(new ResourceLocation(MOD_ID, "zombie"), CropTier.TWO, CropType.MOB, LazyIngredient.EMPTY);
+    public static final Crop ZOMBIE = new Crop(new ResourceLocation(MOD_ID, "zombie"), CropTier.THREE, CropType.MOB, LazyIngredient.EMPTY);
     public static final Crop SKELETON = new Crop(new ResourceLocation(MOD_ID, "skeleton"), CropTier.THREE, CropType.MOB, LazyIngredient.EMPTY);
     public static final Crop CREEPER = new Crop(new ResourceLocation(MOD_ID, "creeper"), CropTier.THREE, CropType.MOB, LazyIngredient.EMPTY);
     public static final Crop SPIDER = new Crop(new ResourceLocation(MOD_ID, "spider"), CropTier.THREE, CropType.MOB, LazyIngredient.EMPTY);
@@ -90,7 +90,6 @@ public class ModCorePlugin implements IMysticalAgriculturePlugin {
         registry.register(SHEEP);
         registry.register(SQUID);
         registry.register(FISH);
-        registry.register(ZOMBIE);
         registry.register(SLIME);
 
         registry.register(IRON);
@@ -99,6 +98,7 @@ public class ModCorePlugin implements IMysticalAgriculturePlugin {
         registry.register(REDSTONE);
         registry.register(OBSIDIAN);
         registry.register(PRISMARINE);
+        registry.register(ZOMBIE);
         registry.register(SKELETON);
         registry.register(CREEPER);
         registry.register(SPIDER);
