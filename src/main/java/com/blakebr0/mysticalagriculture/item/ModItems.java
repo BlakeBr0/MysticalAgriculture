@@ -60,6 +60,7 @@ public class ModItems {
     public static final BaseItem PROSPERITY_SEED_BASE = new BaseItem(p -> p.group(ITEM_GROUP));
     public static final BaseItem SOULIUM_SEED_BASE = new BaseItem(p -> p.group(ITEM_GROUP));
     public static final BaseItem SOUL_DUST = new BaseItem(p -> p.group(ITEM_GROUP));
+    public static final SouliumDaggerItem SOULIUM_DAGGER = new SouliumDaggerItem(ModItemTier.SOULIUM, p -> p.group(ITEM_GROUP));
     public static final InfusionCrystalItem INFUSION_CRYSTAL = new InfusionCrystalItem(1000, p -> p.group(ITEM_GROUP));
     public static final MasterInfusionCrystalItem MASTER_INFUSION_CRYSTAL = new MasterInfusionCrystalItem(p -> p.group(ITEM_GROUP));
     public static final FertilizedEssenceItem FERTILIZED_ESSENCE = new FertilizedEssenceItem(p -> p.group(ITEM_GROUP));
@@ -152,6 +153,7 @@ public class ModItems {
         registry.register(PROSPERITY_SEED_BASE.setRegistryName("prosperity_seed_base"));
         registry.register(SOULIUM_SEED_BASE.setRegistryName("soulium_seed_base"));
         registry.register(SOUL_DUST.setRegistryName("soul_dust"));
+        registry.register(SOULIUM_DAGGER.setRegistryName("soulium_dagger"));
         registry.register(INFUSION_CRYSTAL.setRegistryName("infusion_crystal"));
         registry.register(MASTER_INFUSION_CRYSTAL.setRegistryName("master_infusion_crystal"));
         registry.register(FERTILIZED_ESSENCE.setRegistryName("fertilized_essence"));
