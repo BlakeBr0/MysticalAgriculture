@@ -1,0 +1,25 @@
+{
+  "type": "crafting_shaped",
+  "conditions": [
+    {
+      "type": "mysticalagriculture:crop_enabled",
+      "crop": "mysticalagriculture:wither_skeleton"
+    }
+  ],
+  "pattern": [
+    " E ",
+    "EGE",
+    " E "
+  ],
+  "key": {
+    "E": {
+      "item": "mysticalagriculture:wither_skeleton_essence"
+    },
+    "G": {
+      "item": "mysticalagriculture:soul_glass"
+    }
+  },
+  "result": {
+    "item": "mysticalagriculture:witherproof_block"
+  }
+}
