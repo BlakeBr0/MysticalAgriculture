@@ -1,0 +1,18 @@
+{
+  "type": "crafting_shaped",
+  "pattern": [
+    "CS",
+    "SC"
+  ],
+  "key": {
+    "C": {
+      "item": "minecraft:prismarine_crystals"
+    },
+    "S": {
+      "item": "minecraft:prismarine_shard"
+    }
+  },
+  "result": {
+    "item": "mysticalagriculture:prismarine_agglomeratio"
+  }
+}

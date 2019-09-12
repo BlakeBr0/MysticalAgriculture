@@ -1,0 +1,21 @@
+{
+  "type": "crafting_shaped",
+  "pattern": [
+    "SC",
+    "PS"
+  ],
+  "key": {
+    "S": {
+      "item": "minecraft:end_stone"
+    },
+    "C": {
+      "item": "minecraft:chorus_fruit"
+    },
+    "P": {
+      "item": "minecraft:purpur_block"
+    }
+  },
+  "result": {
+    "item": "mysticalagriculture:end_agglomeratio"
+  }
+}

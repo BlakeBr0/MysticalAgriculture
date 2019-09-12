@@ -1,0 +1,24 @@
+{
+  "type": "crafting_shaped",
+  "pattern": [
+    "NS",
+    "BW"
+  ],
+  "key": {
+    "N": {
+      "item": "minecraft:netherrack"
+    },
+    "S": {
+      "item": "minecraft:soul_sand"
+    },
+    "B": {
+      "item": "minecraft:nether_bricks"
+    },
+    "W": {
+      "item": "minecraft:nether_wart"
+    }
+  },
+  "result": {
+    "item": "mysticalagriculture:nether_agglomeratio"
+  }
+}

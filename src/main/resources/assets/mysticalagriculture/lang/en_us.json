@@ -99,6 +99,11 @@
   "item.mysticalagriculture.master_infusion_crystal": "Master Infusion Crystal",
   "item.mysticalagriculture.fertilized_essence": "Fertilized Essence",
   "item.mysticalagriculture.mystical_fertilizer": "Mystical Fertilizer",
+  "item.mysticalagriculture.nature_agglomeratio": "Nature Agglomeratio",
+  "item.mysticalagriculture.dye_agglomeratio": "Dye Agglomeratio",
+  "item.mysticalagriculture.nether_agglomeratio": "Nether Agglomeratio",
+  "item.mysticalagriculture.prismarine_agglomeratio": "Prismarine Agglomeratio",
+  "item.mysticalagriculture.end_agglomeratio": "End Agglomeratio",
 
   "item.mysticalagriculture.mystical_essence": "%s Essence",
   "item.mysticalagriculture.mystical_seeds": "%s Seeds",

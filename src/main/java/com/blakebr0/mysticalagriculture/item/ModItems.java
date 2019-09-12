@@ -65,6 +65,11 @@ public class ModItems {
     public static final MasterInfusionCrystalItem MASTER_INFUSION_CRYSTAL = new MasterInfusionCrystalItem(p -> p.group(ITEM_GROUP));
     public static final FertilizedEssenceItem FERTILIZED_ESSENCE = new FertilizedEssenceItem(p -> p.group(ITEM_GROUP));
     public static final MysticalFertilizerItem MYSTICAL_FERTILIZER = new MysticalFertilizerItem(p -> p.group(ITEM_GROUP));
+    public static final BaseItem NATURE_AGGLOMERATIO = new BaseItem(p -> p.group(ITEM_GROUP));
+    public static final BaseItem DYE_AGGLOMERATIO = new BaseItem(p -> p.group(ITEM_GROUP));
+    public static final BaseItem NETHER_AGGLOMERATIO = new BaseItem(p -> p.group(ITEM_GROUP));
+    public static final BaseItem PRISMARINE_AGGLOMERATIO = new BaseItem(p -> p.group(ITEM_GROUP));
+    public static final BaseItem END_AGGLOMERATIO = new BaseItem(p -> p.group(ITEM_GROUP));
 
     public static final EssenceSwordItem INFERIUM_SWORD = new EssenceSwordItem(ModItemTier.INFERIUM, p -> p.group(ITEM_GROUP));
     public static final EssencePickaxeItem INFERIUM_PICKAXE = new EssencePickaxeItem(ModItemTier.INFERIUM, p -> p.group(ITEM_GROUP));
@@ -158,6 +163,11 @@ public class ModItems {
         registry.register(MASTER_INFUSION_CRYSTAL.setRegistryName("master_infusion_crystal"));
         registry.register(FERTILIZED_ESSENCE.setRegistryName("fertilized_essence"));
         registry.register(MYSTICAL_FERTILIZER.setRegistryName("mystical_fertilizer"));
+        registry.register(NATURE_AGGLOMERATIO.setRegistryName("nature_agglomeratio"));
+        registry.register(DYE_AGGLOMERATIO.setRegistryName("dye_agglomeratio"));
+        registry.register(NETHER_AGGLOMERATIO.setRegistryName("nether_agglomeratio"));
+        registry.register(PRISMARINE_AGGLOMERATIO.setRegistryName("prismarine_agglomeratio"));
+        registry.register(END_AGGLOMERATIO.setRegistryName("end_agglomeratio"));
 
         CropRegistry.getInstance().onRegisterItems(registry);
 
