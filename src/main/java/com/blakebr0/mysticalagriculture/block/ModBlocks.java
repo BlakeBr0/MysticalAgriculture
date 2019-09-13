@@ -47,11 +47,11 @@ public class ModBlocks {
     public static final InfusedFarmlandBlock TERTIUM_FARMLAND = new InfusedFarmlandBlock(CropTier.THREE);
     public static final InfusedFarmlandBlock IMPERIUM_FARMLAND = new InfusedFarmlandBlock(CropTier.FOUR);
     public static final InfusedFarmlandBlock SUPREMIUM_FARMLAND = new InfusedFarmlandBlock(CropTier.FIVE);
-    public static final GrowthAcceleratorBlock INFERIUM_GROWTH_ACCELERATOR = new GrowthAcceleratorBlock();
-    public static final GrowthAcceleratorBlock PRUDENTIUM_GROWTH_ACCELERATOR = new GrowthAcceleratorBlock();
-    public static final GrowthAcceleratorBlock TERTIUM_GROWTH_ACCELERATOR = new GrowthAcceleratorBlock();
-    public static final GrowthAcceleratorBlock IMPERIUM_GROWTH_ACCELERATOR = new GrowthAcceleratorBlock();
-    public static final GrowthAcceleratorBlock SUPREMIUM_GROWTH_ACCELERATOR = new GrowthAcceleratorBlock();
+    public static final GrowthAcceleratorBlock INFERIUM_GROWTH_ACCELERATOR = new GrowthAcceleratorBlock(12, CropTier.ONE.getTextColor());
+    public static final GrowthAcceleratorBlock PRUDENTIUM_GROWTH_ACCELERATOR = new GrowthAcceleratorBlock(24, CropTier.TWO.getTextColor());
+    public static final GrowthAcceleratorBlock TERTIUM_GROWTH_ACCELERATOR = new GrowthAcceleratorBlock(36, CropTier.THREE.getTextColor());
+    public static final GrowthAcceleratorBlock IMPERIUM_GROWTH_ACCELERATOR = new GrowthAcceleratorBlock(48, CropTier.FOUR.getTextColor());
+    public static final GrowthAcceleratorBlock SUPREMIUM_GROWTH_ACCELERATOR = new GrowthAcceleratorBlock(60, CropTier.FIVE.getTextColor());
     public static final EssenceFurnaceBlock INFERIUM_FURNACE = new EssenceFurnaceBlock(EssenceFurnaceBlock.FurnaceTier.INFERIUM);
     public static final EssenceFurnaceBlock PRUDENTIUM_FURNACE = new EssenceFurnaceBlock(EssenceFurnaceBlock.FurnaceTier.PRUDENTIUM);
     public static final EssenceFurnaceBlock TERTIUM_FURNACE = new EssenceFurnaceBlock(EssenceFurnaceBlock.FurnaceTier.TERTIUM);

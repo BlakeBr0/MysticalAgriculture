@@ -171,6 +171,8 @@
   "tooltip.mysticalagriculture.inferium_output": "Inferium Output: %s",
   "tooltip.mysticalagriculture.cooking_speed": "Cooking Speed: %s",
   "tooltip.mysticalagriculture.fuel_efficiency": "Fuel Efficiency: %s",
+  "tooltip.mysticalagriculture.growth_accelerator": "Grows the plant above it faster.",
+  "tooltip.mysticalagriculture.growth_accelerator_range": "Range: %s Blocks",
 
   "jei.category.mysticalagriculture.infusion": "Infusion Crafting",
 

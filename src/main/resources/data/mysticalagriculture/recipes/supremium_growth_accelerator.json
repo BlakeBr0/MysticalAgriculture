@@ -1,0 +1,23 @@
+{
+  "type": "crafting_shaped",
+  "pattern": [
+    "ESE",
+    "SDS",
+    "ESE"
+  ],
+  "key": {
+    "E": {
+      "item": "mysticalagriculture:supremium_essence"
+    },
+    "S": {
+      "tag": "forge:stone"
+    },
+    "D": {
+      "item": "mysticalagriculture:supremium_gemstone"
+    }
+  },
+  "result": {
+    "item": "mysticalagriculture:supremium_growth_accelerator",
+    "count": 3
+  }
+}
