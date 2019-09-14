@@ -61,7 +61,7 @@ public class ModItems {
     public static final BaseItem SOULIUM_SEED_BASE = new BaseItem(p -> p.group(ITEM_GROUP));
     public static final BaseItem SOUL_DUST = new BaseItem(p -> p.group(ITEM_GROUP));
     public static final SouliumDaggerItem SOULIUM_DAGGER = new SouliumDaggerItem(ModItemTier.SOULIUM, p -> p.group(ITEM_GROUP));
-    public static final InfusionCrystalItem INFUSION_CRYSTAL = new InfusionCrystalItem(1000, p -> p.group(ITEM_GROUP));
+    public static final InfusionCrystalItem INFUSION_CRYSTAL = new InfusionCrystalItem(p -> p.group(ITEM_GROUP));
     public static final MasterInfusionCrystalItem MASTER_INFUSION_CRYSTAL = new MasterInfusionCrystalItem(p -> p.group(ITEM_GROUP));
     public static final FertilizedEssenceItem FERTILIZED_ESSENCE = new FertilizedEssenceItem(p -> p.group(ITEM_GROUP));
     public static final MysticalFertilizerItem MYSTICAL_FERTILIZER = new MysticalFertilizerItem(p -> p.group(ITEM_GROUP));

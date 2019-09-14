@@ -1,6 +1,7 @@
 package com.blakebr0.mysticalagriculture.block;
 
 import com.blakebr0.cucumber.block.BaseBlock;
+import com.blakebr0.mysticalagriculture.config.ModConfigs;
 import com.blakebr0.mysticalagriculture.lib.ModTooltips;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.IGrowable;
@@ -38,7 +39,7 @@ public class GrowthAcceleratorBlock extends BaseBlock {
 
     @Override
     public int tickRate(IWorldReader world) {
-        return 10 * 20;
+        return ModConfigs.GROWTH_ACCELERATOR_COOLDOWN.get() * 20;
     }
 
     @Override

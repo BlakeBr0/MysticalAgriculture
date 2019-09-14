@@ -1,5 +1,6 @@
 package com.blakebr0.mysticalagriculture;
 
+import com.blakebr0.cucumber.helper.ConfigHelper;
 import com.blakebr0.mysticalagriculture.api.MysticalAgricultureAPI;
 import com.blakebr0.mysticalagriculture.block.ModBlocks;
 import com.blakebr0.mysticalagriculture.client.ModelHandler;
@@ -65,6 +66,8 @@ public class MysticalAgriculture {
 
 		MysticalAgricultureAPI.setCropRegistry(CropRegistry.getInstance());
 		MysticalAgricultureAPI.setAugmentRegistry(AugmentRegistry.getInstance());
+
+		ConfigHelper.load(ModConfigs.COMMON, "mysticalagriculture-common.toml");
 	}
 
 	@SubscribeEvent

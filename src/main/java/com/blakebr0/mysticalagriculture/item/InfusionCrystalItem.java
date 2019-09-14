@@ -1,13 +1,19 @@
 package com.blakebr0.mysticalagriculture.item;
 
 import com.blakebr0.cucumber.item.ReusableItem;
+import com.blakebr0.mysticalagriculture.config.ModConfigs;
 import net.minecraft.item.ItemStack;
 
 import java.util.function.Function;
 
 public class InfusionCrystalItem extends ReusableItem {
-    public InfusionCrystalItem(int uses, Function<Properties, Properties> properties) {
-        super(uses, properties);
+    public InfusionCrystalItem(Function<Properties, Properties> properties) {
+        super(1000, properties);
+    }
+
+    @Override
+    public int getMaxDamage(ItemStack stack) {
+        return ModConfigs.INFUSION_CRYSTAL_USES.get() - 1;
     }
 
     @Override
