@@ -16,10 +16,8 @@ import net.minecraft.world.IBlockReader;
 import net.minecraft.world.IWorldReader;
 import net.minecraft.world.World;
 
-import javax.annotation.Nullable;
 import java.util.List;
 import java.util.Random;
-import java.util.stream.Stream;
 
 public class GrowthAcceleratorBlock extends BaseBlock {
     private final int range;
@@ -45,9 +43,10 @@ public class GrowthAcceleratorBlock extends BaseBlock {
 
     @Override
     public void tick(BlockState state, World world, BlockPos pos, Random random) {
-        Stream<BlockPos> posStream = BlockPos.getAllInBox(pos.up(), pos.add(0, this.range, 0));
-        posStream.filter(p -> world.getBlockState(p).getBlock() instanceof IGrowable)
-                .findFirst().ifPresent(p -> world.getPendingBlockTicks().scheduleTick(p, world.getBlockState(p).getBlock(), 0));
+        BlockPos.getAllInBox(pos.up(), pos.add(0, this.range, 0))
+                .filter(aoePos -> world.getBlockState(aoePos).getBlock() instanceof IGrowable)
+                .findFirst()
+                .ifPresent(aoePos -> world.getPendingBlockTicks().scheduleTick(aoePos, world.getBlockState(aoePos).getBlock(), 0));
 
         world.getPendingBlockTicks().scheduleTick(pos, this, this.tickRate(world));
     }

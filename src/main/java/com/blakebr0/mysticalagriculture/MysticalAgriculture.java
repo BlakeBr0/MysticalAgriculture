@@ -9,6 +9,7 @@ import com.blakebr0.mysticalagriculture.crafting.DynamicRecipeManager;
 import com.blakebr0.mysticalagriculture.crafting.ModRecipeSerializers;
 import com.blakebr0.mysticalagriculture.crafting.MysticalRecipeManager;
 import com.blakebr0.mysticalagriculture.handler.ColorHandler;
+import com.blakebr0.mysticalagriculture.handler.MobDropHandler;
 import com.blakebr0.mysticalagriculture.item.ModItems;
 import com.blakebr0.mysticalagriculture.lib.ModCorePlugin;
 import com.blakebr0.mysticalagriculture.registry.AugmentRegistry;
@@ -70,6 +71,7 @@ public class MysticalAgriculture {
 	public void onCommonSetup(FMLCommonSetupEvent event) {
 		MinecraftForge.EVENT_BUS.register(this);
 		MinecraftForge.EVENT_BUS.register(MysticalRecipeManager.getInstance());
+		MinecraftForge.EVENT_BUS.register(new MobDropHandler());
 
 		ModCorePlugin.onCommonSetup();
 		ModRecipeSerializers.onCommonSetup();
