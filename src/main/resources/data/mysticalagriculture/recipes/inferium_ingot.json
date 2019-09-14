@@ -1,0 +1,19 @@
+{
+  "type": "crafting_shaped",
+  "pattern": [
+    " E ",
+    "EGE",
+    " E "
+  ],
+  "key": {
+    "E": {
+      "item": "mysticalagriculture:inferium_essence"
+    },
+    "G": {
+      "item": "mysticalagriculture:prosperity_ingot"
+    }
+  },
+  "result": {
+    "item": "mysticalagriculture:inferium_ingot"
+  }
+}
