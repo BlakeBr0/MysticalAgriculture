@@ -3,7 +3,7 @@
   "conditions": [
     {
       "type": "mysticalagriculture:crop_enabled",
-      "crop": "mysticalagriculture:water"
+      "crop": "mysticalagriculture:fire"
     }
   ],
   "pattern": [
@@ -13,13 +13,13 @@
   ],
   "key": {
     "E": {
-      "item": "mysticalagriculture:water_essence"
+      "item": "mysticalagriculture:fire_essence"
     },
     "B": {
       "item": "minecraft:bucket"
     }
   },
   "result": {
-    "item": "minecraft:water_bucket"
+    "item": "minecraft:lava_bucket"
   }
 }

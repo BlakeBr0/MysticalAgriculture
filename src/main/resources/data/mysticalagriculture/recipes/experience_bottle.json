@@ -1,0 +1,14 @@
+{
+  "type": "crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "minecraft:glass_bottle"
+    },
+    {
+      "item": "mysticalagriculture:experience_droplet"
+    }
+  ],
+  "result": {
+    "item": "minecraft:experience_bottle"
+  }
+}
