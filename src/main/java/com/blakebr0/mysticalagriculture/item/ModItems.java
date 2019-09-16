@@ -71,6 +71,8 @@ public class ModItems {
     public static final BaseItem PRISMARINE_AGGLOMERATIO = new BaseItem(p -> p.group(ITEM_GROUP));
     public static final BaseItem END_AGGLOMERATIO = new BaseItem(p -> p.group(ITEM_GROUP));
     public static final ExperienceDropletItem EXPERIENCE_DROPLET = new ExperienceDropletItem(p -> p.group(ITEM_GROUP));
+    public static final BaseItem BLANK_SKULL = new BaseItem(p -> p.group(ITEM_GROUP));
+    public static final BaseItem BLANK_RECORD = new BaseItem(p -> p.group(ITEM_GROUP));
 
     public static final EssenceSwordItem INFERIUM_SWORD = new EssenceSwordItem(ModItemTier.INFERIUM, p -> p.group(ITEM_GROUP));
     public static final EssencePickaxeItem INFERIUM_PICKAXE = new EssencePickaxeItem(ModItemTier.INFERIUM, p -> p.group(ITEM_GROUP));
@@ -175,6 +177,8 @@ public class ModItems {
         registry.register(PRISMARINE_AGGLOMERATIO.setRegistryName("prismarine_agglomeratio"));
         registry.register(END_AGGLOMERATIO.setRegistryName("end_agglomeratio"));
         registry.register(EXPERIENCE_DROPLET.setRegistryName("experience_droplet"));
+        registry.register(BLANK_SKULL.setRegistryName("blank_skull"));
+        registry.register(BLANK_RECORD.setRegistryName("blank_record"));
 
         CropRegistry.getInstance().onRegisterItems(registry);
 

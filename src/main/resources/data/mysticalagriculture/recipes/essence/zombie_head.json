@@ -1,0 +1,25 @@
+{
+  "type": "cucumber:shaped_no_mirror",
+  "conditions": [
+    {
+      "type": "mysticalagriculture:crop_enabled",
+      "crop": "mysticalagriculture:zombie"
+    }
+  ],
+  "pattern": [
+    "EEE",
+    "ESE",
+    "EEE"
+  ],
+  "key": {
+    "E": {
+      "item": "mysticalagriculture:zombie_essence"
+    },
+    "S": {
+      "item": "mysticalagriculture:blank_skull"
+    }
+  },
+  "result": {
+    "item": "minecraft:zombie_head"
+  }
+}

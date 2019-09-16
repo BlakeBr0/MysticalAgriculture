@@ -1,0 +1,25 @@
+{
+  "type": "cucumber:shaped_no_mirror",
+  "conditions": [
+    {
+      "type": "mysticalagriculture:crop_enabled",
+      "crop": "mysticalagriculture:skeleton"
+    }
+  ],
+  "pattern": [
+    "EEE",
+    "ESE",
+    "EEE"
+  ],
+  "key": {
+    "E": {
+      "item": "mysticalagriculture:skeleton_essence"
+    },
+    "S": {
+      "item": "mysticalagriculture:blank_skull"
+    }
+  },
+  "result": {
+    "item": "minecraft:skeleton_skull"
+  }
+}

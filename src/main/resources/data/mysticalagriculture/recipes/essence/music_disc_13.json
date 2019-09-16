@@ -1,0 +1,35 @@
+{
+  "type": "cucumber:shaped_no_mirror",
+  "conditions": [
+    {
+      "type": "mysticalagriculture:crop_enabled",
+      "crop": "mysticalagriculture:creeper"
+    },
+    {
+      "type": "mysticalagriculture:crop_enabled",
+      "crop": "mysticalagriculture:skeleton"
+    }
+  ],
+  "pattern": [
+    "RC ",
+    "SD ",
+    "   "
+  ],
+  "key": {
+    "R": {
+      "item": "mysticalagriculture:blank_record"
+    },
+    "C": {
+      "item": "mysticalagriculture:creeper_essence"
+    },
+    "S": {
+      "item": "mysticalagriculture:skeleton_essence"
+    },
+    "D": {
+      "tag": "forge:dyes/yellow"
+    }
+  },
+  "result": {
+    "item": "minecraft:music_disc_13"
+  }
+}
