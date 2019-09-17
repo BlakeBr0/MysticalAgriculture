@@ -11,10 +11,12 @@ import com.blakebr0.mysticalagriculture.crafting.ModRecipeSerializers;
 import com.blakebr0.mysticalagriculture.crafting.MysticalRecipeManager;
 import com.blakebr0.mysticalagriculture.handler.ColorHandler;
 import com.blakebr0.mysticalagriculture.handler.MobDropHandler;
+import com.blakebr0.mysticalagriculture.handler.MobSoulHandler;
 import com.blakebr0.mysticalagriculture.item.ModItems;
 import com.blakebr0.mysticalagriculture.lib.ModCorePlugin;
 import com.blakebr0.mysticalagriculture.registry.AugmentRegistry;
 import com.blakebr0.mysticalagriculture.registry.CropRegistry;
+import com.blakebr0.mysticalagriculture.registry.MobSoulTypeRegistry;
 import com.blakebr0.mysticalagriculture.registry.PluginRegistry;
 import com.blakebr0.mysticalagriculture.tileentity.ModTileEntities;
 import com.blakebr0.mysticalagriculture.world.ModWorldFeatures;
@@ -66,6 +68,7 @@ public class MysticalAgriculture {
 
 		MysticalAgricultureAPI.setCropRegistry(CropRegistry.getInstance());
 		MysticalAgricultureAPI.setAugmentRegistry(AugmentRegistry.getInstance());
+		MysticalAgricultureAPI.setMobSoulTypeRegistry(MobSoulTypeRegistry.getInstance());
 
 		ConfigHelper.load(ModConfigs.COMMON, "mysticalagriculture-common.toml");
 	}
@@ -75,6 +78,7 @@ public class MysticalAgriculture {
 		MinecraftForge.EVENT_BUS.register(this);
 		MinecraftForge.EVENT_BUS.register(MysticalRecipeManager.getInstance());
 		MinecraftForge.EVENT_BUS.register(new MobDropHandler());
+		MinecraftForge.EVENT_BUS.register(new MobSoulHandler());
 
 		ModCorePlugin.onCommonSetup();
 		ModRecipeSerializers.onCommonSetup();

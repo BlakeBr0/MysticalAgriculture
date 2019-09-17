@@ -1,16 +1,20 @@
 package com.blakebr0.mysticalagriculture.compat.jei;
 
 import com.blakebr0.mysticalagriculture.MysticalAgriculture;
+import com.blakebr0.mysticalagriculture.api.soul.IMobSoulType;
+import com.blakebr0.mysticalagriculture.api.soul.MobSoulUtils;
 import com.blakebr0.mysticalagriculture.block.ModBlocks;
 import com.blakebr0.mysticalagriculture.compat.jei.infusion.InfusionCategory;
 import com.blakebr0.mysticalagriculture.crafting.MysticalRecipeManager;
 import com.blakebr0.mysticalagriculture.crafting.SpecialRecipeTypes;
+import com.blakebr0.mysticalagriculture.item.ModItems;
 import mezz.jei.api.IModPlugin;
 import mezz.jei.api.JeiPlugin;
 import mezz.jei.api.helpers.IGuiHelper;
 import mezz.jei.api.registration.IRecipeCatalystRegistration;
 import mezz.jei.api.registration.IRecipeCategoryRegistration;
 import mezz.jei.api.registration.IRecipeRegistration;
+import mezz.jei.api.registration.ISubtypeRegistration;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 
@@ -43,5 +47,13 @@ public class JeiCompat implements IModPlugin {
         MysticalRecipeManager manager = MysticalRecipeManager.getInstance();
 
         registration.addRecipes(manager.getRecipes(SpecialRecipeTypes.INFUSION).values(), InfusionCategory.UID);
+    }
+
+    @Override
+    public void registerItemSubtypes(ISubtypeRegistration registration) {
+        registration.registerSubtypeInterpreter(ModItems.SOUL_JAR, stack -> {
+            IMobSoulType type = MobSoulUtils.getType(stack);
+            return type != null ? type.getEntityId().toString() : "";
+        });
     }
 }

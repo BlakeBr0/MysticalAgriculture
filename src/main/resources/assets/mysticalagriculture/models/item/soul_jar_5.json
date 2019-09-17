@@ -1,0 +1,7 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "mysticalagriculture:item/soul_jar",
+    "layer1": "mysticalagriculture:item/soul_jar_inner_5"
+  }
+}

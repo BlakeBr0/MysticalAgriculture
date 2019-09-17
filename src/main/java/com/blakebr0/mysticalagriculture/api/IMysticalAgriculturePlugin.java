@@ -2,6 +2,7 @@ package com.blakebr0.mysticalagriculture.api;
 
 import com.blakebr0.mysticalagriculture.api.registry.IAugmentRegistry;
 import com.blakebr0.mysticalagriculture.api.registry.ICropRegistry;
+import com.blakebr0.mysticalagriculture.api.registry.IMobSoulTypeRegistry;
 
 public interface IMysticalAgriculturePlugin {
     /**
@@ -21,4 +22,16 @@ public interface IMysticalAgriculturePlugin {
      * @param registry the augment registry
      */
     default void onRegisterAugments(IAugmentRegistry registry) { }
+
+    /**
+     * Override this method and use the supplied registry to register all of your mob soul types
+     * @param registry the mob soul type registry
+     */
+    default void onRegisterMobSoulTypes(IMobSoulTypeRegistry registry) { }
+
+    /**
+     * Override this method and ise the supplied registry to modify mob soul types from the mob soul type registry
+     * @param registry the mob soul type registry
+     */
+    default void onPostRegisterMobSoulTypes(IMobSoulTypeRegistry registry) { }
 }

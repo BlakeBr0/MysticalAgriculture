@@ -73,6 +73,7 @@ public class ModItems {
     public static final ExperienceDropletItem EXPERIENCE_DROPLET = new ExperienceDropletItem(p -> p.group(ITEM_GROUP));
     public static final BaseItem BLANK_SKULL = new BaseItem(p -> p.group(ITEM_GROUP));
     public static final BaseItem BLANK_RECORD = new BaseItem(p -> p.group(ITEM_GROUP));
+    public static final SoulJarItem SOUL_JAR = new SoulJarItem(p -> p.group(ITEM_GROUP));
 
     public static final EssenceSwordItem INFERIUM_SWORD = new EssenceSwordItem(ModItemTier.INFERIUM, p -> p.group(ITEM_GROUP));
     public static final EssencePickaxeItem INFERIUM_PICKAXE = new EssencePickaxeItem(ModItemTier.INFERIUM, p -> p.group(ITEM_GROUP));
@@ -179,6 +180,7 @@ public class ModItems {
         registry.register(EXPERIENCE_DROPLET.setRegistryName("experience_droplet"));
         registry.register(BLANK_SKULL.setRegistryName("blank_skull"));
         registry.register(BLANK_RECORD.setRegistryName("blank_record"));
+        registry.register(SOUL_JAR.setRegistryName("soul_jar"));
 
         CropRegistry.getInstance().onRegisterItems(registry);
 

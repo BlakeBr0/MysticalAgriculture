@@ -1,0 +1,62 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "mysticalagriculture:item/soul_jar"
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "fill": 1
+      },
+      "model": "mysticalagriculture:item/soul_jar_1"
+    },
+    {
+      "predicate": {
+        "fill": 2
+      },
+      "model": "mysticalagriculture:item/soul_jar_2"
+    },
+    {
+      "predicate": {
+        "fill": 3
+      },
+      "model": "mysticalagriculture:item/soul_jar_3"
+    },
+    {
+      "predicate": {
+        "fill": 4
+      },
+      "model": "mysticalagriculture:item/soul_jar_4"
+    },
+    {
+      "predicate": {
+        "fill": 5
+      },
+      "model": "mysticalagriculture:item/soul_jar_5"
+    },
+    {
+      "predicate": {
+        "fill": 6
+      },
+      "model": "mysticalagriculture:item/soul_jar_6"
+    },
+    {
+      "predicate": {
+        "fill": 7
+      },
+      "model": "mysticalagriculture:item/soul_jar_7"
+    },
+    {
+      "predicate": {
+        "fill": 8
+      },
+      "model": "mysticalagriculture:item/soul_jar_8"
+    },
+    {
+      "predicate": {
+        "fill": 9
+      },
+      "model": "mysticalagriculture:item/soul_jar_9"
+    }
+  ]
+}

@@ -7,6 +7,9 @@ import com.blakebr0.mysticalagriculture.api.crop.CropTier;
 import com.blakebr0.mysticalagriculture.api.crop.CropType;
 import com.blakebr0.mysticalagriculture.api.lib.LazyIngredient;
 import com.blakebr0.mysticalagriculture.api.registry.ICropRegistry;
+import com.blakebr0.mysticalagriculture.api.registry.IMobSoulTypeRegistry;
+import com.blakebr0.mysticalagriculture.api.soul.MobSoulType;
+import com.blakebr0.mysticalagriculture.api.soul.MobSoulUtils;
 import com.blakebr0.mysticalagriculture.block.InferiumCropBlock;
 import com.blakebr0.mysticalagriculture.block.ModBlocks;
 import com.blakebr0.mysticalagriculture.item.ModItems;
@@ -17,6 +20,8 @@ import static com.blakebr0.mysticalagriculture.MysticalAgriculture.MOD_ID;
 public class ModCorePlugin implements IMysticalAgriculturePlugin {
     private static final CropTextures ELEMENTAL_CROP_TEXTURES = new CropTextures(CropTextures.FLOWER_INGOT_BLANK, CropTextures.ESSENCE_FLAME_BLANK);
     private static final CropTextures ROCK_CROP_TEXTURES = new CropTextures(CropTextures.FLOWER_ROCK_BLANK, CropTextures.ESSENCE_ROCK_BLANK);
+
+    public static final MobSoulType ZOMBIE_SOUL_TYPE = new MobSoulType(new ResourceLocation(MOD_ID, "zombie"), new ResourceLocation("minecraft:zombie"), 10, 44975);
 
     public static final Crop AIR = new Crop(new ResourceLocation(MOD_ID, "air"), CropTier.ELEMENTAL, CropType.RESOURCE, ELEMENTAL_CROP_TEXTURES, 0xDAD64D, LazyIngredient.EMPTY);
     public static final Crop EARTH = new Crop(new ResourceLocation(MOD_ID, "earth"), CropTier.ELEMENTAL, CropType.RESOURCE, ELEMENTAL_CROP_TEXTURES, 0x54DA4D, LazyIngredient.EMPTY);
@@ -47,7 +52,7 @@ public class ModCorePlugin implements IMysticalAgriculturePlugin {
     public static final Crop REDSTONE = new Crop(new ResourceLocation(MOD_ID, "redstone"), CropTier.THREE, CropType.RESOURCE, LazyIngredient.tag("forge:dusts/redstone"));
     public static final Crop OBSIDIAN = new Crop(new ResourceLocation(MOD_ID, "obsidian"), CropTier.THREE, CropType.RESOURCE, ROCK_CROP_TEXTURES, 0x271E3D, LazyIngredient.item("minecraft:obsidian"));
     public static final Crop PRISMARINE = new Crop(new ResourceLocation(MOD_ID, "prismarine"), CropTier.THREE, CropType.RESOURCE, LazyIngredient.item("mysticalagriculture:prismarine_agglomeratio"));
-    public static final Crop ZOMBIE = new Crop(new ResourceLocation(MOD_ID, "zombie"), CropTier.THREE, CropType.MOB, LazyIngredient.EMPTY);
+    public static final Crop ZOMBIE = new Crop(new ResourceLocation(MOD_ID, "zombie"), CropTier.THREE, CropType.MOB, LazyIngredient.item("mysticalagriculture:soul_jar", MobSoulUtils.makeTag(ZOMBIE_SOUL_TYPE)));
     public static final Crop SKELETON = new Crop(new ResourceLocation(MOD_ID, "skeleton"), CropTier.THREE, CropType.MOB, LazyIngredient.EMPTY);
     public static final Crop CREEPER = new Crop(new ResourceLocation(MOD_ID, "creeper"), CropTier.THREE, CropType.MOB, LazyIngredient.EMPTY);
     public static final Crop SPIDER = new Crop(new ResourceLocation(MOD_ID, "spider"), CropTier.THREE, CropType.MOB, LazyIngredient.EMPTY);
@@ -115,6 +120,11 @@ public class ModCorePlugin implements IMysticalAgriculturePlugin {
         registry.register(DIAMOND);
         registry.register(EMERALD);
         registry.register(WITHER_SKELETON);
+    }
+
+    @Override
+    public void onRegisterMobSoulTypes(IMobSoulTypeRegistry registry) {
+        registry.register(ZOMBIE_SOUL_TYPE);
     }
 
     public static void onCommonSetup() {

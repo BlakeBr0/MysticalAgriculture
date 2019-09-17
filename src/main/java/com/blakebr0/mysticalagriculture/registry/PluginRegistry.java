@@ -38,6 +38,9 @@ public class PluginRegistry {
                 }
             });
         });
+
+        this.plugins.forEach(plugin -> plugin.onRegisterMobSoulTypes(MobSoulTypeRegistry.getInstance()));
+        this.plugins.forEach(plugin -> plugin.onPostRegisterMobSoulTypes(MobSoulTypeRegistry.getInstance()));
     }
 
     public void forEach(Consumer<IMysticalAgriculturePlugin> action) {

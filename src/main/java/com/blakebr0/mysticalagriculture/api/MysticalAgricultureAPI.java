@@ -2,12 +2,14 @@ package com.blakebr0.mysticalagriculture.api;
 
 import com.blakebr0.mysticalagriculture.api.registry.IAugmentRegistry;
 import com.blakebr0.mysticalagriculture.api.registry.ICropRegistry;
+import com.blakebr0.mysticalagriculture.api.registry.IMobSoulTypeRegistry;
 import net.minecraftforge.fml.ModLoadingContext;
 
 public class MysticalAgricultureAPI {
     public static final String MOD_ID = "mysticalagriculture";
     private static ICropRegistry cropRegistry;
     private static IAugmentRegistry augmentRegistry;
+    private static IMobSoulTypeRegistry soulTypeRegistry;
 
     /**
      * The registry in which all crops are stored,
@@ -40,6 +42,16 @@ public class MysticalAgricultureAPI {
     public static void setAugmentRegistry(IAugmentRegistry registry) {
         if (isMysticalAgriculture()) {
             augmentRegistry = registry;
+        }
+    }
+
+    public static IMobSoulTypeRegistry getMobSoulTypeRegistry() {
+        return soulTypeRegistry;
+    }
+
+    public static void setMobSoulTypeRegistry(IMobSoulTypeRegistry registry) {
+        if (isMysticalAgriculture()) {
+            soulTypeRegistry = registry;
         }
     }
 
