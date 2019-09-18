@@ -1,5 +1,6 @@
 package com.blakebr0.mysticalagriculture.api.soul;
 
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.util.ResourceLocation;
 
 public interface IMobSoulType {
@@ -56,4 +57,11 @@ public interface IMobSoulType {
      * @param color the new color of this mob soul type
      */
     void setColor(int color);
+
+    /**
+     * Checks if the supplied entity is valid for this mob soul type
+     * @param entity the entity to test
+     * @return is the entity valid
+     */
+    boolean isEntityApplicable(LivingEntity entity);
 }

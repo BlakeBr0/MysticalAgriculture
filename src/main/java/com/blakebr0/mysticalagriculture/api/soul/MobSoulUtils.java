@@ -90,10 +90,44 @@ public class MobSoulUtils {
      */
     public static double getSouls(ItemStack stack) {
         CompoundNBT nbt = stack.getTag();
-        if (nbt != null && nbt.contains("souls")) {
+        if (nbt != null && nbt.contains("souls"))
             return nbt.getDouble("souls");
-        }
 
         return 0D;
+    }
+
+    /**
+     * Add souls to a soul jar
+     * @param stack the soul jar stack
+     * @param type the mob soul type to add
+     * @param amount the amount of souls to add
+     * @return any souls that weren't added
+     */
+    public static double addSoulsToJar(ItemStack stack, IMobSoulType type, double amount) {
+        IMobSoulType containedType = getType(stack);
+        if (containedType != null && containedType != type)
+            return amount;
+
+        double requirement = type.getSoulRequirement();
+        if (containedType == null) {
+            CompoundNBT nbt = makeTag(type, amount);
+            stack.setTag(nbt);
+
+            return Math.max(0, requirement - amount);
+        } else {
+            double souls = getSouls(stack);
+            if (souls >= requirement) {
+                return amount;
+            } else {
+                double newSouls = Math.min(requirement, souls + amount);
+                CompoundNBT nbt = stack.getTag();
+                if (nbt != null) {
+                    nbt.putDouble("Souls", newSouls);
+                    return Math.max(0, amount - (newSouls - souls));
+                } else {
+                    return amount;
+                }
+            }
+        }
     }
 }

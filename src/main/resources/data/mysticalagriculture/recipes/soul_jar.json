@@ -1,0 +1,20 @@
+{
+  "type": "crafting_shaped",
+  "pattern": [
+    " S ",
+    "G G",
+    " G "
+  ],
+  "key": {
+    "S": {
+      "item": "mysticalagriculture:soulium_ingot"
+    },
+    "G": {
+      "item": "mysticalagriculture:soul_glass"
+    }
+  },
+  "result": {
+    "item": "mysticalagriculture:soul_jar",
+    "count": 4
+  }
+}

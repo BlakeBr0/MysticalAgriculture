@@ -2,6 +2,7 @@ package com.blakebr0.mysticalagriculture.registry;
 
 import com.blakebr0.mysticalagriculture.api.registry.IMobSoulTypeRegistry;
 import com.blakebr0.mysticalagriculture.api.soul.IMobSoulType;
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.util.ResourceLocation;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -41,6 +42,11 @@ public class MobSoulTypeRegistry implements IMobSoulTypeRegistry {
     @Override
     public IMobSoulType getMobSoulTypeById(ResourceLocation id) {
         return this.mobSoulTypes.stream().filter(c -> id.equals(c.getId())).findFirst().orElse(null);
+    }
+
+    @Override
+    public IMobSoulType getMobSoulTypeByEntity(LivingEntity entity) {
+        return this.mobSoulTypes.stream().filter(t -> t.isEntityApplicable(entity)).findFirst().orElse(null);
     }
 
     public static MobSoulTypeRegistry getInstance() {

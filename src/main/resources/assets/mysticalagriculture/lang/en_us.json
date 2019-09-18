@@ -185,6 +185,7 @@
   "tooltip.mysticalagriculture.growth_accelerator": "Grows the plant above it faster.",
   "tooltip.mysticalagriculture.growth_accelerator_range": "Range: %s Blocks",
   "tooltip.mysticalagriculture.watering_can_area": "Area: %s",
+  "tooltip.mysticalagriculture.soul_jar": "%s (%s/%s)",
 
   "jei.category.mysticalagriculture.infusion": "Infusion Crafting",
 

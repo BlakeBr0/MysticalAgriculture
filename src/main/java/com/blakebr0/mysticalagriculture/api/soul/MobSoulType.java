@@ -1,5 +1,6 @@
 package com.blakebr0.mysticalagriculture.api.soul;
 
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.util.ResourceLocation;
 
 /**
@@ -55,5 +56,10 @@ public class MobSoulType implements IMobSoulType {
     @Override
     public void setColor(int color) {
         this.color = color;
+    }
+
+    @Override
+    public boolean isEntityApplicable(LivingEntity entity) {
+        return this.entityId.equals(entity.getType().getRegistryName());
     }
 }
