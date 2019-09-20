@@ -27,8 +27,8 @@ public class MobSoulUtils {
      */
     public static CompoundNBT makeTag(IMobSoulType type, double souls) {
         CompoundNBT nbt = new CompoundNBT();
-        nbt.putString("type", type.getId().toString());
-        nbt.putDouble("souls", Math.min(souls, type.getSoulRequirement()));
+        nbt.putString("Type", type.getId().toString());
+        nbt.putDouble("Souls", Math.min(souls, type.getSoulRequirement()));
 
         return nbt;
     }
@@ -41,7 +41,7 @@ public class MobSoulUtils {
      */
     public static ItemStack getSoulJar(IMobSoulType type, double souls) {
         CompoundNBT nbt = makeTag(type);
-        nbt.putDouble("souls", souls);
+        nbt.putDouble("Souls", souls);
 
         if (soulJar == null)
             soulJar = ForgeRegistries.ITEMS.getValue(new ResourceLocation(MysticalAgricultureAPI.MOD_ID, "soul_jar"));
@@ -58,7 +58,7 @@ public class MobSoulUtils {
      */
     public static ItemStack getFilledSoulJar(IMobSoulType type) {
         CompoundNBT nbt = makeTag(type);
-        nbt.putDouble("souls", type.getSoulRequirement());
+        nbt.putDouble("Souls", type.getSoulRequirement());
 
         if (soulJar == null)
             soulJar = ForgeRegistries.ITEMS.getValue(new ResourceLocation(MysticalAgricultureAPI.MOD_ID, "soul_jar"));
@@ -75,8 +75,8 @@ public class MobSoulUtils {
      */
     public static IMobSoulType getType(ItemStack stack) {
         CompoundNBT nbt = stack.getTag();
-        if (nbt != null && nbt.contains("type")) {
-            String type = nbt.getString("type");
+        if (nbt != null && nbt.contains("Type")) {
+            String type = nbt.getString("Type");
             return MysticalAgricultureAPI.getMobSoulTypeRegistry().getMobSoulTypeById(new ResourceLocation(type));
         }
 
@@ -90,8 +90,8 @@ public class MobSoulUtils {
      */
     public static double getSouls(ItemStack stack) {
         CompoundNBT nbt = stack.getTag();
-        if (nbt != null && nbt.contains("souls"))
-            return nbt.getDouble("souls");
+        if (nbt != null && nbt.contains("Souls"))
+            return nbt.getDouble("Souls");
 
         return 0D;
     }

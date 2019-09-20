@@ -26,7 +26,7 @@ public class SoulJarItem extends BaseItem {
             if (type != null) {
                 double souls = MobSoulUtils.getSouls(stack);
                 if (souls > 0)
-                    return (int) (souls / type.getSoulRequirement()) * 9;
+                    return (int) ((souls / type.getSoulRequirement()) * 9);
             }
 
             return 0;
