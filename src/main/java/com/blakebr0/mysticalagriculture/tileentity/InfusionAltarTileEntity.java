@@ -4,6 +4,7 @@ import com.blakebr0.cucumber.crafting.ISpecialRecipe;
 import com.blakebr0.cucumber.inventory.BaseItemStackHandler;
 import com.blakebr0.cucumber.tileentity.BaseInventoryTileEntity;
 import com.blakebr0.cucumber.util.MultiblockPositions;
+import com.blakebr0.mysticalagriculture.client.MultiblockGuideRenderer;
 import com.blakebr0.mysticalagriculture.crafting.MysticalRecipeManager;
 import com.blakebr0.mysticalagriculture.crafting.SpecialRecipeTypes;
 import com.blakebr0.mysticalagriculture.crafting.recipe.InfusionRecipe;
@@ -96,6 +97,21 @@ public class InfusionAltarTileEntity extends BaseInventoryTileEntity implements 
             } else {
                 this.progress = 0;
             }
+        }
+    }
+
+    @Override
+    public void onLoad() {
+        if (this.getWorld() != null && this.getWorld().isRemote()) {
+            MultiblockGuideRenderer.INFUSION_ALTAR_LOCATIONS.add(this.getPos());
+        }
+    }
+
+    @Override
+    public void remove() {
+        super.remove();
+        if (this.getWorld() != null && this.getWorld().isRemote()) {
+            MultiblockGuideRenderer.INFUSION_ALTAR_LOCATIONS.remove(this.getPos());
         }
     }
 
