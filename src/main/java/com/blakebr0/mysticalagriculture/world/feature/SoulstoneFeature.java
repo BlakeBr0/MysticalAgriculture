@@ -1,6 +1,7 @@
 package com.blakebr0.mysticalagriculture.world.feature;
 
 import com.blakebr0.mysticalagriculture.block.ModBlocks;
+import com.blakebr0.mysticalagriculture.config.ModConfigs;
 import com.mojang.datafixers.Dynamic;
 import java.util.BitSet;
 import java.util.Random;
@@ -115,7 +116,7 @@ public class SoulstoneFeature extends Feature<OreFeatureConfig> {
                                             bitset.set(k2);
                                             blockpos$mutableblockpos.setPos(l1, i2, j2);
                                             if (config.target.func_214738_b().test(worldIn.getBlockState(blockpos$mutableblockpos))) {
-                                                if (random.nextInt(100) < 1) {
+                                                if (random.nextDouble() < ModConfigs.SOULIUM_ORE_CHANCE.get()) {
                                                     worldIn.setBlockState(blockpos$mutableblockpos, ModBlocks.SOULIUM_ORE.getDefaultState(), 2);
                                                 } else {
                                                     worldIn.setBlockState(blockpos$mutableblockpos, config.state, 2);

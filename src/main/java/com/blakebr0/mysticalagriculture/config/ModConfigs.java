@@ -20,6 +20,8 @@ public class ModConfigs {
     public static final ForgeConfigSpec.IntValue INFUSION_CRYSTAL_USES;
     public static final ForgeConfigSpec.IntValue GROWTH_ACCELERATOR_COOLDOWN;
 
+    public static final ForgeConfigSpec.DoubleValue SOULIUM_ORE_CHANCE;
+
     // Common
     static {
         final ForgeConfigSpec.Builder common = new ForgeConfigSpec.Builder();
@@ -37,6 +39,13 @@ public class ModConfigs {
                 .comment("The amount of time in seconds between each Growth Accelerator growth tick.")
                 .translation("configGui.mysticalagriculture.growth_accelerator_cooldown")
                 .defineInRange("growthAcceleratorCooldown", 10, 1, Integer.MAX_VALUE);
+        common.pop();
+
+        common.comment("World generation options.").push("World");
+        SOULIUM_ORE_CHANCE = common
+                .comment("The percentage chance a Soulium Ore spawns in a Soulstone cluster.")
+                .translation("configGui.mysticalagriculture.soulium_ore_chance")
+                .defineInRange("souliumOreChance", 0.05, 0, 1);
         common.pop();
 
         COMMON = common.build();
