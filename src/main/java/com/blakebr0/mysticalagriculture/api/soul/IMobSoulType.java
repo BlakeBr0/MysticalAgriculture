@@ -2,6 +2,9 @@ package com.blakebr0.mysticalagriculture.api.soul;
 
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.text.ITextComponent;
+
+import java.util.Set;
 
 public interface IMobSoulType {
     /**
@@ -29,10 +32,10 @@ public interface IMobSoulType {
     }
 
     /**
-     * The resource location id of the entity type for this mob soul type
-     * @return the id of this mob soul type's entity
+     * The resource location ids of the entity types for this mob soul type
+     * @return the ids of the entities for this mob soul type
      */
-    ResourceLocation getEntityId();
+    Set<ResourceLocation> getEntityIds();
 
     /**
      * The required amount of souls to fill up a soul jar
@@ -64,4 +67,10 @@ public interface IMobSoulType {
      * @return is the entity valid
      */
     boolean isEntityApplicable(LivingEntity entity);
+
+    /**
+     * Gets the display name of the entity tooltip for this mob soul type
+     * @return the entity display name
+     */
+    ITextComponent getEntityDisplayName();
 }

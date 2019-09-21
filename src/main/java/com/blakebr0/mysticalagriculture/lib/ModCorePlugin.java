@@ -13,20 +13,24 @@ import com.blakebr0.mysticalagriculture.api.soul.MobSoulUtils;
 import com.blakebr0.mysticalagriculture.block.InferiumCropBlock;
 import com.blakebr0.mysticalagriculture.block.ModBlocks;
 import com.blakebr0.mysticalagriculture.item.ModItems;
+import com.google.common.collect.Sets;
 import net.minecraft.util.ResourceLocation;
+
+import java.util.Set;
 
 import static com.blakebr0.mysticalagriculture.MysticalAgriculture.MOD_ID;
 
 public class ModCorePlugin implements IMysticalAgriculturePlugin {
     private static final CropTextures ELEMENTAL_CROP_TEXTURES = new CropTextures(CropTextures.FLOWER_INGOT_BLANK, CropTextures.ESSENCE_FLAME_BLANK);
     private static final CropTextures ROCK_CROP_TEXTURES = new CropTextures(CropTextures.FLOWER_ROCK_BLANK, CropTextures.ESSENCE_ROCK_BLANK);
+    private static final Set<ResourceLocation> FISH_IDS = Sets.newHashSet(new ResourceLocation("minecraft:cod"), new ResourceLocation("minecraft:salmon"), new ResourceLocation("minecraft:tropical_fish"), new ResourceLocation("minecraft:pufferfish"));
 
     public static final MobSoulType PIG_SOUL_TYPE = new MobSoulType(new ResourceLocation(MOD_ID, "pig"), new ResourceLocation("minecraft:pig"), 10, 15771042);
     public static final MobSoulType CHICKEN_SOUL_TYPE = new MobSoulType(new ResourceLocation(MOD_ID, "chicken"), new ResourceLocation("minecraft:chicken"), 10, 10592673);
     public static final MobSoulType COW_SOUL_TYPE = new MobSoulType(new ResourceLocation(MOD_ID, "cow"), new ResourceLocation("minecraft:cow"), 10, 4470310);
     public static final MobSoulType SHEEP_SOUL_TYPE = new MobSoulType(new ResourceLocation(MOD_ID, "sheep"), new ResourceLocation("minecraft:sheep"), 10, 15198183);
     public static final MobSoulType SQUID_SOUL_TYPE = new MobSoulType(new ResourceLocation(MOD_ID, "squid"), new ResourceLocation("minecraft:squid"), 10, 2243405);
-    public static final MobSoulType FISH_SOUL_TYPE = new MobSoulType(new ResourceLocation(MOD_ID, "fish"), new ResourceLocation("minecraft:cod"), 10, 12691306);
+    public static final MobSoulType FISH_SOUL_TYPE = new MobSoulType(new ResourceLocation(MOD_ID, "fish"), FISH_IDS, "fish", 10, 12691306);
     public static final MobSoulType SLIME_SOUL_TYPE = new MobSoulType(new ResourceLocation(MOD_ID, "slime"), new ResourceLocation("minecraft:slime"), 10, 5349438);
     public static final MobSoulType ZOMBIE_SOUL_TYPE = new MobSoulType(new ResourceLocation(MOD_ID, "zombie"), new ResourceLocation("minecraft:zombie"), 10, 7969893);
     public static final MobSoulType SKELETON_SOUL_TYPE = new MobSoulType(new ResourceLocation(MOD_ID, "skeleton"), new ResourceLocation("minecraft:skeleton"), 10, 12698049);

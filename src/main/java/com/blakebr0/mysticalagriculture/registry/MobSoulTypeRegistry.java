@@ -12,6 +12,7 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 public class MobSoulTypeRegistry implements IMobSoulTypeRegistry {
     private static final Logger LOGGER = LogManager.getLogger();
@@ -23,11 +24,12 @@ public class MobSoulTypeRegistry implements IMobSoulTypeRegistry {
     @Override
     public void register(IMobSoulType mobSoulType) {
         if (this.mobSoulTypes.stream().noneMatch(m -> m.getId().equals(mobSoulType.getId()))) {
-            if (!this.usedEntityIds.contains(mobSoulType.getEntityId())) {
+            Set<ResourceLocation> duplicates = mobSoulType.getEntityIds().stream().filter(this.usedEntityIds::contains).collect(Collectors.toSet());
+            if (duplicates.isEmpty()) {
                 this.mobSoulTypes.add(mobSoulType);
-                this.usedEntityIds.add(mobSoulType.getEntityId());
+                this.usedEntityIds.addAll(mobSoulType.getEntityIds());
             } else {
-                LOGGER.info("{} tried to register a mob soul type for entity {}, but it already has one registered, skipping", mobSoulType.getModId(), mobSoulType.getEntityId());
+                LOGGER.info("{} tried to register a mob soul type for entity ids {}, but they already have one registered, skipping", mobSoulType.getModId(), duplicates);
             }
         } else {
             LOGGER.info("{} tried to register a duplicate mob soul type with id {}, skipping", mobSoulType.getModId(), mobSoulType.getId());

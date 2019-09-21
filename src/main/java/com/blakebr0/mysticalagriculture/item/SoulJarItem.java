@@ -6,14 +6,12 @@ import com.blakebr0.mysticalagriculture.api.soul.MobSoulUtils;
 import com.blakebr0.mysticalagriculture.lib.ModTooltips;
 import com.blakebr0.mysticalagriculture.registry.MobSoulTypeRegistry;
 import net.minecraft.client.util.ITooltipFlag;
-import net.minecraft.entity.EntityType;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.NonNullList;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.world.World;
-import net.minecraftforge.registries.ForgeRegistries;
 
 import java.util.List;
 import java.util.function.Function;
@@ -48,11 +46,9 @@ public class SoulJarItem extends BaseItem {
     public void addInformation(ItemStack stack, World world, List<ITextComponent> tooltip, ITooltipFlag flag) {
         IMobSoulType type = MobSoulUtils.getType(stack);
         if (type != null) {
-            EntityType<?> entity = ForgeRegistries.ENTITIES.getValue(type.getEntityId());
-            if (entity != null) {
-                double souls = MobSoulUtils.getSouls(stack);
-                tooltip.add(ModTooltips.SOUL_JAR.args(entity.getName(), souls, type.getSoulRequirement()).build());
-            }
+            ITextComponent entityName = type.getEntityDisplayName();
+            double souls = MobSoulUtils.getSouls(stack);
+            tooltip.add(ModTooltips.SOUL_JAR.args(entityName, souls, type.getSoulRequirement()).build());
         }
     }
 }
