@@ -3,6 +3,7 @@ package com.blakebr0.mysticalagriculture.crafting;
 import com.blakebr0.cucumber.crafting.ISpecialRecipe;
 import com.blakebr0.mysticalagriculture.MysticalAgriculture;
 import com.blakebr0.mysticalagriculture.api.crop.ICrop;
+import com.blakebr0.mysticalagriculture.config.ModConfigs;
 import com.blakebr0.mysticalagriculture.crafting.recipe.InfusionRecipe;
 import com.blakebr0.mysticalagriculture.registry.CropRegistry;
 import net.minecraft.item.Item;
@@ -73,6 +74,9 @@ public class DynamicRecipeManager implements IResourceManagerReloadListener {
     }
 
     private IRecipe makeRegularSeedRecipe(ICrop crop) {
+        if (!ModConfigs.SEED_CRAFTING_RECIPES.get())
+            return null;
+
         Item essenceItem = crop.getTier().getEssence();
         if (essenceItem == null)
             return null;

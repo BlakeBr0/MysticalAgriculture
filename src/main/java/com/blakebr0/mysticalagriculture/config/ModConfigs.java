@@ -5,6 +5,7 @@ import net.minecraftforge.common.ForgeConfigSpec;
 public class ModConfigs {
     public static final ForgeConfigSpec CLIENT;
     public static final ForgeConfigSpec COMMON;
+    public static final ForgeConfigSpec SERVER;
 
     // Client
     static {
@@ -49,5 +50,19 @@ public class ModConfigs {
         common.pop();
 
         COMMON = common.build();
+    }
+
+    public static final ForgeConfigSpec.BooleanValue SEED_CRAFTING_RECIPES;
+
+    // Server
+    static {
+        final ForgeConfigSpec.Builder server = new ForgeConfigSpec.Builder();
+
+        SEED_CRAFTING_RECIPES = server
+                .comment("Should vanilla crafting recipes for seeds be generated?")
+                .translation("configGui.mysticalagriculture.seed_crafting_recipes")
+                .define("seedCraftingRecipes", false);
+
+        SERVER = server.build();
     }
 }
