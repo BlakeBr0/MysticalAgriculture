@@ -1,5 +1,6 @@
 package com.blakebr0.mysticalagriculture.item;
 
+import com.blakebr0.cucumber.iface.IEnableable;
 import com.blakebr0.cucumber.item.BaseItem;
 import com.blakebr0.cucumber.lib.Localizable;
 import com.blakebr0.mysticalagriculture.api.crop.ICrop;
@@ -9,7 +10,7 @@ import net.minecraft.util.text.ITextComponent;
 
 import java.util.function.Function;
 
-public class MysticalEssenceItem extends BaseItem implements ICropGetter {
+public class MysticalEssenceItem extends BaseItem implements ICropGetter, IEnableable {
     private final ICrop crop;
 
     public MysticalEssenceItem(ICrop crop, Function<Properties, Properties> properties) {
@@ -25,5 +26,10 @@ public class MysticalEssenceItem extends BaseItem implements ICropGetter {
     @Override
     public ICrop getCrop() {
         return this.crop;
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return this.crop.isEnabled();
     }
 }

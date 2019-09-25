@@ -1,5 +1,6 @@
 package com.blakebr0.mysticalagriculture.item;
 
+import com.blakebr0.cucumber.iface.IEnableable;
 import com.blakebr0.cucumber.lib.Localizable;
 import com.blakebr0.mysticalagriculture.api.crop.ICrop;
 import com.blakebr0.mysticalagriculture.api.crop.ICropGetter;
@@ -14,7 +15,7 @@ import net.minecraft.world.World;
 import java.util.List;
 import java.util.function.Function;
 
-public class MysticalSeedsItem extends BlockNamedItem implements ICropGetter {
+public class MysticalSeedsItem extends BlockNamedItem implements ICropGetter, IEnableable {
     private final ICrop crop;
 
     public MysticalSeedsItem(ICrop crop, Function<Properties, Properties> properties) {
@@ -38,5 +39,10 @@ public class MysticalSeedsItem extends BlockNamedItem implements ICropGetter {
     @Override
     public ICrop getCrop() {
         return this.crop;
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return this.crop.isEnabled();
     }
 }

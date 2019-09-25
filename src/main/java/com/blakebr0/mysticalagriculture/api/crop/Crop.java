@@ -24,6 +24,7 @@ public class Crop implements ICrop {
     private Item essence;
     private BlockNamedItem seeds;
     private LazyIngredient craftingMaterial;
+    private boolean enabled;
 
     /**
      * Represents a new crop for registration
@@ -75,6 +76,7 @@ public class Crop implements ICrop {
         this.textures = textures.init(id);
         this.setColor(color);
         this.craftingMaterial = craftingMaterial;
+        this.enabled = true;
     }
 
     @Override
@@ -181,6 +183,11 @@ public class Crop implements ICrop {
 
     @Override
     public boolean isEnabled() {
-        return true;
+        return this.enabled;
+    }
+
+    @Override
+    public void setEnabled(boolean enabled) {
+        this.enabled = enabled;
     }
 }

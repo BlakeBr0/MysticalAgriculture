@@ -192,4 +192,10 @@ public interface ICrop {
      * @return is this crop enabled
      */
     boolean isEnabled();
+
+    /**
+     * Set whether or not this crop should be hidden from the game
+     * @param enabled the enabled state
+     */
+    void setEnabled(boolean enabled);
 }
