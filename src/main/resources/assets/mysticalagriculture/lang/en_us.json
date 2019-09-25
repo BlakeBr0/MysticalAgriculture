@@ -187,6 +187,7 @@
   "tooltip.mysticalagriculture.watering_can_area": "Area: %s",
   "tooltip.mysticalagriculture.soul_jar": "%s (%s/%s)",
   "tooltip.mysticalagriculture.invalid_entity": "Invalid Entity",
+  "tooltip.mysticalagriculture.soulium_dagger": "Grants additional souls from peaceful creatures.",
 
   "jei.category.mysticalagriculture.infusion": "Infusion Crafting",
 
