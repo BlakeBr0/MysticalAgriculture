@@ -4,7 +4,6 @@ import com.blakebr0.mysticalagriculture.MysticalAgriculture;
 import com.blakebr0.mysticalagriculture.api.soul.IMobSoulType;
 import com.blakebr0.mysticalagriculture.api.soul.MobSoulUtils;
 import com.blakebr0.mysticalagriculture.block.ModBlocks;
-import com.blakebr0.mysticalagriculture.compat.jei.infusion.InfusionCategory;
 import com.blakebr0.mysticalagriculture.crafting.MysticalRecipeManager;
 import com.blakebr0.mysticalagriculture.crafting.SpecialRecipeTypes;
 import com.blakebr0.mysticalagriculture.item.ModItems;

@@ -1,4 +1,4 @@
-package com.blakebr0.mysticalagriculture.compat.jei.infusion;
+package com.blakebr0.mysticalagriculture.compat.jei;
 
 import com.blakebr0.cucumber.lib.Localizable;
 import com.blakebr0.mysticalagriculture.MysticalAgriculture;
@@ -23,7 +23,7 @@ public class InfusionCategory implements IRecipeCategory<InfusionRecipe> {
     private final IDrawable icon;
 
     public InfusionCategory(IGuiHelper helper) {
-        this.background = helper.createDrawable(TEXTURE, 0, 0, 152, 90);
+        this.background = helper.createDrawable(TEXTURE, 0, 0, 144, 81);
         this.icon = helper.createDrawableIngredient(new ItemStack(ModBlocks.INFUSION_ALTAR));
     }
 
@@ -64,17 +64,17 @@ public class InfusionCategory implements IRecipeCategory<InfusionRecipe> {
         List<List<ItemStack>> inputs = ingredients.getInputs(VanillaTypes.ITEM);
         List<List<ItemStack>> outputs = ingredients.getOutputs(VanillaTypes.ITEM);
 
-        stacks.init(0, true, 36, 36);
+        stacks.init(0, true, 32, 32);
         stacks.init(1, true, 6, 6);
-        stacks.init(2, true, 36, 0);
-        stacks.init(3, true, 66, 6);
-        stacks.init(4, true, 72, 36);
-        stacks.init(5, true, 66, 66);
-        stacks.init(6, true, 36, 72);
-        stacks.init(7, true, 6, 66);
-        stacks.init(8, true, 0, 36);
+        stacks.init(2, true, 32, 0);
+        stacks.init(3, true, 58, 6);
+        stacks.init(4, true, 64, 32);
+        stacks.init(5, true, 58, 58);
+        stacks.init(6, true, 32, 63);
+        stacks.init(7, true, 6, 58);
+        stacks.init(8, true, 0, 32);
 
-        stacks.init(9, false, 130, 36);
+        stacks.init(9, false, 122, 32);
 
         for (int i = 0; i < inputs.size(); i++) {
             stacks.set(i, inputs.get(i));
