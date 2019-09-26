@@ -131,7 +131,23 @@ public interface ICrop {
      * @param crop the crop block
      * @return this crop
      */
-    ICrop setCrop(CropsBlock crop);
+    default ICrop setCrop(CropsBlock crop) {
+        return this.setCrop(crop, false);
+    }
+
+    /**
+     * Used to set the crop block instance for this crop
+     * @param crop the crop block
+     * @param register should this block be registered
+     * @return this crop
+     */
+    ICrop setCrop(CropsBlock crop, boolean register);
+
+    /**
+     * Should this crop's crop block be registered
+     * @return should be registered
+     */
+    boolean getRegisterCropBlock();
 
     /**
      * The essence item for this crop type
@@ -144,7 +160,23 @@ public interface ICrop {
      * @param essence the essence item
      * @return this crop
      */
-    ICrop setEssence(Item essence);
+    default ICrop setEssence(Item essence) {
+        return this.setEssence(essence, false);
+    }
+
+    /**
+     * Used to set the essence item instance for this crop
+     * @param essence the essence item
+     * @param register should this item be registered
+     * @return this crop
+     */
+    ICrop setEssence(Item essence, boolean register);
+
+    /**
+     * Should this crop's essence item be registered
+     * @return should be registered
+     */
+    boolean getRegisterEssenceItem();
 
     /**
      * The seeds item for this crop type
@@ -157,7 +189,23 @@ public interface ICrop {
      * @param seeds the seeds item
      * @return this crop
      */
-    ICrop setSeeds(BlockNamedItem seeds);
+    default ICrop setSeeds(BlockNamedItem seeds) {
+        return this.setSeeds(seeds, false);
+    }
+
+    /**
+     * Used to set the seeds item instance for this crop
+     * @param seeds the seeds item
+     * @param register should this item be registered
+     * @return this crop
+     */
+    ICrop setSeeds(BlockNamedItem seeds, boolean register);
+
+    /**
+     * Should this crop's seeds item be registered
+     * @return should be registered
+     */
+    boolean getRegisterSeedsItem();
 
     /**
      * Get the chance of a second seed/essence dropping based on the block provided

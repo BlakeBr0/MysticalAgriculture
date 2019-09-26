@@ -35,17 +35,17 @@ public class CropRegistry implements ICropRegistry {
             if (this.crops.stream().noneMatch(c -> c.getName().equals(crop.getName()))) {
                 if (crop.getCrop() == null) {
                     MysticalCropBlock cropBlock = new MysticalCropBlock(crop);
-                    crop.setCrop(cropBlock);
+                    crop.setCrop(cropBlock, true);
                 }
 
                 if (crop.getEssence() == null) {
                     MysticalEssenceItem essenceItem = new MysticalEssenceItem(crop, p -> p.group(MysticalAgriculture.ITEM_GROUP));
-                    crop.setEssence(essenceItem);
+                    crop.setEssence(essenceItem, true);
                 }
 
                 if (crop.getSeeds() == null) {
                     MysticalSeedsItem seedsItem = new MysticalSeedsItem(crop, p -> p.group(MysticalAgriculture.ITEM_GROUP));
-                    crop.setSeeds(seedsItem);
+                    crop.setSeeds(seedsItem, true);
                 }
 
                 this.crops.add(crop);
@@ -81,7 +81,7 @@ public class CropRegistry implements ICropRegistry {
 
     public void onRegisterBlocks(IForgeRegistry<Block> registry) {
         PluginRegistry.getInstance().forEach(plugin -> plugin.onRegisterCrops(this));
-        this.crops.forEach(c -> {
+        this.crops.stream().filter(ICrop::getRegisterCropBlock).forEach(c -> {
             CropsBlock crop = c.getCrop();
             if (crop.getRegistryName() == null)
                 crop.setRegistryName(c.getNameWithSuffix("crop"));
@@ -91,13 +91,13 @@ public class CropRegistry implements ICropRegistry {
     }
 
     public void onRegisterItems(IForgeRegistry<Item> registry) {
-        this.crops.forEach(c -> {
+        this.crops.stream().filter(ICrop::getRegisterEssenceItem).forEach(c -> {
             Item essence = c.getEssence();
             if (essence.getRegistryName() == null)
                 essence.setRegistryName(c.getNameWithSuffix("essence"));
             registry.register(essence);
         });
-        this.crops.forEach(c -> {
+        this.crops.stream().filter(ICrop::getRegisterSeedsItem).forEach(c -> {
             BlockNamedItem seeds = c.getSeeds();
             if (seeds.getRegistryName() == null)
                 seeds.setRegistryName(c.getNameWithSuffix("seeds"));

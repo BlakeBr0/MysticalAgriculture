@@ -25,6 +25,9 @@ public class Crop implements ICrop {
     private BlockNamedItem seeds;
     private LazyIngredient craftingMaterial;
     private boolean enabled;
+    private boolean registerCropBlock;
+    private boolean registerEssenceItem;
+    private boolean registerSeedsItem;
 
     /**
      * Represents a new crop for registration
@@ -143,9 +146,15 @@ public class Crop implements ICrop {
     }
 
     @Override
-    public ICrop setCrop(CropsBlock crop) {
+    public ICrop setCrop(CropsBlock crop, boolean register) {
         this.crop = crop;
+        this.registerCropBlock = register;
         return this;
+    }
+
+    @Override
+    public boolean getRegisterCropBlock() {
+        return this.registerCropBlock;
     }
 
     @Override
@@ -154,9 +163,15 @@ public class Crop implements ICrop {
     }
 
     @Override
-    public ICrop setEssence(Item essence) {
+    public ICrop setEssence(Item essence, boolean register) {
         this.essence = essence;
+        this.registerEssenceItem = register;
         return this;
+    }
+
+    @Override
+    public boolean getRegisterEssenceItem() {
+        return this.registerEssenceItem;
     }
 
     @Override
@@ -165,9 +180,15 @@ public class Crop implements ICrop {
     }
 
     @Override
-    public ICrop setSeeds(BlockNamedItem seeds) {
+    public ICrop setSeeds(BlockNamedItem seeds, boolean register) {
         this.seeds = seeds;
+        this.registerSeedsItem = register;
         return this;
+    }
+
+    @Override
+    public boolean getRegisterSeedsItem() {
+        return this.registerSeedsItem;
     }
 
     @Override
