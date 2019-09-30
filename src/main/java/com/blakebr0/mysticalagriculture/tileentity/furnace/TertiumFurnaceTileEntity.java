@@ -6,7 +6,7 @@ import net.minecraft.item.crafting.IRecipeType;
 
 public class TertiumFurnaceTileEntity extends EssenceFurnaceTileEntity {
     public TertiumFurnaceTileEntity() {
-        super(ModTileEntities.TERTIUM_FURNACE, IRecipeType.SMELTING);
+        super(ModTileEntities.TERTIUM_FURNACE.get(), IRecipeType.SMELTING);
     }
 
     @Override

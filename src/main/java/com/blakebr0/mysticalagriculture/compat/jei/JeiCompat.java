@@ -37,8 +37,8 @@ public class JeiCompat implements IModPlugin {
 
     @Override
     public void registerRecipeCatalysts(IRecipeCatalystRegistration registration) {
-        registration.addRecipeCatalyst(new ItemStack(ModBlocks.INFUSION_ALTAR), InfusionCategory.UID);
-        registration.addRecipeCatalyst(new ItemStack(ModBlocks.INFUSION_PEDESTAL), InfusionCategory.UID);
+        registration.addRecipeCatalyst(new ItemStack(ModBlocks.INFUSION_ALTAR.get()), InfusionCategory.UID);
+        registration.addRecipeCatalyst(new ItemStack(ModBlocks.INFUSION_PEDESTAL.get()), InfusionCategory.UID);
     }
 
     @Override
@@ -50,9 +50,11 @@ public class JeiCompat implements IModPlugin {
 
     @Override
     public void registerItemSubtypes(ISubtypeRegistration registration) {
-        registration.registerSubtypeInterpreter(ModItems.SOUL_JAR, stack -> {
-            IMobSoulType type = MobSoulUtils.getType(stack);
-            return type != null ? type.getEntityIds().toString() : "";
-        });
+        ModItems.SOUL_JAR.ifPresent(jar ->
+            registration.registerSubtypeInterpreter(jar, stack -> {
+                IMobSoulType type = MobSoulUtils.getType(stack);
+                return type != null ? type.getEntityIds().toString() : "";
+            })
+        );
     }
 }

@@ -91,8 +91,8 @@ public class ModCorePlugin implements IMysticalAgriculturePlugin {
 
     @Override
     public void onRegisterCrops(ICropRegistry registry) {
-        INFERIUM.setCrop(new InferiumCropBlock(INFERIUM), true)
-                .setEssence(ModItems.INFERIUM_ESSENCE);
+//        INFERIUM.setCrop(new InferiumCropBlock(INFERIUM), true)
+          INFERIUM.setEssence(ModItems.INFERIUM_ESSENCE.get());
 
         registry.register(AIR);
         registry.register(EARTH);
@@ -163,14 +163,14 @@ public class ModCorePlugin implements IMysticalAgriculturePlugin {
     }
 
     public static void onCommonSetup() {
-        CropTier.ELEMENTAL.setFarmland(ModBlocks.INFERIUM_FARMLAND).setEssence(ModItems.INFERIUM_ESSENCE);
-        CropTier.ONE.setFarmland(ModBlocks.INFERIUM_FARMLAND).setEssence(ModItems.INFERIUM_ESSENCE);
-        CropTier.TWO.setFarmland(ModBlocks.PRUDENTIUM_FARMLAND).setEssence(ModItems.PRUDENTIUM_ESSENCE);
-        CropTier.THREE.setFarmland(ModBlocks.TERTIUM_FARMLAND).setEssence(ModItems.TERTIUM_ESSENCE);
-        CropTier.FOUR.setFarmland(ModBlocks.IMPERIUM_FARMLAND).setEssence(ModItems.IMPERIUM_ESSENCE);
-        CropTier.FIVE.setFarmland(ModBlocks.SUPREMIUM_FARMLAND).setEssence(ModItems.SUPREMIUM_ESSENCE);
+        CropTier.ELEMENTAL.setFarmland(ModBlocks.INFERIUM_FARMLAND.get()).setEssence(ModItems.INFERIUM_ESSENCE.get());
+        CropTier.ONE.setFarmland(ModBlocks.INFERIUM_FARMLAND.get()).setEssence(ModItems.INFERIUM_ESSENCE.get());
+        CropTier.TWO.setFarmland(ModBlocks.PRUDENTIUM_FARMLAND.get()).setEssence(ModItems.PRUDENTIUM_ESSENCE.get());
+        CropTier.THREE.setFarmland(ModBlocks.TERTIUM_FARMLAND.get()).setEssence(ModItems.TERTIUM_ESSENCE.get());
+        CropTier.FOUR.setFarmland(ModBlocks.IMPERIUM_FARMLAND.get()).setEssence(ModItems.IMPERIUM_ESSENCE.get());
+        CropTier.FIVE.setFarmland(ModBlocks.SUPREMIUM_FARMLAND.get()).setEssence(ModItems.SUPREMIUM_ESSENCE.get());
 
-        CropType.RESOURCE.setCraftingSeed(ModItems.PROSPERITY_SEED_BASE);
-        CropType.MOB.setCraftingSeed(ModItems.SOULIUM_SEED_BASE);
+        CropType.RESOURCE.setCraftingSeed(ModItems.PROSPERITY_SEED_BASE.get());
+        CropType.MOB.setCraftingSeed(ModItems.SOULIUM_SEED_BASE.get());
     }
 }

@@ -16,7 +16,7 @@ public class TinkeringTableTileEntity extends BaseInventoryTileEntity implements
     private final BaseItemStackHandler inventory = new BaseItemStackHandler(1, this::markDirtyAndDispatch);
 
     public TinkeringTableTileEntity() {
-        super(ModTileEntities.TINKERING_TABLE);
+        super(ModTileEntities.TINKERING_TABLE.get());
         this.inventory.addSlotLimit(0, 1);
         this.inventory.setSlotValidator(this::canInsertStack);
     }

@@ -40,7 +40,7 @@ public class MultiblockGuideRenderer {
                         GlStateManager.translated(-posX, -posY, -posZ);
                         GlStateManager.translated(pos.getX(), pos.getY(), pos.getZ() + 1);
                         Minecraft.getInstance().getTextureManager().bindTexture(AtlasTexture.LOCATION_BLOCKS_TEXTURE);
-                        Minecraft.getInstance().getBlockRendererDispatcher().renderBlockBrightness(ModBlocks.INFUSION_PEDESTAL.getDefaultState(), 1.0F);
+                        Minecraft.getInstance().getBlockRendererDispatcher().renderBlockBrightness(ModBlocks.INFUSION_PEDESTAL.get().getDefaultState(), 1.0F);
                         GlStateManager.color4f(1F, 1F, 1F, 1F);
                         GlStateManager.popMatrix();
                     }

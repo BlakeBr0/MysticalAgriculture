@@ -6,7 +6,7 @@ import net.minecraft.item.crafting.IRecipeType;
 
 public class SupremiumFurnaceTileEntity extends EssenceFurnaceTileEntity {
     public SupremiumFurnaceTileEntity() {
-        super(ModTileEntities.SUPREMIUM_FURNACE, IRecipeType.SMELTING);
+        super(ModTileEntities.SUPREMIUM_FURNACE.get(), IRecipeType.SMELTING);
     }
 
     @Override

@@ -21,7 +21,7 @@ public class MobDropHandler {
         double inferiumDropChance = ModConfigs.INFERIUM_DROP_CHANCE.get();
 
         if (entity instanceof CreatureEntity && Math.random() < inferiumDropChance) {
-            drops.add(new ItemEntity(world, entity.posX, entity.posY, entity.posZ, new ItemStack(ModItems.INFERIUM_ESSENCE)));
+            drops.add(new ItemEntity(world, entity.posX, entity.posY, entity.posZ, new ItemStack(ModItems.INFERIUM_ESSENCE.get())));
         }
     }
 }

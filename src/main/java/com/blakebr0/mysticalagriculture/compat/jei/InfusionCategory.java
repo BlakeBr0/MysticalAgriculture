@@ -24,7 +24,7 @@ public class InfusionCategory implements IRecipeCategory<InfusionRecipe> {
 
     public InfusionCategory(IGuiHelper helper) {
         this.background = helper.createDrawable(TEXTURE, 0, 0, 144, 81);
-        this.icon = helper.createDrawableIngredient(new ItemStack(ModBlocks.INFUSION_ALTAR));
+        this.icon = helper.createDrawableIngredient(new ItemStack(ModBlocks.INFUSION_ALTAR.get()));
     }
 
     @Override

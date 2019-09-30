@@ -38,7 +38,7 @@ public class CropRegistry implements ICropRegistry {
                     crop.setCrop(cropBlock, true);
                 }
 
-                if (crop.getEssence() == null) {
+                if (crop.getEssence() == null && !crop.getName().equals("inferium")) {
                     MysticalEssenceItem essenceItem = new MysticalEssenceItem(crop, p -> p.group(MysticalAgriculture.ITEM_GROUP));
                     crop.setEssence(essenceItem, true);
                 }

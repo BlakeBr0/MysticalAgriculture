@@ -32,7 +32,7 @@ public class InfusionAltarTileEntity extends BaseInventoryTileEntity implements 
     private boolean active;
 
     public InfusionAltarTileEntity() {
-        super(ModTileEntities.INFUSION_ALTAR);
+        super(ModTileEntities.INFUSION_ALTAR.get());
         this.inventory.setDefaultSlotLimit(1);
         this.inventory.setSlotValidator(this::canInsertStack);
         this.inventory.setOutputSlots(1);

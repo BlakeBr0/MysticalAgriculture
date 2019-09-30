@@ -20,7 +20,7 @@ public class ColorHandler {
         colors.register(new IColored.BlockColors(), InfusedFarmlandBlock.FARMLANDS.toArray(new InfusedFarmlandBlock[0]));
 
         CropRegistry.getInstance().getCrops().forEach(crop -> {
-            if (crop.isFlowerColored())
+            if (crop.isFlowerColored() && crop.getCrop() != null)
                 colors.register((state, world, pos, tint) -> crop.getFlowerColor(), crop.getCrop());
         });
     }
@@ -33,17 +33,17 @@ public class ColorHandler {
         colors.register((stack, tint) -> {
             float damage = (float) (stack.getMaxDamage() - stack.getDamage()) / stack.getMaxDamage();
             return Utils.saturate(0x00D9D9, damage);
-        }, ModItems.INFUSION_CRYSTAL);
-
+        }, ModItems.INFUSION_CRYSTAL::get);
+//
         colors.register((stack, tint) -> {
             IMobSoulType type = MobSoulUtils.getType(stack);
             return tint == 1 ? type != null ? type.getColor() : -1 : -1;
-        }, ModItems.SOUL_JAR);
+        }, ModItems.SOUL_JAR::get);
 
         CropRegistry.getInstance().getCrops().forEach(crop -> {
-            if (crop.isEssenceColored())
+            if (crop.isEssenceColored() && crop.getEssence() != null)
                 colors.register((stack, tint) -> crop.getEssenceColor(), crop.getEssence());
-            if (crop.isSeedColored())
+            if (crop.isSeedColored() && crop.getSeeds() != null)
                 colors.register((stack, tint) -> crop.getSeedColor(), crop.getSeeds());
         });
     }

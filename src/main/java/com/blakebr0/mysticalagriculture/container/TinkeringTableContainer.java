@@ -31,11 +31,11 @@ public class TinkeringTableContainer extends Container {
     }
 
     public static TinkeringTableContainer create(int windowId, PlayerInventory playerInventory) {
-        return new TinkeringTableContainer(ModContainerTypes.TINKERING_TABLE, windowId, playerInventory);
+        return new TinkeringTableContainer(ModContainerTypes.TINKERING_TABLE.get(), windowId, playerInventory);
     }
 
     public static TinkeringTableContainer create(int windowId, PlayerInventory playerInventory, IItemHandler inventory) {
-        return new TinkeringTableContainer(ModContainerTypes.TINKERING_TABLE, windowId, playerInventory, inventory);
+        return new TinkeringTableContainer(ModContainerTypes.TINKERING_TABLE.get(), windowId, playerInventory, inventory);
     }
 
     @Override
