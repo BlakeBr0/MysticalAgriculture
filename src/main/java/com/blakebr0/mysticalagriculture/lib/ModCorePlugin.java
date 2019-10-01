@@ -91,8 +91,9 @@ public class ModCorePlugin implements IMysticalAgriculturePlugin {
 
     @Override
     public void onRegisterCrops(ICropRegistry registry) {
-//        INFERIUM.setCrop(new InferiumCropBlock(INFERIUM), true)
-          INFERIUM.setEssence(ModItems.INFERIUM_ESSENCE.get());
+        InferiumCropBlock inferiumCropBlock = new InferiumCropBlock(INFERIUM);
+        INFERIUM.setCrop(() -> inferiumCropBlock, true)
+                .setEssence(ModItems.INFERIUM_ESSENCE);
 
         registry.register(AIR);
         registry.register(EARTH);

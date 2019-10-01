@@ -11,8 +11,6 @@ import net.minecraft.block.CropsBlock;
 import net.minecraft.item.BlockNamedItem;
 import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
-import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.registries.IForgeRegistry;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -33,27 +31,12 @@ public class CropRegistry implements ICropRegistry {
     public void register(ICrop crop) {
         if (this.allowRegistration) {
             if (this.crops.stream().noneMatch(c -> c.getName().equals(crop.getName()))) {
-                if (crop.getCrop() == null) {
-                    MysticalCropBlock cropBlock = new MysticalCropBlock(crop);
-                    crop.setCrop(cropBlock, true);
-                }
-
-                if (crop.getEssence() == null && !crop.getName().equals("inferium")) {
-                    MysticalEssenceItem essenceItem = new MysticalEssenceItem(crop, p -> p.group(MysticalAgriculture.ITEM_GROUP));
-                    crop.setEssence(essenceItem, true);
-                }
-
-                if (crop.getSeeds() == null) {
-                    MysticalSeedsItem seedsItem = new MysticalSeedsItem(crop, p -> p.group(MysticalAgriculture.ITEM_GROUP));
-                    crop.setSeeds(seedsItem, true);
-                }
-
                 this.crops.add(crop);
             } else {
                 LOGGER.info("{} tried to register a duplicate crop with name {}, skipping", crop.getModId(), crop.getName());
             }
         } else {
-            LOGGER.error("{} tried to register crop {} outside of the RegisterCropsEvent", crop.getModId(), crop.getName());
+            LOGGER.error("{} tried to register crop {} outside of onRegisterCrops, skipping", crop.getModId(), crop.getName());
         }
     }
 
@@ -81,36 +64,53 @@ public class CropRegistry implements ICropRegistry {
 
     public void onRegisterBlocks(IForgeRegistry<Block> registry) {
         PluginRegistry.getInstance().forEach(plugin -> plugin.onRegisterCrops(this));
+
         this.crops.stream().filter(ICrop::getRegisterCropBlock).forEach(c -> {
             CropsBlock crop = c.getCrop();
+            if (crop == null) {
+                CropsBlock defaultCrop = new MysticalCropBlock(c);
+                crop = defaultCrop;
+                c.setCrop(() -> defaultCrop);
+            }
+
             if (crop.getRegistryName() == null)
                 crop.setRegistryName(c.getNameWithSuffix("crop"));
+
             registry.register(crop);
         });
+
         this.crops.sort(Comparator.comparingInt(c -> c.getTier().getValue()));
     }
 
     public void onRegisterItems(IForgeRegistry<Item> registry) {
         this.crops.stream().filter(ICrop::getRegisterEssenceItem).forEach(c -> {
             Item essence = c.getEssence();
+            if (essence == null) {
+                Item defaultEssence = new MysticalEssenceItem(c, p -> p.group(MysticalAgriculture.ITEM_GROUP));
+                essence = defaultEssence;
+                c.setEssence(() -> defaultEssence);
+            }
+
             if (essence.getRegistryName() == null)
                 essence.setRegistryName(c.getNameWithSuffix("essence"));
+
             registry.register(essence);
         });
+
         this.crops.stream().filter(ICrop::getRegisterSeedsItem).forEach(c -> {
             BlockNamedItem seeds = c.getSeeds();
+            if (seeds == null) {
+                BlockNamedItem defaultSeeds = new MysticalSeedsItem(c, p -> p.group(MysticalAgriculture.ITEM_GROUP));
+                seeds = defaultSeeds;
+                c.setSeeds(() -> defaultSeeds);
+            }
+
             if (seeds.getRegistryName() == null)
                 seeds.setRegistryName(c.getNameWithSuffix("seeds"));
+
             registry.register(seeds);
         });
+
         PluginRegistry.getInstance().forEach(plugin -> plugin.onPostRegisterCrops(this));
-    }
-
-    public void onCommonSetup(FMLCommonSetupEvent event) {
-
-    }
-
-    public void onClientSetup(FMLClientSetupEvent event) {
-
     }
 }

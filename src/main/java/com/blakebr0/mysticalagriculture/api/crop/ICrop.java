@@ -6,14 +6,12 @@ import net.minecraft.block.Block;
 import net.minecraft.block.CropsBlock;
 import net.minecraft.item.BlockNamedItem;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.TranslationTextComponent;
 
-import java.util.List;
-import java.util.Objects;
+import java.util.function.Supplier;
 
 /**
  * Represents a crop and all of its information
@@ -127,21 +125,21 @@ public interface ICrop {
     CropsBlock getCrop();
 
     /**
-     * Used to set the crop block instance for this crop
+     * Used to set the crop block instance for this crop, the supplier should return the same instance every time
      * @param crop the crop block
      * @return this crop
      */
-    default ICrop setCrop(CropsBlock crop) {
+    default ICrop setCrop(Supplier<? extends CropsBlock> crop) {
         return this.setCrop(crop, false);
     }
 
     /**
-     * Used to set the crop block instance for this crop
+     * Used to set the crop block instance for this crop, the supplier should return the same instance every time
      * @param crop the crop block
      * @param register should this block be registered
      * @return this crop
      */
-    ICrop setCrop(CropsBlock crop, boolean register);
+    ICrop setCrop(Supplier<? extends CropsBlock> crop, boolean register);
 
     /**
      * Should this crop's crop block be registered
@@ -156,21 +154,21 @@ public interface ICrop {
     Item getEssence();
 
     /**
-     * Used to set the essence item instance for this crop
+     * Used to set the essence item instance for this crop, the supplier should return the same instance every time
      * @param essence the essence item
      * @return this crop
      */
-    default ICrop setEssence(Item essence) {
+    default ICrop setEssence(Supplier<? extends Item> essence) {
         return this.setEssence(essence, false);
     }
 
     /**
-     * Used to set the essence item instance for this crop
+     * Used to set the essence item instance for this crop, the supplier should return the same instance every time
      * @param essence the essence item
      * @param register should this item be registered
      * @return this crop
      */
-    ICrop setEssence(Item essence, boolean register);
+    ICrop setEssence(Supplier<? extends Item> essence, boolean register);
 
     /**
      * Should this crop's essence item be registered
@@ -185,21 +183,21 @@ public interface ICrop {
     BlockNamedItem getSeeds();
 
     /**
-     * Used to set the seeds item instance for this crop
+     * Used to set the seeds item instance for this crop, the supplier should return the same instance every time
      * @param seeds the seeds item
      * @return this crop
      */
-    default ICrop setSeeds(BlockNamedItem seeds) {
+    default ICrop setSeeds(Supplier<? extends BlockNamedItem> seeds) {
         return this.setSeeds(seeds, false);
     }
 
     /**
-     * Used to set the seeds item instance for this crop
+     * Used to set the seeds item instance for this crop, the supplier should return the same instance every time
      * @param seeds the seeds item
      * @param register should this item be registered
      * @return this crop
      */
-    ICrop setSeeds(BlockNamedItem seeds, boolean register);
+    ICrop setSeeds(Supplier<? extends BlockNamedItem> seeds, boolean register);
 
     /**
      * Should this crop's seeds item be registered

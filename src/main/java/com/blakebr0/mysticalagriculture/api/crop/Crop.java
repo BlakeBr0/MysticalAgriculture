@@ -7,6 +7,8 @@ import net.minecraft.item.Item;
 import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.util.ResourceLocation;
 
+import java.util.function.Supplier;
+
 /**
  * The default implementation of {@link ICrop}
  *
@@ -20,9 +22,9 @@ public class Crop implements ICrop {
     private int essenceColor;
     private int seedColor;
     private CropTextures textures;
-    private CropsBlock crop;
-    private Item essence;
-    private BlockNamedItem seeds;
+    private Supplier<? extends CropsBlock> crop;
+    private Supplier<? extends Item> essence;
+    private Supplier<? extends BlockNamedItem> seeds;
     private LazyIngredient craftingMaterial;
     private boolean enabled;
     private boolean registerCropBlock;
@@ -80,6 +82,9 @@ public class Crop implements ICrop {
         this.setColor(color);
         this.craftingMaterial = craftingMaterial;
         this.enabled = true;
+        this.registerCropBlock = true;
+        this.registerEssenceItem = true;
+        this.registerSeedsItem = true;
     }
 
     @Override
@@ -142,11 +147,11 @@ public class Crop implements ICrop {
 
     @Override
     public CropsBlock getCrop() {
-        return this.crop;
+        return this.crop == null ? null : this.crop.get();
     }
 
     @Override
-    public ICrop setCrop(CropsBlock crop, boolean register) {
+    public ICrop setCrop(Supplier<? extends CropsBlock> crop, boolean register) {
         this.crop = crop;
         this.registerCropBlock = register;
         return this;
@@ -159,11 +164,11 @@ public class Crop implements ICrop {
 
     @Override
     public Item getEssence() {
-        return this.essence;
+        return this.essence == null ? null : this.essence.get();
     }
 
     @Override
-    public ICrop setEssence(Item essence, boolean register) {
+    public ICrop setEssence(Supplier<? extends Item> essence, boolean register) {
         this.essence = essence;
         this.registerEssenceItem = register;
         return this;
@@ -176,11 +181,11 @@ public class Crop implements ICrop {
 
     @Override
     public BlockNamedItem getSeeds() {
-        return this.seeds;
+        return this.seeds == null ? null : this.seeds.get();
     }
 
     @Override
-    public ICrop setSeeds(BlockNamedItem seeds, boolean register) {
+    public ICrop setSeeds(Supplier<? extends BlockNamedItem> seeds, boolean register) {
         this.seeds = seeds;
         this.registerSeedsItem = register;
         return this;
