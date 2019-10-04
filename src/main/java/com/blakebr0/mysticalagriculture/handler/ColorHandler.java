@@ -6,6 +6,7 @@ import com.blakebr0.mysticalagriculture.api.soul.IMobSoulType;
 import com.blakebr0.mysticalagriculture.api.soul.MobSoulUtils;
 import com.blakebr0.mysticalagriculture.block.InfusedFarmlandBlock;
 import com.blakebr0.mysticalagriculture.item.ModItems;
+import com.blakebr0.mysticalagriculture.lib.ModCorePlugin;
 import com.blakebr0.mysticalagriculture.registry.CropRegistry;
 import net.minecraft.client.renderer.color.BlockColors;
 import net.minecraft.client.renderer.color.ItemColors;
@@ -34,7 +35,12 @@ public class ColorHandler {
             float damage = (float) (stack.getMaxDamage() - stack.getDamage()) / stack.getMaxDamage();
             return Utils.saturate(0x00D9D9, damage);
         }, ModItems.INFUSION_CRYSTAL::get);
-//
+
+        colors.register((stack, tint) -> ModCorePlugin.AIR.getEssenceColor(), ModItems.AIR_AGGLOMERATIO::get);
+        colors.register((stack, tint) -> ModCorePlugin.EARTH.getEssenceColor(), ModItems.EARTH_AGGLOMERATIO::get);
+        colors.register((stack, tint) -> ModCorePlugin.WATER.getEssenceColor(), ModItems.WATER_AGGLOMERATIO::get);
+        colors.register((stack, tint) -> ModCorePlugin.FIRE.getEssenceColor(), ModItems.FIRE_AGGLOMERATIO::get);
+
         colors.register((stack, tint) -> {
             IMobSoulType type = MobSoulUtils.getType(stack);
             return tint == 1 ? type != null ? type.getColor() : -1 : -1;

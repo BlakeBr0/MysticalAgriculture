@@ -70,6 +70,10 @@ public class ModItems {
     public static final RegistryObject<MasterInfusionCrystalItem> MASTER_INFUSION_CRYSTAL = register("master_infusion_crystal", () -> new MasterInfusionCrystalItem(p -> p.group(ITEM_GROUP)));
     public static final RegistryObject<FertilizedEssenceItem> FERTILIZED_ESSENCE = register("fertilized_essence", () -> new FertilizedEssenceItem(p -> p.group(ITEM_GROUP)));
     public static final RegistryObject<MysticalFertilizerItem> MYSTICAL_FERTILIZER = register("mystical_fertilizer", () -> new MysticalFertilizerItem(p -> p.group(ITEM_GROUP)));
+    public static final RegistryObject<BaseItem> AIR_AGGLOMERATIO = register("air_agglomeratio");
+    public static final RegistryObject<BaseItem> EARTH_AGGLOMERATIO = register("earth_agglomeratio");
+    public static final RegistryObject<BaseItem> WATER_AGGLOMERATIO = register("water_agglomeratio");
+    public static final RegistryObject<BaseItem> FIRE_AGGLOMERATIO = register("fire_agglomeratio");
     public static final RegistryObject<BaseItem> NATURE_AGGLOMERATIO = register("nature_agglomeratio");
     public static final RegistryObject<BaseItem> DYE_AGGLOMERATIO = register("dye_agglomeratio");
     public static final RegistryObject<BaseItem> NETHER_AGGLOMERATIO = register("nether_agglomeratio");
