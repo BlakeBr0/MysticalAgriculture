@@ -1,0 +1,22 @@
+{
+  "type": "cucumber:shaped_transfer_damage",
+  "pattern": [
+    " G ",
+    "ISI",
+    " G "
+  ],
+  "key": {
+    "G": {
+      "item": "mysticalagriculture:tertium_gemstone"
+    },
+    "I": {
+      "item": "mysticalagriculture:tertium_ingot"
+    },
+    "S": {
+      "item": "mysticalagriculture:prudentium_hoe"
+    }
+  },
+  "result": {
+    "item": "mysticalagriculture:tertium_hoe"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "type": "cucumber:shaped_transfer_damage",
+  "pattern": [
+    " G ",
+    "ISI",
+    " G "
+  ],
+  "key": {
+    "G": {
+      "item": "mysticalagriculture:supremium_gemstone"
+    },
+    "I": {
+      "item": "mysticalagriculture:supremium_ingot"
+    },
+    "S": {
+      "item": "mysticalagriculture:imperium_pickaxe"
+    }
+  },
+  "result": {
+    "item": "mysticalagriculture:supremium_pickaxe"
+  }
+}
