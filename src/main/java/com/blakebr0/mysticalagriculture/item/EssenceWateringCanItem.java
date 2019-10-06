@@ -40,11 +40,13 @@ import java.util.stream.Stream;
 
 public class EssenceWateringCanItem extends BaseItem implements IEnableable {
     private final int range;
+    private final double chance;
     private final TextFormatting textColor;
 
-    public EssenceWateringCanItem(int range, TextFormatting textColor, Function<Properties, Properties> properties) {
+    public EssenceWateringCanItem(int range, double chance, TextFormatting textColor, Function<Properties, Properties> properties) {
         super(properties.compose(p -> p.maxStackSize(1)));
         this.range = range;
+        this.chance = chance;
         this.textColor = textColor;
     }
 
@@ -84,7 +86,7 @@ public class EssenceWateringCanItem extends BaseItem implements IEnableable {
     public ActionResult<ItemStack> onItemRightClick(World world, PlayerEntity player, Hand hand) {
         ItemStack stack = player.getHeldItem(hand);
 
-        if (player.isSneaking()) {
+        if (player.isSneaking() && NBTHelper.getBoolean(stack, "Water")) {
             NBTHelper.flipBoolean(stack, "Active");
         }
 
@@ -171,7 +173,7 @@ public class EssenceWateringCanItem extends BaseItem implements IEnableable {
         }
 
         if (!world.isRemote()) {
-            if (Math.random() <= 0.25) {
+            if (Math.random() <= this.chance) {
                 blocks = BlockPos.getAllInBox(pos.add(-this.range, -this.range, -this.range), pos.add(this.range, this.range, this.range));
                 blocks.forEach(aoePos -> {
                     Block plantBlock = world.getBlockState(aoePos).getBlock();
