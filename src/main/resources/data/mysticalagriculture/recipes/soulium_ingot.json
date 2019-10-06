@@ -1,18 +1,16 @@
 {
-  "type": "crafting_shaped",
-  "pattern": [
-    " E ",
-    "EGE",
-    " E "
-  ],
-  "key": {
-    "E": {
+  "type": "crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "mysticalagriculture:prosperity_ingot"
+    },
+    {
       "item": "mysticalagriculture:soulium_dust"
     },
-    "G": {
-      "item": "mysticalagriculture:prosperity_ingot"
+    {
+      "item": "mysticalagriculture:soulium_dust"
     }
-  },
+  ],
   "result": {
     "item": "mysticalagriculture:soulium_ingot"
   }

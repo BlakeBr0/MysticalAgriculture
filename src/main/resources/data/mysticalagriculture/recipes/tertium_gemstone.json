@@ -1,18 +1,16 @@
 {
-  "type": "crafting_shaped",
-  "pattern": [
-    " E ",
-    "EGE",
-    " E "
-  ],
-  "key": {
-    "E": {
+  "type": "crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "mysticalagriculture:prosperity_gemstone"
+    },
+    {
       "item": "mysticalagriculture:tertium_essence"
     },
-    "G": {
-      "item": "mysticalagriculture:prosperity_gemstone"
+    {
+      "item": "mysticalagriculture:tertium_essence"
     }
-  },
+  ],
   "result": {
     "item": "mysticalagriculture:tertium_gemstone"
   }
