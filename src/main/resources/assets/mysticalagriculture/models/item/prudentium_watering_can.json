@@ -1,6 +1,16 @@
 {
-  "parent": "item/generated",
+  "parent": "item/handheld",
   "textures": {
     "layer0": "mysticalagriculture:item/prudentium_watering_can"
+  },
+  "display": {
+    "thirdperson_righthand": {
+      "rotation": [45, -90, 0],
+      "translation": [0, 3, -1.75]
+    },
+    "thirdperson_lefthand": {
+      "rotation": [45, 90, 0],
+      "translation": [0, 3, -1.75]
+    }
   }
 }
