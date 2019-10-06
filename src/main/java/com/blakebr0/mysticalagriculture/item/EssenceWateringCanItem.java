@@ -24,6 +24,7 @@ import net.minecraft.util.Direction;
 import net.minecraft.util.Hand;
 import net.minecraft.util.NonNullList;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.BlockRayTraceResult;
 import net.minecraft.util.math.RayTraceContext;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.util.text.ITextComponent;
@@ -40,8 +41,6 @@ import java.util.stream.Stream;
 public class EssenceWateringCanItem extends BaseItem implements IEnableable {
     private final int range;
     private final TextFormatting textColor;
-    private boolean water = false;
-    private long ticks;
 
     public EssenceWateringCanItem(int range, TextFormatting textColor, Function<Properties, Properties> properties) {
         super(properties.compose(p -> p.maxStackSize(1)));
@@ -54,16 +53,19 @@ public class EssenceWateringCanItem extends BaseItem implements IEnableable {
         if (this.isEnabled() && this.isInGroup(group)) {
             ItemStack stack = new ItemStack(this);
             NBTHelper.setBoolean(stack, "Water", false);
+            NBTHelper.setBoolean(stack, "Active", false);
             items.add(stack);
         }
     }
 
     @Override
     public void inventoryTick(ItemStack stack, World world, Entity entity, int slot, boolean selected) {
-        if (selected) {
-            this.ticks++;
-            if (this.ticks % 5 == 0) {
-                this.water = true;
+        if (selected && world.getGameTime() % 4 == 0) {
+            if (NBTHelper.getBoolean(stack, "Active") && entity instanceof PlayerEntity) {
+                PlayerEntity player = (PlayerEntity) entity;
+                BlockRayTraceResult result = (BlockRayTraceResult) rayTrace(world, player, RayTraceContext.FluidMode.SOURCE_ONLY);
+                if (result.getType() != RayTraceResult.Type.MISS)
+                    this.doWater(stack, world, player, result.getPos(), result.getFace());
             }
         }
     }
@@ -74,19 +76,16 @@ public class EssenceWateringCanItem extends BaseItem implements IEnableable {
     }
 
     @Override
+    public boolean hasEffect(ItemStack stack) {
+        return NBTHelper.getBoolean(stack, "Active");
+    }
+
+    @Override
     public ActionResult<ItemStack> onItemRightClick(World world, PlayerEntity player, Hand hand) {
         ItemStack stack = player.getHeldItem(hand);
 
-        RayTraceResult result = rayTrace(world, player, RayTraceContext.FluidMode.SOURCE_ONLY);
-        if (result.getType() == RayTraceResult.Type.MISS) {
-            return new ActionResult<>(ActionResultType.FAIL, stack);
-        }
-
-        BlockPos pos = new BlockPos(result.getHitVec());
-        BlockState state = world.getBlockState(pos);
-        if (state.getMaterial() == Material.WATER) {
-            NBTHelper.setBoolean(stack, "Water", true);
-            return new ActionResult<>(ActionResultType.FAIL, stack);
+        if (player.isSneaking()) {
+            NBTHelper.flipBoolean(stack, "Active");
         }
 
         return new ActionResult<>(ActionResultType.FAIL, stack);
@@ -94,15 +93,49 @@ public class EssenceWateringCanItem extends BaseItem implements IEnableable {
 
     @Override
     public ActionResultType onItemUse(ItemUseContext context) {
+        ItemStack stack = context.getItem();
+        World world = context.getWorld();
         PlayerEntity player = context.getPlayer();
-        if (player == null)
+        if (player != null && !NBTHelper.getBoolean(stack, "Water")) {
+            RayTraceResult result = rayTrace(world, player, RayTraceContext.FluidMode.SOURCE_ONLY);
+            if (result.getType() == RayTraceResult.Type.MISS)
+                return ActionResultType.FAIL;
+
+            BlockPos pos = new BlockPos(result.getHitVec());
+            BlockState state = world.getBlockState(pos);
+            if (state.getMaterial() == Material.WATER) {
+                NBTHelper.setBoolean(stack, "Water", true);
+                return ActionResultType.FAIL;
+            }
+        }
+
+        if (NBTHelper.getBoolean(stack, "Active"))
             return ActionResultType.FAIL;
 
-        Hand hand = context.getHand();
-        World world = context.getWorld();
-        BlockPos pos = context.getPos();
-        Direction direction = context.getFace();
-        ItemStack stack = player.getHeldItem(hand);
+        return this.doWater(stack, world, player, context.getPos(), context.getFace());
+    }
+
+    @Override
+    public void addInformation(ItemStack stack, World world, List<ITextComponent> tooltip, ITooltipFlag advanced) {
+        if (NBTHelper.getBoolean(stack, "Water")) {
+            tooltip.add(ModTooltips.FILLED.build());
+        } else {
+            tooltip.add(ModTooltips.EMPTY.build());
+        }
+
+        String rangeString = String.valueOf(this.range);
+        ITextComponent rangeNumber = new StringTextComponent(rangeString + "x" + rangeString).applyTextStyle(this.textColor);
+        tooltip.add(ModTooltips.WATERING_CAN_AREA.args(rangeNumber).build());
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return true;
+    }
+
+    private ActionResultType doWater(ItemStack stack, World world, PlayerEntity player, BlockPos pos, Direction direction) {
+        if (player == null)
+            return ActionResultType.FAIL;
 
         if (!player.canPlayerEdit(pos.offset(direction), direction, stack))
             return ActionResultType.FAIL;
@@ -137,8 +170,7 @@ public class EssenceWateringCanItem extends BaseItem implements IEnableable {
             }
         }
 
-        if (!world.isRemote && this.water) {
-            this.water = false;
+        if (!world.isRemote()) {
             if (Math.random() <= 0.25) {
                 blocks = BlockPos.getAllInBox(pos.add(-this.range, -this.range, -this.range), pos.add(this.range, this.range, this.range));
                 blocks.forEach(aoePos -> {
@@ -153,23 +185,5 @@ public class EssenceWateringCanItem extends BaseItem implements IEnableable {
         }
 
         return ActionResultType.FAIL;
-    }
-
-    @Override
-    public void addInformation(ItemStack stack, World world, List<ITextComponent> tooltip, ITooltipFlag advanced) {
-        if (NBTHelper.getBoolean(stack, "Water")) {
-            tooltip.add(ModTooltips.FILLED.build());
-        } else {
-            tooltip.add(ModTooltips.EMPTY.build());
-        }
-
-        String rangeString = String.valueOf(this.range);
-        ITextComponent rangeNumber = new StringTextComponent(rangeString + "x" + rangeString).applyTextStyle(this.textColor);
-        tooltip.add(ModTooltips.WATERING_CAN_AREA.args(rangeNumber).build());
-    }
-
-    @Override
-    public boolean isEnabled() {
-        return true;
     }
 }
