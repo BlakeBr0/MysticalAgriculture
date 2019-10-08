@@ -1,9 +1,9 @@
 {
   "type": "cucumber:shaped_transfer_damage",
   "pattern": [
-    " G ",
+    "DGD",
     "ISI",
-    " G "
+    "DGD"
   ],
   "key": {
     "G": {
@@ -14,6 +14,9 @@
     },
     "S": {
       "item": "mysticalagriculture:imperium_chestplate"
+    },
+    "D": {
+      "tag": "forge:gems/diamond"
     }
   },
   "result": {

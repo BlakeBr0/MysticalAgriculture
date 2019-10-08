@@ -1,7 +1,6 @@
 package com.blakebr0.mysticalagriculture.item;
 
 import com.blakebr0.cucumber.helper.NBTHelper;
-import com.blakebr0.cucumber.iface.IEnableable;
 import com.blakebr0.cucumber.item.BaseItem;
 import com.blakebr0.mysticalagriculture.lib.ModTooltips;
 import net.minecraft.block.Block;
@@ -34,11 +33,10 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.IPlantable;
 
 import java.util.List;
-import java.util.Random;
 import java.util.function.Function;
 import java.util.stream.Stream;
 
-public class EssenceWateringCanItem extends BaseItem implements IEnableable {
+public class EssenceWateringCanItem extends BaseItem {
     private final int range;
     private final double chance;
     private final TextFormatting textColor;
@@ -52,7 +50,7 @@ public class EssenceWateringCanItem extends BaseItem implements IEnableable {
 
     @Override
     public void fillItemGroup(ItemGroup group, NonNullList<ItemStack> items) {
-        if (this.isEnabled() && this.isInGroup(group)) {
+        if (this.isInGroup(group)) {
             ItemStack stack = new ItemStack(this);
             NBTHelper.setBoolean(stack, "Water", false);
             NBTHelper.setBoolean(stack, "Active", false);
@@ -128,11 +126,6 @@ public class EssenceWateringCanItem extends BaseItem implements IEnableable {
         String rangeString = String.valueOf(this.range);
         ITextComponent rangeNumber = new StringTextComponent(rangeString + "x" + rangeString).applyTextStyle(this.textColor);
         tooltip.add(ModTooltips.WATERING_CAN_AREA.args(rangeNumber).build());
-    }
-
-    @Override
-    public boolean isEnabled() {
-        return true;
     }
 
     private ActionResultType doWater(ItemStack stack, World world, PlayerEntity player, BlockPos pos, Direction direction) {
