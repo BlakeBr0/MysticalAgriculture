@@ -101,12 +101,11 @@ public class WateringCanItem extends BaseItem {
             }
         });
 
-        Random rand = new Random();
         for (int x = -1; x <= 1; x++) {
             for (int z = -1; z <= 1; z++) {
-                double d0 = pos.add(x, 0, z).getX() + rand.nextFloat();
+                double d0 = pos.add(x, 0, z).getX() + world.getRandom().nextFloat();
                 double d1 = pos.add(x, 0, z).getY() + 1.0D;
-                double d2 = pos.add(x, 0, z).getZ() + rand.nextFloat();
+                double d2 = pos.add(x, 0, z).getZ() + world.getRandom().nextFloat();
 
                 BlockState state = world.getBlockState(pos);
                 if (state.isSolid() || state.getBlock() instanceof FarmlandBlock) {
