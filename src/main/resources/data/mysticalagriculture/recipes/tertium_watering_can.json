@@ -1,0 +1,25 @@
+{
+  "type": "crafting_shaped",
+  "pattern": [
+    "FGF",
+    "ISI",
+    "FGF"
+  ],
+  "key": {
+    "G": {
+      "item": "mysticalagriculture:tertium_ingot"
+    },
+    "I": {
+      "item": "mysticalagriculture:tertium_ingot"
+    },
+    "S": {
+      "item": "mysticalagriculture:prudentium_watering_can"
+    },
+    "F": {
+      "item": "mysticalagriculture:mystical_fertilizer"
+    }
+  },
+  "result": {
+    "item": "mysticalagriculture:tertium_watering_can"
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "type": "crafting_shaped",
+  "pattern": [
+    "FGF",
+    "ISI",
+    "FGF"
+  ],
+  "key": {
+    "G": {
+      "item": "mysticalagriculture:inferium_ingot"
+    },
+    "I": {
+      "item": "mysticalagriculture:inferium_ingot"
+    },
+    "S": {
+      "item": "mysticalagriculture:watering_can"
+    },
+    "F": {
+      "item": "mysticalagriculture:mystical_fertilizer"
+    }
+  },
+  "result": {
+    "item": "mysticalagriculture:inferium_watering_can"
+  }
+}
