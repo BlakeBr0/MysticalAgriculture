@@ -181,7 +181,7 @@
 
   "tooltip.mysticalagriculture.empty": "Empty",
   "tooltip.mysticalagriculture.filled": "Filled",
-  "tooltip.mysticalagriculture.crop_tier": "Tier %s",
+  "tooltip.mysticalagriculture.crop_tier": "Tier: %s",
   "tooltip.mysticalagriculture.crop_id": "Crop ID: %s",
   "tooltip.mysticalagriculture.added_by": "Added By: %s",
   "tooltip.mysticalagriculture.secondary_chance": "Secondary Chance: %s",
