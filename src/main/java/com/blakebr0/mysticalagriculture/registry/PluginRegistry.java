@@ -4,7 +4,6 @@ import com.blakebr0.mysticalagriculture.MysticalAgriculture;
 import com.blakebr0.mysticalagriculture.api.IMysticalAgriculturePlugin;
 import com.blakebr0.mysticalagriculture.api.MysticalAgriculturePlugin;
 import com.blakebr0.mysticalagriculture.lib.ModCorePlugin;
-import mcp.mobius.waila.api.IWailaPlugin;
 import net.minecraftforge.fml.ModList;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -27,7 +26,7 @@ public class PluginRegistry {
                 if (annotation.getAnnotationType().getClassName().equals(MysticalAgriculturePlugin.class.getName())) {
                     try {
                         Class<?> clazz = Class.forName(annotation.getMemberName());
-                        if (IWailaPlugin.class.isAssignableFrom(clazz)) {
+                        if (IMysticalAgriculturePlugin.class.isAssignableFrom(clazz)) {
                             IMysticalAgriculturePlugin plugin = (IMysticalAgriculturePlugin) clazz.newInstance();
                             this.plugins.add(plugin);
                             LOGGER.info("Registered plugin: {}", annotation.getMemberName());
