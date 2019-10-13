@@ -14,7 +14,7 @@ import java.util.function.Function;
 
 public class ExperienceCapsuleItem extends BaseItem {
     public ExperienceCapsuleItem(Function<Properties, Properties> properties) {
-        super(properties);
+        super(properties.compose(p -> p.maxStackSize(1)));
         this.addPropertyOverride(new ResourceLocation("fill"), (stack, world, entity) -> {
             int experience = ExperienceCapsuleUtils.getExperience(stack);
             if (experience > 0) {

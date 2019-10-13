@@ -18,7 +18,7 @@ import java.util.function.Function;
 
 public class SoulJarItem extends BaseItem {
     public SoulJarItem(Function<Properties, Properties> properties) {
-        super(properties);
+        super(properties.compose(p -> p.maxStackSize(1)));
         this.addPropertyOverride(new ResourceLocation("fill"), (stack, world, entity) -> {
             IMobSoulType type = MobSoulUtils.getType(stack);
             if (type != null) {
