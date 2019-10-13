@@ -2,7 +2,7 @@ package com.blakebr0.mysticalagriculture.item;
 
 import com.blakebr0.cucumber.item.BaseItem;
 import com.blakebr0.mysticalagriculture.api.soul.IMobSoulType;
-import com.blakebr0.mysticalagriculture.api.soul.MobSoulUtils;
+import com.blakebr0.mysticalagriculture.api.util.MobSoulUtils;
 import com.blakebr0.mysticalagriculture.lib.ModTooltips;
 import com.blakebr0.mysticalagriculture.registry.MobSoulTypeRegistry;
 import net.minecraft.client.util.ITooltipFlag;

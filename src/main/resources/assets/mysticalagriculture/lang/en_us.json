@@ -112,6 +112,7 @@
   "item.mysticalagriculture.blank_skull": "Blank Skull",
   "item.mysticalagriculture.blank_record": "Blank Record",
   "item.mysticalagriculture.soul_jar": "Soul Jar",
+  "item.mysticalagriculture.experience_capsule": "Experience Capsule",
   "item.mysticalagriculture.watering_can": "Watering Can",
 
   "item.mysticalagriculture.mystical_essence": "%s Essence",
@@ -191,6 +192,7 @@
   "tooltip.mysticalagriculture.growth_accelerator": "Grows the plant above it faster.",
   "tooltip.mysticalagriculture.growth_accelerator_range": "Range: %s Blocks",
   "tooltip.mysticalagriculture.watering_can_area": "Area: %s",
+  "tooltip.mysticalagriculture.experience_capsule": "%s / %s Experience Points",
   "tooltip.mysticalagriculture.soul_jar": "%s (%s/%s)",
   "tooltip.mysticalagriculture.invalid_entity": "Invalid Entity",
   "tooltip.mysticalagriculture.soulium_dagger": "Grants additional souls from peaceful creatures.",

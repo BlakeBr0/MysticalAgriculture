@@ -2,7 +2,7 @@ package com.blakebr0.mysticalagriculture.handler;
 
 import com.blakebr0.mysticalagriculture.api.soul.IMobSoulType;
 import com.blakebr0.mysticalagriculture.api.soul.ISoulSiphoningItem;
-import com.blakebr0.mysticalagriculture.api.soul.MobSoulUtils;
+import com.blakebr0.mysticalagriculture.api.util.MobSoulUtils;
 import com.blakebr0.mysticalagriculture.item.SoulJarItem;
 import com.blakebr0.mysticalagriculture.registry.MobSoulTypeRegistry;
 import net.minecraft.entity.Entity;

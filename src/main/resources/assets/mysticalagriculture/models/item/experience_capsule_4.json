@@ -1,0 +1,7 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "mysticalagriculture:item/experience_capsule",
+    "layer1": "mysticalagriculture:item/experience_capsule_inner_4"
+  }
+}

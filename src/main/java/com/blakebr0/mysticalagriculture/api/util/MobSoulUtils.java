@@ -1,14 +1,16 @@
-package com.blakebr0.mysticalagriculture.api.soul;
+package com.blakebr0.mysticalagriculture.api.util;
 
 import com.blakebr0.mysticalagriculture.api.MysticalAgricultureAPI;
+import com.blakebr0.mysticalagriculture.api.soul.IMobSoulType;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.ForgeRegistries;
 
 public class MobSoulUtils {
-    private static Item soulJar;
+    private static final RegistryObject<Item> SOUL_JAR = RegistryObject.of(new ResourceLocation(MysticalAgricultureAPI.MOD_ID, "soul_jar"), ForgeRegistries.ITEMS);
 
     /**
      * Creates a tag compound for this mob soul type using the max amount of souls
@@ -40,13 +42,8 @@ public class MobSoulUtils {
      * @return the soul jar
      */
     public static ItemStack getSoulJar(IMobSoulType type, double souls) {
-        CompoundNBT nbt = makeTag(type);
-        nbt.putDouble("Souls", souls);
-
-        if (soulJar == null)
-            soulJar = ForgeRegistries.ITEMS.getValue(new ResourceLocation(MysticalAgricultureAPI.MOD_ID, "soul_jar"));
-
-        ItemStack stack = new ItemStack(soulJar);
+        CompoundNBT nbt = makeTag(type, souls);
+        ItemStack stack = new ItemStack(SOUL_JAR.get());
         stack.setTag(nbt);
         return stack;
     }
@@ -58,12 +55,7 @@ public class MobSoulUtils {
      */
     public static ItemStack getFilledSoulJar(IMobSoulType type) {
         CompoundNBT nbt = makeTag(type);
-        nbt.putDouble("Souls", type.getSoulRequirement());
-
-        if (soulJar == null)
-            soulJar = ForgeRegistries.ITEMS.getValue(new ResourceLocation(MysticalAgricultureAPI.MOD_ID, "soul_jar"));
-
-        ItemStack stack = new ItemStack(soulJar);
+        ItemStack stack = new ItemStack(SOUL_JAR.get());
         stack.setTag(nbt);
         return stack;
     }
@@ -86,7 +78,7 @@ public class MobSoulUtils {
     /**
      * Gets the amount of souls currently stored in the specified item stack
      * @param stack the item stack
-     * @return the mob soul type
+     * @return the amount of souls
      */
     public static double getSouls(ItemStack stack) {
         CompoundNBT nbt = stack.getTag();

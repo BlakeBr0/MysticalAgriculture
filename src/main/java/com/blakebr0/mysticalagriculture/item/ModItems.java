@@ -83,6 +83,7 @@ public class ModItems {
     public static final RegistryObject<BaseItem> BLANK_SKULL = register("blank_skull");
     public static final RegistryObject<BaseItem> BLANK_RECORD = register("blank_record");
     public static final RegistryObject<SoulJarItem> SOUL_JAR = register("soul_jar", () -> new SoulJarItem(p -> p.group(ITEM_GROUP)));
+    public static final RegistryObject<ExperienceCapsuleItem> EXPERIENCE_CAPSULE = register("experience_capsule", () -> new ExperienceCapsuleItem(p -> p.group(ITEM_GROUP)));
     public static final RegistryObject<WateringCanItem> WATERING_CAN = register("watering_can", () -> new WateringCanItem(p -> p.group(ITEM_GROUP)));
 
     public static final RegistryObject<EssenceSwordItem> INFERIUM_SWORD = registerGear("inferium_sword", () -> new EssenceSwordItem(ModItemTier.INFERIUM, p -> p.group(ITEM_GROUP)));

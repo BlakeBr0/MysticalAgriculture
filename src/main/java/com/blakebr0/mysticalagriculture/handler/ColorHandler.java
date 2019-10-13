@@ -3,7 +3,7 @@ package com.blakebr0.mysticalagriculture.handler;
 import com.blakebr0.cucumber.iface.IColored;
 import com.blakebr0.cucumber.util.Utils;
 import com.blakebr0.mysticalagriculture.api.soul.IMobSoulType;
-import com.blakebr0.mysticalagriculture.api.soul.MobSoulUtils;
+import com.blakebr0.mysticalagriculture.api.util.MobSoulUtils;
 import com.blakebr0.mysticalagriculture.block.InfusedFarmlandBlock;
 import com.blakebr0.mysticalagriculture.item.ModItems;
 import com.blakebr0.mysticalagriculture.lib.ModCorePlugin;
