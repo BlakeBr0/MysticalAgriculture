@@ -41,11 +41,8 @@ minecraft {
             property 'forge.logging.markers', 'SCAN,REGISTRIES,REGISTRYDUMP'
             property 'forge.logging.console.level', 'info'
 
-            mods {
-                mysticalagriculture {
-                    source sourceSets.main
-                }
-            }
+            ideaModule "${project.name}.main"
+            environment 'MOD_CLASSES', "${project.file("out/production/resources").canonicalPath};${project.file("out/production/classes").canonicalPath}"
         }
 
         server {
@@ -54,11 +51,8 @@ minecraft {
             property 'forge.logging.markers', 'SCAN,REGISTRIES,REGISTRYDUMP'
             property 'forge.logging.console.level', 'info'
 
-            mods {
-                mysticalagriculture {
-                    source sourceSets.main
-                }
-            }
+            ideaModule "${project.name}.main"
+            environment 'MOD_CLASSES', "${project.file("out/production/resources").canonicalPath};${project.file("out/production/classes").canonicalPath}"
         }
     }
 }
