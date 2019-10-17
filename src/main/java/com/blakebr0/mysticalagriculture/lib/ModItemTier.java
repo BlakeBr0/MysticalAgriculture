@@ -8,19 +8,19 @@ import net.minecraft.util.LazyLoadBase;
 import java.util.function.Supplier;
 
 public enum ModItemTier implements IItemTier {
-    INFERIUM(2, 500, 8.0F, 2.0F, 20, () -> {
+    INFERIUM(3, 2000, 9.0F, 4.0F, 20, () -> {
         return Ingredient.fromItems(ModItems.INFERIUM_INGOT.get());
     }),
-    PRUDENTIUM(2, 1000, 10.0F, 4.0F, 25, () -> {
+    PRUDENTIUM(3, 2800, 11.0F, 6.0F, 25, () -> {
         return Ingredient.fromItems(ModItems.PRUDENTIUM_INGOT.get());
     }),
-    TERTIUM(3, 2000, 14.0F, 7.0F, 30, () -> {
+    TERTIUM(4, 4000, 14.0F, 9.0F, 30, () -> {
         return Ingredient.fromItems(ModItems.TERTIUM_INGOT.get());
     }),
-    IMPERIUM(4, 4000, 19.0F, 11.0F, 35, () -> {
+    IMPERIUM(4, 6000, 19.0F, 13.0F, 35, () -> {
         return Ingredient.fromItems(ModItems.IMPERIUM_INGOT.get());
     }),
-    SUPREMIUM(5, -1, 25.0F, 17.0F, 0, () -> {
+    SUPREMIUM(5, -1, 25.0F, 20.0F, 0, () -> {
         return Ingredient.fromItems(ModItems.SUPREMIUM_INGOT.get());
     }),
     SOULIUM(0, 400, 5.0F, 4.0F, 35, () -> {
