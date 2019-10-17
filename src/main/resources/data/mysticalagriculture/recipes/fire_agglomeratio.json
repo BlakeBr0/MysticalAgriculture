@@ -1,0 +1,24 @@
+{
+  "type": "crafting_shaped",
+  "pattern": [
+    "IG",
+    "DC"
+  ],
+  "key": {
+    "I": {
+      "item": "minecraft:lava_bucket"
+    },
+    "G": {
+      "item": "minecraft:gravel"
+    },
+    "D": {
+      "item": "minecraft:dirt"
+    },
+    "C": {
+      "item": "minecraft:clay_ball"
+    }
+  },
+  "result": {
+    "item": "mysticalagriculture:fire_agglomeratio"
+  }
+}
