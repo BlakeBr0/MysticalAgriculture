@@ -18,4 +18,5 @@ public class ModTooltips {
     public static final Tooltip EXPERIENCE_CAPSULE = new Tooltip("tooltip.mysticalagriculture.experience_capsule");
     public static final Tooltip SOUL_JAR = new Tooltip("tooltip.mysticalagriculture.soul_jar");
     public static final Tooltip SOULIUM_DAGGER = new Tooltip("tooltip.mysticalagriculture.soulium_dagger");
+    public static final Tooltip ACTIVATE_WITH_REDSTONE = new Tooltip("tooltip.mysticalagriculture.activate_with_redstone");
 }

@@ -3,10 +3,12 @@ package com.blakebr0.mysticalagriculture.block;
 import com.blakebr0.cucumber.block.BaseTileEntityBlock;
 import com.blakebr0.cucumber.helper.StackHelper;
 import com.blakebr0.cucumber.util.VoxelShapeBuilder;
+import com.blakebr0.mysticalagriculture.lib.ModTooltips;
 import com.blakebr0.mysticalagriculture.tileentity.InfusionAltarTileEntity;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
+import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.item.ItemEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.InventoryHelper;
@@ -19,9 +21,13 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.BlockRayTraceResult;
 import net.minecraft.util.math.shapes.ISelectionContext;
 import net.minecraft.util.math.shapes.VoxelShape;
+import net.minecraft.util.text.ITextComponent;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.World;
 import net.minecraftforge.items.ItemStackHandler;
+
+import javax.annotation.Nullable;
+import java.util.List;
 
 public class InfusionAltarBlock extends BaseTileEntityBlock {
     public static final VoxelShape ALTAR_SHAPE = new VoxelShapeBuilder()
@@ -91,5 +97,10 @@ public class InfusionAltarBlock extends BaseTileEntityBlock {
     @Override
     public VoxelShape getShape(BlockState state, IBlockReader world, BlockPos post, ISelectionContext context) {
         return ALTAR_SHAPE;
+    }
+
+    @Override
+    public void addInformation(ItemStack stack, IBlockReader world, List<ITextComponent> tooltip, ITooltipFlag flag) {
+        tooltip.add(ModTooltips.ACTIVATE_WITH_REDSTONE.build());
     }
 }

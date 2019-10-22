@@ -196,6 +196,7 @@
   "tooltip.mysticalagriculture.soul_jar": "%s (%s/%s)",
   "tooltip.mysticalagriculture.invalid_entity": "Invalid Entity",
   "tooltip.mysticalagriculture.soulium_dagger": "Grants additional souls from peaceful creatures.",
+  "tooltip.mysticalagriculture.activate_with_redstone": "Activate with Redstone",
 
   "jei.category.mysticalagriculture.infusion": "Infusion Crafting",
 
