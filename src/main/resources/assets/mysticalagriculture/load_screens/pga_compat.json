@@ -1,0 +1,8 @@
+{
+	"screens" : [{
+			"COMMENT" : "Public Gui Anouncement Support", 
+			"class" : "com.blakebr0.mysticalagriculture.container.TinkeringTableContainer", 
+			"texture" : "mysticalagriculture:textures/gui/tinkering_table.png", 
+			"size" : [175, 200]
+		}]
+}
