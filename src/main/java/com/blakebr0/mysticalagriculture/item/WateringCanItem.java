@@ -24,6 +24,8 @@ import net.minecraft.util.math.RayTraceContext;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.world.World;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.common.IPlantable;
 
 import java.util.List;
@@ -71,6 +73,7 @@ public class WateringCanItem extends BaseItem {
         return this.doWater(stack, world, player, context.getPos(), context.getFace());
     }
 
+    @OnlyIn(Dist.CLIENT)
     @Override
     public void addInformation(ItemStack stack, World world, List<ITextComponent> tooltip, ITooltipFlag advanced) {
         if (NBTHelper.getBoolean(stack, "Water")) {

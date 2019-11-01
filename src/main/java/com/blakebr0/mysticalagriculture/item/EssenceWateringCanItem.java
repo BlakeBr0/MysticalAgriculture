@@ -30,6 +30,8 @@ import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.StringTextComponent;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.common.IPlantable;
 
 import java.util.List;
@@ -115,6 +117,7 @@ public class EssenceWateringCanItem extends BaseItem {
         return this.doWater(stack, world, player, context.getPos(), context.getFace());
     }
 
+    @OnlyIn(Dist.CLIENT)
     @Override
     public void addInformation(ItemStack stack, World world, List<ITextComponent> tooltip, ITooltipFlag advanced) {
         if (NBTHelper.getBoolean(stack, "Water")) {

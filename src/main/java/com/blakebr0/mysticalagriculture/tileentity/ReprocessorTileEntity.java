@@ -1,4 +1,4 @@
-package com.blakebr0.mysticalagriculture.tileentity.reprocessor;
+package com.blakebr0.mysticalagriculture.tileentity;
 
 import com.blakebr0.cucumber.helper.StackHelper;
 import com.blakebr0.cucumber.inventory.BaseItemStackHandler;
@@ -189,4 +189,70 @@ public abstract class ReprocessorTileEntity extends BaseInventoryTileEntity impl
     }
 
     public abstract ReprocessorBlock.ReprocessorTier getTier();
+
+    public static class Basic extends ReprocessorTileEntity {
+        public Basic() {
+            super(ModTileEntities.BASIC_REPROCESSOR.get());
+        }
+
+        @Override
+        public ReprocessorBlock.ReprocessorTier getTier() {
+            return ReprocessorBlock.ReprocessorTier.BASIC;
+        }
+    }
+
+    public static class Inferium extends ReprocessorTileEntity {
+        public Inferium() {
+            super(ModTileEntities.INFERIUM_REPROCESSOR.get());
+        }
+
+        @Override
+        public ReprocessorBlock.ReprocessorTier getTier() {
+            return ReprocessorBlock.ReprocessorTier.INFERIUM;
+        }
+    }
+
+    public static class Prudentium extends ReprocessorTileEntity {
+        public Prudentium() {
+            super(ModTileEntities.PRUDENTIUM_REPROCESSOR.get());
+        }
+
+        @Override
+        public ReprocessorBlock.ReprocessorTier getTier() {
+            return ReprocessorBlock.ReprocessorTier.PRUDENTIUM;
+        }
+    }
+
+    public static class Tertium extends ReprocessorTileEntity {
+        public Tertium() {
+            super(ModTileEntities.TERTIUM_REPROCESSOR.get());
+        }
+
+        @Override
+        public ReprocessorBlock.ReprocessorTier getTier() {
+            return ReprocessorBlock.ReprocessorTier.TERTIUM;
+        }
+    }
+
+    public static class Imperium extends ReprocessorTileEntity {
+        public Imperium() {
+            super(ModTileEntities.IMPERIUM_REPROCESSOR.get());
+        }
+
+        @Override
+        public ReprocessorBlock.ReprocessorTier getTier() {
+            return ReprocessorBlock.ReprocessorTier.IMPERIUM;
+        }
+    }
+
+    public static class Supremium extends ReprocessorTileEntity {
+        public Supremium() {
+            super(ModTileEntities.SUPREMIUM_REPROCESSOR.get());
+        }
+
+        @Override
+        public ReprocessorBlock.ReprocessorTier getTier() {
+            return ReprocessorBlock.ReprocessorTier.SUPREMIUM;
+        }
+    }
 }

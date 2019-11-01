@@ -1,12 +1,7 @@
 package com.blakebr0.mysticalagriculture.block;
 
 import com.blakebr0.mysticalagriculture.lib.ModTooltips;
-import com.blakebr0.mysticalagriculture.tileentity.furnace.EssenceFurnaceTileEntity;
-import com.blakebr0.mysticalagriculture.tileentity.furnace.ImperiumFurnaceTileEntity;
-import com.blakebr0.mysticalagriculture.tileentity.furnace.InferiumFurnaceTileEntity;
-import com.blakebr0.mysticalagriculture.tileentity.furnace.TertiumFurnaceTileEntity;
-import com.blakebr0.mysticalagriculture.tileentity.furnace.PrudentiumFurnaceTileEntity;
-import com.blakebr0.mysticalagriculture.tileentity.furnace.SupremiumFurnaceTileEntity;
+import com.blakebr0.mysticalagriculture.tileentity.EssenceFurnaceTileEntity;
 import net.minecraft.block.AbstractFurnaceBlock;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -22,6 +17,8 @@ import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.StringTextComponent;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.World;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
 
 import java.util.List;
 import java.util.function.Supplier;
@@ -67,6 +64,7 @@ public class EssenceFurnaceBlock extends AbstractFurnaceBlock {
         }
     }
 
+    @OnlyIn(Dist.CLIENT)
     @Override
     public void addInformation(ItemStack stack, IBlockReader world, List<ITextComponent> tooltip, ITooltipFlag flag) {
         double cookingSpeedDifference = 200D * this.tier.getCookTimeMultiplier();
@@ -81,11 +79,11 @@ public class EssenceFurnaceBlock extends AbstractFurnaceBlock {
     }
 
     public enum FurnaceTier {
-        INFERIUM("inferium", 0.84D, 0.84D, InferiumFurnaceTileEntity::new),
-        PRUDENTIUM("prudentium", 0.625D, 0.84D, PrudentiumFurnaceTileEntity::new),
-        TERTIUM("tertium", 0.4D, 0.68D, TertiumFurnaceTileEntity::new),
-        IMPERIUM("imperium", 0.145D, 0.5D, ImperiumFurnaceTileEntity::new),
-        SUPREMIUM("supremium", 0.025D, 0.2D, SupremiumFurnaceTileEntity::new);
+        INFERIUM("inferium", 0.84D, 0.84D, EssenceFurnaceTileEntity.Inferium::new),
+        PRUDENTIUM("prudentium", 0.625D, 0.84D, EssenceFurnaceTileEntity.Prudentium::new),
+        TERTIUM("tertium", 0.4D, 0.68D, EssenceFurnaceTileEntity.Tertium::new),
+        IMPERIUM("imperium", 0.145D, 0.5D, EssenceFurnaceTileEntity.Imperium::new),
+        SUPREMIUM("supremium", 0.025D, 0.2D, EssenceFurnaceTileEntity.Supremium::new);
 
         private String name;
         private double cookTimeMultiplier;

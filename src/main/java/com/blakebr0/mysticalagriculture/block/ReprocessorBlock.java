@@ -1,21 +1,18 @@
 package com.blakebr0.mysticalagriculture.block;
 
 import com.blakebr0.cucumber.block.BaseTileEntityBlock;
-import com.blakebr0.mysticalagriculture.tileentity.reprocessor.BasicReprocessorTileEntity;
-import com.blakebr0.mysticalagriculture.tileentity.reprocessor.ImperiumReprocessorTileEntity;
-import com.blakebr0.mysticalagriculture.tileentity.reprocessor.InferiumReprocessorTileEntity;
-import com.blakebr0.mysticalagriculture.tileentity.reprocessor.PrudentiumReprocessorTileEntity;
-import com.blakebr0.mysticalagriculture.tileentity.reprocessor.ReprocessorTileEntity;
-import com.blakebr0.mysticalagriculture.tileentity.reprocessor.SupremiumReprocessorTileEntity;
-import com.blakebr0.mysticalagriculture.tileentity.reprocessor.TertiumReprocessorTileEntity;
+import com.blakebr0.mysticalagriculture.tileentity.ReprocessorTileEntity;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.HorizontalBlock;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
+import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.inventory.InventoryHelper;
 import net.minecraft.inventory.container.INamedContainerProvider;
 import net.minecraft.item.BlockItemUseContext;
+import net.minecraft.item.ItemStack;
 import net.minecraft.state.DirectionProperty;
 import net.minecraft.state.StateContainer;
 import net.minecraft.tileentity.TileEntity;
@@ -25,9 +22,13 @@ import net.minecraft.util.Mirror;
 import net.minecraft.util.Rotation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.BlockRayTraceResult;
+import net.minecraft.util.text.ITextComponent;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.World;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
 
+import java.util.List;
 import java.util.function.Supplier;
 
 public class ReprocessorBlock extends BaseTileEntityBlock {
@@ -58,6 +59,20 @@ public class ReprocessorBlock extends BaseTileEntityBlock {
     }
 
     @Override
+    public void onReplaced(BlockState state, World world, BlockPos pos, BlockState newState, boolean isMoving) {
+        if (state.getBlock() != newState.getBlock()) {
+            TileEntity tile = world.getTileEntity(pos);
+            if (tile instanceof ReprocessorTileEntity) {
+                ReprocessorTileEntity furnace = (ReprocessorTileEntity) tile;
+                InventoryHelper.dropItems(world, pos, furnace.getInventory().getStacks());
+            }
+
+            if (state.hasTileEntity())
+                world.removeTileEntity(pos);
+        }
+    }
+
+    @Override
     public BlockState getStateForPlacement(BlockItemUseContext context) {
         return this.getDefaultState().with(FACING, context.getPlacementHorizontalFacing().getOpposite());
     }
@@ -77,13 +92,19 @@ public class ReprocessorBlock extends BaseTileEntityBlock {
         builder.add(FACING);
     }
 
+    @OnlyIn(Dist.CLIENT)
+    @Override
+    public void addInformation(ItemStack stack, IBlockReader world, List<ITextComponent> tooltip, ITooltipFlag flag) {
+
+    }
+
     public enum ReprocessorTier {
-        BASIC("basic", 200, 1, 6400, BasicReprocessorTileEntity::new),
-        INFERIUM("inferium", 100, 2, 6400, InferiumReprocessorTileEntity::new),
-        PRUDENTIUM("prudentium", 80, 2, 9600, PrudentiumReprocessorTileEntity::new),
-        TERTIUM("tertium", 54, 3, 14400, TertiumReprocessorTileEntity::new),
-        IMPERIUM("imperium", 20, 7, 20800, ImperiumReprocessorTileEntity::new),
-        SUPREMIUM("supremium", 5, 26, 28000, SupremiumReprocessorTileEntity::new);
+        BASIC("basic", 200, 1, 1600, ReprocessorTileEntity.Basic::new),
+        INFERIUM("inferium", 100, 2, 6400, ReprocessorTileEntity.Inferium::new),
+        PRUDENTIUM("prudentium", 80, 2, 9600, ReprocessorTileEntity.Prudentium::new),
+        TERTIUM("tertium", 54, 3, 14400, ReprocessorTileEntity.Tertium::new),
+        IMPERIUM("imperium", 20, 7, 20800, ReprocessorTileEntity.Imperium::new),
+        SUPREMIUM("supremium", 5, 26, 28000, ReprocessorTileEntity.Supremium::new);
 
         private String name;
         private int operationTime;
