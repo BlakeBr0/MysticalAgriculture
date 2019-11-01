@@ -9,10 +9,10 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.ITextComponent;
 
 public class TinkeringTableScreen extends ContainerScreen<TinkeringTableContainer> {
-    public static final ResourceLocation BACKGROUND = new ResourceLocation(MysticalAgriculture.MOD_ID, "textures/gui/tinkering_table.png");
+    private static final ResourceLocation BACKGROUND = new ResourceLocation(MysticalAgriculture.MOD_ID, "textures/gui/tinkering_table.png");
 
-    public TinkeringTableScreen(TinkeringTableContainer screenContainer, PlayerInventory inv, ITextComponent title) {
-        super(screenContainer, inv, title);
+    public TinkeringTableScreen(TinkeringTableContainer container, PlayerInventory inv, ITextComponent title) {
+        super(container, inv, title);
         this.xSize = 176;
         this.ySize = 201;
     }

@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": { "model": "mysticalagriculture:block/inferium_reprocessor" },
+    "facing=south": { "model": "mysticalagriculture:block/inferium_reprocessor", "y": 180 },
+    "facing=west":  { "model": "mysticalagriculture:block/inferium_reprocessor", "y": 270 },
+    "facing=east":  { "model": "mysticalagriculture:block/inferium_reprocessor", "y": 90 }
+  }
+}

@@ -10,6 +10,12 @@ import com.blakebr0.mysticalagriculture.tileentity.furnace.InferiumFurnaceTileEn
 import com.blakebr0.mysticalagriculture.tileentity.furnace.TertiumFurnaceTileEntity;
 import com.blakebr0.mysticalagriculture.tileentity.furnace.PrudentiumFurnaceTileEntity;
 import com.blakebr0.mysticalagriculture.tileentity.furnace.SupremiumFurnaceTileEntity;
+import com.blakebr0.mysticalagriculture.tileentity.reprocessor.BasicReprocessorTileEntity;
+import com.blakebr0.mysticalagriculture.tileentity.reprocessor.ImperiumReprocessorTileEntity;
+import com.blakebr0.mysticalagriculture.tileentity.reprocessor.InferiumReprocessorTileEntity;
+import com.blakebr0.mysticalagriculture.tileentity.reprocessor.PrudentiumReprocessorTileEntity;
+import com.blakebr0.mysticalagriculture.tileentity.reprocessor.SupremiumReprocessorTileEntity;
+import com.blakebr0.mysticalagriculture.tileentity.reprocessor.TertiumReprocessorTileEntity;
 import net.minecraft.block.Block;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.tileentity.TileEntityType;
@@ -39,6 +45,12 @@ public class ModTileEntities {
     public static final RegistryObject<TileEntityType<InfusionPedestalTileEntity>> INFUSION_PEDESTAL = register("infusion_pedestal", InfusionPedestalTileEntity::new, () -> new Block[] { ModBlocks.INFUSION_PEDESTAL.get() });
     public static final RegistryObject<TileEntityType<InfusionAltarTileEntity>> INFUSION_ALTAR = register("infusion_altar", InfusionAltarTileEntity::new, () -> new Block[] { ModBlocks.INFUSION_ALTAR.get() });
     public static final RegistryObject<TileEntityType<TinkeringTableTileEntity>> TINKERING_TABLE = register("tinkering_table", TinkeringTableTileEntity::new, () -> new Block[] { ModBlocks.TINKERING_TABLE.get() });
+    public static final RegistryObject<TileEntityType<BasicReprocessorTileEntity>> BASIC_REPROCESSOR = register("basic_reprocessor", BasicReprocessorTileEntity::new, () -> new Block[] { ModBlocks.BASIC_REPROCESSOR.get() });
+    public static final RegistryObject<TileEntityType<InferiumReprocessorTileEntity>> INFERIUM_REPROCESSOR = register("inferium_reprocessor", InferiumReprocessorTileEntity::new, () -> new Block[] { ModBlocks.INFERIUM_REPROCESSOR.get() });
+    public static final RegistryObject<TileEntityType<PrudentiumReprocessorTileEntity>> PRUDENTIUM_REPROCESSOR = register("prudentium_reprocessor", PrudentiumReprocessorTileEntity::new, () -> new Block[] { ModBlocks.PRUDENTIUM_REPROCESSOR.get() });
+    public static final RegistryObject<TileEntityType<TertiumReprocessorTileEntity>> TERTIUM_REPROCESSOR = register("tertium_reprocessor", TertiumReprocessorTileEntity::new, () -> new Block[] { ModBlocks.TERTIUM_REPROCESSOR.get() });
+    public static final RegistryObject<TileEntityType<ImperiumReprocessorTileEntity>> IMPERIUM_REPROCESSOR = register("imperium_reprocessor", ImperiumReprocessorTileEntity::new, () -> new Block[] { ModBlocks.IMPERIUM_REPROCESSOR.get() });
+    public static final RegistryObject<TileEntityType<SupremiumReprocessorTileEntity>> SUPREMIUM_REPROCESSOR = register("supremium_reprocessor", SupremiumReprocessorTileEntity::new, () -> new Block[] { ModBlocks.SUPREMIUM_REPROCESSOR.get() });
 
     @SubscribeEvent
     public void onRegisterTypes(RegistryEvent.Register<TileEntityType<?>> event) {

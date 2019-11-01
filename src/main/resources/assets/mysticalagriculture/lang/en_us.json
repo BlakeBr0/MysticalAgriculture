@@ -62,6 +62,12 @@
   "block.mysticalagriculture.infusion_pedestal": "Infusion Pedestal",
   "block.mysticalagriculture.infusion_altar": "Infusion Altar",
   "block.mysticalagriculture.tinkering_table": "Tinkering Table",
+  "block.mysticalagriculture.basic_reprocessor": "Seed Reprocessor",
+  "block.mysticalagriculture.inferium_reprocessor": "Inferium Seed Reprocessor",
+  "block.mysticalagriculture.prudentium_reprocessor": "Prudentium Seed Reprocessor",
+  "block.mysticalagriculture.tertium_reprocessor": "Tertium Seed Reprocessor",
+  "block.mysticalagriculture.imperium_reprocessor": "Imperium Seed Reprocessor",
+  "block.mysticalagriculture.supremium_reprocessor": "Supremium Seed Reprocessor",
 
   "item.mysticalagriculture.prosperity_shard": "Prosperity Shard",
   "item.mysticalagriculture.inferium_essence": "Inferium Essence",
@@ -179,6 +185,7 @@
   "container.mysticalagriculture.tertium_furnace": "Tertium Furnace",
   "container.mysticalagriculture.imperium_furnace": "Imperium Furnace",
   "container.mysticalagriculture.supremium_furnace": "Supremium Furnace",
+  "container.mysticalagriculture.reprocessor": "Seed Reprocessor",
 
   "tooltip.mysticalagriculture.empty": "Empty",
   "tooltip.mysticalagriculture.filled": "Filled",

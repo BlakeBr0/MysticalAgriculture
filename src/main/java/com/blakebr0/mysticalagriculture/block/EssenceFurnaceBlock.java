@@ -45,7 +45,7 @@ public class EssenceFurnaceBlock extends AbstractFurnaceBlock {
 
     @Override
     public TileEntity createNewTileEntity(IBlockReader world) {
-        return this.tier.getTileEntitySupplier().get();
+        return this.tier.getNewTileEntity();
     }
 
     @Override
@@ -111,8 +111,8 @@ public class EssenceFurnaceBlock extends AbstractFurnaceBlock {
             return this.burnTimeMultiplier;
         }
 
-        public Supplier<EssenceFurnaceTileEntity> getTileEntitySupplier() {
-            return this.tileEntitySupplier;
+        public EssenceFurnaceTileEntity getNewTileEntity() {
+            return this.tileEntitySupplier.get();
         }
     }
 }

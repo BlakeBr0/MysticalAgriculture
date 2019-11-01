@@ -15,7 +15,7 @@ public class TinkeringTableContainer extends Container {
         this(type, id, playerInventory, new ItemStackHandler());
     }
 
-    protected TinkeringTableContainer(ContainerType<?> type, int id, PlayerInventory playerInventory, IItemHandler inventory) {
+    private TinkeringTableContainer(ContainerType<?> type, int id, PlayerInventory playerInventory, IItemHandler inventory) {
         super(type, id);
 
         this.addSlot(new SlotItemHandler(inventory, 0, 52, 50));
@@ -31,14 +31,6 @@ public class TinkeringTableContainer extends Container {
         }
     }
 
-    public static TinkeringTableContainer create(int windowId, PlayerInventory playerInventory) {
-        return new TinkeringTableContainer(ModContainerTypes.TINKERING_TABLE.get(), windowId, playerInventory);
-    }
-
-    public static TinkeringTableContainer create(int windowId, PlayerInventory playerInventory, IItemHandler inventory) {
-        return new TinkeringTableContainer(ModContainerTypes.TINKERING_TABLE.get(), windowId, playerInventory, inventory);
-    }
-
     @Override
     public boolean canInteractWith(PlayerEntity player) {
         return true;
@@ -47,5 +39,13 @@ public class TinkeringTableContainer extends Container {
     @Override
     public ItemStack transferStackInSlot(PlayerEntity player, int index) {
         return ItemStack.EMPTY;
+    }
+
+    public static TinkeringTableContainer create(int windowId, PlayerInventory playerInventory) {
+        return new TinkeringTableContainer(ModContainerTypes.TINKERING_TABLE.get(), windowId, playerInventory);
+    }
+
+    public static TinkeringTableContainer create(int windowId, PlayerInventory playerInventory, IItemHandler inventory) {
+        return new TinkeringTableContainer(ModContainerTypes.TINKERING_TABLE.get(), windowId, playerInventory, inventory);
     }
 }

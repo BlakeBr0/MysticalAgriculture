@@ -1,10 +1,13 @@
 package com.blakebr0.mysticalagriculture.container;
 
 import com.blakebr0.mysticalagriculture.MysticalAgriculture;
+import com.blakebr0.mysticalagriculture.client.screen.ReprocessorScreen;
 import com.blakebr0.mysticalagriculture.client.screen.TinkeringTableScreen;
 import net.minecraft.client.gui.ScreenManager;
 import net.minecraft.inventory.container.ContainerType;
 import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.RegistryObject;
@@ -19,6 +22,7 @@ public class ModContainerTypes {
     public static final List<Supplier<ContainerType<?>>> ENTRIES = new ArrayList<>();
 
     public static final RegistryObject<ContainerType<TinkeringTableContainer>> TINKERING_TABLE = register("tinkering_table", () -> new ContainerType<>(TinkeringTableContainer::create));
+    public static final RegistryObject<ContainerType<ReprocessorContainer>> REPROCESSOR = register("reprocessor", () -> new ContainerType<>(ReprocessorContainer::create));
 
     @SubscribeEvent
     public void onRegisterContainerTypes(RegistryEvent.Register<ContainerType<?>> event) {
@@ -27,8 +31,10 @@ public class ModContainerTypes {
         ENTRIES.stream().map(Supplier::get).forEach(registry::register);
     }
 
+    @OnlyIn(Dist.CLIENT)
     public static void onClientSetup() {
         TINKERING_TABLE.ifPresent(container -> ScreenManager.registerFactory(container, TinkeringTableScreen::new));
+        REPROCESSOR.ifPresent(container -> ScreenManager.registerFactory(container, ReprocessorScreen::new));
     }
 
     private static <T extends ContainerType<?>> RegistryObject<T> register(String name, Supplier<? extends ContainerType<?>> container) {

@@ -93,6 +93,12 @@ public class ModBlocks {
     public static final RegistryObject<InfusionPedestalBlock> INFUSION_PEDESTAL = register("infusion_pedestal", InfusionPedestalBlock::new);
     public static final RegistryObject<InfusionAltarBlock> INFUSION_ALTAR = register("infusion_altar", InfusionAltarBlock::new);
     public static final RegistryObject<TinkeringTableBlock> TINKERING_TABLE = register("tinkering_table", TinkeringTableBlock::new);
+    public static final RegistryObject<ReprocessorBlock> BASIC_REPROCESSOR = register("basic_reprocessor", () -> new ReprocessorBlock(ReprocessorBlock.ReprocessorTier.BASIC));
+    public static final RegistryObject<ReprocessorBlock> INFERIUM_REPROCESSOR = register("inferium_reprocessor", () -> new ReprocessorBlock(ReprocessorBlock.ReprocessorTier.INFERIUM));
+    public static final RegistryObject<ReprocessorBlock> PRUDENTIUM_REPROCESSOR = register("prudentium_reprocessor", () -> new ReprocessorBlock(ReprocessorBlock.ReprocessorTier.PRUDENTIUM));
+    public static final RegistryObject<ReprocessorBlock> TERTIUM_REPROCESSOR = register("tertium_reprocessor", () -> new ReprocessorBlock(ReprocessorBlock.ReprocessorTier.TERTIUM));
+    public static final RegistryObject<ReprocessorBlock> IMPERIUM_REPROCESSOR = register("imperium_reprocessor", () -> new ReprocessorBlock(ReprocessorBlock.ReprocessorTier.IMPERIUM));
+    public static final RegistryObject<ReprocessorBlock> SUPREMIUM_REPROCESSOR = register("supremium_reprocessor", () -> new ReprocessorBlock(ReprocessorBlock.ReprocessorTier.SUPREMIUM));
 
     @SubscribeEvent
     public void onRegisterBlocks(RegistryEvent.Register<Block> event) {
