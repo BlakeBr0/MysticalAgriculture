@@ -14,6 +14,9 @@ public class ModTooltips {
     public static final Tooltip FUEL_EFFICIENCY = new Tooltip("tooltip.mysticalagriculture.fuel_efficiency");
     public static final Tooltip GROWTH_ACCELERATOR = new Tooltip("tooltip.mysticalagriculture.growth_accelerator");
     public static final Tooltip GROWTH_ACCELERATOR_RANGE = new Tooltip("tooltip.mysticalagriculture.growth_accelerator_range");
+    public static final Tooltip REPROCESSOR_SPEED = new Tooltip("tooltip.mysticalagriculture.reprocessor_speed");
+    public static final Tooltip REPROCESSOR_FUEL_RATE = new Tooltip("tooltip.mysticalagriculture.reprocessor_fuel_rate");
+    public static final Tooltip REPROCESSOR_FUEL_CAPACITY = new Tooltip("tooltip.mysticalagriculture.reprocessor_fuel_capacity");
     public static final Tooltip WATERING_CAN_AREA = new Tooltip("tooltip.mysticalagriculture.watering_can_area");
     public static final Tooltip EXPERIENCE_CAPSULE = new Tooltip("tooltip.mysticalagriculture.experience_capsule");
     public static final Tooltip SOUL_JAR = new Tooltip("tooltip.mysticalagriculture.soul_jar");

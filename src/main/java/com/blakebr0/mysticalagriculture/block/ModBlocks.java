@@ -93,6 +93,7 @@ public class ModBlocks {
     public static final RegistryObject<InfusionPedestalBlock> INFUSION_PEDESTAL = register("infusion_pedestal", InfusionPedestalBlock::new);
     public static final RegistryObject<InfusionAltarBlock> INFUSION_ALTAR = register("infusion_altar", InfusionAltarBlock::new);
     public static final RegistryObject<TinkeringTableBlock> TINKERING_TABLE = register("tinkering_table", TinkeringTableBlock::new);
+    public static final RegistryObject<BaseBlock> MACHINE_FRAME = register("machine_frame", () -> new BaseBlock(Material.ROCK, SoundType.STONE, 1.5F, 6.0F));
     public static final RegistryObject<ReprocessorBlock> BASIC_REPROCESSOR = register("basic_reprocessor", () -> new ReprocessorBlock(ReprocessorBlock.ReprocessorTier.BASIC));
     public static final RegistryObject<ReprocessorBlock> INFERIUM_REPROCESSOR = register("inferium_reprocessor", () -> new ReprocessorBlock(ReprocessorBlock.ReprocessorTier.INFERIUM));
     public static final RegistryObject<ReprocessorBlock> PRUDENTIUM_REPROCESSOR = register("prudentium_reprocessor", () -> new ReprocessorBlock(ReprocessorBlock.ReprocessorTier.PRUDENTIUM));

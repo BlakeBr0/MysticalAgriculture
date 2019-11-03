@@ -1,0 +1,25 @@
+{
+  "type": "crafting_shaped",
+  "pattern": [
+    " E ",
+    "IFI",
+    " B "
+  ],
+  "key": {
+    "E": {
+      "item": "mysticalagriculture:supremium_essence"
+    },
+    "I": {
+      "item": "mysticalagriculture:supremium_ingot"
+    },
+    "F": {
+      "item": "mysticalagriculture:imperium_reprocessor"
+    },
+    "B": {
+      "item": "mysticalagriculture:supremium_block"
+    }
+  },
+  "result": {
+    "item": "mysticalagriculture:supremium_reprocessor"
+  }
+}

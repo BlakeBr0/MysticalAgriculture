@@ -1,6 +1,7 @@
 package com.blakebr0.mysticalagriculture.block;
 
 import com.blakebr0.cucumber.block.BaseTileEntityBlock;
+import com.blakebr0.mysticalagriculture.lib.ModTooltips;
 import com.blakebr0.mysticalagriculture.tileentity.ReprocessorTileEntity;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -95,7 +96,9 @@ public class ReprocessorBlock extends BaseTileEntityBlock {
     @OnlyIn(Dist.CLIENT)
     @Override
     public void addInformation(ItemStack stack, IBlockReader world, List<ITextComponent> tooltip, ITooltipFlag flag) {
-
+        tooltip.add(ModTooltips.REPROCESSOR_SPEED.args(this.tier.getOperationTime()).build());
+        tooltip.add(ModTooltips.REPROCESSOR_FUEL_RATE.args(this.tier.getFuelUsage()).build());
+        tooltip.add(ModTooltips.REPROCESSOR_FUEL_CAPACITY.args(this.tier.getFuelCapacity()).build());
     }
 
     public enum ReprocessorTier {
