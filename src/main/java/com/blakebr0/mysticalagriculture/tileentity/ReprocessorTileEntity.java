@@ -150,6 +150,7 @@ public abstract class ReprocessorTileEntity extends BaseInventoryTileEntity impl
             } else {
                 if (this.progress > 0) {
                     this.progress = 0;
+                    this.recipe = null;
                     mark = true;
                 }
             }
