@@ -1,11 +1,14 @@
 package com.blakebr0.mysticalagriculture.tileentity;
 
+import com.blakebr0.cucumber.crafting.ISpecialRecipe;
 import com.blakebr0.cucumber.helper.StackHelper;
 import com.blakebr0.cucumber.inventory.BaseItemStackHandler;
 import com.blakebr0.cucumber.lib.Localizable;
 import com.blakebr0.cucumber.tileentity.BaseInventoryTileEntity;
 import com.blakebr0.mysticalagriculture.block.ReprocessorBlock;
 import com.blakebr0.mysticalagriculture.container.ReprocessorContainer;
+import com.blakebr0.mysticalagriculture.crafting.MysticalRecipeManager;
+import com.blakebr0.mysticalagriculture.crafting.SpecialRecipeTypes;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.container.Container;
@@ -20,6 +23,7 @@ import net.minecraftforge.common.ForgeHooks;
 
 public abstract class ReprocessorTileEntity extends BaseInventoryTileEntity implements INamedContainerProvider, ITickableTileEntity {
     private final BaseItemStackHandler inventory = new BaseItemStackHandler(3);
+    private ISpecialRecipe recipe;
     private int progress;
     private int fuel;
     private int fuelLeft;
@@ -118,25 +122,30 @@ public abstract class ReprocessorTileEntity extends BaseInventoryTileEntity impl
             ItemStack output = this.inventory.getStackInSlot(2);
 
             if (!input.isEmpty()) {
-                ItemStack recipeOutput = /*ReprocessorManager.getOutput(input)*/ ItemStack.EMPTY;
+                if (this.recipe == null || !this.recipe.matches(this.inventory)) {
+                    this.recipe = MysticalRecipeManager.getInstance().getRecipe(SpecialRecipeTypes.REPROCESSOR, this.inventory);
+                }
 
-                if (!recipeOutput.isEmpty() && (output.isEmpty() || StackHelper.canCombineStacks(output, recipeOutput))) {
-                    this.progress++;
-                    this.fuel -= this.getFuelUsage();
+                if (this.recipe != null) {
+                    ItemStack recipeOutput = recipe.getOutput();
+                    if (!recipeOutput.isEmpty() && (output.isEmpty() || StackHelper.canCombineStacks(output, recipeOutput))) {
+                        this.progress++;
+                        this.fuel -= this.getFuelUsage();
 
-                    if (this.progress >= this.getOperationTime()) {
-                        this.inventory.extractItem(0, 1, false);
+                        if (this.progress >= this.getOperationTime()) {
+                            this.inventory.extractItem(0, 1, false);
 
-                        if (output.isEmpty()) {
-                            this.inventory.setStackInSlot(2, recipeOutput.copy());
-                        } else {
-                            output.grow(recipeOutput.getCount());
+                            if (output.isEmpty()) {
+                                this.inventory.setStackInSlot(2, recipeOutput.copy());
+                            } else {
+                                output.grow(recipeOutput.getCount());
+                            }
+
+                            this.progress = 0;
                         }
 
-                        this.progress = 0;
+                        mark = true;
                     }
-
-                    mark = true;
                 }
             } else {
                 if (this.progress > 0) {

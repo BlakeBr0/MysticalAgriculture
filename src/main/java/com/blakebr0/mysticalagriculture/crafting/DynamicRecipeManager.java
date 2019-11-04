@@ -5,6 +5,7 @@ import com.blakebr0.mysticalagriculture.MysticalAgriculture;
 import com.blakebr0.mysticalagriculture.api.crop.ICrop;
 import com.blakebr0.mysticalagriculture.config.ModConfigs;
 import com.blakebr0.mysticalagriculture.crafting.recipe.InfusionRecipe;
+import com.blakebr0.mysticalagriculture.crafting.recipe.ReprocessorRecipe;
 import com.blakebr0.mysticalagriculture.registry.CropRegistry;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -38,11 +39,13 @@ public class DynamicRecipeManager implements IResourceManagerReloadListener {
         CropRegistry.getInstance().getCrops().forEach(crop -> {
             ISpecialRecipe seed = this.makeSeedRecipe(crop);
             IRecipe seed2 = this.makeRegularSeedRecipe(crop);
+            ISpecialRecipe reprocessor = this.makeReprocessorRecipe(crop);
 
             if (seed != null)
                 manager.addRecipe(seed);
             if (seed2 != null)
                 recipes.put(seed2.getId(), seed2);
+            manager.addRecipe(reprocessor);
         });
     }
 
@@ -101,5 +104,13 @@ public class DynamicRecipeManager implements IResourceManagerReloadListener {
         ItemStack output = new ItemStack(crop.getSeeds());
 
         return new ShapedRecipe(name, "", 3, 3, inputs, output);
+    }
+
+    private ISpecialRecipe makeReprocessorRecipe(ICrop crop) {
+        Ingredient input = Ingredient.fromItems(crop.getSeeds());
+        ResourceLocation name = new ResourceLocation(MysticalAgriculture.MOD_ID, crop.getNameWithSuffix("_seeds_reprocessor"));
+        ItemStack output = new ItemStack(crop.getEssence(), 2);
+
+        return new ReprocessorRecipe(name, input, output);
     }
 }

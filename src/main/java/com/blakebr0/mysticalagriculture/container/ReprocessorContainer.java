@@ -1,5 +1,7 @@
 package com.blakebr0.mysticalagriculture.container;
 
+import com.blakebr0.mysticalagriculture.crafting.MysticalRecipeManager;
+import com.blakebr0.mysticalagriculture.crafting.SpecialRecipeTypes;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.container.Container;
@@ -8,12 +10,12 @@ import net.minecraft.inventory.container.Slot;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIntArray;
 import net.minecraft.util.IntArray;
+import net.minecraftforge.common.ForgeHooks;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.ItemStackHandler;
 import net.minecraftforge.items.SlotItemHandler;
 
 public class ReprocessorContainer extends Container {
-    private final IItemHandler inventory;
     private final IIntArray data;
 
     private ReprocessorContainer(ContainerType<?> type, int id, PlayerInventory playerInventory) {
@@ -22,12 +24,11 @@ public class ReprocessorContainer extends Container {
 
     private ReprocessorContainer(ContainerType<?> type, int id, PlayerInventory playerInventory, IItemHandler inventory, IIntArray data) {
         super(type, id);
-        this.inventory = inventory;
         this.data = data;
 
-        this.addSlot(new SlotItemHandler(this.inventory, 0, 74, 42));
-        this.addSlot(new SlotItemHandler(this.inventory, 1, 36, 50));
-        this.addSlot(new SlotItemHandler(this.inventory, 2, 134, 42));
+        this.addSlot(new SlotItemHandler(inventory, 0, 74, 42));
+        this.addSlot(new SlotItemHandler(inventory, 1, 36, 50));
+        this.addSlot(new SlotItemHandler(inventory, 2, 134, 42));
 
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 9; j++) {
@@ -49,7 +50,53 @@ public class ReprocessorContainer extends Container {
 
     @Override
     public ItemStack transferStackInSlot(PlayerEntity player, int index) {
-        return ItemStack.EMPTY;
+        ItemStack itemstack = ItemStack.EMPTY;
+        Slot slot = this.inventorySlots.get(index);
+
+        if (slot != null && slot.getHasStack()) {
+            ItemStack itemstack1 = slot.getStack();
+            itemstack = itemstack1.copy();
+
+            if (index == 2) {
+                if (!this.mergeItemStack(itemstack1, 3, 39, true)) {
+                    return ItemStack.EMPTY;
+                }
+
+                slot.onSlotChange(itemstack1, itemstack);
+            } else if (index != 1 && index != 0) {
+                if (MysticalRecipeManager.getInstance().getRecipes(SpecialRecipeTypes.REPROCESSOR).values().stream().anyMatch(r -> r.getIngredients().get(0).test(itemstack1))) {
+                    if (!this.mergeItemStack(itemstack1, 0, 1, false)) {
+                        return ItemStack.EMPTY;
+                    }
+                } else if (ForgeHooks.getBurnTime(itemstack1) > 0) {
+                    if (!this.mergeItemStack(itemstack1, 1, 2, false)) {
+                        return ItemStack.EMPTY;
+                    }
+                } else if (index < 30) {
+                    if (!this.mergeItemStack(itemstack1, 30, 39, false)) {
+                        return ItemStack.EMPTY;
+                    }
+                } else if (index < 39 && !this.mergeItemStack(itemstack1, 3, 30, false)) {
+                    return ItemStack.EMPTY;
+                }
+            } else if (!this.mergeItemStack(itemstack1, 3, 39, false)) {
+                return ItemStack.EMPTY;
+            }
+
+            if (itemstack1.isEmpty()) {
+                slot.putStack(ItemStack.EMPTY);
+            } else {
+                slot.onSlotChanged();
+            }
+
+            if (itemstack1.getCount() == itemstack.getCount()) {
+                return ItemStack.EMPTY;
+            }
+
+            slot.onTake(player, itemstack1);
+        }
+
+        return itemstack;
     }
 
     public static ReprocessorContainer create(int windowId, PlayerInventory playerInventory) {

@@ -31,7 +31,8 @@ public class JeiCompat implements IModPlugin {
         IGuiHelper guiHelper = registration.getJeiHelpers().getGuiHelper();
 
         registration.addRecipeCategories(
-                new InfusionCategory(guiHelper)
+                new InfusionCategory(guiHelper),
+                new ReprocessorCategory(guiHelper)
         );
     }
 
@@ -39,6 +40,12 @@ public class JeiCompat implements IModPlugin {
     public void registerRecipeCatalysts(IRecipeCatalystRegistration registration) {
         registration.addRecipeCatalyst(new ItemStack(ModBlocks.INFUSION_ALTAR.get()), InfusionCategory.UID);
         registration.addRecipeCatalyst(new ItemStack(ModBlocks.INFUSION_PEDESTAL.get()), InfusionCategory.UID);
+        registration.addRecipeCatalyst(new ItemStack(ModBlocks.BASIC_REPROCESSOR.get()), ReprocessorCategory.UID);
+        registration.addRecipeCatalyst(new ItemStack(ModBlocks.INFERIUM_REPROCESSOR.get()), ReprocessorCategory.UID);
+        registration.addRecipeCatalyst(new ItemStack(ModBlocks.PRUDENTIUM_REPROCESSOR.get()), ReprocessorCategory.UID);
+        registration.addRecipeCatalyst(new ItemStack(ModBlocks.TERTIUM_REPROCESSOR.get()), ReprocessorCategory.UID);
+        registration.addRecipeCatalyst(new ItemStack(ModBlocks.IMPERIUM_REPROCESSOR.get()), ReprocessorCategory.UID);
+        registration.addRecipeCatalyst(new ItemStack(ModBlocks.SUPREMIUM_REPROCESSOR.get()), ReprocessorCategory.UID);
     }
 
     @Override
@@ -46,6 +53,7 @@ public class JeiCompat implements IModPlugin {
         MysticalRecipeManager manager = MysticalRecipeManager.getInstance();
 
         registration.addRecipes(manager.getRecipes(SpecialRecipeTypes.INFUSION).values(), InfusionCategory.UID);
+        registration.addRecipes(manager.getRecipes(SpecialRecipeTypes.REPROCESSOR).values(), ReprocessorCategory.UID);
     }
 
     @Override

@@ -6,6 +6,7 @@ import com.blakebr0.mysticalagriculture.crafting.condition.CropEnabledCondition;
 import com.blakebr0.mysticalagriculture.crafting.ingredient.HoeIngredient;
 import com.blakebr0.mysticalagriculture.crafting.recipe.FarmlandTillRecipe;
 import com.blakebr0.mysticalagriculture.crafting.recipe.InfusionRecipe;
+import com.blakebr0.mysticalagriculture.crafting.recipe.ReprocessorRecipe;
 import net.minecraft.item.HoeItem;
 import net.minecraft.item.crafting.IRecipeSerializer;
 import net.minecraft.util.ResourceLocation;
@@ -23,6 +24,7 @@ public class ModRecipeSerializers {
     public static final IRecipeSerializer<FarmlandTillRecipe> CRAFTING_FARMLAND_TILL = new FarmlandTillRecipe.Serializer();
 
     public static final ISpecialRecipeSerializer<InfusionRecipe> SPECIAL_INFUSION = new InfusionRecipe.Serializer();
+    public static final ISpecialRecipeSerializer<ReprocessorRecipe> SPECIAL_REPROCESSOR = new ReprocessorRecipe.Serializer();
 
     public static final IIngredientSerializer<HoeIngredient> HOE_INGREDIENT = new HoeIngredient.Serializer();
 
@@ -34,6 +36,7 @@ public class ModRecipeSerializers {
         registry.register(CRAFTING_FARMLAND_TILL.setRegistryName(new ResourceLocation(MysticalAgriculture.MOD_ID, "farmland_till")));
 
         manager.addSerializer(new ResourceLocation(MysticalAgriculture.MOD_ID, "infusion"), SPECIAL_INFUSION);
+        manager.addSerializer(new ResourceLocation(MysticalAgriculture.MOD_ID, "reprocessor"), SPECIAL_REPROCESSOR);
 
         CraftingHelper.register(CropEnabledCondition.Serializer.INSTANCE);
 
