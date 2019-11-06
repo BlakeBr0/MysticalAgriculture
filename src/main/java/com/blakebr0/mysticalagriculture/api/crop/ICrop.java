@@ -210,12 +210,12 @@ public interface ICrop {
      * @param block the block below the crop
      * @return the chance of a second seed/essence dropping
      */
-    default int getSecondaryChance(Block block) {
-        int chance = 0;
+    default double getSecondaryChance(Block block) {
+        double chance = 0;
         if (block instanceof IEssenceFarmland)
-            chance += 10;
+            chance += 0.1;
         if (this.getTier().isEffectiveFarmland(block))
-            chance += 10;
+            chance += 0.1;
 
         return chance;
     }

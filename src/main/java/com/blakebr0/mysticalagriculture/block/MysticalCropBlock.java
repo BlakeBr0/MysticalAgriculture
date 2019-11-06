@@ -59,12 +59,12 @@ public class MysticalCropBlock extends CropsBlock implements ICropGetter {
             BlockPos pos = builder.get(LootParameters.POSITION);
             if (pos != null) {
                 Block below = builder.getWorld().getBlockState(pos.down()).getBlock();
-                int chance = this.crop.getSecondaryChance(below);
+                double chance = this.crop.getSecondaryChance(below);
 
-                if (builder.getWorld().getRandom().nextInt(100) < chance)
+                if (builder.getWorld().getRandom().nextDouble() < chance)
                     crop = 2;
 
-                if (builder.getWorld().getRandom().nextInt(100) < chance)
+                if (builder.getWorld().getRandom().nextDouble() < chance)
                     seed = 2;
 
                 Double fertilizerChance = ModConfigs.FERTILIZED_ESSENCE_DROP_CHANCE.get();
