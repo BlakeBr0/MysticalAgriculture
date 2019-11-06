@@ -2,6 +2,8 @@ package com.blakebr0.mysticalagriculture.block;
 
 import com.blakebr0.mysticalagriculture.api.crop.ICrop;
 import com.blakebr0.mysticalagriculture.api.crop.ICropGetter;
+import com.blakebr0.mysticalagriculture.config.ModConfigs;
+import com.blakebr0.mysticalagriculture.item.ModItems;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -49,6 +51,7 @@ public class MysticalCropBlock extends CropsBlock implements ICropGetter {
 
         int crop = 0;
         int seed = 1;
+        int fertilizer = 0;
 
         if (age == this.getMaxAge()) {
             crop = 1;
@@ -63,6 +66,10 @@ public class MysticalCropBlock extends CropsBlock implements ICropGetter {
 
                 if (builder.getWorld().getRandom().nextInt(100) < chance)
                     seed = 2;
+
+                Double fertilizerChance = ModConfigs.FERTILIZED_ESSENCE_DROP_CHANCE.get();
+                if (builder.getWorld().getRandom().nextDouble() < fertilizerChance)
+                    fertilizer = 1;
             }
         }
 
@@ -71,6 +78,9 @@ public class MysticalCropBlock extends CropsBlock implements ICropGetter {
             drops.add(new ItemStack(this.getCropsItem(), crop));
 
         drops.add(new ItemStack(this.getSeedsItem(), seed));
+
+        if (fertilizer > 0)
+            drops.add(new ItemStack(ModItems.FERTILIZED_ESSENCE.get()));
 
         return drops;
     }

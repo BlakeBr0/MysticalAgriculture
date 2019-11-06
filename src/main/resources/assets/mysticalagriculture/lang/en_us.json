@@ -208,6 +208,7 @@
   "tooltip.mysticalagriculture.invalid_entity": "Invalid Entity",
   "tooltip.mysticalagriculture.soulium_dagger": "Grants additional souls from peaceful creatures.",
   "tooltip.mysticalagriculture.activate_with_redstone": "Activate with Redstone",
+  "tooltip.mysticalagriculture.fertilized_essence_chance": "%s Drop Chance",
 
   "jei.category.mysticalagriculture.infusion": "Infusion Crafting",
   "jei.category.mysticalagriculture.reprocessor": "Seed Reprocessing",
