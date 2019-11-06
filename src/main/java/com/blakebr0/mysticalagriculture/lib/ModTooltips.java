@@ -23,4 +23,5 @@ public class ModTooltips {
     public static final Tooltip SOULIUM_DAGGER = new Tooltip("tooltip.mysticalagriculture.soulium_dagger");
     public static final Tooltip ACTIVATE_WITH_REDSTONE = new Tooltip("tooltip.mysticalagriculture.activate_with_redstone");
     public static final Tooltip FERTILIZED_ESSENCE_CHANCE = new Tooltip("tooltip.mysticalagriculture.fertilized_essence_chance");
+    public static final Tooltip MYSTICAL_FERTILIZER = new Tooltip("tooltip.mysticalagriculture.mystical_fertilizer");
 }

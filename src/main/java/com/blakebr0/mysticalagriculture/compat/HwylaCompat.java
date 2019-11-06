@@ -42,10 +42,10 @@ public class HwylaCompat implements IWailaPlugin {
 
                 BlockPos downPos = accessor.getPosition().down();
                 Block belowBlock = accessor.getWorld().getBlockState(downPos).getBlock();
-                int secondaryChance = crop.getSecondaryChance(belowBlock);
+                double secondaryChance = crop.getSecondaryChance(belowBlock);
 
                 if (secondaryChance > 0) {
-                    ITextComponent chanceText = new StringTextComponent(String.valueOf(secondaryChance)).appendText("%").applyTextStyle(crop.getTier().getTextColor());
+                    ITextComponent chanceText = new StringTextComponent(String.valueOf((int) (secondaryChance * 100))).appendText("%").applyTextStyle(crop.getTier().getTextColor());
                     tooltip.add(ModTooltips.SECONDARY_CHANCE.args(chanceText).build());
                 }
             }

@@ -209,6 +209,7 @@
   "tooltip.mysticalagriculture.soulium_dagger": "Grants additional souls from peaceful creatures.",
   "tooltip.mysticalagriculture.activate_with_redstone": "Activate with Redstone",
   "tooltip.mysticalagriculture.fertilized_essence_chance": "%s Drop Chance",
+  "tooltip.mysticalagriculture.mystical_fertilizer": "Instantly grows a crop or sapling.",
 
   "jei.category.mysticalagriculture.infusion": "Infusion Crafting",
   "jei.category.mysticalagriculture.reprocessor": "Seed Reprocessing",

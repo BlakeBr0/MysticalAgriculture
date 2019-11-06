@@ -2,20 +2,26 @@ package com.blakebr0.mysticalagriculture.item;
 
 import com.blakebr0.cucumber.item.BaseItem;
 import com.blakebr0.mysticalagriculture.api.crop.ICropGetter;
+import com.blakebr0.mysticalagriculture.lib.ModTooltips;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.CropsBlock;
 import net.minecraft.block.IGrowable;
 import net.minecraft.block.SaplingBlock;
+import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUseContext;
 import net.minecraft.util.ActionResultType;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.text.ITextComponent;
 import net.minecraft.world.World;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.common.util.Constants;
 import net.minecraftforge.event.ForgeEventFactory;
 
+import java.util.List;
 import java.util.Random;
 import java.util.function.Function;
 
@@ -45,6 +51,12 @@ public class MysticalFertilizerItem extends BaseItem {
         }
 
         return ActionResultType.PASS;
+    }
+
+    @OnlyIn(Dist.CLIENT)
+    @Override
+    public void addInformation(ItemStack stack, World world, List<ITextComponent> tooltip, ITooltipFlag flag) {
+        tooltip.add(ModTooltips.MYSTICAL_FERTILIZER.build());
     }
 
     public static boolean applyFertilizer(ItemStack stack, World world, BlockPos pos, PlayerEntity player){
