@@ -34,17 +34,17 @@ public class ColorHandler {
         colors.register((stack, tint) -> {
             float damage = (float) (stack.getMaxDamage() - stack.getDamage()) / stack.getMaxDamage();
             return Utils.saturate(0x00D9D9, damage);
-        }, ModItems.INFUSION_CRYSTAL::get);
+        }, ModItems.INFUSION_CRYSTAL.get());
 
-        colors.register((stack, tint) -> ModCorePlugin.AIR.getEssenceColor(), ModItems.AIR_AGGLOMERATIO::get);
-        colors.register((stack, tint) -> ModCorePlugin.EARTH.getEssenceColor(), ModItems.EARTH_AGGLOMERATIO::get);
-        colors.register((stack, tint) -> ModCorePlugin.WATER.getEssenceColor(), ModItems.WATER_AGGLOMERATIO::get);
-        colors.register((stack, tint) -> ModCorePlugin.FIRE.getEssenceColor(), ModItems.FIRE_AGGLOMERATIO::get);
+        colors.register((stack, tint) -> ModCorePlugin.AIR.getEssenceColor(), ModItems.AIR_AGGLOMERATIO.get());
+        colors.register((stack, tint) -> ModCorePlugin.EARTH.getEssenceColor(), ModItems.EARTH_AGGLOMERATIO.get());
+        colors.register((stack, tint) -> ModCorePlugin.WATER.getEssenceColor(), ModItems.WATER_AGGLOMERATIO.get());
+        colors.register((stack, tint) -> ModCorePlugin.FIRE.getEssenceColor(), ModItems.FIRE_AGGLOMERATIO.get());
 
         colors.register((stack, tint) -> {
             IMobSoulType type = MobSoulUtils.getType(stack);
             return tint == 1 ? type != null ? type.getColor() : -1 : -1;
-        }, ModItems.SOUL_JAR::get);
+        }, ModItems.SOUL_JAR.get());
 
         CropRegistry.getInstance().getCrops().forEach(crop -> {
             if (crop.isEssenceColored() && crop.getEssence() != null)

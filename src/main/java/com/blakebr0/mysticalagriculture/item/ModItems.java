@@ -66,14 +66,14 @@ public class ModItems {
     public static final RegistryObject<BaseItem> SOULIUM_SEED_BASE = register("soulium_seed_base");
     public static final RegistryObject<BaseItem> SOUL_DUST = register("soul_dust");
     public static final RegistryObject<SouliumDaggerItem> SOULIUM_DAGGER = register("soulium_dagger", () -> new SouliumDaggerItem(ModItemTier.SOULIUM, p -> p.group(ITEM_GROUP)));
-    public static final RegistryObject<InfusionCrystalItem> INFUSION_CRYSTAL = register("infusion_crystal", () -> new InfusionCrystalItem(p -> p.group(ITEM_GROUP)));
+    public static final RegistryObject<Item> INFUSION_CRYSTAL = register("infusion_crystal", () -> new InfusionCrystalItem(p -> p.group(ITEM_GROUP)));
     public static final RegistryObject<MasterInfusionCrystalItem> MASTER_INFUSION_CRYSTAL = register("master_infusion_crystal", () -> new MasterInfusionCrystalItem(p -> p.group(ITEM_GROUP)));
     public static final RegistryObject<FertilizedEssenceItem> FERTILIZED_ESSENCE = register("fertilized_essence", () -> new FertilizedEssenceItem(p -> p.group(ITEM_GROUP)));
     public static final RegistryObject<MysticalFertilizerItem> MYSTICAL_FERTILIZER = register("mystical_fertilizer", () -> new MysticalFertilizerItem(p -> p.group(ITEM_GROUP)));
-    public static final RegistryObject<BaseItem> AIR_AGGLOMERATIO = register("air_agglomeratio");
-    public static final RegistryObject<BaseItem> EARTH_AGGLOMERATIO = register("earth_agglomeratio");
-    public static final RegistryObject<BaseItem> WATER_AGGLOMERATIO = register("water_agglomeratio");
-    public static final RegistryObject<BaseItem> FIRE_AGGLOMERATIO = register("fire_agglomeratio");
+    public static final RegistryObject<Item> AIR_AGGLOMERATIO = register("air_agglomeratio");
+    public static final RegistryObject<Item> EARTH_AGGLOMERATIO = register("earth_agglomeratio");
+    public static final RegistryObject<Item> WATER_AGGLOMERATIO = register("water_agglomeratio");
+    public static final RegistryObject<Item> FIRE_AGGLOMERATIO = register("fire_agglomeratio");
     public static final RegistryObject<BaseItem> NATURE_AGGLOMERATIO = register("nature_agglomeratio");
     public static final RegistryObject<BaseItem> DYE_AGGLOMERATIO = register("dye_agglomeratio");
     public static final RegistryObject<BaseItem> NETHER_AGGLOMERATIO = register("nether_agglomeratio");
@@ -82,7 +82,7 @@ public class ModItems {
     public static final RegistryObject<ExperienceDropletItem> EXPERIENCE_DROPLET = register("experience_droplet", () -> new ExperienceDropletItem(p -> p.group(ITEM_GROUP)));
     public static final RegistryObject<BaseItem> BLANK_SKULL = register("blank_skull");
     public static final RegistryObject<BaseItem> BLANK_RECORD = register("blank_record");
-    public static final RegistryObject<SoulJarItem> SOUL_JAR = register("soul_jar", () -> new SoulJarItem(p -> p.group(ITEM_GROUP)));
+    public static final RegistryObject<Item> SOUL_JAR = register("soul_jar", () -> new SoulJarItem(p -> p.group(ITEM_GROUP)));
     public static final RegistryObject<ExperienceCapsuleItem> EXPERIENCE_CAPSULE = register("experience_capsule", () -> new ExperienceCapsuleItem(p -> p.group(ITEM_GROUP)));
     public static final RegistryObject<WateringCanItem> WATERING_CAN = register("watering_can", () -> new WateringCanItem(p -> p.group(ITEM_GROUP)));
 
@@ -149,6 +149,13 @@ public class ModItems {
         ENTRIES.stream().map(Supplier::get).forEach(registry::register);
         CropRegistry.getInstance().onRegisterItems(registry);
         GEAR_ENTRIES.stream().map(Supplier::get).forEach(registry::register);
+
+        INFUSION_CRYSTAL.updateReference(registry);
+        AIR_AGGLOMERATIO.updateReference(registry);
+        EARTH_AGGLOMERATIO.updateReference(registry);
+        WATER_AGGLOMERATIO.updateReference(registry);
+        FIRE_AGGLOMERATIO.updateReference(registry);
+        SOUL_JAR.updateReference(registry);
     }
 
     private static <T extends Item> RegistryObject<T> register(String name) {
