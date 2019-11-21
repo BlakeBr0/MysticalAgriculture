@@ -26,7 +26,6 @@ import net.minecraft.util.math.BlockRayTraceResult;
 import net.minecraft.util.math.shapes.ISelectionContext;
 import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.util.text.ITextComponent;
-import net.minecraft.util.text.StringTextComponent;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.IWorld;
 import net.minecraft.world.World;
@@ -62,11 +61,9 @@ public class TinkeringTableBlock extends BaseTileEntityBlock {
         if (world.isRemote()) {
             return true;
         } else {
-            player.sendMessage(new StringTextComponent("Not yet implemented!"));
-
-//            TileEntity tile = world.getTileEntity(pos);
-//            if (tile instanceof TinkeringTableTileEntity)
-//                player.openContainer((TinkeringTableTileEntity) tile);
+            TileEntity tile = world.getTileEntity(pos);
+            if (tile instanceof TinkeringTableTileEntity)
+                player.openContainer((TinkeringTableTileEntity) tile);
 
             return true;
         }

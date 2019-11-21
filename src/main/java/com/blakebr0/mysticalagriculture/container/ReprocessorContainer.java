@@ -15,15 +15,19 @@ import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.ItemStackHandler;
 import net.minecraftforge.items.SlotItemHandler;
 
+import java.util.function.Function;
+
 public class ReprocessorContainer extends Container {
+    private final Function<PlayerEntity, Boolean> isUsableByPlayer;
     private final IIntArray data;
 
     private ReprocessorContainer(ContainerType<?> type, int id, PlayerInventory playerInventory) {
-        this(type, id, playerInventory, new ItemStackHandler(3), new IntArray(6));
+        this(type, id, playerInventory, p -> false, new ItemStackHandler(3), new IntArray(6));
     }
 
-    private ReprocessorContainer(ContainerType<?> type, int id, PlayerInventory playerInventory, IItemHandler inventory, IIntArray data) {
+    private ReprocessorContainer(ContainerType<?> type, int id, PlayerInventory playerInventory, Function<PlayerEntity, Boolean> isUsableByPlayer, IItemHandler inventory, IIntArray data) {
         super(type, id);
+        this.isUsableByPlayer = isUsableByPlayer;
         this.data = data;
 
         this.addSlot(new SlotItemHandler(inventory, 0, 74, 42));
@@ -45,7 +49,7 @@ public class ReprocessorContainer extends Container {
 
     @Override
     public boolean canInteractWith(PlayerEntity player) {
-        return true;
+        return this.isUsableByPlayer.apply(player);
     }
 
     @Override
@@ -103,8 +107,8 @@ public class ReprocessorContainer extends Container {
         return new ReprocessorContainer(ModContainerTypes.REPROCESSOR.get(), windowId, playerInventory);
     }
 
-    public static ReprocessorContainer create(int windowId, PlayerInventory playerInventory, IItemHandler inventory, IIntArray data) {
-        return new ReprocessorContainer(ModContainerTypes.REPROCESSOR.get(), windowId, playerInventory, inventory, data);
+    public static ReprocessorContainer create(int windowId, PlayerInventory playerInventory, Function<PlayerEntity, Boolean> isUsableByPlayer, IItemHandler inventory, IIntArray data) {
+        return new ReprocessorContainer(ModContainerTypes.REPROCESSOR.get(), windowId, playerInventory, isUsableByPlayer, inventory, data);
     }
 
     public int getCookProgressScaled(int pixels) {

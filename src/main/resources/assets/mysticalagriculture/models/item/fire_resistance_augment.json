@@ -1,0 +1,6 @@
+{
+  "parent": "mysticalagriculture:item/augment",
+  "textures": {
+    "top": "mysticalagriculture:item/experience_capsule"
+  }
+}

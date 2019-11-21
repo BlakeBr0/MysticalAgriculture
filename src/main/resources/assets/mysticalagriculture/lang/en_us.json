@@ -181,6 +181,9 @@
   "item.mysticalagriculture.supremium_leggings": "Supremium Leggings",
   "item.mysticalagriculture.supremium_boots": "Supremium Boots",
 
+  "item.mysticalagriculture.augment": "%s Augment",
+
+  "container.mysticalagriculture.tinkering_table": "Tinkering Table",
   "container.mysticalagriculture.inferium_furnace": "Inferium Furnace",
   "container.mysticalagriculture.prudentium_furnace": "Prudentium Furnace",
   "container.mysticalagriculture.tertium_furnace": "Tertium Furnace",
@@ -268,5 +271,7 @@
 
   "crop.mysticalagriculture.diamond": "Diamond",
   "crop.mysticalagriculture.emerald": "Emerald",
-  "crop.mysticalagriculture.wither_skeleton": "Wither Skeleton"
+  "crop.mysticalagriculture.wither_skeleton": "Wither Skeleton",
+
+  "augment.mysticalagriculture.fire_resistance": "Fire Resistance"
 }

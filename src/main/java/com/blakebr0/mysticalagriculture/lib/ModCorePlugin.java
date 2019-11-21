@@ -6,11 +6,13 @@ import com.blakebr0.mysticalagriculture.api.crop.CropTextures;
 import com.blakebr0.mysticalagriculture.api.crop.CropTier;
 import com.blakebr0.mysticalagriculture.api.crop.CropType;
 import com.blakebr0.mysticalagriculture.api.lib.LazyIngredient;
+import com.blakebr0.mysticalagriculture.api.registry.IAugmentRegistry;
 import com.blakebr0.mysticalagriculture.api.registry.ICropRegistry;
 import com.blakebr0.mysticalagriculture.api.registry.IMobSoulTypeRegistry;
 import com.blakebr0.mysticalagriculture.api.soul.MobSoulType;
 import com.blakebr0.mysticalagriculture.api.util.ExperienceCapsuleUtils;
 import com.blakebr0.mysticalagriculture.api.util.MobSoulUtils;
+import com.blakebr0.mysticalagriculture.augment.ModAugments;
 import com.blakebr0.mysticalagriculture.block.InferiumCropBlock;
 import com.blakebr0.mysticalagriculture.block.ModBlocks;
 import com.blakebr0.mysticalagriculture.item.ModItems;
@@ -162,6 +164,11 @@ public class ModCorePlugin implements IMysticalAgriculturePlugin {
         registry.register(GHAST_SOUL_TYPE);
         registry.register(ENDERMAN_SOUL_TYPE);
         registry.register(WITHER_SKELETON_SOUL_TYPE);
+    }
+
+    @Override
+    public void onRegisterAugments(IAugmentRegistry registry) {
+        ModAugments.onRegisterAugments(registry);
     }
 
     public static void onCommonSetup() {

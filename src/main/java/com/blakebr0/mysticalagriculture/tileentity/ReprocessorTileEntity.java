@@ -167,7 +167,7 @@ public abstract class ReprocessorTileEntity extends BaseInventoryTileEntity impl
 
     @Override
     public Container createMenu(int id, PlayerInventory playerInventory, PlayerEntity player) {
-        return ReprocessorContainer.create(id, playerInventory, this.inventory, this.data);
+        return ReprocessorContainer.create(id, playerInventory, this::isUsableByPlayer, this.inventory, this.data);
     }
 
     public int getProgress() {

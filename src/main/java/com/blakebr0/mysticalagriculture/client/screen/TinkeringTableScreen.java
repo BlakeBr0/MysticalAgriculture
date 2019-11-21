@@ -2,9 +2,11 @@ package com.blakebr0.mysticalagriculture.client.screen;
 
 import com.blakebr0.mysticalagriculture.MysticalAgriculture;
 import com.blakebr0.mysticalagriculture.container.TinkeringTableContainer;
+import com.blakebr0.mysticalagriculture.container.slot.AugmentSlot;
 import com.mojang.blaze3d.platform.GlStateManager;
 import net.minecraft.client.gui.screen.inventory.ContainerScreen;
 import net.minecraft.entity.player.PlayerInventory;
+import net.minecraft.inventory.container.Slot;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.ITextComponent;
 
@@ -14,7 +16,7 @@ public class TinkeringTableScreen extends ContainerScreen<TinkeringTableContaine
     public TinkeringTableScreen(TinkeringTableContainer container, PlayerInventory inv, ITextComponent title) {
         super(container, inv, title);
         this.xSize = 176;
-        this.ySize = 201;
+        this.ySize = 197;
     }
 
     @Override
@@ -25,11 +27,24 @@ public class TinkeringTableScreen extends ContainerScreen<TinkeringTableContaine
     }
 
     @Override
+    protected void drawGuiContainerForegroundLayer(int mouseX, int mouseY) {
+        String title = this.getTitle().getFormattedText();
+        this.font.drawString(title, (float) (this.xSize / 2 - this.font.getStringWidth(title) / 2), 6.0F, 4210752);
+        this.font.drawString(this.playerInventory.getDisplayName().getFormattedText(), 8.0F, (float) (this.ySize - 96 + 2), 4210752);
+    }
+
+    @Override
     protected void drawGuiContainerBackgroundLayer(float partialTicks, int mouseX, int mouseY) {
         GlStateManager.color4f(1.0F, 1.0F, 1.0F, 1.0F);
         this.getMinecraft().getTextureManager().bindTexture(BACKGROUND);
         int x = (this.width - this.xSize) / 2;
         int y = (this.height - this.ySize) / 2;
-        this.blit(x, y, 0, 0, this.ySize, this.ySize);
+        this.blit(x, y, 0, 0, this.xSize, this.ySize);
+
+        for (Slot slot : this.container.inventorySlots) {
+            if (slot.isEnabled() && slot instanceof AugmentSlot) {
+                this.blit(x + slot.xPos, y + slot.yPos, 80, 49, 16, 16);
+            }
+        }
     }
 }

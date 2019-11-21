@@ -29,7 +29,8 @@ public class ReprocessorScreen extends ContainerScreen<ReprocessorContainer> {
     protected void drawGuiContainerForegroundLayer(int mouseX, int mouseY) {
         String title = this.getTitle().getFormattedText();
         this.font.drawString(title, (float) (this.xSize / 2 - this.font.getStringWidth(title) / 2), 6.0F, 4210752);
-        this.font.drawString(this.playerInventory.getDisplayName().getFormattedText(), 8.0F, (float)(this.ySize - 96 + 2), 4210752);    }
+        this.font.drawString(this.playerInventory.getDisplayName().getFormattedText(), 8.0F, (float)(this.ySize - 96 + 2), 4210752);
+    }
 
     @Override
     protected void drawGuiContainerBackgroundLayer(float partialTicks, int mouseX, int mouseY) {

@@ -2,13 +2,18 @@ package com.blakebr0.mysticalagriculture.registry;
 
 import com.blakebr0.mysticalagriculture.api.registry.IAugmentRegistry;
 import com.blakebr0.mysticalagriculture.api.tinkering.IAugment;
+import com.blakebr0.mysticalagriculture.item.AugmentItem;
+import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.registries.IForgeRegistry;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+
+import static com.blakebr0.mysticalagriculture.MysticalAgriculture.ITEM_GROUP;
 
 public class AugmentRegistry implements IAugmentRegistry {
     private static final Logger LOGGER = LogManager.getLogger();
@@ -37,5 +42,16 @@ public class AugmentRegistry implements IAugmentRegistry {
 
     public static AugmentRegistry getInstance() {
         return INSTANCE;
+    }
+
+    public void onRegisterItems(IForgeRegistry<Item> registry) {
+        PluginRegistry.getInstance().forEach(plugin -> plugin.onRegisterAugments(this));
+
+        this.augments.forEach(a -> {
+            Item item = new AugmentItem(a, p -> p.group(ITEM_GROUP));
+            item.setRegistryName(a.getNameWithSuffix("augment"));
+
+            registry.register(item);
+        });
     }
 }
