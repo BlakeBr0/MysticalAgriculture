@@ -106,6 +106,8 @@ public class MysticalAgriculture {
 	public void onClientSetup(FMLClientSetupEvent event) {
 		MinecraftForge.EVENT_BUS.register(new MultiblockGuideRenderer());
 
+		ColorHandler.onClientSetup();
+
 		ModTileEntities.onClientSetup();
 		ModContainerTypes.onClientSetup();
 	}

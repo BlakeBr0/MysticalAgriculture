@@ -151,13 +151,6 @@ public class ModItems {
         CropRegistry.getInstance().onRegisterItems(registry);
         GEAR_ENTRIES.stream().map(Supplier::get).forEach(registry::register);
         AugmentRegistry.getInstance().onRegisterItems(registry);
-
-        INFUSION_CRYSTAL.updateReference(registry);
-        AIR_AGGLOMERATIO.updateReference(registry);
-        EARTH_AGGLOMERATIO.updateReference(registry);
-        WATER_AGGLOMERATIO.updateReference(registry);
-        FIRE_AGGLOMERATIO.updateReference(registry);
-        SOUL_JAR.updateReference(registry);
     }
 
     private static <T extends Item> RegistryObject<T> register(String name) {
