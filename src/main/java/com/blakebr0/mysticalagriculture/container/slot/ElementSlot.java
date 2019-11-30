@@ -1,5 +1,6 @@
 package com.blakebr0.mysticalagriculture.container.slot;
 
+import com.blakebr0.cucumber.iface.IToggleableSlot;
 import com.blakebr0.mysticalagriculture.api.tinkering.IElementalItem;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.container.Container;
@@ -8,7 +9,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.SlotItemHandler;
 
-public class ElementSlot extends SlotItemHandler {
+public class ElementSlot extends SlotItemHandler implements IToggleableSlot {
     private final Container container;
 
     public ElementSlot(Container container, IItemHandler inventory, int index, int xPosition, int yPosition) {

@@ -10,6 +10,7 @@ import com.blakebr0.mysticalagriculture.container.ModContainerTypes;
 import com.blakebr0.mysticalagriculture.crafting.DynamicRecipeManager;
 import com.blakebr0.mysticalagriculture.crafting.ModRecipeSerializers;
 import com.blakebr0.mysticalagriculture.crafting.MysticalRecipeManager;
+import com.blakebr0.mysticalagriculture.handler.AugmentHandler;
 import com.blakebr0.mysticalagriculture.handler.ColorHandler;
 import com.blakebr0.mysticalagriculture.handler.ExperienceCapsuleHandler;
 import com.blakebr0.mysticalagriculture.handler.MobDropHandler;
@@ -83,6 +84,7 @@ public class MysticalAgriculture {
 		MinecraftForge.EVENT_BUS.register(new MobDropHandler());
 		MinecraftForge.EVENT_BUS.register(new MobSoulHandler());
 		MinecraftForge.EVENT_BUS.register(new ExperienceCapsuleHandler());
+		MinecraftForge.EVENT_BUS.register(new AugmentHandler());
 
 		ModCorePlugin.onCommonSetup();
 		ModRecipeSerializers.onCommonSetup();

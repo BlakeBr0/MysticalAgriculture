@@ -11,15 +11,13 @@ import net.minecraft.world.World;
 
 import java.util.EnumSet;
 
-public class FireResistanceAugment extends Augment {
-    public FireResistanceAugment(ResourceLocation id, int tier) {
-        super(id, tier, EnumSet.of(AugmentType.ARMOR), 0xFFAA3F, 0x623E4E);
+public class WaterBreathingAugment extends Augment {
+    public WaterBreathingAugment(ResourceLocation id, int tier) {
+        super(id, tier, EnumSet.of(AugmentType.HELMET), 0xF2FFFF, 0x5AAFCF);
     }
 
     @Override
     public void onArmorTick(ItemStack stack, World world, PlayerEntity player) {
-        player.addPotionEffect(new EffectInstance(Effects.FIRE_RESISTANCE, 5, 0, true, false));
-        if (player.isBurning())
-            player.extinguish();
+        player.addPotionEffect(new EffectInstance(Effects.WATER_BREATHING, 5, 0, true, false));
     }
 }

@@ -1,10 +1,11 @@
 package com.blakebr0.mysticalagriculture.api.tinkering;
 
-import com.blakebr0.cucumber.lib.Localizable;
 import net.minecraft.util.text.ITextComponent;
+import net.minecraft.util.text.TranslationTextComponent;
 
 public enum AugmentType {
     TOOL("tool"),
+    WEAPON("weapon"),
     ARMOR("armor"),
     WAND("wand"),
     SWORD("sword"),
@@ -28,6 +29,6 @@ public enum AugmentType {
     }
 
     public ITextComponent getDisplayName() {
-        return Localizable.of("augment.mysticalagriculture." + this.name).build();
+        return new TranslationTextComponent("augmentType.mysticalagriculture." + this.name);
     }
 }

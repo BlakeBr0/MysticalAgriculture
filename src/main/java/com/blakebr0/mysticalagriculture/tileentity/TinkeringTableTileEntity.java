@@ -3,10 +3,10 @@ package com.blakebr0.mysticalagriculture.tileentity;
 import com.blakebr0.cucumber.inventory.BaseItemStackHandler;
 import com.blakebr0.cucumber.lib.Localizable;
 import com.blakebr0.cucumber.tileentity.BaseInventoryTileEntity;
+import com.blakebr0.cucumber.util.VanillaPacketDispatcher;
 import com.blakebr0.mysticalagriculture.api.tinkering.IAugmentGetter;
 import com.blakebr0.mysticalagriculture.api.tinkering.ITinkerable;
 import com.blakebr0.mysticalagriculture.container.TinkeringTableContainer;
-import com.blakebr0.mysticalagriculture.item.AugmentItem;
 import com.blakebr0.mysticalagriculture.lib.ModCorePlugin;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
@@ -20,7 +20,11 @@ import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.util.LazyOptional;
 
 public class TinkeringTableTileEntity extends BaseInventoryTileEntity implements INamedContainerProvider {
-    private final BaseItemStackHandler inventory = new BaseItemStackHandler(7);
+    private final BaseItemStackHandler inventory = new BaseItemStackHandler(7, () -> {
+        if (this.getWorld() != null && !this.getWorld().isRemote()) {
+            this.markDirtyAndDispatch();
+        }
+    });
 
     public TinkeringTableTileEntity() {
         super(ModTileEntities.TINKERING_TABLE.get());

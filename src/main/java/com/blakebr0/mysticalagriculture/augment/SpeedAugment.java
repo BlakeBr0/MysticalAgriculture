@@ -1,0 +1,51 @@
+package com.blakebr0.mysticalagriculture.augment;
+
+import com.blakebr0.cucumber.util.Utils;
+import com.blakebr0.mysticalagriculture.api.lib.AbilityCache;
+import com.blakebr0.mysticalagriculture.api.tinkering.Augment;
+import com.blakebr0.mysticalagriculture.api.tinkering.AugmentType;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.math.Vec3d;
+import net.minecraft.world.World;
+
+import java.util.EnumSet;
+
+public class SpeedAugment extends Augment {
+    private final int amplifier;
+
+    public SpeedAugment(ResourceLocation id, int tier, int amplifier) {
+        super(id, tier, EnumSet.of(AugmentType.LEGGINGS), getColor(0xAD524D, tier), getColor(0x240805, tier));
+        this.amplifier = amplifier;
+    }
+
+    @Override
+    public void onPlayerTick(World world, PlayerEntity player, AbilityCache cache) {
+        boolean flying = player.abilities.isFlying;
+        boolean swimming = player.isSwimming();
+        if (player.onGround || flying || swimming) {
+            boolean sneaking = player.isSneaking();
+            boolean sprinting = player.isSprinting();
+
+            float speed = 0.1f
+                    * (flying ? 0.6f : 1.0f)
+                    * (sneaking ? 0.1f : 1.0f)
+                    * (!sprinting ? 0.6F : 1.2F)
+                    * this.amplifier;
+
+            if (player.moveForward > 0f) {
+                player.moveRelative(1F, new Vec3d(0F, 0F, speed));
+            } else if (player.moveForward < 0f) {
+                player.moveRelative(1F, new Vec3d(0F, 0F, -speed * 0.3F));
+            }
+
+            if (player.moveStrafing != 0f) {
+                player.moveRelative(1F, new Vec3d(0F, 0F, speed * 0.5F * Math.signum(player.moveStrafing)));
+            }
+        }
+    }
+
+    public static int getColor(int color, int tier) {
+        return Utils.saturate(color, Math.min((float) tier / 4, 1));
+    }
+}

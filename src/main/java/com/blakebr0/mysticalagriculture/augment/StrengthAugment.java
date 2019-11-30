@@ -1,0 +1,33 @@
+package com.blakebr0.mysticalagriculture.augment;
+
+import com.blakebr0.cucumber.util.Utils;
+import com.blakebr0.mysticalagriculture.api.tinkering.Augment;
+import com.blakebr0.mysticalagriculture.api.tinkering.AugmentType;
+import com.google.common.collect.Multimap;
+import net.minecraft.entity.SharedMonsterAttributes;
+import net.minecraft.entity.ai.attributes.AttributeModifier;
+import net.minecraft.inventory.EquipmentSlotType;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.ResourceLocation;
+
+import java.util.EnumSet;
+import java.util.UUID;
+
+public class StrengthAugment extends Augment {
+    private static final UUID ATTRIBUTE_ID = UUID.fromString("527f7039-70c4-45e5-bdb7-b8721642cee5");
+    private final int amplifier;
+
+    public StrengthAugment(ResourceLocation id, int tier, int amplifier) {
+        super(id, tier, EnumSet.of(AugmentType.SWORD), getColor(0xD8D8D8, tier), getColor(0x181818, tier));
+        this.amplifier = amplifier;
+    }
+
+    @Override
+    public void addToolAttributeModifiers(Multimap<String, AttributeModifier> attributes, EquipmentSlotType slot, ItemStack stack) {
+        attributes.put(SharedMonsterAttributes.ATTACK_DAMAGE.getName(), new AttributeModifier(ATTRIBUTE_ID, "Tool modifier", 5 * this.amplifier, AttributeModifier.Operation.ADDITION));
+    }
+
+    public static int getColor(int color, int tier) {
+        return Utils.saturate(color, Math.min((float) tier / 5, 1));
+    }
+}

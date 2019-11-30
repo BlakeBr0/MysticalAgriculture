@@ -32,7 +32,7 @@ public class MobSoulHandler {
                     List<ItemStack> soulJars = this.getSoulJars(player);
                     if (!soulJars.isEmpty()) {
                         ItemStack firstEmptyJar = ItemStack.EMPTY;
-                        double soulsRemaining = soulSiphoningItem.getSiphonAmount(entity);;
+                        double soulsRemaining = soulSiphoningItem.getSiphonAmount(entity);
                         for (ItemStack stack : soulJars) {
                             IMobSoulType type = MobSoulUtils.getType(stack);
                             if (type == null && firstEmptyJar.isEmpty()) {

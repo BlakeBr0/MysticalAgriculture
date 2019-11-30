@@ -7,10 +7,12 @@ import com.blakebr0.mysticalagriculture.api.util.MobSoulUtils;
 import com.blakebr0.mysticalagriculture.block.InfusedFarmlandBlock;
 import com.blakebr0.mysticalagriculture.item.ModItems;
 import com.blakebr0.mysticalagriculture.lib.ModCorePlugin;
+import com.blakebr0.mysticalagriculture.registry.AugmentRegistry;
 import com.blakebr0.mysticalagriculture.registry.CropRegistry;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.color.BlockColors;
 import net.minecraft.client.renderer.color.ItemColors;
+import net.minecraft.item.Items;
 
 public class ColorHandler {
     public static void onClientSetup() {
@@ -45,7 +47,7 @@ public class ColorHandler {
 
         colors.register((stack, tint) -> {
             IMobSoulType type = MobSoulUtils.getType(stack);
-            return tint == 1 ? type != null ? type.getColor() : -1 : -1;
+            return tint == 1 && type != null ? type.getColor() : -1;
         }, ModItems.SOUL_JAR.get());
 
         CropRegistry.getInstance().getCrops().forEach(crop -> {
@@ -53,6 +55,11 @@ public class ColorHandler {
                 colors.register((stack, tint) -> crop.getEssenceColor(), crop.getEssence());
             if (crop.isSeedColored() && crop.getSeeds() != null)
                 colors.register((stack, tint) -> crop.getSeedColor(), crop.getSeeds());
+        });
+
+        AugmentRegistry.getInstance().getAugments().forEach(augment -> {
+            if (augment.getItem() != null)
+                colors.register((stack, tint) -> tint == 0 ? augment.getSecondaryColor() : tint == 1 ? augment.getPrimaryColor() : -1, augment.getItem());
         });
     }
 }

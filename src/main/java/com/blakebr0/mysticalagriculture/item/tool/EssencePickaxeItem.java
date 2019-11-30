@@ -3,13 +3,19 @@ package com.blakebr0.mysticalagriculture.item.tool;
 import com.blakebr0.cucumber.item.tool.BasePickaxeItem;
 import com.blakebr0.mysticalagriculture.api.tinkering.AugmentType;
 import com.blakebr0.mysticalagriculture.api.tinkering.IAugment;
-import com.blakebr0.mysticalagriculture.api.tinkering.ITinkerableTool;
+import com.blakebr0.mysticalagriculture.api.tinkering.ITinkerable;
 import com.blakebr0.mysticalagriculture.api.util.AugmentUtils;
+import com.blakebr0.mysticalagriculture.lib.ModTooltips;
+import com.google.common.collect.HashMultimap;
+import com.google.common.collect.Multimap;
 import net.minecraft.block.BlockState;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.SharedMonsterAttributes;
+import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.IItemTier;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUseContext;
@@ -26,14 +32,14 @@ import java.util.EnumSet;
 import java.util.List;
 import java.util.function.Function;
 
-public class EssencePickaxeItem extends BasePickaxeItem implements ITinkerableTool {
+public class EssencePickaxeItem extends BasePickaxeItem implements ITinkerable {
     private static final EnumSet<AugmentType> TYPES = EnumSet.of(AugmentType.TOOL, AugmentType.PICKAXE);
-    private final int toolTier;
+    private final int tinkerableTier;
     private final int slots;
 
-    public EssencePickaxeItem(IItemTier tier, int toolTier, int slots, Function<Properties, Properties> properties) {
+    public EssencePickaxeItem(IItemTier tier, int tinkerableTier, int slots, Function<Properties, Properties> properties) {
         super(tier, properties);
-        this.toolTier = toolTier;
+        this.tinkerableTier = tinkerableTier;
         this.slots = slots;
     }
 
@@ -113,7 +119,7 @@ public class EssencePickaxeItem extends BasePickaxeItem implements ITinkerableTo
                 success = true;
         }
 
-        return success;
+        return !success;
     }
 
     @Override
@@ -124,9 +130,25 @@ public class EssencePickaxeItem extends BasePickaxeItem implements ITinkerableTo
     @OnlyIn(Dist.CLIENT)
     @Override
     public void addInformation(ItemStack stack, World world, List<ITextComponent> tooltip, ITooltipFlag flag) {
+        tooltip.add(ModTooltips.getTooltipForTier(this.tinkerableTier));
         AugmentUtils.getAugments(stack).forEach(a -> {
             tooltip.add(a.getDisplayName());
         });
+    }
+
+    @Override
+    public Multimap<String, AttributeModifier> getAttributeModifiers(EquipmentSlotType slot, ItemStack stack) {
+        Multimap<String, AttributeModifier> modifiers = HashMultimap.create();
+        if (slot == EquipmentSlotType.MAINHAND) {
+            modifiers.put(SharedMonsterAttributes.ATTACK_DAMAGE.getName(), new AttributeModifier(ATTACK_DAMAGE_MODIFIER, "Tool modifier", this.attackDamage, AttributeModifier.Operation.ADDITION));
+            modifiers.put(SharedMonsterAttributes.ATTACK_SPEED.getName(), new AttributeModifier(ATTACK_SPEED_MODIFIER, "Tool modifier", this.attackSpeed, AttributeModifier.Operation.ADDITION));
+
+            AugmentUtils.getAugments(stack).forEach(a -> {
+                a.addToolAttributeModifiers(modifiers, slot, stack);
+            });
+        }
+
+        return modifiers;
     }
 
     @Override
@@ -140,7 +162,7 @@ public class EssencePickaxeItem extends BasePickaxeItem implements ITinkerableTo
     }
 
     @Override
-    public int getToolTier() {
-        return this.toolTier;
+    public int getTinkerableTier() {
+        return this.tinkerableTier;
     }
 }

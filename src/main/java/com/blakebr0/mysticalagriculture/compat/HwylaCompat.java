@@ -38,7 +38,7 @@ public class HwylaCompat implements IWailaPlugin {
                 Block block = accessor.getBlock();
                 ICrop crop = ((ICropGetter) block).getCrop();
 
-                tooltip.add(ModTooltips.CROP_TIER.args(crop.getTier().getDisplayName()).build());
+                tooltip.add(ModTooltips.TIER.args(crop.getTier().getDisplayName()).build());
 
                 BlockPos downPos = accessor.getPosition().down();
                 Block belowBlock = accessor.getWorld().getBlockState(downPos).getBlock();
@@ -77,7 +77,7 @@ public class HwylaCompat implements IWailaPlugin {
                 Block block = accessor.getBlock();
                 IEssenceFarmland farmland = (IEssenceFarmland) block;
 
-                tooltip.add(ModTooltips.CROP_TIER.args(farmland.getTier().getDisplayName()).build());
+                tooltip.add(ModTooltips.TIER.args(farmland.getTier().getDisplayName()).build());
             }
         }, TooltipPosition.BODY, IEssenceFarmland.class);
     }

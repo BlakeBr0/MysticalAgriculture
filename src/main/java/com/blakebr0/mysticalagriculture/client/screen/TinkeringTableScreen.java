@@ -1,5 +1,6 @@
 package com.blakebr0.mysticalagriculture.client.screen;
 
+import com.blakebr0.cucumber.iface.IToggleableSlot;
 import com.blakebr0.mysticalagriculture.MysticalAgriculture;
 import com.blakebr0.mysticalagriculture.container.TinkeringTableContainer;
 import com.blakebr0.mysticalagriculture.container.slot.AugmentSlot;
@@ -42,8 +43,8 @@ public class TinkeringTableScreen extends ContainerScreen<TinkeringTableContaine
         this.blit(x, y, 0, 0, this.xSize, this.ySize);
 
         for (Slot slot : this.container.inventorySlots) {
-            if (slot.isEnabled() && slot instanceof AugmentSlot) {
-                this.blit(x + slot.xPos, y + slot.yPos, 80, 49, 16, 16);
+            if (slot.isEnabled() && slot instanceof IToggleableSlot) {
+                this.blit(x + slot.xPos, y + slot.yPos, 8, 115, 16, 16);
             }
         }
     }

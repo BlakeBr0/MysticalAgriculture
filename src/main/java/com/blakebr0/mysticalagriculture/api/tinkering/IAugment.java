@@ -1,9 +1,13 @@
 package com.blakebr0.mysticalagriculture.api.tinkering;
 
+import com.blakebr0.mysticalagriculture.api.lib.AbilityCache;
+import com.google.common.collect.Multimap;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUseContext;
@@ -13,6 +17,8 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.TranslationTextComponent;
 import net.minecraft.world.World;
+import net.minecraftforge.event.entity.living.LivingEvent.LivingUpdateEvent;
+import net.minecraftforge.event.entity.living.LivingFallEvent;
 
 import java.util.EnumSet;
 
@@ -75,6 +81,26 @@ public interface IAugment {
      * @return the augment item
      */
     Item getItem();
+
+    /**
+     * The primary color of this augment (for the lighter middle areas of the augment)
+     * @return the primary color
+     */
+    int getPrimaryColor();
+
+    /**
+     * The secondary color of this augment (for the darker areas of the augment)
+     * @return the secondary color
+     */
+    int getSecondaryColor();
+
+    /**
+     * Should this augment have the enchantment glint?
+     * @return has glint effect
+     */
+    default boolean hasEffect() {
+        return this.getTier() >= 5;
+    }
 
     /**
      * Called when the item is used while targeting a block, {@link Item#onItemUse(ItemUseContext)}
@@ -163,6 +189,46 @@ public interface IAugment {
      * @param player the player
      */
     default void onArmorTick(ItemStack stack, World world, PlayerEntity player) {
+
+    }
+
+    /**
+     * Called every tick for equipped armor, meant for player ability changes, {@link LivingUpdateEvent}
+     * @param world the world
+     * @param player the player
+     * @param cache the ability cache
+     */
+    default void onPlayerTick(World world, PlayerEntity player, AbilityCache cache) {
+
+    }
+
+    /**
+     * Called when the player hits the ground
+     * @param world the world
+     * @param player the player
+     * @param event the fall event
+     */
+    default void onPlayerFall(World world, PlayerEntity player, LivingFallEvent event) {
+
+    }
+
+    /**
+     * Add or modify the tool attributes
+     * @param attributes the attribute map
+     * @param slot the equipment slot type
+     * @param stack the item
+     */
+    default void addToolAttributeModifiers(Multimap<String, AttributeModifier> attributes, EquipmentSlotType slot, ItemStack stack) {
+
+    }
+
+    /**
+     * Add or modify the armor attributes
+     * @param attributes the attribute map
+     * @param slot the equipment slot type
+     * @param stack the item
+     */
+    default void addArmorAttributeModifiers(Multimap<String, AttributeModifier> attributes, EquipmentSlotType slot, ItemStack stack) {
 
     }
 }

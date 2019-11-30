@@ -1,11 +1,14 @@
 package com.blakebr0.mysticalagriculture.lib;
 
 import com.blakebr0.cucumber.lib.Tooltip;
+import com.blakebr0.mysticalagriculture.api.util.AugmentUtils;
+import net.minecraft.util.text.ITextComponent;
+import net.minecraft.util.text.TextFormatting;
 
 public class ModTooltips {
     public static final Tooltip EMPTY = new Tooltip("tooltip.mysticalagriculture.empty");
     public static final Tooltip FILLED = new Tooltip("tooltip.mysticalagriculture.filled");
-    public static final Tooltip CROP_TIER = new Tooltip("tooltip.mysticalagriculture.crop_tier");
+    public static final Tooltip TIER = new Tooltip("tooltip.mysticalagriculture.tier");
     public static final Tooltip CROP_ID = new Tooltip("tooltip.mysticalagriculture.crop_id");
     public static final Tooltip ADDED_BY = new Tooltip("tooltip.mysticalagriculture.added_by");
     public static final Tooltip SECONDARY_CHANCE = new Tooltip("tooltip.mysticalagriculture.secondary_chance");
@@ -24,4 +27,8 @@ public class ModTooltips {
     public static final Tooltip ACTIVATE_WITH_REDSTONE = new Tooltip("tooltip.mysticalagriculture.activate_with_redstone");
     public static final Tooltip FERTILIZED_ESSENCE_CHANCE = new Tooltip("tooltip.mysticalagriculture.fertilized_essence_chance");
     public static final Tooltip MYSTICAL_FERTILIZER = new Tooltip("tooltip.mysticalagriculture.mystical_fertilizer");
+
+    public static ITextComponent getTooltipForTier(int tier) {
+        return TIER.args(AugmentUtils.getTooltipForTier(tier)).color(TextFormatting.GRAY).build();
+    }
 }

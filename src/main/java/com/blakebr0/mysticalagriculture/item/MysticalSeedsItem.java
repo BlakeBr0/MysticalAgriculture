@@ -36,7 +36,7 @@ public class MysticalSeedsItem extends BlockNamedItem implements ICropGetter, IE
     @Override
     public void addInformation(ItemStack stack, World world, List<ITextComponent> tooltip, ITooltipFlag flag) {
         ITextComponent tier = this.crop.getTier().getDisplayName();
-        tooltip.add(ModTooltips.CROP_TIER.args(tier).build());
+        tooltip.add(ModTooltips.TIER.args(tier).build());
         if (!this.crop.getModId().equals(MysticalAgriculture.MOD_ID)) {
             String name = ModList.get().getModFileById(this.crop.getModId()).getMods().get(0).getDisplayName();
             tooltip.add(ModTooltips.ADDED_BY.args(name).build());

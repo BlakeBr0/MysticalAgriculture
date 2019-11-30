@@ -1,0 +1,19 @@
+{
+  "type": "crafting_shaped",
+  "pattern": [
+    "SIS",
+    "SIS",
+    "SIS"
+  ],
+  "key": {
+    "I": {
+      "tag": "forge:ingots/iron"
+    },
+    "S": {
+      "item": "mysticalagriculture:prosperity_shard"
+    }
+  },
+  "result": {
+    "item": "mysticalagriculture:unattuned_augment"
+  }
+}

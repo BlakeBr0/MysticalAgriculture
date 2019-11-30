@@ -28,6 +28,11 @@ public class TinkerableSlot extends SlotItemHandler {
     @Override
     public void putStack(ItemStack stack) {
         for (int i = 0; i < 2; i++) {
+            ItemStack augmentStack = this.getItemHandler().getStackInSlot(i + 1);
+            if (!augmentStack.isEmpty()) {
+                this.getItemHandler().extractItem(i + 1, augmentStack.getMaxStackSize(), false);
+            }
+
             IAugment augment = AugmentUtils.getAugment(stack, i);
             if (augment != null) {
                 this.getItemHandler().insertItem(i + 1, new ItemStack(augment.getItem()), false);

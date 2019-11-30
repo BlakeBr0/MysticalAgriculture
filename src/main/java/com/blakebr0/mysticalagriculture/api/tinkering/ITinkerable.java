@@ -19,5 +19,14 @@ public interface ITinkerable {
      * The tier of this tinkerable, used to define the minimum tier of augment required
      * @return the numerical tier
      */
-    int getToolTier();
+    int getTinkerableTier();
+
+    /**
+     * Checks if the augment can be applied to this tinkerable
+     * @param augment the augment
+     * @return can this augment be applied
+     */
+    default boolean canApplyAugment(IAugment augment) {
+        return augment.getAugmentTypes().stream().anyMatch(t -> this.getAugmentTypes().contains(t)) && augment.getTier() <= this.getTinkerableTier();
+    }
 }

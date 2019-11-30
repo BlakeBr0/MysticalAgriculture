@@ -1,13 +1,19 @@
 package com.blakebr0.mysticalagriculture.api.util;
 
-import com.blakebr0.cucumber.helper.NBTHelper;
 import com.blakebr0.mysticalagriculture.api.MysticalAgricultureAPI;
+import com.blakebr0.mysticalagriculture.api.crop.CropTier;
 import com.blakebr0.mysticalagriculture.api.tinkering.IAugment;
 import com.blakebr0.mysticalagriculture.api.tinkering.ITinkerable;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.CompoundNBT;
+import net.minecraft.util.NonNullList;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.text.ITextComponent;
+import net.minecraft.util.text.StringTextComponent;
+import net.minecraft.util.text.TextFormatting;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,8 +29,14 @@ public class AugmentUtils {
         Item item = stack.getItem();
         if (item instanceof ITinkerable) {
             ITinkerable tinkerable = (ITinkerable) item;
-            if (slot < tinkerable.getAugmentSlots() && tinkerable.getToolTier() >= augment.getTier()) {
-                NBTHelper.setString(stack, "Augment-" + slot, augment.getId().toString());
+            if (slot < tinkerable.getAugmentSlots() && tinkerable.getTinkerableTier() >= augment.getTier()) {
+                CompoundNBT nbt = stack.getTag();
+                if (nbt == null) {
+                    nbt = new CompoundNBT();
+                    stack.setTag(nbt);
+                }
+
+                nbt.putString("Augment-" + slot, augment.getId().toString());
             }
         }
     }
@@ -42,10 +54,8 @@ public class AugmentUtils {
         Item item = stack.getItem();
         if (item instanceof ITinkerable) {
             ITinkerable tinkerable = (ITinkerable) item;
-            if (slot < tinkerable.getAugmentSlots()) {
-                if (NBTHelper.hasKey(stack, "Augment-" + slot)) {
-                    NBTHelper.removeTag(stack, "Augment-" + slot);
-                }
+            if (slot < tinkerable.getAugmentSlots() && nbt.contains("Augment-" + slot)) {
+                nbt.remove("Augment-" + slot);
             }
         }
     }
@@ -64,7 +74,7 @@ public class AugmentUtils {
         Item item = stack.getItem();
         if (item instanceof ITinkerable) {
             ITinkerable tinkerable = (ITinkerable) item;
-            if (slot < tinkerable.getAugmentSlots() && NBTHelper.hasKey(stack, "Augment-" + slot)) {
+            if (slot < tinkerable.getAugmentSlots() && nbt.contains("Augment-" + slot)) {
                 String name = nbt.getString("Augment-" + slot);
                 return MysticalAgricultureAPI.getAugmentRegistry().getAugmentById(new ResourceLocation(name));
             }
@@ -96,5 +106,45 @@ public class AugmentUtils {
         }
 
         return augments;
+    }
+
+    /**
+     * Helper method to get the augments from the player's armor
+     * @param player the player
+     * @return the installed augments
+     */
+    public static List<IAugment> getArmorAugments(PlayerEntity player) {
+        NonNullList<ItemStack> armor = player.inventory.armorInventory;
+        List<IAugment> augments = new ArrayList<>();
+        for (ItemStack stack : armor) {
+            augments.addAll(getAugments(stack));
+        }
+
+        return augments;
+    }
+
+    /**
+     * Get the tooltip color for the provided int tier
+     * @param tier the tier
+     * @return the color
+     */
+    public static TextFormatting getColorForTier(int tier) {
+        switch (tier) {
+            case 1: return CropTier.ONE.getTextColor();
+            case 2: return CropTier.TWO.getTextColor();
+            case 3: return CropTier.THREE.getTextColor();
+            case 4: return CropTier.FOUR.getTextColor();
+            case 5: return CropTier.FIVE.getTextColor();
+            default: return TextFormatting.GRAY;
+        }
+    }
+
+    /**
+     * Gets the text component variant of the provided tier number for use in tooltips
+     * @param tier the tier
+     * @return the formatted tier
+     */
+    public static ITextComponent getTooltipForTier(int tier) {
+        return new StringTextComponent(String.valueOf(tier)).applyTextStyle(getColorForTier(tier));
     }
 }
