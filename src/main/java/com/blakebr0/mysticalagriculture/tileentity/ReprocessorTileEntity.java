@@ -5,10 +5,10 @@ import com.blakebr0.cucumber.helper.StackHelper;
 import com.blakebr0.cucumber.inventory.BaseItemStackHandler;
 import com.blakebr0.cucumber.lib.Localizable;
 import com.blakebr0.cucumber.tileentity.BaseInventoryTileEntity;
+import com.blakebr0.mysticalagriculture.api.crafting.IReprocessorRecipe;
+import com.blakebr0.mysticalagriculture.api.crafting.RecipeTypes;
 import com.blakebr0.mysticalagriculture.block.ReprocessorBlock;
 import com.blakebr0.mysticalagriculture.container.ReprocessorContainer;
-import com.blakebr0.mysticalagriculture.crafting.MysticalRecipeManager;
-import com.blakebr0.mysticalagriculture.crafting.SpecialRecipeTypes;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.container.Container;
@@ -19,6 +19,7 @@ import net.minecraft.tileentity.ITickableTileEntity;
 import net.minecraft.tileentity.TileEntityType;
 import net.minecraft.util.IIntArray;
 import net.minecraft.util.text.ITextComponent;
+import net.minecraft.world.World;
 import net.minecraftforge.common.ForgeHooks;
 
 public abstract class ReprocessorTileEntity extends BaseInventoryTileEntity implements INamedContainerProvider, ITickableTileEntity {
@@ -91,7 +92,8 @@ public abstract class ReprocessorTileEntity extends BaseInventoryTileEntity impl
 
     @Override
     public void tick() {
-        if (this.getWorld() == null || this.getWorld().isRemote())
+        World world = this.getWorld();
+        if (world == null || world.isRemote())
             return;
 
         boolean mark = false;
@@ -123,11 +125,12 @@ public abstract class ReprocessorTileEntity extends BaseInventoryTileEntity impl
 
             if (!input.isEmpty()) {
                 if (this.recipe == null || !this.recipe.matches(this.inventory)) {
-                    this.recipe = MysticalRecipeManager.getInstance().getRecipe(SpecialRecipeTypes.REPROCESSOR, this.inventory);
+                    IReprocessorRecipe recipe = world.getRecipeManager().getRecipe(RecipeTypes.REPROCESSOR, this.inventory.toIInventory(), world).orElse(null);
+                    this.recipe = recipe instanceof ISpecialRecipe ? (ISpecialRecipe) recipe : null;
                 }
 
                 if (this.recipe != null) {
-                    ItemStack recipeOutput = recipe.getOutput();
+                    ItemStack recipeOutput = this.recipe.getRecipeOutput();
                     if (!recipeOutput.isEmpty() && (output.isEmpty() || StackHelper.canCombineStacks(output, recipeOutput))) {
                         this.progress++;
                         this.fuel -= this.getFuelUsage();

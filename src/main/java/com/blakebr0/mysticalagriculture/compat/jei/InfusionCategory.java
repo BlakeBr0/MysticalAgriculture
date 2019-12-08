@@ -54,7 +54,7 @@ public class InfusionCategory implements IRecipeCategory<InfusionRecipe> {
 
     @Override
     public void setIngredients(InfusionRecipe recipe, IIngredients ingredients) {
-        ingredients.setOutput(VanillaTypes.ITEM, recipe.getOutput());
+        ingredients.setOutput(VanillaTypes.ITEM, recipe.getRecipeOutput());
         ingredients.setInputIngredients(recipe.getIngredients());
     }
 

@@ -1,13 +1,14 @@
 package com.blakebr0.mysticalagriculture.crafting.recipe;
 
 import com.blakebr0.cucumber.crafting.ISpecialRecipe;
-import com.blakebr0.cucumber.crafting.ISpecialRecipeSerializer;
-import com.blakebr0.cucumber.crafting.ISpecialRecipeType;
+import com.blakebr0.mysticalagriculture.api.crafting.IInfusionRecipe;
+import com.blakebr0.mysticalagriculture.api.crafting.RecipeTypes;
 import com.blakebr0.mysticalagriculture.crafting.ModRecipeSerializers;
-import com.blakebr0.mysticalagriculture.crafting.SpecialRecipeTypes;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.crafting.IRecipeSerializer;
+import net.minecraft.item.crafting.IRecipeType;
 import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.item.crafting.ShapedRecipe;
 import net.minecraft.network.PacketBuffer;
@@ -15,8 +16,9 @@ import net.minecraft.util.JSONUtils;
 import net.minecraft.util.NonNullList;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.items.IItemHandler;
+import net.minecraftforge.registries.ForgeRegistryEntry;
 
-public class InfusionRecipe implements ISpecialRecipe {
+public class InfusionRecipe implements ISpecialRecipe, IInfusionRecipe {
     private final ResourceLocation recipeId;
     private final NonNullList<Ingredient> inputs;
     private final ItemStack output;
@@ -28,8 +30,13 @@ public class InfusionRecipe implements ISpecialRecipe {
     }
 
     @Override
-    public ItemStack getOutput() {
-        return this.output.copy();
+    public boolean canFit(int width, int height) {
+        return true;
+    }
+
+    @Override
+    public ItemStack getRecipeOutput() {
+        return this.output;
     }
 
     @Override
@@ -43,13 +50,18 @@ public class InfusionRecipe implements ISpecialRecipe {
     }
 
     @Override
-    public ISpecialRecipeSerializer<?> getSerializer() {
-        return ModRecipeSerializers.SPECIAL_INFUSION;
+    public IRecipeSerializer<InfusionRecipe> getSerializer() {
+        return ModRecipeSerializers.INFUSION;
     }
 
     @Override
-    public ISpecialRecipeType<?> getType() {
-        return SpecialRecipeTypes.INFUSION;
+    public IRecipeType<? extends IInfusionRecipe> getType() {
+        return RecipeTypes.INFUSION;
+    }
+
+    @Override
+    public ItemStack getCraftingResult(IItemHandler inventory) {
+        return this.output.copy();
     }
 
     @Override
@@ -58,7 +70,7 @@ public class InfusionRecipe implements ISpecialRecipe {
         return this.inputs.get(0).test(altarStack) && ISpecialRecipe.super.matches(inventory);
     }
 
-    public static class Serializer implements ISpecialRecipeSerializer<InfusionRecipe> {
+    public static class Serializer extends ForgeRegistryEntry<IRecipeSerializer<?>> implements IRecipeSerializer<InfusionRecipe> {
         @Override
         public InfusionRecipe read(ResourceLocation recipeId, JsonObject json) {
             JsonArray ingredients = JSONUtils.getJsonArray(json, "ingredients");
@@ -79,7 +91,7 @@ public class InfusionRecipe implements ISpecialRecipe {
 
             NonNullList<Ingredient> inputs = NonNullList.withSize(size, Ingredient.EMPTY);
             for (int i = 0; i < size; i++) {
-                inputs.add(Ingredient.read(buffer));
+                inputs.set(i, Ingredient.read(buffer));
             }
 
             ItemStack output = buffer.readItemStack();
@@ -89,7 +101,7 @@ public class InfusionRecipe implements ISpecialRecipe {
 
         @Override
         public void write(PacketBuffer buffer, InfusionRecipe recipe) {
-            buffer.writeInt(recipe.inputs.size());
+            buffer.writeVarInt(recipe.inputs.size());
 
             for (Ingredient ingredient : recipe.inputs) {
                 ingredient.write(buffer);

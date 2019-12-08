@@ -1,6 +1,5 @@
 package com.blakebr0.mysticalagriculture.crafting;
 
-import com.blakebr0.cucumber.crafting.ISpecialRecipeSerializer;
 import com.blakebr0.mysticalagriculture.MysticalAgriculture;
 import com.blakebr0.mysticalagriculture.crafting.condition.CropEnabledCondition;
 import com.blakebr0.mysticalagriculture.crafting.ingredient.HoeIngredient;
@@ -22,21 +21,18 @@ import java.util.List;
 
 public class ModRecipeSerializers {
     public static final IRecipeSerializer<FarmlandTillRecipe> CRAFTING_FARMLAND_TILL = new FarmlandTillRecipe.Serializer();
-
-    public static final ISpecialRecipeSerializer<InfusionRecipe> SPECIAL_INFUSION = new InfusionRecipe.Serializer();
-    public static final ISpecialRecipeSerializer<ReprocessorRecipe> SPECIAL_REPROCESSOR = new ReprocessorRecipe.Serializer();
+    public static final IRecipeSerializer<InfusionRecipe> INFUSION = new InfusionRecipe.Serializer();
+    public static final IRecipeSerializer<ReprocessorRecipe> REPROCESSOR = new ReprocessorRecipe.Serializer();
 
     public static final IIngredientSerializer<HoeIngredient> HOE_INGREDIENT = new HoeIngredient.Serializer();
 
     @SubscribeEvent
     public void onRegisterSerializers(RegistryEvent.Register<IRecipeSerializer<?>> event) {
         IForgeRegistry<IRecipeSerializer<?>> registry = event.getRegistry();
-        MysticalRecipeManager manager = MysticalRecipeManager.getInstance();
 
         registry.register(CRAFTING_FARMLAND_TILL.setRegistryName(new ResourceLocation(MysticalAgriculture.MOD_ID, "farmland_till")));
-
-        manager.addSerializer(new ResourceLocation(MysticalAgriculture.MOD_ID, "infusion"), SPECIAL_INFUSION);
-        manager.addSerializer(new ResourceLocation(MysticalAgriculture.MOD_ID, "reprocessor"), SPECIAL_REPROCESSOR);
+        registry.register(INFUSION.setRegistryName(new ResourceLocation(MysticalAgriculture.MOD_ID, "infusion")));
+        registry.register(REPROCESSOR.setRegistryName(new ResourceLocation(MysticalAgriculture.MOD_ID, "reprocessor")));
 
         CraftingHelper.register(CropEnabledCondition.Serializer.INSTANCE);
 

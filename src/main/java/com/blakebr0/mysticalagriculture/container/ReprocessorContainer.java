@@ -1,7 +1,6 @@
 package com.blakebr0.mysticalagriculture.container;
 
-import com.blakebr0.mysticalagriculture.crafting.MysticalRecipeManager;
-import com.blakebr0.mysticalagriculture.crafting.SpecialRecipeTypes;
+import com.blakebr0.mysticalagriculture.api.crafting.RecipeTypes;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.container.Container;
@@ -68,7 +67,7 @@ public class ReprocessorContainer extends Container {
 
                 slot.onSlotChange(itemstack1, itemstack);
             } else if (index != 1 && index != 0) {
-                if (MysticalRecipeManager.getInstance().getRecipes(SpecialRecipeTypes.REPROCESSOR).values().stream().anyMatch(r -> r.getIngredients().get(0).test(itemstack1))) {
+                if (player.getEntityWorld().getRecipeManager().getRecipes(RecipeTypes.REPROCESSOR).values().stream().anyMatch(r -> r.getIngredients().get(0).test(itemstack1))) {
                     if (!this.mergeItemStack(itemstack1, 0, 1, false)) {
                         return ItemStack.EMPTY;
                     }

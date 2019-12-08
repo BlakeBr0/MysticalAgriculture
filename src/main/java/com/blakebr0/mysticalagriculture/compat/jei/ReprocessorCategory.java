@@ -2,8 +2,8 @@ package com.blakebr0.mysticalagriculture.compat.jei;
 
 import com.blakebr0.cucumber.lib.Localizable;
 import com.blakebr0.mysticalagriculture.MysticalAgriculture;
-import com.blakebr0.mysticalagriculture.block.ModBlocks;
 import com.blakebr0.mysticalagriculture.crafting.recipe.ReprocessorRecipe;
+import com.blakebr0.mysticalagriculture.block.ModBlocks;
 import mezz.jei.api.constants.VanillaTypes;
 import mezz.jei.api.gui.IRecipeLayout;
 import mezz.jei.api.gui.drawable.IDrawable;
@@ -65,7 +65,7 @@ public class ReprocessorCategory implements IRecipeCategory<ReprocessorRecipe> {
 
     @Override
     public void setIngredients(ReprocessorRecipe recipe, IIngredients ingredients) {
-        ingredients.setOutput(VanillaTypes.ITEM, recipe.getOutput());
+        ingredients.setOutput(VanillaTypes.ITEM, recipe.getRecipeOutput());
         ingredients.setInputIngredients(recipe.getIngredients());
     }
 

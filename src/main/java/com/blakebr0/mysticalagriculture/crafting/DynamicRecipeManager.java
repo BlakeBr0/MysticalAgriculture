@@ -34,18 +34,19 @@ public class DynamicRecipeManager implements IResourceManagerReloadListener {
         recipeManager.recipes.replaceAll((t, v) -> new HashMap<>(recipeManager.recipes.get(t)));
 
         Map<ResourceLocation, IRecipe<?>> recipes = recipeManager.recipes.get(IRecipeType.CRAFTING);
-        MysticalRecipeManager manager = MysticalRecipeManager.getInstance();
 
         CropRegistry.getInstance().getCrops().forEach(crop -> {
             ISpecialRecipe seed = this.makeSeedRecipe(crop);
-            IRecipe seed2 = this.makeRegularSeedRecipe(crop);
+            IRecipe<?> seed2 = this.makeRegularSeedRecipe(crop);
             ISpecialRecipe reprocessor = this.makeReprocessorRecipe(crop);
 
-            if (seed != null)
-                manager.addRecipe(seed);
+            if (seed != null) {
+                recipeManager.recipes.computeIfAbsent(seed.getType(), t -> new HashMap<>()).put(seed.getId(), seed);
+            }
+
             if (seed2 != null)
                 recipes.put(seed2.getId(), seed2);
-            manager.addRecipe(reprocessor);
+            recipeManager.recipes.computeIfAbsent(reprocessor.getType(), t -> new HashMap<>()).put(reprocessor.getId(), reprocessor);
         });
     }
 
@@ -70,13 +71,13 @@ public class DynamicRecipeManager implements IResourceManagerReloadListener {
                 essence, material, essence
         );
 
-        ResourceLocation name = new ResourceLocation(MysticalAgriculture.MOD_ID, crop.getNameWithSuffix("_seeds"));
+        ResourceLocation name = new ResourceLocation(MysticalAgriculture.MOD_ID, crop.getNameWithSuffix("seeds_infusion"));
         ItemStack output = new ItemStack(crop.getSeeds());
 
         return new InfusionRecipe(name, inputs, output);
     }
 
-    private IRecipe makeRegularSeedRecipe(ICrop crop) {
+    private IRecipe<?> makeRegularSeedRecipe(ICrop crop) {
         if (!ModConfigs.SEED_CRAFTING_RECIPES.get())
             return null;
 
@@ -100,7 +101,7 @@ public class DynamicRecipeManager implements IResourceManagerReloadListener {
                 material, essence, material
         );
 
-        ResourceLocation name = new ResourceLocation(MysticalAgriculture.MOD_ID, crop.getNameWithSuffix("_seeds"));
+        ResourceLocation name = new ResourceLocation(MysticalAgriculture.MOD_ID, crop.getNameWithSuffix("seeds_vanilla"));
         ItemStack output = new ItemStack(crop.getSeeds());
 
         return new ShapedRecipe(name, "", 3, 3, inputs, output);
@@ -108,7 +109,7 @@ public class DynamicRecipeManager implements IResourceManagerReloadListener {
 
     private ISpecialRecipe makeReprocessorRecipe(ICrop crop) {
         Ingredient input = Ingredient.fromItems(crop.getSeeds());
-        ResourceLocation name = new ResourceLocation(MysticalAgriculture.MOD_ID, crop.getNameWithSuffix("_seeds_reprocessor"));
+        ResourceLocation name = new ResourceLocation(MysticalAgriculture.MOD_ID, crop.getNameWithSuffix("seeds_reprocessor"));
         ItemStack output = new ItemStack(crop.getEssence(), 2);
 
         return new ReprocessorRecipe(name, input, output);

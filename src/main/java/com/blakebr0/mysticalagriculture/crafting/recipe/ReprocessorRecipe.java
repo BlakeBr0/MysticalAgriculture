@@ -1,20 +1,22 @@
 package com.blakebr0.mysticalagriculture.crafting.recipe;
 
 import com.blakebr0.cucumber.crafting.ISpecialRecipe;
-import com.blakebr0.cucumber.crafting.ISpecialRecipeSerializer;
-import com.blakebr0.cucumber.crafting.ISpecialRecipeType;
+import com.blakebr0.mysticalagriculture.api.crafting.IReprocessorRecipe;
+import com.blakebr0.mysticalagriculture.api.crafting.RecipeTypes;
 import com.blakebr0.mysticalagriculture.crafting.ModRecipeSerializers;
-import com.blakebr0.mysticalagriculture.crafting.SpecialRecipeTypes;
 import com.google.gson.JsonObject;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.crafting.IRecipeSerializer;
+import net.minecraft.item.crafting.IRecipeType;
 import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.item.crafting.ShapedRecipe;
 import net.minecraft.network.PacketBuffer;
 import net.minecraft.util.NonNullList;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.items.IItemHandler;
+import net.minecraftforge.registries.ForgeRegistryEntry;
 
-public class ReprocessorRecipe implements ISpecialRecipe {
+public class ReprocessorRecipe implements ISpecialRecipe, IReprocessorRecipe {
     private final ResourceLocation recipeId;
     private final NonNullList<Ingredient> inputs;
     private final ItemStack output;
@@ -26,7 +28,17 @@ public class ReprocessorRecipe implements ISpecialRecipe {
     }
 
     @Override
-    public ItemStack getOutput() {
+    public ItemStack getCraftingResult(IItemHandler inventory) {
+        return this.output.copy();
+    }
+
+    @Override
+    public boolean canFit(int width, int height) {
+        return true;
+    }
+
+    @Override
+    public ItemStack getRecipeOutput() {
         return this.output;
     }
 
@@ -41,13 +53,13 @@ public class ReprocessorRecipe implements ISpecialRecipe {
     }
 
     @Override
-    public ISpecialRecipeSerializer<?> getSerializer() {
-        return ModRecipeSerializers.SPECIAL_REPROCESSOR;
+    public IRecipeSerializer<ReprocessorRecipe> getSerializer() {
+        return ModRecipeSerializers.REPROCESSOR;
     }
 
     @Override
-    public ISpecialRecipeType<?> getType() {
-        return SpecialRecipeTypes.REPROCESSOR;
+    public IRecipeType<? extends IReprocessorRecipe> getType() {
+        return RecipeTypes.REPROCESSOR;
     }
 
     @Override
@@ -56,7 +68,7 @@ public class ReprocessorRecipe implements ISpecialRecipe {
         return this.inputs.get(0).test(stack);
     }
 
-    public static class Serializer implements ISpecialRecipeSerializer<ReprocessorRecipe> {
+    public static class Serializer extends ForgeRegistryEntry<IRecipeSerializer<?>> implements IRecipeSerializer<ReprocessorRecipe> {
         @Override
         public ReprocessorRecipe read(ResourceLocation recipeId, JsonObject json) {
             JsonObject ingredient = json.getAsJsonObject("ingredient");

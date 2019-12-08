@@ -1,12 +1,11 @@
 package com.blakebr0.mysticalagriculture.tileentity;
 
-import com.blakebr0.cucumber.crafting.ISpecialRecipe;
 import com.blakebr0.cucumber.inventory.BaseItemStackHandler;
 import com.blakebr0.cucumber.tileentity.BaseInventoryTileEntity;
 import com.blakebr0.cucumber.util.MultiblockPositions;
+import com.blakebr0.mysticalagriculture.api.crafting.IInfusionRecipe;
+import com.blakebr0.mysticalagriculture.api.crafting.RecipeTypes;
 import com.blakebr0.mysticalagriculture.client.MultiblockGuideRenderer;
-import com.blakebr0.mysticalagriculture.crafting.MysticalRecipeManager;
-import com.blakebr0.mysticalagriculture.crafting.SpecialRecipeTypes;
 import com.blakebr0.mysticalagriculture.crafting.recipe.InfusionRecipe;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.CompoundNBT;
@@ -17,6 +16,7 @@ import net.minecraft.tileentity.ITickableTileEntity;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.NonNullList;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.World;
 import net.minecraft.world.server.ServerWorld;
 
 import java.util.ArrayList;
@@ -80,7 +80,7 @@ public class InfusionAltarTileEntity extends BaseInventoryTileEntity implements 
                             this.spawnParticles(ParticleTypes.SMOKE, pedestal.getPos(), 1.2D, 20);
                         }
 
-                        this.setOutput(recipe.getOutput());
+                        this.setOutput(recipe.getRecipeOutput());
                         this.reset();
                         this.markDirtyAndDispatch();
                         this.spawnParticles(ParticleTypes.HAPPY_VILLAGER, this.getPos(), 1.0D, 10);
@@ -143,8 +143,11 @@ public class InfusionAltarTileEntity extends BaseInventoryTileEntity implements 
             this.recipe.setStackInSlot(i + 1, stack);
         }
 
-        MysticalRecipeManager manager = MysticalRecipeManager.getInstance();
-        ISpecialRecipe recipe = manager.getRecipe(SpecialRecipeTypes.INFUSION, this.recipe);
+        World world = this.getWorld();
+        if (world == null)
+            return null;
+
+        IInfusionRecipe recipe = world.getRecipeManager().getRecipe(RecipeTypes.INFUSION, this.recipe.toIInventory(), world).orElse(null);
         return recipe instanceof InfusionRecipe ? (InfusionRecipe) recipe : null;
     }
 
