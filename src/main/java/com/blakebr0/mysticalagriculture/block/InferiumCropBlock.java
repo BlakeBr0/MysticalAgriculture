@@ -6,6 +6,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.server.ServerWorld;
 import net.minecraft.world.storage.loot.LootContext;
 import net.minecraft.world.storage.loot.LootParameters;
 
@@ -29,7 +30,8 @@ public class InferiumCropBlock extends MysticalCropBlock {
 
             BlockPos pos = builder.get(LootParameters.POSITION);
             if (pos != null) {
-                Block below = builder.getWorld().getBlockState(pos.down()).getBlock();
+                ServerWorld world = builder.getWorld();
+                Block below = world.getBlockState(pos.down()).getBlock();
                 double chance = this.getCrop().getSecondaryChance(below);
 
                 if (below instanceof IEssenceFarmland) {
@@ -40,7 +42,7 @@ public class InferiumCropBlock extends MysticalCropBlock {
                         crop++;
                 }
 
-                if (builder.getWorld().getRandom().nextDouble() < chance)
+                if (world.getRandom().nextDouble() < chance)
                     seed = 2;
             }
         }

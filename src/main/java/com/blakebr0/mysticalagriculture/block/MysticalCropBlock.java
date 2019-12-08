@@ -8,6 +8,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.CropsBlock;
+import net.minecraft.block.FarmlandBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IItemProvider;
 import net.minecraft.util.math.BlockPos;
@@ -15,6 +16,7 @@ import net.minecraft.util.math.shapes.ISelectionContext;
 import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.World;
+import net.minecraft.world.server.ServerWorld;
 import net.minecraft.world.storage.loot.LootContext;
 import net.minecraft.world.storage.loot.LootParameters;
 
@@ -45,6 +47,11 @@ public class MysticalCropBlock extends CropsBlock implements ICropGetter {
         return false;
     }
 
+    @Override
+    protected boolean isValidGround(BlockState state, IBlockReader world, BlockPos pos) {
+        return state.getBlock() instanceof FarmlandBlock;
+    }
+
     @Override // TODO: Loot tables?
     public List<ItemStack> getDrops(BlockState state, LootContext.Builder builder) {
         int age = state.get(AGE);
@@ -58,17 +65,18 @@ public class MysticalCropBlock extends CropsBlock implements ICropGetter {
 
             BlockPos pos = builder.get(LootParameters.POSITION);
             if (pos != null) {
-                Block below = builder.getWorld().getBlockState(pos.down()).getBlock();
+                ServerWorld world = builder.getWorld();
+                Block below = world.getBlockState(pos.down()).getBlock();
                 double chance = this.crop.getSecondaryChance(below);
 
-                if (builder.getWorld().getRandom().nextDouble() < chance)
+                if (world.getRandom().nextDouble() < chance)
                     crop = 2;
 
-                if (builder.getWorld().getRandom().nextDouble() < chance)
+                if (world.getRandom().nextDouble() < chance)
                     seed = 2;
 
                 Double fertilizerChance = ModConfigs.FERTILIZED_ESSENCE_DROP_CHANCE.get();
-                if (builder.getWorld().getRandom().nextDouble() < fertilizerChance)
+                if (world.getRandom().nextDouble() < fertilizerChance)
                     fertilizer = 1;
             }
         }
