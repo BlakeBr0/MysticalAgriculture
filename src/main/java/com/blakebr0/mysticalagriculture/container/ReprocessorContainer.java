@@ -1,6 +1,9 @@
 package com.blakebr0.mysticalagriculture.container;
 
+import com.blakebr0.cucumber.inventory.BaseItemStackHandler;
+import com.blakebr0.cucumber.inventory.slot.BaseItemStackHandlerSlot;
 import com.blakebr0.mysticalagriculture.api.crafting.RecipeTypes;
+import com.blakebr0.mysticalagriculture.tileentity.ReprocessorTileEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.container.Container;
@@ -10,9 +13,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIntArray;
 import net.minecraft.util.IntArray;
 import net.minecraftforge.common.ForgeHooks;
-import net.minecraftforge.items.IItemHandler;
-import net.minecraftforge.items.ItemStackHandler;
-import net.minecraftforge.items.SlotItemHandler;
 
 import java.util.function.Function;
 
@@ -21,17 +21,17 @@ public class ReprocessorContainer extends Container {
     private final IIntArray data;
 
     private ReprocessorContainer(ContainerType<?> type, int id, PlayerInventory playerInventory) {
-        this(type, id, playerInventory, p -> false, new ItemStackHandler(3), new IntArray(6));
+        this(type, id, playerInventory, p -> false, (new ReprocessorTileEntity.Basic()).getInventory(), new IntArray(6));
     }
 
-    private ReprocessorContainer(ContainerType<?> type, int id, PlayerInventory playerInventory, Function<PlayerEntity, Boolean> isUsableByPlayer, IItemHandler inventory, IIntArray data) {
+    private ReprocessorContainer(ContainerType<?> type, int id, PlayerInventory playerInventory, Function<PlayerEntity, Boolean> isUsableByPlayer, BaseItemStackHandler inventory, IIntArray data) {
         super(type, id);
         this.isUsableByPlayer = isUsableByPlayer;
         this.data = data;
 
-        this.addSlot(new SlotItemHandler(inventory, 0, 74, 42));
-        this.addSlot(new SlotItemHandler(inventory, 1, 36, 50));
-        this.addSlot(new SlotItemHandler(inventory, 2, 134, 42));
+        this.addSlot(new BaseItemStackHandlerSlot(inventory, 0, 74, 42));
+        this.addSlot(new BaseItemStackHandlerSlot(inventory, 1, 36, 50));
+        this.addSlot(new BaseItemStackHandlerSlot(inventory, 2, 134, 42));
 
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 9; j++) {
@@ -106,7 +106,7 @@ public class ReprocessorContainer extends Container {
         return new ReprocessorContainer(ModContainerTypes.REPROCESSOR.get(), windowId, playerInventory);
     }
 
-    public static ReprocessorContainer create(int windowId, PlayerInventory playerInventory, Function<PlayerEntity, Boolean> isUsableByPlayer, IItemHandler inventory, IIntArray data) {
+    public static ReprocessorContainer create(int windowId, PlayerInventory playerInventory, Function<PlayerEntity, Boolean> isUsableByPlayer, BaseItemStackHandler inventory, IIntArray data) {
         return new ReprocessorContainer(ModContainerTypes.REPROCESSOR.get(), windowId, playerInventory, isUsableByPlayer, inventory, data);
     }
 

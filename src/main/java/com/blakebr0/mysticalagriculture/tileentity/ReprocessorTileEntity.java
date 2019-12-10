@@ -3,6 +3,7 @@ package com.blakebr0.mysticalagriculture.tileentity;
 import com.blakebr0.cucumber.crafting.ISpecialRecipe;
 import com.blakebr0.cucumber.helper.StackHelper;
 import com.blakebr0.cucumber.inventory.BaseItemStackHandler;
+import com.blakebr0.cucumber.inventory.SidedItemStackHandlerWrapper;
 import com.blakebr0.cucumber.lib.Localizable;
 import com.blakebr0.cucumber.tileentity.BaseInventoryTileEntity;
 import com.blakebr0.mysticalagriculture.api.crafting.IReprocessorRecipe;
@@ -15,15 +16,22 @@ import net.minecraft.inventory.container.Container;
 import net.minecraft.inventory.container.INamedContainerProvider;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.CompoundNBT;
+import net.minecraft.tileentity.FurnaceTileEntity;
 import net.minecraft.tileentity.ITickableTileEntity;
 import net.minecraft.tileentity.TileEntityType;
+import net.minecraft.util.Direction;
 import net.minecraft.util.IIntArray;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.world.World;
 import net.minecraftforge.common.ForgeHooks;
+import net.minecraftforge.common.capabilities.Capability;
+import net.minecraftforge.common.util.LazyOptional;
+import net.minecraftforge.items.CapabilityItemHandler;
+import net.minecraftforge.items.IItemHandlerModifiable;
 
 public abstract class ReprocessorTileEntity extends BaseInventoryTileEntity implements INamedContainerProvider, ITickableTileEntity {
     private final BaseItemStackHandler inventory = new BaseItemStackHandler(3);
+    private final LazyOptional<IItemHandlerModifiable>[] handlers = SidedItemStackHandlerWrapper.create(this.inventory, new Direction[] { Direction.UP, Direction.DOWN, Direction.NORTH }, this::canInsertStackSided, null);
     private ISpecialRecipe recipe;
     private int progress;
     private int fuel;
@@ -63,6 +71,8 @@ public abstract class ReprocessorTileEntity extends BaseInventoryTileEntity impl
 
     public ReprocessorTileEntity(TileEntityType<?> type) {
         super(type);
+        this.inventory.setSlotValidator(this::canInsertStack);
+        this.inventory.setOutputSlots(2);
     }
 
     @Override
@@ -104,7 +114,7 @@ public abstract class ReprocessorTileEntity extends BaseInventoryTileEntity impl
                 this.fuelItemValue = ForgeHooks.getBurnTime(fuel);
                 if (this.fuelItemValue > 0) {
                     this.fuelLeft = this.fuelItemValue;
-                    this.inventory.extractItem(1, 1, false);
+                    this.inventory.extractItemSuper(1, 1, false);
                 }
             }
 
@@ -136,7 +146,7 @@ public abstract class ReprocessorTileEntity extends BaseInventoryTileEntity impl
                         this.fuel -= this.getFuelUsage();
 
                         if (this.progress >= this.getOperationTime()) {
-                            this.inventory.extractItem(0, 1, false);
+                            this.inventory.extractItemSuper(0, 1, false);
 
                             if (output.isEmpty()) {
                                 this.inventory.setStackInSlot(2, recipeOutput.copy());
@@ -173,6 +183,22 @@ public abstract class ReprocessorTileEntity extends BaseInventoryTileEntity impl
         return ReprocessorContainer.create(id, playerInventory, this::isUsableByPlayer, this.inventory, this.data);
     }
 
+    @Override
+    public <T> LazyOptional<T> getCapability(Capability<T> cap, Direction side) {
+        if (!this.removed && side != null && cap == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY) {
+            System.out.println(side);
+            if (side == Direction.UP) {
+                return this.handlers[0].cast();
+            } else if (side == Direction.DOWN) {
+                return this.handlers[1].cast();
+            } else {
+                return this.handlers[2].cast();
+            }
+        }
+
+        return super.getCapability(cap, side);
+    }
+
     public int getProgress() {
         return this.progress;
     }
@@ -202,6 +228,20 @@ public abstract class ReprocessorTileEntity extends BaseInventoryTileEntity impl
     }
 
     public abstract ReprocessorBlock.ReprocessorTier getTier();
+
+    private boolean canInsertStack(int slot, ItemStack stack) {
+        return this.canInsertStackSided(slot, stack, null);
+    }
+
+    public boolean canInsertStackSided(int slot, ItemStack stack, Direction direction) {
+        if (direction == null)
+            return true;
+        if (slot == 0 && direction == Direction.UP)
+            return true;
+        if (slot == 1 && direction == Direction.NORTH)
+            return FurnaceTileEntity.isFuel(stack);
+        return false;
+    }
 
     public static class Basic extends ReprocessorTileEntity {
         public Basic() {
