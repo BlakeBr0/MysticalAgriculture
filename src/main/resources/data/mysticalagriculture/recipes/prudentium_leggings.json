@@ -1,9 +1,9 @@
 {
   "type": "cucumber:shaped_transfer_damage",
   "pattern": [
-    "DGD",
+    " G ",
     "ISI",
-    "DGD"
+    " G "
   ],
   "key": {
     "G": {
@@ -14,9 +14,6 @@
     },
     "S": {
       "item": "mysticalagriculture:inferium_leggings"
-    },
-    "D": {
-      "tag": "forge:gems/diamond"
     }
   },
   "result": {
