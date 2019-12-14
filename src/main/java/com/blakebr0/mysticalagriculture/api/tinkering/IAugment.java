@@ -103,6 +103,18 @@ public interface IAugment {
     }
 
     /**
+     * Whether or not this augment has recipes and shows up in the creative menu
+     * @return is this augment enabled
+     */
+    boolean isEnabled();
+
+    /**
+     * Set whether or not this augment should be hidden from the game
+     * @param enabled the enabled state
+     */
+    void setEnabled(boolean enabled);
+
+    /**
      * Called when the item is used while targeting a block, {@link Item#onItemUse(ItemUseContext)}
      * @param context the item use context
      * @return was the action successful

@@ -1,6 +1,7 @@
 package com.blakebr0.mysticalagriculture.crafting;
 
 import com.blakebr0.mysticalagriculture.MysticalAgriculture;
+import com.blakebr0.mysticalagriculture.crafting.condition.AugmentEnabledCondition;
 import com.blakebr0.mysticalagriculture.crafting.condition.CropEnabledCondition;
 import com.blakebr0.mysticalagriculture.crafting.ingredient.HoeIngredient;
 import com.blakebr0.mysticalagriculture.crafting.recipe.FarmlandTillRecipe;
@@ -35,6 +36,7 @@ public class ModRecipeSerializers {
         registry.register(REPROCESSOR.setRegistryName(new ResourceLocation(MysticalAgriculture.MOD_ID, "reprocessor")));
 
         CraftingHelper.register(CropEnabledCondition.Serializer.INSTANCE);
+        CraftingHelper.register(AugmentEnabledCondition.Serializer.INSTANCE);
 
         CraftingHelper.register(new ResourceLocation(MysticalAgriculture.MOD_ID, "all_hoes"), HOE_INGREDIENT);
     }

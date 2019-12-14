@@ -20,6 +20,7 @@ public class Augment implements IAugment {
     private EnumSet<AugmentType> types;
     private int primaryColor;
     private int secondaryColor;
+    private boolean enabled;
 
     public Augment(ResourceLocation id, int tier, EnumSet<AugmentType> types, int primaryColor, int secondaryColor) {
         this.id = id;
@@ -28,6 +29,7 @@ public class Augment implements IAugment {
         this.types = types;
         this.primaryColor = primaryColor;
         this.secondaryColor = secondaryColor;
+        this.enabled = true;
     }
 
     @Override
@@ -68,5 +70,15 @@ public class Augment implements IAugment {
     public Augment setSecondaryColor(int color) {
         this.secondaryColor = color;
         return this;
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return this.enabled;
+    }
+
+    @Override
+    public void setEnabled(boolean enabled) {
+        this.enabled = enabled;
     }
 }

@@ -73,11 +73,13 @@ public class InfusionRecipe implements ISpecialRecipe, IInfusionRecipe {
     public static class Serializer extends ForgeRegistryEntry<IRecipeSerializer<?>> implements IRecipeSerializer<InfusionRecipe> {
         @Override
         public InfusionRecipe read(ResourceLocation recipeId, JsonObject json) {
-            JsonArray ingredients = JSONUtils.getJsonArray(json, "ingredients");
             NonNullList<Ingredient> inputs = NonNullList.create();
+            JsonObject input = JSONUtils.getJsonObject(json, "input");
+            inputs.add(Ingredient.deserialize(input));
+
+            JsonArray ingredients = JSONUtils.getJsonArray(json, "ingredients");
             for (int i = 0; i < ingredients.size(); i++) {
-                Ingredient ingredient = Ingredient.deserialize(ingredients.get(i));
-                inputs.add(ingredient);
+                inputs.add(Ingredient.deserialize(ingredients.get(i)));
             }
 
             ItemStack output = ShapedRecipe.deserializeItem(json.getAsJsonObject("result"));

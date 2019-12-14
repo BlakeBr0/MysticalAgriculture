@@ -1,0 +1,45 @@
+{
+  "type": "mysticalagriculture:infusion",
+  "conditions": [
+    {
+      "type": "mysticalagriculture:augment_enabled",
+      "augment": "mysticalagriculture:strength_ii"
+    },
+    {
+      "type": "mysticalagriculture:augment_enabled",
+      "augment": "mysticalagriculture:strength_iii"
+    }
+  ],
+  "input": {
+    "item": "mysticalagriculture:strength_ii_augment"
+  },
+  "ingredients": [
+    {
+      "tag": "forge:storage_blocks/quartz"
+    },
+    {
+      "item": "mysticalagriculture:supremium_essence"
+    },
+    {
+      "item": "minecraft:diamond_sword"
+    },
+    {
+      "item": "mysticalagriculture:supremium_essence"
+    },
+    {
+      "tag": "forge:storage_blocks/quartz"
+    },
+    {
+      "item": "mysticalagriculture:supremium_essence"
+    },
+    {
+      "item": "minecraft:diamond_sword"
+    },
+    {
+      "item": "mysticalagriculture:supremium_essence"
+    }
+  ],
+  "result": {
+    "item": "mysticalagriculture:strength_iii_augment"
+  }
+}

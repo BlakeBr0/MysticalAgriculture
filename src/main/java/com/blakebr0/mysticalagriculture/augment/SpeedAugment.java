@@ -33,19 +33,19 @@ public class SpeedAugment extends Augment {
                     * (!sprinting ? 0.6F : 1.2F)
                     * this.amplifier;
 
-            if (player.moveForward > 0f) {
+            if (player.moveForward > 0F) {
                 player.moveRelative(1F, new Vec3d(0F, 0F, speed));
-            } else if (player.moveForward < 0f) {
+            } else if (player.moveForward < 0F) {
                 player.moveRelative(1F, new Vec3d(0F, 0F, -speed * 0.3F));
             }
 
-            if (player.moveStrafing != 0f) {
-                player.moveRelative(1F, new Vec3d(0F, 0F, speed * 0.5F * Math.signum(player.moveStrafing)));
+            if (player.moveStrafing != 0F) {
+                player.moveRelative(1F, new Vec3d(speed * 0.5F * Math.signum(player.moveStrafing), 0F, 0F));
             }
         }
     }
 
-    public static int getColor(int color, int tier) {
+    private static int getColor(int color, int tier) {
         return Utils.saturate(color, Math.min((float) tier / 4, 1));
     }
 }

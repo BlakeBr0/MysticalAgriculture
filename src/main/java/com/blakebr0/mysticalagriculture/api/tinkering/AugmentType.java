@@ -7,7 +7,7 @@ public enum AugmentType {
     TOOL("tool"),
     WEAPON("weapon"),
     ARMOR("armor"),
-    WAND("wand"),
+    STAFF("staff"),
     SWORD("sword"),
     PICKAXE("pickaxe"),
     SHOVEL("shovel"),

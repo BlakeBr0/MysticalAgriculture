@@ -1,0 +1,41 @@
+{
+  "type": "mysticalagriculture:infusion",
+  "conditions": [
+    {
+      "type": "mysticalagriculture:augment_enabled",
+      "augment": "mysticalagriculture:no_fall_damage"
+    }
+  ],
+  "input": {
+    "item": "mysticalagriculture:unattuned_augment"
+  },
+  "ingredients": [
+    {
+      "tag": "forge:gems/diamond"
+    },
+    {
+      "item": "mysticalagriculture:tertium_essence"
+    },
+    {
+      "tag": "minecraft:wool"
+    },
+    {
+      "item": "mysticalagriculture:tertium_essence"
+    },
+    {
+      "tag": "forge:gems/diamond"
+    },
+    {
+      "item": "mysticalagriculture:tertium_essence"
+    },
+    {
+      "tag": "minecraft:wool"
+    },
+    {
+      "item": "mysticalagriculture:tertium_essence"
+    }
+  ],
+  "result": {
+    "item": "mysticalagriculture:no_fall_damage_augment"
+  }
+}

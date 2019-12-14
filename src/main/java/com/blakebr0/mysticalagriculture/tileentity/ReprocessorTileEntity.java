@@ -186,7 +186,6 @@ public abstract class ReprocessorTileEntity extends BaseInventoryTileEntity impl
     @Override
     public <T> LazyOptional<T> getCapability(Capability<T> cap, Direction side) {
         if (!this.removed && side != null && cap == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY) {
-            System.out.println(side);
             if (side == Direction.UP) {
                 return this.handlers[0].cast();
             } else if (side == Direction.DOWN) {

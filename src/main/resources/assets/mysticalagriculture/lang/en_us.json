@@ -274,8 +274,23 @@
   "crop.mysticalagriculture.emerald": "Emerald",
   "crop.mysticalagriculture.wither_skeleton": "Wither Skeleton",
 
+  "augmentType.mysticalagriculture.tool": "Tool",
+  "augmentType.mysticalagriculture.weapon": "Weapon",
+  "augmentType.mysticalagriculture.armor": "Armor",
+  "augmentType.mysticalagriculture.staff": "Staff",
+  "augmentType.mysticalagriculture.sword": "Sword",
+  "augmentType.mysticalagriculture.pickaxe": "Pickaxe",
+  "augmentType.mysticalagriculture.shovel": "Shovel",
+  "augmentType.mysticalagriculture.axe": "Axe",
+  "augmentType.mysticalagriculture.hoe": "Hoe",
+  "augmentType.mysticalagriculture.helmet": "Helmet",
+  "augmentType.mysticalagriculture.chestplate": "Chestplate",
+  "augmentType.mysticalagriculture.leggings": "Leggings",
+  "augmentType.mysticalagriculture.boots": "Boots",
+
   "augment.mysticalagriculture.absorption_i": "Absorption I",
   "augment.mysticalagriculture.health_boost_i": "Health Boost I",
+  "augment.mysticalagriculture.pathing_aoe_i": "Pathing AOE I",
 
   "augment.mysticalagriculture.night_vision": "Night Vision",
   "augment.mysticalagriculture.water_breathing": "Water Breathing",
@@ -283,6 +298,9 @@
   "augment.mysticalagriculture.jump_boost_i": "Jump Boost I",
   "augment.mysticalagriculture.health_boost_ii": "Health Boost II",
   "augment.mysticalagriculture.speed_i": "Speed I",
+  "augment.mysticalagriculture.mining_aoe_i": "Mining AOE I",
+  "augment.mysticalagriculture.tilling_aoe_i": "Tilling AOE I",
+  "augment.mysticalagriculture.pathing_aoe_ii": "Pathing AOE II",
 
   "augment.mysticalagriculture.absorption_iii": "Absorption III",
   "augment.mysticalagriculture.fire_resistance": "Fire Resistance",
@@ -292,6 +310,10 @@
   "augment.mysticalagriculture.strength_i": "Strength I",
   "augment.mysticalagriculture.speed_ii": "Speed II",
   "augment.mysticalagriculture.no_fall_damage": "No Fall Damage",
+  "augment.mysticalagriculture.mining_aoe_ii": "Mining AOE II",
+  "augment.mysticalagriculture.attack_aoe_i": "Attack AOE I",
+  "augment.mysticalagriculture.tilling_aoe_ii": "Tilling AOE II",
+  "augment.mysticalagriculture.pathing_aoe_iii": "Pathing AOE III",
 
   "augment.mysticalagriculture.absorption_iv": "Absorption IV",
   "augment.mysticalagriculture.poison_resistance": "Poison Resistance",
@@ -299,10 +321,18 @@
   "augment.mysticalagriculture.health_boost_iv": "Health Boost IV",
   "augment.mysticalagriculture.strength_ii": "Strength II",
   "augment.mysticalagriculture.speed_iii": "Speed III",
+  "augment.mysticalagriculture.mining_aoe_iii": "Mining AOE III",
+  "augment.mysticalagriculture.attack_aoe_ii": "Attack AOE II",
+  "augment.mysticalagriculture.tilling_aoe_iii": "Tilling AOE III",
+  "augment.mysticalagriculture.pathing_aoe_iv": "Pathing AOE IV",
+  "augment.mysticalagriculture.mining_fatigue_resistance": "Mining Fatigue Resistance",
 
   "augment.mysticalagriculture.absorption_v": "Absorption V",
   "augment.mysticalagriculture.wither_resistance": "Wither Resistance",
   "augment.mysticalagriculture.health_boost_v": "Health Boost V",
   "augment.mysticalagriculture.strength_iii": "Strength III",
-  "augment.mysticalagriculture.flight": "Flight"
+  "augment.mysticalagriculture.flight": "Flight",
+  "augment.mysticalagriculture.mining_aoe_iv": "Mining AOE IV",
+  "augment.mysticalagriculture.attack_aoe_iii": "Attack AOE III",
+  "augment.mysticalagriculture.tilling_aoe_iv": "Tilling AOE IV"
 }

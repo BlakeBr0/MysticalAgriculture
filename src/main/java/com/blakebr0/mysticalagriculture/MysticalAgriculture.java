@@ -16,6 +16,7 @@ import com.blakebr0.mysticalagriculture.handler.MobDropHandler;
 import com.blakebr0.mysticalagriculture.handler.MobSoulHandler;
 import com.blakebr0.mysticalagriculture.item.ModItems;
 import com.blakebr0.mysticalagriculture.lib.ModCorePlugin;
+import com.blakebr0.mysticalagriculture.network.NetworkHandler;
 import com.blakebr0.mysticalagriculture.registry.AugmentRegistry;
 import com.blakebr0.mysticalagriculture.registry.CropRegistry;
 import com.blakebr0.mysticalagriculture.registry.MobSoulTypeRegistry;
@@ -89,6 +90,7 @@ public class MysticalAgriculture {
 
 		DeferredWorkQueue.runLater(() -> {
 			ModWorldFeatures.onCommonSetup();
+			NetworkHandler.onCommonSetup();
 		});
 	}
 

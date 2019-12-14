@@ -18,7 +18,7 @@ public class StrengthAugment extends Augment {
     private final int amplifier;
 
     public StrengthAugment(ResourceLocation id, int tier, int amplifier) {
-        super(id, tier, EnumSet.of(AugmentType.SWORD), getColor(0xD8D8D8, tier), getColor(0x181818, tier));
+        super(id, tier, EnumSet.of(AugmentType.SWORD), getColor(0xFFFD90, tier), getColor(0xCC8E27, tier));
         this.amplifier = amplifier;
     }
 
@@ -27,7 +27,7 @@ public class StrengthAugment extends Augment {
         attributes.put(SharedMonsterAttributes.ATTACK_DAMAGE.getName(), new AttributeModifier(ATTRIBUTE_ID, "Tool modifier", 5 * this.amplifier, AttributeModifier.Operation.ADDITION));
     }
 
-    public static int getColor(int color, int tier) {
+    private static int getColor(int color, int tier) {
         return Utils.saturate(color, Math.min((float) tier / 5, 1));
     }
 }

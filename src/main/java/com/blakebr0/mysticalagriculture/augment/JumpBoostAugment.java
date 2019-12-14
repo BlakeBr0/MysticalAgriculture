@@ -25,7 +25,7 @@ public class JumpBoostAugment extends Augment {
         player.addPotionEffect(new EffectInstance(Effects.JUMP_BOOST, 5, this.amplifier, true, false));
     }
 
-    public static int getColor(int color, int tier) {
+    private static int getColor(int color, int tier) {
         return Utils.saturate(color, Math.min((float) tier / 4, 1));
     }
 }

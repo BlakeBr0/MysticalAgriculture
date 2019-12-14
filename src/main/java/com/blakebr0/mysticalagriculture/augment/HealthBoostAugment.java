@@ -27,7 +27,7 @@ public class HealthBoostAugment extends Augment {
         attributes.put(SharedMonsterAttributes.MAX_HEALTH.getName(), new AttributeModifier(ATTRIBUTE_ID, "generic.maxHealth", 4 * this.amplifier, AttributeModifier.Operation.ADDITION));
     }
 
-    public static int getColor(int color, int tier) {
+    private static int getColor(int color, int tier) {
         return Utils.saturate(color, Math.min((float) tier / 5, 1));
     }
 }

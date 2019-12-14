@@ -11,7 +11,7 @@ import java.util.EnumSet;
 
 public class StepAssistAugment extends Augment {
     public StepAssistAugment(ResourceLocation id, int tier) {
-        super(id, tier, EnumSet.of(AugmentType.LEGGINGS, AugmentType.BOOTS), 0x764857, 0x764857);
+        super(id, tier, EnumSet.of(AugmentType.LEGGINGS, AugmentType.BOOTS), 0xFC4F00, 0x602600);
     }
 
     @Override

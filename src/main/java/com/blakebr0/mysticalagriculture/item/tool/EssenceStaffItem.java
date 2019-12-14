@@ -18,7 +18,7 @@ import java.util.List;
 import java.util.function.Function;
 
 public class EssenceStaffItem extends BaseItem implements ITinkerable, IElementalItem {
-    private static final EnumSet<AugmentType> TYPES = EnumSet.of(AugmentType.WAND);
+    private static final EnumSet<AugmentType> TYPES = EnumSet.of(AugmentType.STAFF);
     private final int tinkerableTier;
     private final int slots;
 

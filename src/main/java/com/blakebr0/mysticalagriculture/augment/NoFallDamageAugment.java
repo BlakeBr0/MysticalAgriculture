@@ -11,7 +11,7 @@ import java.util.EnumSet;
 
 public class NoFallDamageAugment extends Augment {
     public NoFallDamageAugment(ResourceLocation id, int tier) {
-        super(id, tier, EnumSet.of(AugmentType.BOOTS), 0x123123, 0x123123);
+        super(id, tier, EnumSet.of(AugmentType.BOOTS), 0x0092F4, 0x004272);
     }
 
     @Override

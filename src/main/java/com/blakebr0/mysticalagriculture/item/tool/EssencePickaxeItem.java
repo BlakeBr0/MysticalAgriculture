@@ -119,7 +119,7 @@ public class EssencePickaxeItem extends BasePickaxeItem implements ITinkerable {
                 success = true;
         }
 
-        return !success;
+        return success;
     }
 
     @Override
