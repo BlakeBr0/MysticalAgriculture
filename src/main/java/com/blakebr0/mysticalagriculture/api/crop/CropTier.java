@@ -3,6 +3,7 @@ package com.blakebr0.mysticalagriculture.api.crop;
 import net.minecraft.block.Block;
 import net.minecraft.block.FarmlandBlock;
 import net.minecraft.item.Item;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.util.text.TranslationTextComponent;
@@ -10,18 +11,17 @@ import net.minecraft.util.text.TranslationTextComponent;
 import static com.blakebr0.mysticalagriculture.api.MysticalAgricultureAPI.MOD_ID;
 
 public class CropTier {
-    public static final CropTier ELEMENTAL = new CropTier("elemental", 1, 0x748E00, TextFormatting.YELLOW, MOD_ID);
-    public static final CropTier ONE = new CropTier("1", 1, 0x748E00, TextFormatting.YELLOW, MOD_ID);
-    public static final CropTier TWO = new CropTier("2", 2, 0x008C23, TextFormatting.GREEN, MOD_ID);
-    public static final CropTier THREE = new CropTier("3", 3, 0xB74900, TextFormatting.GOLD, MOD_ID);
-    public static final CropTier FOUR = new CropTier("4", 4, 0x007FDB, TextFormatting.AQUA, MOD_ID);
-    public static final CropTier FIVE = new CropTier("5", 5, 0xC40000, TextFormatting.RED, MOD_ID);
+    public static final CropTier ELEMENTAL = new CropTier(new ResourceLocation(MOD_ID, "elemental"), 1, 0x748E00, TextFormatting.YELLOW);
+    public static final CropTier ONE = new CropTier(new ResourceLocation(MOD_ID, "1"), 1, 0x748E00, TextFormatting.YELLOW);
+    public static final CropTier TWO = new CropTier(new ResourceLocation(MOD_ID, "2"), 2, 0x008C23, TextFormatting.GREEN);
+    public static final CropTier THREE = new CropTier(new ResourceLocation(MOD_ID, "3"), 3, 0xB74900, TextFormatting.GOLD);
+    public static final CropTier FOUR = new CropTier(new ResourceLocation(MOD_ID, "4"), 4, 0x007FDB, TextFormatting.AQUA);
+    public static final CropTier FIVE = new CropTier(new ResourceLocation(MOD_ID, "5"), 5, 0xC40000, TextFormatting.RED);
 
-    private final String name;
+    private final ResourceLocation id;
     private final int value;
     private final int color;
     private final TextFormatting textColor;
-    private final String modid;
     private FarmlandBlock farmland;
     private Item essence;
 
@@ -32,19 +32,37 @@ public class CropTier {
      * @param color the text color of this tier
      * @param modid the modid that created this tier
      */
+    @Deprecated // USE RESOURCE LOCATION CONSTRUCTOR TODO: REMOVE 1.15
     public CropTier(String name, int value, int color, TextFormatting textColor, String modid) {
-        this.name = name;
+        this(new ResourceLocation(modid, name), value, color, textColor);
+    }
+
+    /**
+     * Represents a tier/group of crops
+     * @param id the id of this tier
+     * @param value the level of this tier, higher number = higher tier
+     * @param color the color of this tier
+     * @param textColor the text color of this tier
+     */
+    public CropTier(ResourceLocation id, int value, int color, TextFormatting textColor) {
+        this.id = id;
         this.value = value;
         this.color = color;
         this.textColor = textColor;
-        this.modid = modid;
+    }
+
+    /**
+     * @return the id of this crop tier
+     */
+    public ResourceLocation getId() {
+        return this.id;
     }
 
     /**
      * @return the name of this tier
      */
     public String getName() {
-        return this.name;
+        return this.id.getPath();
     }
 
     /**
@@ -72,7 +90,7 @@ public class CropTier {
      * @return the mod id of the mod that created this tier
      */
     public String getModId() {
-        return this.modid;
+        return this.id.getNamespace();
     }
 
     /**
