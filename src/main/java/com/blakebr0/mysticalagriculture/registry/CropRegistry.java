@@ -50,6 +50,11 @@ public class CropRegistry implements ICropRegistry {
         return this.crops.stream().filter(c -> id.equals(c.getId())).findFirst().orElse(null);
     }
 
+    @Override
+    public ICrop getCropByName(String name) {
+        return this.crops.stream().filter(c -> name.equals(c.getName())).findFirst().orElse(null);
+    }
+
     public static CropRegistry getInstance() {
         return INSTANCE;
     }

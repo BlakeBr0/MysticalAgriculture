@@ -19,9 +19,16 @@ public interface ICropRegistry {
     List<ICrop> getCrops();
 
     /**
-     * Get the crop with the specified internal name from the crop registry
+     * Get the crop with the specified internal id from the crop registry
      * @param id the resource location id of the crop
      * @return the crop for this id
      */
     ICrop getCropById(ResourceLocation id);
+
+    /**
+     * Gets the first crop found with the specified internal name, use {@link ICropRegistry#getCropById} instead if possible
+     * @param name the internal name of this crop
+     * @return the crop for this name
+     */
+    ICrop getCropByName(String name);
 }
