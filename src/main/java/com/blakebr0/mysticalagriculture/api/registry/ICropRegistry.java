@@ -26,7 +26,7 @@ public interface ICropRegistry {
     ICrop getCropById(ResourceLocation id);
 
     /**
-     * Gets the first crop found with the specified internal name, use {@link ICropRegistry#getCropById} instead if possible
+     * Gets the crop with the specified internal name from the crop registry
      * @param name the internal name of this crop
      * @return the crop for this name
      */
