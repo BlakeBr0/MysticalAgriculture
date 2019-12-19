@@ -64,12 +64,12 @@ public class ModelHandler {
         IUnbakedModel seedsModelWrapper = new RetextureableItemModelWrapper((BlockModel) seedsModel);
 
         registry.forEach((location, model) -> {
-            if (location.getNamespace().equals("mysticalagriculture")) {
+            if (location.getNamespace().equals(MysticalAgriculture.MOD_ID)) {
                 if (location.getPath().endsWith("_crop")) {
                     try {
                         int i = Integer.parseInt(((ModelResourceLocation) location).getVariant().substring(4));
                         String name = location.getPath().replace("_crop", "");
-                        ICrop crop = CropRegistry.getInstance().getCropById(new ResourceLocation(location.getNamespace(), name));
+                        ICrop crop = CropRegistry.getInstance().getCropByName(name);
                         if (crop != null) {
                             if (i == 7) {
                                 ResourceLocation texture = crop.getTextures().getFlowerTexture();
@@ -95,9 +95,10 @@ public class ModelHandler {
                     }
                 }
 
+                // TODO: Improve check for main essences
                 if (location.getPath().endsWith("_essence") && !location.getPath().contains("ium")) {
                     String name = location.getPath().replace("_essence", "");
-                    ICrop crop = CropRegistry.getInstance().getCropById(new ResourceLocation(location.getNamespace(), name));
+                    ICrop crop = CropRegistry.getInstance().getCropByName(name);
                     if (crop != null) {
                         ResourceLocation texture = crop.getTextures().getEssenceTexture();
                         IUnbakedModel essenceRetexturedModel = essenceModelWrapper.retexture(ImmutableMap.of("layer0", texture.toString()));
@@ -110,7 +111,7 @@ public class ModelHandler {
 
                 if (location.getPath().endsWith("_seeds")) {
                     String name = location.getPath().replace("_seeds", "");
-                    ICrop crop = CropRegistry.getInstance().getCropById(new ResourceLocation(location.getNamespace(), name));
+                    ICrop crop = CropRegistry.getInstance().getCropByName(name);
                     if (crop != null) {
                         ResourceLocation texture = crop.getTextures().getSeedTexture();
                         IUnbakedModel seedsRetexturedModel = seedsModelWrapper.retexture(ImmutableMap.of("layer0", texture.toString()));
