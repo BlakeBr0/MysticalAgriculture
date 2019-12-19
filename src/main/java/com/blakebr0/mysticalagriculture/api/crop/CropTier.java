@@ -1,5 +1,6 @@
 package com.blakebr0.mysticalagriculture.api.crop;
 
+import com.blakebr0.mysticalagriculture.api.MysticalAgricultureAPI;
 import net.minecraft.block.Block;
 import net.minecraft.block.FarmlandBlock;
 import net.minecraft.item.Item;
@@ -49,6 +50,8 @@ public class CropTier {
         this.value = value;
         this.color = color;
         this.textColor = textColor;
+
+        MysticalAgricultureAPI.CROP_TIERS.add(this);
     }
 
     /**

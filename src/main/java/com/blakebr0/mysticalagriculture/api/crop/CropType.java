@@ -20,6 +20,8 @@ public class CropType {
     public CropType(String name, ResourceLocation stemModel) {
         this.name = name;
         this.stemModel = stemModel;
+
+        MysticalAgricultureAPI.CROP_TYPES.add(this);
     }
 
     /**
