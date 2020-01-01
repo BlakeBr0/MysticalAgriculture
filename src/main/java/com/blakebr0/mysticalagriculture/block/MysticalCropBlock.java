@@ -52,6 +52,18 @@ public class MysticalCropBlock extends CropsBlock implements ICropGetter {
         return state.getBlock() instanceof FarmlandBlock;
     }
 
+    @Override
+    public void tick(BlockState state, World world, BlockPos pos, Random random) {
+        Block crux = this.crop.getCrux();
+        if (crux != null) {
+            Block block = world.getBlockState(pos.down(2)).getBlock();
+            if (block != crux)
+                return;
+        }
+
+        super.tick(state, world, pos, random);
+    }
+
     @Override // TODO: Loot tables?
     public List<ItemStack> getDrops(BlockState state, LootContext.Builder builder) {
         int age = state.get(AGE);
@@ -91,6 +103,18 @@ public class MysticalCropBlock extends CropsBlock implements ICropGetter {
             drops.add(new ItemStack(ModItems.FERTILIZED_ESSENCE.get()));
 
         return drops;
+    }
+
+    @Override
+    public void grow(World world, Random rand, BlockPos pos, BlockState state) {
+        Block crux = this.crop.getCrux();
+        if (crux != null) {
+            Block block = world.getBlockState(pos.down(2)).getBlock();
+            if (block != crux)
+                return;
+        }
+
+        super.grow(world, rand, pos, state);
     }
 
     @Override

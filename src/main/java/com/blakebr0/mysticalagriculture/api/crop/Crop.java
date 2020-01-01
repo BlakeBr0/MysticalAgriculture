@@ -1,6 +1,7 @@
 package com.blakebr0.mysticalagriculture.api.crop;
 
 import com.blakebr0.mysticalagriculture.api.lib.LazyIngredient;
+import net.minecraft.block.Block;
 import net.minecraft.block.CropsBlock;
 import net.minecraft.item.BlockNamedItem;
 import net.minecraft.item.Item;
@@ -25,6 +26,7 @@ public class Crop implements ICrop {
     private Supplier<? extends CropsBlock> crop;
     private Supplier<? extends Item> essence;
     private Supplier<? extends BlockNamedItem> seeds;
+    private Supplier<? extends Block> crux;
     private LazyIngredient craftingMaterial;
     private boolean enabled;
     private boolean registerCropBlock;
@@ -215,5 +217,16 @@ public class Crop implements ICrop {
     @Override
     public void setEnabled(boolean enabled) {
         this.enabled = enabled;
+    }
+
+    @Override
+    public Block getCrux() {
+        return this.crux == null ? null : this.crux.get();
+    }
+
+    @Override
+    public ICrop setCrux(Supplier<? extends Block> crux) {
+        this.crux = crux;
+        return this;
     }
 }

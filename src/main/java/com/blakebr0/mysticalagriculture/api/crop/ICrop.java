@@ -244,4 +244,17 @@ public interface ICrop {
      * @param enabled the enabled state
      */
     void setEnabled(boolean enabled);
+
+    /**
+     * The crux block for this crop type
+     * @return the crux block
+     */
+    Block getCrux();
+
+    /**
+     * Used to set the crux block instance for this crop, the supplier should return the same instance every time
+     * @param crux the crux block
+     * @return this crop
+     */
+    ICrop setCrux(Supplier<? extends Block> crux);
 }
