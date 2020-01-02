@@ -120,7 +120,7 @@ public class ModBlocks {
         ResourceLocation loc = new ResourceLocation(MysticalAgriculture.MOD_ID, name);
         ENTRIES.add(() -> block.get().setRegistryName(loc));
         RegistryObject<T> reg = RegistryObject.of(loc, ForgeRegistries.BLOCKS);
-        ModItems.ENTRIES.add(() -> item.apply(reg).get().setRegistryName(loc));
+        ModItems.BLOCK_ENTRIES.add(() -> item.apply(reg).get().setRegistryName(loc));
         return reg;
     }
 }
