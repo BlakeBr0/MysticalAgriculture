@@ -109,7 +109,7 @@ public class CropTier {
     /**
      * Deprecated, use {@link CropTier#setFarmland(Supplier)}
      */
-    @Deprecated
+    @Deprecated // TODO: REMOVE 1.15
     public CropTier setFarmland(FarmlandBlock farmland) {
         this.farmland = () -> farmland;
         return this;

@@ -201,6 +201,7 @@
   "tooltip.mysticalagriculture.inferium_output": "Inferium Output: %s",
   "tooltip.mysticalagriculture.cooking_speed": "Cooking Speed: %s",
   "tooltip.mysticalagriculture.fuel_efficiency": "Fuel Efficiency: %s",
+  "tooltip.mysticalagriculture.requires_crux": "Requires %s Below",
   "tooltip.mysticalagriculture.growth_accelerator": "Grows the plant above it faster.",
   "tooltip.mysticalagriculture.growth_accelerator_range": "Range: %s Blocks",
   "tooltip.mysticalagriculture.reprocessor_speed": "Operation Speed: %st",
