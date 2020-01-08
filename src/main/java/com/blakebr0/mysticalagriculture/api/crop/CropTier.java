@@ -9,6 +9,8 @@ import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.util.text.TranslationTextComponent;
 
+import java.util.function.Supplier;
+
 import static com.blakebr0.mysticalagriculture.api.MysticalAgricultureAPI.MOD_ID;
 
 public class CropTier {
@@ -23,8 +25,8 @@ public class CropTier {
     private final int value;
     private final int color;
     private final TextFormatting textColor;
-    private FarmlandBlock farmland;
-    private Item essence;
+    private Supplier<? extends FarmlandBlock> farmland;
+    private Supplier<? extends Item> essence;
 
     /**
      * Represents a tier/group of crops
@@ -101,7 +103,16 @@ public class CropTier {
      * @return the farmland for this tier
      */
     public FarmlandBlock getFarmland() {
-        return this.farmland;
+        return this.farmland == null ? null : this.farmland.get();
+    }
+
+    /**
+     * Deprecated, use {@link CropTier#setFarmland(Supplier)}
+     */
+    @Deprecated
+    public CropTier setFarmland(FarmlandBlock farmland) {
+        this.farmland = () -> farmland;
+        return this;
     }
 
     /**
@@ -109,7 +120,7 @@ public class CropTier {
      * @param farmland the farmland block
      * @return this tier
      */
-    public CropTier setFarmland(FarmlandBlock farmland) {
+    public CropTier setFarmland(Supplier<? extends FarmlandBlock> farmland) {
         this.farmland = farmland;
         return this;
     }
@@ -119,7 +130,16 @@ public class CropTier {
      * @return the essence for this tier
      */
     public Item getEssence() {
-        return this.essence;
+        return this.essence == null ? null : this.essence.get();
+    }
+
+    /**
+     * Deprecated, use {@link CropTier#setEssence(Supplier)}
+     */
+    @Deprecated // TODO: REMOVE 1.15
+    public CropTier setEssence(Item essence) {
+        this.essence = () -> essence;
+        return this;
     }
 
     /**
@@ -127,7 +147,7 @@ public class CropTier {
      * @param essence the essence item
      * @return this tier
      */
-    public CropTier setEssence(Item essence) {
+    public CropTier setEssence(Supplier<? extends Item> essence) {
         this.essence = essence;
         return this;
     }

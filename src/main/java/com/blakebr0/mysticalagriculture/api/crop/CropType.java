@@ -4,13 +4,15 @@ import com.blakebr0.mysticalagriculture.api.MysticalAgricultureAPI;
 import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
 
+import java.util.function.Supplier;
+
 public class CropType {
     public static final CropType RESOURCE = new CropType("resource", new ResourceLocation(MysticalAgricultureAPI.MOD_ID, "mystical_resource_crop"));
     public static final CropType MOB = new CropType("mob", new ResourceLocation(MysticalAgricultureAPI.MOD_ID, "mystical_mob_crop"));
 
     private final String name;
     private final ResourceLocation stemModel;
-    private Item craftingSeed;
+    private Supplier<? extends Item> craftingSeed;
 
     /**
      * Represents a type of crop, such as resource or mob
@@ -43,7 +45,16 @@ public class CropType {
      * @return the crafting seed of this type
      */
     public Item getCraftingSeed() {
-        return this.craftingSeed;
+        return this.craftingSeed == null ? null : this.craftingSeed.get();
+    }
+
+    /**
+     * Deprecated, use {@link CropType#setCraftingSeed(Supplier)}
+     */
+    @Deprecated
+    public CropType setCraftingSeed(Item item) {
+        this.craftingSeed = () -> item;
+        return this;
     }
 
     /**
@@ -51,7 +62,7 @@ public class CropType {
      * @param item the crafting seed item
      * @return this crop type
      */
-    public CropType setCraftingSeed(Item item) {
+    public CropType setCraftingSeed(Supplier<? extends Item> item) {
         this.craftingSeed = item;
         return this;
     }
