@@ -28,6 +28,7 @@ public class CropTier {
     private Supplier<? extends FarmlandBlock> farmland;
     private Supplier<? extends Item> essence;
     private boolean fertilizable;
+    private boolean secondarySeedDrop;
 
     /**
      * Represents a tier/group of crops
@@ -54,6 +55,7 @@ public class CropTier {
         this.color = color;
         this.textColor = textColor;
         this.fertilizable = true;
+        this.secondarySeedDrop = true;
 
         MysticalAgricultureAPI.CROP_TIERS.add(this);
     }
@@ -187,6 +189,24 @@ public class CropTier {
      */
     public CropTier setFertilizable(boolean fertilizable) {
         this.fertilizable = fertilizable;
+        return this;
+    }
+
+    /**
+     * Whether or not this tier's crops can drop a second seed
+     * @return has secondary seed drop
+     */
+    public boolean hasSecondarySeedDrop() {
+        return this.secondarySeedDrop;
+    }
+
+    /**
+     * Set whether or not this tier's crops can drop a second seed
+     * @param secondarySeedDrop the secondary seed drop state
+     * @return this tier
+     */
+    public CropTier setSecondarySeedDrop(boolean secondarySeedDrop) {
+        this.secondarySeedDrop = secondarySeedDrop;
         return this;
     }
 }

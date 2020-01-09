@@ -212,6 +212,8 @@ public interface ICrop {
      */
     default double getSecondaryChance(Block block) {
         double chance = 0;
+        if (!this.getTier().hasSecondarySeedDrop())
+            return chance;
         if (block instanceof IEssenceFarmland)
             chance += 0.1;
         if (this.getTier().isEffectiveFarmland(block))
