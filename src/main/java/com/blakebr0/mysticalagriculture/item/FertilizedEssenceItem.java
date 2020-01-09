@@ -4,6 +4,7 @@ import com.blakebr0.cucumber.item.BaseItem;
 import com.blakebr0.mysticalagriculture.api.crop.ICropGetter;
 import com.blakebr0.mysticalagriculture.config.ModConfigs;
 import com.blakebr0.mysticalagriculture.lib.ModTooltips;
+import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.IGrowable;
 import net.minecraft.client.util.ITooltipFlag;
@@ -21,6 +22,7 @@ import net.minecraftforge.common.util.Constants;
 import net.minecraftforge.event.ForgeEventFactory;
 
 import java.util.List;
+import java.util.Random;
 import java.util.function.Function;
 
 public class FertilizedEssenceItem extends BaseItem {
@@ -64,13 +66,15 @@ public class FertilizedEssenceItem extends BaseItem {
         int hook = ForgeEventFactory.onApplyBonemeal(player, world, pos, state, stack);
         if (hook != 0) return hook > 0;
 
-        if (state.getBlock() instanceof IGrowable) {
-            IGrowable growable = (IGrowable) state.getBlock();
+        Block block = state.getBlock();
+        if (block instanceof IGrowable) {
+            IGrowable growable = (IGrowable) block;
 
-            if (growable.canGrow(world, pos, state, world.isRemote)) {
-                if (!world.isRemote) {
-                    if (growable.canUseBonemeal(world, world.getRandom(), pos, state) || growable instanceof ICropGetter) {
-                        growable.grow(world, world.getRandom(), pos, state);
+            if (growable.canGrow(world, pos, state, world.isRemote())) {
+                if (!world.isRemote()) {
+                    Random random = world.getRandom();
+                    if (growable.canUseBonemeal(world, random, pos, state) || canGrowResourceCrops(growable)) {
+                        growable.grow(world, random, pos, state);
                     }
 
                     stack.shrink(1);
@@ -81,5 +85,9 @@ public class FertilizedEssenceItem extends BaseItem {
         }
 
         return false;
+    }
+
+    private static boolean canGrowResourceCrops(IGrowable growable) {
+        return growable instanceof ICropGetter && ((ICropGetter) growable).getCrop().getTier().isFertilizable();
     }
 }

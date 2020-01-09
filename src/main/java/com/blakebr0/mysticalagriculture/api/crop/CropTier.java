@@ -27,6 +27,7 @@ public class CropTier {
     private final TextFormatting textColor;
     private Supplier<? extends FarmlandBlock> farmland;
     private Supplier<? extends Item> essence;
+    private boolean fertilizable;
 
     /**
      * Represents a tier/group of crops
@@ -52,6 +53,7 @@ public class CropTier {
         this.value = value;
         this.color = color;
         this.textColor = textColor;
+        this.fertilizable = true;
 
         MysticalAgricultureAPI.CROP_TIERS.add(this);
     }
@@ -168,5 +170,23 @@ public class CropTier {
      */
     public ITextComponent getDisplayName() {
         return new TranslationTextComponent(String.format("cropTier.%s.%s", this.getModId(), this.getName())).applyTextStyle(this.getTextColor());
+    }
+
+    /**
+     * Whether or not this tier's crops can be grown with Mystical Fertilizer or Fertilized Essence
+     * @return is fertilizable
+     */
+    public boolean isFertilizable() {
+        return this.fertilizable;
+    }
+
+    /**
+     * Set whether or not this tier's crops can be grown using Mystical Fertilizer or Fertilized Essence
+     * @param fertilizable the fertilizable state
+     * @return this tier
+     */
+    public CropTier setFertilizable(boolean fertilizable) {
+        this.fertilizable = fertilizable;
+        return this;
     }
 }

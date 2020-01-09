@@ -3,6 +3,7 @@ package com.blakebr0.mysticalagriculture.item;
 import com.blakebr0.cucumber.item.BaseItem;
 import com.blakebr0.mysticalagriculture.api.crop.ICropGetter;
 import com.blakebr0.mysticalagriculture.lib.ModTooltips;
+import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.CropsBlock;
 import net.minecraft.block.IGrowable;
@@ -65,15 +66,16 @@ public class MysticalFertilizerItem extends BaseItem {
         int hook = ForgeEventFactory.onApplyBonemeal(player, world, pos, state, stack);
         if (hook != 0) return hook > 0;
 
-        if (state.getBlock() instanceof IGrowable) {
-            IGrowable growable = (IGrowable) state.getBlock();
+        Block block = state.getBlock();
+        if (block instanceof IGrowable) {
+            IGrowable growable = (IGrowable) block;
 
             if (growable.canGrow(world, pos, state, world.isRemote())) {
                 if (!world.isRemote()) {
                     Random rand = world.getRandom();
-                    if (growable.canUseBonemeal(world, rand, pos, state) || growable instanceof ICropGetter || growable instanceof SaplingBlock) {
+                    if (growable.canUseBonemeal(world, rand, pos, state) || canGrowResourceCrops(growable) || growable instanceof SaplingBlock) {
                         if (growable instanceof CropsBlock) {
-                            CropsBlock crop = (CropsBlock) state.getBlock();
+                            CropsBlock crop = (CropsBlock) block;
                             world.setBlockState(pos, crop.withAge(crop.getMaxAge()), 2);
                         } else if (growable instanceof SaplingBlock) {
                             if (!ForgeEventFactory.saplingGrowTree(world, rand, pos))
@@ -93,5 +95,9 @@ public class MysticalFertilizerItem extends BaseItem {
         }
 
         return false;
+    }
+
+    private static boolean canGrowResourceCrops(IGrowable growable) {
+        return growable instanceof ICropGetter && ((ICropGetter) growable).getCrop().getTier().isFertilizable();
     }
 }
