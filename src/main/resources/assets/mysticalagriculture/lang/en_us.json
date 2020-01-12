@@ -335,5 +335,8 @@
   "augment.mysticalagriculture.flight": "Flight",
   "augment.mysticalagriculture.mining_aoe_iv": "Mining AOE IV",
   "augment.mysticalagriculture.attack_aoe_iii": "Attack AOE III",
-  "augment.mysticalagriculture.tilling_aoe_iv": "Tilling AOE IV"
+  "augment.mysticalagriculture.tilling_aoe_iv": "Tilling AOE IV",
+
+  "book.mysticalagriculture.name": "Mystical Agriculture",
+  "book.mysticalagriculture.landing_text": "Mystical Agriculture guide!"
 }
