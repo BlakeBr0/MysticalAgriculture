@@ -1,0 +1,17 @@
+{
+  "name": "book.mysticalagriculture.entry.inferium_seeds",
+  "category": "basics",
+  "icon": "mysticalagriculture:inferium_seeds",
+  "sortnum": 3,
+  "pages": [
+    {
+      "type": "text",
+      "text": "book.mysticalagriculture.entry.inferium_seeds.page.1"
+    },
+    {
+      "type": "crafting",
+      "title": "book.mysticalagriculture.crafting",
+      "recipe": "mysticalagriculture:inferium_seeds"
+    }
+  ]
+}

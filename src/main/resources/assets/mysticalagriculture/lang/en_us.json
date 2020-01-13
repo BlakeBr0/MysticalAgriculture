@@ -338,5 +338,31 @@
   "augment.mysticalagriculture.tilling_aoe_iv": "Tilling AOE IV",
 
   "book.mysticalagriculture.name": "Mystical Agriculture",
-  "book.mysticalagriculture.landing_text": "Mystical Agriculture guide!"
+  "book.mysticalagriculture.landing_text": "Mystical Agriculture is a mod based around the concept of growing your resources. This book will be your guide to using all the features of Mystical Agriculture.",
+  "book.mysticalagriculture.crafting": "Crafting",
+
+  "book.mysticalagriculture.category.basics.name": "Basics",
+  "book.mysticalagriculture.category.basics.description": "This section goes over the different things required to get started in Mystical Agriculture.",
+
+  "book.mysticalagriculture.entry.inferium_essence": "Inferium Essence",
+  "book.mysticalagriculture.entry.inferium_essence.page.1": "Inferium Essence is one of the two base materials in Mystical Agriculture. It's used in the creation of pretty much everything in the mod. You can $(bold)usually$() obtain Inferium Essence by killing hostile or passive mobs, mining it from the ground, or growing it.",
+  "book.mysticalagriculture.entry.prosperity_shards": "Prosperity Shards",
+  "book.mysticalagriculture.entry.prosperity_shards.page.1": "Prosperity Shards are the other of the two base materials in Mystical Agriculture. They are used to create magical variations of basic materials. You can $(bold)usually$() obtain Prosperity Shards by mining them from the ground.",
+  "book.mysticalagriculture.entry.infusion_crystal": "Infusion Crystal",
+  "book.mysticalagriculture.entry.infusion_crystal.page.1": "The Infusion Crystal is used to create higher tier essences.",
+  "book.mysticalagriculture.entry.inferium_seeds": "Inferium Seeds",
+  "book.mysticalagriculture.entry.inferium_seeds.page.1": "Inferium Seeds are one of the main ways to collect Inferium Essence. They can be grown on any farmland, but are most efficient on $(l:basics/essence_farmland)Essence Farmland$().",
+  "book.mysticalagriculture.entry.overworld_ores": "Overworld Ores",
+  "book.mysticalagriculture.entry.overworld_ores.page.1": "Inferium Ore $(bold)usually$() spawns at Y level 50 and below.",
+  "book.mysticalagriculture.entry.overworld_ores.page.2": "Prosperity Ore $(bold)usually$() spawns at Y level 50 and below.",
+  "book.mysticalagriculture.entry.resource_crops": "Resource Crops",
+  "book.mysticalagriculture.entry.resource_crops.page.1": "Resource Crops are the heart and soul of what makes Mystical Agriculture so great. However, there are some special properties of resource crops that should be noted. $(br2)$(li)Resource Crops can not be grown using Bonemeal. $(li)Resource Crops do not drop a second seed unless planted on $(l:basics/essence_farmland)Essence Farmland$().",
+  "book.mysticalagriculture.entry.resource_crops.page.2": "Resource Crops are $(bold)usually$() created using an <link>Infusion Altar.",
+  "book.mysticalagriculture.entry.essence_farmland": "Essence Farmland",
+  "book.mysticalagriculture.entry.essence_farmland.page.1": "Essence Farmland increases the output efficiency of Mystical Agriculture crops in multiple ways. They are listed on the following page. $(br2)You can create Essence Farmland by either right-clicking on Farmland in-world with an essence or by crafting it.",
+  "book.mysticalagriculture.entry.essence_farmland.page.2": "$(li)Crops will have a 10% chance to drop a second seed when planted on any tier Essence Farmland. $$(li)Crops will have a 20% chance to drop a second seed when planted on the corresponding tier Essence Farmland. $(li)Inferium Seeds will drop more essences when planted on higher tier Essence Farmland.",
+  "book.mysticalagriculture.entry.growth_accelerators": "Growth Accelerators",
+  "book.mysticalagriculture.entry.growth_accelerators.page.1": "Growth Accelerators are used to increase plant growth speed. They apply random growth ticks to the first plant placed above them within the specified range. You can stack multiple Growth Accelerators of any tier as long as the plant is within range.",
+  "book.mysticalagriculture.entry.watering_can": "Watering Can",
+  "book.mysticalagriculture.entry.watering_can.page.1": "Watering Cans are used to accelerate crop growth using manual* labor. To fill one up, simply right click on a Water source block."
 }

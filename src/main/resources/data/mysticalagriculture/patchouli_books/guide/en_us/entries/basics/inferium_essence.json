@@ -1,0 +1,12 @@
+{
+  "name": "book.mysticalagriculture.entry.inferium_essence",
+  "category": "basics",
+  "icon": "mysticalagriculture:inferium_essence",
+  "sortnum": 0,
+  "pages": [
+    {
+      "type": "text",
+      "text": "book.mysticalagriculture.entry.inferium_essence.page.1"
+    }
+  ]
+}

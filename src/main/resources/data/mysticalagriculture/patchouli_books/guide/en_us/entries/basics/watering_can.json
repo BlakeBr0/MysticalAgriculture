@@ -1,0 +1,17 @@
+{
+  "name": "book.mysticalagriculture.entry.watering_can",
+  "category": "basics",
+  "icon": "mysticalagriculture:watering_can",
+  "sortnum": 8,
+  "pages": [
+    {
+      "type": "text",
+      "text": "book.mysticalagriculture.entry.watering_can.page.1"
+    },
+    {
+      "type": "crafting",
+      "title": "book.mysticalagriculture.crafting",
+      "recipe": "mysticalagriculture:watering_can"
+    }
+  ]
+}

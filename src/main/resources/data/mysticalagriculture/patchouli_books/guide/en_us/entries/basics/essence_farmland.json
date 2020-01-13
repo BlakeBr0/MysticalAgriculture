@@ -1,0 +1,22 @@
+{
+  "name": "book.mysticalagriculture.entry.essence_farmland",
+  "category": "basics",
+  "icon": "mysticalagriculture:inferium_farmland",
+  "sortnum": 6,
+  "pages": [
+    {
+      "type": "text",
+      "text": "book.mysticalagriculture.entry.essence_farmland.page.1"
+    },
+    {
+      "type": "text",
+      "text": "book.mysticalagriculture.entry.essence_farmland.page.2"
+    },
+    {
+      "type": "crafting",
+      "title": "book.mysticalagriculture.crafting",
+      "recipe": "mysticalagriculture:inferium_farmland",
+      "recipe2": "mysticalagriculture:inferium_farmland_till"
+    }
+  ]
+}

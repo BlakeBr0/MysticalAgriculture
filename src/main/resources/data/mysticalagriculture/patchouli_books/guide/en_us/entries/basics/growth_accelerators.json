@@ -1,0 +1,17 @@
+{
+  "name": "book.mysticalagriculture.entry.growth_accelerators",
+  "category": "basics",
+  "icon": "mysticalagriculture:inferium_growth_accelerator",
+  "sortnum": 7,
+  "pages": [
+    {
+      "type": "text",
+      "text": "book.mysticalagriculture.entry.growth_accelerators.page.1"
+    },
+    {
+      "type": "crafting",
+      "title": "book.mysticalagriculture.crafting",
+      "recipe": "mysticalagriculture:inferium_growth_accelerator"
+    }
+  ]
+}

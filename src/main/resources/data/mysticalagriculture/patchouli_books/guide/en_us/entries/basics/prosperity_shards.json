@@ -1,0 +1,12 @@
+{
+  "name": "book.mysticalagriculture.entry.prosperity_shards",
+  "category": "basics",
+  "icon": "mysticalagriculture:prosperity_shard",
+  "sortnum": 1,
+  "pages": [
+    {
+      "type": "text",
+      "text": "book.mysticalagriculture.entry.prosperity_shards.page.1"
+    }
+  ]
+}
