@@ -1,0 +1,18 @@
+{
+  "name": "book.mysticalagriculture.entry.soulstone",
+  "category": "souls",
+  "icon": "mysticalagriculture:soulstone",
+  "sortnum": 100,
+  "pages": [
+    {
+      "type": "text",
+      "text": "book.mysticalagriculture.entry.soulstone.page.1"
+    },
+    {
+      "type": "smelting",
+      "text": "book.mysticalagriculture.entry.soulstone.page.2",
+      "recipe": "mysticalagriculture:soulstone_smelted",
+      "recipe2": "mysticalagriculture:soul_dust_smelted"
+    }
+  ]
+}

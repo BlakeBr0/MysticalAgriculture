@@ -1,0 +1,13 @@
+{
+  "name": "book.mysticalagriculture.entry.soulium_ore",
+  "category": "souls",
+  "icon": "mysticalagriculture:soulium_ore",
+  "sortnum": 101,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "mysticalagriculture:soulium_ore",
+      "text": "book.mysticalagriculture.entry.soulium_ore.page.1"
+    }
+  ]
+}

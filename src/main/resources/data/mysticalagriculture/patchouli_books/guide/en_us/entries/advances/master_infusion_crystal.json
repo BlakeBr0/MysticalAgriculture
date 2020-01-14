@@ -1,0 +1,17 @@
+{
+  "name": "book.mysticalagriculture.entry.master_infusion_crystal",
+  "category": "advances",
+  "icon": "mysticalagriculture:master_infusion_crystal",
+  "sortnum": 51,
+  "pages": [
+    {
+      "type": "text",
+      "text": "book.mysticalagriculture.entry.master_infusion_crystal.page.1"
+    },
+    {
+      "type": "crafting",
+      "title": "book.mysticalagriculture.crafting",
+      "recipe": "mysticalagriculture:master_infusion_crystal"
+    }
+  ]
+}

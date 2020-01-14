@@ -1,0 +1,22 @@
+{
+  "name": "book.mysticalagriculture.entry.infusion_altar",
+  "category": "basics",
+  "icon": "mysticalagriculture:infusion_altar",
+  "sortnum": 9,
+  "pages": [
+    {
+      "type": "text",
+      "text": "book.mysticalagriculture.entry.infusion_altar.page.1"
+    },
+    {
+      "type": "crafting",
+      "title": "book.mysticalagriculture.crafting",
+      "recipe": "mysticalagriculture:infusion_altar",
+      "recipe2": "mysticalagriculture:infusion_pedestal"
+    },
+    {
+      "type": "text",
+      "text": "book.mysticalagriculture.entry.infusion_altar.page.3"
+    }
+  ]
+}

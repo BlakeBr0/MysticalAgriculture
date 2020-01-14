@@ -1,0 +1,17 @@
+{
+  "name": "book.mysticalagriculture.entry.soul_jars",
+  "category": "souls",
+  "icon": "mysticalagriculture:soul_jar",
+  "sortnum": 104,
+  "pages": [
+    {
+      "type": "text",
+      "text": "book.mysticalagriculture.entry.soul_jars.page.1"
+    },
+    {
+      "type": "crafting",
+      "title": "book.mysticalagriculture.crafting",
+      "recipe": "mysticalagriculture:soul_jar"
+    }
+  ]
+}

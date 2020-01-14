@@ -1,0 +1,17 @@
+{
+  "name": "book.mysticalagriculture.entry.essence_watering_cans",
+  "category": "advances",
+  "icon": "mysticalagriculture:inferium_watering_can",
+  "sortnum": 52,
+  "pages": [
+    {
+      "type": "text",
+      "text": "book.mysticalagriculture.entry.essence_watering_cans.page.1"
+    },
+    {
+      "type": "crafting",
+      "title": "book.mysticalagriculture.crafting",
+      "recipe": "mysticalagriculture:inferium_watering_can"
+    }
+  ]
+}
