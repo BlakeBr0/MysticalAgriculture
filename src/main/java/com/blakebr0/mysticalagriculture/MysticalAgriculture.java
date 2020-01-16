@@ -9,6 +9,7 @@ import com.blakebr0.mysticalagriculture.config.ModConfigs;
 import com.blakebr0.mysticalagriculture.container.ModContainerTypes;
 import com.blakebr0.mysticalagriculture.crafting.DynamicRecipeManager;
 import com.blakebr0.mysticalagriculture.crafting.ModRecipeSerializers;
+import com.blakebr0.mysticalagriculture.data.ModDataGenerators;
 import com.blakebr0.mysticalagriculture.handler.AugmentHandler;
 import com.blakebr0.mysticalagriculture.handler.ColorHandler;
 import com.blakebr0.mysticalagriculture.handler.ExperienceCapsuleHandler;
@@ -58,6 +59,7 @@ public class MysticalAgriculture {
 		bus.register(new ModRecipeSerializers());
 		bus.register(new ModTileEntities());
 		bus.register(new ModContainerTypes());
+		bus.register(new ModDataGenerators());
 
 		DistExecutor.runWhenOn(Dist.CLIENT, () -> () -> {
 			bus.register(new ColorHandler());

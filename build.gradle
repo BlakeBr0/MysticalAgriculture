@@ -61,7 +61,7 @@ minecraft {
             ideaModule "${project.name}.main"
             environment 'MOD_CLASSES', "${project.file("out/production/resources").canonicalPath};${project.file("out/production/classes").canonicalPath}"
 
-            args '--mod', 'mysticalagriculture', '--all', '--output', file('src/generated/resources/')
+            args '--mod', 'mysticalagriculture', '--all', '--output', file('src/generated/resources/'), '--existing', sourceSets.main.resources.srcDirs[0]
         }
     }
 }
