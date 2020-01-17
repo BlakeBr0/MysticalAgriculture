@@ -30,7 +30,8 @@ public class ModelJsonGenerator {
                 mobCrops[i] = new ModelFile.UncheckedModelFile(new ResourceLocation(MysticalAgriculture.MOD_ID, "block/mystical_mob_crop_" + i));
             }
 
-
+            ModelFile.UncheckedModelFile resourceCropModel = new ModelFile.UncheckedModelFile(new ResourceLocation(MysticalAgriculture.MOD_ID, "block/mystical_resource_crop_7"));
+            ModelFile.UncheckedModelFile mobCropModel = new ModelFile.UncheckedModelFile(new ResourceLocation(MysticalAgriculture.MOD_ID, "block/mystical_mob_crop_7"));
             CropRegistry.getInstance().getCrops().forEach(crop -> {
                 CropsBlock block = crop.getCrop();
                 if (crop.getType() == CropType.MOB) {
@@ -38,7 +39,7 @@ public class ModelJsonGenerator {
                         Integer age = state.get(CropsBlock.AGE);
                         if (age == block.getMaxAge()) {
                             BlockModelBuilder model = this.getBuilder(crop.getNameWithSuffix("crop"))
-                                    .parent(new ModelFile.UncheckedModelFile(new ResourceLocation(MysticalAgriculture.MOD_ID, "block/mystical_mob_crop_7")))
+                                    .parent(mobCropModel)
                                     .texture("flower", crop.getTextures().getFlowerTexture());
                             return ConfiguredModel.builder().modelFile(model).build();
                         }
@@ -50,7 +51,7 @@ public class ModelJsonGenerator {
                         Integer age = state.get(CropsBlock.AGE);
                         if (age == block.getMaxAge()) {
                             BlockModelBuilder model = this.getBuilder(crop.getNameWithSuffix("crop"))
-                                    .parent(new ModelFile.UncheckedModelFile(new ResourceLocation(MysticalAgriculture.MOD_ID, "block/mystical_resource_crop_7")))
+                                    .parent(resourceCropModel)
                                     .texture("flower", crop.getTextures().getFlowerTexture());
                             return ConfiguredModel.builder().modelFile(model).build();
                         }
