@@ -1,0 +1,30 @@
+{
+  "type": "cucumber:shaped_no_mirror",
+  "conditions": [
+    {
+      "type": "mysticalagriculture:crop_enabled",
+      "crop": "mysticalagriculture:slime"
+    },
+    {
+      "type": "mysticalagriculture:crop_enabled",
+      "crop": "mysticalagriculture:blaze"
+    }
+  ],
+  "pattern": [
+    " E ",
+    "EBE",
+    " E "
+  ],
+  "key": {
+    "E": {
+      "item": "mysticalagriculture:slime_essence"
+    },
+    "B": {
+      "item": "mysticalagriculture:blaze_essence"
+    }
+  },
+  "result": {
+    "item": "minecraft:magma_cream",
+    "count": 6
+  }
+}

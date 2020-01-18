@@ -1,0 +1,30 @@
+{
+  "type": "cucumber:shaped_no_mirror",
+  "conditions": [
+    {
+      "type": "mysticalagriculture:crop_enabled",
+      "crop": "mysticalagriculture:enderman"
+    },
+    {
+      "type": "mysticalagriculture:crop_enabled",
+      "crop": "mysticalagriculture:blaze"
+    }
+  ],
+  "pattern": [
+    "EEE",
+    "EBE",
+    "EEE"
+  ],
+  "key": {
+    "E": {
+      "item": "mysticalagriculture:enderman_essence"
+    },
+    "B": {
+      "item": "mysticalagriculture:blaze_essence"
+    }
+  },
+  "result": {
+    "item": "minecraft:ender_eye",
+    "count": 3
+  }
+}

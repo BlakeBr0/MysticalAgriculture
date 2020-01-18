@@ -1,0 +1,30 @@
+{
+  "type": "cucumber:shaped_no_mirror",
+  "conditions": [
+    {
+      "type": "mysticalagriculture:crop_enabled",
+      "crop": "mysticalagriculture:wood"
+    },
+    {
+      "type": "mysticalagriculture:crop_enabled",
+      "crop": "mysticalagriculture:coal"
+    }
+  ],
+  "pattern": [
+    "EEE",
+    "ECE",
+    "EEE"
+  ],
+  "key": {
+    "E": {
+      "item": "mysticalagriculture:wood_essence"
+    },
+    "C": {
+      "item": "mysticalagriculture:coal_essence"
+    }
+  },
+  "result": {
+    "item": "minecraft:charcoal",
+    "count": 12
+  }
+}
