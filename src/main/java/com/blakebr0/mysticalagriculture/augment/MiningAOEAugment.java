@@ -48,6 +48,9 @@ public class MiningAOEAugment extends Augment {
     }
 
     private boolean harvest(ItemStack stack, int radius, World world, BlockPos pos, int side, PlayerEntity player) {
+        if (player.isSneaking())
+            radius = 0;
+
         int xRange = radius;
         int yRange = radius;
         int zRange = 0;
