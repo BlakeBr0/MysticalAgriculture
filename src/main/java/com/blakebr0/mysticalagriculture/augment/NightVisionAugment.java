@@ -13,7 +13,7 @@ import java.util.EnumSet;
 
 public class NightVisionAugment extends Augment {
     public NightVisionAugment(ResourceLocation id, int tier) {
-        super(id, tier, EnumSet.of(AugmentType.ARMOR), 0xEEE050, 0x2B1E74);
+        super(id, tier, EnumSet.of(AugmentType.HELMET), 0xEEE050, 0x2B1E74);
     }
 
     @Override

@@ -11,7 +11,7 @@ import java.util.EnumSet;
 
 public class FlightAugment extends Augment {
     public FlightAugment(ResourceLocation id, int tier) {
-        super(id, tier, EnumSet.of(AugmentType.ARMOR), 0xCBD6D6, 0x556B6B);
+        super(id, tier, EnumSet.of(AugmentType.CHESTPLATE), 0xCBD6D6, 0x556B6B);
     }
 
     @Override
