@@ -1,0 +1,12 @@
+{
+  "name": "book.mysticalagriculture.entry.step_assist_augment",
+  "category": "augments",
+  "icon": "mysticalagriculture:step_assist_augment",
+  "sortnum": 310,
+  "pages": [
+    {
+      "type": "text",
+      "text": "book.mysticalagriculture.entry.step_assist_augment.page.1"
+    }
+  ]
+}

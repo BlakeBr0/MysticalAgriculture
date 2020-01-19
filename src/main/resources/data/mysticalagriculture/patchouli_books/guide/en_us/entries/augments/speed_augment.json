@@ -1,0 +1,12 @@
+{
+  "name": "book.mysticalagriculture.entry.speed_augment",
+  "category": "augments",
+  "icon": "mysticalagriculture:speed_iii_augment",
+  "sortnum": 306,
+  "pages": [
+    {
+      "type": "text",
+      "text": "book.mysticalagriculture.entry.speed_augment.page.1"
+    }
+  ]
+}

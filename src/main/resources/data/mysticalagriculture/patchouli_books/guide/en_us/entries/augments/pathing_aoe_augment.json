@@ -1,0 +1,12 @@
+{
+  "name": "book.mysticalagriculture.entry.pathing_aoe_augment",
+  "category": "augments",
+  "icon": "mysticalagriculture:pathing_aoe_iv_augment",
+  "sortnum": 304,
+  "pages": [
+    {
+      "type": "text",
+      "text": "book.mysticalagriculture.entry.pathing_aoe_augment.page.1"
+    }
+  ]
+}

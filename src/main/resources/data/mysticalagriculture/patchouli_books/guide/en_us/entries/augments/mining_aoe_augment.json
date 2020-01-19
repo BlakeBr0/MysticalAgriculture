@@ -1,0 +1,12 @@
+{
+  "name": "book.mysticalagriculture.entry.mining_aoe_augment",
+  "category": "augments",
+  "icon": "mysticalagriculture:mining_aoe_iv_augment",
+  "sortnum": 307,
+  "pages": [
+    {
+      "type": "text",
+      "text": "book.mysticalagriculture.entry.mining_aoe_augment.page.1"
+    }
+  ]
+}

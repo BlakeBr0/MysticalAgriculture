@@ -1,0 +1,12 @@
+{
+  "name": "book.mysticalagriculture.entry.fire_resistance_augment",
+  "category": "augments",
+  "icon": "mysticalagriculture:fire_resistance_augment",
+  "sortnum": 309,
+  "pages": [
+    {
+      "type": "text",
+      "text": "book.mysticalagriculture.entry.fire_resistance_augment.page.1"
+    }
+  ]
+}

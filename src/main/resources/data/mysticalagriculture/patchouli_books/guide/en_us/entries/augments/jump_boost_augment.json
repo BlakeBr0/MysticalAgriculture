@@ -1,0 +1,12 @@
+{
+  "name": "book.mysticalagriculture.entry.jump_boost_augment",
+  "category": "augments",
+  "icon": "mysticalagriculture:jump_boost_iii_augment",
+  "sortnum": 305,
+  "pages": [
+    {
+      "type": "text",
+      "text": "book.mysticalagriculture.entry.jump_boost_augment.page.1"
+    }
+  ]
+}

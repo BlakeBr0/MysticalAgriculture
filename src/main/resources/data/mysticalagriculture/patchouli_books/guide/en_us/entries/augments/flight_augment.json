@@ -1,0 +1,12 @@
+{
+  "name": "book.mysticalagriculture.entry.flight_augment",
+  "category": "augments",
+  "icon": "mysticalagriculture:flight_augment",
+  "sortnum": 316,
+  "pages": [
+    {
+      "type": "text",
+      "text": "book.mysticalagriculture.entry.flight_augment.page.1"
+    }
+  ]
+}

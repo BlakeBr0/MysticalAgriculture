@@ -1,0 +1,12 @@
+{
+  "name": "book.mysticalagriculture.entry.no_fall_damage_augment",
+  "category": "augments",
+  "icon": "mysticalagriculture:no_fall_damage_augment",
+  "sortnum": 308,
+  "pages": [
+    {
+      "type": "text",
+      "text": "book.mysticalagriculture.entry.no_fall_damage_augment.page.1"
+    }
+  ]
+}

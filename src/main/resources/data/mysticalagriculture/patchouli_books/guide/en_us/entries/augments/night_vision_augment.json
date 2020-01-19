@@ -1,0 +1,12 @@
+{
+  "name": "book.mysticalagriculture.entry.night_vision_augment",
+  "category": "augments",
+  "icon": "mysticalagriculture:night_vision_augment",
+  "sortnum": 302,
+  "pages": [
+    {
+      "type": "text",
+      "text": "book.mysticalagriculture.entry.night_vision_augment.page.1"
+    }
+  ]
+}

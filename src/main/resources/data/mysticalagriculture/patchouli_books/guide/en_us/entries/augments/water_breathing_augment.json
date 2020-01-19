@@ -1,0 +1,12 @@
+{
+  "name": "book.mysticalagriculture.entry.water_breathing_augment",
+  "category": "augments",
+  "icon": "mysticalagriculture:water_breathing_augment",
+  "sortnum": 303,
+  "pages": [
+    {
+      "type": "text",
+      "text": "book.mysticalagriculture.entry.water_breathing_augment.page.1"
+    }
+  ]
+}
