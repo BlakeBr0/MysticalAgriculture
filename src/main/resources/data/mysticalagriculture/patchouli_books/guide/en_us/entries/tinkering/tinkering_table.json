@@ -1,0 +1,17 @@
+{
+  "name": "book.mysticalagriculture.entry.tinkering_table",
+  "category": "tinkering",
+  "icon": "mysticalagriculture:tinkering_table",
+  "sortnum": 252,
+  "pages": [
+    {
+      "type": "text",
+      "text": "book.mysticalagriculture.entry.tinkering_table.page.1"
+    },
+    {
+      "type": "crafting",
+      "title": "book.mysticalagriculture.crafting",
+      "recipe": "mysticalagriculture:tinkering_table"
+    }
+  ]
+}

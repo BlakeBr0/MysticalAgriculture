@@ -1,0 +1,17 @@
+{
+  "name": "book.mysticalagriculture.entry.essence_armor",
+  "category": "tinkering",
+  "icon": "mysticalagriculture:inferium_chestplate",
+  "sortnum": 251,
+  "pages": [
+    {
+      "type": "text",
+      "text": "book.mysticalagriculture.entry.essence_armor.page.1"
+    },
+    {
+      "type": "crafting",
+      "title": "book.mysticalagriculture.crafting",
+      "recipe": "mysticalagriculture:inferium_chestplate"
+    }
+  ]
+}

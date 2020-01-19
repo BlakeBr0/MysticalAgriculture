@@ -1,0 +1,17 @@
+{
+  "name": "book.mysticalagriculture.entry.elemental_essences",
+  "category": "elemental",
+  "icon": "mysticalagriculture:air_essence",
+  "sortnum": 150,
+  "pages": [
+    {
+      "type": "text",
+      "text": "book.mysticalagriculture.entry.elemental_essences.page.1"
+    },
+    {
+      "type": "crafting",
+      "title": "book.mysticalagriculture.crafting",
+      "recipe": "mysticalagriculture:air_essence"
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "name": "book.mysticalagriculture.entry.essence_tools",
+  "category": "tinkering",
+  "icon": "mysticalagriculture:inferium_pickaxe",
+  "sortnum": 250,
+  "pages": [
+    {
+      "type": "text",
+      "text": "book.mysticalagriculture.entry.essence_tools.page.1"
+    },
+    {
+      "type": "crafting",
+      "title": "book.mysticalagriculture.crafting",
+      "recipe": "mysticalagriculture:inferium_pickaxe"
+    }
+  ]
+}

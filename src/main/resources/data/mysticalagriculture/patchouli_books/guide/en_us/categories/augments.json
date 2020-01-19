@@ -1,6 +1,6 @@
 {
   "name": "book.mysticalagriculture.category.augments.name",
   "description": "book.mysticalagriculture.category.augments.description",
-  "icon": "mysticalagriculture:blank_augment",
+  "icon": "mysticalagriculture:unattuned_augment",
   "sortnum": 6
 }

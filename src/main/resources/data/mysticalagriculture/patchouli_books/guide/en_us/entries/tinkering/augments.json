@@ -1,0 +1,18 @@
+{
+  "name": "book.mysticalagriculture.entry.augments",
+  "category": "tinkering",
+  "icon": "mysticalagriculture:unattuned_augment",
+  "sortnum": 253,
+  "pages": [
+    {
+      "type": "text",
+      "text": "book.mysticalagriculture.entry.augments.page.1"
+    },
+    {
+      "type": "crafting",
+      "title": "book.mysticalagriculture.crafting",
+      "text": "book.mysticalagriculture.entry.augments.page.2",
+      "recipe": "mysticalagriculture:unattuned_augment"
+    }
+  ]
+}
