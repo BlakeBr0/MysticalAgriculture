@@ -411,9 +411,9 @@
   "book.mysticalagriculture.entry.seed_reprocessors.page.1": "Seed Reprocessors are used to convert your excess seeds into their respective essences. They run off of solid fuels and have an internal power storage buffer.",
 
   "book.mysticalagriculture.entry.essence_tools": "Essence Tools",
-  "book.mysticalagriculture.entry.essence_tools.page.1": "Upgrading your Diamond* tools with essence improves their durability and mining speed. This also allows them to be equipped with $(l:tinkering/augments)Augments$(). $(br2)Essence Tools can be repaired in an Anvil with their corresponding Essence Ingot.",
+  "book.mysticalagriculture.entry.essence_tools.page.1": "Upgrading your Diamond* tools with essence improves their durability and mining speed. This also allows them to be equipped with $(l:tinkering/augments)Augments$(). $(br2)Essence Tools can be repaired in an Anvil with their corresponding Essence Ingot. These tools each have 1 augment slot.",
   "book.mysticalagriculture.entry.essence_armor": "Essence Armor",
-  "book.mysticalagriculture.entry.essence_armor.page.1": "Upgrading your Diamond* armor with essence improves its durability and protection. This also allows them to be equipped with $(l:tinkering/augments)Augments$(). $(br2)Essence Armor can be repaired in an Anvil with their corresponding Essence Ingot.",
+  "book.mysticalagriculture.entry.essence_armor.page.1": "Upgrading your Diamond* armor with essence improves its durability and protection. This also allows them to be equipped with $(l:tinkering/augments)Augments$(). $(br2)Essence Armor can be repaired in an Anvil with their corresponding Essence Ingot. These armor pieces each have 1 augment slot.",
   "book.mysticalagriculture.entry.tinkering_table": "Tinkering Table",
   "book.mysticalagriculture.entry.tinkering_table.page.1": "The Tinkering Table is used to add $(l:tinkering/augments)Augments$() to $(l:tinkering/essence_tools)Essence Tools$() and $(l:tinkering/essence_armor)Essence Armor$().",
   "book.mysticalagriculture.entry.augments": "Augments",
