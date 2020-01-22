@@ -35,6 +35,7 @@ public class ModCorePlugin implements IMysticalAgriculturePlugin {
     public static final MobSoulType SQUID_SOUL_TYPE = new MobSoulType(new ResourceLocation(MOD_ID, "squid"), new ResourceLocation("minecraft:squid"), 10, 2243405);
     public static final MobSoulType FISH_SOUL_TYPE = new MobSoulType(new ResourceLocation(MOD_ID, "fish"), FISH_IDS, "fish", 10, 12691306);
     public static final MobSoulType SLIME_SOUL_TYPE = new MobSoulType(new ResourceLocation(MOD_ID, "slime"), new ResourceLocation("minecraft:slime"), 10, 5349438);
+    public static final MobSoulType TURTLE_SOUL_TYPE = new MobSoulType(new ResourceLocation(MOD_ID, "turtle"), new ResourceLocation("minecraft:turtle"), 5, 44975);
     public static final MobSoulType ZOMBIE_SOUL_TYPE = new MobSoulType(new ResourceLocation(MOD_ID, "zombie"), new ResourceLocation("minecraft:zombie"), 10, 7969893);
     public static final MobSoulType SKELETON_SOUL_TYPE = new MobSoulType(new ResourceLocation(MOD_ID, "skeleton"), new ResourceLocation("minecraft:skeleton"), 10, 12698049);
     public static final MobSoulType CREEPER_SOUL_TYPE = new MobSoulType(new ResourceLocation(MOD_ID, "creeper"), new ResourceLocation("minecraft:creeper"), 10, 894731);
@@ -60,6 +61,7 @@ public class ModCorePlugin implements IMysticalAgriculturePlugin {
     public static final Crop DYE = new Crop(new ResourceLocation(MOD_ID, "dye"), CropTier.TWO, CropType.RESOURCE, LazyIngredient.item("mysticalagriculture:dye_agglomeratio"));
     public static final Crop NETHER = new Crop(new ResourceLocation(MOD_ID, "nether"), CropTier.TWO, CropType.RESOURCE, ROCK_CROP_TEXTURES, 0x723232, LazyIngredient.item("mysticalagriculture:nether_agglomeratio"));
     public static final Crop COAL = new Crop(new ResourceLocation(MOD_ID, "coal"), CropTier.TWO, CropType.RESOURCE, LazyIngredient.item("minecraft:coal"));
+    public static final Crop CORAL = new Crop(new ResourceLocation(MOD_ID, "coral"), CropTier.TWO, CropType.RESOURCE, LazyIngredient.item("mysticalagriculture:coral_agglomeratio"));
     public static final Crop PIG = new Crop(new ResourceLocation(MOD_ID, "pig"), CropTier.TWO, CropType.MOB, LazyIngredient.item("mysticalagriculture:soul_jar", MobSoulUtils.makeTag(PIG_SOUL_TYPE)));
     public static final Crop CHICKEN = new Crop(new ResourceLocation(MOD_ID, "chicken"), CropTier.TWO, CropType.MOB, LazyIngredient.item("mysticalagriculture:soul_jar", MobSoulUtils.makeTag(CHICKEN_SOUL_TYPE)));
     public static final Crop COW = new Crop(new ResourceLocation(MOD_ID, "cow"), CropTier.TWO, CropType.MOB, LazyIngredient.item("mysticalagriculture:soul_jar", MobSoulUtils.makeTag(COW_SOUL_TYPE)));
@@ -67,6 +69,7 @@ public class ModCorePlugin implements IMysticalAgriculturePlugin {
     public static final Crop SQUID = new Crop(new ResourceLocation(MOD_ID, "squid"), CropTier.TWO, CropType.MOB, LazyIngredient.item("mysticalagriculture:soul_jar", MobSoulUtils.makeTag(SQUID_SOUL_TYPE)));
     public static final Crop FISH = new Crop(new ResourceLocation(MOD_ID, "fish"), CropTier.TWO, CropType.MOB, LazyIngredient.item("mysticalagriculture:soul_jar", MobSoulUtils.makeTag(FISH_SOUL_TYPE)));
     public static final Crop SLIME = new Crop(new ResourceLocation(MOD_ID, "slime"), CropTier.TWO, CropType.MOB, LazyIngredient.item("mysticalagriculture:soul_jar", MobSoulUtils.makeTag(SLIME_SOUL_TYPE)));
+    public static final Crop TURTLE = new Crop(new ResourceLocation(MOD_ID, "turtle"), CropTier.TWO, CropType.MOB, LazyIngredient.item("mysticalagriculture:soul_jar", MobSoulUtils.makeTag(TURTLE_SOUL_TYPE)));
 
     public static final Crop IRON = new Crop(new ResourceLocation(MOD_ID, "iron"), CropTier.THREE, CropType.RESOURCE, LazyIngredient.tag("forge:ingots/iron"));
     public static final Crop NETHER_QUARTZ = new Crop(new ResourceLocation(MOD_ID, "nether_quartz"), CropTier.THREE, CropType.RESOURCE, LazyIngredient.tag("forge:gems/quartz"));
@@ -113,6 +116,7 @@ public class ModCorePlugin implements IMysticalAgriculturePlugin {
         registry.register(DYE);
         registry.register(NETHER);
         registry.register(COAL);
+        registry.register(CORAL);
         registry.register(PIG);
         registry.register(CHICKEN);
         registry.register(COW);
@@ -120,6 +124,7 @@ public class ModCorePlugin implements IMysticalAgriculturePlugin {
         registry.register(SQUID);
         registry.register(FISH);
         registry.register(SLIME);
+        registry.register(TURTLE);
 
         registry.register(IRON);
         registry.register(NETHER_QUARTZ);
@@ -155,6 +160,7 @@ public class ModCorePlugin implements IMysticalAgriculturePlugin {
         registry.register(SQUID_SOUL_TYPE);
         registry.register(FISH_SOUL_TYPE);
         registry.register(SLIME_SOUL_TYPE);
+        registry.register(TURTLE_SOUL_TYPE);
         registry.register(ZOMBIE_SOUL_TYPE);
         registry.register(SKELETON_SOUL_TYPE);
         registry.register(CREEPER_SOUL_TYPE);

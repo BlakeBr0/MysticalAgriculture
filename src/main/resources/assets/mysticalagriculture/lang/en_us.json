@@ -113,6 +113,7 @@
   "item.mysticalagriculture.nature_agglomeratio": "Nature Agglomeratio",
   "item.mysticalagriculture.dye_agglomeratio": "Dye Agglomeratio",
   "item.mysticalagriculture.nether_agglomeratio": "Nether Agglomeratio",
+  "item.mysticalagriculture.coral_agglomeratio": "Coral Agglomeratio",
   "item.mysticalagriculture.prismarine_agglomeratio": "Prismarine Agglomeratio",
   "item.mysticalagriculture.end_agglomeratio": "End Agglomeratio",
   "item.mysticalagriculture.experience_droplet": "Experience Droplet",
@@ -243,6 +244,7 @@
   "crop.mysticalagriculture.dye": "Dye",
   "crop.mysticalagriculture.nether": "Nether",
   "crop.mysticalagriculture.coal": "Coal",
+  "crop.mysticalagriculture.coral": "Coral",
   "crop.mysticalagriculture.pig": "Pig",
   "crop.mysticalagriculture.chicken": "Chicken",
   "crop.mysticalagriculture.cow": "Cow",
@@ -250,6 +252,7 @@
   "crop.mysticalagriculture.squid": "Squid",
   "crop.mysticalagriculture.fish": "Fish",
   "crop.mysticalagriculture.slime": "Slime",
+  "crop.mysticalagriculture.turtle": "Turtle",
 
   "crop.mysticalagriculture.iron": "Iron",
   "crop.mysticalagriculture.nether_quartz": "Nether Quartz",

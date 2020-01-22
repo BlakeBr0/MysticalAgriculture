@@ -1,0 +1,24 @@
+{
+  "type": "crafting_shaped",
+  "pattern": [
+    "CO",
+    "PL"
+  ],
+  "key": {
+    "C": {
+      "item": "minecraft:brain_coral_block"
+    },
+    "O": {
+      "item": "minecraft:tube_coral_block"
+    },
+    "P": {
+      "item": "minecraft:fire_coral_block"
+    },
+    "L": {
+      "item": "minecraft:horn_coral_block"
+    }
+  },
+  "result": {
+    "item": "mysticalagriculture:dye_agglomeratio"
+  }
+}
