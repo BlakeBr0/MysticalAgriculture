@@ -10,6 +10,7 @@ import com.blakebr0.cucumber.item.BaseBlockItem;
 import com.blakebr0.mysticalagriculture.MysticalAgriculture;
 import com.blakebr0.mysticalagriculture.api.crop.CropTier;
 import com.blakebr0.mysticalagriculture.item.ModItems;
+import com.blakebr0.mysticalagriculture.lib.ModCrops;
 import com.blakebr0.mysticalagriculture.registry.CropRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
@@ -100,6 +101,7 @@ public class ModBlocks {
     public static final RegistryObject<ReprocessorBlock> TERTIUM_REPROCESSOR = register("tertium_reprocessor", () -> new ReprocessorBlock(ReprocessorBlock.ReprocessorTier.TERTIUM));
     public static final RegistryObject<ReprocessorBlock> IMPERIUM_REPROCESSOR = register("imperium_reprocessor", () -> new ReprocessorBlock(ReprocessorBlock.ReprocessorTier.IMPERIUM));
     public static final RegistryObject<ReprocessorBlock> SUPREMIUM_REPROCESSOR = register("supremium_reprocessor", () -> new ReprocessorBlock(ReprocessorBlock.ReprocessorTier.SUPREMIUM));
+    public static final RegistryObject<InferiumCropBlock> INFERIUM_CROP = registerNoItem("inferium_crop", () -> new InferiumCropBlock(ModCrops.INFERIUM));
 
     @SubscribeEvent
     public void onRegisterBlocks(RegistryEvent.Register<Block> event) {
@@ -122,5 +124,11 @@ public class ModBlocks {
         RegistryObject<T> reg = RegistryObject.of(loc, ForgeRegistries.BLOCKS);
         ModItems.BLOCK_ENTRIES.add(() -> item.apply(reg).get().setRegistryName(loc));
         return reg;
+    }
+
+    public static <T extends Block> RegistryObject<T> registerNoItem(String name, Supplier<T> block) {
+        ResourceLocation loc = new ResourceLocation(MysticalAgriculture.MOD_ID, name);
+        ENTRIES.add(() -> block.get().setRegistryName(loc));
+        return RegistryObject.of(loc, ForgeRegistries.BLOCKS);
     }
 }

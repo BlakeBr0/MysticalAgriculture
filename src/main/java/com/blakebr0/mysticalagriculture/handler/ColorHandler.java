@@ -7,6 +7,7 @@ import com.blakebr0.mysticalagriculture.api.util.MobSoulUtils;
 import com.blakebr0.mysticalagriculture.block.InfusedFarmlandBlock;
 import com.blakebr0.mysticalagriculture.item.ModItems;
 import com.blakebr0.mysticalagriculture.lib.ModCorePlugin;
+import com.blakebr0.mysticalagriculture.lib.ModCrops;
 import com.blakebr0.mysticalagriculture.registry.AugmentRegistry;
 import com.blakebr0.mysticalagriculture.registry.CropRegistry;
 import net.minecraft.client.Minecraft;
@@ -40,10 +41,10 @@ public class ColorHandler {
             return Utils.saturate(0x00D9D9, damage);
         }, ModItems.INFUSION_CRYSTAL.get());
 
-        colors.register((stack, tint) -> ModCorePlugin.AIR.getEssenceColor(), ModItems.AIR_AGGLOMERATIO.get());
-        colors.register((stack, tint) -> ModCorePlugin.EARTH.getEssenceColor(), ModItems.EARTH_AGGLOMERATIO.get());
-        colors.register((stack, tint) -> ModCorePlugin.WATER.getEssenceColor(), ModItems.WATER_AGGLOMERATIO.get());
-        colors.register((stack, tint) -> ModCorePlugin.FIRE.getEssenceColor(), ModItems.FIRE_AGGLOMERATIO.get());
+        colors.register((stack, tint) -> ModCrops.AIR.getEssenceColor(), ModItems.AIR_AGGLOMERATIO.get());
+        colors.register((stack, tint) -> ModCrops.EARTH.getEssenceColor(), ModItems.EARTH_AGGLOMERATIO.get());
+        colors.register((stack, tint) -> ModCrops.WATER.getEssenceColor(), ModItems.WATER_AGGLOMERATIO.get());
+        colors.register((stack, tint) -> ModCrops.FIRE.getEssenceColor(), ModItems.FIRE_AGGLOMERATIO.get());
 
         colors.register((stack, tint) -> {
             IMobSoulType type = MobSoulUtils.getType(stack);
