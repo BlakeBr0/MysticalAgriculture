@@ -119,7 +119,7 @@ public class WateringCanItem extends BaseItem {
         }
 
         if (!world.isRemote()) {
-            if (Math.random() <= 25) {
+            if (Math.random() <= 0.25) {
                 blocks = BlockPos.getAllInBox(pos.add(-1, -1, -1), pos.add(1, 1, 1));
                 blocks.forEach(aoePos -> {
                     Block plantBlock = world.getBlockState(aoePos).getBlock();
