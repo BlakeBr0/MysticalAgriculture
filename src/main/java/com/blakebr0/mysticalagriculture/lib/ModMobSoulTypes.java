@@ -19,7 +19,7 @@ public class ModMobSoulTypes {
     public static final MobSoulType SQUID_SOUL_TYPE = new MobSoulType(new ResourceLocation(MOD_ID, "squid"), new ResourceLocation("minecraft:squid"), 10, 2243405);
     public static final MobSoulType FISH_SOUL_TYPE = new MobSoulType(new ResourceLocation(MOD_ID, "fish"), FISH_IDS, "fish", 10, 12691306);
     public static final MobSoulType SLIME_SOUL_TYPE = new MobSoulType(new ResourceLocation(MOD_ID, "slime"), new ResourceLocation("minecraft:slime"), 10, 5349438);
-    public static final MobSoulType TURTLE_SOUL_TYPE = new MobSoulType(new ResourceLocation(MOD_ID, "turtle"), new ResourceLocation("minecraft:turtle"), 5, 44975);
+    public static final MobSoulType TURTLE_SOUL_TYPE = new MobSoulType(new ResourceLocation(MOD_ID, "turtle"), new ResourceLocation("minecraft:turtle"), 8, 44975);
     public static final MobSoulType ZOMBIE_SOUL_TYPE = new MobSoulType(new ResourceLocation(MOD_ID, "zombie"), new ResourceLocation("minecraft:zombie"), 10, 7969893);
     public static final MobSoulType SKELETON_SOUL_TYPE = new MobSoulType(new ResourceLocation(MOD_ID, "skeleton"), new ResourceLocation("minecraft:skeleton"), 10, 12698049);
     public static final MobSoulType CREEPER_SOUL_TYPE = new MobSoulType(new ResourceLocation(MOD_ID, "creeper"), new ResourceLocation("minecraft:creeper"), 10, 894731);

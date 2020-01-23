@@ -1,0 +1,26 @@
+{
+  "type": "cucumber:shaped_no_mirror",
+  "conditions": [
+    {
+      "type": "mysticalagriculture:crop_enabled",
+      "crop": "mysticalagriculture:coral"
+    }
+  ],
+  "pattern": [
+    "E E",
+    " D ",
+    "E E"
+  ],
+  "key": {
+    "E": {
+      "item": "mysticalagriculture:coral_essence"
+    },
+    "D": {
+      "tag": "forge:dyes/magenta"
+    }
+  },
+  "result": {
+    "item": "minecraft:bubble_coral_fan",
+    "count": 6
+  }
+}

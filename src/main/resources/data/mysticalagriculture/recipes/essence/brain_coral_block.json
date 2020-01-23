@@ -1,0 +1,26 @@
+{
+  "type": "cucumber:shaped_no_mirror",
+  "conditions": [
+    {
+      "type": "mysticalagriculture:crop_enabled",
+      "crop": "mysticalagriculture:coral"
+    }
+  ],
+  "pattern": [
+    "EEE",
+    "EDE",
+    "EEE"
+  ],
+  "key": {
+    "E": {
+      "item": "mysticalagriculture:coral_essence"
+    },
+    "D": {
+      "tag": "forge:dyes/pink"
+    }
+  },
+  "result": {
+    "item": "minecraft:brain_coral_block",
+    "count": 12
+  }
+}
