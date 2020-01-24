@@ -174,7 +174,7 @@ public class EssenceWateringCanItem extends BaseItem {
                 blocks.forEach(aoePos -> {
                     Block plantBlock = world.getBlockState(aoePos).getBlock();
                     if (plantBlock instanceof IGrowable || plantBlock instanceof IPlantable || plantBlock == Blocks.MYCELIUM || plantBlock == Blocks.CHORUS_FLOWER) {
-                        world.getPendingBlockTicks().scheduleTick(aoePos, plantBlock, 0);
+                        world.getPendingBlockTicks().scheduleTick(aoePos, plantBlock, 4);
                     }
                 });
 
