@@ -6,6 +6,7 @@ import net.minecraft.entity.CreatureEntity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.item.ItemEntity;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.event.entity.living.LivingDropsEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -17,11 +18,12 @@ public class MobDropHandler {
     public void onLivingDrops(LivingDropsEvent event) {
         LivingEntity entity = event.getEntityLiving();
         World world = entity.getEntityWorld();
+        BlockPos pos = entity.getPosition();
         Collection<ItemEntity> drops = event.getDrops();
         double inferiumDropChance = ModConfigs.INFERIUM_DROP_CHANCE.get();
 
         if (entity instanceof CreatureEntity && Math.random() < inferiumDropChance) {
-            drops.add(new ItemEntity(world, entity.posX, entity.posY, entity.posZ, new ItemStack(ModItems.INFERIUM_ESSENCE.get())));
+            drops.add(new ItemEntity(world, pos.getX(), pos.getY(), pos.getZ(), new ItemStack(ModItems.INFERIUM_ESSENCE.get())));
         }
     }
 }

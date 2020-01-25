@@ -14,6 +14,7 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.InventoryHelper;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.ActionResultType;
 import net.minecraft.util.Hand;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.SoundEvents;
@@ -54,15 +55,16 @@ public class InfusionAltarBlock extends BaseTileEntityBlock {
     }
 
     @Override
-    public boolean onBlockActivated(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockRayTraceResult rayTraceResult) {
+    public ActionResultType onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockRayTraceResult rayTraceResult) {
         TileEntity tile = world.getTileEntity(pos);
         if (tile instanceof InfusionAltarTileEntity) {
             InfusionAltarTileEntity altar = (InfusionAltarTileEntity) tile;
             ItemStackHandler inventory = altar.getInventory();
             ItemStack input = inventory.getStackInSlot(0);
             ItemStack output = inventory.getStackInSlot(1);
+            BlockPos playerPos = player.getPosition();
             if (!output.isEmpty()) {
-                ItemEntity item = new ItemEntity(world, player.posX, player.posY, player.posZ, output);
+                ItemEntity item = new ItemEntity(world, playerPos.getX(), playerPos.getY(), playerPos.getZ(), output);
                 item.setNoPickupDelay();
                 world.addEntity(item);
                 inventory.setStackInSlot(1, ItemStack.EMPTY);
@@ -73,7 +75,7 @@ public class InfusionAltarBlock extends BaseTileEntityBlock {
                     player.setHeldItem(hand, StackHelper.decrease(held, 1, false));
                     world.playSound(null, pos, SoundEvents.ENTITY_ITEM_PICKUP, SoundCategory.BLOCKS, 1.0F, 1.0F);
                 } else if (!input.isEmpty()) {
-                    ItemEntity item = new ItemEntity(world, player.posX, player.posY, player.posZ, input);
+                    ItemEntity item = new ItemEntity(world, playerPos.getX(), playerPos.getY(), playerPos.getZ(), input);
                     item.setNoPickupDelay();
                     world.addEntity(item);
                     inventory.setStackInSlot(0, ItemStack.EMPTY);
@@ -81,7 +83,7 @@ public class InfusionAltarBlock extends BaseTileEntityBlock {
             }
         }
 
-        return true;
+        return ActionResultType.SUCCESS;
     }
 
     @Override

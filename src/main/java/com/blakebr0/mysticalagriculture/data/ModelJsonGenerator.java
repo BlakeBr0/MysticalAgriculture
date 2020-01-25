@@ -38,7 +38,7 @@ public class ModelJsonGenerator {
                     this.getVariantBuilder(block).forAllStates(state -> {
                         Integer age = state.get(CropsBlock.AGE);
                         if (age == block.getMaxAge()) {
-                            BlockModelBuilder model = this.getBuilder(crop.getNameWithSuffix("crop"))
+                            BlockModelBuilder model = this.models().getBuilder(crop.getNameWithSuffix("crop"))
                                     .parent(mobCropModel)
                                     .texture("flower", crop.getTextures().getFlowerTexture());
                             return ConfiguredModel.builder().modelFile(model).build();
@@ -50,7 +50,7 @@ public class ModelJsonGenerator {
                     this.getVariantBuilder(block).forAllStates(state -> {
                         Integer age = state.get(CropsBlock.AGE);
                         if (age == block.getMaxAge()) {
-                            BlockModelBuilder model = this.getBuilder(crop.getNameWithSuffix("crop"))
+                            BlockModelBuilder model = this.models().getBuilder(crop.getNameWithSuffix("crop"))
                                     .parent(resourceCropModel)
                                     .texture("flower", crop.getTextures().getFlowerTexture());
                             return ConfiguredModel.builder().modelFile(model).build();

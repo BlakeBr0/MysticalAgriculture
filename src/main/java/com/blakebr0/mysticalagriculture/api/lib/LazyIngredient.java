@@ -7,7 +7,6 @@ import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.Tag;
 import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.common.crafting.IngredientNBT;
 import net.minecraftforge.registries.ForgeRegistries;
 
 public class LazyIngredient {
@@ -77,7 +76,7 @@ public class LazyIngredient {
         ITEM, TAG
     }
 
-    private static class NBTIngredient extends IngredientNBT {
+    private static class NBTIngredient extends net.minecraftforge.common.crafting.NBTIngredient {
         private NBTIngredient(ItemStack stack) {
             super(stack);
         }

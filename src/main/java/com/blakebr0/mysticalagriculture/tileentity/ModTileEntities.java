@@ -49,9 +49,9 @@ public class ModTileEntities {
 
     @OnlyIn(Dist.CLIENT)
     public static void onClientSetup() {
-        ClientRegistry.bindTileEntitySpecialRenderer(InfusionPedestalTileEntity.class, new InfusionPedestalRenderer());
-        ClientRegistry.bindTileEntitySpecialRenderer(InfusionAltarTileEntity.class, new InfusionAltarRenderer());
-        ClientRegistry.bindTileEntitySpecialRenderer(TinkeringTableTileEntity.class, new TinkeringTableRenderer());
+        ClientRegistry.bindTileEntityRenderer(INFUSION_PEDESTAL.get(), InfusionPedestalRenderer::new);
+        ClientRegistry.bindTileEntityRenderer(INFUSION_ALTAR.get(), InfusionAltarRenderer::new);
+        ClientRegistry.bindTileEntityRenderer(TINKERING_TABLE.get(), TinkeringTableRenderer::new);
     }
 
     private static <T extends TileEntityType<?>> RegistryObject<T> register(String name, Supplier<TileEntity> tile, Supplier<Block[]> blocks) {

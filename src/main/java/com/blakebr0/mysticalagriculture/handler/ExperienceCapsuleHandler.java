@@ -5,7 +5,7 @@ import com.blakebr0.mysticalagriculture.item.ExperienceCapsuleItem;
 import net.minecraft.entity.item.ExperienceOrbEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
-import net.minecraftforge.event.entity.player.PlayerPickupXpEvent;
+import net.minecraftforge.event.entity.player.PlayerXpEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 
 import java.util.List;
@@ -13,7 +13,7 @@ import java.util.stream.Collectors;
 
 public class ExperienceCapsuleHandler {
     @SubscribeEvent
-    public void onPlayerPickupXp(PlayerPickupXpEvent event) {
+    public void onPlayerPickupXp(PlayerXpEvent.PickupXp event) {
         ExperienceOrbEntity orb = event.getOrb();
         PlayerEntity player = event.getPlayer();
         if (player != null) {

@@ -17,6 +17,7 @@ import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.world.World;
+import net.minecraft.world.server.ServerWorld;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.common.util.Constants;
@@ -81,9 +82,9 @@ public class MysticalFertilizerItem extends BaseItem {
                             if (!ForgeEventFactory.saplingGrowTree(world, rand, pos))
                                 return false;
 
-                            ((SaplingBlock) growable).tree.spawn(world, pos, state, rand);
+                            ((SaplingBlock) growable).generate((ServerWorld) world, pos, state, rand);
                         } else {
-                            growable.grow(world, rand, pos, state);
+                            growable.grow((ServerWorld) world, rand, pos, state);
                         }
                     }
 

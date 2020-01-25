@@ -12,6 +12,7 @@ import net.minecraft.entity.item.ItemEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.ActionResultType;
 import net.minecraft.util.Hand;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.SoundEvents;
@@ -40,7 +41,7 @@ public class InfusionPedestalBlock extends BaseTileEntityBlock {
     }
 
     @Override
-    public boolean onBlockActivated(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockRayTraceResult rayTraceResult) {
+    public ActionResultType onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockRayTraceResult rayTraceResult) {
         TileEntity tile = world.getTileEntity(pos);
         if (tile instanceof InfusionPedestalTileEntity) {
             InfusionPedestalTileEntity pedestal = (InfusionPedestalTileEntity) tile;
@@ -52,14 +53,15 @@ public class InfusionPedestalBlock extends BaseTileEntityBlock {
                 player.setHeldItem(hand, StackHelper.decrease(held, 1, false));
                 world.playSound(null, pos, SoundEvents.ENTITY_ITEM_PICKUP, SoundCategory.BLOCKS, 1.0F, 1.0F);
             } else if (!input.isEmpty()) {
-                ItemEntity item = new ItemEntity(world, player.posX, player.posY, player.posZ, input);
+                BlockPos playerPos = player.getPosition();
+                ItemEntity item = new ItemEntity(world, playerPos.getX(), playerPos.getY(), playerPos.getZ(), input);
                 item.setNoPickupDelay();
                 world.addEntity(item);
                 inventory.setStackInSlot(0, ItemStack.EMPTY);
             }
         }
 
-        return true;
+        return ActionResultType.SUCCESS;
     }
 
     @Override

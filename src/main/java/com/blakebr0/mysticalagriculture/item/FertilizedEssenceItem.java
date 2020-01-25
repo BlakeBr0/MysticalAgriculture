@@ -16,6 +16,7 @@ import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.world.World;
+import net.minecraft.world.server.ServerWorld;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.common.util.Constants;
@@ -42,7 +43,7 @@ public class FertilizedEssenceItem extends BaseItem {
             return ActionResultType.FAIL;
         } else {
             if (applyFertilizer(stack, world, pos, player)) {
-                if (!world.isRemote){
+                if (!world.isRemote()){
                     world.playEvent(Constants.WorldEvents.BONEMEAL_PARTICLES, pos, 0);
                 }
 
@@ -74,7 +75,7 @@ public class FertilizedEssenceItem extends BaseItem {
                 if (!world.isRemote()) {
                     Random random = world.getRandom();
                     if (growable.canUseBonemeal(world, random, pos, state) || canGrowResourceCrops(growable)) {
-                        growable.grow(world, random, pos, state);
+                        growable.grow((ServerWorld) world, random, pos, state);
                     }
 
                     stack.shrink(1);

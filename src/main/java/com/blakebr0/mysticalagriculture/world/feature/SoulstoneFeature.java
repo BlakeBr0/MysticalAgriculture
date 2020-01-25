@@ -3,9 +3,6 @@ package com.blakebr0.mysticalagriculture.world.feature;
 import com.blakebr0.mysticalagriculture.block.ModBlocks;
 import com.blakebr0.mysticalagriculture.config.ModConfigs;
 import com.mojang.datafixers.Dynamic;
-import java.util.BitSet;
-import java.util.Random;
-import java.util.function.Function;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.IWorld;
@@ -14,6 +11,10 @@ import net.minecraft.world.gen.GenerationSettings;
 import net.minecraft.world.gen.Heightmap;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.OreFeatureConfig;
+
+import java.util.BitSet;
+import java.util.Random;
+import java.util.function.Function;
 
 public class SoulstoneFeature extends Feature<OreFeatureConfig> {
     public static final SoulstoneFeature INSTANCE = new SoulstoneFeature(OreFeatureConfig::deserialize);
@@ -53,7 +54,7 @@ public class SoulstoneFeature extends Feature<OreFeatureConfig> {
     protected boolean func_207803_a(IWorld worldIn, Random random, OreFeatureConfig config, double p_207803_4_, double p_207803_6_, double p_207803_8_, double p_207803_10_, double p_207803_12_, double p_207803_14_, int p_207803_16_, int p_207803_17_, int p_207803_18_, int p_207803_19_, int p_207803_20_) {
         int i = 0;
         BitSet bitset = new BitSet(p_207803_19_ * p_207803_20_ * p_207803_19_);
-        BlockPos.MutableBlockPos blockpos$mutableblockpos = new BlockPos.MutableBlockPos();
+        BlockPos.Mutable blockpos$mutableblockpos = new BlockPos.Mutable();
         double[] adouble = new double[config.size * 4];
 
         for(int j = 0; j < config.size; ++j) {
