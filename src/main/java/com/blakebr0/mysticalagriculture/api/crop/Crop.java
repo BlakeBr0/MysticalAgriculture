@@ -160,7 +160,7 @@ public class Crop implements ICrop {
     }
 
     @Override
-    public boolean getRegisterCropBlock() {
+    public boolean shouldRegisterCropBlock() {
         return this.registerCropBlock;
     }
 
@@ -177,7 +177,7 @@ public class Crop implements ICrop {
     }
 
     @Override
-    public boolean getRegisterEssenceItem() {
+    public boolean shouldRegisterEssenceItem() {
         return this.registerEssenceItem;
     }
 
@@ -194,7 +194,7 @@ public class Crop implements ICrop {
     }
 
     @Override
-    public boolean getRegisterSeedsItem() {
+    public boolean shouldRegisterSeedsItem() {
         return this.registerSeedsItem;
     }
 

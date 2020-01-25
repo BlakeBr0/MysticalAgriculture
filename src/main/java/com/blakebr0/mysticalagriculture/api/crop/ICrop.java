@@ -145,7 +145,7 @@ public interface ICrop {
      * Should this crop's crop block be registered
      * @return should be registered
      */
-    boolean getRegisterCropBlock();
+    boolean shouldRegisterCropBlock();
 
     /**
      * The essence item for this crop type
@@ -174,7 +174,7 @@ public interface ICrop {
      * Should this crop's essence item be registered
      * @return should be registered
      */
-    boolean getRegisterEssenceItem();
+    boolean shouldRegisterEssenceItem();
 
     /**
      * The seeds item for this crop type
@@ -203,7 +203,7 @@ public interface ICrop {
      * Should this crop's seeds item be registered
      * @return should be registered
      */
-    boolean getRegisterSeedsItem();
+    boolean shouldRegisterSeedsItem();
 
     /**
      * Get the chance of a second seed/essence dropping based on the block provided

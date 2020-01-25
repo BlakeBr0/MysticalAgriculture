@@ -70,7 +70,7 @@ public class CropRegistry implements ICropRegistry {
     public void onRegisterBlocks(IForgeRegistry<Block> registry) {
         PluginRegistry.getInstance().forEach(plugin -> plugin.onRegisterCrops(this));
 
-        this.crops.stream().filter(ICrop::getRegisterCropBlock).forEach(c -> {
+        this.crops.stream().filter(ICrop::shouldRegisterCropBlock).forEach(c -> {
             CropsBlock crop = c.getCrop();
             if (crop == null) {
                 CropsBlock defaultCrop = new MysticalCropBlock(c);
@@ -88,7 +88,7 @@ public class CropRegistry implements ICropRegistry {
     }
 
     public void onRegisterItems(IForgeRegistry<Item> registry) {
-        this.crops.stream().filter(ICrop::getRegisterEssenceItem).forEach(c -> {
+        this.crops.stream().filter(ICrop::shouldRegisterEssenceItem).forEach(c -> {
             Item essence = c.getEssence();
             if (essence == null) {
                 Item defaultEssence = new MysticalEssenceItem(c, p -> p.group(MysticalAgriculture.ITEM_GROUP));
@@ -102,7 +102,7 @@ public class CropRegistry implements ICropRegistry {
             registry.register(essence);
         });
 
-        this.crops.stream().filter(ICrop::getRegisterSeedsItem).forEach(c -> {
+        this.crops.stream().filter(ICrop::shouldRegisterSeedsItem).forEach(c -> {
             BlockNamedItem seeds = c.getSeeds();
             if (seeds == null) {
                 BlockNamedItem defaultSeeds = new MysticalSeedsItem(c, p -> p.group(MysticalAgriculture.ITEM_GROUP));
