@@ -32,18 +32,6 @@ public class CropTier {
 
     /**
      * Represents a tier/group of crops
-     * @param name the name of the tier
-     * @param value the level of the tier, higher number = higher tier
-     * @param color the text color of this tier
-     * @param modid the modid that created this tier
-     */
-    @Deprecated // USE RESOURCE LOCATION CONSTRUCTOR TODO: REMOVE 1.15
-    public CropTier(String name, int value, int color, TextFormatting textColor, String modid) {
-        this(new ResourceLocation(modid, name), value, color, textColor);
-    }
-
-    /**
-     * Represents a tier/group of crops
      * @param id the id of this tier
      * @param value the level of this tier, higher number = higher tier
      * @param color the color of this tier
@@ -111,15 +99,6 @@ public class CropTier {
     }
 
     /**
-     * Deprecated, use {@link CropTier#setFarmland(Supplier)}
-     */
-    @Deprecated // TODO: REMOVE 1.15
-    public CropTier setFarmland(FarmlandBlock farmland) {
-        this.farmland = () -> farmland;
-        return this;
-    }
-
-    /**
      * Used to set the farmland block instance for this tier
      * @param farmland the farmland block
      * @return this tier
@@ -135,15 +114,6 @@ public class CropTier {
      */
     public Item getEssence() {
         return this.essence == null ? null : this.essence.get();
-    }
-
-    /**
-     * Deprecated, use {@link CropTier#setEssence(Supplier)}
-     */
-    @Deprecated // TODO: REMOVE 1.15
-    public CropTier setEssence(Item essence) {
-        this.essence = () -> essence;
-        return this;
     }
 
     /**

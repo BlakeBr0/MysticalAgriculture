@@ -49,15 +49,6 @@ public class CropType {
     }
 
     /**
-     * Deprecated, use {@link CropType#setCraftingSeed(Supplier)}
-     */
-    @Deprecated // TODO: REMOVE 1.15
-    public CropType setCraftingSeed(Item item) {
-        this.craftingSeed = () -> item;
-        return this;
-    }
-
-    /**
      * Used to set the seeds item instance for this crop
      * @param item the crafting seed item
      * @return this crop type
