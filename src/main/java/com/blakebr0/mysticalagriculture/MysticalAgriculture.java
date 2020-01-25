@@ -99,6 +99,7 @@ public class MysticalAgriculture {
 		MinecraftForge.EVENT_BUS.register(new MultiblockGuideRenderer());
 
 		ColorHandler.onClientSetup();
+		ModelHandler.onClientSetup();
 
 		ModTileEntities.onClientSetup();
 		ModContainerTypes.onClientSetup();
