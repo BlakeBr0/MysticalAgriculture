@@ -13,7 +13,7 @@ apply plugin: 'eclipse'
 
 version = '2.0.6'
 group = 'com.blakebr0.mysticalagriculture'
-archivesBaseName = 'MysticalAgriculture-1.14.4'
+archivesBaseName = 'MysticalAgriculture-1.15.2'
 
 sourceCompatibility = targetCompatibility = compileJava.sourceCompatibility = compileJava.targetCompatibility = '1.8'
 
@@ -27,7 +27,7 @@ repositories {
 }
 
 minecraft {
-    mappings channel: 'snapshot', version: '20190803-1.14.3'
+    mappings channel: 'snapshot', version: '20200115-mixed-1.15.1'
     accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg')
 
     runs {
@@ -71,13 +71,13 @@ sourceSets.main.resources {
 }
 
 dependencies {
-    minecraft 'net.minecraftforge:forge:1.14.4-28.1.92'
+    minecraft 'net.minecraftforge:forge:1.15.2-31.0.1'
 
-    compile files('../Cucumber/build/libs/Cucumber-1.14.4-2.0.6-deobf.jar')
-    compile fg.deobf('mcp.mobius.waila:Hwyla:1.10.5-B66_1.14.4')
-    compileOnly fg.deobf("mezz.jei:jei-1.14.4:6.0.0.10:api")
-    runtimeOnly fg.deobf("mezz.jei:jei-1.14.4:6.0.0.10")
-    compile fg.deobf("vazkii.patchouli:Patchouli:1.1-25.116")
+    compile files('../Cucumber/build/libs/Cucumber-1.15.2-3.0.0-deobf.jar')
+    compile fg.deobf('mcp.mobius.waila:Hwyla:1.10.7-B71_1.15.1')
+    compileOnly fg.deobf("mezz.jei:jei-1.15.2:6.0.0.2:api")
+    runtimeOnly fg.deobf("mezz.jei:jei-1.15.2:6.0.0.2")
+//    compile fg.deobf("vazkii.patchouli:Patchouli:1.1-25.116")
 }
 
 task apiJar(type: Jar) {
