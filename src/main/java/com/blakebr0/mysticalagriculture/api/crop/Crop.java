@@ -215,8 +215,9 @@ public class Crop implements ICrop {
     }
 
     @Override
-    public void setEnabled(boolean enabled) {
+    public ICrop setEnabled(boolean enabled) {
         this.enabled = enabled;
+        return this;
     }
 
     @Override

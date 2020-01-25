@@ -245,7 +245,7 @@ public interface ICrop {
      * Set whether or not this crop should be hidden from the game
      * @param enabled the enabled state
      */
-    void setEnabled(boolean enabled);
+    ICrop setEnabled(boolean enabled);
 
     /**
      * The crux block for this crop type
