@@ -33,9 +33,9 @@ public class TinkeringTableRenderer extends TileEntityRenderer<TinkeringTableTil
             matrix.translate(0.5D, 0.9D, 0.5D);
             float scale = 0.7F;
             matrix.scale(scale, scale, scale);
-            matrix.multiply(new Vector3f(1F, 0F, 0F).getDegreesQuaternion(90));
+            matrix.multiply(Vector3f.POSITIVE_X.getDegreesQuaternion(90));
             int index = state.get(TinkeringTableBlock.FACING).getHorizontalIndex();
-            matrix.multiply(new Vector3f(0F, 0F, 1F).getDegreesQuaternion(90 * index));
+            matrix.multiply(Vector3f.POSITIVE_Z.getDegreesQuaternion(90 * index));
             Minecraft.getInstance().getItemRenderer().renderItem(stack, ItemCameraTransforms.TransformType.FIXED, i, i1, matrix, buffer);
             matrix.pop();
         }
