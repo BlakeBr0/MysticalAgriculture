@@ -7,8 +7,8 @@ import net.minecraft.util.ResourceLocation;
 import java.util.function.Supplier;
 
 public class CropType {
-    public static final CropType RESOURCE = new CropType("resource", new ResourceLocation(MysticalAgricultureAPI.MOD_ID, "mystical_resource_crop"));
-    public static final CropType MOB = new CropType("mob", new ResourceLocation(MysticalAgricultureAPI.MOD_ID, "mystical_mob_crop"));
+    public static final CropType RESOURCE = new CropType("resource", new ResourceLocation(MysticalAgricultureAPI.MOD_ID, "block/mystical_resource_crop"));
+    public static final CropType MOB = new CropType("mob", new ResourceLocation(MysticalAgricultureAPI.MOD_ID, "block/mystical_mob_crop"));
 
     private final String name;
     private final ResourceLocation stemModel;
@@ -27,6 +27,7 @@ public class CropType {
     }
 
     /**
+     * The name of this crop type, used internally for model differentiation
      * @return the name of this type
      */
     public String getName() {
@@ -34,6 +35,7 @@ public class CropType {
     }
 
     /**
+     * The base model location used for the stem models of this tier, excluding the _# for age
      * @return the resource location of the stem model for this type
      */
     public ResourceLocation getStemModel() {
@@ -49,7 +51,7 @@ public class CropType {
     }
 
     /**
-     * Used to set the seeds item instance for this crop
+     * Used to set the crafting seed item instance for this crop
      * @param item the crafting seed item
      * @return this crop type
      */
