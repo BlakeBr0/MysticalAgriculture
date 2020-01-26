@@ -77,6 +77,13 @@ public interface ICrop {
     int getFlowerColor();
 
     /**
+     * Set the color that should overlay this crop's flower
+     * @param color the color
+     * @return this crop
+     */
+    ICrop setFlowerColor(int color);
+
+    /**
      * All the textures related to this crop
      * @return the crop's textures
      */
@@ -97,6 +104,13 @@ public interface ICrop {
     int getEssenceColor();
 
     /**
+     * Set the color that should overlay this crop's essence
+     * @param color the color
+     * @return this crop
+     */
+    ICrop setEssenceColor(int color);
+
+    /**
      * Whether or not this crop's seed should be colored using the color defined by {@link #getSeedColor()}
      * @return is the crop's seed colored
      */
@@ -109,6 +123,13 @@ public interface ICrop {
      * @return the color of this crop's seed
      */
     int getSeedColor();
+
+    /**
+     * Set the color that should overlay this crop's seed
+     * @param color the color
+     * @return this crop
+     */
+    ICrop setSeedColor(int color);
 
     /**
      * The modid of the mod that registered this crop

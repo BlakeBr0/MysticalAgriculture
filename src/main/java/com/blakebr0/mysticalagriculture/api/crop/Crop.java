@@ -109,6 +109,7 @@ public class Crop implements ICrop {
         return this.flowerColor;
     }
 
+    @Override
     public Crop setFlowerColor(int color) {
         this.flowerColor = color;
         return this;
@@ -124,6 +125,7 @@ public class Crop implements ICrop {
         return this.essenceColor;
     }
 
+    @Override
     public Crop setEssenceColor(int color) {
         this.essenceColor = color;
         return this;
@@ -134,16 +136,9 @@ public class Crop implements ICrop {
         return this.seedColor;
     }
 
+    @Override
     public Crop setSeedColor(int color) {
         this.seedColor = color;
-        return this;
-    }
-
-    public Crop setColor(int color) {
-        this.setFlowerColor(color);
-        this.setEssenceColor(color);
-        this.setSeedColor(color);
-
         return this;
     }
 
@@ -228,6 +223,14 @@ public class Crop implements ICrop {
     @Override
     public ICrop setCrux(Supplier<? extends Block> crux) {
         this.crux = crux;
+        return this;
+    }
+
+    public Crop setColor(int color) {
+        this.setFlowerColor(color);
+        this.setEssenceColor(color);
+        this.setSeedColor(color);
+
         return this;
     }
 }
