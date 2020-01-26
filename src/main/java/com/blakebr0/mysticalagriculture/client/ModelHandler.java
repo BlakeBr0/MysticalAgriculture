@@ -58,6 +58,8 @@ public class ModelHandler {
 
     @SubscribeEvent
     public void onModelBake(ModelBakeEvent event) {
+        Stopwatch stopwatch = Stopwatch.createStarted();
+
         Map<ResourceLocation, IBakedModel> registry = event.getModelRegistry();
         ModelBakery bakery = event.getModelLoader();
 
@@ -80,8 +82,6 @@ public class ModelHandler {
         RetextureableItemModelWrapper essenceModelWrapper = new RetextureableItemModelWrapper((BlockModel) essenceModel);
         IUnbakedModel seedsModel = bakery.getUnbakedModel(new ResourceLocation(MysticalAgriculture.MOD_ID, "item/mystical_seeds"));
         RetextureableItemModelWrapper seedsModelWrapper = new RetextureableItemModelWrapper((BlockModel) seedsModel);
-
-        Stopwatch stopwatch = Stopwatch.createStarted();
 
         CropRegistry.getInstance().getCrops().forEach(crop -> {
             CropTextures textures = crop.getTextures();
