@@ -9,9 +9,9 @@ buildscript {
     }
 }
 apply plugin: 'net.minecraftforge.gradle'
-apply plugin: 'eclipse'
+apply plugin: 'idea'
 
-version = '2.0.6'
+version = '3.0.0'
 group = 'com.blakebr0.mysticalagriculture'
 archivesBaseName = 'MysticalAgriculture-1.15.2'
 
