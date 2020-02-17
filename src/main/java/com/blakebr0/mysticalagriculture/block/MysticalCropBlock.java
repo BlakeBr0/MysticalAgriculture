@@ -53,7 +53,7 @@ public class MysticalCropBlock extends CropsBlock implements ICropGetter {
     }
 
     @Override
-    public void scheduledTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
+    public void tick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
         Block crux = this.crop.getCrux();
         if (crux != null) {
             Block block = world.getBlockState(pos.down(2)).getBlock();
@@ -61,7 +61,7 @@ public class MysticalCropBlock extends CropsBlock implements ICropGetter {
                 return;
         }
 
-        super.scheduledTick(state, world, pos, random);
+        super.tick(state, world, pos, random);
     }
 
     @Override // TODO: Loot tables?

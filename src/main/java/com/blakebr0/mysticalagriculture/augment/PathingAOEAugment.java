@@ -42,10 +42,10 @@ public class PathingAOEAugment extends Augment {
         BlockPos pos = context.getPos();
         Direction direction = context.getFace();
         Hand hand = context.getHand();
-        if (!this.tryPath(stack, player, world, pos, direction, hand) && !player.isSneaking())
+        if (!this.tryPath(stack, player, world, pos, direction, hand) && !player.isCrouching())
             return false;
 
-        if (player.isSneaking()) {
+        if (player.isCrouching()) {
             BlockPos.getAllInBox(pos.add(-this.range, 0, -this.range), pos.add(this.range, 0, this.range)).forEach(aoePos -> {
                 this.tryPath(stack, player, world, aoePos, direction, hand);
             });

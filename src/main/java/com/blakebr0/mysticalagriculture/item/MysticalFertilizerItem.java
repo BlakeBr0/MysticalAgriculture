@@ -82,7 +82,7 @@ public class MysticalFertilizerItem extends BaseItem {
                             if (!ForgeEventFactory.saplingGrowTree(world, rand, pos))
                                 return false;
 
-                            ((SaplingBlock) growable).generate((ServerWorld) world, pos, state, rand);
+                            ((SaplingBlock) growable).func_226942_a_((ServerWorld) world, pos, state, rand);
                         } else {
                             growable.grow((ServerWorld) world, rand, pos, state);
                         }

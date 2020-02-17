@@ -45,11 +45,11 @@ public class GrowthAcceleratorBlock extends BaseBlock {
     }
 
     @Override
-    public void scheduledTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
+    public void tick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
         BlockPos.getAllInBox(pos.up(), pos.add(0, this.range, 0))
                 .filter(aoePos -> world.getBlockState(aoePos).getBlock() instanceof IGrowable)
                 .findFirst()
-                .ifPresent(aoePos -> world.getBlockState(aoePos).scheduledTick(world, aoePos, random));
+                .ifPresent(aoePos -> world.getBlockState(aoePos).tick(world, aoePos, random));
 
         world.getPendingBlockTicks().scheduleTick(pos, this, this.tickRate(world));
     }

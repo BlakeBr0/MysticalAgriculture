@@ -86,7 +86,7 @@ public class EssenceWateringCanItem extends BaseItem {
     public ActionResult<ItemStack> onItemRightClick(World world, PlayerEntity player, Hand hand) {
         ItemStack stack = player.getHeldItem(hand);
 
-        if (player.isSneaking() && NBTHelper.getBoolean(stack, "Water")) {
+        if (player.isCrouching() && NBTHelper.getBoolean(stack, "Water")) {
             NBTHelper.flipBoolean(stack, "Active");
         }
 

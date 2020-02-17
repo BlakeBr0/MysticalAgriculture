@@ -25,7 +25,7 @@ public class ExperienceDropletItem extends BaseItem {
 
         if (!world.isRemote()) {
             BlockPos pos = player.getPosition();
-            if (player.isSneaking()) {
+            if (player.isCrouching()) {
                 int xp = 0;
                 for (int i = 0; i < stack.getCount(); i++) {
                     xp += Utils.randInt(8, 12);

@@ -25,29 +25,29 @@ import java.util.Random;
 // TODO: Reimplement ghost pedestals
 public class MultiblockGuideRenderer {
     public static final List<BlockPos> INFUSION_ALTAR_LOCATIONS = new ArrayList<>();
-    public static final RenderType GHOST = RenderType.of(
+    public static final RenderType GHOST = RenderType.makeType(
             "ghost_gaming_poggers",
             DefaultVertexFormats.BLOCK,
             7,
             2097152,
             true,
             true,
-            RenderType.State.builder()
+            RenderType.State.getBuilder()
                     .texture(new RenderState.TextureState(AtlasTexture.LOCATION_BLOCKS_TEXTURE, false, false))
                     .alpha(new RenderState.AlphaState(0.3F) {
                         @Override
-                        public void startDrawing() {
+                        public void setupRenderState() {
                             RenderSystem.color4f(1F, 1F, 1F, 1F);
                             RenderSystem.disableLighting();
                             GlStateManager.enableBlend();
                             GL14.glBlendColor(1.0F, 1.0F, 1.0F, 0.25F);
-                            GlStateManager.blendFunc(GlStateManager.SourceFactor.CONSTANT_ALPHA.field_225655_p_, GlStateManager.DestFactor.ONE_MINUS_CONSTANT_ALPHA.field_225654_o_);
+                            GlStateManager.blendFunc(GlStateManager.SourceFactor.CONSTANT_ALPHA.param, GlStateManager.DestFactor.ONE_MINUS_CONSTANT_ALPHA.param);
                         }
 
                         @Override
-                        public void endDrawing() {
+                        public void clearRenderState() {
                             GL14.glBlendColor(1.0F, 1.0F, 1.0F, 1.0F);
-                            GlStateManager.blendFunc(GlStateManager.SourceFactor.SRC_ALPHA.field_225655_p_, GlStateManager.DestFactor.ONE_MINUS_SRC_ALPHA.field_225654_o_);
+                            GlStateManager.blendFunc(GlStateManager.SourceFactor.SRC_ALPHA.param, GlStateManager.DestFactor.ONE_MINUS_SRC_ALPHA.param);
                             RenderSystem.enableLighting();
                         }
                     })
@@ -65,7 +65,7 @@ public class MultiblockGuideRenderer {
         if (world == null)
             return;
 
-        IRenderTypeBuffer.Impl buffers = minecraft.getBufferBuilders().getEntityVertexConsumers();
+        IRenderTypeBuffer.Impl buffers = minecraft.getRenderTypeBuffers().getBufferSource();
         matrix.push();
         matrix.translate(-posX, -posY, -posZ);
 
@@ -78,7 +78,7 @@ public class MultiblockGuideRenderer {
                         matrix.push();
                         matrix.translate(pos.getX(), pos.getY(), pos.getZ());
                         IVertexBuilder buffer = buffers.getBuffer(GHOST);
-                        minecraft.getBlockRendererDispatcher().renderBlock(ModBlocks.INFUSION_PEDESTAL.get().getDefaultState(), pos, world, matrix, buffer, false, new Random());
+                        minecraft.getBlockRendererDispatcher().renderModel(ModBlocks.INFUSION_PEDESTAL.get().getDefaultState(), pos, world, matrix, buffer, false, new Random());
                         matrix.pop();
                     }
                 });

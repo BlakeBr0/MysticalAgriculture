@@ -96,7 +96,7 @@ public class MysticalAgriculture {
 
 	@SubscribeEvent
 	public void onClientSetup(FMLClientSetupEvent event) {
-//		MinecraftForge.EVENT_BUS.register(new MultiblockGuideRenderer());
+		MinecraftForge.EVENT_BUS.register(new MultiblockGuideRenderer());
 
 		ColorHandler.onClientSetup();
 		ModelHandler.onClientSetup();

@@ -24,7 +24,7 @@ public class SpeedAugment extends Augment {
         boolean flying = player.abilities.isFlying;
         boolean swimming = player.isSwimming();
         if (player.onGround || flying || swimming) {
-            boolean sneaking = player.isSneaking();
+            boolean sneaking = player.isCrouching();
             boolean sprinting = player.isSprinting();
 
             float speed = 0.1f

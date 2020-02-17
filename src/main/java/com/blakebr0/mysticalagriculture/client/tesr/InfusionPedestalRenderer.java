@@ -26,7 +26,7 @@ public class InfusionPedestalRenderer extends TileEntityRenderer<InfusionPedesta
             matrix.scale(scale, scale, scale);
             double tick = System.currentTimeMillis() / 800.0D;
             matrix.translate(0.0D, Math.sin(tick % (2 * Math.PI)) * 0.065D, 0.0D);
-            matrix.multiply(Vector3f.POSITIVE_Y.getDegreesQuaternion((float) ((tick * 40.0D) % 360)));
+            matrix.rotate(Vector3f.YP.rotationDegrees((float) ((tick * 40.0D) % 360)));
             Minecraft.getInstance().getItemRenderer().renderItem(stack, ItemCameraTransforms.TransformType.GROUND, i, i1, matrix, buffer);
             matrix.pop();
         }

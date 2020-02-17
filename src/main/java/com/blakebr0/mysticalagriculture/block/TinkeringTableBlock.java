@@ -52,7 +52,7 @@ public class TinkeringTableBlock extends BaseTileEntityBlock {
     }
 
     @Override
-    public ActionResultType onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockRayTraceResult hit) {
+    public ActionResultType onBlockActivated(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockRayTraceResult hit) {
         if (!world.isRemote()) {
             TileEntity tile = world.getTileEntity(pos);
             if (tile instanceof TinkeringTableTileEntity)

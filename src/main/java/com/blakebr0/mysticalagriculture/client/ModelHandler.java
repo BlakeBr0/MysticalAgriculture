@@ -102,7 +102,7 @@ public class ModelHandler {
                 if (bakedModel == null || bakedModel.getParticleTexture(EmptyModelData.INSTANCE).getName().equals(MISSING_NO)) {
                     ResourceLocation texture = crop.getTextures().getFlowerTexture();
                     IUnbakedModel cropRetexturedModel = cropModelsGrown.get(crop.getType().getName()).retexture(ImmutableMap.of("flower", texture.toString()));
-                    IBakedModel cropBakedModel = cropRetexturedModel.bake(bakery, getSprite, ModelRotation.X0_Y0, location);
+                    IBakedModel cropBakedModel = cropRetexturedModel.bakeModel(bakery, getSprite, ModelRotation.X0_Y0, location);
                     registry.replace(location, cropBakedModel);
                 }
             }
@@ -115,7 +115,7 @@ public class ModelHandler {
                     ResourceLocation texture = textures.getEssenceTexture();
                     RetextureableBlockModelWrapper retexture = essenceModelWrapper.retexture(ImmutableMap.of("layer0", texture.toString()));
                     IUnbakedModel generated = generator.makeItemModel(getSprite, retexture);
-                    IBakedModel model = generated.bake(bakery, getSprite, ModelRotation.X0_Y0, location);
+                    IBakedModel model = generated.bakeModel(bakery, getSprite, ModelRotation.X0_Y0, location);
                     registry.replace(location, model);
                 }
             }
@@ -128,7 +128,7 @@ public class ModelHandler {
                     ResourceLocation texture = textures.getSeedTexture();
                     RetextureableBlockModelWrapper retexture = seedsModelWrapper.retexture(ImmutableMap.of("layer0", texture.toString()));
                     IUnbakedModel generated = generator.makeItemModel(getSprite, retexture);
-                    IBakedModel model = generated.bake(bakery, getSprite, ModelRotation.X0_Y0, location);
+                    IBakedModel model = generated.bakeModel(bakery, getSprite, ModelRotation.X0_Y0, location);
                     registry.replace(location, model);
                 }
             }
@@ -140,7 +140,7 @@ public class ModelHandler {
 
     @SubscribeEvent
     public void onTextureStitch(TextureStitchEvent.Pre event) {
-        if (event.getMap().getId().equals(BLOCK_ATLAS)) {
+        if (event.getMap().getTextureLocation().equals(BLOCK_ATLAS)) {
             CropRegistry.getInstance().getCrops().forEach(crop -> {
                 CropTextures textures = crop.getTextures();
 

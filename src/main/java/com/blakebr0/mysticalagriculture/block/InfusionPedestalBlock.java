@@ -41,7 +41,7 @@ public class InfusionPedestalBlock extends BaseTileEntityBlock {
     }
 
     @Override
-    public ActionResultType onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockRayTraceResult rayTraceResult) {
+    public ActionResultType onBlockActivated(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockRayTraceResult rayTraceResult) {
         TileEntity tile = world.getTileEntity(pos);
         if (tile instanceof InfusionPedestalTileEntity) {
             InfusionPedestalTileEntity pedestal = (InfusionPedestalTileEntity) tile;

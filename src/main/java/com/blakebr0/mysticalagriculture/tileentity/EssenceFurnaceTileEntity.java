@@ -32,8 +32,8 @@ public abstract class EssenceFurnaceTileEntity extends AbstractFurnaceTileEntity
     }
 
     @Override
-    protected int func_214005_h() {
-        return (int) (super.func_214005_h() * this.getTier().getCookTimeMultiplier());
+    protected int getCookTime() {
+        return (int) (super.getCookTime() * this.getTier().getCookTimeMultiplier());
     }
 
     public abstract EssenceFurnaceBlock.FurnaceTier getTier();
