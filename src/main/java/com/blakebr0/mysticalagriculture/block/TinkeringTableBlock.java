@@ -64,10 +64,12 @@ public class TinkeringTableBlock extends BaseTileEntityBlock {
 
     @Override
     public void onReplaced(BlockState state, World world, BlockPos pos, BlockState newState, boolean isMoving) {
-        TileEntity tile = world.getTileEntity(pos);
-        if (tile instanceof TinkeringTableTileEntity) {
-            TinkeringTableTileEntity table = (TinkeringTableTileEntity) tile;
-            InventoryHelper.dropItems(world, pos, table.getInventory().getStacks());
+        if (state.getBlock() != newState.getBlock()) {
+            TileEntity tile = world.getTileEntity(pos);
+            if (tile instanceof TinkeringTableTileEntity) {
+                TinkeringTableTileEntity table = (TinkeringTableTileEntity) tile;
+                InventoryHelper.dropItems(world, pos, table.getInventory().getStacks());
+            }
         }
 
         super.onReplaced(state, world, pos, newState, isMoving);

@@ -10,6 +10,7 @@ import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.item.ItemEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.inventory.InventoryHelper;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ActionResultType;
@@ -62,6 +63,19 @@ public class InfusionPedestalBlock extends BaseTileEntityBlock {
         }
 
         return ActionResultType.SUCCESS;
+    }
+
+    @Override
+    public void onReplaced(BlockState state, World world, BlockPos pos, BlockState newState, boolean isMoving) {
+        if (state.getBlock() != newState.getBlock()) {
+            TileEntity tile = world.getTileEntity(pos);
+            if (tile instanceof InfusionPedestalTileEntity) {
+                InfusionPedestalTileEntity altar = (InfusionPedestalTileEntity) tile;
+                InventoryHelper.dropItems(world, pos, altar.getInventory().getStacks());
+            }
+        }
+
+        super.onReplaced(state, world, pos, newState, isMoving);
     }
 
     @Override

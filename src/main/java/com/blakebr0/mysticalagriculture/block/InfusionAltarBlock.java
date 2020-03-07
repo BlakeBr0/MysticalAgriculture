@@ -88,10 +88,12 @@ public class InfusionAltarBlock extends BaseTileEntityBlock {
 
     @Override
     public void onReplaced(BlockState state, World world, BlockPos pos, BlockState newState, boolean isMoving) {
-        TileEntity tile = world.getTileEntity(pos);
-        if (tile instanceof InfusionAltarTileEntity) {
-            InfusionAltarTileEntity altar = (InfusionAltarTileEntity) tile;
-            InventoryHelper.dropItems(world, pos, altar.getInventory().getStacks());
+        if (state.getBlock() != newState.getBlock()) {
+            TileEntity tile = world.getTileEntity(pos);
+            if (tile instanceof InfusionAltarTileEntity) {
+                InfusionAltarTileEntity altar = (InfusionAltarTileEntity) tile;
+                InventoryHelper.dropItems(world, pos, altar.getInventory().getStacks());
+            }
         }
 
         super.onReplaced(state, world, pos, newState, isMoving);

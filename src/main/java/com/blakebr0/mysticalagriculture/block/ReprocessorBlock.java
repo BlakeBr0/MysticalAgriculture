@@ -68,10 +68,9 @@ public class ReprocessorBlock extends BaseTileEntityBlock {
                 ReprocessorTileEntity furnace = (ReprocessorTileEntity) tile;
                 InventoryHelper.dropItems(world, pos, furnace.getInventory().getStacks());
             }
-
-            if (state.hasTileEntity())
-                world.removeTileEntity(pos);
         }
+
+        super.onReplaced(state, world, pos, newState, isMoving);
     }
 
     @Override

@@ -58,10 +58,9 @@ public class EssenceFurnaceBlock extends AbstractFurnaceBlock {
                 EssenceFurnaceTileEntity furnace = (EssenceFurnaceTileEntity) tile;
                 InventoryHelper.dropInventoryItems(world, pos, furnace);
             }
-
-            if (state.hasTileEntity())
-                world.removeTileEntity(pos);
         }
+
+        super.onReplaced(state, world, pos, newState, isMoving);
     }
 
     @OnlyIn(Dist.CLIENT)
