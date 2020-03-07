@@ -3,8 +3,6 @@ package com.blakebr0.mysticalagriculture.client.screen;
 import com.blakebr0.cucumber.iface.IToggleableSlot;
 import com.blakebr0.mysticalagriculture.MysticalAgriculture;
 import com.blakebr0.mysticalagriculture.container.TinkeringTableContainer;
-import com.blakebr0.mysticalagriculture.container.slot.AugmentSlot;
-import com.mojang.blaze3d.platform.GlStateManager;
 import net.minecraft.client.gui.screen.inventory.ContainerScreen;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.container.Slot;
@@ -36,7 +34,6 @@ public class TinkeringTableScreen extends ContainerScreen<TinkeringTableContaine
 
     @Override
     protected void drawGuiContainerBackgroundLayer(float partialTicks, int mouseX, int mouseY) {
-        GlStateManager.color4f(1.0F, 1.0F, 1.0F, 1.0F);
         this.getMinecraft().getTextureManager().bindTexture(BACKGROUND);
         int x = (this.width - this.xSize) / 2;
         int y = (this.height - this.ySize) / 2;

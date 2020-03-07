@@ -111,20 +111,20 @@ public class ReprocessorContainer extends Container {
     }
 
     public int getCookProgressScaled(int pixels) {
-        int i = this.data.get(0);
-        int j = this.data.get(4);
+        int i = this.getProgress();
+        int j = this.getOperationTime();
         return j != 0 && i != 0 ? i * pixels / j : 0;
     }
 
     public int getFuelBarScaled(int pixels) {
-        int i = this.data.get(1);
-        int j = this.data.get(5);
+        int i = this.getFuel();
+        int j = this.getFuelCapacity();
         return (int) (j != 0 && i != 0 ? (long) i * pixels / j : 0);
     }
 
     public int getBurnLeftScaled(int pixels) {
-        int i = this.data.get(2);
-        int j = this.data.get(3);
+        int i = this.getFuelLeft();
+        int j = this.getFuelItemValue();
         return (int) (j != 0 && i != 0 ? (long) i * pixels / j : 0);
     }
 
@@ -140,12 +140,24 @@ public class ReprocessorContainer extends Container {
         return this.data.get(2) > 0;
     }
 
+    public int getProgress() {
+        return this.data.get(0);
+    }
+
     public int getFuel() {
         return this.data.get(1);
     }
 
     public int getFuelLeft() {
         return this.data.get(2);
+    }
+
+    public int getFuelItemValue() {
+        return this.data.get(3);
+    }
+
+    public int getOperationTime() {
+        return this.data.get(4);
     }
 
     public int getFuelCapacity() {
