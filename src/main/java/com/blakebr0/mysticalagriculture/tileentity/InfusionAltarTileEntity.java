@@ -24,10 +24,11 @@ import java.util.List;
 
 public class InfusionAltarTileEntity extends BaseInventoryTileEntity implements ITickableTileEntity {
     private final BaseItemStackHandler inventory = new BaseItemStackHandler(2, this::markDirtyAndDispatch);
-    private final BaseItemStackHandler recipe = new BaseItemStackHandler(9);
+    private final BaseItemStackHandler recipeInventory = new BaseItemStackHandler(9);
     private final MultiblockPositions pedestalLocations = new MultiblockPositions.Builder()
             .pos(3, 0, 0).pos(0, 0, 3).pos(-3, 0, 0).pos(0, 0, -3)
             .pos(2, 0, 2).pos(2, 0, -2).pos(-2, 0, 2).pos(-2, 0, -2).build();
+    private InfusionRecipe recipe;
     private int progress;
     private boolean active;
 
@@ -60,7 +61,8 @@ public class InfusionAltarTileEntity extends BaseInventoryTileEntity implements 
 
     @Override
     public void tick() {
-        if (this.getWorld() != null && !this.getWorld().isRemote()) {
+        World world = this.getWorld();
+        if (world != null && !world.isRemote()) {
             ItemStack input = this.inventory.getStackInSlot(0);
             if (input.isEmpty()) {
                 this.reset();
@@ -69,18 +71,22 @@ public class InfusionAltarTileEntity extends BaseInventoryTileEntity implements 
 
             if (this.isActive()) {
                 List<InfusionPedestalTileEntity> pedestals = this.getPedestalsWithStuff();
-                InfusionRecipe recipe = this.getRecipe(pedestals);
-                if (recipe != null) {
+                this.updateRecipeInventory(pedestals);
+                if (this.recipe == null || !this.recipe.matches(this.recipeInventory)) {
+                    this.recipe = (InfusionRecipe) world.getRecipeManager().getRecipe(RecipeTypes.INFUSION, this.recipeInventory.toIInventory(), world).orElse(null);
+                }
+
+                if (this.recipe != null) {
                     this.progress++;
                     if (this.progress >= 100) {
-                        NonNullList<ItemStack> remaining = recipe.getRemainingItems(this.recipe);
+                        NonNullList<ItemStack> remaining = this.recipe.getRemainingItems(this.recipeInventory);
                         for (int i = 0; i < pedestals.size(); i++) {
                             InfusionPedestalTileEntity pedestal = pedestals.get(i);
                             pedestal.getInventory().setStackInSlot(0, remaining.get(i + 1));
                             this.spawnParticles(ParticleTypes.SMOKE, pedestal.getPos(), 1.2D, 20);
                         }
 
-                        this.setOutput(recipe.getRecipeOutput());
+                        this.setOutput(this.recipe.getRecipeOutput());
                         this.reset();
                         this.markDirtyAndDispatch();
                         this.spawnParticles(ParticleTypes.HAPPY_VILLAGER, this.getPos(), 1.0D, 10);
@@ -102,7 +108,8 @@ public class InfusionAltarTileEntity extends BaseInventoryTileEntity implements 
 
     @Override
     public void onLoad() {
-        if (this.getWorld() != null && this.getWorld().isRemote()) {
+        World world = this.getWorld();
+        if (world != null && world.isRemote()) {
             MultiblockGuideRenderer.INFUSION_ALTAR_LOCATIONS.add(this.getPos());
         }
     }
@@ -110,7 +117,8 @@ public class InfusionAltarTileEntity extends BaseInventoryTileEntity implements 
     @Override
     public void remove() {
         super.remove();
-        if (this.getWorld() != null && this.getWorld().isRemote()) {
+        World world = this.getWorld();
+        if (world != null && world.isRemote()) {
             MultiblockGuideRenderer.INFUSION_ALTAR_LOCATIONS.remove(this.getPos());
         }
     }
@@ -135,20 +143,13 @@ public class InfusionAltarTileEntity extends BaseInventoryTileEntity implements 
         this.active = false;
     }
 
-    private InfusionRecipe getRecipe(List<InfusionPedestalTileEntity> pedestals) {
-        this.recipe.getStacks().clear();
-        this.recipe.setStackInSlot(0, this.inventory.getStackInSlot(0));
+    private void updateRecipeInventory(List<InfusionPedestalTileEntity> pedestals) {
+        this.recipeInventory.getStacks().clear();
+        this.recipeInventory.setStackInSlot(0, this.inventory.getStackInSlot(0));
         for (int i = 0; i < pedestals.size(); i++) {
             ItemStack stack = pedestals.get(i).getInventory().getStackInSlot(0);
-            this.recipe.setStackInSlot(i + 1, stack);
+            this.recipeInventory.setStackInSlot(i + 1, stack);
         }
-
-        World world = this.getWorld();
-        if (world == null)
-            return null;
-
-        IInfusionRecipe recipe = world.getRecipeManager().getRecipe(RecipeTypes.INFUSION, this.recipe.toIInventory(), world).orElse(null);
-        return recipe instanceof InfusionRecipe ? (InfusionRecipe) recipe : null;
     }
 
     private List<InfusionPedestalTileEntity> getPedestalsWithStuff() {
