@@ -30,6 +30,6 @@ loaderVersion="[31,)"
   [[dependencies.mysticalagriculture]]
       modId="cucumber"
       mandatory=true
-      versionRange="[3.0.0,)"
+      versionRange="[3.0.2,)"
       ordering="NONE"
       side="BOTH"
