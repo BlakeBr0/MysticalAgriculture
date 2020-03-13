@@ -4,7 +4,6 @@ import com.blakebr0.cucumber.helper.ConfigHelper;
 import com.blakebr0.mysticalagriculture.api.MysticalAgricultureAPI;
 import com.blakebr0.mysticalagriculture.block.ModBlocks;
 import com.blakebr0.mysticalagriculture.client.ModelHandler;
-import com.blakebr0.mysticalagriculture.client.MultiblockGuideRenderer;
 import com.blakebr0.mysticalagriculture.config.ModConfigs;
 import com.blakebr0.mysticalagriculture.container.ModContainerTypes;
 import com.blakebr0.mysticalagriculture.crafting.DynamicRecipeManager;
@@ -96,8 +95,6 @@ public class MysticalAgriculture {
 
 	@SubscribeEvent
 	public void onClientSetup(FMLClientSetupEvent event) {
-		MinecraftForge.EVENT_BUS.register(new MultiblockGuideRenderer());
-
 		ColorHandler.onClientSetup();
 		ModelHandler.onClientSetup();
 

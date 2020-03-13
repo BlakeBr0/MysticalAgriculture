@@ -3,9 +3,7 @@ package com.blakebr0.mysticalagriculture.tileentity;
 import com.blakebr0.cucumber.inventory.BaseItemStackHandler;
 import com.blakebr0.cucumber.tileentity.BaseInventoryTileEntity;
 import com.blakebr0.cucumber.util.MultiblockPositions;
-import com.blakebr0.mysticalagriculture.api.crafting.IInfusionRecipe;
 import com.blakebr0.mysticalagriculture.api.crafting.RecipeTypes;
-import com.blakebr0.mysticalagriculture.client.MultiblockGuideRenderer;
 import com.blakebr0.mysticalagriculture.crafting.recipe.InfusionRecipe;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.CompoundNBT;
@@ -15,6 +13,7 @@ import net.minecraft.particles.ParticleTypes;
 import net.minecraft.tileentity.ITickableTileEntity;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.NonNullList;
+import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.server.ServerWorld;
@@ -107,20 +106,8 @@ public class InfusionAltarTileEntity extends BaseInventoryTileEntity implements 
     }
 
     @Override
-    public void onLoad() {
-        World world = this.getWorld();
-        if (world != null && world.isRemote()) {
-            MultiblockGuideRenderer.INFUSION_ALTAR_LOCATIONS.add(this.getPos());
-        }
-    }
-
-    @Override
-    public void remove() {
-        super.remove();
-        World world = this.getWorld();
-        if (world != null && world.isRemote()) {
-            MultiblockGuideRenderer.INFUSION_ALTAR_LOCATIONS.remove(this.getPos());
-        }
+    public AxisAlignedBB getRenderBoundingBox() {
+        return INFINITE_EXTENT_AABB;
     }
 
     public List<BlockPos> getPedestalPositions() {
@@ -128,8 +115,10 @@ public class InfusionAltarTileEntity extends BaseInventoryTileEntity implements 
     }
 
     public boolean isActive() {
-        if (!this.active)
-            this.active = this.getWorld() != null && this.getWorld().isBlockPowered(this.getPos());
+        if (!this.active) {
+            World world = this.getWorld();
+            this.active = world != null && world.isBlockPowered(this.getPos());
+        }
 
         return this.active;
     }
