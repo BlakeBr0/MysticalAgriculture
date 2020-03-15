@@ -1,0 +1,23 @@
+{
+  "type": "mysticalagriculture:tag",
+  "conditions": [
+    {
+      "type": "mysticalagriculture:crop_enabled",
+      "crop": "mysticalagriculture:sulfur"
+    }
+  ],
+  "pattern": [
+    "EEE",
+    "   ",
+    "   "
+  ],
+  "key": {
+    "E": {
+      "item": "mysticalagriculture:sulfur_essence"
+    }
+  },
+  "result": {
+    "tag": "forge:dusts/sulfur",
+    "count": 8
+  }
+}

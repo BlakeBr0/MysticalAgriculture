@@ -1,0 +1,23 @@
+{
+  "type": "mysticalagriculture:tag",
+  "conditions": [
+    {
+      "type": "mysticalagriculture:crop_enabled",
+      "crop": "mysticalagriculture:silicon"
+    }
+  ],
+  "pattern": [
+    "EEE",
+    "   ",
+    "   "
+  ],
+  "key": {
+    "E": {
+      "item": "mysticalagriculture:silicon_essence"
+    }
+  },
+  "result": {
+    "tag": "forge:silicon",
+    "count": 8
+  }
+}

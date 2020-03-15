@@ -1,0 +1,23 @@
+{
+  "type": "mysticalagriculture:tag",
+  "conditions": [
+    {
+      "type": "mysticalagriculture:crop_enabled",
+      "crop": "mysticalagriculture:rubber"
+    }
+  ],
+  "pattern": [
+    "EEE",
+    "   ",
+    "   "
+  ],
+  "key": {
+    "E": {
+      "item": "mysticalagriculture:rubber_essence"
+    }
+  },
+  "result": {
+    "tag": "forge:rubber",
+    "count": 8
+  }
+}
