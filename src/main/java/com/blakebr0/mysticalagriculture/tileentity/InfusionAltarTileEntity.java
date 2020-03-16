@@ -133,7 +133,7 @@ public class InfusionAltarTileEntity extends BaseInventoryTileEntity implements 
     }
 
     private void updateRecipeInventory(List<InfusionPedestalTileEntity> pedestals) {
-        this.recipeInventory.getStacks().clear();
+        this.recipeInventory.setSize(pedestals.size() + 1);
         this.recipeInventory.setStackInSlot(0, this.inventory.getStackInSlot(0));
         for (int i = 0; i < pedestals.size(); i++) {
             ItemStack stack = pedestals.get(i).getInventory().getStackInSlot(0);
