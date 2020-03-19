@@ -71,7 +71,7 @@ public class ReprocessorRecipe implements ISpecialRecipe, IReprocessorRecipe {
     public static class Serializer extends ForgeRegistryEntry<IRecipeSerializer<?>> implements IRecipeSerializer<ReprocessorRecipe> {
         @Override
         public ReprocessorRecipe read(ResourceLocation recipeId, JsonObject json) {
-            JsonObject ingredient = json.getAsJsonObject("ingredient");
+            JsonObject ingredient = json.getAsJsonObject("input");
             Ingredient input = Ingredient.deserialize(ingredient);
             ItemStack output = ShapedRecipe.deserializeItem(json.getAsJsonObject("result"));
 
