@@ -7,6 +7,7 @@ import net.minecraft.item.BlockNamedItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.text.ITextComponent;
 
 import java.util.function.Supplier;
 
@@ -17,6 +18,7 @@ import java.util.function.Supplier;
  */
 public class Crop implements ICrop {
     private final ResourceLocation id;
+    private ITextComponent displayName;
     private CropTier tier;
     private CropType type;
     private int flowerColor;
@@ -92,6 +94,17 @@ public class Crop implements ICrop {
     @Override
     public ResourceLocation getId() {
         return this.id;
+    }
+
+    @Override
+    public ITextComponent getDisplayName() {
+        return this.displayName != null ? this.displayName : ICrop.super.getDisplayName();
+    }
+
+    @Override
+    public ICrop setDisplayName(ITextComponent name) {
+        this.displayName = name;
+        return this;
     }
 
     @Override

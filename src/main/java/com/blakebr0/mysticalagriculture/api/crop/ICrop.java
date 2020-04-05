@@ -43,11 +43,21 @@ public interface ICrop {
     }
 
     /**
-     * Get the localized name of this crop using the key crop.{@link ICrop#getModId()}.{@link ICrop#getName()}
+     * Get the localized name of this crop using the key crop.{@link ICrop#getModId()}.{@link ICrop#getName()},
+     * or the display name set via {@link ICrop#setDisplayName(ITextComponent)}
      * @return the localized name of this crop
      */
     default ITextComponent getDisplayName() {
         return new TranslationTextComponent(String.format("crop.%s.%s", this.getModId(), this.getName()));
+    }
+
+    /**
+     * Sets the display name of this crop
+     * @param name the new display name
+     * @return this crop
+     */
+    default ICrop setDisplayName(ITextComponent name) {
+        return this;
     }
 
     /**
