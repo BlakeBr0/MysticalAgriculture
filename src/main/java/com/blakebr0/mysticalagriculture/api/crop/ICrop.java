@@ -67,10 +67,24 @@ public interface ICrop {
     CropTier getTier();
 
     /**
+     * Sets this crops tier
+     * @param tier the tier
+     * @return this crop
+     */
+    ICrop setTier(CropTier tier);
+
+    /**
      * The type of crop this crop belongs to
      * @return the type of this crop
      */
     CropType getType();
+
+    /**
+     * Sets this crops type
+     * @param type the type
+     * @return this crop
+     */
+    ICrop setType(CropType type);
 
     /**
      * Whether or not this crop's flower should be colored using the color defined by {@link #getFlowerColor()}

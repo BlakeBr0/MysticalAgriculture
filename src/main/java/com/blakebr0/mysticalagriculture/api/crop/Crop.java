@@ -113,8 +113,20 @@ public class Crop implements ICrop {
     }
 
     @Override
+    public ICrop setTier(CropTier tier) {
+        this.tier = tier;
+        return this;
+    }
+
+    @Override
     public CropType getType() {
         return this.type;
+    }
+
+    @Override
+    public ICrop setType(CropType type) {
+        this.type = type;
+        return this;
     }
 
     @Override
