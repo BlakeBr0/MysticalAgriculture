@@ -27,6 +27,7 @@ public class CropTier {
     private final TextFormatting textColor;
     private Supplier<? extends FarmlandBlock> farmland;
     private Supplier<? extends Item> essence;
+    private ITextComponent displayName;
     private boolean fertilizable;
     private boolean secondarySeedDrop;
 
@@ -141,7 +142,20 @@ public class CropTier {
      * @return the localized name of this tier
      */
     public ITextComponent getDisplayName() {
+        if (this.displayName != null)
+            return this.displayName;
+
         return new TranslationTextComponent(String.format("cropTier.%s.%s", this.getModId(), this.getName())).applyTextStyle(this.getTextColor());
+    }
+
+    /**
+     * Sets the display name of this tier
+     * @param name the new display name
+     * @return this crop
+     */
+    public CropTier setDisplayName(ITextComponent name) {
+        this.displayName = name;
+        return this;
     }
 
     /**
