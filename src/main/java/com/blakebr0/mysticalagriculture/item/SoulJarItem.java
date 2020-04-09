@@ -11,6 +11,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.NonNullList;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.ITextComponent;
+import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
@@ -52,6 +53,9 @@ public class SoulJarItem extends BaseItem {
             ITextComponent entityName = type.getEntityDisplayName();
             double souls = MobSoulUtils.getSouls(stack);
             tooltip.add(ModTooltips.SOUL_JAR.args(entityName, souls, type.getSoulRequirement()).build());
+
+            if (flag.isAdvanced())
+                tooltip.add(ModTooltips.MST_ID.args(type.getId()).color(TextFormatting.DARK_GRAY).build());
         }
     }
 }
