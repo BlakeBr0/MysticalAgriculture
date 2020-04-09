@@ -47,6 +47,7 @@ public interface IMobSoulType {
      * Sets the required amount of souls to fill up a soul jar
      * @param soulRequirement the new soul requirement
      */
+    // TODO: 1.16: Make this chain
     void setSoulRequirement(double soulRequirement);
 
     /**
@@ -59,6 +60,7 @@ public interface IMobSoulType {
      * Sets the color of a jar with this mob soul type in it
      * @param color the new color of this mob soul type
      */
+    // TODO: 1.16: Make this chain
     void setColor(int color);
 
     /**
@@ -73,4 +75,11 @@ public interface IMobSoulType {
      * @return the entity display name
      */
     ITextComponent getEntityDisplayName();
+
+    /**
+     * Sets the display name of the entity tooltip for this mob soul type
+     * @param name the new display name
+     * @return this mob soul type
+     */
+    MobSoulType setEntityDisplayName(ITextComponent name);
 }

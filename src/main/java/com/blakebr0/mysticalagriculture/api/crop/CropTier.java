@@ -151,7 +151,7 @@ public class CropTier {
     /**
      * Sets the display name of this tier
      * @param name the new display name
-     * @return this crop
+     * @return this tier
      */
     public CropTier setDisplayName(ITextComponent name) {
         this.displayName = name;

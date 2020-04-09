@@ -125,4 +125,10 @@ public class MobSoulType implements IMobSoulType {
 
         return this.entityDisplayName;
     }
+
+    @Override
+    public MobSoulType setEntityDisplayName(ITextComponent name) {
+        this.entityDisplayName = name;
+        return this;
+    }
 }
