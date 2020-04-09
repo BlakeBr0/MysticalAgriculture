@@ -143,7 +143,7 @@ public class CropTier {
      */
     public ITextComponent getDisplayName() {
         if (this.displayName != null)
-            return this.displayName;
+            return this.displayName.applyTextStyle(this.getTextColor());
 
         return new TranslationTextComponent(String.format("cropTier.%s.%s", this.getModId(), this.getName())).applyTextStyle(this.getTextColor());
     }
