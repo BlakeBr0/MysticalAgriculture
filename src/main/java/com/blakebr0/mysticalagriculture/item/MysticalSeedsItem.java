@@ -8,7 +8,9 @@ import com.blakebr0.mysticalagriculture.api.crop.ICropGetter;
 import com.blakebr0.mysticalagriculture.lib.ModTooltips;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.item.BlockNamedItem;
+import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.NonNullList;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
@@ -24,6 +26,12 @@ public class MysticalSeedsItem extends BlockNamedItem implements ICropGetter, IE
     public MysticalSeedsItem(ICrop crop, Function<Properties, Properties> properties) {
         super(crop.getCrop(), properties.apply(new Properties()));
         this.crop = crop;
+    }
+
+    @Override
+    public void fillItemGroup(ItemGroup group, NonNullList<ItemStack> items) {
+        if (this.isEnabled())
+            super.fillItemGroup(group, items);
     }
 
     @Override
