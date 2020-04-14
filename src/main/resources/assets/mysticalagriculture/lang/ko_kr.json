@@ -197,6 +197,7 @@
   "tooltip.mysticalagriculture.filled": "가득참",
   "tooltip.mysticalagriculture.tier": "티어: %s",
   "tooltip.mysticalagriculture.crop_id": "작물 ID: %s",
+  "tooltip.mysticalagriculture.mst_id": "몹 영혼 유형 ID: %s",
   "tooltip.mysticalagriculture.added_by": "추가: %s",
   "tooltip.mysticalagriculture.secondary_chance": "2차 기회: %s",
   "tooltip.mysticalagriculture.inferium_output": "인퍼륨 출력: %s",
