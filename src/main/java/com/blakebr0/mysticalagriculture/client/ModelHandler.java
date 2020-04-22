@@ -135,7 +135,7 @@ public class ModelHandler {
         });
 
         stopwatch.stop();
-        LOGGER.info("Model replacement took {} milliseconds.", stopwatch.elapsed(TimeUnit.MILLISECONDS));
+        LOGGER.info("Model replacement took {} ms", stopwatch.elapsed(TimeUnit.MILLISECONDS));
     }
 
     @SubscribeEvent

@@ -4,6 +4,7 @@ import com.blakebr0.mysticalagriculture.api.crop.Crop;
 import com.blakebr0.mysticalagriculture.api.crop.CropTextures;
 import com.blakebr0.mysticalagriculture.api.crop.CropTier;
 import com.blakebr0.mysticalagriculture.api.crop.CropType;
+import com.blakebr0.mysticalagriculture.api.crop.ICrop;
 import com.blakebr0.mysticalagriculture.api.lib.LazyIngredient;
 import com.blakebr0.mysticalagriculture.api.registry.ICropRegistry;
 import com.blakebr0.mysticalagriculture.api.util.ExperienceCapsuleUtils;
@@ -11,6 +12,9 @@ import com.blakebr0.mysticalagriculture.api.util.MobSoulUtils;
 import com.blakebr0.mysticalagriculture.block.ModBlocks;
 import com.blakebr0.mysticalagriculture.item.ModItems;
 import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.fml.ModList;
+
+import java.util.Arrays;
 
 import static com.blakebr0.mysticalagriculture.MysticalAgriculture.MOD_ID;
 
@@ -96,6 +100,12 @@ public class ModCrops {
     public static final Crop PLATINUM = new Crop(new ResourceLocation(MOD_ID, "platinum"), CropTier.TWO, CropType.RESOURCE, INGOT_CROP_TEXTURES, 0x6FEAEF, LazyIngredient.tag("forge:ingots/platinum"));
     public static final Crop IRIDIUM = new Crop(new ResourceLocation(MOD_ID, "iridium"), CropTier.TWO, CropType.RESOURCE, INGOT_CROP_TEXTURES, 0xC7C5DC, LazyIngredient.tag("forge:ingots/iridium"));
 
+    // BOTANIA
+    public static final Crop MYSTICAL_FLOWER = new Crop(new ResourceLocation(MOD_ID, "mystical_flower"), CropTier.TWO, CropType.RESOURCE, LazyIngredient.EMPTY);
+    public static final Crop MANASTEEL = new Crop(new ResourceLocation(MOD_ID, "manasteel"), CropTier.THREE, CropType.RESOURCE, LazyIngredient.item("botania:manasteel_ingot"));
+    public static final Crop ELEMENTIUM = new Crop(new ResourceLocation(MOD_ID, "elementium"), CropTier.FOUR, CropType.RESOURCE, LazyIngredient.item("botania:elementium_ingot"));
+    public static final Crop TERRASTEEL = new Crop(new ResourceLocation(MOD_ID, "terrasteel"), CropTier.FIVE, CropType.RESOURCE, LazyIngredient.item("botania:terrasteel_ingot"));
+
     public static void onRegisterCrops(ICropRegistry registry) {
         INFERIUM.setCrop(ModBlocks.INFERIUM_CROP)
                 .setEssence(ModItems.INFERIUM_ESSENCE);
@@ -175,5 +185,18 @@ public class ModCrops {
         registry.register(CHROME);
         registry.register(PLATINUM);
         registry.register(IRIDIUM);
+
+        // BOTANIA
+        registry.register(withRequiredMods(MYSTICAL_FLOWER, "botania"));
+        registry.register(withRequiredMods(MANASTEEL, "botania"));
+        registry.register(withRequiredMods(ELEMENTIUM, "botania"));
+        registry.register(withRequiredMods(TERRASTEEL, "botania"));
+    }
+
+    private static ICrop withRequiredMods(ICrop crop, String... mods) {
+        if (true) return crop;
+
+        boolean enabled = Arrays.stream(mods).anyMatch(ModList.get()::isLoaded);
+        return crop.setEnabled(enabled);
     }
 }

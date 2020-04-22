@@ -1,0 +1,23 @@
+{
+  "type": "cucumber:shaped_no_mirror",
+  "conditions": [
+    {
+      "type": "mysticalagriculture:crop_enabled",
+      "crop": "mysticalagriculture:mystical_flower"
+    }
+  ],
+  "pattern": [
+    "E  ",
+    "EE ",
+    "   "
+  ],
+  "key": {
+    "E": {
+      "item": "mysticalagriculture:mystical_flower_essence"
+    }
+  },
+  "result": {
+    "item": "botania:black_mystical_flower",
+    "count": 6
+  }
+}
