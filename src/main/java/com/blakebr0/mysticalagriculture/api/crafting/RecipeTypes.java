@@ -1,8 +1,11 @@
 package com.blakebr0.mysticalagriculture.api.crafting;
 
+import com.blakebr0.mysticalagriculture.MysticalAgriculture;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.item.crafting.IRecipeType;
+import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.registry.Registry;
 import net.minecraft.world.World;
 
 import java.util.Optional;
@@ -20,4 +23,9 @@ public class RecipeTypes {
             return recipe.matches(inv, world) ? Optional.of((IReprocessorRecipe) recipe) : Optional.empty();
         }
     };
+
+    static {
+        Registry.register(Registry.RECIPE_TYPE, new ResourceLocation(MysticalAgriculture.MOD_ID, "infusion"), INFUSION);
+        Registry.register(Registry.RECIPE_TYPE, new ResourceLocation(MysticalAgriculture.MOD_ID, "reprocessor"), REPROCESSOR);
+    }
 }
