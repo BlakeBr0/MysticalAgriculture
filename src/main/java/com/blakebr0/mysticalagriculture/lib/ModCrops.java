@@ -111,6 +111,9 @@ public class ModCrops {
     public static final Crop REFINED_GLOWSTONE = new Crop(new ResourceLocation(MOD_ID, "refined_glowstone"), CropTier.FOUR, CropType.RESOURCE, LazyIngredient.tag("forge:ingots/refined_glowstone"));
     public static final Crop REFINED_OBSIDIAN = new Crop(new ResourceLocation(MOD_ID, "refined_obsidian"), CropTier.FOUR, CropType.RESOURCE, LazyIngredient.tag("forge:ingots/refined_obsidian"));
 
+    // QUARK
+    public static final Crop ENDER_BIOTITE = new Crop(new ResourceLocation(MOD_ID, "ender_biotite"), CropTier.THREE, CropType.RESOURCE, LazyIngredient.item("quark:biotite"));
+
     // REFINED STORAGE
     public static final Crop QUARTZ_ENRICHED_IRON = new Crop(new ResourceLocation(MOD_ID, "quartz_enriched_iron"), CropTier.THREE, CropType.RESOURCE, LazyIngredient.item("refinedstorage:quartz_enriched_iron"));
 
@@ -204,6 +207,9 @@ public class ModCrops {
         registry.register(withRequiredMods(OSMIUM, "mekanism"));
         registry.register(withRequiredMods(REFINED_GLOWSTONE, "mekanism"));
         registry.register(withRequiredMods(REFINED_OBSIDIAN, "mekanism"));
+
+        // QUARK
+        registry.register(withRequiredMods(ENDER_BIOTITE, "quark"));
 
         // REFINED STORAGE
         registry.register(withRequiredMods(QUARTZ_ENRICHED_IRON, "refinedstorage"));
