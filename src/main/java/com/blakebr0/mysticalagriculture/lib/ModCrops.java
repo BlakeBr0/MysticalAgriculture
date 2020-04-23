@@ -106,6 +106,11 @@ public class ModCrops {
     public static final Crop ELEMENTIUM = new Crop(new ResourceLocation(MOD_ID, "elementium"), CropTier.FOUR, CropType.RESOURCE, LazyIngredient.item("botania:elementium_ingot"));
     public static final Crop TERRASTEEL = new Crop(new ResourceLocation(MOD_ID, "terrasteel"), CropTier.FIVE, CropType.RESOURCE, LazyIngredient.item("botania:terrasteel_ingot"));
 
+    // MEKANISM
+    public static final Crop OSMIUM = new Crop(new ResourceLocation(MOD_ID, "osmium"), CropTier.FOUR, CropType.RESOURCE, LazyIngredient.tag("forge:ingots/osmium"));
+    public static final Crop REFINED_GLOWSTONE = new Crop(new ResourceLocation(MOD_ID, "refined_glowstone"), CropTier.FOUR, CropType.RESOURCE, LazyIngredient.tag("forge:ingots/refined_glowstone"));
+    public static final Crop REFINED_OBSIDIAN = new Crop(new ResourceLocation(MOD_ID, "refined_obsidian"), CropTier.FOUR, CropType.RESOURCE, LazyIngredient.tag("forge:ingots/refined_obsidian"));
+
     // REFINED STORAGE
     public static final Crop QUARTZ_ENRICHED_IRON = new Crop(new ResourceLocation(MOD_ID, "quartz_enriched_iron"), CropTier.THREE, CropType.RESOURCE, LazyIngredient.item("refinedstorage:quartz_enriched_iron"));
 
@@ -194,6 +199,11 @@ public class ModCrops {
         registry.register(withRequiredMods(MANASTEEL, "botania"));
         registry.register(withRequiredMods(ELEMENTIUM, "botania"));
         registry.register(withRequiredMods(TERRASTEEL, "botania"));
+
+        // MEKANISM
+        registry.register(withRequiredMods(OSMIUM, "mekanism"));
+        registry.register(withRequiredMods(REFINED_GLOWSTONE, "mekanism"));
+        registry.register(withRequiredMods(REFINED_OBSIDIAN, "mekanism"));
 
         // REFINED STORAGE
         registry.register(withRequiredMods(QUARTZ_ENRICHED_IRON, "refinedstorage"));
