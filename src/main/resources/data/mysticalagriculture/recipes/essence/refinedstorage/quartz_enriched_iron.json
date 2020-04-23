@@ -1,0 +1,23 @@
+{
+  "type": "cucumber:shaped_no_mirror",
+  "conditions": [
+    {
+      "type": "mysticalagriculture:crop_enabled",
+      "crop": "mysticalagriculture:quartz_enriched_iron"
+    }
+  ],
+  "pattern": [
+    "EEE",
+    "E E",
+    "EEE"
+  ],
+  "key": {
+    "E": {
+      "item": "mysticalagriculture:quartz_enriched_iron_essence"
+    }
+  },
+  "result": {
+    "item": "refinedstorage:quartz_enriched_iron",
+    "count": 8
+  }
+}

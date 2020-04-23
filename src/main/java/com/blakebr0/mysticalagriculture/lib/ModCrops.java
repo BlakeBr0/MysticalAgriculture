@@ -106,6 +106,9 @@ public class ModCrops {
     public static final Crop ELEMENTIUM = new Crop(new ResourceLocation(MOD_ID, "elementium"), CropTier.FOUR, CropType.RESOURCE, LazyIngredient.item("botania:elementium_ingot"));
     public static final Crop TERRASTEEL = new Crop(new ResourceLocation(MOD_ID, "terrasteel"), CropTier.FIVE, CropType.RESOURCE, LazyIngredient.item("botania:terrasteel_ingot"));
 
+    // REFINED STORAGE
+    public static final Crop QUARTZ_ENRICHED_IRON = new Crop(new ResourceLocation(MOD_ID, "quartz_enriched_iron"), CropTier.THREE, CropType.RESOURCE, LazyIngredient.item("refinedstorage:quartz_enriched_iron"));
+
     public static void onRegisterCrops(ICropRegistry registry) {
         INFERIUM.setCrop(ModBlocks.INFERIUM_CROP)
                 .setEssence(ModItems.INFERIUM_ESSENCE);
@@ -191,6 +194,9 @@ public class ModCrops {
         registry.register(withRequiredMods(MANASTEEL, "botania"));
         registry.register(withRequiredMods(ELEMENTIUM, "botania"));
         registry.register(withRequiredMods(TERRASTEEL, "botania"));
+
+        // REFINED STORAGE
+        registry.register(withRequiredMods(QUARTZ_ENRICHED_IRON, "refinedstorage"));
     }
 
     private static ICrop withRequiredMods(ICrop crop, String... mods) {
