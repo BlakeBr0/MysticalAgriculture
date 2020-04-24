@@ -16,10 +16,13 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUseContext;
 import net.minecraft.item.UseAction;
 import net.minecraft.particles.ParticleTypes;
+import net.minecraft.util.ActionResult;
 import net.minecraft.util.ActionResultType;
 import net.minecraft.util.Direction;
+import net.minecraft.util.Hand;
 import net.minecraft.util.NonNullList;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.BlockRayTraceResult;
 import net.minecraft.util.math.RayTraceContext;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.util.text.ITextComponent;
@@ -52,24 +55,49 @@ public class WateringCanItem extends BaseItem {
     }
 
     @Override
-    public ActionResultType onItemUse(ItemUseContext context) {
-        ItemStack stack = context.getItem();
-        World world = context.getWorld();
-        PlayerEntity player = context.getPlayer();
-        if (player != null && !NBTHelper.getBoolean(stack, "Water")) {
-            RayTraceResult result = rayTrace(world, player, RayTraceContext.FluidMode.SOURCE_ONLY);
-            if (result.getType() == RayTraceResult.Type.MISS)
-                return ActionResultType.FAIL;
+    public ActionResult<ItemStack> onItemRightClick(World world, PlayerEntity player, Hand hand) {
+        ItemStack stack = player.getHeldItem(hand);
+        if (NBTHelper.getBoolean(stack, "Water"))
+            return new ActionResult<>(ActionResultType.FAIL, stack);
 
-            BlockPos pos = new BlockPos(result.getHitVec());
+        RayTraceResult trace = rayTrace(world, player, RayTraceContext.FluidMode.SOURCE_ONLY);
+        if (trace.getType() != RayTraceResult.Type.BLOCK) {
+            return new ActionResult<>(ActionResultType.FAIL, stack);
+        }
+
+        BlockRayTraceResult blockTrace = (BlockRayTraceResult) trace;
+        BlockPos pos = blockTrace.getPos();
+        Direction direction = blockTrace.getFace();
+        if (world.isBlockModifiable(player, pos) && player.canPlayerEdit(pos.offset(direction), direction, stack)) {
             BlockState state = world.getBlockState(pos);
             if (state.getMaterial() == Material.WATER) {
                 NBTHelper.setBoolean(stack, "Water", true);
-                return ActionResultType.FAIL;
+                return new ActionResult<>(ActionResultType.FAIL, stack);
             }
         }
 
-        return this.doWater(stack, world, player, context.getPos(), context.getFace());
+        return new ActionResult<>(ActionResultType.FAIL, stack);
+    }
+
+    @Override
+    public ActionResultType onItemUse(ItemUseContext context) {
+        PlayerEntity player = context.getPlayer();
+        if (player == null)
+            return ActionResultType.FAIL;
+
+        Hand hand = context.getHand();
+        World world = context.getWorld();
+        BlockPos pos = context.getPos();
+        Direction direction = context.getFace();
+        ItemStack stack = player.getHeldItem(hand);
+
+        if (!player.canPlayerEdit(pos.offset(direction), direction, stack))
+            return ActionResultType.FAIL;
+
+        if (!NBTHelper.getBoolean(stack, "Water"))
+            return ActionResultType.PASS;
+
+        return this.doWater(stack, world, player, pos, direction);
     }
 
     @OnlyIn(Dist.CLIENT)

@@ -85,9 +85,23 @@ public class EssenceWateringCanItem extends BaseItem {
     @Override
     public ActionResult<ItemStack> onItemRightClick(World world, PlayerEntity player, Hand hand) {
         ItemStack stack = player.getHeldItem(hand);
+        if (NBTHelper.getBoolean(stack, "Water"))
+            return new ActionResult<>(ActionResultType.FAIL, stack);
 
-        if (player.isCrouching() && NBTHelper.getBoolean(stack, "Water")) {
-            NBTHelper.flipBoolean(stack, "Active");
+        RayTraceResult trace = rayTrace(world, player, RayTraceContext.FluidMode.SOURCE_ONLY);
+        if (trace.getType() != RayTraceResult.Type.BLOCK) {
+            return new ActionResult<>(ActionResultType.FAIL, stack);
+        }
+
+        BlockRayTraceResult blockTrace = (BlockRayTraceResult) trace;
+        BlockPos pos = blockTrace.getPos();
+        Direction direction = blockTrace.getFace();
+        if (world.isBlockModifiable(player, pos) && player.canPlayerEdit(pos.offset(direction), direction, stack)) {
+            BlockState state = world.getBlockState(pos);
+            if (state.getMaterial() == Material.WATER) {
+                NBTHelper.setBoolean(stack, "Water", true);
+                return new ActionResult<>(ActionResultType.FAIL, stack);
+            }
         }
 
         return new ActionResult<>(ActionResultType.FAIL, stack);
@@ -95,26 +109,26 @@ public class EssenceWateringCanItem extends BaseItem {
 
     @Override
     public ActionResultType onItemUse(ItemUseContext context) {
-        ItemStack stack = context.getItem();
-        World world = context.getWorld();
         PlayerEntity player = context.getPlayer();
-        if (player != null && !NBTHelper.getBoolean(stack, "Water")) {
-            RayTraceResult result = rayTrace(world, player, RayTraceContext.FluidMode.SOURCE_ONLY);
-            if (result.getType() == RayTraceResult.Type.MISS)
-                return ActionResultType.FAIL;
+        if (player == null)
+            return ActionResultType.FAIL;
 
-            BlockPos pos = new BlockPos(result.getHitVec());
-            BlockState state = world.getBlockState(pos);
-            if (state.getMaterial() == Material.WATER) {
-                NBTHelper.setBoolean(stack, "Water", true);
-                return ActionResultType.FAIL;
-            }
-        }
+        Hand hand = context.getHand();
+        World world = context.getWorld();
+        BlockPos pos = context.getPos();
+        Direction direction = context.getFace();
+        ItemStack stack = player.getHeldItem(hand);
+
+        if (!player.canPlayerEdit(pos.offset(direction), direction, stack))
+            return ActionResultType.FAIL;
+
+        if (!NBTHelper.getBoolean(stack, "Water"))
+            return ActionResultType.PASS;
 
         if (NBTHelper.getBoolean(stack, "Active"))
             return ActionResultType.FAIL;
 
-        return this.doWater(stack, world, player, context.getPos(), context.getFace());
+        return this.doWater(stack, world, player, pos, direction);
     }
 
     @OnlyIn(Dist.CLIENT)
