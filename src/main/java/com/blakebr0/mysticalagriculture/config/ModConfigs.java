@@ -7,11 +7,17 @@ public class ModConfigs {
     public static final ForgeConfigSpec COMMON;
     public static final ForgeConfigSpec SERVER;
 
+    public static final ForgeConfigSpec.BooleanValue ANIMATED_GROWTH_ACCELERATORS;
+
     // Client
     static {
         final ForgeConfigSpec.Builder client = new ForgeConfigSpec.Builder();
 
         client.comment("General configuration options.").push("General");
+        ANIMATED_GROWTH_ACCELERATORS = client
+                .comment("Should Growth Accelerators use animated textures?")
+                .translation("configGui.mysticalagriculture.animated_growth_accelerators")
+                .define("animatedGrowthAccelerators", true);
         client.pop();
 
         CLIENT = client.build();

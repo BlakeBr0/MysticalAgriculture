@@ -73,7 +73,7 @@ sourceSets.main.resources {
 dependencies {
     minecraft 'net.minecraftforge:forge:1.15.2-31.1.18'
 
-    compile files('../Cucumber/build/libs/Cucumber-1.15.2-3.0.3-deobf.jar')
+    compile files('../Cucumber/build/libs/Cucumber-1.15.2-3.0.6-deobf.jar')
     compile fg.deobf('mcp.mobius.waila:Hwyla:1.10.7-B71_1.15.1')
     compileOnly fg.deobf("mezz.jei:jei-1.15.2:6.0.0.2:api")
     runtimeOnly fg.deobf("mezz.jei:jei-1.15.2:6.0.0.2")
@@ -94,13 +94,15 @@ task deobfJar(type: Jar) {
     classifier = 'deobf'
     from sourceSets.main.output
     manifest {
-        attributes(["Specification-Title": "Cucumber",
-                    "Specification-Vendor": "BlakeBr0",
-                    "Specification-Version": "1",
-                    "Implementation-Title": project.name,
-                    "Implementation-Version": "${version}",
-                    "Implementation-Vendor" :"BlakeBr0",
-                    "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")],)
+        attributes([
+            "Specification-Title": "Mystical Agriculture",
+            "Specification-Vendor": "BlakeBr0",
+            "Specification-Version": "1",
+            "Implementation-Title": project.name,
+            "Implementation-Version": "${version}",
+            "Implementation-Vendor" : "BlakeBr0",
+            "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
+        ])
     }
 }
 
@@ -117,7 +119,7 @@ jar {
             "Specification-Version": "1",
             "Implementation-Title": project.name,
             "Implementation-Version": "${version}",
-            "Implementation-Vendor" :"BlakeBr0",
+            "Implementation-Vendor" : "BlakeBr0",
             "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
         ])
     }

@@ -1,0 +1,6 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "mysticalagriculture:block/imperium_growth_accelerator_static"
+  }
+}

@@ -6,6 +6,7 @@ import com.blakebr0.mysticalagriculture.MysticalAgriculture;
 import com.blakebr0.mysticalagriculture.api.MysticalAgricultureAPI;
 import com.blakebr0.mysticalagriculture.api.crop.CropTextures;
 import com.blakebr0.mysticalagriculture.block.ModBlocks;
+import com.blakebr0.mysticalagriculture.config.ModConfigs;
 import com.blakebr0.mysticalagriculture.registry.CropRegistry;
 import com.google.common.base.Stopwatch;
 import com.google.common.collect.ImmutableMap;
@@ -47,6 +48,14 @@ public class ModelHandler {
 
     @SubscribeEvent
     public void onRegisterModels(ModelRegistryEvent event) {
+        if (!ModConfigs.ANIMATED_GROWTH_ACCELERATORS.get()) {
+            for (String type : new String[] { "block", "item" }) {
+                for (String tier : new String[] { "inferium", "prudentium", "tertium", "imperium", "supremium" }) {
+                    ModelLoader.addSpecialModel(new ResourceLocation(MysticalAgriculture.MOD_ID, String.format("%s/%s_growth_accelerator_static", type, tier)));
+                }
+            }
+        }
+
         for (int i = 0; i < 8; i++) {
             ModelLoader.addSpecialModel(new ResourceLocation(MysticalAgriculture.MOD_ID, "block/mystical_resource_crop_" + i));
             ModelLoader.addSpecialModel(new ResourceLocation(MysticalAgriculture.MOD_ID, "block/mystical_mob_crop_" + i));
@@ -62,6 +71,16 @@ public class ModelHandler {
 
         Map<ResourceLocation, IBakedModel> registry = event.getModelRegistry();
         ModelBakery bakery = event.getModelLoader();
+
+        if (!ModConfigs.ANIMATED_GROWTH_ACCELERATORS.get()) {
+            for (String tier : new String[] { "inferium", "prudentium", "tertium", "imperium", "supremium" }) {
+                String loc = String.format("%s_growth_accelerator", tier);
+                IBakedModel blockModel = registry.get(new ResourceLocation(MysticalAgriculture.MOD_ID, "block/" + loc + "_static"));
+                registry.replace(new ModelResourceLocation(MysticalAgriculture.MOD_ID + ":" + loc), blockModel);
+                IBakedModel itemModel = registry.get(new ResourceLocation(MysticalAgriculture.MOD_ID, "item/" + loc + "_static"));
+                registry.replace(new ModelResourceLocation(MysticalAgriculture.MOD_ID + ":" + loc, "inventory"), itemModel);
+            }
+        }
 
         Map<String, IBakedModel[]> cropModels = new HashMap<>();
         Map<String, RetextureableBlockModelWrapper> cropModelsGrown = new HashMap<>();
