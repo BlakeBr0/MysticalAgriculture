@@ -174,6 +174,8 @@ public class ModelHandler {
         RenderTypeLookup.setRenderLayer(ModBlocks.PROSPERITY_ORE.get(), RenderType.getCutoutMipped());
         RenderTypeLookup.setRenderLayer(ModBlocks.INFERIUM_ORE.get(), RenderType.getCutoutMipped());
         RenderTypeLookup.setRenderLayer(ModBlocks.SOULIUM_ORE.get(), RenderType.getCutoutMipped());
+        RenderTypeLookup.setRenderLayer(ModBlocks.SOUL_GLASS.get(), RenderType.getTranslucent());
+        RenderTypeLookup.setRenderLayer(ModBlocks.WITHERPROOF_GLASS.get(), RenderType.getTranslucent());
 
         CropRegistry.getInstance().getCrops().forEach(crop -> {
             RenderTypeLookup.setRenderLayer(crop.getCrop(), RenderType.getCutoutMipped());
