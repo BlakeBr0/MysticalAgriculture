@@ -1,0 +1,23 @@
+{
+  "type": "cucumber:shaped_no_mirror",
+  "conditions": [
+    {
+      "type": "mysticalagriculture:crop_enabled",
+      "crop": "mysticalagriculture:honey"
+    }
+  ],
+  "pattern": [
+    "EEE",
+    "   ",
+    "   "
+  ],
+  "key": {
+    "E": {
+      "item": "mysticalagriculture:honey_essence"
+    }
+  },
+  "result": {
+    "item": "minecraft:honeycomb",
+    "count": 6
+  }
+}

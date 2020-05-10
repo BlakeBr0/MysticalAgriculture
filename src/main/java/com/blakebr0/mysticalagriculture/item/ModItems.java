@@ -80,6 +80,7 @@ public class ModItems {
     public static final RegistryObject<BaseItem> DYE_AGGLOMERATIO = register("dye_agglomeratio");
     public static final RegistryObject<BaseItem> NETHER_AGGLOMERATIO = register("nether_agglomeratio");
     public static final RegistryObject<BaseItem> CORAL_AGGLOMERATIO = register("coral_agglomeratio");
+    public static final RegistryObject<BaseItem> HONEY_AGGLOMERATIO = register("honey_agglomeratio");
     public static final RegistryObject<BaseItem> PRISMARINE_AGGLOMERATIO = register("prismarine_agglomeratio");
     public static final RegistryObject<BaseItem> END_AGGLOMERATIO = register("end_agglomeratio");
     public static final RegistryObject<ExperienceDropletItem> EXPERIENCE_DROPLET = register("experience_droplet", () -> new ExperienceDropletItem(p -> p.group(ITEM_GROUP)));
