@@ -102,7 +102,7 @@ public class ModCrops {
     public static final Crop IRIDIUM = new Crop(new ResourceLocation(MOD_ID, "iridium"), CropTier.TWO, CropType.RESOURCE, INGOT_CROP_TEXTURES, 0xC7C5DC, LazyIngredient.tag("forge:ingots/iridium"));
 
     // BOTANIA
-    public static final Crop MYSTICAL_FLOWER = new Crop(new ResourceLocation(MOD_ID, "mystical_flower"), CropTier.TWO, CropType.RESOURCE, LazyIngredient.EMPTY);
+    public static final Crop MYSTICAL_FLOWER = new Crop(new ResourceLocation(MOD_ID, "mystical_flower"), CropTier.TWO, CropType.RESOURCE, LazyIngredient.item("mysticalagriculture:mystical_flower_agglomeratio"));
     public static final Crop MANASTEEL = new Crop(new ResourceLocation(MOD_ID, "manasteel"), CropTier.THREE, CropType.RESOURCE, LazyIngredient.item("botania:manasteel_ingot"));
     public static final Crop ELEMENTIUM = new Crop(new ResourceLocation(MOD_ID, "elementium"), CropTier.FOUR, CropType.RESOURCE, LazyIngredient.item("botania:elementium_ingot"));
     public static final Crop TERRASTEEL = new Crop(new ResourceLocation(MOD_ID, "terrasteel"), CropTier.FIVE, CropType.RESOURCE, LazyIngredient.item("botania:terrasteel_ingot"));

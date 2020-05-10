@@ -1,0 +1,30 @@
+{
+  "type": "crafting_shaped",
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "botania"
+    }
+  ],
+  "pattern": [
+    "CO",
+    "PR"
+  ],
+  "key": {
+    "C": {
+      "item": "botania:cyan_mystical_flower"
+    },
+    "O": {
+      "item": "botania:orange_mystical_flower"
+    },
+    "P": {
+      "item": "botania:pink_mystical_flower"
+    },
+    "R": {
+      "item": "botania:red_mystical_flower"
+    }
+  },
+  "result": {
+    "item": "mysticalagriculture:mystical_flower_agglomeratio"
+  }
+}

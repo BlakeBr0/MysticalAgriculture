@@ -83,6 +83,7 @@ public class ModItems {
     public static final RegistryObject<BaseItem> HONEY_AGGLOMERATIO = register("honey_agglomeratio");
     public static final RegistryObject<BaseItem> PRISMARINE_AGGLOMERATIO = register("prismarine_agglomeratio");
     public static final RegistryObject<BaseItem> END_AGGLOMERATIO = register("end_agglomeratio");
+    public static final RegistryObject<BaseItem> MYSTICAL_FLOWER_AGGLOMERATIO = register("mystical_flower_agglomeratio");
     public static final RegistryObject<ExperienceDropletItem> EXPERIENCE_DROPLET = register("experience_droplet", () -> new ExperienceDropletItem(p -> p.group(ITEM_GROUP)));
     public static final RegistryObject<BaseItem> BLANK_SKULL = register("blank_skull");
     public static final RegistryObject<BaseItem> BLANK_RECORD = register("blank_record");
