@@ -4,7 +4,8 @@
 		"1": "mysticalagriculture:block/tinkering_table_side",
 		"3": "mysticalagriculture:block/tinkering_table_top",
 		"4": "mysticalagriculture:block/tinkering_table_bottom",
-		"5": "mysticalagriculture:block/tinkering_table_bottom_2"
+		"5": "mysticalagriculture:block/tinkering_table_bottom_2",
+		"particle": "block/stone"
 	},
 	"elements": [
 		{
