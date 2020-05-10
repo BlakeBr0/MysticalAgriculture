@@ -46,11 +46,17 @@ public class DynamicRecipeManager implements IResourceManagerReloadListener {
 
             if (seed2 != null)
                 recipes.put(seed2.getId(), seed2);
-            recipeManager.recipes.computeIfAbsent(reprocessor.getType(), t -> new HashMap<>()).put(reprocessor.getId(), reprocessor);
+
+            if (reprocessor != null) {
+                recipeManager.recipes.computeIfAbsent(reprocessor.getType(), t -> new HashMap<>()).put(reprocessor.getId(), reprocessor);
+            }
         });
     }
 
     private ISpecialRecipe makeSeedRecipe(ICrop crop) {
+        if (!crop.isEnabled())
+            return null;
+
         Item essenceItem = crop.getTier().getEssence();
         if (essenceItem == null)
             return null;
@@ -78,6 +84,9 @@ public class DynamicRecipeManager implements IResourceManagerReloadListener {
     }
 
     private IRecipe<?> makeRegularSeedRecipe(ICrop crop) {
+        if (!crop.isEnabled())
+            return null;
+
         if (!ModConfigs.SEED_CRAFTING_RECIPES.get())
             return null;
 
@@ -108,6 +117,9 @@ public class DynamicRecipeManager implements IResourceManagerReloadListener {
     }
 
     private ISpecialRecipe makeReprocessorRecipe(ICrop crop) {
+        if (!crop.isEnabled())
+            return null;
+
         Ingredient input = Ingredient.fromItems(crop.getSeeds());
         ResourceLocation name = new ResourceLocation(MysticalAgriculture.MOD_ID, crop.getNameWithSuffix("seeds_reprocessor"));
         ItemStack output = new ItemStack(crop.getEssence(), 2);
