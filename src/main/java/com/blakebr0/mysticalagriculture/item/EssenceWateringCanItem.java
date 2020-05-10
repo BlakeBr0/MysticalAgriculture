@@ -85,8 +85,12 @@ public class EssenceWateringCanItem extends BaseItem {
     @Override
     public ActionResult<ItemStack> onItemRightClick(World world, PlayerEntity player, Hand hand) {
         ItemStack stack = player.getHeldItem(hand);
-        if (NBTHelper.getBoolean(stack, "Water"))
+        if (NBTHelper.getBoolean(stack, "Water")) {
+            if (player.isCrouching())
+                NBTHelper.flipBoolean(stack, "Active");
+
             return new ActionResult<>(ActionResultType.FAIL, stack);
+        }
 
         RayTraceResult trace = rayTrace(world, player, RayTraceContext.FluidMode.SOURCE_ONLY);
         if (trace.getType() != RayTraceResult.Type.BLOCK) {
