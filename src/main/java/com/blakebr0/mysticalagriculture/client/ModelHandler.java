@@ -133,8 +133,8 @@ public class ModelHandler {
                 if (bakedModel == null || bakedModel.getParticleTexture(EmptyModelData.INSTANCE).getName().equals(MISSING_NO)) {
                     ResourceLocation texture = textures.getEssenceTexture();
                     RetextureableBlockModelWrapper retexture = essenceModelWrapper.retexture(ImmutableMap.of("layer0", texture.toString()));
-                    IUnbakedModel generated = generator.makeItemModel(getSprite, retexture);
-                    IBakedModel model = generated.bakeModel(bakery, getSprite, ModelRotation.X0_Y0, location);
+                    BlockModel generated = generator.makeItemModel(getSprite, retexture);
+                    IBakedModel model = generated.bakeModel(bakery, generated, getSprite, ModelRotation.X0_Y0, location, false);
                     registry.replace(location, model);
                 }
             }
@@ -146,8 +146,8 @@ public class ModelHandler {
                 if (bakedModel == null || bakedModel.getParticleTexture(EmptyModelData.INSTANCE).getName().equals(MISSING_NO)) {
                     ResourceLocation texture = textures.getSeedTexture();
                     RetextureableBlockModelWrapper retexture = seedsModelWrapper.retexture(ImmutableMap.of("layer0", texture.toString()));
-                    IUnbakedModel generated = generator.makeItemModel(getSprite, retexture);
-                    IBakedModel model = generated.bakeModel(bakery, getSprite, ModelRotation.X0_Y0, location);
+                    BlockModel generated = generator.makeItemModel(getSprite, retexture);
+                    IBakedModel model = generated.bakeModel(bakery, generated, getSprite, ModelRotation.X0_Y0, location, false);
                     registry.replace(location, model);
                 }
             }
