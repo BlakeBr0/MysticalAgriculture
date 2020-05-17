@@ -40,7 +40,7 @@ public class SoulJarItem extends BaseItem {
             items.add(new ItemStack(this));
 
             MobSoulTypeRegistry.getInstance().getMobSoulTypes().forEach(type -> {
-                items.add(MobSoulUtils.getFilledSoulJar(type));
+                items.add(MobSoulUtils.getFilledSoulJar(type, this));
             });
         }
     }

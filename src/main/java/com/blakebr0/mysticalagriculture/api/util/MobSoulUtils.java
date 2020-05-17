@@ -42,8 +42,19 @@ public class MobSoulUtils {
      * @return the soul jar
      */
     public static ItemStack getSoulJar(IMobSoulType type, double souls) {
+        return getSoulJar(type, souls, SOUL_JAR.get());
+    }
+
+    /**
+     * Get a new soul jar filled with the specified amount of souls of the specified mob soul type
+     * @param type the mob soul type
+     * @param souls the amount of souls in this soul jar
+     * @param item the soul jar item instance
+     * @return the soul jar
+     */
+    public static ItemStack getSoulJar(IMobSoulType type, double souls, Item item) {
         CompoundNBT nbt = makeTag(type, souls);
-        ItemStack stack = new ItemStack(SOUL_JAR.get());
+        ItemStack stack = new ItemStack(item);
         stack.setTag(nbt);
         return stack;
     }
@@ -54,8 +65,18 @@ public class MobSoulUtils {
      * @return the filled soul jar
      */
     public static ItemStack getFilledSoulJar(IMobSoulType type) {
+        return getFilledSoulJar(type, SOUL_JAR.get());
+    }
+
+    /**
+     * Gets a new soul jar filled with the specified soul type
+     * @param type the mob soul type
+     * @param item the soul jar item instance
+     * @return the filled soul jar
+     */
+    public static ItemStack getFilledSoulJar(IMobSoulType type, Item item) {
         CompoundNBT nbt = makeTag(type);
-        ItemStack stack = new ItemStack(SOUL_JAR.get());
+        ItemStack stack = new ItemStack(item);
         stack.setTag(nbt);
         return stack;
     }
