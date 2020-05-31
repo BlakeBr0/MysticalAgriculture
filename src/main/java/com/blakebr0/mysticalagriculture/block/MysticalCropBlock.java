@@ -1,5 +1,6 @@
 package com.blakebr0.mysticalagriculture.block;
 
+import com.blakebr0.cucumber.lib.Localizable;
 import com.blakebr0.mysticalagriculture.api.crop.ICrop;
 import com.blakebr0.mysticalagriculture.api.crop.ICropGetter;
 import com.blakebr0.mysticalagriculture.config.ModConfigs;
@@ -14,6 +15,7 @@ import net.minecraft.util.IItemProvider;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.shapes.ISelectionContext;
 import net.minecraft.util.math.shapes.VoxelShape;
+import net.minecraft.util.text.ITextComponent;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.World;
 import net.minecraft.world.server.ServerWorld;
@@ -38,8 +40,8 @@ public class MysticalCropBlock extends CropsBlock implements ICropGetter {
     }
 
     @Override
-    public VoxelShape getShape(BlockState state, IBlockReader world, BlockPos pos, ISelectionContext context) {
-        return SHAPE;
+    public ITextComponent getNameTextComponent() {
+        return Localizable.of("block.mysticalagriculture.mystical_crop").args(this.crop.getDisplayName()).build();
     }
 
     @Override
@@ -62,6 +64,11 @@ public class MysticalCropBlock extends CropsBlock implements ICropGetter {
         }
 
         super.tick(state, world, pos, random);
+    }
+
+    @Override
+    public VoxelShape getShape(BlockState state, IBlockReader world, BlockPos pos, ISelectionContext context) {
+        return SHAPE;
     }
 
     @Override // TODO: Loot tables?
