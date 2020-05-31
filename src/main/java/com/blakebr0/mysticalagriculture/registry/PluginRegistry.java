@@ -32,7 +32,7 @@ public class PluginRegistry {
                             LOGGER.info("Registered plugin: {}", annotation.getMemberName());
                         }
                     } catch (Exception e) {
-                        LOGGER.error("Error loading plugin {}", annotation.getMemberName(), e);
+                        LOGGER.error("Error loading plugin: {}", annotation.getMemberName(), e);
                     }
                 }
             });

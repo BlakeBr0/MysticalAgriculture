@@ -11,6 +11,7 @@ import com.blakebr0.mysticalagriculture.api.util.ExperienceCapsuleUtils;
 import com.blakebr0.mysticalagriculture.api.util.MobSoulUtils;
 import com.blakebr0.mysticalagriculture.block.ModBlocks;
 import com.blakebr0.mysticalagriculture.item.ModItems;
+import net.minecraft.block.CropsBlock;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.ModList;
 
@@ -119,7 +120,7 @@ public class ModCrops {
     public static final Crop QUARTZ_ENRICHED_IRON = new Crop(new ResourceLocation(MOD_ID, "quartz_enriched_iron"), CropTier.THREE, CropType.RESOURCE, LazyIngredient.item("refinedstorage:quartz_enriched_iron"));
 
     public static void onRegisterCrops(ICropRegistry registry) {
-        INFERIUM.setCrop(ModBlocks.INFERIUM_CROP)
+        INFERIUM.setCrop(() -> (CropsBlock) ModBlocks.INFERIUM_CROP.get())
                 .setEssence(ModItems.INFERIUM_ESSENCE);
 
         registry.register(AIR);
