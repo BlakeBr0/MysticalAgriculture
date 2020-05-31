@@ -30,6 +30,11 @@ public class MysticalEssenceItem extends BaseItem implements ICropGetter, IEnabl
         return Localizable.of("item.mysticalagriculture.mystical_essence").args(this.crop.getDisplayName()).build();
     }
 
+    @Override
+    public ITextComponent getName() {
+        return this.getDisplayName(ItemStack.EMPTY);
+    }
+
     @OnlyIn(Dist.CLIENT)
     @Override
     public void addInformation(ItemStack stack, World world, List<ITextComponent> tooltip, ITooltipFlag flag) {

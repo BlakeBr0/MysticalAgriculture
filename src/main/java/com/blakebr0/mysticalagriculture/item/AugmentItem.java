@@ -34,6 +34,11 @@ public class AugmentItem extends BaseItem implements IAugmentGetter, IEnableable
     }
 
     @Override
+    public ITextComponent getName() {
+        return this.getDisplayName(ItemStack.EMPTY);
+    }
+
+    @Override
     public boolean hasEffect(ItemStack stack) {
         return this.augment.hasEffect();
     }
