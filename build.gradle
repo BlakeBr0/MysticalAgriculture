@@ -11,7 +11,7 @@ buildscript {
 apply plugin: 'net.minecraftforge.gradle'
 apply plugin: 'idea'
 
-version = '3.0.5'
+version = '3.0.6'
 group = 'com.blakebr0.mysticalagriculture'
 archivesBaseName = 'MysticalAgriculture-1.15.2'
 
@@ -73,7 +73,7 @@ sourceSets.main.resources {
 dependencies {
     minecraft 'net.minecraftforge:forge:1.15.2-31.2.0'
 
-    compile files('../Cucumber/build/libs/Cucumber-1.15.2-3.0.6-deobf.jar')
+    compile files('../Cucumber/build/libs/Cucumber-1.15.2-3.0.7-deobf.jar')
     compile fg.deobf('mcp.mobius.waila:Hwyla:1.10.7-B71_1.15.1')
     compileOnly fg.deobf("mezz.jei:jei-1.15.2:6.0.0.2:api")
     runtimeOnly fg.deobf("mezz.jei:jei-1.15.2:6.0.0.2")
