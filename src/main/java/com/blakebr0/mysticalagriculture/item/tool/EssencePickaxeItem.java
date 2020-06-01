@@ -101,6 +101,8 @@ public class EssencePickaxeItem extends BasePickaxeItem implements ITinkerable {
 
     @Override
     public boolean onBlockDestroyed(ItemStack stack, World world, BlockState state, BlockPos pos, LivingEntity entity) {
+        super.onBlockDestroyed(stack, world, state, pos, entity);
+
         List<IAugment> augments = AugmentUtils.getAugments(stack);
         boolean success = false;
         for (IAugment augment : augments) {
