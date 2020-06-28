@@ -1,5 +1,5 @@
 {
-  "parent": "block/slab",
+  "parent": "block/slab_top",
   "textures": {
     "bottom": "mysticalagriculture:block/soulstone_smooth",
     "top": "mysticalagriculture:block/soulstone_smooth",
