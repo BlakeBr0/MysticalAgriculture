@@ -25,6 +25,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class DynamicRecipeManager implements IResourceManagerReloadListener {
+    private static RecipeManager recipeManager;
+
     @Override
     public void onResourceManagerReload(IResourceManager resourceManager) {
         MinecraftServer server = ServerLifecycleHooks.getCurrentServer();
@@ -51,6 +53,17 @@ public class DynamicRecipeManager implements IResourceManagerReloadListener {
                 recipeManager.recipes.computeIfAbsent(reprocessor.getType(), t -> new HashMap<>()).put(reprocessor.getId(), reprocessor);
             }
         });
+    }
+
+    public static RecipeManager getRecipeManager() {
+        if (recipeManager == null) {
+            RecipeManager recipeManager = ServerLifecycleHooks.getCurrentServer().getRecipeManager();
+            recipeManager.recipes = new HashMap<>(recipeManager.recipes);
+            recipeManager.recipes.replaceAll((t, v) -> new HashMap<>(recipeManager.recipes.get(t)));
+            DynamicRecipeManager.recipeManager = recipeManager;
+        }
+
+        return recipeManager;
     }
 
     private ISpecialRecipe makeSeedRecipe(ICrop crop) {
