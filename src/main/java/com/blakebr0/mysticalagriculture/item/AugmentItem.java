@@ -3,7 +3,7 @@ package com.blakebr0.mysticalagriculture.item;
 import com.blakebr0.cucumber.iface.IEnableable;
 import com.blakebr0.cucumber.item.BaseItem;
 import com.blakebr0.cucumber.lib.Colors;
-import com.blakebr0.cucumber.lib.Localizable;
+import com.blakebr0.cucumber.util.Localizable;
 import com.blakebr0.mysticalagriculture.api.tinkering.AugmentType;
 import com.blakebr0.mysticalagriculture.api.tinkering.IAugment;
 import com.blakebr0.mysticalagriculture.api.tinkering.IAugmentGetter;
@@ -50,7 +50,7 @@ public class AugmentItem extends BaseItem implements IAugmentGetter, IEnableable
         tooltip.add(new StringTextComponent(Colors.GRAY + this.augment.getAugmentTypes()
                 .stream()
                 .map(AugmentType::getDisplayName)
-                .map(ITextComponent::getFormattedText)
+                .map(ITextComponent::getString)
                 .collect(Collectors.joining(", "))
         ));
     }

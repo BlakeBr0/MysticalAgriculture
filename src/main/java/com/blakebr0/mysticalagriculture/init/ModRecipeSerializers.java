@@ -1,4 +1,4 @@
-package com.blakebr0.mysticalagriculture.crafting;
+package com.blakebr0.mysticalagriculture.init;
 
 import com.blakebr0.mysticalagriculture.MysticalAgriculture;
 import com.blakebr0.mysticalagriculture.crafting.condition.AugmentEnabledCondition;
@@ -21,11 +21,11 @@ import net.minecraftforge.registries.IForgeRegistry;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ModRecipeSerializers {
+public final class ModRecipeSerializers {
     public static final IRecipeSerializer<FarmlandTillRecipe> CRAFTING_FARMLAND_TILL = new FarmlandTillRecipe.Serializer();
     public static final IRecipeSerializer<InfusionRecipe> INFUSION = new InfusionRecipe.Serializer();
     public static final IRecipeSerializer<ReprocessorRecipe> REPROCESSOR = new ReprocessorRecipe.Serializer();
-    public static final IRecipeSerializer<TagRecipe> TAG = new TagRecipe.Serializer();
+    public static final IRecipeSerializer<TagRecipe> CRAFTING_TAG = new TagRecipe.Serializer();
 
     public static final IIngredientSerializer<HoeIngredient> HOE_INGREDIENT = new HoeIngredient.Serializer();
 
@@ -36,7 +36,7 @@ public class ModRecipeSerializers {
         registry.register(CRAFTING_FARMLAND_TILL.setRegistryName(new ResourceLocation(MysticalAgriculture.MOD_ID, "farmland_till")));
         registry.register(INFUSION.setRegistryName(new ResourceLocation(MysticalAgriculture.MOD_ID, "infusion")));
         registry.register(REPROCESSOR.setRegistryName(new ResourceLocation(MysticalAgriculture.MOD_ID, "reprocessor")));
-        registry.register(TAG.setRegistryName(new ResourceLocation(MysticalAgriculture.MOD_ID, "tag")));
+        registry.register(CRAFTING_TAG.setRegistryName(new ResourceLocation(MysticalAgriculture.MOD_ID, "tag")));
 
         CraftingHelper.register(CropEnabledCondition.Serializer.INSTANCE);
         CraftingHelper.register(AugmentEnabledCondition.Serializer.INSTANCE);

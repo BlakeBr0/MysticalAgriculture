@@ -1,6 +1,6 @@
 package com.blakebr0.mysticalagriculture.world;
 
-import com.blakebr0.mysticalagriculture.block.ModBlocks;
+import com.blakebr0.mysticalagriculture.init.ModBlocks;
 import com.blakebr0.mysticalagriculture.config.ModConfigs;
 import com.blakebr0.mysticalagriculture.world.feature.SoulstoneFeature;
 import net.minecraft.world.biome.Biome;

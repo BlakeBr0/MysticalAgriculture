@@ -1,7 +1,8 @@
 package com.blakebr0.mysticalagriculture.tileentity;
 
-import com.blakebr0.cucumber.lib.Localizable;
+import com.blakebr0.cucumber.util.Localizable;
 import com.blakebr0.mysticalagriculture.block.EssenceFurnaceBlock;
+import com.blakebr0.mysticalagriculture.init.ModTileEntities;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.container.Container;
 import net.minecraft.inventory.container.FurnaceContainer;

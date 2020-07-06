@@ -5,6 +5,7 @@ import com.google.common.collect.Multimap;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.ai.attributes.Attribute;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.EquipmentSlotType;
@@ -14,7 +15,7 @@ import net.minecraft.item.ItemUseContext;
 import net.minecraft.util.Hand;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.text.ITextComponent;
+import net.minecraft.util.text.IFormattableTextComponent;
 import net.minecraft.util.text.TranslationTextComponent;
 import net.minecraft.world.World;
 import net.minecraftforge.event.entity.living.LivingEvent.LivingUpdateEvent;
@@ -52,7 +53,7 @@ public interface IAugment {
      * Get the localized name of this augment using the key augment.{@link IAugment#getModId()}.{@link IAugment#getName()}
      * @return the localized name of this augment
      */
-    default ITextComponent getDisplayName() {
+    default IFormattableTextComponent getDisplayName() {
         return new TranslationTextComponent(String.format("augment.%s.%s", this.getModId(), this.getName()));
     }
 
@@ -230,7 +231,7 @@ public interface IAugment {
      * @param slot the equipment slot type
      * @param stack the item
      */
-    default void addToolAttributeModifiers(Multimap<String, AttributeModifier> attributes, EquipmentSlotType slot, ItemStack stack) {
+    default void addToolAttributeModifiers(Multimap<Attribute, AttributeModifier> attributes, EquipmentSlotType slot, ItemStack stack) {
 
     }
 
@@ -240,7 +241,7 @@ public interface IAugment {
      * @param slot the equipment slot type
      * @param stack the item
      */
-    default void addArmorAttributeModifiers(Multimap<String, AttributeModifier> attributes, EquipmentSlotType slot, ItemStack stack) {
+    default void addArmorAttributeModifiers(Multimap<Attribute, AttributeModifier> attributes, EquipmentSlotType slot, ItemStack stack) {
 
     }
 }

@@ -1,6 +1,6 @@
 package com.blakebr0.mysticalagriculture.crafting.ingredient;
 
-import com.blakebr0.mysticalagriculture.crafting.ModRecipeSerializers;
+import com.blakebr0.mysticalagriculture.init.ModRecipeSerializers;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;

@@ -109,11 +109,11 @@ public class ReprocessorBlock extends BaseTileEntityBlock {
         IMPERIUM("imperium", 20, 7, 20800, ReprocessorTileEntity.Imperium::new),
         SUPREMIUM("supremium", 5, 26, 28000, ReprocessorTileEntity.Supremium::new);
 
-        private String name;
-        private int operationTime;
-        private int fuelUsage;
-        private int fuelCapacity;
-        private Supplier<ReprocessorTileEntity> tileEntitySupplier;
+        private final String name;
+        private final int operationTime;
+        private final int fuelUsage;
+        private final int fuelCapacity;
+        private final Supplier<ReprocessorTileEntity> tileEntitySupplier;
 
         ReprocessorTier(String name, int operationTime, int fuelUsage, int fuelCapacity, Supplier<ReprocessorTileEntity> tileEntitySupplier) {
             this.name = name;

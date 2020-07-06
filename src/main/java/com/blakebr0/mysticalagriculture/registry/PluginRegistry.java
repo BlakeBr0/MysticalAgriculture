@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Consumer;
 
-public class PluginRegistry {
+public final class PluginRegistry {
     private static final Logger LOGGER = LogManager.getLogger(MysticalAgriculture.NAME);
     private static final PluginRegistry INSTANCE = new PluginRegistry();
     private final List<IMysticalAgriculturePlugin> plugins = new ArrayList<>();

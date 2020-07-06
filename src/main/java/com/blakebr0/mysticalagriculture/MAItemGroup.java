@@ -1,6 +1,6 @@
 package com.blakebr0.mysticalagriculture;
 
-import com.blakebr0.mysticalagriculture.item.ModItems;
+import com.blakebr0.mysticalagriculture.init.ModItems;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.api.distmarker.Dist;

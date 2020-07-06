@@ -1,8 +1,19 @@
-package com.blakebr0.mysticalagriculture.item;
+package com.blakebr0.mysticalagriculture.init;
 
 import com.blakebr0.cucumber.item.BaseItem;
 import com.blakebr0.mysticalagriculture.MysticalAgriculture;
 import com.blakebr0.mysticalagriculture.api.crop.CropTier;
+import com.blakebr0.mysticalagriculture.item.EssenceItem;
+import com.blakebr0.mysticalagriculture.item.EssenceWateringCanItem;
+import com.blakebr0.mysticalagriculture.item.ExperienceCapsuleItem;
+import com.blakebr0.mysticalagriculture.item.ExperienceDropletItem;
+import com.blakebr0.mysticalagriculture.item.FertilizedEssenceItem;
+import com.blakebr0.mysticalagriculture.item.InfusionCrystalItem;
+import com.blakebr0.mysticalagriculture.item.MasterInfusionCrystalItem;
+import com.blakebr0.mysticalagriculture.item.MysticalFertilizerItem;
+import com.blakebr0.mysticalagriculture.item.SoulJarItem;
+import com.blakebr0.mysticalagriculture.item.SouliumDaggerItem;
+import com.blakebr0.mysticalagriculture.item.WateringCanItem;
 import com.blakebr0.mysticalagriculture.item.armor.EssenceBootsItem;
 import com.blakebr0.mysticalagriculture.item.armor.EssenceChestplateItem;
 import com.blakebr0.mysticalagriculture.item.armor.EssenceHelmetItem;
@@ -33,7 +44,7 @@ import java.util.function.Supplier;
 
 import static com.blakebr0.mysticalagriculture.MysticalAgriculture.ITEM_GROUP;
 
-public class ModItems {
+public final class ModItems {
     public static final List<Supplier<Item>> BLOCK_ENTRIES = new ArrayList<>();
     public static final Map<RegistryObject<Item>, Supplier<Item>> ENTRIES = new LinkedHashMap<>();
     public static final Map<RegistryObject<Item>, Supplier<Item>> GEAR_ENTRIES = new LinkedHashMap<>();

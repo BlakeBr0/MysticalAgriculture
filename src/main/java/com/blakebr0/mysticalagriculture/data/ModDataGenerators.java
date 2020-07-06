@@ -6,7 +6,7 @@ import net.minecraftforge.client.model.generators.ExistingFileHelper;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.event.lifecycle.GatherDataEvent;
 
-public class ModDataGenerators {
+public final class ModDataGenerators {
     @SubscribeEvent
     public void onGatherData(GatherDataEvent event) {
         DataGenerator generator = event.getGenerator();

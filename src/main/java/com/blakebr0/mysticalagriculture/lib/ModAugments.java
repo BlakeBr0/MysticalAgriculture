@@ -1,12 +1,30 @@
-package com.blakebr0.mysticalagriculture.augment;
+package com.blakebr0.mysticalagriculture.lib;
 
 import com.blakebr0.mysticalagriculture.api.registry.IAugmentRegistry;
 import com.blakebr0.mysticalagriculture.api.tinkering.IAugment;
+import com.blakebr0.mysticalagriculture.augment.AbsorptionAugment;
+import com.blakebr0.mysticalagriculture.augment.AttackAOEAugment;
+import com.blakebr0.mysticalagriculture.augment.FireResistanceAugment;
+import com.blakebr0.mysticalagriculture.augment.FlightAugment;
+import com.blakebr0.mysticalagriculture.augment.HealthBoostAugment;
+import com.blakebr0.mysticalagriculture.augment.JumpBoostAugment;
+import com.blakebr0.mysticalagriculture.augment.MiningAOEAugment;
+import com.blakebr0.mysticalagriculture.augment.MiningFatigueResistanceAugment;
+import com.blakebr0.mysticalagriculture.augment.NightVisionAugment;
+import com.blakebr0.mysticalagriculture.augment.NoFallDamageAugment;
+import com.blakebr0.mysticalagriculture.augment.PathingAOEAugment;
+import com.blakebr0.mysticalagriculture.augment.PoisonResistanceAugment;
+import com.blakebr0.mysticalagriculture.augment.SpeedAugment;
+import com.blakebr0.mysticalagriculture.augment.StepAssistAugment;
+import com.blakebr0.mysticalagriculture.augment.StrengthAugment;
+import com.blakebr0.mysticalagriculture.augment.TillingAOEAugment;
+import com.blakebr0.mysticalagriculture.augment.WaterBreathingAugment;
+import com.blakebr0.mysticalagriculture.augment.WitherResistanceAugment;
 import net.minecraft.util.ResourceLocation;
 
 import static com.blakebr0.mysticalagriculture.MysticalAgriculture.MOD_ID;
 
-public class ModAugments {
+public final class ModAugments {
     public static final IAugment ABSORPTION_I = new AbsorptionAugment(new ResourceLocation(MOD_ID, "absorption_i"), 1, 0);
     public static final IAugment HEALTH_BOOST_I = new HealthBoostAugment(new ResourceLocation(MOD_ID, "health_boost_i"), 1, 1);
     public static final IAugment PATHING_AOE_I = new PathingAOEAugment(new ResourceLocation(MOD_ID, "pathing_aoe_i"), 1, 1);

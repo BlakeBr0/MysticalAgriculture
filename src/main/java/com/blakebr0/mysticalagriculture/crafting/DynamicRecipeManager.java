@@ -16,7 +16,6 @@ import net.minecraft.item.crafting.RecipeManager;
 import net.minecraft.item.crafting.ShapedRecipe;
 import net.minecraft.resources.IResourceManager;
 import net.minecraft.resources.IResourceManagerReloadListener;
-import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.NonNullList;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.server.ServerLifecycleHooks;
@@ -29,13 +28,7 @@ public class DynamicRecipeManager implements IResourceManagerReloadListener {
 
     @Override
     public void onResourceManagerReload(IResourceManager resourceManager) {
-        MinecraftServer server = ServerLifecycleHooks.getCurrentServer();
-
-        RecipeManager recipeManager = server.getRecipeManager();
-        recipeManager.recipes = new HashMap<>(recipeManager.recipes);
-        recipeManager.recipes.replaceAll((t, v) -> new HashMap<>(recipeManager.recipes.get(t)));
-
-        Map<ResourceLocation, IRecipe<?>> recipes = recipeManager.recipes.get(IRecipeType.CRAFTING);
+        Map<ResourceLocation, IRecipe<?>> recipes = getRecipeManager().recipes.get(IRecipeType.CRAFTING);
 
         CropRegistry.getInstance().getCrops().forEach(crop -> {
             ISpecialRecipe seed = this.makeSeedRecipe(crop);
@@ -43,14 +36,14 @@ public class DynamicRecipeManager implements IResourceManagerReloadListener {
             ISpecialRecipe reprocessor = this.makeReprocessorRecipe(crop);
 
             if (seed != null) {
-                recipeManager.recipes.computeIfAbsent(seed.getType(), t -> new HashMap<>()).put(seed.getId(), seed);
+                getRecipeManager().recipes.computeIfAbsent(seed.getType(), t -> new HashMap<>()).put(seed.getId(), seed);
             }
 
             if (seed2 != null)
                 recipes.put(seed2.getId(), seed2);
 
             if (reprocessor != null) {
-                recipeManager.recipes.computeIfAbsent(reprocessor.getType(), t -> new HashMap<>()).put(reprocessor.getId(), reprocessor);
+                getRecipeManager().recipes.computeIfAbsent(reprocessor.getType(), t -> new HashMap<>()).put(reprocessor.getId(), reprocessor);
             }
         });
     }

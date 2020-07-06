@@ -4,8 +4,8 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.nbt.CompoundNBT;
+import net.minecraft.tags.ITag;
 import net.minecraft.tags.ItemTags;
-import net.minecraft.tags.Tag;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.registries.ForgeRegistries;
 
@@ -17,9 +17,9 @@ public class LazyIngredient {
         }
     };
 
-    private String name;
-    private CompoundNBT nbt;
-    private Type type;
+    private final String name;
+    private final CompoundNBT nbt;
+    private final Type type;
     private Ingredient ingredient;
 
     private LazyIngredient(String name, Type type, CompoundNBT nbt) {
@@ -52,8 +52,8 @@ public class LazyIngredient {
         if (this.ingredient == null) {
             this.ingredient = Ingredient.EMPTY;
             if (this.isTag()) {
-                Tag<Item> tag = ItemTags.getCollection().get(new ResourceLocation(this.name));
-                if (tag != null && !tag.getAllElements().isEmpty())
+                ITag<Item> tag = ItemTags.getCollection().get(new ResourceLocation(this.name));
+                if (tag != null && !tag.func_230236_b_().isEmpty())
                     this.ingredient = Ingredient.fromTag(tag);
             } else if (this.isItem()) {
                 Item item = ForgeRegistries.ITEMS.getValue(new ResourceLocation(this.name));

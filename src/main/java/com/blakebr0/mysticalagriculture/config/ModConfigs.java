@@ -2,7 +2,7 @@ package com.blakebr0.mysticalagriculture.config;
 
 import net.minecraftforge.common.ForgeConfigSpec;
 
-public class ModConfigs {
+public final class ModConfigs {
     public static final ForgeConfigSpec CLIENT;
     public static final ForgeConfigSpec COMMON;
     public static final ForgeConfigSpec SERVER;

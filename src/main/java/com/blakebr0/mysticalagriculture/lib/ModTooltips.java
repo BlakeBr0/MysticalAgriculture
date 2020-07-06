@@ -1,12 +1,12 @@
 package com.blakebr0.mysticalagriculture.lib;
 
-import com.blakebr0.cucumber.lib.Tooltip;
+import com.blakebr0.cucumber.util.Tooltip;
 import com.blakebr0.mysticalagriculture.api.util.AugmentUtils;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraftforge.fml.ModList;
 
-public class ModTooltips {
+public final class ModTooltips {
     public static final Tooltip EMPTY = new Tooltip("tooltip.mysticalagriculture.empty");
     public static final Tooltip FILLED = new Tooltip("tooltip.mysticalagriculture.filled");
     public static final Tooltip TIER = new Tooltip("tooltip.mysticalagriculture.tier");

@@ -145,6 +145,6 @@ public class AugmentUtils {
      * @return the formatted tier
      */
     public static ITextComponent getTooltipForTier(int tier) {
-        return new StringTextComponent(String.valueOf(tier)).applyTextStyle(getColorForTier(tier));
+        return new StringTextComponent(String.valueOf(tier)).func_240699_a_(getColorForTier(tier));
     }
 }

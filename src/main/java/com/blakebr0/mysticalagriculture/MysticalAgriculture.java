@@ -2,26 +2,26 @@ package com.blakebr0.mysticalagriculture;
 
 import com.blakebr0.cucumber.helper.ConfigHelper;
 import com.blakebr0.mysticalagriculture.api.MysticalAgricultureAPI;
-import com.blakebr0.mysticalagriculture.block.ModBlocks;
 import com.blakebr0.mysticalagriculture.client.ModelHandler;
 import com.blakebr0.mysticalagriculture.config.ModConfigs;
-import com.blakebr0.mysticalagriculture.container.ModContainerTypes;
 import com.blakebr0.mysticalagriculture.crafting.DynamicRecipeManager;
-import com.blakebr0.mysticalagriculture.crafting.ModRecipeSerializers;
 import com.blakebr0.mysticalagriculture.data.ModDataGenerators;
 import com.blakebr0.mysticalagriculture.handler.AugmentHandler;
 import com.blakebr0.mysticalagriculture.handler.ColorHandler;
 import com.blakebr0.mysticalagriculture.handler.ExperienceCapsuleHandler;
 import com.blakebr0.mysticalagriculture.handler.MobDropHandler;
 import com.blakebr0.mysticalagriculture.handler.MobSoulHandler;
-import com.blakebr0.mysticalagriculture.item.ModItems;
+import com.blakebr0.mysticalagriculture.init.ModBlocks;
+import com.blakebr0.mysticalagriculture.init.ModContainerTypes;
+import com.blakebr0.mysticalagriculture.init.ModItems;
+import com.blakebr0.mysticalagriculture.init.ModRecipeSerializers;
+import com.blakebr0.mysticalagriculture.init.ModTileEntities;
 import com.blakebr0.mysticalagriculture.lib.ModCorePlugin;
 import com.blakebr0.mysticalagriculture.network.NetworkHandler;
 import com.blakebr0.mysticalagriculture.registry.AugmentRegistry;
 import com.blakebr0.mysticalagriculture.registry.CropRegistry;
 import com.blakebr0.mysticalagriculture.registry.MobSoulTypeRegistry;
 import com.blakebr0.mysticalagriculture.registry.PluginRegistry;
-import com.blakebr0.mysticalagriculture.tileentity.ModTileEntities;
 import com.blakebr0.mysticalagriculture.world.ModWorldFeatures;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.resources.IReloadableResourceManager;
@@ -58,7 +58,7 @@ public class MysticalAgriculture {
 		bus.register(new ModContainerTypes());
 		bus.register(new ModDataGenerators());
 
-		DistExecutor.runWhenOn(Dist.CLIENT, () -> () -> {
+		DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> () -> {
 			bus.register(new ColorHandler());
 			bus.register(new ModelHandler());
 		});
@@ -95,7 +95,6 @@ public class MysticalAgriculture {
 
 	@SubscribeEvent
 	public void onClientSetup(FMLClientSetupEvent event) {
-		ColorHandler.onClientSetup();
 		ModelHandler.onClientSetup();
 
 		ModTileEntities.onClientSetup();
@@ -104,7 +103,7 @@ public class MysticalAgriculture {
 
 	@SubscribeEvent(priority = EventPriority.HIGH)
 	public void onServerAboutToStart(FMLServerAboutToStartEvent event) {
-		IReloadableResourceManager manager = event.getServer().getResourceManager();
+		IReloadableResourceManager manager = (IReloadableResourceManager) event.getServer().getDataPackRegistries().func_240970_h_();
 
 		manager.addReloadListener(new DynamicRecipeManager());
 	}

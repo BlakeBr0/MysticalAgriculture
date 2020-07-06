@@ -1,7 +1,7 @@
 package com.blakebr0.mysticalagriculture.item;
 
 import com.blakebr0.cucumber.iface.IEnableable;
-import com.blakebr0.cucumber.lib.Localizable;
+import com.blakebr0.cucumber.util.Localizable;
 import com.blakebr0.mysticalagriculture.MysticalAgriculture;
 import com.blakebr0.mysticalagriculture.api.crop.ICrop;
 import com.blakebr0.mysticalagriculture.api.crop.ICropGetter;

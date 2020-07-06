@@ -6,6 +6,7 @@ import com.blakebr0.mysticalagriculture.api.util.AugmentUtils;
 import com.blakebr0.mysticalagriculture.container.slot.AugmentSlot;
 import com.blakebr0.mysticalagriculture.container.slot.ElementSlot;
 import com.blakebr0.mysticalagriculture.container.slot.TinkerableSlot;
+import com.blakebr0.mysticalagriculture.init.ModContainerTypes;
 import com.blakebr0.mysticalagriculture.tileentity.TinkeringTableTileEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;

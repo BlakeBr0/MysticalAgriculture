@@ -8,7 +8,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.ActionResultType;
 import net.minecraft.util.Hand;
-import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
 import java.util.function.Function;
@@ -24,20 +23,19 @@ public class ExperienceDropletItem extends BaseItem {
         int used = 0;
 
         if (!world.isRemote()) {
-            BlockPos pos = player.getPosition();
             if (player.isCrouching()) {
                 int xp = 0;
                 for (int i = 0; i < stack.getCount(); i++) {
                     xp += Utils.randInt(8, 12);
                 }
 
-                ExperienceOrbEntity orb = new ExperienceOrbEntity(world, pos.getX(), pos.getY(), pos.getZ(), xp);
+                ExperienceOrbEntity orb = new ExperienceOrbEntity(world, player.getPosX(), player.getPosY(), player.getPosZ(), xp);
                 world.addEntity(orb);
 
                 used = stack.getCount();
             } else {
                 int xp = Utils.randInt(8, 12);
-                ExperienceOrbEntity orb = new ExperienceOrbEntity(world, pos.getX(), pos.getY(), pos.getZ(), xp);
+                ExperienceOrbEntity orb = new ExperienceOrbEntity(world, player.getPosX(), player.getPosY(), player.getPosZ(), xp);
                 world.addEntity(orb);
                 used = 1;
             }

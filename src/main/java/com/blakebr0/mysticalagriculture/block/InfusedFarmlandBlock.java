@@ -7,10 +7,10 @@ import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.FarmlandBlock;
 import net.minecraft.item.ItemStack;
+import net.minecraft.loot.LootContext;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockReader;
-import net.minecraft.world.storage.loot.LootContext;
 import net.minecraftforge.common.IPlantable;
 import net.minecraftforge.common.PlantType;
 
@@ -31,7 +31,7 @@ public class InfusedFarmlandBlock extends FarmlandBlock implements IColored, IEs
     @Override
     public boolean canSustainPlant(BlockState state, IBlockReader world, BlockPos pos, Direction direction, IPlantable plantable) {
         PlantType type = plantable.getPlantType(world, pos.offset(direction));
-        return type == PlantType.Crop || type == PlantType.Plains;
+        return type == PlantType.CROP || type == PlantType.PLAINS;
     }
 
     @Override

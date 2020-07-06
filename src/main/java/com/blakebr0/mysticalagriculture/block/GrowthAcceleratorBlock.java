@@ -14,7 +14,6 @@ import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.StringTextComponent;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.IBlockReader;
-import net.minecraft.world.IWorldReader;
 import net.minecraft.world.World;
 import net.minecraft.world.server.ServerWorld;
 import net.minecraftforge.api.distmarker.Dist;
@@ -35,13 +34,7 @@ public class GrowthAcceleratorBlock extends BaseBlock {
 
     @Override
     public void onBlockAdded(BlockState state, World world, BlockPos pos, BlockState oldState, boolean isMoving) {
-        world.getPendingBlockTicks().scheduleTick(pos, this, this.tickRate(world));
-    }
-
-    @Override
-    public int tickRate(IWorldReader world) {
-        double variance = Math.random() * (1.1 - 0.9) + 0.9;
-        return (int) (ModConfigs.GROWTH_ACCELERATOR_COOLDOWN.get() * variance) * 20;
+        world.getPendingBlockTicks().scheduleTick(pos, this, this.getTickRate());
     }
 
     @Override
@@ -51,14 +44,19 @@ public class GrowthAcceleratorBlock extends BaseBlock {
                 .findFirst()
                 .ifPresent(aoePos -> world.getBlockState(aoePos).tick(world, aoePos, random));
 
-        world.getPendingBlockTicks().scheduleTick(pos, this, this.tickRate(world));
+        world.getPendingBlockTicks().scheduleTick(pos, this, this.getTickRate());
     }
 
     @OnlyIn(Dist.CLIENT)
     @Override
     public void addInformation(ItemStack stack, IBlockReader world, List<ITextComponent> tooltip, ITooltipFlag flag) {
         tooltip.add(ModTooltips.GROWTH_ACCELERATOR.build());
-        ITextComponent rangeNumber = new StringTextComponent(String.valueOf(this.range)).applyTextStyle(this.textColor);
+        ITextComponent rangeNumber = new StringTextComponent(String.valueOf(this.range)).func_240699_a_(this.textColor);
         tooltip.add(ModTooltips.GROWTH_ACCELERATOR_RANGE.args(rangeNumber).build());
+    }
+
+    private int getTickRate() {
+        double variance = Math.random() * (1.1 - 0.9) + 0.9;
+        return (int) (ModConfigs.GROWTH_ACCELERATOR_COOLDOWN.get() * variance) * 20;
     }
 }

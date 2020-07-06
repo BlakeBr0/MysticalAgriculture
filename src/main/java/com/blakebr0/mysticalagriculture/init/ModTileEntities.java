@@ -1,10 +1,14 @@
-package com.blakebr0.mysticalagriculture.tileentity;
+package com.blakebr0.mysticalagriculture.init;
 
 import com.blakebr0.mysticalagriculture.MysticalAgriculture;
-import com.blakebr0.mysticalagriculture.block.ModBlocks;
 import com.blakebr0.mysticalagriculture.client.tesr.InfusionAltarRenderer;
 import com.blakebr0.mysticalagriculture.client.tesr.InfusionPedestalRenderer;
 import com.blakebr0.mysticalagriculture.client.tesr.TinkeringTableRenderer;
+import com.blakebr0.mysticalagriculture.tileentity.EssenceFurnaceTileEntity;
+import com.blakebr0.mysticalagriculture.tileentity.InfusionAltarTileEntity;
+import com.blakebr0.mysticalagriculture.tileentity.InfusionPedestalTileEntity;
+import com.blakebr0.mysticalagriculture.tileentity.ReprocessorTileEntity;
+import com.blakebr0.mysticalagriculture.tileentity.TinkeringTableTileEntity;
 import net.minecraft.block.Block;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.tileentity.TileEntityType;
@@ -22,7 +26,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Supplier;
 
-public class ModTileEntities {
+public final class ModTileEntities {
     private static final List<Supplier<TileEntityType<?>>> ENTRIES = new ArrayList<>();
 
     public static final RegistryObject<TileEntityType<EssenceFurnaceTileEntity.Inferium>> INFERIUM_FURNACE = register("inferium_furnace", EssenceFurnaceTileEntity.Inferium::new, () -> new Block[] { ModBlocks.INFERIUM_FURNACE.get() });

@@ -1,4 +1,4 @@
-package com.blakebr0.mysticalagriculture.block;
+package com.blakebr0.mysticalagriculture.init;
 
 import com.blakebr0.cucumber.block.BaseBlock;
 import com.blakebr0.cucumber.block.BaseGlassBlock;
@@ -9,7 +9,16 @@ import com.blakebr0.cucumber.block.BaseWallBlock;
 import com.blakebr0.cucumber.item.BaseBlockItem;
 import com.blakebr0.mysticalagriculture.MysticalAgriculture;
 import com.blakebr0.mysticalagriculture.api.crop.CropTier;
-import com.blakebr0.mysticalagriculture.item.ModItems;
+import com.blakebr0.mysticalagriculture.block.EssenceFurnaceBlock;
+import com.blakebr0.mysticalagriculture.block.GrowthAcceleratorBlock;
+import com.blakebr0.mysticalagriculture.block.InferiumCropBlock;
+import com.blakebr0.mysticalagriculture.block.InfusedFarmlandBlock;
+import com.blakebr0.mysticalagriculture.block.InfusionAltarBlock;
+import com.blakebr0.mysticalagriculture.block.InfusionPedestalBlock;
+import com.blakebr0.mysticalagriculture.block.ReprocessorBlock;
+import com.blakebr0.mysticalagriculture.block.TinkeringTableBlock;
+import com.blakebr0.mysticalagriculture.block.WitherproofBlock;
+import com.blakebr0.mysticalagriculture.block.WitherproofGlassBlock;
 import com.blakebr0.mysticalagriculture.lib.ModCrops;
 import com.blakebr0.mysticalagriculture.registry.CropRegistry;
 import net.minecraft.block.Block;
@@ -30,7 +39,7 @@ import java.util.function.Supplier;
 
 import static com.blakebr0.mysticalagriculture.MysticalAgriculture.ITEM_GROUP;
 
-public class ModBlocks {
+public final class ModBlocks {
     public static final Map<RegistryObject<Block>, Supplier<Block>> ENTRIES = new LinkedHashMap<>();
 
     public static final RegistryObject<Block> PROSPERITY_BLOCK = register("prosperity_block", () -> new BaseBlock(Material.ROCK, SoundType.STONE, 4.0F, 6.0F));

@@ -50,12 +50,11 @@ public class InfusionPedestalBlock extends BaseTileEntityBlock {
             ItemStack input = inventory.getStackInSlot(0);
             ItemStack held = player.getHeldItem(hand);
             if (input.isEmpty() && !held.isEmpty()) {
-                inventory.setStackInSlot(0, StackHelper.withSize(held.copy(), 1, false));
-                player.setHeldItem(hand, StackHelper.decrease(held, 1, false));
+                inventory.setStackInSlot(0, StackHelper.withSize(held, 1, false));
+                player.setHeldItem(hand, StackHelper.shrink(held, 1, false));
                 world.playSound(null, pos, SoundEvents.ENTITY_ITEM_PICKUP, SoundCategory.BLOCKS, 1.0F, 1.0F);
             } else if (!input.isEmpty()) {
-                BlockPos playerPos = player.getPosition();
-                ItemEntity item = new ItemEntity(world, playerPos.getX(), playerPos.getY(), playerPos.getZ(), input);
+                ItemEntity item = new ItemEntity(world, player.getPosX(), player.getPosY(), player.getPosZ(), input);
                 item.setNoPickupDelay();
                 world.addEntity(item);
                 inventory.setStackInSlot(0, ItemStack.EMPTY);

@@ -17,7 +17,7 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class MobSoulHandler {
+public final class MobSoulHandler {
     @SubscribeEvent
     public void onLivingDeath(LivingDeathEvent event) {
         Entity source = event.getSource().getTrueSource();

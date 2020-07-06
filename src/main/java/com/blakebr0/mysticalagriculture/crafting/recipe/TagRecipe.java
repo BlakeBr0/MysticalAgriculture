@@ -2,7 +2,7 @@ package com.blakebr0.mysticalagriculture.crafting.recipe;
 
 import com.blakebr0.cucumber.crafting.TagMapper;
 import com.blakebr0.cucumber.crafting.recipe.ShapedNoMirrorRecipe;
-import com.blakebr0.mysticalagriculture.crafting.ModRecipeSerializers;
+import com.blakebr0.mysticalagriculture.init.ModRecipeSerializers;
 import com.google.gson.JsonObject;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -25,7 +25,7 @@ public class TagRecipe extends ShapedNoMirrorRecipe {
 
     @Override
     public IRecipeSerializer<?> getSerializer() {
-        return ModRecipeSerializers.TAG;
+        return ModRecipeSerializers.CRAFTING_TAG;
     }
 
     public static class Serializer extends ForgeRegistryEntry<IRecipeSerializer<?>> implements IRecipeSerializer<TagRecipe> {

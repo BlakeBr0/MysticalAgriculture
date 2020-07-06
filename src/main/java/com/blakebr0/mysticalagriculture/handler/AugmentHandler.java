@@ -12,8 +12,8 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 
 import java.util.List;
 
-public class AugmentHandler {
-    private static final AbilityCache CACHE = new AbilityCache();
+public final class AugmentHandler {
+    private static final AbilityCache ABILITY_CACHE = new AbilityCache();
 
     @SubscribeEvent
     public void onPlayerUpdate(LivingEvent.LivingUpdateEvent event) {
@@ -22,10 +22,10 @@ public class AugmentHandler {
             PlayerEntity player = (PlayerEntity) entity;
             World world = player.getEntityWorld();
             List<IAugment> augments = AugmentUtils.getArmorAugments(player);
-            augments.forEach(a -> a.onPlayerTick(world, player, CACHE));
-            CACHE.getCachedAbilities(player).forEach(c -> {
+            augments.forEach(a -> a.onPlayerTick(world, player, ABILITY_CACHE));
+            ABILITY_CACHE.getCachedAbilities(player).forEach(c -> {
                 if (augments.stream().noneMatch(a -> c.equals(a.getId().toString()))) {
-                    CACHE.remove(c, player);
+                    ABILITY_CACHE.remove(c, player);
                 }
             });
         }

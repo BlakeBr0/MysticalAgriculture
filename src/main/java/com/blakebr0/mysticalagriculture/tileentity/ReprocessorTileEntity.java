@@ -1,15 +1,16 @@
 package com.blakebr0.mysticalagriculture.tileentity;
 
-import com.blakebr0.cucumber.crafting.ISpecialRecipe;
 import com.blakebr0.cucumber.helper.StackHelper;
 import com.blakebr0.cucumber.inventory.BaseItemStackHandler;
 import com.blakebr0.cucumber.inventory.SidedItemStackHandlerWrapper;
-import com.blakebr0.cucumber.lib.Localizable;
 import com.blakebr0.cucumber.tileentity.BaseInventoryTileEntity;
+import com.blakebr0.cucumber.util.Localizable;
 import com.blakebr0.mysticalagriculture.api.crafting.IReprocessorRecipe;
 import com.blakebr0.mysticalagriculture.api.crafting.RecipeTypes;
 import com.blakebr0.mysticalagriculture.block.ReprocessorBlock;
 import com.blakebr0.mysticalagriculture.container.ReprocessorContainer;
+import com.blakebr0.mysticalagriculture.crafting.recipe.ReprocessorRecipe;
+import com.blakebr0.mysticalagriculture.init.ModTileEntities;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.container.Container;
@@ -32,7 +33,7 @@ import net.minecraftforge.items.IItemHandlerModifiable;
 public abstract class ReprocessorTileEntity extends BaseInventoryTileEntity implements INamedContainerProvider, ITickableTileEntity {
     private final BaseItemStackHandler inventory = new BaseItemStackHandler(3);
     private final LazyOptional<IItemHandlerModifiable>[] handlers = SidedItemStackHandlerWrapper.create(this.inventory, new Direction[] { Direction.UP, Direction.DOWN, Direction.NORTH }, this::canInsertStackSided, null);
-    private ISpecialRecipe recipe;
+    private ReprocessorRecipe recipe;
     private int progress;
     private int fuel;
     private int fuelLeft;
@@ -136,7 +137,7 @@ public abstract class ReprocessorTileEntity extends BaseInventoryTileEntity impl
             if (!input.isEmpty()) {
                 if (this.recipe == null || !this.recipe.matches(this.inventory)) {
                     IReprocessorRecipe recipe = world.getRecipeManager().getRecipe(RecipeTypes.REPROCESSOR, this.inventory.toIInventory(), world).orElse(null);
-                    this.recipe = recipe instanceof ISpecialRecipe ? (ISpecialRecipe) recipe : null;
+                    this.recipe = recipe instanceof ReprocessorRecipe?  (ReprocessorRecipe) recipe : null;
                 }
 
                 if (this.recipe != null) {
@@ -148,11 +149,8 @@ public abstract class ReprocessorTileEntity extends BaseInventoryTileEntity impl
                         if (this.progress >= this.getOperationTime()) {
                             this.inventory.extractItemSuper(0, 1, false);
 
-                            if (output.isEmpty()) {
-                                this.inventory.setStackInSlot(2, recipeOutput.copy());
-                            } else {
-                                output.grow(recipeOutput.getCount());
-                            }
+                            ItemStack result = StackHelper.combineStacks(output, recipeOutput);
+                            this.inventory.setStackInSlot(2, result);
 
                             this.progress = 0;
                         }

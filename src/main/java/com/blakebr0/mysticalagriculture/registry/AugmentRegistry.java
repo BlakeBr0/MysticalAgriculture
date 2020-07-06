@@ -15,7 +15,7 @@ import java.util.List;
 
 import static com.blakebr0.mysticalagriculture.MysticalAgriculture.ITEM_GROUP;
 
-public class AugmentRegistry implements IAugmentRegistry {
+public final class AugmentRegistry implements IAugmentRegistry {
     private static final Logger LOGGER = LogManager.getLogger();
     private static final AugmentRegistry INSTANCE = new AugmentRegistry();
 

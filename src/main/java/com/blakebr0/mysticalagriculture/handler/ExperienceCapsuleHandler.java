@@ -11,7 +11,7 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class ExperienceCapsuleHandler {
+public final class ExperienceCapsuleHandler {
     @SubscribeEvent
     public void onPlayerPickupXp(PlayerXpEvent.PickupXp event) {
         ExperienceOrbEntity orb = event.getOrb();

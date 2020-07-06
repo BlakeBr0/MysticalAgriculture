@@ -65,7 +65,7 @@ public class EssenceWateringCanItem extends BaseItem {
         if (selected && world.getGameTime() % 4 == 0) {
             if (NBTHelper.getBoolean(stack, "Active") && entity instanceof PlayerEntity) {
                 PlayerEntity player = (PlayerEntity) entity;
-                BlockRayTraceResult result = (BlockRayTraceResult) rayTrace(world, player, RayTraceContext.FluidMode.SOURCE_ONLY);
+                BlockRayTraceResult result = rayTrace(world, player, RayTraceContext.FluidMode.SOURCE_ONLY);
                 if (result.getType() != RayTraceResult.Type.MISS)
                     this.doWater(stack, world, player, result.getPos(), result.getFace());
             }
@@ -92,14 +92,13 @@ public class EssenceWateringCanItem extends BaseItem {
             return new ActionResult<>(ActionResultType.FAIL, stack);
         }
 
-        RayTraceResult trace = rayTrace(world, player, RayTraceContext.FluidMode.SOURCE_ONLY);
+        BlockRayTraceResult trace = rayTrace(world, player, RayTraceContext.FluidMode.SOURCE_ONLY);
         if (trace.getType() != RayTraceResult.Type.BLOCK) {
             return new ActionResult<>(ActionResultType.FAIL, stack);
         }
 
-        BlockRayTraceResult blockTrace = (BlockRayTraceResult) trace;
-        BlockPos pos = blockTrace.getPos();
-        Direction direction = blockTrace.getFace();
+        BlockPos pos = trace.getPos();
+        Direction direction = trace.getFace();
         if (world.isBlockModifiable(player, pos) && player.canPlayerEdit(pos.offset(direction), direction, stack)) {
             BlockState state = world.getBlockState(pos);
             if (state.getMaterial() == Material.WATER) {
@@ -145,7 +144,7 @@ public class EssenceWateringCanItem extends BaseItem {
         }
 
         String rangeString = String.valueOf(this.range);
-        ITextComponent rangeNumber = new StringTextComponent(rangeString + "x" + rangeString).applyTextStyle(this.textColor);
+        ITextComponent rangeNumber = new StringTextComponent(rangeString + "x" + rangeString).func_240699_a_(this.textColor);
         tooltip.add(ModTooltips.WATERING_CAN_AREA.args(rangeNumber).build());
     }
 

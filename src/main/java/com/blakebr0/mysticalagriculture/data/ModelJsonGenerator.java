@@ -14,7 +14,7 @@ import net.minecraftforge.client.model.generators.ExistingFileHelper;
 import net.minecraftforge.client.model.generators.ItemModelProvider;
 import net.minecraftforge.client.model.generators.ModelFile;
 
-public class ModelJsonGenerator {
+public final class ModelJsonGenerator {
     public static class Blocks extends BlockStateProvider {
         public Blocks(DataGenerator generator, String modid, ExistingFileHelper existingFileHelper) {
             super(generator, modid, existingFileHelper);

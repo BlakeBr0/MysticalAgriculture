@@ -9,7 +9,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvents;
-import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 
 import java.util.EnumSet;
@@ -32,13 +31,12 @@ public class AttackAOEAugment extends Augment {
 
                 for (LivingEntity aoeEntity : entities) {
                     if (aoeEntity != player && aoeEntity != target && !player.isOnSameTeam(target)) {
-                        aoeEntity.knockBack(player, 0.4F, MathHelper.sin(player.rotationYaw * 0.017453292F), -MathHelper.cos(player.rotationYaw * 0.017453292F));
-                        aoeEntity.attackEntityFrom(DamageSource.causePlayerDamage(player), 13.0F);
+                        aoeEntity.func_233627_a_(0.4F, MathHelper.sin(player.rotationYaw * 0.017453292F), -MathHelper.cos(player.rotationYaw * 0.017453292F));
+                        aoeEntity.attackEntityFrom(DamageSource.causePlayerDamage(player), 13.0F); // TODO: 1.16: should this damage value be hardcoded?
                     }
                 }
 
-                BlockPos pos = player.getPosition();
-                player.getEntityWorld().playSound(null, pos.getX(), pos.getY(), pos.getZ(), SoundEvents.ENTITY_PLAYER_ATTACK_SWEEP, player.getSoundCategory(), 1.0F, 1.0F);
+                player.getEntityWorld().playSound(null, player.getPosX(), player.getPosY(), player.getPosZ(), SoundEvents.ENTITY_PLAYER_ATTACK_SWEEP, player.getSoundCategory(), 1.0F, 1.0F);
                 player.spawnSweepParticles();
             }
 

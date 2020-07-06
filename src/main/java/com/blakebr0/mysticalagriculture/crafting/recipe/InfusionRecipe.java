@@ -3,7 +3,7 @@ package com.blakebr0.mysticalagriculture.crafting.recipe;
 import com.blakebr0.cucumber.crafting.ISpecialRecipe;
 import com.blakebr0.mysticalagriculture.api.crafting.IInfusionRecipe;
 import com.blakebr0.mysticalagriculture.api.crafting.RecipeTypes;
-import com.blakebr0.mysticalagriculture.crafting.ModRecipeSerializers;
+import com.blakebr0.mysticalagriculture.init.ModRecipeSerializers;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import net.minecraft.item.ItemStack;

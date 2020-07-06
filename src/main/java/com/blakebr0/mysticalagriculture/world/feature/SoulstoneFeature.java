@@ -1,8 +1,8 @@
 package com.blakebr0.mysticalagriculture.world.feature;
 
-import com.blakebr0.mysticalagriculture.block.ModBlocks;
+import com.blakebr0.mysticalagriculture.init.ModBlocks;
 import com.blakebr0.mysticalagriculture.config.ModConfigs;
-import com.mojang.datafixers.Dynamic;
+import com.mojang.serialization.Dynamic;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.IWorld;
@@ -116,7 +116,7 @@ public class SoulstoneFeature extends Feature<OreFeatureConfig> {
                                         if (!bitset.get(k2)) {
                                             bitset.set(k2);
                                             blockpos$mutableblockpos.setPos(l1, i2, j2);
-                                            if (config.target.func_214738_b().test(worldIn.getBlockState(blockpos$mutableblockpos))) {
+                                            if (config.target.getTargetBlockPredicate().test(worldIn.getBlockState(blockpos$mutableblockpos))) {
                                                 if (ModBlocks.SOULIUM_ORE.isPresent() && random.nextDouble() < ModConfigs.SOULIUM_ORE_CHANCE.get()) {
                                                     worldIn.setBlockState(blockpos$mutableblockpos, ModBlocks.SOULIUM_ORE.get().getDefaultState(), 2);
                                                 } else {

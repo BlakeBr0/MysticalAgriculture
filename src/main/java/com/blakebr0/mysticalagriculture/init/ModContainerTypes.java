@@ -1,8 +1,10 @@
-package com.blakebr0.mysticalagriculture.container;
+package com.blakebr0.mysticalagriculture.init;
 
 import com.blakebr0.mysticalagriculture.MysticalAgriculture;
 import com.blakebr0.mysticalagriculture.client.screen.ReprocessorScreen;
 import com.blakebr0.mysticalagriculture.client.screen.TinkeringTableScreen;
+import com.blakebr0.mysticalagriculture.container.ReprocessorContainer;
+import com.blakebr0.mysticalagriculture.container.TinkeringTableContainer;
 import net.minecraft.client.gui.ScreenManager;
 import net.minecraft.inventory.container.ContainerType;
 import net.minecraft.util.ResourceLocation;

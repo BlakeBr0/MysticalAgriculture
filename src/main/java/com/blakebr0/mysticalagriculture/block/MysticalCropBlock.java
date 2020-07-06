@@ -1,26 +1,24 @@
 package com.blakebr0.mysticalagriculture.block;
 
-import com.blakebr0.cucumber.lib.Localizable;
 import com.blakebr0.mysticalagriculture.api.crop.ICrop;
 import com.blakebr0.mysticalagriculture.api.crop.ICropGetter;
 import com.blakebr0.mysticalagriculture.config.ModConfigs;
-import com.blakebr0.mysticalagriculture.item.ModItems;
+import com.blakebr0.mysticalagriculture.init.ModItems;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.CropsBlock;
 import net.minecraft.block.FarmlandBlock;
 import net.minecraft.item.ItemStack;
+import net.minecraft.loot.LootContext;
+import net.minecraft.loot.LootParameters;
 import net.minecraft.util.IItemProvider;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.shapes.ISelectionContext;
 import net.minecraft.util.math.shapes.VoxelShape;
-import net.minecraft.util.text.ITextComponent;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.World;
 import net.minecraft.world.server.ServerWorld;
-import net.minecraft.world.storage.loot.LootContext;
-import net.minecraft.world.storage.loot.LootParameters;
 
 import java.util.List;
 import java.util.Random;
@@ -37,11 +35,6 @@ public class MysticalCropBlock extends CropsBlock implements ICropGetter {
     @Override
     protected IItemProvider getSeedsItem() {
         return this.crop.getSeeds();
-    }
-
-    @Override
-    public ITextComponent getNameTextComponent() {
-        return Localizable.of("block.mysticalagriculture.mystical_crop").args(this.crop.getDisplayName()).build();
     }
 
     @Override

@@ -5,27 +5,20 @@ import com.blakebr0.cucumber.util.Utils;
 import com.blakebr0.mysticalagriculture.api.soul.IMobSoulType;
 import com.blakebr0.mysticalagriculture.api.util.MobSoulUtils;
 import com.blakebr0.mysticalagriculture.block.InfusedFarmlandBlock;
-import com.blakebr0.mysticalagriculture.item.ModItems;
-import com.blakebr0.mysticalagriculture.lib.ModCorePlugin;
+import com.blakebr0.mysticalagriculture.init.ModItems;
 import com.blakebr0.mysticalagriculture.lib.ModCrops;
 import com.blakebr0.mysticalagriculture.registry.AugmentRegistry;
 import com.blakebr0.mysticalagriculture.registry.CropRegistry;
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.color.BlockColors;
 import net.minecraft.client.renderer.color.ItemColors;
-import net.minecraft.item.Items;
+import net.minecraftforge.client.event.ColorHandlerEvent;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
 
-public class ColorHandler {
-    public static void onClientSetup() {
-        Minecraft minecraft = Minecraft.getInstance();
-        BlockColors blockColors = minecraft.getBlockColors();
-        ItemColors itemColors = minecraft.getItemColors();
+public final class ColorHandler {
+    @SubscribeEvent
+    public void onBlockColors(ColorHandlerEvent.Block event) {
+        BlockColors colors = event.getBlockColors();
 
-        onBlockColors(blockColors);
-        onItemColors(itemColors);
-    }
-
-    private static void onBlockColors(BlockColors colors) {
         colors.register(new IColored.BlockColors(), InfusedFarmlandBlock.FARMLANDS.toArray(new InfusedFarmlandBlock[0]));
 
         CropRegistry.getInstance().getCrops().forEach(crop -> {
@@ -34,7 +27,10 @@ public class ColorHandler {
         });
     }
 
-    private static void onItemColors(ItemColors colors) {
+    @SubscribeEvent
+    public void onItemColors(ColorHandlerEvent.Item event) {
+        ItemColors colors = event.getItemColors();
+
         colors.register(new IColored.ItemBlockColors(), InfusedFarmlandBlock.FARMLANDS.toArray(new InfusedFarmlandBlock[0]));
         colors.register((stack, tint) -> {
             float damage = (float) (stack.getMaxDamage() - stack.getDamage()) / stack.getMaxDamage();

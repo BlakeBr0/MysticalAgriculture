@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-public class MobSoulTypeRegistry implements IMobSoulTypeRegistry {
+public final class MobSoulTypeRegistry implements IMobSoulTypeRegistry {
     private static final Logger LOGGER = LogManager.getLogger();
     private static final MobSoulTypeRegistry INSTANCE = new MobSoulTypeRegistry();
 

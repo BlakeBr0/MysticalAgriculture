@@ -1,9 +1,10 @@
 package com.blakebr0.mysticalagriculture.compat.jei;
 
-import com.blakebr0.cucumber.lib.Localizable;
+import com.blakebr0.cucumber.util.Localizable;
 import com.blakebr0.mysticalagriculture.MysticalAgriculture;
 import com.blakebr0.mysticalagriculture.crafting.recipe.ReprocessorRecipe;
-import com.blakebr0.mysticalagriculture.block.ModBlocks;
+import com.blakebr0.mysticalagriculture.init.ModBlocks;
+import com.mojang.blaze3d.matrix.MatrixStack;
 import mezz.jei.api.constants.VanillaTypes;
 import mezz.jei.api.gui.IRecipeLayout;
 import mezz.jei.api.gui.drawable.IDrawable;
@@ -59,8 +60,8 @@ public class ReprocessorCategory implements IRecipeCategory<ReprocessorRecipe> {
     }
 
     @Override
-    public void draw(ReprocessorRecipe recipe, double mouseX, double mouseY) {
-        this.arrow.draw(24, 4);
+    public void draw(ReprocessorRecipe recipe, MatrixStack stack, double mouseX, double mouseY) {
+        this.arrow.draw(stack, 24, 4);
     }
 
     @Override

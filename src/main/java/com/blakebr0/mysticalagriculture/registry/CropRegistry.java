@@ -20,7 +20,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
-public class CropRegistry implements ICropRegistry {
+public final class CropRegistry implements ICropRegistry {
     private static final Logger LOGGER = LogManager.getLogger(MysticalAgriculture.NAME);
     private static final CropRegistry INSTANCE = new CropRegistry();
 

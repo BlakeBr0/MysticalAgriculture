@@ -1,12 +1,12 @@
 package com.blakebr0.mysticalagriculture.client;
 
-import com.blakebr0.cucumber.model.RetextureableBlockModelWrapper;
-import com.blakebr0.cucumber.model.RetextureableItemModelWrapper;
+import com.blakebr0.cucumber.client.model.RetextureableBlockModelWrapper;
+import com.blakebr0.cucumber.client.model.RetextureableItemModelWrapper;
 import com.blakebr0.mysticalagriculture.MysticalAgriculture;
 import com.blakebr0.mysticalagriculture.api.MysticalAgricultureAPI;
 import com.blakebr0.mysticalagriculture.api.crop.CropTextures;
-import com.blakebr0.mysticalagriculture.block.ModBlocks;
 import com.blakebr0.mysticalagriculture.config.ModConfigs;
+import com.blakebr0.mysticalagriculture.init.ModBlocks;
 import com.blakebr0.mysticalagriculture.registry.CropRegistry;
 import com.google.common.base.Stopwatch;
 import com.google.common.collect.ImmutableMap;
@@ -17,10 +17,10 @@ import net.minecraft.client.renderer.model.BlockModel;
 import net.minecraft.client.renderer.model.IBakedModel;
 import net.minecraft.client.renderer.model.IUnbakedModel;
 import net.minecraft.client.renderer.model.ItemModelGenerator;
-import net.minecraft.client.renderer.model.Material;
 import net.minecraft.client.renderer.model.ModelBakery;
 import net.minecraft.client.renderer.model.ModelResourceLocation;
 import net.minecraft.client.renderer.model.ModelRotation;
+import net.minecraft.client.renderer.model.RenderMaterial;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.minecraft.item.BlockNamedItem;
 import net.minecraft.item.Item;
@@ -40,7 +40,7 @@ import java.util.concurrent.TimeUnit;
 import java.util.function.Function;
 import java.util.stream.IntStream;
 
-public class ModelHandler {
+public final class ModelHandler {
     private static final Logger LOGGER = LogManager.getLogger(MysticalAgriculture.NAME);
 
     private static final ResourceLocation MISSING_NO = new ResourceLocation("minecraft", "missingno");
@@ -94,7 +94,7 @@ public class ModelHandler {
             cropModelsGrown.put(type.getName(), modelWrapper);
         });
 
-        Function<Material, TextureAtlasSprite> getSprite = bakery.getSpriteMap()::getSprite;
+        Function<RenderMaterial, TextureAtlasSprite> getSprite = bakery.getSpriteMap()::getSprite;
         ItemModelGenerator generator = new ItemModelGenerator();
 
         IUnbakedModel essenceModel = bakery.getUnbakedModel(new ResourceLocation(MysticalAgriculture.MOD_ID, "item/mystical_essence"));
@@ -132,7 +132,7 @@ public class ModelHandler {
                 IBakedModel bakedModel = registry.get(location);
                 if (bakedModel == null || bakedModel.getParticleTexture(EmptyModelData.INSTANCE).getName().equals(MISSING_NO)) {
                     ResourceLocation texture = textures.getEssenceTexture();
-                    RetextureableBlockModelWrapper retexture = essenceModelWrapper.retexture(ImmutableMap.of("layer0", texture.toString()));
+                    RetextureableItemModelWrapper retexture = essenceModelWrapper.retexture(ImmutableMap.of("layer0", texture.toString()));
                     BlockModel generated = generator.makeItemModel(getSprite, retexture);
                     IBakedModel model = generated.bakeModel(bakery, generated, getSprite, ModelRotation.X0_Y0, location, false);
                     registry.replace(location, model);
@@ -145,7 +145,7 @@ public class ModelHandler {
                 IBakedModel bakedModel = registry.get(location);
                 if (bakedModel == null || bakedModel.getParticleTexture(EmptyModelData.INSTANCE).getName().equals(MISSING_NO)) {
                     ResourceLocation texture = textures.getSeedTexture();
-                    RetextureableBlockModelWrapper retexture = seedsModelWrapper.retexture(ImmutableMap.of("layer0", texture.toString()));
+                    RetextureableItemModelWrapper retexture = seedsModelWrapper.retexture(ImmutableMap.of("layer0", texture.toString()));
                     BlockModel generated = generator.makeItemModel(getSprite, retexture);
                     IBakedModel model = generated.bakeModel(bakery, generated, getSprite, ModelRotation.X0_Y0, location, false);
                     registry.replace(location, model);

@@ -9,7 +9,7 @@ import java.util.Set;
 
 import static com.blakebr0.mysticalagriculture.MysticalAgriculture.MOD_ID;
 
-public class ModMobSoulTypes {
+public final class ModMobSoulTypes {
     private static final Set<ResourceLocation> FISH_IDS = Sets.newHashSet(new ResourceLocation("minecraft:cod"), new ResourceLocation("minecraft:salmon"), new ResourceLocation("minecraft:tropical_fish"), new ResourceLocation("minecraft:pufferfish"));
 
     public static final MobSoulType PIG_SOUL_TYPE = new MobSoulType(new ResourceLocation(MOD_ID, "pig"), new ResourceLocation("minecraft:pig"), 10, 15771042);

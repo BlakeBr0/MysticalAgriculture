@@ -6,7 +6,7 @@ import com.blakebr0.mysticalagriculture.api.tinkering.Augment;
 import com.blakebr0.mysticalagriculture.api.tinkering.AugmentType;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.math.Vec3d;
+import net.minecraft.util.math.vector.Vector3d;
 import net.minecraft.world.World;
 
 import java.util.EnumSet;
@@ -23,7 +23,7 @@ public class SpeedAugment extends Augment {
     public void onPlayerTick(World world, PlayerEntity player, AbilityCache cache) {
         boolean flying = player.abilities.isFlying;
         boolean swimming = player.isSwimming();
-        if (player.onGround || flying || swimming) {
+        if (player.func_233570_aj_() || flying || swimming) {
             boolean sneaking = player.isCrouching();
             boolean sprinting = player.isSprinting();
 
@@ -34,13 +34,13 @@ public class SpeedAugment extends Augment {
                     * this.amplifier;
 
             if (player.moveForward > 0F) {
-                player.moveRelative(1F, new Vec3d(0F, 0F, speed));
+                player.moveRelative(1F, new Vector3d(0F, 0F, speed));
             } else if (player.moveForward < 0F) {
-                player.moveRelative(1F, new Vec3d(0F, 0F, -speed * 0.3F));
+                player.moveRelative(1F, new Vector3d(0F, 0F, -speed * 0.3F));
             }
 
             if (player.moveStrafing != 0F) {
-                player.moveRelative(1F, new Vec3d(speed * 0.5F * Math.signum(player.moveStrafing), 0F, 0F));
+                player.moveRelative(1F, new Vector3d(speed * 0.5F * Math.signum(player.moveStrafing), 0F, 0F));
             }
         }
     }

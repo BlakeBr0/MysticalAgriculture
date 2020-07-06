@@ -5,6 +5,7 @@ import com.blakebr0.cucumber.tileentity.BaseInventoryTileEntity;
 import com.blakebr0.cucumber.util.MultiblockPositions;
 import com.blakebr0.mysticalagriculture.api.crafting.RecipeTypes;
 import com.blakebr0.mysticalagriculture.crafting.recipe.InfusionRecipe;
+import com.blakebr0.mysticalagriculture.init.ModTileEntities;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.particles.IParticleData;
@@ -142,7 +143,9 @@ public class InfusionAltarTileEntity extends BaseInventoryTileEntity implements 
     }
 
     private List<InfusionPedestalTileEntity> getPedestalsWithStuff() {
-        if (this.getWorld() == null) return new ArrayList<>();
+        if (this.getWorld() == null)
+            return new ArrayList<>();
+
         List<InfusionPedestalTileEntity> pedestals = new ArrayList<>();
         this.getPedestalPositions().forEach(pos -> {
             TileEntity tile = this.getWorld().getTileEntity(pos);
@@ -158,7 +161,9 @@ public class InfusionAltarTileEntity extends BaseInventoryTileEntity implements 
     }
 
     private <T extends IParticleData> void spawnParticles(T particle, BlockPos pos, double yOffset, int count) {
-        if (this.getWorld() == null || this.getWorld().isRemote()) return;
+        if (this.getWorld() == null || this.getWorld().isRemote())
+            return;
+
         ServerWorld world = (ServerWorld) this.getWorld();
 
         double x = pos.getX() + 0.5D;

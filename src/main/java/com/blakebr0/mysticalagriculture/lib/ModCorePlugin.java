@@ -6,12 +6,11 @@ import com.blakebr0.mysticalagriculture.api.crop.CropType;
 import com.blakebr0.mysticalagriculture.api.registry.IAugmentRegistry;
 import com.blakebr0.mysticalagriculture.api.registry.ICropRegistry;
 import com.blakebr0.mysticalagriculture.api.registry.IMobSoulTypeRegistry;
-import com.blakebr0.mysticalagriculture.augment.ModAugments;
-import com.blakebr0.mysticalagriculture.block.ModBlocks;
-import com.blakebr0.mysticalagriculture.item.ModItems;
+import com.blakebr0.mysticalagriculture.init.ModBlocks;
+import com.blakebr0.mysticalagriculture.init.ModItems;
 import net.minecraft.block.FarmlandBlock;
 
-public class ModCorePlugin implements IMysticalAgriculturePlugin {
+public final class ModCorePlugin implements IMysticalAgriculturePlugin {
     @Override
     public void onRegisterCrops(ICropRegistry registry) {
         ModCrops.onRegisterCrops(registry);

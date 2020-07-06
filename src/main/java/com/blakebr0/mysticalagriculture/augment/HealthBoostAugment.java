@@ -4,8 +4,9 @@ import com.blakebr0.cucumber.util.Utils;
 import com.blakebr0.mysticalagriculture.api.tinkering.Augment;
 import com.blakebr0.mysticalagriculture.api.tinkering.AugmentType;
 import com.google.common.collect.Multimap;
-import net.minecraft.entity.SharedMonsterAttributes;
+import net.minecraft.entity.ai.attributes.Attribute;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
+import net.minecraft.entity.ai.attributes.Attributes;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
@@ -23,8 +24,8 @@ public class HealthBoostAugment extends Augment {
     }
 
     @Override
-    public void addArmorAttributeModifiers(Multimap<String, AttributeModifier> attributes, EquipmentSlotType slot, ItemStack stack) {
-        attributes.put(SharedMonsterAttributes.MAX_HEALTH.getName(), new AttributeModifier(ATTRIBUTE_ID, "generic.maxHealth", 4 * this.amplifier, AttributeModifier.Operation.ADDITION));
+    public void addArmorAttributeModifiers(Multimap<Attribute, AttributeModifier> attributes, EquipmentSlotType slot, ItemStack stack) {
+        attributes.put(Attributes.field_233818_a_, new AttributeModifier(ATTRIBUTE_ID, "generic.maxHealth", 4 * this.amplifier, AttributeModifier.Operation.ADDITION));
     }
 
     private static int getColor(int color, int tier) {

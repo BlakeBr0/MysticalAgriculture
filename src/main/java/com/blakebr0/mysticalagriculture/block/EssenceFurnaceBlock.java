@@ -68,10 +68,10 @@ public class EssenceFurnaceBlock extends AbstractFurnaceBlock {
     public void addInformation(ItemStack stack, IBlockReader world, List<ITextComponent> tooltip, ITooltipFlag flag) {
         double cookingSpeedDifference = 200D * this.tier.getCookTimeMultiplier();
         double cookingSpeedValue = Math.ceil(((200D - cookingSpeedDifference) / cookingSpeedDifference) * 100D) + 100D;
-        ITextComponent cookingSpeed = new StringTextComponent(String.valueOf((int) cookingSpeedValue)).appendText("%");
+        ITextComponent cookingSpeed = new StringTextComponent(String.valueOf((int) cookingSpeedValue)).func_240702_b_("%");
         double burnTimeDifference = (1600D * this.tier.getBurnTimeMultiplier()) / cookingSpeedDifference;
         double burnTimeValue = Math.ceil(((burnTimeDifference - 8D) / 8D) * 100D) + 100D;
-        ITextComponent fuelEfficiency = new StringTextComponent(String.valueOf((int) burnTimeValue)).appendText("%");
+        ITextComponent fuelEfficiency = new StringTextComponent(String.valueOf((int) burnTimeValue)).func_240702_b_("%");
 
         tooltip.add(ModTooltips.COOKING_SPEED.args(cookingSpeed).build());
         tooltip.add(ModTooltips.FUEL_EFFICIENCY.args(fuelEfficiency).build());
@@ -84,10 +84,10 @@ public class EssenceFurnaceBlock extends AbstractFurnaceBlock {
         IMPERIUM("imperium", 0.145D, 0.5D, EssenceFurnaceTileEntity.Imperium::new),
         SUPREMIUM("supremium", 0.025D, 0.2D, EssenceFurnaceTileEntity.Supremium::new);
 
-        private String name;
-        private double cookTimeMultiplier;
-        private double burnTimeMultiplier;
-        private Supplier<EssenceFurnaceTileEntity> tileEntitySupplier;
+        private final String name;
+        private final double cookTimeMultiplier;
+        private final double burnTimeMultiplier;
+        private final Supplier<EssenceFurnaceTileEntity> tileEntitySupplier;
 
         FurnaceTier(String name, double cookTimeMultiplier, double burnTimeMultiplier, Supplier<EssenceFurnaceTileEntity> tileEntitySupplier) {
             this.name = name;

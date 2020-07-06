@@ -5,7 +5,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.FarmlandBlock;
 import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.text.ITextComponent;
+import net.minecraft.util.text.IFormattableTextComponent;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.util.text.TranslationTextComponent;
 
@@ -27,7 +27,7 @@ public class CropTier {
     private final TextFormatting textColor;
     private Supplier<? extends FarmlandBlock> farmland;
     private Supplier<? extends Item> essence;
-    private ITextComponent displayName;
+    private IFormattableTextComponent displayName;
     private boolean fertilizable;
     private boolean secondarySeedDrop;
 
@@ -141,11 +141,11 @@ public class CropTier {
      * Example: cropTier.mysticalagriculture.1
      * @return the localized name of this tier
      */
-    public ITextComponent getDisplayName() {
+    public IFormattableTextComponent getDisplayName() {
         if (this.displayName != null)
-            return this.displayName.applyTextStyle(this.getTextColor());
+            return this.displayName.func_240699_a_(this.getTextColor());
 
-        return new TranslationTextComponent(String.format("cropTier.%s.%s", this.getModId(), this.getName())).applyTextStyle(this.getTextColor());
+        return new TranslationTextComponent(String.format("cropTier.%s.%s", this.getModId(), this.getName())).func_240699_a_(this.getTextColor());
     }
 
     /**
@@ -153,7 +153,7 @@ public class CropTier {
      * @param name the new display name
      * @return this tier
      */
-    public CropTier setDisplayName(ITextComponent name) {
+    public CropTier setDisplayName(IFormattableTextComponent name) {
         this.displayName = name;
         return this;
     }
