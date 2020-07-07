@@ -85,8 +85,9 @@ public class MobSoulType implements IMobSoulType {
     }
 
     @Override
-    public void setSoulRequirement(double soulRequirement) {
+    public IMobSoulType setSoulRequirement(double soulRequirement) {
         this.soulRequirement = soulRequirement;
+        return this;
     }
 
     @Override
@@ -95,8 +96,9 @@ public class MobSoulType implements IMobSoulType {
     }
 
     @Override
-    public void setColor(int color) {
+    public IMobSoulType setColor(int color) {
         this.color = color;
+        return this;
     }
 
     @Override

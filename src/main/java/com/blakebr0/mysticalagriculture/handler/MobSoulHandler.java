@@ -23,7 +23,8 @@ public final class MobSoulHandler {
         Entity source = event.getSource().getTrueSource();
         if (source instanceof PlayerEntity) {
             PlayerEntity player = (PlayerEntity) source;
-            Item held = player.getHeldItem(Hand.MAIN_HAND).getItem();
+            ItemStack heldStack = player.getHeldItem(Hand.MAIN_HAND);
+            Item held = heldStack.getItem();
             if (held instanceof ISoulSiphoningItem) {
                 LivingEntity entity = event.getEntityLiving();
                 ISoulSiphoningItem soulSiphoningItem = (ISoulSiphoningItem) held;
@@ -32,7 +33,7 @@ public final class MobSoulHandler {
                     List<ItemStack> soulJars = this.getSoulJars(player);
                     if (!soulJars.isEmpty()) {
                         ItemStack firstEmptyJar = ItemStack.EMPTY;
-                        double soulsRemaining = soulSiphoningItem.getSiphonAmount(entity);
+                        double soulsRemaining = soulSiphoningItem.getSiphonAmount(heldStack, entity);
                         for (ItemStack stack : soulJars) {
                             IMobSoulType type = MobSoulUtils.getType(stack);
                             if (type == null && firstEmptyJar.isEmpty()) {

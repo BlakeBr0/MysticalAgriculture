@@ -47,8 +47,7 @@ public interface IMobSoulType {
      * Sets the required amount of souls to fill up a soul jar
      * @param soulRequirement the new soul requirement
      */
-    // TODO: 1.16: Make this chain
-    void setSoulRequirement(double soulRequirement);
+    IMobSoulType setSoulRequirement(double soulRequirement);
 
     /**
      * The color of a jar with this mob soul type in it
@@ -60,8 +59,7 @@ public interface IMobSoulType {
      * Sets the color of a jar with this mob soul type in it
      * @param color the new color of this mob soul type
      */
-    // TODO: 1.16: Make this chain
-    void setColor(int color);
+    IMobSoulType setColor(int color);
 
     /**
      * Checks if the supplied entity is valid for this mob soul type

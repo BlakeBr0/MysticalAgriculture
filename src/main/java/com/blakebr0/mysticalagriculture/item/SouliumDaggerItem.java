@@ -27,7 +27,7 @@ public class SouliumDaggerItem extends BaseSwordItem implements ISoulSiphoningIt
     }
 
     @Override
-    public double getSiphonAmount(LivingEntity entity) {
+    public double getSiphonAmount(ItemStack stack, LivingEntity entity) {
         boolean isPeaceful = entity.getClassification(false).getPeacefulCreature();
         return isPeaceful ? 1.5D : 1.0D;
     }
