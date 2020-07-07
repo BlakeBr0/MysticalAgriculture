@@ -1,6 +1,6 @@
 package com.blakebr0.mysticalagriculture.augment;
 
-import com.blakebr0.cucumber.util.Utils;
+import com.blakebr0.cucumber.helper.ColorHelper;
 import com.blakebr0.mysticalagriculture.api.tinkering.Augment;
 import com.blakebr0.mysticalagriculture.api.tinkering.AugmentType;
 import com.google.common.collect.Multimap;
@@ -25,10 +25,10 @@ public class HealthBoostAugment extends Augment {
 
     @Override
     public void addArmorAttributeModifiers(Multimap<Attribute, AttributeModifier> attributes, EquipmentSlotType slot, ItemStack stack) {
-        attributes.put(Attributes.field_233818_a_, new AttributeModifier(ATTRIBUTE_ID, "generic.maxHealth", 4 * this.amplifier, AttributeModifier.Operation.ADDITION));
+        attributes.put(Attributes.MAX_HEALTH, new AttributeModifier(ATTRIBUTE_ID, "Armor modifier", 4 * this.amplifier, AttributeModifier.Operation.ADDITION));
     }
 
     private static int getColor(int color, int tier) {
-        return Utils.saturate(color, Math.min((float) tier / 5, 1));
+        return ColorHelper.saturate(color, Math.min((float) tier / 5, 1));
     }
 }

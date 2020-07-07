@@ -53,7 +53,7 @@ public class LazyIngredient {
             this.ingredient = Ingredient.EMPTY;
             if (this.isTag()) {
                 ITag<Item> tag = ItemTags.getCollection().get(new ResourceLocation(this.name));
-                if (tag != null && !tag.func_230236_b_().isEmpty())
+                if (tag != null && !tag.getAllElements().isEmpty())
                     this.ingredient = Ingredient.fromTag(tag);
             } else if (this.isItem()) {
                 Item item = ForgeRegistries.ITEMS.getValue(new ResourceLocation(this.name));

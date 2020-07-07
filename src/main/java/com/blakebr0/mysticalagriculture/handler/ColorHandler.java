@@ -1,7 +1,7 @@
 package com.blakebr0.mysticalagriculture.handler;
 
+import com.blakebr0.cucumber.helper.ColorHelper;
 import com.blakebr0.cucumber.iface.IColored;
-import com.blakebr0.cucumber.util.Utils;
 import com.blakebr0.mysticalagriculture.api.soul.IMobSoulType;
 import com.blakebr0.mysticalagriculture.api.util.MobSoulUtils;
 import com.blakebr0.mysticalagriculture.block.InfusedFarmlandBlock;
@@ -34,7 +34,7 @@ public final class ColorHandler {
         colors.register(new IColored.ItemBlockColors(), InfusedFarmlandBlock.FARMLANDS.toArray(new InfusedFarmlandBlock[0]));
         colors.register((stack, tint) -> {
             float damage = (float) (stack.getMaxDamage() - stack.getDamage()) / stack.getMaxDamage();
-            return Utils.saturate(0x00D9D9, damage);
+            return ColorHelper.saturate(0x00D9D9, damage);
         }, ModItems.INFUSION_CRYSTAL.get());
 
         colors.register((stack, tint) -> ModCrops.AIR.getEssenceColor(), ModItems.AIR_AGGLOMERATIO.get());

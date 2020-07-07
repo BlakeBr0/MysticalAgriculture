@@ -1,7 +1,7 @@
 package com.blakebr0.mysticalagriculture.augment;
 
+import com.blakebr0.cucumber.helper.ColorHelper;
 import com.blakebr0.cucumber.util.ToolTools;
-import com.blakebr0.cucumber.util.Utils;
 import com.blakebr0.mysticalagriculture.api.tinkering.Augment;
 import com.blakebr0.mysticalagriculture.api.tinkering.AugmentType;
 import net.minecraft.block.Block;
@@ -104,6 +104,6 @@ public class MiningAOEAugment extends Augment {
     }
 
     private static int getColor(int color, int tier) {
-        return Utils.saturate(color, Math.min((float) tier / 5, 1));
+        return ColorHelper.saturate(color, Math.min((float) tier / 5, 1));
     }
 }

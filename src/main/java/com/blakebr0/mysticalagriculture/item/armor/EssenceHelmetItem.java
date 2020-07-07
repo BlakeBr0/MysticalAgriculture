@@ -58,8 +58,8 @@ public class EssenceHelmetItem extends BaseArmorItem implements ITinkerable {
         if (slot == this.getEquipmentSlot()) {
             IArmorMaterial material = this.getArmorMaterial();
 
-            modifiers.put(Attributes.field_233826_i_, new AttributeModifier(ARMOR_MODIFIERS[slot.getIndex()], "Armor modifier", material.getDamageReductionAmount(slot), AttributeModifier.Operation.ADDITION));
-            modifiers.put(Attributes.field_233827_j_, new AttributeModifier(ARMOR_MODIFIERS[slot.getIndex()], "Armor toughness", material.getToughness(), AttributeModifier.Operation.ADDITION));
+            modifiers.put(Attributes.ARMOR, new AttributeModifier(ARMOR_MODIFIERS[slot.getIndex()], "Armor modifier", material.getDamageReductionAmount(slot), AttributeModifier.Operation.ADDITION));
+            modifiers.put(Attributes.ARMOR_TOUGHNESS, new AttributeModifier(ARMOR_MODIFIERS[slot.getIndex()], "Armor toughness", material.getToughness(), AttributeModifier.Operation.ADDITION));
 
             AugmentUtils.getAugments(stack).forEach(a -> {
                 a.addArmorAttributeModifiers(modifiers, slot, stack);

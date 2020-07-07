@@ -1,6 +1,6 @@
 package com.blakebr0.mysticalagriculture.augment;
 
-import com.blakebr0.cucumber.util.Utils;
+import com.blakebr0.cucumber.helper.ColorHelper;
 import com.blakebr0.mysticalagriculture.api.tinkering.Augment;
 import com.blakebr0.mysticalagriculture.api.tinkering.AugmentType;
 import net.minecraft.entity.LivingEntity;
@@ -31,7 +31,7 @@ public class AttackAOEAugment extends Augment {
 
                 for (LivingEntity aoeEntity : entities) {
                     if (aoeEntity != player && aoeEntity != target && !player.isOnSameTeam(target)) {
-                        aoeEntity.func_233627_a_(0.4F, MathHelper.sin(player.rotationYaw * 0.017453292F), -MathHelper.cos(player.rotationYaw * 0.017453292F));
+                        aoeEntity.applyKnockback(0.4F, MathHelper.sin(player.rotationYaw * 0.017453292F), -MathHelper.cos(player.rotationYaw * 0.017453292F));
                         aoeEntity.attackEntityFrom(DamageSource.causePlayerDamage(player), 13.0F); // TODO: 1.16: should this damage value be hardcoded?
                     }
                 }
@@ -47,6 +47,6 @@ public class AttackAOEAugment extends Augment {
     }
 
     private static int getColor(int color, int tier) {
-        return Utils.saturate(color, Math.min((float) tier / 5, 1));
+        return ColorHelper.saturate(color, Math.min((float) tier / 5, 1));
     }
 }

@@ -28,7 +28,8 @@ repositories {
 }
 
 minecraft {
-    mappings channel: 'snapshot', version: '20200514-1.16'
+    mappings channel: 'snapshot', version: '20200707-1.16.1'
+
     accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg')
 
     runs {
@@ -72,7 +73,7 @@ sourceSets.main.resources {
 }
 
 dependencies {
-    minecraft 'net.minecraftforge:forge:1.16.1-32.0.47'
+    minecraft 'net.minecraftforge:forge:1.16.1-32.0.57'
 
     compile fg.deobf('ignored:Cucumber:1.16.1-4.0.0')
 //    compile fg.deobf('ignored:Hwyla-forge:1.10.8-B72_1.15.2')
