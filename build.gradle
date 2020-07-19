@@ -79,8 +79,8 @@ dependencies {
 //    compile fg.deobf('ignored:Hwyla-forge:1.10.8-B72_1.15.2')
     compileOnly fg.deobf('mezz.jei:jei-1.16.1:7.0.0.6:api')
     runtimeOnly fg.deobf('mezz.jei:jei-1.16.1:7.0.0.6')
-//    compile fg.deobf("com.blamejared.crafttweaker:CraftTweaker-1.15.2:6.0.0.31")
-//    compile fg.deobf("vazkii.patchouli:Patchouli:1.15.2-1.2-28.142")
+    compile fg.deobf('com.blamejared.crafttweaker:CraftTweaker-1.16.1:7.0.0.9')
+    compile fg.deobf('vazkii.patchouli:Patchouli:1.16-39')
 }
 
 task apiJar(type: Jar) {
