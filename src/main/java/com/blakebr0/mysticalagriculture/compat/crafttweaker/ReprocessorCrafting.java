@@ -21,7 +21,7 @@ import java.util.stream.Collectors;
 
 @ZenCodeType.Name("mods.mysticalagriculture.ReprocessorCrafting")
 @ZenRegister
-public class ReprocessorCrafting {
+public final class ReprocessorCrafting {
     @ZenCodeType.Method
     public static void addRecipe(String id, IItemStack output, IIngredient input) {
         CraftTweakerAPI.apply(new IRuntimeAction() {

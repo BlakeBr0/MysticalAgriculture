@@ -1,6 +1,6 @@
 package com.blakebr0.mysticalagriculture.client.tesr;
 
-import com.blakebr0.mysticalagriculture.client.ModRenderTypes;
+import com.blakebr0.cucumber.client.ModRenderTypes;
 import com.blakebr0.mysticalagriculture.init.ModBlocks;
 import com.blakebr0.mysticalagriculture.tileentity.InfusionAltarTileEntity;
 import com.mojang.blaze3d.matrix.MatrixStack;
@@ -60,7 +60,7 @@ public class InfusionAltarRenderer extends TileEntityRenderer<InfusionAltarTileE
     }
 
     @Override
-    public boolean isGlobalRenderer(InfusionAltarTileEntity te) {
+    public boolean isGlobalRenderer(InfusionAltarTileEntity tile) {
         return true;
     }
 }

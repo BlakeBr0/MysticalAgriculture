@@ -1,29 +1,20 @@
 package com.blakebr0.mysticalagriculture.client.screen;
 
+import com.blakebr0.cucumber.client.screen.BaseContainerScreen;
 import com.blakebr0.cucumber.iface.IToggleableSlot;
 import com.blakebr0.mysticalagriculture.MysticalAgriculture;
 import com.blakebr0.mysticalagriculture.container.TinkeringTableContainer;
 import com.mojang.blaze3d.matrix.MatrixStack;
-import net.minecraft.client.gui.screen.inventory.ContainerScreen;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.container.Slot;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.ITextComponent;
 
-public class TinkeringTableScreen extends ContainerScreen<TinkeringTableContainer> {
+public class TinkeringTableScreen extends BaseContainerScreen<TinkeringTableContainer> {
     private static final ResourceLocation BACKGROUND = new ResourceLocation(MysticalAgriculture.MOD_ID, "textures/gui/tinkering_table.png");
 
     public TinkeringTableScreen(TinkeringTableContainer container, PlayerInventory inv, ITextComponent title) {
-        super(container, inv, title);
-        this.xSize = 176;
-        this.ySize = 197;
-    }
-
-    @Override
-    public void render(MatrixStack stack, int mouseX, int mouseY, float partialTicks) {
-        this.renderBackground(stack);
-        super.render(stack, mouseX, mouseY, partialTicks);
-        this.func_230459_a_(stack, mouseX, mouseY);
+        super(container, inv, title, BACKGROUND, 176, 197);
     }
 
     @Override
@@ -35,10 +26,10 @@ public class TinkeringTableScreen extends ContainerScreen<TinkeringTableContaine
 
     @Override
     protected void func_230450_a_(MatrixStack stack, float partialTicks, int mouseX, int mouseY) {
-        this.getMinecraft().getTextureManager().bindTexture(BACKGROUND);
-        int x = (this.width - this.xSize) / 2;
-        int y = (this.height - this.ySize) / 2;
-        this.blit(stack, x, y, 0, 0, this.xSize, this.ySize);
+        super.func_230450_a_(stack, partialTicks, mouseX, mouseY);
+
+        int x = this.getGuiTop();
+        int y = this.getGuiLeft();
 
         for (Slot slot : this.container.inventorySlots) {
             if (slot.isEnabled() && slot instanceof IToggleableSlot) {
