@@ -1,24 +1,19 @@
 package com.blakebr0.mysticalagriculture.augment;
 
+import com.blakebr0.cucumber.helper.BlockHelper;
 import com.blakebr0.cucumber.helper.ColorHelper;
-import com.blakebr0.cucumber.util.ToolTools;
 import com.blakebr0.mysticalagriculture.api.tinkering.Augment;
 import com.blakebr0.mysticalagriculture.api.tinkering.AugmentType;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
-import net.minecraft.entity.ai.attributes.ModifiableAttributeInstance;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.BlockRayTraceResult;
-import net.minecraft.util.math.MathHelper;
-import net.minecraft.util.math.RayTraceContext;
-import net.minecraft.util.math.vector.Vector3d;
 import net.minecraft.world.World;
 import net.minecraftforge.common.ForgeHooks;
-import net.minecraftforge.common.ForgeMod;
 
 import java.util.EnumSet;
 
@@ -32,21 +27,9 @@ public class MiningAOEAugment extends Augment {
 
     @Override
     public boolean onBlockStartBreak(ItemStack stack, BlockPos pos, PlayerEntity player) {
-        float f = player.rotationPitch;
-        float f1 = player.rotationYaw;
-        Vector3d vec3d = player.getEyePosition(1.0F);
-        float f2 = MathHelper.cos(-f1 * ((float) Math.PI / 180F) - (float) Math.PI);
-        float f3 = MathHelper.sin(-f1 * ((float) Math.PI / 180F) - (float) Math.PI);
-        float f4 = -MathHelper.cos(-f * ((float) Math.PI / 180F));
-        float f5 = MathHelper.sin(-f * ((float) Math.PI / 180F));
-        float f6 = f3 * f4;
-        float f7 = f2 * f4;
-        ModifiableAttributeInstance attribute = player.getAttribute(ForgeMod.REACH_DISTANCE.get());
-        double d0 = attribute != null ? attribute.getValue() : 5.0D;
-        Vector3d vec3d1 = vec3d.add((double) f6 * d0, (double) f5 * d0, (double) f7 * d0);
         World world = player.getEntityWorld();
-        BlockRayTraceResult ray = world.rayTraceBlocks(new RayTraceContext(vec3d, vec3d1, RayTraceContext.BlockMode.OUTLINE, RayTraceContext.FluidMode.NONE, player));
-        int side = ray.getFace().ordinal();
+        BlockRayTraceResult trace = BlockHelper.rayTraceBlocks(world, player);
+        int side = trace.getFace().ordinal();
         return !this.harvest(stack, this.range, world, pos, side, player);
     }
 
@@ -98,7 +81,7 @@ public class MiningAOEAugment extends Augment {
         Item item = stack.getItem();
         boolean harvest = (ForgeHooks.canHarvestBlock(state, player, world, pos) || item.canHarvestBlock(stack, state)) && (!extra || item.getDestroySpeed(stack, world.getBlockState(pos)) > 1.0F);
         if (hardness >= 0.0F && (!extra || harvest))
-            return ToolTools.breakBlocksAOE(stack, world, player, pos);
+            return BlockHelper.breakBlocksAOE(stack, world, player, pos);
 
         return false;
     }

@@ -6,10 +6,10 @@ import com.blakebr0.mysticalagriculture.api.util.MobSoulUtils;
 import com.blakebr0.mysticalagriculture.lib.ModTooltips;
 import com.blakebr0.mysticalagriculture.registry.MobSoulTypeRegistry;
 import net.minecraft.client.util.ITooltipFlag;
+import net.minecraft.item.IItemPropertyGetter;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.NonNullList;
-import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
@@ -22,16 +22,6 @@ import java.util.function.Function;
 public class SoulJarItem extends BaseItem {
     public SoulJarItem(Function<Properties, Properties> properties) {
         super(properties.compose(p -> p.maxStackSize(1)));
-        this.addPropertyOverride(new ResourceLocation("fill"), (stack, world, entity) -> {
-            IMobSoulType type = MobSoulUtils.getType(stack);
-            if (type != null) {
-                double souls = MobSoulUtils.getSouls(stack);
-                if (souls > 0)
-                    return (int) ((souls / type.getSoulRequirement()) * 9);
-            }
-
-            return 0;
-        });
     }
 
     @Override
@@ -54,8 +44,22 @@ public class SoulJarItem extends BaseItem {
             double souls = MobSoulUtils.getSouls(stack);
             tooltip.add(ModTooltips.SOUL_JAR.args(entityName, souls, type.getSoulRequirement()).build());
 
-            if (flag.isAdvanced())
+            if (flag.isAdvanced()) {
                 tooltip.add(ModTooltips.MST_ID.args(type.getId()).color(TextFormatting.DARK_GRAY).build());
+            }
         }
+    }
+
+    public static IItemPropertyGetter getFillPropertyGetter() {
+        return (stack, world, entity) -> {
+            IMobSoulType type = MobSoulUtils.getType(stack);
+            if (type != null) {
+                double souls = MobSoulUtils.getSouls(stack);
+                if (souls > 0)
+                    return (int) ((souls / type.getSoulRequirement()) * 9);
+            }
+
+            return 0;
+        };
     }
 }
