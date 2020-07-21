@@ -11,6 +11,7 @@ import com.blakebr0.mysticalagriculture.block.ReprocessorBlock;
 import com.blakebr0.mysticalagriculture.container.ReprocessorContainer;
 import com.blakebr0.mysticalagriculture.crafting.recipe.ReprocessorRecipe;
 import com.blakebr0.mysticalagriculture.init.ModTileEntities;
+import net.minecraft.block.BlockState;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.container.Container;
@@ -42,27 +43,18 @@ public abstract class ReprocessorTileEntity extends BaseInventoryTileEntity impl
         @Override
         public int get(int index) {
             switch (index) {
-                case 0:
-                    return ReprocessorTileEntity.this.getProgress();
-                case 1:
-                    return ReprocessorTileEntity.this.getFuel();
-                case 2:
-                    return ReprocessorTileEntity.this.getFuelLeft();
-                case 3:
-                    return ReprocessorTileEntity.this.getFuelItemValue();
-                case 4:
-                    return ReprocessorTileEntity.this.getOperationTime();
-                case 5:
-                    return ReprocessorTileEntity.this.getFuelCapacity();
-                default:
-                    return 0;
+                case 0: return ReprocessorTileEntity.this.getProgress();
+                case 1: return ReprocessorTileEntity.this.getFuel();
+                case 2: return ReprocessorTileEntity.this.getFuelLeft();
+                case 3: return ReprocessorTileEntity.this.getFuelItemValue();
+                case 4: return ReprocessorTileEntity.this.getOperationTime();
+                case 5: return ReprocessorTileEntity.this.getFuelCapacity();
+                default: return 0;
             }
         }
 
         @Override
-        public void set(int index, int value) {
-
-        }
+        public void set(int index, int value) { }
 
         @Override
         public int size() {
@@ -82,8 +74,8 @@ public abstract class ReprocessorTileEntity extends BaseInventoryTileEntity impl
     }
 
     @Override
-    public void read(CompoundNBT tag) {
-        super.read(tag);
+    public void read(BlockState state, CompoundNBT tag) {
+        super.read(state, tag);
         this.progress = tag.getInt("Progress");
         this.fuel = tag.getInt("Fuel");
         this.fuelLeft = tag.getInt("FuelLeft");

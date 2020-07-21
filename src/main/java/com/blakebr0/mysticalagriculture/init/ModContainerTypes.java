@@ -20,7 +20,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Supplier;
 
-public class ModContainerTypes {
+public final class ModContainerTypes {
     public static final List<Supplier<ContainerType<?>>> ENTRIES = new ArrayList<>();
 
     public static final RegistryObject<ContainerType<TinkeringTableContainer>> TINKERING_TABLE = register("tinkering_table", () -> new ContainerType<>(TinkeringTableContainer::create));

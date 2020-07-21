@@ -73,13 +73,13 @@ sourceSets.main.resources {
 }
 
 dependencies {
-    minecraft 'net.minecraftforge:forge:1.16.1-32.0.57'
+    minecraft 'net.minecraftforge:forge:1.16.1-32.0.70'
 
     compile fg.deobf('ignored:Cucumber:1.16.1-4.0.0')
 //    compile fg.deobf('ignored:Hwyla-forge:1.10.8-B72_1.15.2')
     compileOnly fg.deobf('mezz.jei:jei-1.16.1:7.0.0.6:api')
     runtimeOnly fg.deobf('mezz.jei:jei-1.16.1:7.0.0.6')
-    compile fg.deobf('com.blamejared.crafttweaker:CraftTweaker-1.16.1:7.0.0.9')
+    compile fg.deobf('com.blamejared.crafttweaker:CraftTweaker-1.16.1:7.0.0.12')
     compile fg.deobf('vazkii.patchouli:Patchouli:1.16-39')
 }
 
