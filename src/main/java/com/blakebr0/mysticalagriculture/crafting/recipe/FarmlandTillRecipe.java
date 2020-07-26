@@ -1,5 +1,6 @@
 package com.blakebr0.mysticalagriculture.crafting.recipe;
 
+import com.blakebr0.cucumber.util.Utils;
 import com.blakebr0.mysticalagriculture.init.ModRecipeSerializers;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
@@ -17,8 +18,6 @@ import net.minecraft.util.NonNullList;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.registries.ForgeRegistryEntry;
 
-import java.util.Random;
-
 public class FarmlandTillRecipe extends ShapelessRecipe {
     public FarmlandTillRecipe(ResourceLocation id, String group, ItemStack output, NonNullList<Ingredient> inputs) {
         super(id, group, output, inputs);
@@ -31,8 +30,9 @@ public class FarmlandTillRecipe extends ShapelessRecipe {
             ItemStack stack = inv.getStackInSlot(i);
             if (stack.getItem() instanceof HoeItem) {
                 ItemStack hoe = stack.copy();
-                hoe.attemptDamageItem(1, new Random(), null);
-                remaining.set(i, hoe);
+                if (!hoe.attemptDamageItem(1, Utils.RANDOM, null)) {
+                    remaining.set(i, hoe);
+                }
             }
         }
 
