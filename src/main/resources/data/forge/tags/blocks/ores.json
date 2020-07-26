@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "values": [
+    "#forge:ores/inferium",
+    "#forge:ores/prosperity",
+    "#forge:ores/soulium"
+  ]
+}
