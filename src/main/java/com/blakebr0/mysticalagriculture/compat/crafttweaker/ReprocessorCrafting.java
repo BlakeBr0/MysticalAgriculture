@@ -1,7 +1,7 @@
 package com.blakebr0.mysticalagriculture.compat.crafttweaker;
 
+import com.blakebr0.cucumber.helper.RecipeHelper;
 import com.blakebr0.mysticalagriculture.api.crafting.RecipeTypes;
-import com.blakebr0.mysticalagriculture.crafting.DynamicRecipeManager;
 import com.blakebr0.mysticalagriculture.crafting.recipe.ReprocessorRecipe;
 import com.blamejared.crafttweaker.api.CraftTweakerAPI;
 import com.blamejared.crafttweaker.api.actions.IRuntimeAction;
@@ -28,9 +28,7 @@ public final class ReprocessorCrafting {
             @Override
             public void apply() {
                 ReprocessorRecipe recipe = new ReprocessorRecipe(new ResourceLocation("crafttweaker", id), input.asVanillaIngredient(), output.getInternal());
-                DynamicRecipeManager.getRecipeManager().recipes
-                        .computeIfAbsent(RecipeTypes.REPROCESSOR, t -> new HashMap<>())
-                        .put(recipe.getId(), recipe);
+                RecipeHelper.addRecipe(recipe);
             }
 
             @Override
@@ -45,7 +43,7 @@ public final class ReprocessorCrafting {
         CraftTweakerAPI.apply(new IRuntimeAction() {
             @Override
             public void apply() {
-                List<ResourceLocation> recipes = DynamicRecipeManager.getRecipeManager().recipes
+                List<ResourceLocation> recipes = RecipeHelper.getRecipes()
                         .getOrDefault(RecipeTypes.REPROCESSOR, new HashMap<>())
                         .values().stream()
                         .filter(r -> r.getRecipeOutput().isItemEqual(stack.getInternal()))
@@ -53,7 +51,7 @@ public final class ReprocessorCrafting {
                         .collect(Collectors.toList());
 
                 recipes.forEach(r -> {
-                    DynamicRecipeManager.getRecipeManager().recipes.get(RecipeTypes.REPROCESSOR).remove(r);
+                    RecipeHelper.getRecipes().get(RecipeTypes.REPROCESSOR).remove(r);
                 });
             }
 

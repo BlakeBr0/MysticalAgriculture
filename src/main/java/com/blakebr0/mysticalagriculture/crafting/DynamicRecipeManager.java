@@ -1,6 +1,7 @@
 package com.blakebr0.mysticalagriculture.crafting;
 
 import com.blakebr0.cucumber.crafting.ISpecialRecipe;
+import com.blakebr0.cucumber.helper.RecipeHelper;
 import com.blakebr0.mysticalagriculture.MysticalAgriculture;
 import com.blakebr0.mysticalagriculture.api.crop.ICrop;
 import com.blakebr0.mysticalagriculture.config.ModConfigs;
@@ -10,53 +11,40 @@ import com.blakebr0.mysticalagriculture.registry.CropRegistry;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.IRecipe;
-import net.minecraft.item.crafting.IRecipeType;
 import net.minecraft.item.crafting.Ingredient;
-import net.minecraft.item.crafting.RecipeManager;
 import net.minecraft.item.crafting.ShapedRecipe;
 import net.minecraft.resources.IResourceManager;
 import net.minecraft.resources.IResourceManagerReloadListener;
 import net.minecraft.util.NonNullList;
 import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.fml.server.ServerLifecycleHooks;
-
-import java.util.HashMap;
-import java.util.Map;
+import net.minecraftforge.event.AddReloadListenerEvent;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
 
 public class DynamicRecipeManager implements IResourceManagerReloadListener {
-    private static RecipeManager recipeManager;
-
     @Override
     public void onResourceManagerReload(IResourceManager resourceManager) {
-        Map<ResourceLocation, IRecipe<?>> recipes = getRecipeManager().recipes.get(IRecipeType.CRAFTING);
-
         CropRegistry.getInstance().getCrops().forEach(crop -> {
             ISpecialRecipe seed = this.makeSeedRecipe(crop);
             IRecipe<?> seed2 = this.makeRegularSeedRecipe(crop);
             ISpecialRecipe reprocessor = this.makeReprocessorRecipe(crop);
 
             if (seed != null) {
-                getRecipeManager().recipes.computeIfAbsent(seed.getType(), t -> new HashMap<>()).put(seed.getId(), seed);
+                RecipeHelper.addRecipe(seed);
             }
 
-            if (seed2 != null)
-                recipes.put(seed2.getId(), seed2);
+            if (seed2 != null) {
+                RecipeHelper.addRecipe(seed2);
+            }
 
             if (reprocessor != null) {
-                getRecipeManager().recipes.computeIfAbsent(reprocessor.getType(), t -> new HashMap<>()).put(reprocessor.getId(), reprocessor);
+                RecipeHelper.addRecipe(reprocessor);
             }
         });
     }
 
-    public static RecipeManager getRecipeManager() {
-        if (recipeManager == null) {
-            RecipeManager recipeManager = ServerLifecycleHooks.getCurrentServer().getRecipeManager();
-            recipeManager.recipes = new HashMap<>(recipeManager.recipes);
-            recipeManager.recipes.replaceAll((t, v) -> new HashMap<>(recipeManager.recipes.get(t)));
-            DynamicRecipeManager.recipeManager = recipeManager;
-        }
-
-        return recipeManager;
+    @SubscribeEvent
+    public void onAddReloadListeners(AddReloadListenerEvent event) {
+        event.addListener(this);
     }
 
     private ISpecialRecipe makeSeedRecipe(ICrop crop) {
