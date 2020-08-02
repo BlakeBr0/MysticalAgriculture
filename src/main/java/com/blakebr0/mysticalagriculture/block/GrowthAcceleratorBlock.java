@@ -51,7 +51,7 @@ public class GrowthAcceleratorBlock extends BaseBlock {
     @Override
     public void addInformation(ItemStack stack, IBlockReader world, List<ITextComponent> tooltip, ITooltipFlag flag) {
         tooltip.add(ModTooltips.GROWTH_ACCELERATOR.build());
-        ITextComponent rangeNumber = new StringTextComponent(String.valueOf(this.range)).func_240699_a_(this.textColor);
+        ITextComponent rangeNumber = new StringTextComponent(String.valueOf(this.range)).mergeStyle(this.textColor);
         tooltip.add(ModTooltips.GROWTH_ACCELERATOR_RANGE.args(rangeNumber).build());
     }
 

@@ -61,6 +61,7 @@ public class MysticalFertilizerItem extends BaseItem {
         tooltip.add(ModTooltips.MYSTICAL_FERTILIZER.build());
     }
 
+    // TODO: Does this working ?
     public static boolean applyFertilizer(ItemStack stack, World world, BlockPos pos, PlayerEntity player){
         BlockState state = world.getBlockState(pos);
 
@@ -82,7 +83,7 @@ public class MysticalFertilizerItem extends BaseItem {
                             if (!ForgeEventFactory.saplingGrowTree(world, rand, pos))
                                 return false;
 
-                            ((SaplingBlock) growable).func_226942_a_((ServerWorld) world, pos, state, rand);
+                            ((SaplingBlock) growable).grow((ServerWorld) world, rand, pos, state);
                         } else {
                             growable.grow((ServerWorld) world, rand, pos, state);
                         }

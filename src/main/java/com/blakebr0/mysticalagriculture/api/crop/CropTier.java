@@ -143,9 +143,9 @@ public class CropTier {
      */
     public IFormattableTextComponent getDisplayName() {
         if (this.displayName != null)
-            return this.displayName.func_240699_a_(this.getTextColor());
+            return this.displayName.mergeStyle(this.getTextColor());
 
-        return new TranslationTextComponent(String.format("cropTier.%s.%s", this.getModId(), this.getName())).func_240699_a_(this.getTextColor());
+        return new TranslationTextComponent(String.format("cropTier.%s.%s", this.getModId(), this.getName())).mergeStyle(this.getTextColor());
     }
 
     /**

@@ -68,10 +68,10 @@ public class EssenceFurnaceBlock extends AbstractFurnaceBlock {
     public void addInformation(ItemStack stack, IBlockReader world, List<ITextComponent> tooltip, ITooltipFlag flag) {
         double cookingSpeedDifference = 200D * this.tier.getCookTimeMultiplier();
         double cookingSpeedValue = Math.ceil(((200D - cookingSpeedDifference) / cookingSpeedDifference) * 100D) + 100D;
-        ITextComponent cookingSpeed = new StringTextComponent(String.valueOf((int) cookingSpeedValue)).func_240702_b_("%");
+        ITextComponent cookingSpeed = new StringTextComponent(String.valueOf((int) cookingSpeedValue)).appendString("%");
         double burnTimeDifference = (1600D * this.tier.getBurnTimeMultiplier()) / cookingSpeedDifference;
         double burnTimeValue = Math.ceil(((burnTimeDifference - 8D) / 8D) * 100D) + 100D;
-        ITextComponent fuelEfficiency = new StringTextComponent(String.valueOf((int) burnTimeValue)).func_240702_b_("%");
+        ITextComponent fuelEfficiency = new StringTextComponent(String.valueOf((int) burnTimeValue)).appendString("%");
 
         tooltip.add(ModTooltips.COOKING_SPEED.args(cookingSpeed).build());
         tooltip.add(ModTooltips.FUEL_EFFICIENCY.args(fuelEfficiency).build());

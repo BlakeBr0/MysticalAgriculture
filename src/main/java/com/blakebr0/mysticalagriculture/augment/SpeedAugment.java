@@ -23,7 +23,7 @@ public class SpeedAugment extends Augment {
     public void onPlayerTick(World world, PlayerEntity player, AbilityCache cache) {
         boolean flying = player.abilities.isFlying;
         boolean swimming = player.isSwimming();
-        if (player.func_233570_aj_() || flying || swimming) {
+        if (player.isOnGround() || flying || swimming) {
             boolean sneaking = player.isCrouching();
             boolean sprinting = player.isSprinting();
 

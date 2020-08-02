@@ -144,7 +144,7 @@ public class EssenceWateringCanItem extends BaseItem {
         }
 
         String rangeString = String.valueOf(this.range);
-        ITextComponent rangeNumber = new StringTextComponent(rangeString + "x" + rangeString).func_240699_a_(this.textColor);
+        ITextComponent rangeNumber = new StringTextComponent(rangeString + "x" + rangeString).mergeStyle(this.textColor);
         tooltip.add(ModTooltips.WATERING_CAN_AREA.args(rangeNumber).build());
     }
 

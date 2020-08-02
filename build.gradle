@@ -22,13 +22,10 @@ repositories {
     maven { url 'https://maven.blamejared.com' }
 
     flatDir { dir 'libs' }
-
-    mavenLocal()
-    jcenter()
 }
 
 minecraft {
-    mappings channel: 'snapshot', version: '20200707-1.16.1'
+    mappings channel: 'snapshot', version: '20200723-1.16.1'
 
     accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg')
 
@@ -73,7 +70,7 @@ sourceSets.main.resources {
 }
 
 dependencies {
-    minecraft 'net.minecraftforge:forge:1.16.1-32.0.70'
+    minecraft 'net.minecraftforge:forge:1.16.1-32.0.97'
 
     compile fg.deobf('ignored:Cucumber:1.16.1-4.0.0')
 //    compile fg.deobf('ignored:Hwyla-forge:1.10.8-B72_1.15.2')

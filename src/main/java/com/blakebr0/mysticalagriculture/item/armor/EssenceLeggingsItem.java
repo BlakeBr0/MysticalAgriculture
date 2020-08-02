@@ -48,7 +48,7 @@ public class EssenceLeggingsItem extends BaseArmorItem implements ITinkerable {
     public void addInformation(ItemStack stack, World world, List<ITextComponent> tooltip, ITooltipFlag flag) {
         tooltip.add(ModTooltips.getTooltipForTier(this.tinkerableTier));
         AugmentUtils.getAugments(stack).forEach(a -> {
-            tooltip.add(a.getDisplayName().func_240699_a_(TextFormatting.GRAY));
+            tooltip.add(a.getDisplayName().mergeStyle(TextFormatting.GRAY));
         });
     }
 
