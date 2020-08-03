@@ -23,6 +23,7 @@ public final class AugmentHandler {
             World world = player.getEntityWorld();
             List<IAugment> augments = AugmentUtils.getArmorAugments(player);
             augments.forEach(a -> a.onPlayerTick(world, player, ABILITY_CACHE));
+
             ABILITY_CACHE.getCachedAbilities(player).forEach(c -> {
                 if (augments.stream().noneMatch(a -> c.equals(a.getId().toString()))) {
                     ABILITY_CACHE.remove(c, player);
