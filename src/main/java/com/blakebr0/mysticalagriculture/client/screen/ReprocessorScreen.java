@@ -20,15 +20,16 @@ public class ReprocessorScreen extends BaseContainerScreen<ReprocessorContainer>
     protected void drawGuiContainerForegroundLayer(MatrixStack stack, int mouseX, int mouseY) {
         String title = this.getTitle().getString();
         this.font.drawString(stack, title, (float) (this.xSize / 2 - this.font.getStringWidth(title) / 2), 6.0F, 4210752);
-        this.font.drawString(stack, this.playerInventory.getDisplayName().getString(), 8.0F, (float) (this.ySize - 96 + 2), 4210752);
+        String inventory = this.playerInventory.getDisplayName().getString();
+        this.font.drawString(stack, inventory, 8.0F, (float) (this.ySize - 96 + 2), 4210752);
     }
 
     @Override
     protected void drawGuiContainerBackgroundLayer(MatrixStack stack, float partialTicks, int mouseX, int mouseY) {
         super.drawGuiContainerBackgroundLayer(stack, partialTicks, mouseX, mouseY);
 
-        int x = this.getGuiTop();
-        int y = this.getGuiLeft();
+        int x = this.getGuiLeft();
+        int y = this.getGuiTop();
 
         ReprocessorContainer container = this.getContainer();
         int i1 = container.getFuelBarScaled(66);
@@ -47,19 +48,19 @@ public class ReprocessorScreen extends BaseContainerScreen<ReprocessorContainer>
 
     @Override
     protected void func_230459_a_(MatrixStack stack, int mouseX, int mouseY) {
-        int left = this.getGuiLeft();
-        int top = this.getGuiTop();
+        int x = this.getGuiLeft();
+        int y = this.getGuiTop();
 
         super.func_230459_a_(stack, mouseX, mouseY);
 
         ReprocessorContainer container = this.getContainer();
-        if (mouseX > left + 19 && mouseX < left + 29 && mouseY > top + 17 && mouseY < top + 84) {
+        if (mouseX > x + 19 && mouseX < x + 29 && mouseY > y + 17 && mouseY < y + 84) {
             StringTextComponent text = new StringTextComponent(container.getFuel() + " / " + container.getFuelCapacity());
             this.renderTooltip(stack, text, mouseX, mouseY);
         }
 
         if (container.hasFuel()) {
-            if (mouseX > left + 36 && mouseX < left + 50 && mouseY > top + 33 && mouseY < top + 47) {
+            if (mouseX > x + 36 && mouseX < x + 50 && mouseY > y + 33 && mouseY < y + 47) {
                 StringTextComponent text = new StringTextComponent(String.valueOf(container.getFuelLeft()));
                 this.renderTooltip(stack, text, mouseX, mouseY);
             }

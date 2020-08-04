@@ -21,15 +21,16 @@ public class TinkeringTableScreen extends BaseContainerScreen<TinkeringTableCont
     protected void drawGuiContainerForegroundLayer(MatrixStack stack, int mouseX, int mouseY) {
         String title = this.getTitle().getString();
         this.font.drawString(stack, title, (float) (this.xSize / 2 - this.font.getStringWidth(title) / 2), 6.0F, 4210752);
-        this.font.drawString(stack, this.playerInventory.getDisplayName().getString(), 8.0F, (float) (this.ySize - 96 + 2), 4210752);
+        String inventory = this.playerInventory.getDisplayName().getString();
+        this.font.drawString(stack, inventory, 8.0F, (float) (this.ySize - 96 + 2), 4210752);
     }
 
     @Override
     protected void drawGuiContainerBackgroundLayer(MatrixStack stack, float partialTicks, int mouseX, int mouseY) {
         super.drawGuiContainerBackgroundLayer(stack, partialTicks, mouseX, mouseY);
 
-        int x = this.getGuiTop();
-        int y = this.getGuiLeft();
+        int x = this.getGuiLeft();
+        int y = this.getGuiTop();
 
         for (Slot slot : this.container.inventorySlots) {
             if (slot.isEnabled() && slot instanceof IToggleableSlot) {
