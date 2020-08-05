@@ -5,6 +5,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.CropsBlock;
 import net.minecraft.item.BlockNamedItem;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.ITextComponent;
@@ -34,6 +35,7 @@ public class Crop implements ICrop {
     private boolean registerCropBlock;
     private boolean registerEssenceItem;
     private boolean registerSeedsItem;
+    private boolean hasEffect;
 
     /**
      * Represents a new crop for registration
@@ -89,6 +91,7 @@ public class Crop implements ICrop {
         this.registerCropBlock = true;
         this.registerEssenceItem = true;
         this.registerSeedsItem = true;
+        this.hasEffect = false;
     }
 
     @Override
@@ -248,6 +251,17 @@ public class Crop implements ICrop {
     @Override
     public ICrop setCrux(Supplier<? extends Block> crux) {
         this.crux = crux;
+        return this;
+    }
+
+    @Override
+    public boolean hasEffect(ItemStack stack) {
+        return this.hasEffect;
+    }
+
+    @Override
+    public ICrop setHasEffect(boolean hasEffect) {
+        this.hasEffect = hasEffect;
         return this;
     }
 

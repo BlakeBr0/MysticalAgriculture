@@ -44,6 +44,11 @@ public class MysticalSeedsItem extends BlockNamedItem implements ICropGetter, IE
         return this.getDisplayName(ItemStack.EMPTY);
     }
 
+    @Override
+    public boolean hasEffect(ItemStack stack) {
+        return this.crop.hasEffect(stack) || super.hasEffect(stack);
+    }
+
     @OnlyIn(Dist.CLIENT)
     @Override
     public void addInformation(ItemStack stack, World world, List<ITextComponent> tooltip, ITooltipFlag flag) {

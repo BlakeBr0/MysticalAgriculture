@@ -6,6 +6,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.CropsBlock;
 import net.minecraft.item.BlockNamedItem;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.ITextComponent;
@@ -304,4 +305,22 @@ public interface ICrop {
      * @return this crop
      */
     ICrop setCrux(Supplier<? extends Block> crux);
+
+    /**
+     * Whether or not this crops items should have the enchantment glint effect
+     * @param stack the stack
+     * @return should the crop have the glint effect
+     */
+    default boolean hasEffect(ItemStack stack) {
+        return false;
+    }
+
+    /**
+     * Set whether or not this crop should have the enchantment glint effect
+     * @param hasEffect the effect state
+     * @return this crop
+     */
+    default ICrop setHasEffect(boolean hasEffect) {
+        return this;
+    }
 }
