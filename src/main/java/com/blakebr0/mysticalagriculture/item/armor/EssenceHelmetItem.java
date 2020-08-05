@@ -61,6 +61,10 @@ public class EssenceHelmetItem extends BaseArmorItem implements ITinkerable {
             modifiers.put(Attributes.ARMOR, new AttributeModifier(ARMOR_MODIFIERS[slot.getIndex()], "Armor modifier", material.getDamageReductionAmount(slot), AttributeModifier.Operation.ADDITION));
             modifiers.put(Attributes.ARMOR_TOUGHNESS, new AttributeModifier(ARMOR_MODIFIERS[slot.getIndex()], "Armor toughness", material.getToughness(), AttributeModifier.Operation.ADDITION));
 
+            if (material.getKnockbackResistance() > 0) {
+                modifiers.put(Attributes.KNOCKBACK_RESISTANCE, new AttributeModifier(ARMOR_MODIFIERS[slot.getIndex()], "Armor knockback resistance", material.getKnockbackResistance(), AttributeModifier.Operation.ADDITION));
+            }
+
             AugmentUtils.getAugments(stack).forEach(a -> {
                 a.addArmorAttributeModifiers(modifiers, slot, stack);
             });
