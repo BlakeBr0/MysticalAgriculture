@@ -17,6 +17,7 @@ import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.world.World;
+import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.server.ServerWorld;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
@@ -44,7 +45,7 @@ public class MysticalFertilizerItem extends BaseItem {
             return ActionResultType.FAIL;
         } else {
             if (applyFertilizer(stack, world, pos, player)) {
-                if (!world.isRemote()){
+                if (!world.isRemote()) {
                     world.playEvent(Constants.WorldEvents.BONEMEAL_PARTICLES, pos, 0);
                 }
 
@@ -61,8 +62,7 @@ public class MysticalFertilizerItem extends BaseItem {
         tooltip.add(ModTooltips.MYSTICAL_FERTILIZER.build());
     }
 
-    // TODO: Does this working ?
-    public static boolean applyFertilizer(ItemStack stack, World world, BlockPos pos, PlayerEntity player){
+    public static boolean applyFertilizer(ItemStack stack, World world, BlockPos pos, PlayerEntity player) {
         BlockState state = world.getBlockState(pos);
 
         int hook = ForgeEventFactory.onApplyBonemeal(player, world, pos, state, stack);
@@ -76,6 +76,8 @@ public class MysticalFertilizerItem extends BaseItem {
                 if (!world.isRemote()) {
                     Random rand = world.getRandom();
                     if (growable.canUseBonemeal(world, rand, pos, state) || canGrowResourceCrops(growable) || growable instanceof SaplingBlock) {
+                        ServerWorld serverWorld = (ServerWorld) world;
+
                         if (growable instanceof CropsBlock) {
                             CropsBlock crop = (CropsBlock) block;
                             world.setBlockState(pos, crop.withAge(crop.getMaxAge()), 2);
@@ -83,9 +85,10 @@ public class MysticalFertilizerItem extends BaseItem {
                             if (!ForgeEventFactory.saplingGrowTree(world, rand, pos))
                                 return false;
 
-                            ((SaplingBlock) growable).grow((ServerWorld) world, rand, pos, state);
+                            ChunkGenerator chunkGenerator = serverWorld.getChunkProvider().getChunkGenerator();
+                            ((SaplingBlock) growable).tree.attemptGrowTree(serverWorld, chunkGenerator, pos, state, rand);
                         } else {
-                            growable.grow((ServerWorld) world, rand, pos, state);
+                            growable.grow(serverWorld, rand, pos, state);
                         }
                     }
 
