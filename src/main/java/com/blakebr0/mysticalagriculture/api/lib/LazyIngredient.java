@@ -5,7 +5,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.tags.ITag;
-import net.minecraft.tags.ItemTags;
+import net.minecraft.tags.TagCollectionManager;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.registries.ForgeRegistries;
 
@@ -52,7 +52,7 @@ public class LazyIngredient {
         if (this.ingredient == null) {
             this.ingredient = Ingredient.EMPTY;
             if (this.isTag()) {
-                ITag<Item> tag = ItemTags.getCollection().get(new ResourceLocation(this.name));
+                ITag<Item> tag = TagCollectionManager.func_232928_e_().func_232925_b_().get(new ResourceLocation(this.name));
                 if (tag != null && !tag.getAllElements().isEmpty())
                     this.ingredient = Ingredient.fromTag(tag);
             } else if (this.isItem()) {
