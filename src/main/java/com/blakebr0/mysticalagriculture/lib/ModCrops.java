@@ -73,6 +73,7 @@ public final class ModCrops {
 
     public static final Crop DIAMOND = new Crop(new ResourceLocation(MOD_ID, "diamond"), CropTier.FIVE, CropType.RESOURCE, LazyIngredient.tag("forge:gems/diamond"));
     public static final Crop EMERALD = new Crop(new ResourceLocation(MOD_ID, "emerald"), CropTier.FIVE, CropType.RESOURCE, LazyIngredient.tag("forge:gems/emerald"));
+    public static final Crop NETHERITE = new Crop(new ResourceLocation(MOD_ID, "netherite"), CropTier.FIVE, CropType.RESOURCE, LazyIngredient.item("minecraft:netherite_ingot"));
     public static final Crop WITHER_SKELETON = new Crop(new ResourceLocation(MOD_ID, "wither_skeleton"), CropTier.FIVE, CropType.MOB, LazyIngredient.item("mysticalagriculture:soul_jar", MobSoulUtils.makeTag(ModMobSoulTypes.WITHER_SKELETON_SOUL_TYPE)));
 
     // COMMON
@@ -171,6 +172,7 @@ public final class ModCrops {
 
         registry.register(DIAMOND);
         registry.register(EMERALD);
+        registry.register(NETHERITE);
         registry.register(WITHER_SKELETON);
 
         // COMMON
