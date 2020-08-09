@@ -1,5 +1,6 @@
 modLoader="javafml"
 loaderVersion="[32,)"
+license="MIT"
 
 [[mods]]
   issueTrackerURL="https://github.com/BlakeBr0/MysticalAgriculture/issues"
