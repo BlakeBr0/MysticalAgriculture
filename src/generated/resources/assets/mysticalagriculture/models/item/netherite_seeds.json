@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "mysticalagriculture:item/gold_seeds"
+    "layer0": "mysticalagriculture:item/netherite_seeds"
   }
 }
