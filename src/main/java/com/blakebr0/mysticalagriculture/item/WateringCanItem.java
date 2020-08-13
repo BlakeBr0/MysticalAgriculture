@@ -27,6 +27,7 @@ import net.minecraft.util.math.RayTraceContext;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.world.World;
+import net.minecraft.world.server.ServerWorld;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.common.IPlantable;
@@ -149,9 +150,11 @@ public class WateringCanItem extends BaseItem {
             if (Math.random() <= 0.25) {
                 blocks = BlockPos.getAllInBox(pos.add(-1, -1, -1), pos.add(1, 1, 1));
                 blocks.forEach(aoePos -> {
-                    Block plantBlock = world.getBlockState(aoePos).getBlock();
+                    BlockState state = world.getBlockState(aoePos);
+                    Block plantBlock = state.getBlock();
                     if (plantBlock instanceof IGrowable || plantBlock instanceof IPlantable || plantBlock == Blocks.MYCELIUM || plantBlock == Blocks.CHORUS_FLOWER) {
-                        world.getPendingBlockTicks().scheduleTick(aoePos, plantBlock, 4);
+                        state.randomTick((ServerWorld) world, aoePos, random);
+                        world.notifyBlockUpdate(aoePos, state, state, 2);
                     }
                 });
 
