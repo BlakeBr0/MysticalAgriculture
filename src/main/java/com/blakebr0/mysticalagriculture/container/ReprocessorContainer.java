@@ -1,5 +1,6 @@
 package com.blakebr0.mysticalagriculture.container;
 
+import com.blakebr0.cucumber.helper.RecipeHelper;
 import com.blakebr0.cucumber.inventory.BaseItemStackHandler;
 import com.blakebr0.cucumber.inventory.slot.BaseItemStackHandlerSlot;
 import com.blakebr0.mysticalagriculture.api.crafting.RecipeTypes;
@@ -68,7 +69,7 @@ public class ReprocessorContainer extends Container {
 
                 slot.onSlotChange(itemstack1, itemstack);
             } else if (index != 1 && index != 0) {
-                if (player.getEntityWorld().getRecipeManager().getRecipes(RecipeTypes.REPROCESSOR).values().stream().anyMatch(r -> r.getIngredients().get(0).test(itemstack1))) {
+                if (RecipeHelper.getRecipes(RecipeTypes.REPROCESSOR).values().stream().anyMatch(r -> r.getIngredients().get(0).test(itemstack1))) {
                     if (!this.mergeItemStack(itemstack1, 0, 1, false)) {
                         return ItemStack.EMPTY;
                     }

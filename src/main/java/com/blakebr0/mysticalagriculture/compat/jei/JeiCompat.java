@@ -1,5 +1,6 @@
 package com.blakebr0.mysticalagriculture.compat.jei;
 
+import com.blakebr0.cucumber.helper.RecipeHelper;
 import com.blakebr0.mysticalagriculture.MysticalAgriculture;
 import com.blakebr0.mysticalagriculture.api.crafting.RecipeTypes;
 import com.blakebr0.mysticalagriculture.api.soul.IMobSoulType;
@@ -13,10 +14,7 @@ import mezz.jei.api.registration.IRecipeCatalystRegistration;
 import mezz.jei.api.registration.IRecipeCategoryRegistration;
 import mezz.jei.api.registration.IRecipeRegistration;
 import mezz.jei.api.registration.ISubtypeRegistration;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.world.ClientWorld;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.crafting.RecipeManager;
 import net.minecraft.util.ResourceLocation;
 
 @JeiPlugin
@@ -52,12 +50,8 @@ public final class JeiCompat implements IModPlugin {
 
     @Override
     public void registerRecipes(IRecipeRegistration registration) {
-        ClientWorld world = Minecraft.getInstance().world;
-        if (world != null) {
-            RecipeManager manager = world.getRecipeManager();
-            registration.addRecipes(manager.getRecipes(RecipeTypes.INFUSION).values(), InfusionCategory.UID);
-            registration.addRecipes(manager.getRecipes(RecipeTypes.REPROCESSOR).values(), ReprocessorCategory.UID);
-        }
+        registration.addRecipes(RecipeHelper.getRecipes(RecipeTypes.INFUSION).values(), InfusionCategory.UID);
+        registration.addRecipes(RecipeHelper.getRecipes(RecipeTypes.REPROCESSOR).values(), ReprocessorCategory.UID);
     }
 
     @Override
