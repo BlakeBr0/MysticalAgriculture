@@ -22,7 +22,6 @@ import com.blakebr0.mysticalagriculture.registry.AugmentRegistry;
 import com.blakebr0.mysticalagriculture.registry.CropRegistry;
 import com.blakebr0.mysticalagriculture.registry.MobSoulTypeRegistry;
 import com.blakebr0.mysticalagriculture.registry.PluginRegistry;
-import com.blakebr0.mysticalagriculture.world.ModWorldFeatures;
 import net.minecraft.item.ItemGroup;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
@@ -86,7 +85,6 @@ public final class MysticalAgriculture {
 		ModRecipeSerializers.onCommonSetup();
 
 		DeferredWorkQueue.runLater(() -> {
-			ModWorldFeatures.onCommonSetup();
 			NetworkHandler.onCommonSetup();
 		});
 	}

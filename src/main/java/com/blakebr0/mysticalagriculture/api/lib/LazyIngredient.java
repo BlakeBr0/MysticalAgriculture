@@ -52,7 +52,7 @@ public class LazyIngredient {
         if (this.ingredient == null) {
             this.ingredient = Ingredient.EMPTY;
             if (this.isTag()) {
-                ITag<Item> tag = TagCollectionManager.func_232928_e_().func_232925_b_().get(new ResourceLocation(this.name));
+                ITag<Item> tag = TagCollectionManager.func_242178_a().func_241836_b().get(new ResourceLocation(this.name));
                 if (tag != null && !tag.getAllElements().isEmpty())
                     this.ingredient = Ingredient.fromTag(tag);
             } else if (this.isItem()) {

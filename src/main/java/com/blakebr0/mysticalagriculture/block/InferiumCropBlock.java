@@ -8,6 +8,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.loot.LootContext;
 import net.minecraft.loot.LootParameters;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.vector.Vector3d;
 import net.minecraft.world.server.ServerWorld;
 
 import java.util.ArrayList;
@@ -28,9 +29,10 @@ public class InferiumCropBlock extends MysticalCropBlock {
         if (age == this.getMaxAge()) {
             crop = 1;
 
-            BlockPos pos = builder.get(LootParameters.POSITION);
-            if (pos != null) {
+            Vector3d vec = builder.get(LootParameters.field_237457_g_);
+            if (vec != null) {
                 ServerWorld world = builder.getWorld();
+                BlockPos pos = new BlockPos(vec);
                 Block below = world.getBlockState(pos.down()).getBlock();
                 double chance = this.getCrop().getSecondaryChance(below);
 

@@ -1,5 +1,5 @@
 modLoader="javafml"
-loaderVersion="[32,)"
+loaderVersion="[33,)"
 license="MIT"
 
 [[mods]]
@@ -19,18 +19,18 @@ license="MIT"
   [[dependencies.mysticalagriculture]]
       modId="forge"
       mandatory=true
-      versionRange="[32.0,)"
+      versionRange="[33.0,)"
       ordering="NONE"
       side="BOTH"
   [[dependencies.mysticalagriculture]]
       modId="minecraft"
       mandatory=true
-      versionRange="[1.16.1,1.17]"
+      versionRange="[1.16.2,1.17]"
       ordering="NONE"
       side="BOTH"
   [[dependencies.mysticalagriculture]]
       modId="cucumber"
       mandatory=true
-      versionRange="[4.0.2,)"
+      versionRange="[4.1.0,)"
       ordering="NONE"
       side="BOTH"

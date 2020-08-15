@@ -13,14 +13,14 @@ apply plugin: 'idea'
 
 version = '4.0.2'
 group = 'com.blakebr0.mysticalagriculture'
-archivesBaseName = 'MysticalAgriculture-1.16.1'
+archivesBaseName = 'MysticalAgriculture-1.16.2'
 
 sourceCompatibility = targetCompatibility = compileJava.sourceCompatibility = compileJava.targetCompatibility = '1.8'
 
 repositories {
-    maven { url "http://dvs1.progwml6.com/files/maven/" }
+    maven { url 'http://dvs1.progwml6.com/files/maven/' }
     maven { url 'https://maven.blamejared.com' }
-    maven { url "https://maven.tehnut.info" }
+    maven { url 'https://maven.tehnut.info' }
 
     flatDir { dir 'libs' }
 }
@@ -38,7 +38,7 @@ minecraft {
             property 'forge.logging.console.level', 'info'
 
             ideaModule "${project.name}.main"
-            environment 'MOD_CLASSES', "${project.file("out/production/resources").canonicalPath}${File.pathSeparator}${project.file("out/production/classes").canonicalPath}"
+            environment 'MOD_CLASSES', "${project.file('out/production/resources').canonicalPath}${File.pathSeparator}${project.file('out/production/classes').canonicalPath}"
         }
 
         server {
@@ -48,7 +48,7 @@ minecraft {
             property 'forge.logging.console.level', 'info'
 
             ideaModule "${project.name}.main"
-            environment 'MOD_CLASSES', "${project.file("out/production/resources").canonicalPath}${File.pathSeparator}${project.file("out/production/classes").canonicalPath}"
+            environment 'MOD_CLASSES', "${project.file('out/production/resources').canonicalPath}${File.pathSeparator}${project.file('out/production/classes').canonicalPath}"
         }
 
         data {
@@ -59,7 +59,7 @@ minecraft {
             properties 'fml.earlyprogresswindow': 'false'
 
             ideaModule "${project.name}.main"
-            environment 'MOD_CLASSES', "${project.file("out/production/resources").canonicalPath}${File.pathSeparator}${project.file("out/production/classes").canonicalPath}"
+            environment 'MOD_CLASSES', "${project.file('out/production/resources').canonicalPath}${File.pathSeparator}${project.file('out/production/classes').canonicalPath}"
 
             args '--mod', 'mysticalagriculture', '--all', '--output', file('src/generated/resources/'), '--existing', sourceSets.main.resources.srcDirs[0]
         }
@@ -71,15 +71,15 @@ sourceSets.main.resources {
 }
 
 dependencies {
-    minecraft 'net.minecraftforge:forge:1.16.1-32.0.97'
+    minecraft 'net.minecraftforge:forge:1.16.2-33.0.5'
 
-    compile fg.deobf('ignored:Cucumber:1.16.1-4.0.2')
+    compile fg.deobf('ignored:Cucumber:1.16.2-4.1.0')
     compileOnly fg.deobf('mcp.mobius.waila:Hwyla:1.10.10-B77_1.16.1:api')
     runtimeOnly fg.deobf('mcp.mobius.waila:Hwyla:1.10.10-B77_1.16.1')
-    compileOnly fg.deobf('mezz.jei:jei-1.16.1:7.0.0.6:api')
-    runtimeOnly fg.deobf('mezz.jei:jei-1.16.1:7.0.0.6')
-    compile fg.deobf('com.blamejared.crafttweaker:CraftTweaker-1.16.1:7.0.0.12')
-    compile fg.deobf('vazkii.patchouli:Patchouli:1.16-39')
+    compileOnly fg.deobf('mezz.jei:jei-1.16.2:7.1.0.11:api')
+    runtimeOnly fg.deobf('mezz.jei:jei-1.16.2:7.1.0.11')
+    compileOnly fg.deobf('com.blamejared.crafttweaker:CraftTweaker-1.16.1:7.0.0.12')
+//    compile fg.deobf('vazkii.patchouli:Patchouli:1.16-39')
 }
 
 task apiJar(type: Jar) {
@@ -100,13 +100,13 @@ jar {
     from sourceSets.main.output
     manifest {
         attributes([
-            "Specification-Title": "Mystical Agriculture",
-            "Specification-Vendor": "BlakeBr0",
-            "Specification-Version": "1",
-            "Implementation-Title": project.name,
-            "Implementation-Version": "${version}",
-            "Implementation-Vendor" : "BlakeBr0",
-            "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
+            'Specification-Title': 'Mystical Agriculture',
+            'Specification-Vendor': 'BlakeBr0',
+            'Specification-Version': '1',
+            'Implementation-Title': project.name,
+            'Implementation-Version': "${version}",
+            'Implementation-Vendor' : 'BlakeBr0',
+            'Implementation-Timestamp': new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
         ])
     }
 }
