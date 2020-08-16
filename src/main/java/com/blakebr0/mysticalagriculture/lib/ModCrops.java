@@ -120,6 +120,9 @@ public final class ModCrops {
     // QUARK
     public static final Crop ENDER_BIOTITE = new Crop(new ResourceLocation(MOD_ID, "ender_biotite"), CropTier.THREE, CropType.RESOURCE, LazyIngredient.item("quark:biotite"));
 
+    // PNEUMATICCRAFT
+    public static final Crop COMPRESSED_IRON = new Crop(new ResourceLocation(MOD_ID, "compressed_iron"), CropTier.FOUR, CropType.RESOURCE, LazyIngredient.tag("forge:ingots/compressed_iron"));
+
     // APPLIED ENERGISTICS 2
     public static final Crop SKY_STONE = new Crop(new ResourceLocation(MOD_ID, "sky_stone"), CropTier.THREE, CropType.RESOURCE, LazyIngredient.item("appliedenergistics2:sky_stone_block"));
     public static final Crop CERTUS_QUARTZ = new Crop(new ResourceLocation(MOD_ID, "certus_quartz"), CropTier.THREE, CropType.RESOURCE, LazyIngredient.tag("appliedenergistics2:crystals/certus_quartz"));
@@ -226,6 +229,9 @@ public final class ModCrops {
 
         // QUARK
         registry.register(withRequiredMods(ENDER_BIOTITE, "quark"));
+
+        // PNEUMATICCRAFT
+        registry.register(withRequiredMods(COMPRESSED_IRON, "pneumaticcraft"));
 
         // APPLIED ENERGISTICS 2
         registry.register(withRequiredMods(SKY_STONE, "appliedenergistics2"));
