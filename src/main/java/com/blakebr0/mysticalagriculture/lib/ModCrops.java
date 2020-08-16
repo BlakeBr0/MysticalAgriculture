@@ -103,6 +103,9 @@ public final class ModCrops {
     public static final Crop PLATINUM = new Crop(new ResourceLocation(MOD_ID, "platinum"), CropTier.TWO, CropType.RESOURCE, INGOT_CROP_TEXTURES, 0x6FEAEF, LazyIngredient.tag("forge:ingots/platinum"));
     public static final Crop IRIDIUM = new Crop(new ResourceLocation(MOD_ID, "iridium"), CropTier.TWO, CropType.RESOURCE, INGOT_CROP_TEXTURES, 0xC7C5DC, LazyIngredient.tag("forge:ingots/iridium"));
 
+    // IMMERSIVE ENGINEERING
+    public static final Crop HOP_GRAPHITE = new Crop(new ResourceLocation(MOD_ID, "hop_graphite"), CropTier.FOUR, CropType.RESOURCE, LazyIngredient.tag("forge:ingots/hop_graphite"));
+
     // BOTANIA
     public static final Crop MYSTICAL_FLOWER = new Crop(new ResourceLocation(MOD_ID, "mystical_flower"), CropTier.TWO, CropType.RESOURCE, LazyIngredient.item("mysticalagriculture:mystical_flower_agglomeratio"));
     public static final Crop MANASTEEL = new Crop(new ResourceLocation(MOD_ID, "manasteel"), CropTier.THREE, CropType.RESOURCE, LazyIngredient.item("botania:manasteel_ingot"));
@@ -206,6 +209,9 @@ public final class ModCrops {
         registry.register(CHROME);
         registry.register(PLATINUM);
         registry.register(IRIDIUM);
+
+        // IMMERSIVE ENGINEERING
+        registry.register(withRequiredMods(HOP_GRAPHITE, "immersiveengineering"));
 
         // BOTANIA
         registry.register(withRequiredMods(MYSTICAL_FLOWER, "botania"));
