@@ -117,6 +117,11 @@ public final class ModCrops {
     // QUARK
     public static final Crop ENDER_BIOTITE = new Crop(new ResourceLocation(MOD_ID, "ender_biotite"), CropTier.THREE, CropType.RESOURCE, LazyIngredient.item("quark:biotite"));
 
+    // APPLIED ENERGISTICS 2
+    public static final Crop SKY_STONE = new Crop(new ResourceLocation(MOD_ID, "sky_stone"), CropTier.THREE, CropType.RESOURCE, LazyIngredient.item("appliedenergistics2:sky_stone_block"));
+    public static final Crop CERTUS_QUARTZ = new Crop(new ResourceLocation(MOD_ID, "certus_quartz"), CropTier.THREE, CropType.RESOURCE, LazyIngredient.tag("appliedenergistics2:crystals/certus_quartz"));
+    public static final Crop FLUIX = new Crop(new ResourceLocation(MOD_ID, "fluix"), CropTier.FOUR, CropType.RESOURCE, LazyIngredient.tag("appliedenergistics2:crystals/fluix"));
+
     // REFINED STORAGE
     public static final Crop QUARTZ_ENRICHED_IRON = new Crop(new ResourceLocation(MOD_ID, "quartz_enriched_iron"), CropTier.THREE, CropType.RESOURCE, LazyIngredient.item("refinedstorage:quartz_enriched_iron"));
 
@@ -216,12 +221,17 @@ public final class ModCrops {
         // QUARK
         registry.register(withRequiredMods(ENDER_BIOTITE, "quark"));
 
+        // APPLIED ENERGISTICS 2
+        registry.register(withRequiredMods(SKY_STONE, "appliedenergistics2"));
+        registry.register(withRequiredMods(CERTUS_QUARTZ, "appliedenergistics2"));
+        registry.register(withRequiredMods(FLUIX, "appliedenergistics2"));
+
         // REFINED STORAGE
         registry.register(withRequiredMods(QUARTZ_ENRICHED_IRON, "refinedstorage"));
     }
 
     private static ICrop withRequiredMods(ICrop crop, String... mods) {
-        // if (true) return crop;
+         if (true) return crop;
 
         boolean enabled = Arrays.stream(mods).anyMatch(ModList.get()::isLoaded);
         return crop.setEnabled(enabled);

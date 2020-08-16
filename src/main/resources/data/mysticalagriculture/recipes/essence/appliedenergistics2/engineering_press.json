@@ -1,0 +1,26 @@
+{
+  "type": "cucumber:shaped_no_mirror",
+  "conditions": [
+    {
+      "type": "mysticalagriculture:crop_enabled",
+      "crop": "mysticalagriculture:certus_quartz"
+    }
+  ],
+  "pattern": [
+    "EEE",
+    "EME",
+    "EEE"
+  ],
+  "key": {
+    "E": {
+      "item": "mysticalagriculture:certus_quartz_essence"
+    },
+    "M": {
+      "tag": "forge:gems/diamond"
+    }
+  },
+  "result": {
+    "item": "appliedenergistics2:engineering_processor_press",
+    "count": 1
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "type": "cucumber:shaped_no_mirror",
+  "conditions": [
+    {
+      "type": "mysticalagriculture:crop_enabled",
+      "crop": "mysticalagriculture:certus_quartz"
+    }
+  ],
+  "pattern": [
+    "EEE",
+    "EME",
+    "EEE"
+  ],
+  "key": {
+    "E": {
+      "item": "mysticalagriculture:certus_quartz_essence"
+    },
+    "M": {
+      "item": "appliedenergistics2:purified_certus_quartz_crystal"
+    }
+  },
+  "result": {
+    "item": "appliedenergistics2:calculation_processor_press",
+    "count": 1
+  }
+}
