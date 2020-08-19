@@ -18,6 +18,7 @@ import net.minecraft.resources.IResourceManagerReloadListener;
 import net.minecraft.util.NonNullList;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.event.AddReloadListenerEvent;
+import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 
 public class DynamicRecipeManager implements IResourceManagerReloadListener {
@@ -42,7 +43,7 @@ public class DynamicRecipeManager implements IResourceManagerReloadListener {
         });
     }
 
-    @SubscribeEvent
+    @SubscribeEvent(priority = EventPriority.HIGH)
     public void onAddReloadListeners(AddReloadListenerEvent event) {
         event.addListener(this);
     }
