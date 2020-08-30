@@ -243,7 +243,7 @@ public final class ModCrops {
     }
 
     private static ICrop withRequiredMods(ICrop crop, String... mods) {
-         if (true) return crop;
+//         if (true) return crop;
 
         boolean enabled = Arrays.stream(mods).anyMatch(ModList.get()::isLoaded);
         return crop.setEnabled(enabled);
