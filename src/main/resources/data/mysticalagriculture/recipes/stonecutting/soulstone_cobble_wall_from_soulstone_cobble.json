@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "mysticalagriculture:soulstone_cobble"
+  },
+  "result": "mysticalagriculture:soulstone_cobble_wall",
+  "count": 1
+}
