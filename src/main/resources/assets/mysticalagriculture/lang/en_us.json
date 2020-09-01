@@ -233,6 +233,8 @@
   "cropTier.mysticalagriculture.5": "5",
 
   "mobSoulType.mysticalagriculture.fish": "Fish",
+  "mobSoulType.mysticalagriculture.zombie": "Zombie",
+  "mobSoulType.mysticalagriculture.spider": "Spider",
 
   "crop.mysticalagriculture.air": "Air",
   "crop.mysticalagriculture.earth": "Earth",
