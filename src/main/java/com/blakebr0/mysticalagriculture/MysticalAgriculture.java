@@ -22,6 +22,7 @@ import com.blakebr0.mysticalagriculture.registry.AugmentRegistry;
 import com.blakebr0.mysticalagriculture.registry.CropRegistry;
 import com.blakebr0.mysticalagriculture.registry.MobSoulTypeRegistry;
 import com.blakebr0.mysticalagriculture.registry.PluginRegistry;
+import com.blakebr0.mysticalagriculture.world.ModWorldgenRegistration;
 import com.blakebr0.mysticalagriculture.world.ModWorldFeatures;
 import net.minecraft.item.ItemGroup;
 import net.minecraftforge.api.distmarker.Dist;
@@ -60,6 +61,8 @@ public final class MysticalAgriculture {
 			bus.register(new ModelHandler());
 		});
 
+		MinecraftForge.EVENT_BUS.register(new ModWorldgenRegistration());
+
 		ModLoadingContext.get().registerConfig(ModConfig.Type.CLIENT, ModConfigs.CLIENT);
 		ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, ModConfigs.COMMON);
 		ModLoadingContext.get().registerConfig(ModConfig.Type.SERVER, ModConfigs.SERVER);
@@ -75,7 +78,6 @@ public final class MysticalAgriculture {
 
 	@SubscribeEvent
 	public void onCommonSetup(FMLCommonSetupEvent event) {
-		MinecraftForge.EVENT_BUS.register(this);
 		MinecraftForge.EVENT_BUS.register(new DynamicRecipeManager());
 		MinecraftForge.EVENT_BUS.register(new MobDropHandler());
 		MinecraftForge.EVENT_BUS.register(new MobSoulHandler());
