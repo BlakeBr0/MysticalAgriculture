@@ -20,6 +20,8 @@ import java.util.Arrays;
 import static com.blakebr0.mysticalagriculture.MysticalAgriculture.MOD_ID;
 
 public final class ModCrops {
+    private static final boolean DEBUG = false;
+
     private static final CropTextures ELEMENTAL_CROP_TEXTURES = new CropTextures(CropTextures.FLOWER_INGOT_BLANK, CropTextures.ESSENCE_FLAME_BLANK);
     private static final CropTextures ROCK_CROP_TEXTURES = new CropTextures(CropTextures.FLOWER_ROCK_BLANK, CropTextures.ESSENCE_ROCK_BLANK);
     private static final CropTextures INGOT_CROP_TEXTURES = new CropTextures(CropTextures.FLOWER_INGOT_BLANK, CropTextures.ESSENCE_INGOT_BLANK);
@@ -243,8 +245,8 @@ public final class ModCrops {
     }
 
     private static ICrop withRequiredMods(ICrop crop, String... mods) {
-//         if (true) return crop;
-
+        if (DEBUG) return crop;
+        
         boolean enabled = Arrays.stream(mods).anyMatch(ModList.get()::isLoaded);
         return crop.setEnabled(enabled);
     }

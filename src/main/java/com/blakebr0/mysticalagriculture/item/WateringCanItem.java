@@ -21,6 +21,7 @@ import net.minecraft.util.ActionResultType;
 import net.minecraft.util.Direction;
 import net.minecraft.util.Hand;
 import net.minecraft.util.NonNullList;
+import net.minecraft.util.SoundEvents;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.BlockRayTraceResult;
 import net.minecraft.util.math.RayTraceContext;
@@ -37,8 +38,17 @@ import java.util.function.Function;
 import java.util.stream.Stream;
 
 public class WateringCanItem extends BaseItem {
+    protected final int range;
+    protected final double chance;
+
     public WateringCanItem(Function<Properties, Properties> properties) {
+        this(3, 0.25, properties);
+    }
+
+    public WateringCanItem(int range, double chance, Function<Properties, Properties> properties) {
         super(properties.compose(p -> p.maxStackSize(1)));
+        this.range = range;
+        this.chance = chance;
     }
 
     @Override
@@ -62,9 +72,8 @@ public class WateringCanItem extends BaseItem {
             return new ActionResult<>(ActionResultType.FAIL, stack);
 
         BlockRayTraceResult trace = rayTrace(world, player, RayTraceContext.FluidMode.SOURCE_ONLY);
-        if (trace.getType() != RayTraceResult.Type.BLOCK) {
+        if (trace.getType() != RayTraceResult.Type.BLOCK)
             return new ActionResult<>(ActionResultType.FAIL, stack);
-        }
 
         BlockPos pos = trace.getPos();
         Direction direction = trace.getFace();
@@ -72,7 +81,8 @@ public class WateringCanItem extends BaseItem {
             BlockState state = world.getBlockState(pos);
             if (state.getMaterial() == Material.WATER) {
                 NBTHelper.setBoolean(stack, "Water", true);
-                return new ActionResult<>(ActionResultType.FAIL, stack);
+                player.playSound(SoundEvents.ITEM_BUCKET_FILL, 1.0F, 1.0F);
+                return new ActionResult<>(ActionResultType.SUCCESS, stack);
             }
         }
 
@@ -110,7 +120,7 @@ public class WateringCanItem extends BaseItem {
         }
     }
 
-    private ActionResultType doWater(ItemStack stack, World world, PlayerEntity player, BlockPos pos, Direction direction) {
+    protected ActionResultType doWater(ItemStack stack, World world, PlayerEntity player, BlockPos pos, Direction direction) {
         if (player == null)
             return ActionResultType.FAIL;
 
@@ -120,19 +130,20 @@ public class WateringCanItem extends BaseItem {
         if (!NBTHelper.getBoolean(stack, "Water"))
             return ActionResultType.FAIL;
 
-        Stream<BlockPos> blocks = BlockPos.getAllInBox(pos.add(-1, -1, -1), pos.add(1, 1, 1));
+        int range = (this.range - 1) / 2;
+        Stream<BlockPos> blocks = BlockPos.getAllInBox(pos.add(-range, -range, -range), pos.add(range, range, range));
         blocks.forEach(aoePos -> {
             BlockState aoeState = world.getBlockState(aoePos);
             if (aoeState.getBlock() instanceof FarmlandBlock) {
                 int moisture = aoeState.get(FarmlandBlock.MOISTURE);
                 if (moisture < 7) {
-                    world.setBlockState(aoePos, aoeState.with(FarmlandBlock.MOISTURE, 7), 2);
+                    world.setBlockState(aoePos, aoeState.with(FarmlandBlock.MOISTURE, 7), 3);
                 }
             }
         });
 
-        for (int x = -1; x <= 1; x++) {
-            for (int z = -1; z <= 1; z++) {
+        for (int x = -range; x <= range; x++) {
+            for (int z = -range; z <= range; z++) {
                 double d0 = pos.add(x, 0, z).getX() + world.getRandom().nextFloat();
                 double d1 = pos.add(x, 0, z).getY() + 1.0D;
                 double d2 = pos.add(x, 0, z).getZ() + world.getRandom().nextFloat();
@@ -147,14 +158,14 @@ public class WateringCanItem extends BaseItem {
         }
 
         if (!world.isRemote()) {
-            if (Math.random() <= 0.25) {
-                blocks = BlockPos.getAllInBox(pos.add(-1, -1, -1), pos.add(1, 1, 1));
+            if (Math.random() <= this.chance) {
+                blocks = BlockPos.getAllInBox(pos.add(-range, -range, -range), pos.add(range, range, range));
                 blocks.forEach(aoePos -> {
                     BlockState state = world.getBlockState(aoePos);
                     Block plantBlock = state.getBlock();
                     if (plantBlock instanceof IGrowable || plantBlock instanceof IPlantable || plantBlock == Blocks.MYCELIUM || plantBlock == Blocks.CHORUS_FLOWER) {
                         state.randomTick((ServerWorld) world, aoePos, random);
-                        world.notifyBlockUpdate(aoePos, state, state, 2);
+                        world.notifyBlockUpdate(aoePos, state, state, 3);
                     }
                 });
 
