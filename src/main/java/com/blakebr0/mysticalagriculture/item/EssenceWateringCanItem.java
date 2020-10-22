@@ -50,12 +50,13 @@ public class EssenceWateringCanItem extends WateringCanItem {
 
     @Override
     public void inventoryTick(ItemStack stack, World world, Entity entity, int slot, boolean selected) {
-        if (selected && world.getGameTime() % 4 == 0) {
-            if (NBTHelper.getBoolean(stack, "Active") && entity instanceof PlayerEntity) {
-                PlayerEntity player = (PlayerEntity) entity;
-                BlockRayTraceResult result = rayTrace(world, player, RayTraceContext.FluidMode.SOURCE_ONLY);
-                if (result.getType() != RayTraceResult.Type.MISS)
-                    this.doWater(stack, world, player, result.getPos(), result.getFace());
+        super.inventoryTick(stack, world, entity, slot, selected);
+
+        if (this.water && NBTHelper.getBoolean(stack, "Active") && entity instanceof PlayerEntity) {
+            PlayerEntity player = (PlayerEntity) entity;
+            BlockRayTraceResult result = rayTrace(world, player, RayTraceContext.FluidMode.SOURCE_ONLY);
+            if (result.getType() != RayTraceResult.Type.MISS) {
+                this.doWater(stack, world, player, result.getPos(), result.getFace());
             }
         }
     }

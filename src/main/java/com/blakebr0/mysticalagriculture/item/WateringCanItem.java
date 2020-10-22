@@ -10,6 +10,7 @@ import net.minecraft.block.FarmlandBlock;
 import net.minecraft.block.IGrowable;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.util.ITooltipFlag;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
@@ -38,6 +39,8 @@ import java.util.function.Function;
 import java.util.stream.Stream;
 
 public class WateringCanItem extends BaseItem {
+    private long ticks;
+    protected boolean water = false;
     protected final int range;
     protected final double chance;
 
@@ -63,6 +66,15 @@ public class WateringCanItem extends BaseItem {
     @Override
     public UseAction getUseAction(ItemStack stack) {
         return UseAction.NONE;
+    }
+
+    @Override
+    public void inventoryTick(ItemStack stack, World world, Entity entity, int slot, boolean selected) {
+        if (selected) {
+            this.ticks++;
+            if (this.ticks % 5 == 0)
+                this.water = true;
+        }
     }
 
     @Override
@@ -124,11 +136,16 @@ public class WateringCanItem extends BaseItem {
         if (player == null)
             return ActionResultType.FAIL;
 
+        if (!this.water)
+            return ActionResultType.FAIL;
+
         if (!player.canPlayerEdit(pos.offset(direction), direction, stack))
             return ActionResultType.FAIL;
 
         if (!NBTHelper.getBoolean(stack, "Water"))
             return ActionResultType.FAIL;
+
+        this.water = false;
 
         int range = (this.range - 1) / 2;
         Stream<BlockPos> blocks = BlockPos.getAllInBox(pos.add(-range, -range, -range), pos.add(range, range, range));
@@ -149,9 +166,8 @@ public class WateringCanItem extends BaseItem {
                 double d2 = pos.add(x, 0, z).getZ() + world.getRandom().nextFloat();
 
                 BlockState state = world.getBlockState(pos);
-                if (state.isSolid() || state.getBlock() instanceof FarmlandBlock) {
+                if (state.isSolid() || state.getBlock() instanceof FarmlandBlock)
                     d1 += 0.3D;
-                }
 
                 world.addParticle(ParticleTypes.RAIN, d0, d1, d2, 0.0D, 0.0D, 0.0D);
             }
