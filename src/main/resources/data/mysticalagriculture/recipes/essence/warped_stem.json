@@ -1,0 +1,30 @@
+{
+  "type": "cucumber:shaped_no_mirror",
+  "conditions": [
+    {
+      "type": "mysticalagriculture:crop_enabled",
+      "crop": "mysticalagriculture:wood"
+    },
+    {
+      "type": "mysticalagriculture:crop_enabled",
+      "crop": "mysticalagriculture:nether"
+    }
+  ],
+  "pattern": [
+    " E ",
+    " N ",
+    " E "
+  ],
+  "key": {
+    "E": {
+      "item": "mysticalagriculture:wood_essence"
+    },
+    "N": {
+      "item": "mysticalagriculture:nether_essence"
+    }
+  },
+  "result": {
+    "item": "minecraft:warped_stem",
+    "count": 12
+  }
+}
