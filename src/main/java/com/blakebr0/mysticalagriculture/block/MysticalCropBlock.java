@@ -21,6 +21,7 @@ import net.minecraft.world.IBlockReader;
 import net.minecraft.world.World;
 import net.minecraft.world.server.ServerWorld;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
@@ -34,11 +35,6 @@ public class MysticalCropBlock extends CropsBlock implements ICropGetter {
     }
 
     @Override
-    protected IItemProvider getSeedsItem() {
-        return this.crop.getSeeds();
-    }
-
-    @Override
     public boolean canUseBonemeal(World world, Random rand, BlockPos pos, BlockState state) {
         return false;
     }
@@ -49,7 +45,7 @@ public class MysticalCropBlock extends CropsBlock implements ICropGetter {
     }
 
     @Override
-    public void tick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
+    public void randomTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
         Block crux = this.crop.getCrux();
         if (crux != null) {
             Block block = world.getBlockState(pos.down(2)).getBlock();
@@ -57,7 +53,7 @@ public class MysticalCropBlock extends CropsBlock implements ICropGetter {
                 return;
         }
 
-        super.tick(state, world, pos, random);
+        super.randomTick(state, world, pos, random);
     }
 
     @Override
@@ -65,7 +61,7 @@ public class MysticalCropBlock extends CropsBlock implements ICropGetter {
         return SHAPE;
     }
 
-    @Override // TODO: Loot tables?
+    @Override
     public List<ItemStack> getDrops(BlockState state, LootContext.Builder builder) {
         int age = state.get(AGE);
 
@@ -83,19 +79,19 @@ public class MysticalCropBlock extends CropsBlock implements ICropGetter {
                 Block below = world.getBlockState(pos.down()).getBlock();
                 double chance = this.crop.getSecondaryChance(below);
 
-                if (world.getRandom().nextDouble() < chance)
+                if (Math.random() < chance)
                     crop = 2;
 
-                if (world.getRandom().nextDouble() < chance)
+                if (ModConfigs.SECONDARY_SEED_DROPS.get() && Math.random() < chance)
                     seed = 2;
 
-                Double fertilizerChance = ModConfigs.FERTILIZED_ESSENCE_DROP_CHANCE.get();
-                if (world.getRandom().nextDouble() < fertilizerChance)
+                double fertilizerChance = ModConfigs.FERTILIZED_ESSENCE_DROP_CHANCE.get();
+                if (Math.random() < fertilizerChance)
                     fertilizer = 1;
             }
         }
 
-        List<ItemStack> drops = super.getDrops(state, builder);
+        List<ItemStack> drops = new ArrayList<>();
         if (crop > 0)
             drops.add(new ItemStack(this.getCropsItem(), crop));
 
@@ -117,6 +113,11 @@ public class MysticalCropBlock extends CropsBlock implements ICropGetter {
         }
 
         super.grow(world, rand, pos, state);
+    }
+
+    @Override
+    protected IItemProvider getSeedsItem() {
+        return this.crop.getSeeds();
     }
 
     @Override

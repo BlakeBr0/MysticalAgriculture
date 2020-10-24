@@ -2,6 +2,7 @@ package com.blakebr0.mysticalagriculture.block;
 
 import com.blakebr0.mysticalagriculture.api.crop.ICrop;
 import com.blakebr0.mysticalagriculture.api.farmland.IEssenceFarmland;
+import com.blakebr0.mysticalagriculture.config.ModConfigs;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.item.ItemStack;
@@ -19,7 +20,7 @@ public class InferiumCropBlock extends MysticalCropBlock {
         super(crop);
     }
 
-    @Override // TODO: Loot tables?
+    @Override
     public List<ItemStack> getDrops(BlockState state, LootContext.Builder builder) {
         int age = state.get(AGE);
 
@@ -34,7 +35,6 @@ public class InferiumCropBlock extends MysticalCropBlock {
                 ServerWorld world = builder.getWorld();
                 BlockPos pos = new BlockPos(vec);
                 Block below = world.getBlockState(pos.down()).getBlock();
-                double chance = this.getCrop().getSecondaryChance(below);
 
                 if (below instanceof IEssenceFarmland) {
                     IEssenceFarmland farmland = (IEssenceFarmland) below;
@@ -44,7 +44,8 @@ public class InferiumCropBlock extends MysticalCropBlock {
                         crop++;
                 }
 
-                if (world.getRandom().nextDouble() < chance)
+                double chance = this.getCrop().getSecondaryChance(below);
+                if (ModConfigs.SECONDARY_SEED_DROPS.get() && Math.random() < chance)
                     seed = 2;
             }
         }

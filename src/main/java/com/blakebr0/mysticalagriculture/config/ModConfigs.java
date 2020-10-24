@@ -27,6 +27,7 @@ public final class ModConfigs {
     public static final ForgeConfigSpec.IntValue INFUSION_CRYSTAL_USES;
     public static final ForgeConfigSpec.IntValue GROWTH_ACCELERATOR_COOLDOWN;
     public static final ForgeConfigSpec.DoubleValue FERTILIZED_ESSENCE_DROP_CHANCE;
+    public static final ForgeConfigSpec.BooleanValue SECONDARY_SEED_DROPS;
 
     public static final ForgeConfigSpec.DoubleValue SOULIUM_ORE_CHANCE;
     public static final ForgeConfigSpec.BooleanValue GENERATE_PROSPERITY;
@@ -63,6 +64,10 @@ public final class ModConfigs {
                 .comment("The percentage chance that harvesting a Resource Crop will drop a Fertilized Essence.")
                 .translation("configGui.mysticalagriculture.fertilized_essence_chance")
                 .defineInRange("fertilizedEssenceChance", 0.1, 0.0, 1.0);
+        SECONDARY_SEED_DROPS = common
+                .comment("Should crops have a chance of dropping a second seed when harvested?")
+                .translation("configGui.mysticalagriculture.secondary_seed_drops")
+                .define("secondarySeedDrops", true);
         common.pop();
 
         common.comment("World generation options.").push("World");
