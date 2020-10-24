@@ -40,7 +40,7 @@ public class EssenceHoeItem extends BaseHoeItem implements ITinkerable {
     private final int slots;
 
     public EssenceHoeItem(IItemTier tier, int tinkerableTier, int slots, Function<Properties, Properties> properties) {
-        super(tier, properties);
+        super(tier, 0, tinkerableTier - 1.0F, properties);
         this.tinkerableTier = tinkerableTier;
         this.slots = slots;
     }
@@ -142,7 +142,7 @@ public class EssenceHoeItem extends BaseHoeItem implements ITinkerable {
     public Multimap<Attribute, AttributeModifier> getAttributeModifiers(EquipmentSlotType slot, ItemStack stack) {
         Multimap<Attribute, AttributeModifier> modifiers = HashMultimap.create();
         if (slot == EquipmentSlotType.MAINHAND) {
-            modifiers.put(Attributes.ATTACK_DAMAGE, new AttributeModifier(ATTACK_DAMAGE_MODIFIER, "Tool modifier", this.getAttackDamage(), AttributeModifier.Operation.ADDITION));
+            modifiers.put(Attributes.ATTACK_DAMAGE, new AttributeModifier(ATTACK_DAMAGE_MODIFIER, "Tool modifier", 0, AttributeModifier.Operation.ADDITION));
             modifiers.put(Attributes.ATTACK_SPEED, new AttributeModifier(ATTACK_SPEED_MODIFIER, "Tool modifier", this.getAttackSpeed(), AttributeModifier.Operation.ADDITION));
 
             AugmentUtils.getAugments(stack).forEach(a -> {
