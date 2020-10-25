@@ -10,7 +10,6 @@ import net.minecraft.block.FarmlandBlock;
 import net.minecraft.block.IGrowable;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.util.ITooltipFlag;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
@@ -34,13 +33,15 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.common.IPlantable;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.UUID;
 import java.util.function.Function;
 import java.util.stream.Stream;
 
 public class WateringCanItem extends BaseItem {
-    private long ticks;
-    protected boolean water = false;
+    private static final Map<String, Long> THROTTLES = new HashMap<>();
     protected final int range;
     protected final double chance;
 
@@ -69,15 +70,6 @@ public class WateringCanItem extends BaseItem {
     }
 
     @Override
-    public void inventoryTick(ItemStack stack, World world, Entity entity, int slot, boolean selected) {
-        if (selected) {
-            this.ticks++;
-            if (this.ticks % 5 == 0)
-                this.water = true;
-        }
-    }
-
-    @Override
     public ActionResult<ItemStack> onItemRightClick(World world, PlayerEntity player, Hand hand) {
         ItemStack stack = player.getHeldItem(hand);
         if (NBTHelper.getBoolean(stack, "Water"))
@@ -92,8 +84,11 @@ public class WateringCanItem extends BaseItem {
         if (world.isBlockModifiable(player, pos) && player.canPlayerEdit(pos.offset(direction), direction, stack)) {
             BlockState state = world.getBlockState(pos);
             if (state.getMaterial() == Material.WATER) {
+                NBTHelper.setString(stack, "ID", UUID.randomUUID().toString());
                 NBTHelper.setBoolean(stack, "Water", true);
+
                 player.playSound(SoundEvents.ITEM_BUCKET_FILL, 1.0F, 1.0F);
+
                 return new ActionResult<>(ActionResultType.SUCCESS, stack);
             }
         }
@@ -136,16 +131,20 @@ public class WateringCanItem extends BaseItem {
         if (player == null)
             return ActionResultType.FAIL;
 
-        if (!this.water)
-            return ActionResultType.FAIL;
-
         if (!player.canPlayerEdit(pos.offset(direction), direction, stack))
             return ActionResultType.FAIL;
 
         if (!NBTHelper.getBoolean(stack, "Water"))
             return ActionResultType.FAIL;
 
-        this.water = false;
+        if (!world.isRemote()) {
+            String id = getID(stack);
+            long throttle = THROTTLES.getOrDefault(id, 0L);
+            if (world.getGameTime() - throttle < 5)
+                return ActionResultType.FAIL;
+
+            THROTTLES.put(id, world.getGameTime());
+        }
 
         int range = (this.range - 1) / 2;
         Stream<BlockPos> blocks = BlockPos.getAllInBox(pos.add(-range, -range, -range), pos.add(range, range, range));
@@ -190,5 +189,13 @@ public class WateringCanItem extends BaseItem {
         }
 
         return ActionResultType.FAIL;
+    }
+
+    private static String getID(ItemStack stack) {
+        if (!NBTHelper.hasKey(stack, "ID")) {
+            NBTHelper.setString(stack, "ID", UUID.randomUUID().toString());
+        }
+
+        return NBTHelper.getString(stack, "ID");
     }
 }

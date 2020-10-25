@@ -28,6 +28,7 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 
 import java.util.List;
+import java.util.UUID;
 import java.util.function.Function;
 
 public class EssenceWateringCanItem extends WateringCanItem {
@@ -50,9 +51,7 @@ public class EssenceWateringCanItem extends WateringCanItem {
 
     @Override
     public void inventoryTick(ItemStack stack, World world, Entity entity, int slot, boolean selected) {
-        super.inventoryTick(stack, world, entity, slot, selected);
-
-        if (this.water && NBTHelper.getBoolean(stack, "Active") && entity instanceof PlayerEntity) {
+        if (NBTHelper.getBoolean(stack, "Active") && entity instanceof PlayerEntity) {
             PlayerEntity player = (PlayerEntity) entity;
             BlockRayTraceResult result = rayTrace(world, player, RayTraceContext.FluidMode.SOURCE_ONLY);
             if (result.getType() != RayTraceResult.Type.MISS) {
@@ -85,8 +84,11 @@ public class EssenceWateringCanItem extends WateringCanItem {
         if (world.isBlockModifiable(player, pos) && player.canPlayerEdit(pos.offset(direction), direction, stack)) {
             BlockState state = world.getBlockState(pos);
             if (state.getMaterial() == Material.WATER) {
+                NBTHelper.setString(stack, "ID", UUID.randomUUID().toString());
                 NBTHelper.setBoolean(stack, "Water", true);
+
                 player.playSound(SoundEvents.ITEM_BUCKET_FILL, 1.0F, 1.0F);
+
                 return new ActionResult<>(ActionResultType.SUCCESS, stack);
             }
         }
