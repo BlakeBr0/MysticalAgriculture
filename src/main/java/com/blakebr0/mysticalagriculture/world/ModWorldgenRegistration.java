@@ -21,10 +21,10 @@ public final class ModWorldgenRegistration {
                 int size = ModConfigs.SOULSTONE_SPAWN_SIZE.get();
                 int rate = ModConfigs.SOULSTONE_SPAWN_RATE.get();
                 int height = ModConfigs.SOULSTONE_SPAWN_HEIGHT.get();
-                OreFeatureConfig config = new OreFeatureConfig(OreFeatureConfig.FillerBlockType.field_241884_c, ModBlocks.SOULSTONE.get().getDefaultState(), size);
+                OreFeatureConfig config = new OreFeatureConfig(OreFeatureConfig.FillerBlockType.BASE_STONE_NETHER, ModBlocks.SOULSTONE.get().getDefaultState(), size);
                 generation.withFeature(GenerationStage.Decoration.RAW_GENERATION, ModWorldFeatures.SOULSTONE.get().withConfiguration(config)
-                        .func_242733_d(height)
-                        .func_242728_a()
+                        .range(height)
+                        .square()
                         .func_242732_c(rate)
                 );
             }
@@ -35,10 +35,10 @@ public final class ModWorldgenRegistration {
                 int size = ModConfigs.PROSPERITY_SPAWN_SIZE.get() ;
                 int rate = ModConfigs.PROSPERITY_SPAWN_RATE.get();
                 int height = ModConfigs.PROSPERITY_SPAWN_HEIGHT.get();
-                OreFeatureConfig config = new OreFeatureConfig(OreFeatureConfig.FillerBlockType.field_241882_a, ModBlocks.PROSPERITY_ORE.get().getDefaultState(), size);
+                OreFeatureConfig config = new OreFeatureConfig(OreFeatureConfig.FillerBlockType.BASE_STONE_OVERWORLD, ModBlocks.PROSPERITY_ORE.get().getDefaultState(), size);
                 generation.withFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.withConfiguration(config)
-                        .func_242733_d(height)
-                        .func_242728_a()
+                        .range(height)
+                        .square()
                         .func_242732_c(rate)
                 );
             }
@@ -47,10 +47,10 @@ public final class ModWorldgenRegistration {
                 int size = ModConfigs.INFERIUM_SPAWN_SIZE.get();
                 int rate = ModConfigs.INFERIUM_SPAWN_RATE.get();
                 int height = ModConfigs.INFERIUM_SPAWN_HEIGHT.get();
-                OreFeatureConfig config = new OreFeatureConfig(OreFeatureConfig.FillerBlockType.field_241882_a, ModBlocks.INFERIUM_ORE.get().getDefaultState(), size);
+                OreFeatureConfig config = new OreFeatureConfig(OreFeatureConfig.FillerBlockType.BASE_STONE_OVERWORLD, ModBlocks.INFERIUM_ORE.get().getDefaultState(), size);
                 generation.withFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.withConfiguration(config)
-                        .func_242733_d(height)
-                        .func_242728_a()
+                        .range(height)
+                        .square()
                         .func_242732_c(rate)
                 );
             }

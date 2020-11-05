@@ -19,7 +19,7 @@ import java.util.function.Supplier;
 public final class ModWorldFeatures {
     public static final List<Supplier<Feature<?>>> ENTRIES = new ArrayList<>();
 
-    public static final RegistryObject<Feature<OreFeatureConfig>> SOULSTONE = register("soulstone", () -> new SoulstoneFeature(OreFeatureConfig.field_236566_a_));
+    public static final RegistryObject<Feature<OreFeatureConfig>> SOULSTONE = register("soulstone", () -> new SoulstoneFeature(OreFeatureConfig.CODEC));
 
     @SubscribeEvent
     public void onRegisterFeatures(RegistryEvent.Register<Feature<?>> event) {
