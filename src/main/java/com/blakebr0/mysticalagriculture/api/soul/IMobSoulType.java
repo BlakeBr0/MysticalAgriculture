@@ -79,5 +79,24 @@ public interface IMobSoulType {
      * @param name the new display name
      * @return this mob soul type
      */
+    // TODO: 1.17: Change return type to IMobSoulType
     MobSoulType setEntityDisplayName(ITextComponent name);
+
+    /**
+     * Whether or not this mob soul type has recipes and shows up in the creative menu
+     * @return is this mob soul type enabled
+     */
+    // TODO: 1.17: Remove default implementation
+    default boolean isEnabled() {
+        return true;
+    }
+
+    /**
+     * Set whether or not this crop should be hidden from the game
+     * @param enabled the enabled state
+     */
+    // TODO: 1.17: Remove default implementation
+    default IMobSoulType setEnabled(boolean enabled) {
+        return this;
+    }
 }

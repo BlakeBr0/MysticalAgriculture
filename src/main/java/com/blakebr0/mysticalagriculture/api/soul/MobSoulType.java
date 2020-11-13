@@ -22,6 +22,7 @@ public class MobSoulType implements IMobSoulType {
     private int color;
     private String entityDisplayNameKey = null;
     private ITextComponent entityDisplayName = null;
+    private boolean enabled;
 
     /**
      * Used to allow the Soul Jar to hold souls from the specified mob
@@ -35,6 +36,7 @@ public class MobSoulType implements IMobSoulType {
         this.entityIds = Collections.singleton(entityId);
         this.soulRequirement = soulRequirement;
         this.color = color;
+        this.enabled = true;
     }
 
     /**
@@ -51,6 +53,7 @@ public class MobSoulType implements IMobSoulType {
         this.soulRequirement = soulRequirement;
         this.entityDisplayNameKey = entityDisplayNameKey;
         this.color = color;
+        this.enabled = true;
     }
 
     /**
@@ -67,6 +70,7 @@ public class MobSoulType implements IMobSoulType {
         this.soulRequirement = soulRequirement;
         this.entityDisplayNameKey = entityDisplayNameKey;
         this.color = color;
+        this.enabled = true;
     }
 
     @Override
@@ -131,6 +135,17 @@ public class MobSoulType implements IMobSoulType {
     @Override
     public MobSoulType setEntityDisplayName(ITextComponent name) {
         this.entityDisplayName = name;
+        return this;
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return this.enabled;
+    }
+
+    @Override
+    public IMobSoulType setEnabled(boolean enabled) {
+        this.enabled = enabled;
         return this;
     }
 }

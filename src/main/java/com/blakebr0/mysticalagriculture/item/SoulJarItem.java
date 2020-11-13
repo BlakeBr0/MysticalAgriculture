@@ -30,7 +30,9 @@ public class SoulJarItem extends BaseItem {
             items.add(new ItemStack(this));
 
             MobSoulTypeRegistry.getInstance().getMobSoulTypes().forEach(type -> {
-                items.add(MobSoulUtils.getFilledSoulJar(type, this));
+                if (type.isEnabled()) {
+                    items.add(MobSoulUtils.getFilledSoulJar(type, this));
+                }
             });
         }
     }
@@ -55,8 +57,9 @@ public class SoulJarItem extends BaseItem {
             IMobSoulType type = MobSoulUtils.getType(stack);
             if (type != null) {
                 double souls = MobSoulUtils.getSouls(stack);
-                if (souls > 0)
+                if (souls > 0) {
                     return (int) ((souls / type.getSoulRequirement()) * 9);
+                }
             }
 
             return 0;
