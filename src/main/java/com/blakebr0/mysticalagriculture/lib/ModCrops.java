@@ -141,6 +141,13 @@ public final class ModCrops {
     // REFINED STORAGE
     public static final Crop QUARTZ_ENRICHED_IRON = new Crop(new ResourceLocation(MOD_ID, "quartz_enriched_iron"), CropTier.THREE, CropType.RESOURCE, LazyIngredient.item("refinedstorage:quartz_enriched_iron"));
 
+    // POWAH
+    public static final Crop ENERGIZED_STEEL = new Crop(new ResourceLocation(MOD_ID, "energized_steel"), CropTier.FOUR, CropType.RESOURCE, LazyIngredient.item("powah:steel_energized"));
+    public static final Crop BLAZING_CRYSTAL = new Crop(new ResourceLocation(MOD_ID, "blazing_crystal"), CropTier.FOUR, CropType.RESOURCE, LazyIngredient.item("powah:crystal_blazing"));
+    public static final Crop NIOTIC_CRYSTAL = new Crop(new ResourceLocation(MOD_ID, "niotic_crystal"), CropTier.FIVE, CropType.RESOURCE, LazyIngredient.item("powah:crystal_niotic"));
+    public static final Crop SPIRITED_CRYSTAL = new Crop(new ResourceLocation(MOD_ID, "spirited_crystal"), CropTier.FIVE, CropType.RESOURCE, LazyIngredient.item("powah:crystal_spirited"));
+    public static final Crop URANINITE = new Crop(new ResourceLocation(MOD_ID, "uraninite"), CropTier.FIVE, CropType.RESOURCE, LazyIngredient.item("powah:uraninite"));
+
     public static void onRegisterCrops(ICropRegistry registry) {
         INFERIUM.setCrop(() -> (CropsBlock) ModBlocks.INFERIUM_CROP.get())
                 .setEssence(ModItems.INFERIUM_ESSENCE);
@@ -258,6 +265,13 @@ public final class ModCrops {
 
         // REFINED STORAGE
         registry.register(withRequiredMods(QUARTZ_ENRICHED_IRON, "refinedstorage"));
+
+        // POWAH
+        registry.register(withRequiredMods(ENERGIZED_STEEL, "powah"));
+        registry.register(withRequiredMods(BLAZING_CRYSTAL, "powah"));
+        registry.register(withRequiredMods(NIOTIC_CRYSTAL, "powah"));
+        registry.register(withRequiredMods(SPIRITED_CRYSTAL, "powah"));
+        registry.register(withRequiredMods(URANINITE, "powah"));
     }
 
     private static ICrop withRequiredMods(ICrop crop, String... mods) {

@@ -341,6 +341,12 @@
 
   "crop.mysticalagriculture.quartz_enriched_iron": "Quartz Enriched Iron",
 
+  "crop.mysticalagriculture.energized_steel": "Energized Steel",
+  "crop.mysticalagriculture.blazing_crystal": "Blazing Crystal",
+  "crop.mysticalagriculture.niotic_crystal": "Niotic Crystal",
+  "crop.mysticalagriculture.spirited_crystal": "Spirited Crystal",
+  "crop.mysticalagriculture.uraninite": "Uraninite",
+
   "augmentType.mysticalagriculture.tool": "Tool",
   "augmentType.mysticalagriculture.weapon": "Weapon",
   "augmentType.mysticalagriculture.armor": "Armor",
