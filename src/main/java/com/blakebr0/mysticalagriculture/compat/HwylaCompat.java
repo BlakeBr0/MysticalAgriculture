@@ -1,5 +1,6 @@
 package com.blakebr0.mysticalagriculture.compat;
 
+import com.blakebr0.cucumber.lib.Colors;
 import com.blakebr0.mysticalagriculture.api.crop.ICrop;
 import com.blakebr0.mysticalagriculture.api.crop.ICropGetter;
 import com.blakebr0.mysticalagriculture.api.farmland.IEssenceFarmland;
@@ -18,7 +19,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.StringTextComponent;
-import net.minecraft.util.text.TextFormatting;
 
 import java.util.List;
 
@@ -29,7 +29,10 @@ public class HwylaCompat implements IWailaPlugin {
         registrar.registerComponentProvider(new IComponentProvider() {
             @Override
             public void appendHead(List<ITextComponent> tooltip, IDataAccessor accessor, IPluginConfig config) {
-                tooltip.set(0, accessor.getStack().getDisplayName().copyRaw().mergeStyle(TextFormatting.WHITE));
+                ItemStack stack = accessor.getStack();
+                StringTextComponent text = new StringTextComponent(Colors.WHITE + stack.getDisplayName().getString());
+
+                tooltip.set(0, text);
             }
         }, TooltipPosition.HEAD, MysticalCropBlock.class);
 
