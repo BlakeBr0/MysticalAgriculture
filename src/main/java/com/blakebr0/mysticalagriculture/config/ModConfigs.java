@@ -28,6 +28,8 @@ public final class ModConfigs {
     public static final ForgeConfigSpec.IntValue GROWTH_ACCELERATOR_COOLDOWN;
     public static final ForgeConfigSpec.DoubleValue FERTILIZED_ESSENCE_DROP_CHANCE;
     public static final ForgeConfigSpec.BooleanValue SECONDARY_SEED_DROPS;
+    public static final ForgeConfigSpec.BooleanValue WITHER_DROPS_ESSENCE;
+    public static final ForgeConfigSpec.BooleanValue DRAGON_DROPS_ESSENCE;
 
     public static final ForgeConfigSpec.DoubleValue SOULIUM_ORE_CHANCE;
     public static final ForgeConfigSpec.BooleanValue GENERATE_PROSPERITY;
@@ -68,6 +70,14 @@ public final class ModConfigs {
                 .comment("Should crops have a chance of dropping a second seed when harvested?")
                 .translation("configGui.mysticalagriculture.secondary_seed_drops")
                 .define("secondarySeedDrops", true);
+        WITHER_DROPS_ESSENCE = common
+                .comment("Should the Wither drop essence when killed with an essence weapon?")
+                .translation("configGui.mysticalagriculture.wither_drops_essence")
+                .define("witherDropsEssence", true);
+        DRAGON_DROPS_ESSENCE = common
+                .comment("Should the Ender Dragon drop essence when killed with an essence weapon?")
+                .translation("configGui.mysticalagriculture.dragon_drops_essence")
+                .define("dragonDropsEssence", true);
         common.pop();
 
         common.comment("World generation options.").push("World");
