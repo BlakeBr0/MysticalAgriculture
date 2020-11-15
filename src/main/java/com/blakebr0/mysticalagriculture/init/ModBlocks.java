@@ -121,9 +121,9 @@ public final class ModBlocks {
             reg.updateReference(registry);
         });
 
-        CropRegistry.getInstance().allowRegistration();
+        CropRegistry.getInstance().setAllowRegistration(true);
         CropRegistry.getInstance().onRegisterBlocks(registry);
-        CropRegistry.getInstance().denyRegistration();
+        CropRegistry.getInstance().setAllowRegistration(false);
     }
 
     private static RegistryObject<Block> register(String name, Supplier<Block> block) {

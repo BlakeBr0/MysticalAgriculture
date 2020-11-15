@@ -59,12 +59,8 @@ public final class CropRegistry implements ICropRegistry {
         return INSTANCE;
     }
 
-    public void allowRegistration() {
-        this.allowRegistration = true;
-    }
-
-    public void denyRegistration() {
-        this.allowRegistration = false;
+    public void setAllowRegistration(boolean allowed) {
+        this.allowRegistration = allowed;
     }
 
     public void onRegisterBlocks(IForgeRegistry<Block> registry) {
