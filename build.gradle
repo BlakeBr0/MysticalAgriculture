@@ -11,7 +11,7 @@ buildscript {
 apply plugin: 'net.minecraftforge.gradle'
 apply plugin: 'idea'
 
-version = '4.1.2'
+version = '4.1.3'
 group = 'com.blakebr0.mysticalagriculture'
 archivesBaseName = 'MysticalAgriculture-1.16.4'
 
