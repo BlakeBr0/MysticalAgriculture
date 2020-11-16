@@ -36,6 +36,7 @@ minecraft {
 
             property 'forge.logging.markers', 'SCAN,REGISTRIES,REGISTRYDUMP'
             property 'forge.logging.console.level', 'info'
+            property 'mixin.env.disableRefMap', 'true'
 
             ideaModule "${project.name}.main"
             environment 'MOD_CLASSES', "${project.file('out/production/resources').canonicalPath}${File.pathSeparator}${project.file('out/production/classes').canonicalPath}"
@@ -46,6 +47,7 @@ minecraft {
 
             property 'forge.logging.markers', 'SCAN,REGISTRIES,REGISTRYDUMP'
             property 'forge.logging.console.level', 'info'
+            property 'mixin.env.disableRefMap', 'true'
 
             ideaModule "${project.name}.main"
             environment 'MOD_CLASSES', "${project.file('out/production/resources').canonicalPath}${File.pathSeparator}${project.file('out/production/classes').canonicalPath}"
@@ -54,9 +56,10 @@ minecraft {
         data {
             workingDirectory project.file('run')
 
-            properties 'forge.logging.markers': 'REGISTRIES,REGISTRYDUMP'
-            properties 'forge.logging.console.level': 'debug'
-            properties 'fml.earlyprogresswindow': 'false'
+            property 'forge.logging.markers', 'REGISTRIES,REGISTRYDUMP'
+            property 'forge.logging.console.level', 'debug'
+            property 'fml.earlyprogresswindow', 'false'
+            property 'mixin.env.disableRefMap', 'true'
 
             ideaModule "${project.name}.main"
             environment 'MOD_CLASSES', "${project.file('out/production/resources').canonicalPath}${File.pathSeparator}${project.file('out/production/classes').canonicalPath}"
@@ -79,7 +82,7 @@ dependencies {
     compileOnly fg.deobf('mezz.jei:jei-1.16.2:7.1.1.15:api')
     runtimeOnly fg.deobf('mezz.jei:jei-1.16.2:7.1.1.15')
     compile fg.deobf('com.blamejared.crafttweaker:CraftTweaker-1.16.2:7.0.0.26')
-//    compile fg.deobf('vazkii.patchouli:Patchouli:1.16-39')
+    compile fg.deobf('vazkii.patchouli:Patchouli:1.16.2-47')
 }
 
 task apiJar(type: Jar) {
