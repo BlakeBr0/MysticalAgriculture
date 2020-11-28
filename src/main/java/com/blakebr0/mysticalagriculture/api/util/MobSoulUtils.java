@@ -22,7 +22,7 @@ public class MobSoulUtils {
     }
 
     /**
-     * Creates a tag compound for this mob soul type using the specified soul amount
+     * Creates a tag compound for this mob soul type using the provided soul amount
      * @param type the mob soul type
      * @param souls the amount of souls in this tag
      * @return a tag compound for the specified mob soul type
@@ -36,7 +36,7 @@ public class MobSoulUtils {
     }
 
     /**
-     * Get a new soul jar filled with the specified amount of souls of the specified mob soul type
+     * Get a new soul jar filled with the provided amount of souls of the provided mob soul type
      * @param type the mob soul type
      * @param souls the amount of souls in this soul jar
      * @return the soul jar
@@ -46,7 +46,7 @@ public class MobSoulUtils {
     }
 
     /**
-     * Get a new soul jar filled with the specified amount of souls of the specified mob soul type
+     * Get a new soul jar filled with the provided amount of souls of the provided mob soul type
      * @param type the mob soul type
      * @param souls the amount of souls in this soul jar
      * @param item the soul jar item instance
@@ -56,11 +56,12 @@ public class MobSoulUtils {
         CompoundNBT nbt = makeTag(type, souls);
         ItemStack stack = new ItemStack(item);
         stack.setTag(nbt);
+
         return stack;
     }
 
     /**
-     * Gets a new soul jar filled with the specified soul type
+     * Gets a new soul jar filled with the provided soul type
      * @param type the mob soul type
      * @return the filled soul jar
      */
@@ -69,7 +70,7 @@ public class MobSoulUtils {
     }
 
     /**
-     * Gets a new soul jar filled with the specified soul type
+     * Gets a new soul jar filled with the provided soul type
      * @param type the mob soul type
      * @param item the soul jar item instance
      * @return the filled soul jar
@@ -78,12 +79,13 @@ public class MobSoulUtils {
         CompoundNBT nbt = makeTag(type);
         ItemStack stack = new ItemStack(item);
         stack.setTag(nbt);
+
         return stack;
     }
 
     /**
-     * Gets the mob soul type from the specified item stack
-     * @param stack the item stack
+     * Gets the mob soul type from the provided item stack
+     * @param stack the soul jar stack
      * @return the mob soul type
      */
     public static IMobSoulType getType(ItemStack stack) {
@@ -97,8 +99,8 @@ public class MobSoulUtils {
     }
 
     /**
-     * Gets the amount of souls currently stored in the specified item stack
-     * @param stack the item stack
+     * Gets the amount of souls currently stored in the provided item stack
+     * @param stack the soul jar stack
      * @return the amount of souls
      */
     public static double getSouls(ItemStack stack) {
@@ -107,6 +109,17 @@ public class MobSoulUtils {
             return nbt.getDouble("Souls");
 
         return 0D;
+    }
+
+    /**
+     * Checks if the provided mob soul type can be added to the provided item stack
+     * @param stack the soul jar stack
+     * @param type the mob soul type to add
+     * @return can this soul type be added to this soul jar
+     */
+    public static boolean canAddTypeToJar(ItemStack stack, IMobSoulType type) {
+        IMobSoulType containedType = getType(stack);
+        return containedType == null || containedType == type;
     }
 
     /**
@@ -126,21 +139,21 @@ public class MobSoulUtils {
             CompoundNBT nbt = makeTag(type, amount);
             stack.setTag(nbt);
 
-            return Math.max(0, requirement - amount);
+            return Math.max(0, amount - requirement);
         } else {
             double souls = getSouls(stack);
-            if (souls >= requirement) {
-                return amount;
-            } else {
-                double newSouls = Math.min(requirement, souls + amount);
+            if (souls < requirement) {
                 CompoundNBT nbt = stack.getTag();
+
                 if (nbt != null) {
+                    double newSouls = Math.min(requirement, souls + amount);
                     nbt.putDouble("Souls", newSouls);
+
                     return Math.max(0, amount - (newSouls - souls));
-                } else {
-                    return amount;
                 }
             }
         }
+
+        return amount;
     }
 }
