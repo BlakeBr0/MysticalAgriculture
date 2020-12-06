@@ -12,7 +12,7 @@ public final class ModDataGenerators {
         DataGenerator generator = event.getGenerator();
         ExistingFileHelper existingFileHelper = event.getExistingFileHelper();
 
-        generator.addProvider(new ModelJsonGenerator.Blocks(generator, MysticalAgriculture.MOD_ID, existingFileHelper));
-        generator.addProvider(new ModelJsonGenerator.Items(generator, MysticalAgriculture.MOD_ID, existingFileHelper));
+        generator.addProvider(new BlockModelJsonGenerator(generator, MysticalAgriculture.MOD_ID, existingFileHelper));
+        generator.addProvider(new ItemModelJsonGenerator(generator, MysticalAgriculture.MOD_ID, existingFileHelper));
     }
 }
