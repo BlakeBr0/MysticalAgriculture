@@ -1,0 +1,22 @@
+{
+  "type": "cucumber:shaped_no_mirror",
+  "conditions": [
+    {
+      "type": "mysticalagriculture:crop_enabled",
+      "crop": "mysticalagriculture:rock_crystal"
+    }
+  ],
+  "pattern": [
+    "EEE",
+    "E E",
+    "EEE"
+  ],
+  "key": {
+    "E": {
+      "item": "mysticalagriculture:rock_crystal_essence"
+    }
+  },
+  "result": {
+    "item": "astralsorcery:rock_crystal"
+  }
+}

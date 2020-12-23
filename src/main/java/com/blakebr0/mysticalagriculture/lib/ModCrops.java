@@ -130,6 +130,11 @@ public final class ModCrops {
     // QUARK
     public static final Crop ENDER_BIOTITE = new Crop(new ResourceLocation(MOD_ID, "ender_biotite"), CropTier.THREE, CropType.RESOURCE, LazyIngredient.item("quark:biotite"));
 
+    // ASTRAL SORCERY
+    public static final Crop AQUAMARINE = new Crop(new ResourceLocation(MOD_ID, "aquamarine"), CropTier.THREE, CropType.RESOURCE, LazyIngredient.item("astralsorcery:aquamarine"));
+    public static final Crop STARMETAL = new Crop(new ResourceLocation(MOD_ID, "starmetal"), CropTier.FOUR, CropType.RESOURCE, LazyIngredient.item("astralsorcery:startmetal_ingot"));
+    public static final Crop ROCK_CRYSTAL = new Crop(new ResourceLocation(MOD_ID, "rock_crystal"), CropTier.FIVE, CropType.RESOURCE, LazyIngredient.item("astralsorcery:rock_crystal"));
+
     // PNEUMATICCRAFT
     public static final Crop COMPRESSED_IRON = new Crop(new ResourceLocation(MOD_ID, "compressed_iron"), CropTier.FOUR, CropType.RESOURCE, LazyIngredient.tag("forge:ingots/compressed_iron"));
 
@@ -254,6 +259,11 @@ public final class ModCrops {
 
         // QUARK
         registry.register(withRequiredMods(ENDER_BIOTITE, "quark"));
+
+        // ASTRAL SORCERY
+        registry.register(withRequiredMods(AQUAMARINE, "astralsorcery"));
+        registry.register(withRequiredMods(STARMETAL, "astralsorcery"));
+        registry.register(withRequiredMods(ROCK_CRYSTAL, "astralsorcery"));
 
         // PNEUMATICCRAFT
         registry.register(withRequiredMods(COMPRESSED_IRON, "pneumaticcraft"));
