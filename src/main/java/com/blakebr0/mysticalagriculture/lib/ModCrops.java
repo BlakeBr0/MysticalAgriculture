@@ -138,6 +138,10 @@ public final class ModCrops {
     // PNEUMATICCRAFT
     public static final Crop COMPRESSED_IRON = new Crop(new ResourceLocation(MOD_ID, "compressed_iron"), CropTier.FOUR, CropType.RESOURCE, LazyIngredient.tag("forge:ingots/compressed_iron"));
 
+    // EXTRENE REACTORS 2
+    public static final Crop YELLORIUM = new Crop(new ResourceLocation(MOD_ID, "yellorium"), CropTier.FIVE, CropType.RESOURCE, LazyIngredient.tag("forge:ingots/yellorium"));
+    public static final Crop CYANITE = new Crop(new ResourceLocation(MOD_ID, "cyanite"), CropTier.FIVE, CropType.RESOURCE, LazyIngredient.tag("forge:ingots/cyanite"));
+
     // APPLIED ENERGISTICS 2
     public static final Crop SKY_STONE = new Crop(new ResourceLocation(MOD_ID, "sky_stone"), CropTier.THREE, CropType.RESOURCE, LazyIngredient.item("appliedenergistics2:sky_stone_block"));
     public static final Crop CERTUS_QUARTZ = new Crop(new ResourceLocation(MOD_ID, "certus_quartz"), CropTier.THREE, CropType.RESOURCE, LazyIngredient.tag("appliedenergistics2:crystals/certus_quartz"));
@@ -267,6 +271,10 @@ public final class ModCrops {
 
         // PNEUMATICCRAFT
         registry.register(withRequiredMods(COMPRESSED_IRON, "pneumaticcraft"));
+
+        // EXTREME REACTORS 2
+        registry.register(withRequiredMods(YELLORIUM, "bigreactors"));
+        registry.register(withRequiredMods(CYANITE, "bigreactors"));
 
         // APPLIED ENERGISTICS 2
         registry.register(withRequiredMods(SKY_STONE, "appliedenergistics2"));
