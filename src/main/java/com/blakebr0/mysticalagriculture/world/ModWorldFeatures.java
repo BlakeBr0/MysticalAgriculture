@@ -21,6 +21,7 @@ public final class ModWorldFeatures {
 
     public static final RegistryObject<Feature<OreFeatureConfig>> SOULSTONE = register("soulstone", () -> new SoulstoneFeature(OreFeatureConfig.CODEC));
 
+    // TODO: is there a potential that this doesn't update the registry object reference>
     @SubscribeEvent
     public void onRegisterFeatures(RegistryEvent.Register<Feature<?>> event) {
         IForgeRegistry<Feature<?>> registry = event.getRegistry();

@@ -88,6 +88,7 @@ public final class MysticalAgriculture {
 		ModRecipeSerializers.onCommonSetup();
 
 		event.enqueueWork(() -> {
+			ModWorldgenRegistration.onCommonSetup();
 			NetworkHandler.onCommonSetup();
 		});
 	}
