@@ -92,11 +92,11 @@ public final class ModConfigs {
         PROSPERITY_SPAWN_RATE = common
                 .comment("How many Prosperity Ore veins should spawn in a chunk.")
                 .translation("configGui.mysticalagriculture.prosperity_spawn_rate")
-                .defineInRange("prosperitySpawnRate", 12, 0, Integer.MAX_VALUE);
+                .defineInRange("prosperitySpawnRate", 12, 0, 128);
         PROSPERITY_SPAWN_SIZE = common
                 .comment("The maximum amount of Prosperity Ore blocks that can spawn in a vein.")
                 .translation("configGui.mysticalagriculture.prosperity_spawn_size")
-                .defineInRange("prosperitySpawnSize", 8, 0, Integer.MAX_VALUE);
+                .defineInRange("prosperitySpawnSize", 8, 0, 64);
         PROSPERITY_SPAWN_HEIGHT = common
                 .comment("The maximum Y level that Prosperity Ore veins can spawn.")
                 .translation("configGui.mysticalagriculture.prosperity_spawn_height")
@@ -108,11 +108,11 @@ public final class ModConfigs {
         INFERIUM_SPAWN_RATE = common
                 .comment("How many Inferium Ore veins should spawn in a chunk.")
                 .translation("configGui.mysticalagriculture.inferium_spawn_rate")
-                .defineInRange("inferiumSpawnRate", 16, 0, Integer.MAX_VALUE);
+                .defineInRange("inferiumSpawnRate", 16, 0, 128);
         INFERIUM_SPAWN_SIZE = common
                 .comment("The maximum amount of Inferium Ore blocks that can spawn in a vein.")
                 .translation("configGui.mysticalagriculture.inferium_spawn_size")
-                .defineInRange("inferiumSpawnSize", 8, 0, Integer.MAX_VALUE);
+                .defineInRange("inferiumSpawnSize", 8, 0, 64);
         INFERIUM_SPAWN_HEIGHT = common
                 .comment("The maximum Y level that Inferium Ore veins can spawn.")
                 .translation("configGui.mysticalagriculture.inferium_spawn_height")
@@ -124,11 +124,11 @@ public final class ModConfigs {
         SOULSTONE_SPAWN_RATE = common
                 .comment("How many Soulstone veins should spawn in a chunk.")
                 .translation("configGui.mysticalagriculture.soulstone_spawn_rate")
-                .defineInRange("soulstoneSpawnRate", 4, 0, Integer.MAX_VALUE);
+                .defineInRange("soulstoneSpawnRate", 4, 0, 128);
         SOULSTONE_SPAWN_SIZE = common
                 .comment("The maximum amount of Soulstone blocks that can spawn in a vein.")
                 .translation("configGui.mysticalagriculture.soulstone_spawn_size")
-                .defineInRange("soulstoneSpawnSize", 64, 0, Integer.MAX_VALUE);
+                .defineInRange("soulstoneSpawnSize", 64, 0, 64);
         SOULSTONE_SPAWN_HEIGHT = common
                 .comment("The maximum Y level that Soulstone veins can spawn.")
                 .translation("configGui.mysticalagriculture.inferium_spawn_height")
