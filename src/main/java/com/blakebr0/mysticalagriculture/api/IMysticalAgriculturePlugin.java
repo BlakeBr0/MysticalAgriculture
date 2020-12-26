@@ -1,10 +1,17 @@
 package com.blakebr0.mysticalagriculture.api;
 
+import com.blakebr0.mysticalagriculture.api.lib.PluginConfig;
 import com.blakebr0.mysticalagriculture.api.registry.IAugmentRegistry;
 import com.blakebr0.mysticalagriculture.api.registry.ICropRegistry;
 import com.blakebr0.mysticalagriculture.api.registry.IMobSoulTypeRegistry;
 
 public interface IMysticalAgriculturePlugin {
+    /**
+     * Override this method to configure plugin wide settings
+     * @param config the plugin config
+     */
+    default void configure(PluginConfig config) { }
+
     /**
      * Override this method and use the supplied registry to register all of your crops
      * @param registry the crop registry

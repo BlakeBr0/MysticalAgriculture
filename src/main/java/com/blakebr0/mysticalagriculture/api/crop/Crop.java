@@ -36,6 +36,7 @@ public class Crop implements ICrop {
     private boolean registerEssenceItem;
     private boolean registerSeedsItem;
     private boolean hasEffect;
+    private CropRecipes recipeConfig;
 
     /**
      * Represents a new crop for registration
@@ -92,6 +93,7 @@ public class Crop implements ICrop {
         this.registerEssenceItem = true;
         this.registerSeedsItem = true;
         this.hasEffect = false;
+        this.recipeConfig = new CropRecipes();
     }
 
     @Override
@@ -263,6 +265,11 @@ public class Crop implements ICrop {
     public ICrop setHasEffect(boolean hasEffect) {
         this.hasEffect = hasEffect;
         return this;
+    }
+
+    @Override
+    public CropRecipes getRecipeConfig() {
+        return this.recipeConfig;
     }
 
     public Crop setColor(int color) {

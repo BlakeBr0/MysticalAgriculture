@@ -45,7 +45,7 @@ public final class AugmentRegistry implements IAugmentRegistry {
     }
 
     public void onRegisterItems(IForgeRegistry<Item> registry) {
-        PluginRegistry.getInstance().forEach(plugin -> plugin.onRegisterAugments(this));
+        PluginRegistry.getInstance().forEach((plugin, config) -> plugin.onRegisterAugments(this));
 
         this.augments.forEach(a -> {
             Item item = new AugmentItem(a, p -> p.group(ITEM_GROUP));

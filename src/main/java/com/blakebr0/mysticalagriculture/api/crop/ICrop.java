@@ -311,6 +311,7 @@ public interface ICrop {
      * @param stack the stack
      * @return should the crop have the glint effect
      */
+    // TODO: 1.17: remove default
     default boolean hasEffect(ItemStack stack) {
         return false;
     }
@@ -320,7 +321,17 @@ public interface ICrop {
      * @param hasEffect the effect state
      * @return this crop
      */
+    // TODO: 1.17: remove default
     default ICrop setHasEffect(boolean hasEffect) {
         return this;
+    }
+
+    /**
+     * Get the dynamic recipes config for this crop
+     * @return the crop's recipe config
+     */
+    // TODO: 1.17 remove default
+    default CropRecipes getRecipeConfig() {
+        return new CropRecipes();
     }
 }

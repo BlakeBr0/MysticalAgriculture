@@ -1,7 +1,9 @@
 package com.blakebr0.mysticalagriculture.registry;
 
 import com.blakebr0.mysticalagriculture.MysticalAgriculture;
+import com.blakebr0.mysticalagriculture.api.crop.CropRecipes;
 import com.blakebr0.mysticalagriculture.api.crop.ICrop;
+import com.blakebr0.mysticalagriculture.api.lib.PluginConfig;
 import com.blakebr0.mysticalagriculture.api.registry.ICropRegistry;
 import com.blakebr0.mysticalagriculture.block.MysticalCropBlock;
 import com.blakebr0.mysticalagriculture.item.MysticalEssenceItem;
@@ -26,12 +28,15 @@ public final class CropRegistry implements ICropRegistry {
 
     private final List<ICrop> crops = new ArrayList<>();
     private boolean allowRegistration = false;
+    private PluginConfig currentPluginConfig = null;
 
     @Override
     public void register(ICrop crop) {
         if (this.allowRegistration) {
             if (this.crops.stream().noneMatch(c -> c.getName().equals(crop.getName()))) {
                 this.crops.add(crop);
+
+                this.loadRecipeConfig(crop);
             } else {
                 LOGGER.info("{} tried to register a duplicate crop with name {}, skipping", crop.getModId(), crop.getName());
             }
@@ -64,7 +69,11 @@ public final class CropRegistry implements ICropRegistry {
     }
 
     public void onRegisterBlocks(IForgeRegistry<Block> registry) {
-        PluginRegistry.getInstance().forEach(plugin -> plugin.onRegisterCrops(this));
+        PluginRegistry.getInstance().forEach((plugin, config) -> {
+            this.currentPluginConfig = config;
+
+            plugin.onRegisterCrops(this);
+        });
 
         this.crops.stream().filter(ICrop::shouldRegisterCropBlock).forEach(c -> {
             CropsBlock crop = c.getCrop();
@@ -112,6 +121,17 @@ public final class CropRegistry implements ICropRegistry {
             registry.register(seeds);
         });
 
-        PluginRegistry.getInstance().forEach(plugin -> plugin.onPostRegisterCrops(this));
+        PluginRegistry.getInstance().forEach((plugin, config) -> plugin.onPostRegisterCrops(this));
+
+        this.currentPluginConfig = null;
+    }
+
+    private void loadRecipeConfig(ICrop crop) {
+        CropRecipes recipes = crop.getRecipeConfig();
+        PluginConfig config = this.currentPluginConfig;
+
+        recipes.setSeedCraftingRecipeEnabled(config.isDynamicSeedCraftingRecipesEnabled());
+        recipes.setSeedInfusionRecipeEnabled(config.isDynamicSeedInfusionRecipesEnabled());
+        recipes.setSeedReprocessorRecipeEnabled(config.isDynamicSeedReprocessorRecipesEnabled());
     }
 }

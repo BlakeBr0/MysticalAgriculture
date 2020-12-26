@@ -104,6 +104,7 @@ public class CropTier {
      * @param farmland the farmland block
      * @return this tier
      */
+    // TODO: 1.17: change to ? extends Block
     public CropTier setFarmland(Supplier<? extends FarmlandBlock> farmland) {
         this.farmland = farmland;
         return this;

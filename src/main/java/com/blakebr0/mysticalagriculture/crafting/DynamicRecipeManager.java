@@ -49,7 +49,7 @@ public class DynamicRecipeManager implements IResourceManagerReloadListener {
     }
 
     private ISpecialRecipe makeSeedRecipe(ICrop crop) {
-        if (!crop.isEnabled())
+        if (!crop.isEnabled() || !crop.getRecipeConfig().isSeedInfusionRecipeEnabled())
             return null;
 
         Item essenceItem = crop.getTier().getEssence();
@@ -79,7 +79,7 @@ public class DynamicRecipeManager implements IResourceManagerReloadListener {
     }
 
     private IRecipe<?> makeRegularSeedRecipe(ICrop crop) {
-        if (!crop.isEnabled())
+        if (!crop.isEnabled() || !crop.getRecipeConfig().isSeedCraftingRecipeEnabled())
             return null;
 
         if (!ModConfigs.SEED_CRAFTING_RECIPES.get())
@@ -112,7 +112,7 @@ public class DynamicRecipeManager implements IResourceManagerReloadListener {
     }
 
     private ISpecialRecipe makeReprocessorRecipe(ICrop crop) {
-        if (!crop.isEnabled())
+        if (!crop.isEnabled() || !crop.getRecipeConfig().isSeedReprocessorRecipeEnabled())
             return null;
 
         Ingredient input = Ingredient.fromItems(crop.getSeeds());
