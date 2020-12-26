@@ -30,8 +30,9 @@ public class HoeIngredient extends Ingredient {
 
     @Override
     public ItemStack[] getMatchingStacks() {
-        if (this.stacks == null)
-            this.stacks = ALL_HOES.stream().map(ItemStack::new).toArray(ItemStack[]::new);
+        if (this.stacks == null) {
+            this.initMatchingStacks();
+        }
 
         return this.stacks;
     }
@@ -39,8 +40,9 @@ public class HoeIngredient extends Ingredient {
     @Override
     public IntList getValidItemStacksPacked() {
         if (this.stacksPacked == null) {
-            if (this.stacks == null)
-                this.stacks = ALL_HOES.stream().map(ItemStack::new).toArray(ItemStack[]::new);
+            if (this.stacks == null) {
+                this.initMatchingStacks();
+            }
 
             this.stacksPacked = new IntArrayList(this.stacks.length);
             Arrays.stream(this.stacks).forEach(s -> this.stacksPacked.add(RecipeItemHelper.pack(s)));
@@ -57,8 +59,9 @@ public class HoeIngredient extends Ingredient {
         } else if (ALL_HOES.size() == 0) {
             return stack.isEmpty();
         } else {
-            if (this.stacks == null)
-                this.stacks = ALL_HOES.stream().map(ItemStack::new).toArray(ItemStack[]::new);
+            if (this.stacks == null) {
+                this.initMatchingStacks();
+            }
 
             for (ItemStack itemstack : this.stacks) {
                 if (itemstack.getItem() == stack.getItem()) {
@@ -72,7 +75,7 @@ public class HoeIngredient extends Ingredient {
 
     @Override
     public boolean hasNoMatchingItems() {
-        return ALL_HOES.size() == 0 && (this.stacks == null || this.stacks.length == 0) && (this.stacksPacked == null || this.stacksPacked.isEmpty());
+        return ALL_HOES.isEmpty() && (this.stacks == null || this.stacks.length == 0) && (this.stacksPacked == null || this.stacksPacked.isEmpty());
     }
 
     @Override
@@ -101,6 +104,10 @@ public class HoeIngredient extends Ingredient {
     @Override
     public IIngredientSerializer<? extends Ingredient> getSerializer() {
         return ModRecipeSerializers.HOE_INGREDIENT;
+    }
+
+    private void initMatchingStacks() {
+        this.stacks = ALL_HOES.stream().map(ItemStack::new).toArray(ItemStack[]::new);
     }
 
     public static class Serializer implements IIngredientSerializer<HoeIngredient> {

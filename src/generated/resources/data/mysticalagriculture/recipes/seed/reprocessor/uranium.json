@@ -1,0 +1,16 @@
+{
+  "type": "mysticalagriculture:reprocessor",
+  "conditions": [
+    {
+      "type": "mysticalagriculture:crop_enabled",
+      "crop": "mysticalagriculture:uranium"
+    }
+  ],
+  "input": {
+    "item": "mysticalagriculture:uranium_seeds"
+  },
+  "result": {
+    "item": "mysticalagriculture:uranium_essence",
+    "count": 2
+  }
+}

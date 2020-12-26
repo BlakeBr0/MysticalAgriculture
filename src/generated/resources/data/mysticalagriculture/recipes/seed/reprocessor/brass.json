@@ -1,0 +1,16 @@
+{
+  "type": "mysticalagriculture:reprocessor",
+  "conditions": [
+    {
+      "type": "mysticalagriculture:crop_enabled",
+      "crop": "mysticalagriculture:brass"
+    }
+  ],
+  "input": {
+    "item": "mysticalagriculture:brass_seeds"
+  },
+  "result": {
+    "item": "mysticalagriculture:brass_essence",
+    "count": 2
+  }
+}

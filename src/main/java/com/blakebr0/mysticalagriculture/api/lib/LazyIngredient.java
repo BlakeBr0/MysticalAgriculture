@@ -53,6 +53,7 @@ public class LazyIngredient {
             this.ingredient = Ingredient.EMPTY;
             if (this.isTag()) {
                 ITag<Item> tag = TagCollectionManager.getManager().getItemTags().get(new ResourceLocation(this.name));
+                // TODO: is the tag.getAllElements() check necessary?
                 if (tag != null && !tag.getAllElements().isEmpty())
                     this.ingredient = Ingredient.fromTag(tag);
             } else if (this.isItem()) {

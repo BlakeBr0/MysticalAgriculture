@@ -25,13 +25,14 @@ public class FilledSoulJarIngredient extends Ingredient {
     private IntList stacksPacked;
 
     public FilledSoulJarIngredient() {
-        super(Stream.of());
+        super(Stream.empty());
     }
 
     @Override
     public ItemStack[] getMatchingStacks() {
-        if (this.stacks == null)
-            this.stacks = this.getAllFilledJarStacks();
+        if (this.stacks == null) {
+            this.initMatchingStacks();
+        }
 
         return this.stacks;
     }
@@ -39,8 +40,9 @@ public class FilledSoulJarIngredient extends Ingredient {
     @Override
     public IntList getValidItemStacksPacked() {
         if (this.stacksPacked == null) {
-            if (this.stacks == null)
-                this.stacks = this.getAllFilledJarStacks();
+            if (this.stacks == null) {
+                this.initMatchingStacks();
+            }
 
             this.stacksPacked = new IntArrayList(this.stacks.length);
             Arrays.stream(this.stacks).forEach(s -> this.stacksPacked.add(RecipeItemHelper.pack(s)));
@@ -53,8 +55,9 @@ public class FilledSoulJarIngredient extends Ingredient {
     @Override
     public boolean test(ItemStack stack) {
         if (stack != null) {
-            if (this.stacks == null)
-                this.stacks = this.getAllFilledJarStacks();
+            if (this.stacks == null) {
+                this.initMatchingStacks();
+            }
 
             return stack.getItem() instanceof SoulJarItem && MobSoulUtils.getSouls(stack) > 0;
         }
@@ -89,8 +92,8 @@ public class FilledSoulJarIngredient extends Ingredient {
         return false;
     }
 
-    private ItemStack[] getAllFilledJarStacks() {
-        return MobSoulTypeRegistry.getInstance().getMobSoulTypes().stream()
+    private void initMatchingStacks() {
+        this.stacks = MobSoulTypeRegistry.getInstance().getMobSoulTypes().stream()
                 .map(type -> MobSoulUtils.getFilledSoulJar(type, ModItems.SOUL_JAR.get()))
                 .toArray(ItemStack[]::new);
     }

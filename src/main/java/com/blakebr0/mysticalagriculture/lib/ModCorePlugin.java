@@ -17,16 +17,7 @@ public final class ModCorePlugin implements IMysticalAgriculturePlugin {
     }
 
     @Override
-    public void onRegisterMobSoulTypes(IMobSoulTypeRegistry registry) {
-        ModMobSoulTypes.onRegisterMobSoulTypes(registry);
-    }
-
-    @Override
-    public void onRegisterAugments(IAugmentRegistry registry) {
-        ModAugments.onRegisterAugments(registry);
-    }
-
-    public static void onCommonSetup() {
+    public void onPostRegisterCrops(ICropRegistry registry) {
         CropTier.ELEMENTAL.setFarmland(() -> (FarmlandBlock) ModBlocks.INFERIUM_FARMLAND.get()).setEssence(ModItems.INFERIUM_ESSENCE);
         CropTier.ONE.setFarmland(() -> (FarmlandBlock) ModBlocks.INFERIUM_FARMLAND.get()).setEssence(ModItems.INFERIUM_ESSENCE);
         CropTier.TWO.setFarmland(() -> (FarmlandBlock) ModBlocks.PRUDENTIUM_FARMLAND.get()).setEssence(ModItems.PRUDENTIUM_ESSENCE);
@@ -36,5 +27,15 @@ public final class ModCorePlugin implements IMysticalAgriculturePlugin {
 
         CropType.RESOURCE.setCraftingSeed(ModItems.PROSPERITY_SEED_BASE);
         CropType.MOB.setCraftingSeed(ModItems.SOULIUM_SEED_BASE);
+    }
+
+    @Override
+    public void onRegisterMobSoulTypes(IMobSoulTypeRegistry registry) {
+        ModMobSoulTypes.onRegisterMobSoulTypes(registry);
+    }
+
+    @Override
+    public void onRegisterAugments(IAugmentRegistry registry) {
+        ModAugments.onRegisterAugments(registry);
     }
 }

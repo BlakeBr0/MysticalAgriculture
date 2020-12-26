@@ -67,7 +67,7 @@ public class InfusionRecipe implements ISpecialRecipe, IInfusionRecipe {
     @Override
     public boolean matches(IItemHandler inventory) {
         ItemStack altarStack = inventory.getStackInSlot(0);
-        return this.inputs.get(0).test(altarStack) && ISpecialRecipe.super.matches(inventory);
+        return !this.inputs.isEmpty() && this.inputs.get(0).test(altarStack) && ISpecialRecipe.super.matches(inventory);
     }
 
     public static class Serializer extends ForgeRegistryEntry<IRecipeSerializer<?>> implements IRecipeSerializer<InfusionRecipe> {
@@ -75,6 +75,7 @@ public class InfusionRecipe implements ISpecialRecipe, IInfusionRecipe {
         public InfusionRecipe read(ResourceLocation recipeId, JsonObject json) {
             NonNullList<Ingredient> inputs = NonNullList.create();
             JsonObject input = JSONUtils.getJsonObject(json, "input");
+
             inputs.add(Ingredient.deserialize(input));
 
             JsonArray ingredients = JSONUtils.getJsonArray(json, "ingredients");

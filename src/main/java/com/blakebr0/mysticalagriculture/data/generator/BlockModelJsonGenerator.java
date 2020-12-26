@@ -1,4 +1,4 @@
-package com.blakebr0.mysticalagriculture.data;
+package com.blakebr0.mysticalagriculture.data.generator;
 
 import com.blakebr0.mysticalagriculture.MysticalAgriculture;
 import com.blakebr0.mysticalagriculture.api.MysticalAgricultureAPI;

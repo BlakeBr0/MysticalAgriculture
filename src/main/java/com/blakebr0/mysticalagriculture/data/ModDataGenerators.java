@@ -1,6 +1,9 @@
 package com.blakebr0.mysticalagriculture.data;
 
 import com.blakebr0.mysticalagriculture.MysticalAgriculture;
+import com.blakebr0.mysticalagriculture.data.generator.BlockModelJsonGenerator;
+import com.blakebr0.mysticalagriculture.data.generator.ItemModelJsonGenerator;
+import com.blakebr0.mysticalagriculture.data.generator.RecipeJsonGenerator;
 import net.minecraft.data.DataGenerator;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -14,5 +17,6 @@ public final class ModDataGenerators {
 
         generator.addProvider(new BlockModelJsonGenerator(generator, MysticalAgriculture.MOD_ID, existingFileHelper));
         generator.addProvider(new ItemModelJsonGenerator(generator, MysticalAgriculture.MOD_ID, existingFileHelper));
+        generator.addProvider(new RecipeJsonGenerator(generator));
     }
 }

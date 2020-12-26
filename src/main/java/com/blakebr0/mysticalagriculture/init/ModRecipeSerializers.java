@@ -3,6 +3,8 @@ package com.blakebr0.mysticalagriculture.init;
 import com.blakebr0.mysticalagriculture.MysticalAgriculture;
 import com.blakebr0.mysticalagriculture.crafting.condition.AugmentEnabledCondition;
 import com.blakebr0.mysticalagriculture.crafting.condition.CropEnabledCondition;
+import com.blakebr0.mysticalagriculture.crafting.condition.CropHasMaterialCondition;
+import com.blakebr0.mysticalagriculture.crafting.ingredient.CropComponentIngredient;
 import com.blakebr0.mysticalagriculture.crafting.ingredient.FilledSoulJarIngredient;
 import com.blakebr0.mysticalagriculture.crafting.ingredient.HoeIngredient;
 import com.blakebr0.mysticalagriculture.crafting.recipe.*;
@@ -25,6 +27,7 @@ public final class ModRecipeSerializers {
 
     public static final IIngredientSerializer<HoeIngredient> HOE_INGREDIENT = new HoeIngredient.Serializer();
     public static final IIngredientSerializer<FilledSoulJarIngredient> FILLED_SOUL_JAR_INGREDIENT = new FilledSoulJarIngredient.Serializer();
+    public static final IIngredientSerializer<CropComponentIngredient> CROP_COMPONENT_INGREDIENT = new CropComponentIngredient.Serializer();
 
     @SubscribeEvent
     public void onRegisterSerializers(RegistryEvent.Register<IRecipeSerializer<?>> event) {
@@ -38,9 +41,11 @@ public final class ModRecipeSerializers {
 
         CraftingHelper.register(CropEnabledCondition.Serializer.INSTANCE);
         CraftingHelper.register(AugmentEnabledCondition.Serializer.INSTANCE);
+        CraftingHelper.register(CropHasMaterialCondition.Serializer.INSTANCE);
 
         CraftingHelper.register(new ResourceLocation(MysticalAgriculture.MOD_ID, "all_hoes"), HOE_INGREDIENT);
         CraftingHelper.register(new ResourceLocation(MysticalAgriculture.MOD_ID, "filled_soul_jars"), FILLED_SOUL_JAR_INGREDIENT);
+        CraftingHelper.register(new ResourceLocation(MysticalAgriculture.MOD_ID, "crop_component"), CROP_COMPONENT_INGREDIENT);
     }
 
     public static void onCommonSetup() {
