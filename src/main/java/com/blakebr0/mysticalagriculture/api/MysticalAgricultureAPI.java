@@ -5,6 +5,11 @@ import com.blakebr0.mysticalagriculture.api.crop.CropType;
 import com.blakebr0.mysticalagriculture.api.registry.IAugmentRegistry;
 import com.blakebr0.mysticalagriculture.api.registry.ICropRegistry;
 import com.blakebr0.mysticalagriculture.api.registry.IMobSoulTypeRegistry;
+import net.minecraft.block.Block;
+import net.minecraft.item.Item;
+import net.minecraft.tags.BlockTags;
+import net.minecraft.tags.ITag;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.ModLoadingContext;
 
@@ -15,6 +20,10 @@ public class MysticalAgricultureAPI {
     public static final String MOD_ID = "mysticalagriculture";
     public static final Set<CropType> CROP_TYPES = new HashSet<>();
     public static final Set<CropTier> CROP_TIERS = new HashSet<>();
+    public static final ITag.INamedTag<Block> CROPS_TAG = BlockTags.makeWrapperTag("mysticalagriculture:crops");
+    public static final ITag.INamedTag<Item> ESSENCES_TAG = ItemTags.makeWrapperTag("mysticalagriculture:essences");
+    public static final ITag.INamedTag<Item> SEEDS_TAG = ItemTags.makeWrapperTag("mysticalagriculture:seeds");
+
     private static ICropRegistry cropRegistry;
     private static IAugmentRegistry augmentRegistry;
     private static IMobSoulTypeRegistry soulTypeRegistry;
