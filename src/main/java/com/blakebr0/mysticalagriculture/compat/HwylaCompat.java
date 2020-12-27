@@ -16,11 +16,16 @@ import mcp.mobius.waila.api.TooltipPosition;
 import mcp.mobius.waila.api.WailaPlugin;
 import net.minecraft.block.Block;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.StringTextComponent;
+import net.minecraft.util.text.TextFormatting;
+import net.minecraft.world.World;
+import net.minecraft.world.biome.Biome;
 
 import java.util.List;
+import java.util.Set;
 
 @WailaPlugin
 public class HwylaCompat implements IWailaPlugin {
@@ -44,12 +49,17 @@ public class HwylaCompat implements IWailaPlugin {
 
                 tooltip.add(ModTooltips.TIER.args(crop.getTier().getDisplayName()).build());
 
-                BlockPos downPos = accessor.getPosition().down();
-                Block belowBlock = accessor.getWorld().getBlockState(downPos).getBlock();
-                double secondaryChance = crop.getSecondaryChance(belowBlock);
+                BlockPos pos = accessor.getPosition();
+                BlockPos downPos = pos.down();
+                World world = accessor.getWorld();
+                Block belowBlock = world.getBlockState(downPos).getBlock();
 
+                double secondaryChance = crop.getSecondaryChance(belowBlock);
                 if (secondaryChance > 0) {
-                    ITextComponent chanceText = new StringTextComponent(String.valueOf((int) (secondaryChance * 100))).appendString("%").mergeStyle(crop.getTier().getTextColor());
+                    ITextComponent chanceText = new StringTextComponent(String.valueOf((int) (secondaryChance * 100)))
+                            .appendString("%")
+                            .mergeStyle(crop.getTier().getTextColor());
+
                     tooltip.add(ModTooltips.SECONDARY_CHANCE.args(chanceText).build());
                 }
 
@@ -57,6 +67,14 @@ public class HwylaCompat implements IWailaPlugin {
                 if (crux != null) {
                     ItemStack stack = new ItemStack(crux);
                     tooltip.add(ModTooltips.REQUIRES_CRUX.args(stack.getDisplayName()).build());
+                }
+
+                Set<ResourceLocation> biomes = crop.getRequiredBiomes();
+                if (!biomes.isEmpty()) {
+                    Biome biome = world.getBiome(pos);
+                    if (!biomes.contains(biome.getRegistryName())) {
+                        tooltip.add(ModTooltips.INVALID_BIOME.color(TextFormatting.RED).build());
+                    }
                 }
             }
         }, TooltipPosition.BODY, MysticalCropBlock.class);

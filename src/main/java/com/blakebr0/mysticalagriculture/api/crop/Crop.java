@@ -10,6 +10,8 @@ import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.ITextComponent;
 
+import java.util.HashSet;
+import java.util.Set;
 import java.util.function.Supplier;
 
 /**
@@ -37,6 +39,7 @@ public class Crop implements ICrop {
     private boolean registerSeedsItem;
     private boolean hasEffect;
     private CropRecipes recipeConfig;
+    private Set<ResourceLocation> requiredBiomes;
 
     /**
      * Represents a new crop for registration
@@ -94,6 +97,7 @@ public class Crop implements ICrop {
         this.registerSeedsItem = true;
         this.hasEffect = false;
         this.recipeConfig = new CropRecipes();
+        this.requiredBiomes = new HashSet<>();
     }
 
     @Override
@@ -270,6 +274,17 @@ public class Crop implements ICrop {
     @Override
     public CropRecipes getRecipeConfig() {
         return this.recipeConfig;
+    }
+
+    @Override
+    public Set<ResourceLocation> getRequiredBiomes() {
+        return this.requiredBiomes;
+    }
+
+    @Override
+    public ICrop addRequiredBiome(ResourceLocation id) {
+        this.requiredBiomes.add(id);
+        return this;
     }
 
     public Crop setColor(int color) {

@@ -11,14 +11,18 @@ import net.minecraft.item.BlockNamedItem;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.NonNullList;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.ITextComponent;
+import net.minecraft.util.text.StringTextComponent;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 
 import java.util.List;
+import java.util.Set;
 import java.util.function.Function;
+import java.util.stream.Collectors;
 
 public class MysticalSeedsItem extends BlockNamedItem implements ICropGetter, IEnableable {
     private final ICrop crop;
@@ -30,8 +34,9 @@ public class MysticalSeedsItem extends BlockNamedItem implements ICropGetter, IE
 
     @Override
     public void fillItemGroup(ItemGroup group, NonNullList<ItemStack> items) {
-        if (this.isEnabled())
+        if (this.isEnabled()) {
             super.fillItemGroup(group, items);
+        }
     }
 
     @Override
@@ -53,12 +58,29 @@ public class MysticalSeedsItem extends BlockNamedItem implements ICropGetter, IE
     @Override
     public void addInformation(ItemStack stack, World world, List<ITextComponent> tooltip, ITooltipFlag flag) {
         ITextComponent tier = this.crop.getTier().getDisplayName();
-        tooltip.add(ModTooltips.TIER.args(tier).build());
-        if (!this.crop.getModId().equals(MysticalAgriculture.MOD_ID))
-            tooltip.add(ModTooltips.getAddedByTooltip(this.crop.getModId()));
 
-        if (flag.isAdvanced())
+        tooltip.add(ModTooltips.TIER.args(tier).build());
+
+        if (!this.crop.getModId().equals(MysticalAgriculture.MOD_ID)) {
+            tooltip.add(ModTooltips.getAddedByTooltip(this.crop.getModId()));
+        }
+
+        Set<ResourceLocation> biomes = this.crop.getRequiredBiomes();
+        if (!biomes.isEmpty()) {
+            tooltip.add(ModTooltips.REQUIRED_BIOMES.build());
+
+            List<StringTextComponent> ids = biomes.stream()
+                    .map(ResourceLocation::toString)
+                    .map(s -> " - " + s)
+                    .map(StringTextComponent::new)
+                    .collect(Collectors.toList());
+
+            tooltip.addAll(ids);
+        }
+
+        if (flag.isAdvanced()) {
             tooltip.add(ModTooltips.CROP_ID.args(this.crop.getId()).color(TextFormatting.DARK_GRAY).build());
+        }
     }
 
     @Override

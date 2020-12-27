@@ -13,17 +13,20 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.loot.LootContext;
 import net.minecraft.loot.LootParameters;
 import net.minecraft.util.IItemProvider;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.shapes.ISelectionContext;
 import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.util.math.vector.Vector3d;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.World;
+import net.minecraft.world.biome.Biome;
 import net.minecraft.world.server.ServerWorld;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import java.util.Set;
 
 public class MysticalCropBlock extends CropsBlock implements ICropGetter {
     private static final VoxelShape SHAPE = Block.makeCuboidShape(0.0D, 0.0D, 0.0D, 16.0D, 4.0D, 16.0D);
@@ -40,18 +43,9 @@ public class MysticalCropBlock extends CropsBlock implements ICropGetter {
     }
 
     @Override
-    protected boolean isValidGround(BlockState state, IBlockReader world, BlockPos pos) {
-        return state.getBlock() instanceof FarmlandBlock;
-    }
-
-    @Override
     public void randomTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
-        Block crux = this.crop.getCrux();
-        if (crux != null) {
-            Block block = world.getBlockState(pos.down(2)).getBlock();
-            if (block != crux)
-                return;
-        }
+        if (this.cantGrow(world, pos))
+            return;
 
         super.randomTick(state, world, pos, random);
     }
@@ -105,14 +99,15 @@ public class MysticalCropBlock extends CropsBlock implements ICropGetter {
 
     @Override
     public void grow(ServerWorld world, Random rand, BlockPos pos, BlockState state) {
-        Block crux = this.crop.getCrux();
-        if (crux != null) {
-            Block block = world.getBlockState(pos.down(2)).getBlock();
-            if (block != crux)
-                return;
-        }
+        if (this.cantGrow(world, pos))
+            return;
 
         super.grow(world, rand, pos, state);
+    }
+
+    @Override
+    protected boolean isValidGround(BlockState state, IBlockReader world, BlockPos pos) {
+        return state.getBlock() instanceof FarmlandBlock;
     }
 
     @Override
@@ -127,5 +122,22 @@ public class MysticalCropBlock extends CropsBlock implements ICropGetter {
 
     protected IItemProvider getCropsItem() {
         return this.crop.getEssence();
+    }
+
+    private boolean cantGrow(World world, BlockPos pos) {
+        Block crux = this.crop.getCrux();
+        if (crux != null) {
+            Block block = world.getBlockState(pos.down(2)).getBlock();
+            if (block != crux)
+                return true;
+        }
+
+        Set<ResourceLocation> biomes = this.crop.getRequiredBiomes();
+        if (!biomes.isEmpty()) {
+            Biome biome = world.getBiome(pos);
+            return !biomes.contains(biome.getRegistryName());
+        }
+
+        return false;
     }
 }

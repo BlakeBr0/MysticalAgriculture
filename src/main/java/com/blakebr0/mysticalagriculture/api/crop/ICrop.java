@@ -12,6 +12,8 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.TranslationTextComponent;
 
+import java.util.Collections;
+import java.util.Set;
 import java.util.function.Supplier;
 
 /**
@@ -333,5 +335,24 @@ public interface ICrop {
     // TODO: 1.17 remove default
     default CropRecipes getRecipeConfig() {
         return new CropRecipes();
+    }
+
+    /**
+     * A set of biome ids that this crop can grow in
+     * @return this crop's required biomes
+     */
+    // TODO: 1.17: remove default
+    default Set<ResourceLocation> getRequiredBiomes() {
+        return Collections.emptySet();
+    }
+
+    /**
+     * Add a biome id to the list of required biomes for this crop
+     * @param id the biome id
+     * @return this crop
+     */
+    // TODO: 1.17: remove default
+    default ICrop addRequiredBiome(ResourceLocation id) {
+        return this;
     }
 }
