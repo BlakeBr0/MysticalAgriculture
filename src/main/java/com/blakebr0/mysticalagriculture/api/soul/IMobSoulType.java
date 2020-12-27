@@ -6,6 +6,8 @@ import net.minecraft.util.text.ITextComponent;
 
 import java.util.Set;
 
+// TODO: 1.17: remove
+@Deprecated
 public interface IMobSoulType {
     /**
      * The id of this mob soul type, the modid is taken from the namespace for {@link IMobSoulType#getModId()},
@@ -79,14 +81,12 @@ public interface IMobSoulType {
      * @param name the new display name
      * @return this mob soul type
      */
-    // TODO: 1.17: Change return type to IMobSoulType
     MobSoulType setEntityDisplayName(ITextComponent name);
 
     /**
      * Whether or not this mob soul type has recipes and shows up in the creative menu
      * @return is this mob soul type enabled
      */
-    // TODO: 1.17: Remove default implementation
     default boolean isEnabled() {
         return true;
     }
@@ -95,7 +95,6 @@ public interface IMobSoulType {
      * Set whether or not this crop should be hidden from the game
      * @param enabled the enabled state
      */
-    // TODO: 1.17: Remove default implementation
     default IMobSoulType setEnabled(boolean enabled) {
         return this;
     }

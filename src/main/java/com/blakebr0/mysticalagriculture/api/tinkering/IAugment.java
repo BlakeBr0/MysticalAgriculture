@@ -23,6 +23,8 @@ import net.minecraftforge.event.entity.living.LivingFallEvent;
 
 import java.util.EnumSet;
 
+// TODO: 1.17: remove
+@Deprecated
 public interface IAugment {
     /**
      * The id of this augment, the modid is taken from the namespace for {@link IAugment#getModId()},

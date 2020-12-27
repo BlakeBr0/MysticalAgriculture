@@ -19,6 +19,8 @@ import java.util.function.Supplier;
 /**
  * Represents a crop and all of its information
  */
+// TODO: 1.17: remove
+@Deprecated
 public interface ICrop {
     /**
      * The id of this crop, the modid is taken from the namespace for {@link ICrop#getModId()},
@@ -313,7 +315,6 @@ public interface ICrop {
      * @param stack the stack
      * @return should the crop have the glint effect
      */
-    // TODO: 1.17: remove default
     default boolean hasEffect(ItemStack stack) {
         return false;
     }
@@ -323,7 +324,6 @@ public interface ICrop {
      * @param hasEffect the effect state
      * @return this crop
      */
-    // TODO: 1.17: remove default
     default ICrop setHasEffect(boolean hasEffect) {
         return this;
     }
@@ -332,7 +332,6 @@ public interface ICrop {
      * Get the dynamic recipes config for this crop
      * @return the crop's recipe config
      */
-    // TODO: 1.17 remove default
     default CropRecipes getRecipeConfig() {
         return new CropRecipes();
     }
@@ -341,7 +340,6 @@ public interface ICrop {
      * A set of biome ids that this crop can grow in
      * @return this crop's required biomes
      */
-    // TODO: 1.17: remove default
     default Set<ResourceLocation> getRequiredBiomes() {
         return Collections.emptySet();
     }
@@ -351,7 +349,6 @@ public interface ICrop {
      * @param id the biome id
      * @return this crop
      */
-    // TODO: 1.17: remove default
     default ICrop addRequiredBiome(ResourceLocation id) {
         return this;
     }
