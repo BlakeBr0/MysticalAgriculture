@@ -102,8 +102,8 @@ public final class ModCrops {
     public static final Crop TITANIUM = new Crop(new ResourceLocation(MOD_ID, "titanium"), CropTier.FOUR, CropType.RESOURCE, INGOT_CROP_TEXTURES, 0xD0D1DA, LazyIngredient.tag("forge:ingots/titanium"));
     public static final Crop URANIUM = new Crop(new ResourceLocation(MOD_ID, "uranium"), CropTier.FOUR, CropType.RESOURCE, INGOT_CROP_TEXTURES, 0x60AE11, LazyIngredient.tag("forge:ingots/uranium"));
     public static final Crop CHROME = new Crop(new ResourceLocation(MOD_ID, "chrome"), CropTier.FOUR, CropType.RESOURCE, INGOT_CROP_TEXTURES, 0xCDB9BD, LazyIngredient.tag("forge:ingots/chrome"));
-    public static final Crop PLATINUM = new Crop(new ResourceLocation(MOD_ID, "platinum"), CropTier.TWO, CropType.RESOURCE, INGOT_CROP_TEXTURES, 0x6FEAEF, LazyIngredient.tag("forge:ingots/platinum"));
-    public static final Crop IRIDIUM = new Crop(new ResourceLocation(MOD_ID, "iridium"), CropTier.TWO, CropType.RESOURCE, INGOT_CROP_TEXTURES, 0xC7C5DC, LazyIngredient.tag("forge:ingots/iridium"));
+    public static final Crop PLATINUM = new Crop(new ResourceLocation(MOD_ID, "platinum"), CropTier.FIVE, CropType.RESOURCE, INGOT_CROP_TEXTURES, 0x6FEAEF, LazyIngredient.tag("forge:ingots/platinum"));
+    public static final Crop IRIDIUM = new Crop(new ResourceLocation(MOD_ID, "iridium"), CropTier.FIVE, CropType.RESOURCE, INGOT_CROP_TEXTURES, 0xC7C5DC, LazyIngredient.tag("forge:ingots/iridium"));
 
     // THERMAL SERIES
     public static final Crop BLIZZ = new Crop(new ResourceLocation(MOD_ID, "blizz"), CropTier.THREE, CropType.MOB, LazyIngredient.item("mysticalagriculture:soul_jar", MobSoulUtils.makeTag(ModMobSoulTypes.BLIZZ)));
