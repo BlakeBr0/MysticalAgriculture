@@ -97,16 +97,14 @@ public class WateringCanItem extends BaseItem {
     }
 
     @Override
-    public ActionResultType onItemUse(ItemUseContext context) {
+    public ActionResultType onItemUseFirst(ItemStack stack, ItemUseContext context) {
         PlayerEntity player = context.getPlayer();
         if (player == null)
             return ActionResultType.FAIL;
 
-        Hand hand = context.getHand();
         World world = context.getWorld();
         BlockPos pos = context.getPos();
         Direction direction = context.getFace();
-        ItemStack stack = player.getHeldItem(hand);
 
         if (!player.canPlayerEdit(pos.offset(direction), direction, stack))
             return ActionResultType.FAIL;

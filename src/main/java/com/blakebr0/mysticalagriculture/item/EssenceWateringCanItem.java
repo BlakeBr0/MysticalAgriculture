@@ -97,18 +97,15 @@ public class EssenceWateringCanItem extends WateringCanItem {
     }
 
     @Override
-    public ActionResultType onItemUse(ItemUseContext context) {
+    public ActionResultType onItemUseFirst(ItemStack stack, ItemUseContext context) {
         PlayerEntity player = context.getPlayer();
         if (player == null)
             return ActionResultType.FAIL;
 
-        Hand hand = context.getHand();
-        ItemStack stack = player.getHeldItem(hand);
-
         if (NBTHelper.getBoolean(stack, "Active"))
             return ActionResultType.FAIL;
 
-        return super.onItemUse(context);
+        return super.onItemUseFirst(stack, context);
     }
 
     @OnlyIn(Dist.CLIENT)
