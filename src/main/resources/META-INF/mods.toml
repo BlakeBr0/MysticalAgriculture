@@ -19,7 +19,7 @@ license="MIT"
   [[dependencies.mysticalagriculture]]
       modId="forge"
       mandatory=true
-      versionRange="[35.0,)"
+      versionRange="[35.1,)"
       ordering="NONE"
       side="BOTH"
   [[dependencies.mysticalagriculture]]
@@ -31,6 +31,6 @@ license="MIT"
   [[dependencies.mysticalagriculture]]
       modId="cucumber"
       mandatory=true
-      versionRange="[4.1.4,)"
+      versionRange="[4.1.6,)"
       ordering="NONE"
       side="BOTH"
