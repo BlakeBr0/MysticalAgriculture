@@ -42,8 +42,13 @@ public class TillingAOEAugment extends Augment {
         BlockPos pos = context.getPos();
         Direction direction = context.getFace();
         Hand hand = context.getHand();
-        if (!this.tryTill(stack, player, world, pos, direction, hand) && !player.isCrouching())
-            return false;
+
+        if (this.tryTill(stack, player, world, pos, direction, hand)) {
+            world.playSound(player, pos, SoundEvents.ITEM_HOE_TILL, SoundCategory.BLOCKS, 1.0F, 1.0F);
+
+            if (!player.isCrouching())
+                return false;
+        }
 
         if (player.isCrouching()) {
             BlockPos.getAllInBox(pos.add(-this.range, 0, -this.range), pos.add(this.range, 0, this.range)).forEach(aoePos -> {
@@ -59,7 +64,6 @@ public class TillingAOEAugment extends Augment {
         if (direction != Direction.DOWN && world.isAirBlock(pos.up())) {
             BlockState state = HOE_LOOKUP.get(world.getBlockState(pos).getBlock());
             if (state != null) {
-                world.playSound(player, pos, SoundEvents.ITEM_HOE_TILL, SoundCategory.BLOCKS, 1.0F, 1.0F);
                 if (!world.isRemote()) {
                     world.setBlockState(pos, state, 11);
                     if (player != null) {

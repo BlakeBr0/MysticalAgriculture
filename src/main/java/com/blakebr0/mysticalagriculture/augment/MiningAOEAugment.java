@@ -81,7 +81,7 @@ public class MiningAOEAugment extends Augment {
         Item item = stack.getItem();
         boolean harvest = (ForgeHooks.canHarvestBlock(state, player, world, pos) || item.canHarvestBlock(stack, state)) && (!extra || item.getDestroySpeed(stack, world.getBlockState(pos)) > 1.0F);
         if (hardness >= 0.0F && (!extra || harvest))
-            return BlockHelper.breakBlocksAOE(stack, world, player, pos);
+            return BlockHelper.breakBlocksAOE(stack, world, player, pos, !extra);
 
         return false;
     }
