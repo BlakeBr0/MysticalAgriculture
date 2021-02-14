@@ -132,7 +132,7 @@ public final class ModCrops {
 
     // ASTRAL SORCERY
     public static final Crop AQUAMARINE = new Crop(new ResourceLocation(MOD_ID, "aquamarine"), CropTier.THREE, CropType.RESOURCE, LazyIngredient.item("astralsorcery:aquamarine"));
-    public static final Crop STARMETAL = new Crop(new ResourceLocation(MOD_ID, "starmetal"), CropTier.FOUR, CropType.RESOURCE, LazyIngredient.item("astralsorcery:startmetal_ingot"));
+    public static final Crop STARMETAL = new Crop(new ResourceLocation(MOD_ID, "starmetal"), CropTier.FOUR, CropType.RESOURCE, LazyIngredient.item("astralsorcery:starmetal_ingot"));
     public static final Crop ROCK_CRYSTAL = new Crop(new ResourceLocation(MOD_ID, "rock_crystal"), CropTier.FIVE, CropType.RESOURCE, LazyIngredient.item("astralsorcery:rock_crystal"));
 
     // PNEUMATICCRAFT

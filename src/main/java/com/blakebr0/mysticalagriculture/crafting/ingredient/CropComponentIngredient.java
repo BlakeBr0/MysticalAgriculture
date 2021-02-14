@@ -67,7 +67,8 @@ public class CropComponentIngredient extends Ingredient {
             }
 
             for (ItemStack itemstack : this.stacks) {
-                if (itemstack.getItem() == stack.getItem() && itemstack.getDamage() == stack.getDamage() && itemstack.areShareTagsEqual(stack)) {
+                if (itemstack.getItem() == stack.getItem() && itemstack.getDamage() == stack.getDamage()
+                        && (!itemstack.hasTag() || itemstack.areShareTagsEqual(stack))) {
                     return true;
                 }
             }
