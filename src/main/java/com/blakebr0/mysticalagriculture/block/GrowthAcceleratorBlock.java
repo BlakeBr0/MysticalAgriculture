@@ -34,17 +34,17 @@ public class GrowthAcceleratorBlock extends BaseBlock {
 
     @Override
     public void onBlockAdded(BlockState state, World world, BlockPos pos, BlockState oldState, boolean isMoving) {
-        world.getPendingBlockTicks().scheduleTick(pos, this, this.getTickRate());
+        world.getPendingBlockTicks().scheduleTick(pos, this, getTickRate());
     }
 
     @Override
     public void tick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
-        BlockPos.getAllInBox(pos.up(), pos.add(0, this.range, 0))
+        BlockPos.getAllInBox(pos.up(2), pos.add(0, this.range + 2, 0))
                 .filter(aoePos -> world.getBlockState(aoePos).getBlock() instanceof IGrowable)
                 .findFirst()
                 .ifPresent(aoePos -> world.getBlockState(aoePos).randomTick(world, aoePos, random));
 
-        world.getPendingBlockTicks().scheduleTick(pos, this, this.getTickRate());
+        world.getPendingBlockTicks().scheduleTick(pos, this, getTickRate());
     }
 
     @OnlyIn(Dist.CLIENT)
@@ -55,7 +55,7 @@ public class GrowthAcceleratorBlock extends BaseBlock {
         tooltip.add(ModTooltips.GROWTH_ACCELERATOR_RANGE.args(rangeNumber).build());
     }
 
-    private int getTickRate() {
+    private static int getTickRate() {
         double variance = Math.random() * (1.1 - 0.9) + 0.9;
         return (int) (ModConfigs.GROWTH_ACCELERATOR_COOLDOWN.get() * variance) * 20;
     }
