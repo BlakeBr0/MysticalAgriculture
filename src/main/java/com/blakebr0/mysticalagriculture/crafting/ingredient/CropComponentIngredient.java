@@ -33,9 +33,9 @@ public class CropComponentIngredient extends Ingredient {
 
     @Override
     public ItemStack[] getMatchingStacks() {
-        if (this.stacks == null) {
+        // TODO: this could be improved to check if the MATERIAL ingredient is correct first
+        if (this.stacks == null || this.type == ComponentType.MATERIAL)
             this.initMatchingStacks();
-        }
 
         return this.stacks;
     }
@@ -71,8 +71,8 @@ public class CropComponentIngredient extends Ingredient {
                     return true;
                 }
             }
-
         }
+
         return false;
     }
 
