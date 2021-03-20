@@ -1,0 +1,23 @@
+{
+  "type": "mysticalagriculture:tag",
+  "conditions": [
+    {
+      "type": "mysticalagriculture:crop_enabled",
+      "crop": "mysticalagriculture:saltpeter"
+    }
+  ],
+  "pattern": [
+    "   ",
+    "EEE",
+    "   "
+  ],
+  "key": {
+    "E": {
+      "item": "mysticalagriculture:saltpeter_essence"
+    }
+  },
+  "result": {
+    "tag": "forge:dusts/niter",
+    "count": 8
+  }
+}

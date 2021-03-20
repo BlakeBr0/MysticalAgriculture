@@ -180,7 +180,6 @@ public class WateringCanItem extends BaseItem {
                     Block plantBlock = state.getBlock();
                     if (plantBlock instanceof IGrowable || plantBlock instanceof IPlantable || plantBlock == Blocks.MYCELIUM || plantBlock == Blocks.CHORUS_FLOWER) {
                         state.randomTick((ServerWorld) world, aoePos, random);
-                        world.notifyBlockUpdate(aoePos, state, state, 3);
                     }
                 });
 
