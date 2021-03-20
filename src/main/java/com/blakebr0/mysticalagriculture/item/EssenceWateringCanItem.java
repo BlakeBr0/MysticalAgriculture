@@ -69,15 +69,16 @@ public class EssenceWateringCanItem extends WateringCanItem {
     public ActionResult<ItemStack> onItemRightClick(World world, PlayerEntity player, Hand hand) {
         ItemStack stack = player.getHeldItem(hand);
         if (NBTHelper.getBoolean(stack, "Water")) {
-            if (player.isCrouching())
+            if (player.isCrouching()) {
                 NBTHelper.flipBoolean(stack, "Active");
+            }
 
-            return new ActionResult<>(ActionResultType.FAIL, stack);
+            return new ActionResult<>(ActionResultType.PASS, stack);
         }
 
         BlockRayTraceResult trace = rayTrace(world, player, RayTraceContext.FluidMode.SOURCE_ONLY);
         if (trace.getType() != RayTraceResult.Type.BLOCK)
-            return new ActionResult<>(ActionResultType.FAIL, stack);
+            return new ActionResult<>(ActionResultType.PASS, stack);
 
         BlockPos pos = trace.getPos();
         Direction direction = trace.getFace();
@@ -93,17 +94,17 @@ public class EssenceWateringCanItem extends WateringCanItem {
             }
         }
 
-        return new ActionResult<>(ActionResultType.FAIL, stack);
+        return new ActionResult<>(ActionResultType.PASS, stack);
     }
 
     @Override
     public ActionResultType onItemUseFirst(ItemStack stack, ItemUseContext context) {
         PlayerEntity player = context.getPlayer();
         if (player == null)
-            return ActionResultType.FAIL;
+            return ActionResultType.PASS;
 
         if (NBTHelper.getBoolean(stack, "Active"))
-            return ActionResultType.FAIL;
+            return ActionResultType.PASS;
 
         return super.onItemUseFirst(stack, context);
     }

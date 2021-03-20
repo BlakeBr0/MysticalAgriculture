@@ -72,12 +72,14 @@ public class WateringCanItem extends BaseItem {
     @Override
     public ActionResult<ItemStack> onItemRightClick(World world, PlayerEntity player, Hand hand) {
         ItemStack stack = player.getHeldItem(hand);
-        if (NBTHelper.getBoolean(stack, "Water"))
-            return new ActionResult<>(ActionResultType.FAIL, stack);
+        if (NBTHelper.getBoolean(stack, "Water")) {
+            return new ActionResult<>(ActionResultType.PASS, stack);
+        }
 
         BlockRayTraceResult trace = rayTrace(world, player, RayTraceContext.FluidMode.SOURCE_ONLY);
-        if (trace.getType() != RayTraceResult.Type.BLOCK)
-            return new ActionResult<>(ActionResultType.FAIL, stack);
+        if (trace.getType() != RayTraceResult.Type.BLOCK) {
+            return new ActionResult<>(ActionResultType.PASS, stack);
+        }
 
         BlockPos pos = trace.getPos();
         Direction direction = trace.getFace();
@@ -93,7 +95,7 @@ public class WateringCanItem extends BaseItem {
             }
         }
 
-        return new ActionResult<>(ActionResultType.FAIL, stack);
+        return new ActionResult<>(ActionResultType.PASS, stack);
     }
 
     @Override
@@ -133,13 +135,13 @@ public class WateringCanItem extends BaseItem {
             return ActionResultType.FAIL;
 
         if (!NBTHelper.getBoolean(stack, "Water"))
-            return ActionResultType.FAIL;
+            return ActionResultType.PASS;
 
         if (!world.isRemote()) {
             String id = getID(stack);
             long throttle = THROTTLES.getOrDefault(id, 0L);
             if (world.getGameTime() - throttle < 5)
-                return ActionResultType.FAIL;
+                return ActionResultType.PASS;
 
             THROTTLES.put(id, world.getGameTime());
         }
@@ -182,11 +184,11 @@ public class WateringCanItem extends BaseItem {
                     }
                 });
 
-                return ActionResultType.FAIL;
+                return ActionResultType.PASS;
             }
         }
 
-        return ActionResultType.FAIL;
+        return ActionResultType.PASS;
     }
 
     private static String getID(ItemStack stack) {
