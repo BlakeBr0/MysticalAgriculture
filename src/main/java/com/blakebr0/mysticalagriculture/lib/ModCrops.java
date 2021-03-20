@@ -20,7 +20,7 @@ import java.util.Arrays;
 import static com.blakebr0.mysticalagriculture.MysticalAgriculture.MOD_ID;
 
 public final class ModCrops {
-    private static final boolean DEBUG = false;
+    private static final boolean DEBUG = true;
 
     private static final CropTextures ELEMENTAL_CROP_TEXTURES = new CropTextures(CropTextures.FLOWER_INGOT_BLANK, CropTextures.ESSENCE_FLAME_BLANK);
     private static final CropTextures ROCK_CROP_TEXTURES = new CropTextures(CropTextures.FLOWER_ROCK_BLANK, CropTextures.ESSENCE_ROCK_BLANK);
@@ -105,6 +105,9 @@ public final class ModCrops {
     public static final Crop PLATINUM = new Crop(new ResourceLocation(MOD_ID, "platinum"), CropTier.FIVE, CropType.RESOURCE, INGOT_CROP_TEXTURES, 0x6FEAEF, LazyIngredient.tag("forge:ingots/platinum"));
     public static final Crop IRIDIUM = new Crop(new ResourceLocation(MOD_ID, "iridium"), CropTier.FIVE, CropType.RESOURCE, INGOT_CROP_TEXTURES, 0xC7C5DC, LazyIngredient.tag("forge:ingots/iridium"));
 
+    // GEMS
+    public static final Crop APATITE = new Crop(new ResourceLocation(MOD_ID, "apatite"), CropTier.TWO, CropType.RESOURCE, LazyIngredient.tag("forge:gems/apatite"));
+
     // THERMAL SERIES
     public static final Crop BLIZZ = new Crop(new ResourceLocation(MOD_ID, "blizz"), CropTier.THREE, CropType.MOB, LazyIngredient.item("mysticalagriculture:soul_jar", MobSoulUtils.makeTag(ModMobSoulTypes.BLIZZ)));
     public static final Crop BLITZ = new Crop(new ResourceLocation(MOD_ID, "blitz"), CropTier.THREE, CropType.MOB, LazyIngredient.item("mysticalagriculture:soul_jar", MobSoulUtils.makeTag(ModMobSoulTypes.BLITZ)));
@@ -138,7 +141,7 @@ public final class ModCrops {
     // PNEUMATICCRAFT
     public static final Crop COMPRESSED_IRON = new Crop(new ResourceLocation(MOD_ID, "compressed_iron"), CropTier.FOUR, CropType.RESOURCE, LazyIngredient.tag("forge:ingots/compressed_iron"));
 
-    // EXTRENE REACTORS 2
+    // EXTREME REACTORS 2
     public static final Crop YELLORIUM = new Crop(new ResourceLocation(MOD_ID, "yellorium"), CropTier.FIVE, CropType.RESOURCE, LazyIngredient.tag("forge:ingots/yellorium"));
     public static final Crop CYANITE = new Crop(new ResourceLocation(MOD_ID, "cyanite"), CropTier.FIVE, CropType.RESOURCE, LazyIngredient.tag("forge:ingots/cyanite"));
 
@@ -238,6 +241,9 @@ public final class ModCrops {
         registry.register(CHROME);
         registry.register(PLATINUM);
         registry.register(IRIDIUM);
+
+        // GEMS
+        registry.register(APATITE);
 
         // THERMAL SERIES
         registry.register(withRequiredMods(BLIZZ, "thermal"));
