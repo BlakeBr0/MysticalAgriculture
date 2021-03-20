@@ -13,19 +13,19 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 import java.util.function.Supplier;
 
 public enum ModArmorMaterial implements IArmorMaterial {
-    INFERIUM("mysticalagriculture:inferium", 40, new int[] { 3, 6, 8, 4 }, 15, SoundEvents.ITEM_ARMOR_EQUIP_GOLD, 2.0F, 0.0F, () -> {
+    INFERIUM("mysticalagriculture:inferium", 40, new int[] { 3, 6, 8, 4 }, 12, SoundEvents.ITEM_ARMOR_EQUIP_GOLD, 2.0F, 0.0F, () -> {
         return Ingredient.fromItems(ModItems.INFERIUM_INGOT.get());
     }),
-    PRUDENTIUM("mysticalagriculture:prudentium", 60, new int[] { 4, 7, 8, 4 }, 20, SoundEvents.ITEM_ARMOR_EQUIP_GOLD, 2.25F, 0.0F, () -> {
+    PRUDENTIUM("mysticalagriculture:prudentium", 60, new int[] { 4, 7, 8, 4 }, 14, SoundEvents.ITEM_ARMOR_EQUIP_GOLD, 2.25F, 0.0F, () -> {
         return Ingredient.fromItems(ModItems.PRUDENTIUM_INGOT.get());
     }),
-    TERTIUM("mysticalagriculture:tertium", 80, new int[] { 4, 8, 9, 5 }, 25, SoundEvents.ITEM_ARMOR_EQUIP_GOLD, 2.5F, 0.0F, () -> {
+    TERTIUM("mysticalagriculture:tertium", 80, new int[] { 4, 8, 9, 5 }, 16, SoundEvents.ITEM_ARMOR_EQUIP_GOLD, 2.5F, 0.0F, () -> {
        return Ingredient.fromItems(ModItems.TERTIUM_INGOT.get());
     }),
-    IMPERIUM("mysticalagriculture:imperium", 140, new int[] { 5, 8, 9, 5 }, 35, SoundEvents.ITEM_ARMOR_EQUIP_GOLD, 2.75F, 0.0F, () -> {
+    IMPERIUM("mysticalagriculture:imperium", 140, new int[] { 5, 8, 9, 5 }, 18, SoundEvents.ITEM_ARMOR_EQUIP_GOLD, 2.75F, 0.0F, () -> {
         return Ingredient.fromItems(ModItems.IMPERIUM_INGOT.get());
     }),
-    SUPREMIUM("mysticalagriculture:supremium", 280, new int[] { 5, 8, 10, 6 }, 0, SoundEvents.ITEM_ARMOR_EQUIP_GOLD, 3.0F, 0.0F, () -> {
+    SUPREMIUM("mysticalagriculture:supremium", 280, new int[] { 5, 8, 10, 6 }, 20, SoundEvents.ITEM_ARMOR_EQUIP_GOLD, 3.0F, 0.0F, () -> {
         return Ingredient.fromItems(ModItems.SUPREMIUM_INGOT.get());
     });
 

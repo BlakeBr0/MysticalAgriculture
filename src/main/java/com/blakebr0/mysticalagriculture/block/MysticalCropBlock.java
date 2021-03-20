@@ -44,7 +44,7 @@ public class MysticalCropBlock extends CropsBlock implements ICropGetter {
 
     @Override
     public void randomTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
-        if (this.cantGrow(world, pos))
+        if (this.canGrow(world, pos))
             return;
 
         super.randomTick(state, world, pos, random);
@@ -99,7 +99,7 @@ public class MysticalCropBlock extends CropsBlock implements ICropGetter {
 
     @Override
     public void grow(ServerWorld world, Random rand, BlockPos pos, BlockState state) {
-        if (this.cantGrow(world, pos))
+        if (!this.canGrow(world, pos))
             return;
 
         super.grow(world, rand, pos, state);
@@ -124,20 +124,20 @@ public class MysticalCropBlock extends CropsBlock implements ICropGetter {
         return this.crop.getEssence();
     }
 
-    private boolean cantGrow(World world, BlockPos pos) {
+    private boolean canGrow(World world, BlockPos pos) {
         Block crux = this.crop.getCrux();
         if (crux != null) {
             Block block = world.getBlockState(pos.down(2)).getBlock();
             if (block != crux)
-                return true;
+                return false;
         }
 
         Set<ResourceLocation> biomes = this.crop.getRequiredBiomes();
         if (!biomes.isEmpty()) {
             Biome biome = world.getBiome(pos);
-            return !biomes.contains(biome.getRegistryName());
+            return biomes.contains(biome.getRegistryName());
         }
 
-        return false;
+        return true;
     }
 }
