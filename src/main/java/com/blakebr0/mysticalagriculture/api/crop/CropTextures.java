@@ -24,6 +24,12 @@ public class CropTextures {
 
     public static final ResourceLocation SEED_BLANK = new ResourceLocation(MOD_ID, "item/mystical_seeds");
 
+    public static final CropTextures INGOT_CROP_TEXTURES = new CropTextures(FLOWER_INGOT_BLANK, ESSENCE_INGOT_BLANK);
+    public static final CropTextures ROCK_CROP_TEXTURES = new CropTextures(FLOWER_ROCK_BLANK, ESSENCE_ROCK_BLANK);
+    public static final CropTextures DUST_CROP_TEXTURES = new CropTextures(FLOWER_DUST_BLANK, ESSENCE_DUST_BLANK);
+    public static final CropTextures GEM_CROP_TEXTURES = new CropTextures(FLOWER_ROCK_BLANK, ESSENCE_GEM_BLANK);
+    public static final CropTextures ELEMENTAL_CROP_TEXTURES = new CropTextures(FLOWER_INGOT_BLANK, ESSENCE_FLAME_BLANK);
+
     private ResourceLocation flowerTexture;
     private ResourceLocation essenceTexture;
     private ResourceLocation seedTexture;
