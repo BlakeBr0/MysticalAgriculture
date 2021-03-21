@@ -30,6 +30,7 @@ public final class ModConfigs {
     public static final ForgeConfigSpec.BooleanValue SECONDARY_SEED_DROPS;
     public static final ForgeConfigSpec.BooleanValue WITHER_DROPS_ESSENCE;
     public static final ForgeConfigSpec.BooleanValue DRAGON_DROPS_ESSENCE;
+    public static final ForgeConfigSpec.BooleanValue ESSENCE_FARMLAND_CONVERSION;
 
     public static final ForgeConfigSpec.DoubleValue SOULIUM_ORE_CHANCE;
     public static final ForgeConfigSpec.BooleanValue GENERATE_PROSPERITY;
@@ -78,6 +79,10 @@ public final class ModConfigs {
                 .comment("Should the Ender Dragon drop essence when killed with an essence weapon?")
                 .translation("configGui.mysticalagriculture.dragon_drops_essence")
                 .define("dragonDropsEssence", true);
+        ESSENCE_FARMLAND_CONVERSION = common
+                .comment("Should right clicking on Farmland with an Essence create Essence Farmland?")
+                .translation("configGui.mysticalagriculture.essence_farmland_conversion")
+                .define("essenceFarmlandConversion", true);
         common.pop();
 
         common.comment("World generation options.").push("World");
