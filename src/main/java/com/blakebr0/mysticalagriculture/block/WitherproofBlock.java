@@ -6,6 +6,7 @@ import net.minecraft.block.material.Material;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.Explosion;
 import net.minecraft.world.World;
+import net.minecraftforge.common.ToolType;
 
 public class WitherproofBlock extends BaseBlock {
     public WitherproofBlock() {
@@ -13,6 +14,7 @@ public class WitherproofBlock extends BaseBlock {
             .hardnessAndResistance(20.0F, 2000.0F)
             .sound(SoundType.STONE)
             .harvestLevel(1)
+            .harvestTool(ToolType.PICKAXE)
         );
     }
 

@@ -29,6 +29,7 @@ import net.minecraft.world.IBlockReader;
 import net.minecraft.world.World;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
+import net.minecraftforge.common.ToolType;
 
 import java.util.List;
 import java.util.function.Supplier;
@@ -38,7 +39,7 @@ public class ReprocessorBlock extends BaseTileEntityBlock {
     private final ReprocessorTier tier;
 
     public ReprocessorBlock(ReprocessorTier tier) {
-        super(Material.IRON, SoundType.METAL, 3.5F, 3.5F);
+        super(Material.IRON, SoundType.METAL, 3.5F, 3.5F, ToolType.PICKAXE);
         this.setDefaultState(this.getStateContainer().getBaseState().with(FACING, Direction.NORTH));
         this.tier = tier;
     }

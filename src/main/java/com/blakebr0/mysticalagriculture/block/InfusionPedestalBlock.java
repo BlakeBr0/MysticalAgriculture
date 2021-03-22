@@ -23,6 +23,7 @@ import net.minecraft.util.math.shapes.ISelectionContext;
 import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.World;
+import net.minecraftforge.common.ToolType;
 
 public class InfusionPedestalBlock extends BaseTileEntityBlock {
     public static final VoxelShape PEDESTAL_SHAPE = new VoxelShapeBuilder()
@@ -33,7 +34,7 @@ public class InfusionPedestalBlock extends BaseTileEntityBlock {
             .cuboid(3.0, 14.0, 5.0, 5.0, 16.0, 11.0).cuboid(11.0, 14.0, 5.0, 13.0, 16.0, 11.0).build();
 
     public InfusionPedestalBlock() {
-        super(Material.ROCK, SoundType.STONE, 10.0F, 12.0F);
+        super(Material.ROCK, SoundType.STONE, 10.0F, 12.0F, ToolType.PICKAXE);
     }
 
     @Override

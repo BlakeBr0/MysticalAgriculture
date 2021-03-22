@@ -26,6 +26,7 @@ import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.IWorld;
 import net.minecraft.world.World;
+import net.minecraftforge.common.ToolType;
 
 public class TinkeringTableBlock extends BaseTileEntityBlock {
     public static final DirectionProperty FACING = HorizontalBlock.HORIZONTAL_FACING;
@@ -42,7 +43,7 @@ public class TinkeringTableBlock extends BaseTileEntityBlock {
             .build();
 
     public TinkeringTableBlock() {
-        super(Material.ROCK, SoundType.STONE, 10.0F, 12.0F);
+        super(Material.ROCK, SoundType.STONE, 10.0F, 12.0F, ToolType.PICKAXE);
         this.setDefaultState(this.getStateContainer().getBaseState().with(FACING, Direction.NORTH));
     }
 

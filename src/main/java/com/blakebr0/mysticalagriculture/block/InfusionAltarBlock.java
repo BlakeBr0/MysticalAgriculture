@@ -27,6 +27,7 @@ import net.minecraft.world.IBlockReader;
 import net.minecraft.world.World;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
+import net.minecraftforge.common.ToolType;
 import net.minecraftforge.items.ItemStackHandler;
 
 import java.util.List;
@@ -46,7 +47,7 @@ public class InfusionAltarBlock extends BaseTileEntityBlock {
             .cuboid(11, 10, 11, 5, 8, 5).build();
 
     public InfusionAltarBlock() {
-        super(Material.ROCK, SoundType.STONE, 10.0F, 12.0F);
+        super(Material.ROCK, SoundType.STONE, 10.0F, 12.0F, ToolType.PICKAXE);
     }
 
     @Override

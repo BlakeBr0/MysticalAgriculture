@@ -76,7 +76,7 @@ sourceSets.main.resources {
 dependencies {
     minecraft 'net.minecraftforge:forge:1.16.4-35.1.4'
 
-    compile fg.deobf('ignored:Cucumber:1.16.4-4.1.6')
+    compile fg.deobf('ignored:Cucumber:1.16.4-4.1.9')
     compileOnly fg.deobf('mcp.mobius.waila:Hwyla:1.10.11-B78_1.16.2:api')
     runtimeOnly fg.deobf('mcp.mobius.waila:Hwyla:1.10.11-B78_1.16.2')
     compileOnly fg.deobf('mezz.jei:jei-1.16.2:7.1.1.15:api')

@@ -18,6 +18,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.server.ServerWorld;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
+import net.minecraftforge.common.ToolType;
 
 import java.util.List;
 import java.util.Random;
@@ -27,7 +28,7 @@ public class GrowthAcceleratorBlock extends BaseBlock {
     private final TextFormatting textColor;
 
     public GrowthAcceleratorBlock(int range, TextFormatting textColor) {
-        super(Material.ROCK, SoundType.STONE, 5.0F, 8.0F);
+        super(Material.ROCK, SoundType.STONE, 5.0F, 8.0F, ToolType.PICKAXE);
         this.range = range;
         this.textColor = textColor;
     }
