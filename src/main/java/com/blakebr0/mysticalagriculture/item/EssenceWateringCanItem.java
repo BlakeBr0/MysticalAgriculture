@@ -54,6 +54,7 @@ public class EssenceWateringCanItem extends WateringCanItem {
         if (NBTHelper.getBoolean(stack, "Active") && entity instanceof PlayerEntity) {
             PlayerEntity player = (PlayerEntity) entity;
             BlockRayTraceResult result = rayTrace(world, player, RayTraceContext.FluidMode.SOURCE_ONLY);
+
             if (result.getType() != RayTraceResult.Type.MISS) {
                 this.doWater(stack, world, player, result.getPos(), result.getFace());
             }
@@ -68,22 +69,22 @@ public class EssenceWateringCanItem extends WateringCanItem {
     @Override
     public ActionResult<ItemStack> onItemRightClick(World world, PlayerEntity player, Hand hand) {
         ItemStack stack = player.getHeldItem(hand);
-        if (NBTHelper.getBoolean(stack, "Water")) {
-            if (player.isCrouching()) {
+        BlockRayTraceResult trace = rayTrace(world, player, RayTraceContext.FluidMode.SOURCE_ONLY);
+
+        if (trace.getType() != RayTraceResult.Type.BLOCK) {
+            if (NBTHelper.getBoolean(stack, "Water") && player.isCrouching()) {
                 NBTHelper.flipBoolean(stack, "Active");
             }
 
             return new ActionResult<>(ActionResultType.PASS, stack);
         }
 
-        BlockRayTraceResult trace = rayTrace(world, player, RayTraceContext.FluidMode.SOURCE_ONLY);
-        if (trace.getType() != RayTraceResult.Type.BLOCK)
-            return new ActionResult<>(ActionResultType.PASS, stack);
-
         BlockPos pos = trace.getPos();
         Direction direction = trace.getFace();
+
         if (world.isBlockModifiable(player, pos) && player.canPlayerEdit(pos.offset(direction), direction, stack)) {
             BlockState state = world.getBlockState(pos);
+
             if (state.getMaterial() == Material.WATER) {
                 NBTHelper.setString(stack, "ID", UUID.randomUUID().toString());
                 NBTHelper.setBoolean(stack, "Water", true);
