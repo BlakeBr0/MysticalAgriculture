@@ -133,7 +133,7 @@ public abstract class ReprocessorTileEntity extends BaseInventoryTileEntity impl
                 }
 
                 if (this.recipe != null) {
-                    ItemStack recipeOutput = this.recipe.getRecipeOutput();
+                    ItemStack recipeOutput = this.recipe.getCraftingResult(this.inventory);
                     if (!recipeOutput.isEmpty() && (output.isEmpty() || StackHelper.canCombineStacks(output, recipeOutput))) {
                         this.progress++;
                         this.fuel -= this.getFuelUsage();

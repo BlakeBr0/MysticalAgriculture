@@ -87,7 +87,9 @@ public class InfusionAltarTileEntity extends BaseInventoryTileEntity implements 
                             this.spawnParticles(ParticleTypes.SMOKE, pedestal.getPos(), 1.2D, 20);
                         }
 
-                        this.setOutput(this.recipe.getRecipeOutput());
+                        ItemStack result = this.recipe.getCraftingResult(this.recipeInventory);
+
+                        this.setOutput(result);
                         this.reset();
                         this.markDirtyAndDispatch();
                         this.spawnParticles(ParticleTypes.HAPPY_VILLAGER, this.getPos(), 1.0D, 10);

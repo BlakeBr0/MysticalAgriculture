@@ -140,7 +140,7 @@ public class WateringCanItem extends BaseItem {
         if (!world.isRemote()) {
             String id = getID(stack);
             long throttle = THROTTLES.getOrDefault(id, 0L);
-            if (world.getGameTime() - throttle < 5)
+            if (world.getGameTime() - throttle < 5L)
                 return ActionResultType.PASS;
 
             THROTTLES.put(id, world.getGameTime());
