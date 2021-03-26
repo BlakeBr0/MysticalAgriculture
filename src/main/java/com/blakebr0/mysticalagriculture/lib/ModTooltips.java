@@ -12,6 +12,7 @@ public final class ModTooltips {
     public static final Tooltip TIER = new Tooltip("tooltip.mysticalagriculture.tier");
     public static final Tooltip CROP_ID = new Tooltip("tooltip.mysticalagriculture.crop_id");
     public static final Tooltip MST_ID = new Tooltip("tooltip.mysticalagriculture.mst_id");
+    public static final Tooltip AUGMENT_ID = new Tooltip("tooltip.mysticalagriculture.augment_id");
     public static final Tooltip ADDED_BY = new Tooltip("tooltip.mysticalagriculture.added_by");
     public static final Tooltip REQUIRED_BIOMES = new Tooltip("tooltip.mysticalagriculture.required_biomes");
     public static final Tooltip SECONDARY_CHANCE = new Tooltip("tooltip.mysticalagriculture.secondary_chance");

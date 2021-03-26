@@ -12,6 +12,7 @@ import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.StringTextComponent;
+import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
@@ -53,6 +54,10 @@ public class AugmentItem extends BaseItem implements IAugmentGetter, IEnableable
                 .map(ITextComponent::getString)
                 .collect(Collectors.joining(", "))
         ));
+
+        if (flag.isAdvanced()) {
+            tooltip.add(ModTooltips.AUGMENT_ID.args(this.augment.getId()).color(TextFormatting.DARK_GRAY).build());
+        }
     }
 
     @Override
