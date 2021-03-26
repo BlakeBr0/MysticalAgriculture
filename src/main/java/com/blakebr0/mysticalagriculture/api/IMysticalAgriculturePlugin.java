@@ -31,6 +31,12 @@ public interface IMysticalAgriculturePlugin {
     default void onRegisterAugments(IAugmentRegistry registry) { }
 
     /**
+     * Override this method and use to the supplied registry to modify augments from the augment registry
+     * @param registry the augment registry
+     */
+    default void onPostRegisterAugments(IAugmentRegistry registry) { }
+
+    /**
      * Override this method and use the supplied registry to register all of your mob soul types
      * @param registry the mob soul type registry
      */

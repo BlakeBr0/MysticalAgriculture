@@ -53,5 +53,7 @@ public final class AugmentRegistry implements IAugmentRegistry {
 
             registry.register(item);
         });
+
+        PluginRegistry.getInstance().forEach((plugin, config) -> plugin.onPostRegisterAugments(this));
     }
 }
