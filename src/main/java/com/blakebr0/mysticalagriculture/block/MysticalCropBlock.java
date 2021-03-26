@@ -44,7 +44,7 @@ public class MysticalCropBlock extends CropsBlock implements ICropGetter {
 
     @Override
     public void randomTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
-        if (this.canGrow(world, pos))
+        if (!this.canGrow(world, pos))
             return;
 
         super.randomTick(state, world, pos, random);
