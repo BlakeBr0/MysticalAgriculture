@@ -20,7 +20,7 @@ import java.util.Arrays;
 import static com.blakebr0.mysticalagriculture.MysticalAgriculture.MOD_ID;
 
 public final class ModCrops {
-    private static final boolean DEBUG = false;
+    private static final boolean DEBUG = true;
 
     public static final Crop AIR = new Crop(new ResourceLocation(MOD_ID, "air"), CropTier.ELEMENTAL, CropType.RESOURCE, CropTextures.ELEMENTAL_CROP_TEXTURES, 0xDAD64D, LazyIngredient.item("mysticalagriculture:air_agglomeratio"));
     public static final Crop EARTH = new Crop(new ResourceLocation(MOD_ID, "earth"), CropTier.ELEMENTAL, CropType.RESOURCE, CropTextures.ELEMENTAL_CROP_TEXTURES, 0x54DA4D, LazyIngredient.item("mysticalagriculture:earth_agglomeratio"));
@@ -113,6 +113,16 @@ public final class ModCrops {
 
     // IMMERSIVE ENGINEERING
     public static final Crop HOP_GRAPHITE = new Crop(new ResourceLocation(MOD_ID, "hop_graphite"), CropTier.FOUR, CropType.RESOURCE, LazyIngredient.tag("forge:ingots/hop_graphite"));
+
+    // TINKERS' CONSTRUCT
+    public static final Crop TINKERS_BRONZE = new Crop(new ResourceLocation(MOD_ID, "tinkers_bronze"), CropTier.THREE, CropType.RESOURCE, LazyIngredient.tag("forge:ingots/silicon_bronze"));
+    public static final Crop SLIMESTEEL = new Crop(new ResourceLocation(MOD_ID, "slimesteel"), CropTier.THREE, CropType.RESOURCE, LazyIngredient.tag("forge:ingots/slimesteel"));
+    public static final Crop PIG_IRON = new Crop(new ResourceLocation(MOD_ID, "pig_iron"), CropTier.THREE, CropType.RESOURCE, LazyIngredient.tag("forge:ingots/pig_iron"));
+    public static final Crop COBALT = new Crop(new ResourceLocation(MOD_ID, "cobalt"), CropTier.FOUR, CropType.RESOURCE, LazyIngredient.tag("forge:ingots/cobalt"));
+    public static final Crop ROSE_GOLD = new Crop(new ResourceLocation(MOD_ID, "rose_gold"), CropTier.FOUR, CropType.RESOURCE, LazyIngredient.tag("forge:ingots/rose_gold"));
+    public static final Crop MANYULLYN = new Crop(new ResourceLocation(MOD_ID, "manyullyn"), CropTier.FIVE, CropType.RESOURCE, LazyIngredient.tag("forge:ingots/manyullyn"));
+    public static final Crop QUEENS_SLIME = new Crop(new ResourceLocation(MOD_ID, "queens_slime"), CropTier.FIVE, CropType.RESOURCE, LazyIngredient.tag("forge:ingots/queens_slime"));
+    public static final Crop HEPATIZON = new Crop(new ResourceLocation(MOD_ID, "hepatizon"), CropTier.FIVE, CropType.RESOURCE, LazyIngredient.tag("forge:ingots/hepatizon"));
 
     // BOTANIA
     public static final Crop MYSTICAL_FLOWER = new Crop(new ResourceLocation(MOD_ID, "mystical_flower"), CropTier.TWO, CropType.RESOURCE, LazyIngredient.item("mysticalagriculture:mystical_flower_agglomeratio"));
@@ -250,6 +260,16 @@ public final class ModCrops {
 
         // IMMERSIVE ENGINEERING
         registry.register(withRequiredMods(HOP_GRAPHITE, "immersiveengineering"));
+
+        // TINKERS' CONSTRUCT
+        registry.register(withRequiredMods(TINKERS_BRONZE, "tconstruct"));
+        registry.register(withRequiredMods(SLIMESTEEL, "tconstruct"));
+        registry.register(withRequiredMods(PIG_IRON, "tconstruct"));
+        registry.register(withRequiredMods(COBALT, "tconstruct"));
+        registry.register(withRequiredMods(ROSE_GOLD, "tconstruct"));
+        registry.register(withRequiredMods(MANYULLYN, "tconstruct"));
+        registry.register(withRequiredMods(QUEENS_SLIME, "tconstruct"));
+        registry.register(withRequiredMods(HEPATIZON, "tconstruct"));
 
         // BOTANIA
         registry.register(withRequiredMods(MYSTICAL_FLOWER, "botania"));
