@@ -20,7 +20,7 @@ import java.util.Arrays;
 import static com.blakebr0.mysticalagriculture.MysticalAgriculture.MOD_ID;
 
 public final class ModCrops {
-    private static final boolean DEBUG = true;
+    private static final boolean DEBUG = false;
 
     public static final Crop AIR = new Crop(new ResourceLocation(MOD_ID, "air"), CropTier.ELEMENTAL, CropType.RESOURCE, CropTextures.ELEMENTAL_CROP_TEXTURES, 0xDAD64D, LazyIngredient.item("mysticalagriculture:air_agglomeratio"));
     public static final Crop EARTH = new Crop(new ResourceLocation(MOD_ID, "earth"), CropTier.ELEMENTAL, CropType.RESOURCE, CropTextures.ELEMENTAL_CROP_TEXTURES, 0x54DA4D, LazyIngredient.item("mysticalagriculture:earth_agglomeratio"));
@@ -134,6 +134,12 @@ public final class ModCrops {
     public static final Crop OSMIUM = new Crop(new ResourceLocation(MOD_ID, "osmium"), CropTier.FOUR, CropType.RESOURCE, LazyIngredient.tag("forge:ingots/osmium"));
     public static final Crop REFINED_GLOWSTONE = new Crop(new ResourceLocation(MOD_ID, "refined_glowstone"), CropTier.FOUR, CropType.RESOURCE, LazyIngredient.tag("forge:ingots/refined_glowstone"));
     public static final Crop REFINED_OBSIDIAN = new Crop(new ResourceLocation(MOD_ID, "refined_obsidian"), CropTier.FOUR, CropType.RESOURCE, LazyIngredient.tag("forge:ingots/refined_obsidian"));
+
+    // TWILIGHT FOREST
+    public static final Crop STEELEAF = new Crop(new ResourceLocation(MOD_ID, "steeleaf"), CropTier.THREE, CropType.RESOURCE, LazyIngredient.item("twilightforest:steeleaf_ingot"));
+    public static final Crop IRONWOOD = new Crop(new ResourceLocation(MOD_ID, "ironwood"), CropTier.THREE, CropType.RESOURCE, LazyIngredient.item("twilightforest:ironwood_ingot"));
+    public static final Crop KNIGHTMETAL = new Crop(new ResourceLocation(MOD_ID, "knightmetal"), CropTier.FOUR, CropType.RESOURCE, LazyIngredient.item("twilightforest:knightmetal_ingot"));
+    public static final Crop FIERY_INGOT = new Crop(new ResourceLocation(MOD_ID, "fiery_ingot"), CropTier.FOUR, CropType.RESOURCE, LazyIngredient.item("twilightforest:fiery_ingot"));
 
     // QUARK
     public static final Crop ENDER_BIOTITE = new Crop(new ResourceLocation(MOD_ID, "ender_biotite"), CropTier.THREE, CropType.RESOURCE, LazyIngredient.item("quark:biotite"));
@@ -281,6 +287,12 @@ public final class ModCrops {
         registry.register(withRequiredMods(OSMIUM, "mekanism"));
         registry.register(withRequiredMods(REFINED_GLOWSTONE, "mekanism"));
         registry.register(withRequiredMods(REFINED_OBSIDIAN, "mekanism"));
+
+        // TWILIGHT FOREST
+        registry.register(withRequiredMods(STEELEAF, "twilightforest"));
+        registry.register(withRequiredMods(IRONWOOD, "twilightforest"));
+        registry.register(withRequiredMods(KNIGHTMETAL, "twilightforest"));
+        registry.register(withRequiredMods(FIERY_INGOT, "twilightforest"));
 
         // QUARK
         registry.register(withRequiredMods(ENDER_BIOTITE, "quark"));
