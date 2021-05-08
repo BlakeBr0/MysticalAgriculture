@@ -106,6 +106,15 @@ public class MysticalCropBlock extends CropsBlock implements ICropGetter {
     }
 
     @Override
+    public boolean canGrow(IBlockReader world, BlockPos pos, BlockState state, boolean isClient) {
+        if (world instanceof World) {
+            return this.canGrow((World) world, pos) && super.canGrow(world, pos, state, isClient);
+        }
+
+        return super.canGrow(world, pos, state, isClient);
+    }
+
+    @Override
     protected boolean isValidGround(BlockState state, IBlockReader world, BlockPos pos) {
         return state.getBlock() instanceof FarmlandBlock;
     }
