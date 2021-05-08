@@ -10,7 +10,9 @@ import org.apache.logging.log4j.Logger;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -18,15 +20,16 @@ public final class MobSoulTypeRegistry implements IMobSoulTypeRegistry {
     private static final Logger LOGGER = LogManager.getLogger();
     private static final MobSoulTypeRegistry INSTANCE = new MobSoulTypeRegistry();
 
-    private final List<IMobSoulType> mobSoulTypes = new ArrayList<>();
+    private final Map<ResourceLocation, IMobSoulType> mobSoulTypes = new LinkedHashMap<>();
     private final Set<ResourceLocation> usedEntityIds = new HashSet<>();
 
     @Override
     public void register(IMobSoulType mobSoulType) {
-        if (this.mobSoulTypes.stream().noneMatch(m -> m.getId().equals(mobSoulType.getId()))) {
+        if (this.mobSoulTypes.values().stream().noneMatch(m -> m.getId().equals(mobSoulType.getId()))) {
             Set<ResourceLocation> duplicates = mobSoulType.getEntityIds().stream().filter(this.usedEntityIds::contains).collect(Collectors.toSet());
+
             if (duplicates.isEmpty()) {
-                this.mobSoulTypes.add(mobSoulType);
+                this.mobSoulTypes.put(mobSoulType.getId(), mobSoulType);
                 this.usedEntityIds.addAll(mobSoulType.getEntityIds());
             } else {
                 LOGGER.info("{} tried to register a mob soul type for entity ids {}, but they already have one registered, skipping", mobSoulType.getModId(), duplicates);
@@ -38,17 +41,17 @@ public final class MobSoulTypeRegistry implements IMobSoulTypeRegistry {
 
     @Override
     public List<IMobSoulType> getMobSoulTypes() {
-        return Collections.unmodifiableList(this.mobSoulTypes);
+        return Collections.unmodifiableList(new ArrayList<>(this.mobSoulTypes.values()));
     }
 
     @Override
     public IMobSoulType getMobSoulTypeById(ResourceLocation id) {
-        return this.mobSoulTypes.stream().filter(c -> id.equals(c.getId())).findFirst().orElse(null);
+        return this.mobSoulTypes.get(id);
     }
 
     @Override
     public IMobSoulType getMobSoulTypeByEntity(LivingEntity entity) {
-        return this.mobSoulTypes.stream().filter(t -> t.isEntityApplicable(entity)).findFirst().orElse(null);
+        return this.mobSoulTypes.values().stream().filter(t -> t.isEntityApplicable(entity)).findFirst().orElse(null);
     }
 
     public static MobSoulTypeRegistry getInstance() {

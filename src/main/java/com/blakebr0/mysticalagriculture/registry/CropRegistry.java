@@ -17,24 +17,21 @@ import net.minecraftforge.registries.IForgeRegistry;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
 
 public final class CropRegistry implements ICropRegistry {
     private static final Logger LOGGER = LogManager.getLogger(MysticalAgriculture.NAME);
     private static final CropRegistry INSTANCE = new CropRegistry();
 
-    private final List<ICrop> crops = new ArrayList<>();
+    private Map<ResourceLocation, ICrop> crops = new LinkedHashMap<>();
     private boolean allowRegistration = false;
     private PluginConfig currentPluginConfig = null;
 
     @Override
     public void register(ICrop crop) {
         if (this.allowRegistration) {
-            if (this.crops.stream().noneMatch(c -> c.getName().equals(crop.getName()))) {
-                this.crops.add(crop);
+            if (this.crops.values().stream().noneMatch(c -> c.getName().equals(crop.getName()))) {
+                this.crops.put(crop.getId(), crop);
 
                 this.loadRecipeConfig(crop);
             } else {
@@ -47,17 +44,17 @@ public final class CropRegistry implements ICropRegistry {
 
     @Override
     public List<ICrop> getCrops() {
-        return Collections.unmodifiableList(this.crops);
+        return Collections.unmodifiableList(new ArrayList<>(this.crops.values()));
     }
 
     @Override
     public ICrop getCropById(ResourceLocation id) {
-        return this.crops.stream().filter(c -> id.equals(c.getId())).findFirst().orElse(null);
+        return this.crops.get(id);
     }
 
     @Override
     public ICrop getCropByName(String name) {
-        return this.crops.stream().filter(c -> name.equals(c.getName())).findFirst().orElse(null);
+        return this.crops.values().stream().filter(c -> name.equals(c.getName())).findFirst().orElse(null);
     }
 
     public static CropRegistry getInstance() {
@@ -75,7 +72,9 @@ public final class CropRegistry implements ICropRegistry {
             plugin.onRegisterCrops(this);
         });
 
-        this.crops.stream().filter(ICrop::shouldRegisterCropBlock).forEach(c -> {
+        Collection<ICrop> crops = this.crops.values();
+
+        crops.stream().filter(ICrop::shouldRegisterCropBlock).forEach(c -> {
             CropsBlock crop = c.getCrop();
             if (crop == null) {
                 CropsBlock defaultCrop = new MysticalCropBlock(c);
@@ -89,11 +88,13 @@ public final class CropRegistry implements ICropRegistry {
             registry.register(crop);
         });
 
-        this.crops.sort(Comparator.comparingInt(c -> c.getTier().getValue()));
+        this.crops = getSortedCropsMap(crops);
     }
 
     public void onRegisterItems(IForgeRegistry<Item> registry) {
-        this.crops.stream().filter(ICrop::shouldRegisterEssenceItem).forEach(c -> {
+        Collection<ICrop> crops = this.crops.values();
+
+        crops.stream().filter(ICrop::shouldRegisterEssenceItem).forEach(c -> {
             Item essence = c.getEssence();
             if (essence == null) {
                 Item defaultEssence = new MysticalEssenceItem(c, p -> p.group(MysticalAgriculture.ITEM_GROUP));
@@ -107,7 +108,7 @@ public final class CropRegistry implements ICropRegistry {
             registry.register(essence);
         });
 
-        this.crops.stream().filter(ICrop::shouldRegisterSeedsItem).forEach(c -> {
+        crops.stream().filter(ICrop::shouldRegisterSeedsItem).forEach(c -> {
             BlockNamedItem seeds = c.getSeeds();
             if (seeds == null) {
                 BlockNamedItem defaultSeeds = new MysticalSeedsItem(c, p -> p.group(MysticalAgriculture.ITEM_GROUP));
@@ -133,5 +134,15 @@ public final class CropRegistry implements ICropRegistry {
         recipes.setSeedCraftingRecipeEnabled(config.isDynamicSeedCraftingRecipesEnabled());
         recipes.setSeedInfusionRecipeEnabled(config.isDynamicSeedInfusionRecipesEnabled());
         recipes.setSeedReprocessorRecipeEnabled(config.isDynamicSeedReprocessorRecipesEnabled());
+    }
+
+    private Map<ResourceLocation, ICrop> getSortedCropsMap(Collection<ICrop> crops) {
+        Map<ResourceLocation, ICrop> sorted = new LinkedHashMap<>();
+
+        crops.stream().sorted(Comparator.comparingInt(c -> c.getTier().getValue())).forEach(c -> {
+            sorted.put(c.getId(), c);
+        });
+
+        return sorted;
     }
 }
