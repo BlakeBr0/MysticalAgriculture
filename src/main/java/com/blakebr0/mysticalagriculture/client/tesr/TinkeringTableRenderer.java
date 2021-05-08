@@ -28,6 +28,7 @@ public class TinkeringTableRenderer extends TileEntityRenderer<TinkeringTableTil
         BlockPos pos = tile.getPos();
         BlockState state = world.getBlockState(pos);
         ItemStack stack = tile.getInventory().getStackInSlot(0);
+
         if (!stack.isEmpty()) {
             matrix.push();
             matrix.translate(0.5D, 0.9D, 0.5D);
@@ -35,7 +36,7 @@ public class TinkeringTableRenderer extends TileEntityRenderer<TinkeringTableTil
             matrix.scale(scale, scale, scale);
             matrix.rotate(Vector3f.YP.rotationDegrees(90));
             int index = state.get(TinkeringTableBlock.FACING).getHorizontalIndex();
-            matrix.rotate(Vector3f.YP.rotationDegrees(90 * index));
+            matrix.rotate(Vector3f.XN.rotationDegrees(90 * index));
             Minecraft.getInstance().getItemRenderer().renderItem(stack, ItemCameraTransforms.TransformType.FIXED, i, i1, matrix, buffer);
             matrix.pop();
         }
