@@ -132,6 +132,7 @@ public final class ModCrops {
 
     // MEKANISM
     public static final Crop OSMIUM = new Crop(new ResourceLocation(MOD_ID, "osmium"), CropTier.FOUR, CropType.RESOURCE, LazyIngredient.tag("forge:ingots/osmium"));
+    public static final Crop FLUORITE = new Crop(new ResourceLocation(MOD_ID, "fluorite"), CropTier.FOUR, CropType.RESOURCE, LazyIngredient.tag("forge:gems/fluorite"));
     public static final Crop REFINED_GLOWSTONE = new Crop(new ResourceLocation(MOD_ID, "refined_glowstone"), CropTier.FOUR, CropType.RESOURCE, LazyIngredient.tag("forge:ingots/refined_glowstone"));
     public static final Crop REFINED_OBSIDIAN = new Crop(new ResourceLocation(MOD_ID, "refined_obsidian"), CropTier.FOUR, CropType.RESOURCE, LazyIngredient.tag("forge:ingots/refined_obsidian"));
 
@@ -285,6 +286,7 @@ public final class ModCrops {
 
         // MEKANISM
         registry.register(withRequiredMods(OSMIUM, "mekanism"));
+        registry.register(withRequiredMods(FLUORITE, "mekanism"));
         registry.register(withRequiredMods(REFINED_GLOWSTONE, "mekanism"));
         registry.register(withRequiredMods(REFINED_OBSIDIAN, "mekanism"));
 
