@@ -1,0 +1,39 @@
+{
+  "type": "cucumber:shaped_no_mirror",
+  "conditions": [
+    {
+      "type": "mysticalagriculture:crop_enabled",
+      "crop": "mysticalagriculture:nether"
+    },
+    {
+      "type": "mysticalagriculture:crop_enabled",
+      "crop": "mysticalagriculture:netherite"
+    },
+    {
+      "type": "mysticalagriculture:crop_enabled",
+      "crop": "mysticalagriculture:gold"
+    }
+  ],
+  "pattern": [
+    "RC ",
+    "SD ",
+    "   "
+  ],
+  "key": {
+    "R": {
+      "item": "mysticalagriculture:blank_record"
+    },
+    "C": {
+      "item": "mysticalagriculture:nether_essence"
+    },
+    "S": {
+      "item": "mysticalagriculture:netherite_essence"
+    },
+    "D": {
+      "item": "mysticalagriculture:gold_essence"
+    }
+  },
+  "result": {
+    "item": "minecraft:music_disc_pigstep"
+  }
+}
