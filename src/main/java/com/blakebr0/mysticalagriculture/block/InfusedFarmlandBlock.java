@@ -8,17 +8,21 @@ import net.minecraft.block.Blocks;
 import net.minecraft.block.FarmlandBlock;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.enchantment.Enchantments;
+import net.minecraft.entity.Entity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.loot.LootContext;
 import net.minecraft.loot.LootParameters;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockReader;
+import net.minecraft.world.World;
+import net.minecraft.world.server.ServerWorld;
 import net.minecraftforge.common.IPlantable;
 import net.minecraftforge.common.PlantType;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class InfusedFarmlandBlock extends FarmlandBlock implements IColored, IEssenceFarmland {
     public static final List<InfusedFarmlandBlock> FARMLANDS = new ArrayList<>();
@@ -35,6 +39,24 @@ public class InfusedFarmlandBlock extends FarmlandBlock implements IColored, IEs
     public boolean canSustainPlant(BlockState state, IBlockReader world, BlockPos pos, Direction direction, IPlantable plantable) {
         PlantType type = plantable.getPlantType(world, pos.offset(direction));
         return type == PlantType.CROP || type == PlantType.PLAINS;
+    }
+
+    @Override
+    public void onFallenUpon(World world, BlockPos pos, Entity entity, float fallDistance) {
+        entity.onLivingFall(fallDistance, 1.0F);
+    }
+
+    @Override
+    public void randomTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
+        int moisture = state.get(MOISTURE);
+
+        if (!hasWater(world, pos) && !world.isRainingAt(pos.up())) {
+            if (moisture > 0) {
+                world.setBlockState(pos, state.with(MOISTURE, moisture - 1), 2);
+            }
+        } else if (moisture < 7) {
+            world.setBlockState(pos, state.with(MOISTURE, 7), 2);
+        }
     }
 
     // TODO: Convert to proper loot table json
