@@ -4,6 +4,7 @@ import com.blakebr0.mysticalagriculture.MysticalAgriculture;
 import com.blakebr0.mysticalagriculture.crafting.condition.AugmentEnabledCondition;
 import com.blakebr0.mysticalagriculture.crafting.condition.CropEnabledCondition;
 import com.blakebr0.mysticalagriculture.crafting.condition.CropHasMaterialCondition;
+import com.blakebr0.mysticalagriculture.crafting.condition.SeedCraftingRecipesEnabledCondition;
 import com.blakebr0.mysticalagriculture.crafting.ingredient.CropComponentIngredient;
 import com.blakebr0.mysticalagriculture.crafting.ingredient.FilledSoulJarIngredient;
 import com.blakebr0.mysticalagriculture.crafting.ingredient.HoeIngredient;
@@ -42,6 +43,7 @@ public final class ModRecipeSerializers {
         CraftingHelper.register(CropEnabledCondition.Serializer.INSTANCE);
         CraftingHelper.register(AugmentEnabledCondition.Serializer.INSTANCE);
         CraftingHelper.register(CropHasMaterialCondition.Serializer.INSTANCE);
+        CraftingHelper.register(SeedCraftingRecipesEnabledCondition.Serializer.INSTANCE);
 
         CraftingHelper.register(new ResourceLocation(MysticalAgriculture.MOD_ID, "all_hoes"), HOE_INGREDIENT);
         CraftingHelper.register(new ResourceLocation(MysticalAgriculture.MOD_ID, "filled_soul_jars"), FILLED_SOUL_JAR_INGREDIENT);
