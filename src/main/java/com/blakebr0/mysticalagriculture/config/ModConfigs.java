@@ -5,7 +5,6 @@ import net.minecraftforge.common.ForgeConfigSpec;
 public final class ModConfigs {
     public static final ForgeConfigSpec CLIENT;
     public static final ForgeConfigSpec COMMON;
-    public static final ForgeConfigSpec SERVER;
 
     public static final ForgeConfigSpec.BooleanValue ANIMATED_GROWTH_ACCELERATORS;
 
@@ -31,6 +30,7 @@ public final class ModConfigs {
     public static final ForgeConfigSpec.BooleanValue WITHER_DROPS_ESSENCE;
     public static final ForgeConfigSpec.BooleanValue DRAGON_DROPS_ESSENCE;
     public static final ForgeConfigSpec.BooleanValue ESSENCE_FARMLAND_CONVERSION;
+    public static final ForgeConfigSpec.BooleanValue SEED_CRAFTING_RECIPES;
 
     public static final ForgeConfigSpec.DoubleValue SOULIUM_ORE_CHANCE;
     public static final ForgeConfigSpec.BooleanValue GENERATE_PROSPERITY;
@@ -83,6 +83,10 @@ public final class ModConfigs {
                 .comment("Should right clicking on Farmland with an Essence create Essence Farmland?")
                 .translation("configGui.mysticalagriculture.essence_farmland_conversion")
                 .define("essenceFarmlandConversion", true);
+        SEED_CRAFTING_RECIPES = common
+                .comment("Should vanilla crafting recipes for seeds be generated?")
+                .translation("configGui.mysticalagriculture.seed_crafting_recipes")
+                .define("seedCraftingRecipes", false);
         common.pop();
 
         common.comment("World generation options.").push("World");
@@ -141,19 +145,5 @@ public final class ModConfigs {
         common.pop();
 
         COMMON = common.build();
-    }
-
-    public static final ForgeConfigSpec.BooleanValue SEED_CRAFTING_RECIPES;
-
-    // Server
-    static {
-        final ForgeConfigSpec.Builder server = new ForgeConfigSpec.Builder();
-
-        SEED_CRAFTING_RECIPES = server
-                .comment("Should vanilla crafting recipes for seeds be generated?")
-                .translation("configGui.mysticalagriculture.seed_crafting_recipes")
-                .define("seedCraftingRecipes", false);
-
-        SERVER = server.build();
     }
 }

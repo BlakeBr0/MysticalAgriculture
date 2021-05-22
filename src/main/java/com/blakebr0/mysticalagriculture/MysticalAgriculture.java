@@ -64,7 +64,6 @@ public final class MysticalAgriculture {
 
 		ModLoadingContext.get().registerConfig(ModConfig.Type.CLIENT, ModConfigs.CLIENT);
 		ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, ModConfigs.COMMON);
-		ModLoadingContext.get().registerConfig(ModConfig.Type.SERVER, ModConfigs.SERVER);
 
 		PluginRegistry.getInstance().loadPlugins();
 
