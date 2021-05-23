@@ -32,6 +32,7 @@ public final class ModConfigs {
     public static final ForgeConfigSpec.BooleanValue ESSENCE_FARMLAND_CONVERSION;
     public static final ForgeConfigSpec.BooleanValue SEED_CRAFTING_RECIPES;
     public static final ForgeConfigSpec.BooleanValue ENCHANTABLE_SUPREMIUM_TOOLS;
+    public static final ForgeConfigSpec.BooleanValue FAKE_PLAYER_WATERING;
 
     public static final ForgeConfigSpec.DoubleValue SOULIUM_ORE_CHANCE;
     public static final ForgeConfigSpec.BooleanValue GENERATE_PROSPERITY;
@@ -92,6 +93,10 @@ public final class ModConfigs {
                 .comment("Should Supremium Tools be enchantable in an Enchanting Table?")
                 .translation("configGUi.mysticalagriculture.enchantable_supremium_tools")
                 .define("enchantableSupremiumTools", false);
+        FAKE_PLAYER_WATERING = common
+                .comment("Should fake players be able to use watering cans?")
+                .translation("configGui.mysticalagriculture.fake_player_watering")
+                .define("fakePlayerWatering", true);
         common.pop();
 
         common.comment("World generation options.").push("World");

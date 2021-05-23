@@ -2,6 +2,7 @@ package com.blakebr0.mysticalagriculture.item;
 
 import com.blakebr0.cucumber.helper.NBTHelper;
 import com.blakebr0.cucumber.item.BaseItem;
+import com.blakebr0.mysticalagriculture.config.ModConfigs;
 import com.blakebr0.mysticalagriculture.lib.ModTooltips;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -136,6 +137,9 @@ public class WateringCanItem extends BaseItem {
             return ActionResultType.FAIL;
 
         if (!NBTHelper.getBoolean(stack, "Water"))
+            return ActionResultType.PASS;
+
+        if (!ModConfigs.FAKE_PLAYER_WATERING.get() && player instanceof FakePlayer)
             return ActionResultType.PASS;
 
         if (!world.isRemote()) {
