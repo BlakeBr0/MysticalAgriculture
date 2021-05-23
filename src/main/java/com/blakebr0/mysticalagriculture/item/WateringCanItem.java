@@ -32,6 +32,7 @@ import net.minecraft.world.server.ServerWorld;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.common.IPlantable;
+import net.minecraftforge.common.util.FakePlayer;
 
 import java.util.HashMap;
 import java.util.List;
@@ -140,7 +141,7 @@ public class WateringCanItem extends BaseItem {
         if (!world.isRemote()) {
             String id = getID(stack);
             long throttle = THROTTLES.getOrDefault(id, 0L);
-            if (world.getGameTime() - throttle < 5L)
+            if (world.getGameTime() - throttle < getThrottleTicks(player))
                 return ActionResultType.PASS;
 
             THROTTLES.put(id, world.getGameTime());
@@ -196,5 +197,9 @@ public class WateringCanItem extends BaseItem {
         }
 
         return NBTHelper.getString(stack, "ID");
+    }
+
+    private static long getThrottleTicks(PlayerEntity player) {
+        return player instanceof FakePlayer ? 10L : 5L;
     }
 }
