@@ -5,6 +5,7 @@ import com.blakebr0.mysticalagriculture.api.tinkering.AugmentType;
 import com.blakebr0.mysticalagriculture.api.tinkering.IAugment;
 import com.blakebr0.mysticalagriculture.api.tinkering.ITinkerable;
 import com.blakebr0.mysticalagriculture.api.util.AugmentUtils;
+import com.blakebr0.mysticalagriculture.config.ModConfigs;
 import com.blakebr0.mysticalagriculture.lib.ModTooltips;
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
@@ -153,6 +154,11 @@ public class EssenceSwordItem extends BaseSwordItem implements ITinkerable {
         }
 
         return modifiers;
+    }
+
+    @Override
+    public boolean isEnchantable(ItemStack stack) {
+        return ModConfigs.ENCHANTABLE_SUPREMIUM_TOOLS.get() || super.isEnchantable(stack);
     }
 
     @Override

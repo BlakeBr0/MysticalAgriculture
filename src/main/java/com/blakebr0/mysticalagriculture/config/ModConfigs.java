@@ -31,6 +31,7 @@ public final class ModConfigs {
     public static final ForgeConfigSpec.BooleanValue DRAGON_DROPS_ESSENCE;
     public static final ForgeConfigSpec.BooleanValue ESSENCE_FARMLAND_CONVERSION;
     public static final ForgeConfigSpec.BooleanValue SEED_CRAFTING_RECIPES;
+    public static final ForgeConfigSpec.BooleanValue ENCHANTABLE_SUPREMIUM_TOOLS;
 
     public static final ForgeConfigSpec.DoubleValue SOULIUM_ORE_CHANCE;
     public static final ForgeConfigSpec.BooleanValue GENERATE_PROSPERITY;
@@ -87,6 +88,10 @@ public final class ModConfigs {
                 .comment("Should vanilla crafting recipes for seeds be generated?")
                 .translation("configGui.mysticalagriculture.seed_crafting_recipes")
                 .define("seedCraftingRecipes", false);
+        ENCHANTABLE_SUPREMIUM_TOOLS = common
+                .comment("Should Supremium Tools be enchantable in an Enchanting Table?")
+                .translation("configGUi.mysticalagriculture.enchantable_supremium_tools")
+                .define("enchantableSupremiumTools", false);
         common.pop();
 
         common.comment("World generation options.").push("World");
