@@ -80,8 +80,42 @@ public class TinkeringTableContainer extends Container {
     }
 
     @Override
-    public ItemStack transferStackInSlot(PlayerEntity player, int index) {
-        return ItemStack.EMPTY;
+    public ItemStack transferStackInSlot(PlayerEntity player, int slotNumber) {
+        ItemStack itemstack = ItemStack.EMPTY;
+        Slot slot = this.inventorySlots.get(slotNumber);
+
+        if (slot != null && slot.getHasStack()) {
+            ItemStack itemstack1 = slot.getStack();
+            itemstack = itemstack1.copy();
+
+            if (slotNumber == 0) {
+                if (!this.mergeItemStack(itemstack1, 7, 43, true)) {
+                    return ItemStack.EMPTY;
+                }
+
+                slot.onSlotChange(itemstack1, itemstack);
+            } else if (slotNumber >= 7 && slotNumber < 43) {
+                if (!this.mergeItemStack(itemstack1, 0, 7, false)) {
+                    return ItemStack.EMPTY;
+                }
+            } else if (!this.mergeItemStack(itemstack1, 7, 43, false)) {
+                return ItemStack.EMPTY;
+            }
+
+            if (itemstack1.isEmpty()) {
+                slot.putStack(ItemStack.EMPTY);
+            } else {
+                slot.onSlotChanged();
+            }
+
+            if (itemstack1.getCount() == itemstack.getCount()) {
+                return ItemStack.EMPTY;
+            }
+
+            slot.onTake(player, itemstack1);
+        }
+
+        return itemstack;
     }
 
     public static TinkeringTableContainer create(int windowId, PlayerInventory playerInventory) {
