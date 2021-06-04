@@ -12,6 +12,16 @@
       "type": "crafting",
       "title": "book.mysticalagriculture.crafting",
       "recipe": "mysticalagriculture:soulium_dagger"
+    },
+    {
+      "type": "spotlight",
+      "item": "mysticalagriculture:passive_soulium_dagger",
+      "text": "book.mysticalagriculture.entry.soulium_dagger.page.3"
+    },
+    {
+      "type": "spotlight",
+      "item": "mysticalagriculture:hostile_soulium_dagger",
+      "text": "book.mysticalagriculture.entry.soulium_dagger.page.4"
     }
   ]
 }

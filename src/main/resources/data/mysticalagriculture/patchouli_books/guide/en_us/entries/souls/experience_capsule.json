@@ -1,0 +1,17 @@
+{
+  "name": "book.mysticalagriculture.entry.experience_capsule",
+  "category": "souls",
+  "icon": "mysticalagriculture:experience_capsule",
+  "sortnum": 106,
+  "pages": [
+    {
+      "type": "text",
+      "text": "book.mysticalagriculture.entry.experience_capsule.page.1"
+    },
+    {
+      "type": "crafting",
+      "title": "book.mysticalagriculture.crafting",
+      "recipe": "mysticalagriculture:experience_capsule"
+    }
+  ]
+}
