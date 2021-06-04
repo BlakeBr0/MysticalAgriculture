@@ -1,5 +1,6 @@
 package com.blakebr0.mysticalagriculture.block;
 
+import com.blakebr0.cucumber.util.Localizable;
 import com.blakebr0.mysticalagriculture.api.crop.ICrop;
 import com.blakebr0.mysticalagriculture.api.crop.ICropGetter;
 import com.blakebr0.mysticalagriculture.config.ModConfigs;
@@ -53,6 +54,11 @@ public class MysticalCropBlock extends CropsBlock implements ICropGetter {
     @Override
     public VoxelShape getShape(BlockState state, IBlockReader world, BlockPos pos, ISelectionContext context) {
         return SHAPE;
+    }
+
+    @Override
+    public String getTranslationKey() {
+        return Localizable.of("block.mysticalagriculture.mystical_crop").args(this.crop.getDisplayName()).buildString();
     }
 
     @Override
