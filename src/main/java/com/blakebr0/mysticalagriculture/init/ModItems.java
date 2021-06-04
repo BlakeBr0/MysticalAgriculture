@@ -80,7 +80,10 @@ public final class ModItems {
     public static final RegistryObject<Item> PROSPERITY_SEED_BASE = register("prosperity_seed_base");
     public static final RegistryObject<Item> SOULIUM_SEED_BASE = register("soulium_seed_base");
     public static final RegistryObject<Item> SOUL_DUST = register("soul_dust");
-    public static final RegistryObject<Item> SOULIUM_DAGGER = register("soulium_dagger", () -> new SouliumDaggerItem(ModItemTier.SOULIUM, p -> p.group(ITEM_GROUP)));
+    public static final RegistryObject<Item> SOULIUM_DAGGER = register("soulium_dagger", () -> new SouliumDaggerItem(ModItemTier.SOULIUM, SouliumDaggerItem.DaggerType.BASIC, p -> p.group(ITEM_GROUP)));
+    public static final RegistryObject<Item> PASSIVE_SOULIUM_DAGGER = register("passive_soulium_dagger", () -> new SouliumDaggerItem(ModItemTier.SOULIUM, SouliumDaggerItem.DaggerType.PASSIVE, p -> p.group(ITEM_GROUP)));
+    public static final RegistryObject<Item> HOSTILE_SOULIUM_DAGGER = register("hostile_soulium_dagger", () -> new SouliumDaggerItem(ModItemTier.SOULIUM, SouliumDaggerItem.DaggerType.HOSTILE, p -> p.group(ITEM_GROUP)));
+    public static final RegistryObject<Item> CREATIVE_SOULIUM_DAGGER = register("creative_soulium_dagger", () -> new SouliumDaggerItem(ModItemTier.SOULIUM, SouliumDaggerItem.DaggerType.CREATIVE, p -> p.group(ITEM_GROUP)));
     public static final RegistryObject<Item> INFUSION_CRYSTAL = register("infusion_crystal", () -> new InfusionCrystalItem(p -> p.group(ITEM_GROUP)));
     public static final RegistryObject<Item> MASTER_INFUSION_CRYSTAL = register("master_infusion_crystal", () -> new MasterInfusionCrystalItem(p -> p.group(ITEM_GROUP)));
     public static final RegistryObject<Item> FERTILIZED_ESSENCE = register("fertilized_essence", () -> new FertilizedEssenceItem(p -> p.group(ITEM_GROUP)));

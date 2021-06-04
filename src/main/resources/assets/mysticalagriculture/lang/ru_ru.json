@@ -215,7 +215,7 @@
   "tooltip.mysticalagriculture.experience_capsule": "%s / %s Очков опыта",
   "tooltip.mysticalagriculture.soul_jar": "%s (%s / %s)",
   "tooltip.mysticalagriculture.invalid_entity": "Недействительная сущность",
-  "tooltip.mysticalagriculture.soulium_dagger": "Предоставляет дополнительные души из мирных существ",
+  "tooltip.mysticalagriculture.passive_soulium_dagger": "Предоставляет дополнительные души из мирных существ",
   "tooltip.mysticalagriculture.activate_with_redstone": "Активируется красной пылью",
   "tooltip.mysticalagriculture.fertilized_essence_chance": "%s Шанс выпадения",
   "tooltip.mysticalagriculture.mystical_fertilizer": "Мгновенно выращивает посев или саженец.",

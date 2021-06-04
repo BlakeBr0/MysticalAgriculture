@@ -1,0 +1,6 @@
+{
+  "parent": "item/handheld",
+  "textures": {
+    "layer0": "mysticalagriculture:item/hostile_soulium_dagger"
+  }
+}

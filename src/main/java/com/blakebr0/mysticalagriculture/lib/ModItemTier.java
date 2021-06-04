@@ -23,7 +23,7 @@ public enum ModItemTier implements IItemTier {
     SUPREMIUM(5, -1, 25.0F, 20.0F, 20, () -> {
         return Ingredient.fromItems(ModItems.SUPREMIUM_INGOT.get());
     }),
-    SOULIUM(0, 400, 5.0F, 4.0F, 25, () -> {
+    SOULIUM(0, 400, 5.0F, 3.0F, 15, () -> {
         return Ingredient.fromItems(ModItems.SOULIUM_INGOT.get());
     });
 

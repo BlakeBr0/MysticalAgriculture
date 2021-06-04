@@ -1,0 +1,55 @@
+{
+  "type": "mysticalagriculture:infusion",
+  "input": {
+    "item": "mysticalagriculture:soulium_dagger"
+  },
+  "ingredients": [
+    {
+      "item": "mysticalagriculture:soulium_ingot"
+    },
+    {
+      "type": "forge:nbt",
+      "item": "mysticalagriculture:soul_jar",
+      "nbt": {
+        "Type": "mysticalagriculture:zombie",
+        "Souls": 10.0
+      }
+    },
+    {
+      "item": "mysticalagriculture:soulium_gemstone"
+    },
+    {
+      "type": "forge:nbt",
+      "item": "mysticalagriculture:soul_jar",
+      "nbt": {
+        "Type": "mysticalagriculture:skeleton",
+        "Souls": 10.0
+      }
+    },
+    {
+      "item": "mysticalagriculture:soulium_ingot"
+    },
+    {
+      "type": "forge:nbt",
+      "item": "mysticalagriculture:soul_jar",
+      "nbt": {
+        "Type": "mysticalagriculture:creeper",
+        "Souls": 10.0
+      }
+    },
+    {
+      "item": "mysticalagriculture:soulium_gemstone"
+    },
+    {
+      "type": "forge:nbt",
+      "item": "mysticalagriculture:soul_jar",
+      "nbt": {
+        "Type": "mysticalagriculture:spider",
+        "Souls": 10.0
+      }
+    }
+  ],
+  "result": {
+    "item": "mysticalagriculture:hostile_soulium_dagger"
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "type": "mysticalagriculture:infusion",
+  "input": {
+    "item": "mysticalagriculture:soulium_dagger"
+  },
+  "ingredients": [
+    {
+      "item": "mysticalagriculture:soulium_ingot"
+    },
+    {
+      "type": "forge:nbt",
+      "item": "mysticalagriculture:soul_jar",
+      "nbt": {
+        "Type": "mysticalagriculture:pig",
+        "Souls": 8.0
+      }
+    },
+    {
+      "item": "mysticalagriculture:soulium_gemstone"
+    },
+    {
+      "type": "forge:nbt",
+      "item": "mysticalagriculture:soul_jar",
+      "nbt": {
+        "Type": "mysticalagriculture:chicken",
+        "Souls": 8.0
+      }
+    },
+    {
+      "item": "mysticalagriculture:soulium_ingot"
+    },
+    {
+      "type": "forge:nbt",
+      "item": "mysticalagriculture:soul_jar",
+      "nbt": {
+        "Type": "mysticalagriculture:cow",
+        "Souls": 8.0
+      }
+    },
+    {
+      "item": "mysticalagriculture:soulium_gemstone"
+    },
+    {
+      "type": "forge:nbt",
+      "item": "mysticalagriculture:soul_jar",
+      "nbt": {
+        "Type": "mysticalagriculture:sheep",
+        "Souls": 8.0
+      }
+    }
+  ],
+  "result": {
+    "item": "mysticalagriculture:passive_soulium_dagger"
+  }
+}

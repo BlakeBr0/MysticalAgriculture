@@ -213,7 +213,7 @@
   "tooltip.mysticalagriculture.experience_capsule": "%s / %s 경험치",
   "tooltip.mysticalagriculture.soul_jar": "%s (%s/%s)",
   "tooltip.mysticalagriculture.invalid_entity": "잘못된 엔티티",
-  "tooltip.mysticalagriculture.soulium_dagger": "평화로운 생명체로부터 영혼을 추가로 부여합니다.",
+  "tooltip.mysticalagriculture.passive_soulium_dagger": "평화로운 생명체로부터 영혼을 추가로 부여합니다.",
   "tooltip.mysticalagriculture.activate_with_redstone": "레드스톤으로 활성화",
   "tooltip.mysticalagriculture.fertilized_essence_chance": "%s 방울 기회",
   "tooltip.mysticalagriculture.mystical_fertilizer": "즉시 작물이나 묘목을 기릅니다.",

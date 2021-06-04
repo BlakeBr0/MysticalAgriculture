@@ -29,7 +29,12 @@ public final class ModTooltips {
     public static final Tooltip WATERING_CAN_AREA = new Tooltip("tooltip.mysticalagriculture.watering_can_area");
     public static final Tooltip EXPERIENCE_CAPSULE = new Tooltip("tooltip.mysticalagriculture.experience_capsule");
     public static final Tooltip SOUL_JAR = new Tooltip("tooltip.mysticalagriculture.soul_jar");
-    public static final Tooltip SOULIUM_DAGGER = new Tooltip("tooltip.mysticalagriculture.soulium_dagger");
+    public static final Tooltip PASSIVE_SOULIUM_DAGGER = new Tooltip("tooltip.mysticalagriculture.passive_soulium_dagger");
+    public static final Tooltip HOSTILE_SOULIUM_DAGGER = new Tooltip("tooltip.mysticalagriculture.hostile_soulium_dagger");
+    public static final Tooltip CREATIVE_SOULIUM_DAGGER = new Tooltip("tooltip.mysticalagriculture.creative_soulium_dagger");
+    public static final Tooltip PASSIVE_ATTUNED = new Tooltip("tooltip.mysticalagriculture.passive_attuned");
+    public static final Tooltip HOSTILE_ATTUNED = new Tooltip("tooltip.mysticalagriculture.hostile_attuned");
+    public static final Tooltip CREATIVE_ATTUNED = new Tooltip("tooltip.mysticalagriculture.creative_attuned");
     public static final Tooltip ACTIVATE_WITH_REDSTONE = new Tooltip("tooltip.mysticalagriculture.activate_with_redstone");
     public static final Tooltip FERTILIZED_ESSENCE_CHANCE = new Tooltip("tooltip.mysticalagriculture.fertilized_essence_chance");
     public static final Tooltip MYSTICAL_FERTILIZER = new Tooltip("tooltip.mysticalagriculture.mystical_fertilizer");
