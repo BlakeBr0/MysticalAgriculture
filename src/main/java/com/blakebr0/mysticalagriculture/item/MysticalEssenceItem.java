@@ -36,6 +36,11 @@ public class MysticalEssenceItem extends BaseItem implements ICropGetter, IEnabl
     }
 
     @Override
+    public String getTranslationKey() {
+        return Localizable.of("item.mysticalagriculture.mystical_essence").args(this.crop.getDisplayName()).buildString();
+    }
+
+    @Override
     public boolean hasEffect(ItemStack stack) {
         return this.crop.hasEffect(stack) || super.hasEffect(stack);
     }

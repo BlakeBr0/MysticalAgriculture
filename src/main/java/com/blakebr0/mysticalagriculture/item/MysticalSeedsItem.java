@@ -50,6 +50,11 @@ public class MysticalSeedsItem extends BlockNamedItem implements ICropGetter, IE
     }
 
     @Override
+    public String getTranslationKey() {
+        return Localizable.of("item.mysticalagriculture.mystical_seeds").args(this.crop.getDisplayName()).buildString();
+    }
+
+    @Override
     public boolean hasEffect(ItemStack stack) {
         return this.crop.hasEffect(stack) || super.hasEffect(stack);
     }
