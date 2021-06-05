@@ -3,11 +3,15 @@ package com.blakebr0.mysticalagriculture.item;
 import com.blakebr0.cucumber.item.BaseItem;
 import com.blakebr0.mysticalagriculture.api.crop.ICropGetter;
 import com.blakebr0.mysticalagriculture.config.ModConfigs;
+import com.blakebr0.mysticalagriculture.init.ModItems;
 import com.blakebr0.mysticalagriculture.lib.ModTooltips;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
+import net.minecraft.block.DispenserBlock;
 import net.minecraft.block.IGrowable;
 import net.minecraft.client.util.ITooltipFlag;
+import net.minecraft.dispenser.IBlockSource;
+import net.minecraft.dispenser.OptionalDispenseBehavior;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUseContext;
@@ -64,8 +68,10 @@ public class FertilizedEssenceItem extends BaseItem {
     public static boolean applyFertilizer(ItemStack stack, World world, BlockPos pos, PlayerEntity player){
         BlockState state = world.getBlockState(pos);
 
-        int hook = ForgeEventFactory.onApplyBonemeal(player, world, pos, state, stack);
-        if (hook != 0) return hook > 0;
+        if (player != null) {
+            int hook = ForgeEventFactory.onApplyBonemeal(player, world, pos, state, stack);
+            if (hook != 0) return hook > 0;
+        }
 
         Block block = state.getBlock();
         if (block instanceof IGrowable) {
@@ -90,5 +96,29 @@ public class FertilizedEssenceItem extends BaseItem {
 
     private static boolean canGrowResourceCrops(IGrowable growable) {
         return growable instanceof ICropGetter && ((ICropGetter) growable).getCrop().getTier().isFertilizable();
+    }
+
+    public static class DispenserBehavior extends OptionalDispenseBehavior {
+        @Override
+        protected ItemStack dispenseStack(IBlockSource source, ItemStack stack) {
+            this.setSuccessful(true);
+
+            World world = source.getWorld();
+            BlockPos pos = source.getBlockPos().offset(source.getBlockState().get(DispenserBlock.FACING));
+
+            if (FertilizedEssenceItem.applyFertilizer(stack, world, pos, null)) {
+                if (!world.isRemote()) {
+                    world.playEvent(2005, pos, 0);
+                }
+            } else {
+                this.setSuccessful(false);
+            }
+
+            return stack;
+        }
+
+        public static void register() {
+            DispenserBlock.registerDispenseBehavior(ModItems.FERTILIZED_ESSENCE.get(), new DispenserBehavior());
+        }
     }
 }
