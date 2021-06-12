@@ -115,7 +115,7 @@ public final class ModItems {
     public static final RegistryObject<Item> INFERIUM_HOE = registerGear("inferium_hoe", () -> new EssenceHoeItem(ModItemTier.INFERIUM, 1, 1, p -> p.group(ITEM_GROUP)));
     public static final RegistryObject<Item> INFERIUM_STAFF = registerGear("inferium_staff", () -> new EssenceStaffItem(1, 1, p -> p.group(ITEM_GROUP)));
     public static final RegistryObject<Item> INFERIUM_WATERING_CAN = registerGear("inferium_watering_can", () -> new EssenceWateringCanItem(3, 0.25, CropTier.ONE.getTextColor(), p -> p.group(ITEM_GROUP)));
-    public static final RegistryObject<Item> PRUDENTIUM_SWORD = registerGear("prudentium_sword", () -> new EssenceSwordItem(ModItemTier.PRUDENTIUM, 1, 1, p -> p.group(ITEM_GROUP)));
+    public static final RegistryObject<Item> PRUDENTIUM_SWORD = registerGear("prudentium_sword", () -> new EssenceSwordItem(ModItemTier.PRUDENTIUM, 2, 1, p -> p.group(ITEM_GROUP)));
     public static final RegistryObject<Item> PRUDENTIUM_PICKAXE = registerGear("prudentium_pickaxe", () -> new EssencePickaxeItem(ModItemTier.PRUDENTIUM, 2, 1, p -> p.group(ITEM_GROUP)));
     public static final RegistryObject<Item> PRUDENTIUM_SHOVEL = registerGear("prudentium_shovel", () -> new EssenceShovelItem(ModItemTier.PRUDENTIUM, 2, 1, p -> p.group(ITEM_GROUP)));
     public static final RegistryObject<Item> PRUDENTIUM_AXE = registerGear("prudentium_axe", () -> new EssenceAxeItem(ModItemTier.PRUDENTIUM, 2, 1, p -> p.group(ITEM_GROUP)));
