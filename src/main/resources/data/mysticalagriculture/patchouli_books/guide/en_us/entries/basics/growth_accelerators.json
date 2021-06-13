@@ -11,7 +11,8 @@
     {
       "type": "crafting",
       "title": "book.mysticalagriculture.crafting",
-      "recipe": "mysticalagriculture:inferium_growth_accelerator"
+      "recipe": "mysticalagriculture:inferium_growth_accelerator",
+      "text": "book.mysticalagriculture.entry.growth_accelerators.page.2"
     }
   ]
 }
