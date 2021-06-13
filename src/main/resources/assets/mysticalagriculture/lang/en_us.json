@@ -69,6 +69,7 @@
   "block.mysticalagriculture.tertium_reprocessor": "Tertium Seed Reprocessor",
   "block.mysticalagriculture.imperium_reprocessor": "Imperium Seed Reprocessor",
   "block.mysticalagriculture.supremium_reprocessor": "Supremium Seed Reprocessor",
+  "block.mysticalagriculture.soul_extractor": "Soul Extractor",
 
   "block.mysticalagriculture.mystical_crop": "%s Crop",
 
@@ -196,6 +197,7 @@
   "container.mysticalagriculture.imperium_furnace": "Imperium Furnace",
   "container.mysticalagriculture.supremium_furnace": "Supremium Furnace",
   "container.mysticalagriculture.reprocessor": "Seed Reprocessor",
+  "container.mysticalagriculture.soul_extractor": "Soul Extractor",
 
   "tooltip.mysticalagriculture.empty": "Empty",
   "tooltip.mysticalagriculture.filled": "Filled",
@@ -232,6 +234,7 @@
 
   "jei.category.mysticalagriculture.infusion": "Infusion Crafting",
   "jei.category.mysticalagriculture.reprocessor": "Seed Reprocessing",
+  "jei.category.mysticalagriculture.soul_extractor": "Soul Extraction",
 
   "cropTier.mysticalagriculture.elemental": "Elemental",
   "cropTier.mysticalagriculture.1": "1",
@@ -517,6 +520,8 @@
   "book.mysticalagriculture.entry.essence_furnaces.page.1": "Upgrading a regular Furnace with essences will increase its cooking speed and fuel efficiency.",
   "book.mysticalagriculture.entry.seed_reprocessors": "Seed Reprocessors",
   "book.mysticalagriculture.entry.seed_reprocessors.page.1": "Seed Reprocessors are used to convert your excess seeds into their respective essences. They run off of solid fuels and have an internal power storage buffer.",
+  "book.mysticalagriculture.entry.soul_extractor": "Soul Extractor",
+  "book.mysticalagriculture.entry.soul_extractor.page.1": "Soul Extractors are used to convert mob drops into mob souls. They run off of solid fuelds and have an internal power storage buffer. $(br2)The soul extractor provides a use for extra mob drops you may have, but generally won't be as efficient as using a $(l:souls/soulium_dagger)Soulium Dagger$().",
 
   "book.mysticalagriculture.entry.essence_tools": "Essence Tools",
   "book.mysticalagriculture.entry.essence_tools.page.1": "Upgrading your Diamond* tools with essence improves their durability and mining speed. This also allows them to be equipped with $(l:tinkering/augments)Augments$(). $(br2)Essence Tools can be repaired in an Anvil with their corresponding Essence Ingot. These tools each have 1 augment slot.",

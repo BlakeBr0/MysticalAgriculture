@@ -8,6 +8,7 @@ import com.blakebr0.mysticalagriculture.tileentity.EssenceFurnaceTileEntity;
 import com.blakebr0.mysticalagriculture.tileentity.InfusionAltarTileEntity;
 import com.blakebr0.mysticalagriculture.tileentity.InfusionPedestalTileEntity;
 import com.blakebr0.mysticalagriculture.tileentity.ReprocessorTileEntity;
+import com.blakebr0.mysticalagriculture.tileentity.SoulExtractorTileEntity;
 import com.blakebr0.mysticalagriculture.tileentity.TinkeringTableTileEntity;
 import net.minecraft.block.Block;
 import net.minecraft.tileentity.TileEntity;
@@ -43,6 +44,7 @@ public final class ModTileEntities {
     public static final RegistryObject<TileEntityType<ReprocessorTileEntity.Tertium>> TERTIUM_REPROCESSOR = register("tertium_reprocessor", ReprocessorTileEntity.Tertium::new, () -> new Block[] { ModBlocks.TERTIUM_REPROCESSOR.get() });
     public static final RegistryObject<TileEntityType<ReprocessorTileEntity.Imperium>> IMPERIUM_REPROCESSOR = register("imperium_reprocessor", ReprocessorTileEntity.Imperium::new, () -> new Block[] { ModBlocks.IMPERIUM_REPROCESSOR.get() });
     public static final RegistryObject<TileEntityType<ReprocessorTileEntity.Supremium>> SUPREMIUM_REPROCESSOR = register("supremium_reprocessor", ReprocessorTileEntity.Supremium::new, () -> new Block[] { ModBlocks.SUPREMIUM_REPROCESSOR.get() });
+    public static final RegistryObject<TileEntityType<SoulExtractorTileEntity>> SOUL_EXTRACTOR = register("soul_extractor", SoulExtractorTileEntity::new, () -> new Block[] { ModBlocks.SOUL_EXTRACTOR.get() });
 
     @SubscribeEvent
     public void onRegisterTypes(RegistryEvent.Register<TileEntityType<?>> event) {

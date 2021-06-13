@@ -16,10 +16,13 @@ import net.minecraft.world.World;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 
+import java.text.DecimalFormat;
 import java.util.List;
 import java.util.function.Function;
 
 public class SoulJarItem extends BaseItem {
+    private static final DecimalFormat DECIMAL_FORMAT = new DecimalFormat("0.00");
+
     public SoulJarItem(Function<Properties, Properties> properties) {
         super(properties.compose(p -> p.maxStackSize(1)));
     }
@@ -43,8 +46,10 @@ public class SoulJarItem extends BaseItem {
         IMobSoulType type = MobSoulUtils.getType(stack);
         if (type != null) {
             ITextComponent entityName = type.getEntityDisplayName();
-            double souls = MobSoulUtils.getSouls(stack);
-            tooltip.add(ModTooltips.SOUL_JAR.args(entityName, souls, type.getSoulRequirement()).build());
+            String souls = DECIMAL_FORMAT.format(MobSoulUtils.getSouls(stack));
+            String requirement = DECIMAL_FORMAT.format(type.getSoulRequirement());
+
+            tooltip.add(ModTooltips.SOUL_JAR.args(entityName, souls, requirement).build());
 
             if (flag.isAdvanced()) {
                 tooltip.add(ModTooltips.MST_ID.args(type.getId()).color(TextFormatting.DARK_GRAY).build());

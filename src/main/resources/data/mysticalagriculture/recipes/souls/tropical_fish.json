@@ -1,0 +1,10 @@
+{
+  "type": "mysticalagriculture:soul_extraction",
+  "input": {
+    "item": "minecraft:tropical_fish"
+  },
+  "output": {
+    "type": "mysticalagriculture:fish",
+    "souls": 0.5
+  }
+}

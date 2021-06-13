@@ -21,6 +21,7 @@ public class CropTextures {
     public static final ResourceLocation ESSENCE_DIAMOND_BLANK = new ResourceLocation(MOD_ID, "item/essence_diamond");
     public static final ResourceLocation ESSENCE_QUARTZ_BLANK = new ResourceLocation(MOD_ID, "item/essence_quartz");
     public static final ResourceLocation ESSENCE_FLAME_BLANK = new ResourceLocation(MOD_ID, "item/essence_flame");
+    public static final ResourceLocation ESSENCE_ROD_BLANK = new ResourceLocation(MOD_ID, "item/essence_rod");
 
     public static final ResourceLocation SEED_BLANK = new ResourceLocation(MOD_ID, "item/mystical_seeds");
 

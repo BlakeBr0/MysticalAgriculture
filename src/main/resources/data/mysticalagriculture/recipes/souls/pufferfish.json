@@ -1,0 +1,10 @@
+{
+  "type": "mysticalagriculture:soul_extraction",
+  "input": {
+    "item": "minecraft:pufferfish"
+  },
+  "output": {
+    "type": "mysticalagriculture:fish",
+    "souls": 1
+  }
+}

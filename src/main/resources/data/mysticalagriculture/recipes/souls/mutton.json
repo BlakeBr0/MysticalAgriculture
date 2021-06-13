@@ -1,0 +1,10 @@
+{
+  "type": "mysticalagriculture:soul_extraction",
+  "input": {
+    "item": "minecraft:mutton"
+  },
+  "output": {
+    "type": "mysticalagriculture:sheep",
+    "souls": 0.5
+  }
+}

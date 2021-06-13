@@ -1,0 +1,10 @@
+{
+  "type": "mysticalagriculture:soul_extraction",
+  "input": {
+    "item": "minecraft:feather"
+  },
+  "output": {
+    "type": "mysticalagriculture:chicken",
+    "souls": 0.25
+  }
+}

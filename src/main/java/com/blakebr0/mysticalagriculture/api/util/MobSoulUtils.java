@@ -123,6 +123,16 @@ public class MobSoulUtils {
     }
 
     /**
+     * Checks if the provided soul jar contains the max amount of souls for it's contained mob soul type
+     * @param stack the soul jar stack
+     * @return is the provided soul jar full
+     */
+    public static boolean isJarFull(ItemStack stack) {
+        IMobSoulType type = getType(stack);
+        return type != null && getSouls(stack) >= type.getSoulRequirement();
+    }
+
+    /**
      * Add souls to a soul jar
      * @param stack the soul jar stack
      * @param type the mob soul type to add

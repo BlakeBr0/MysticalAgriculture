@@ -1,0 +1,10 @@
+{
+  "type": "mysticalagriculture:soul_extraction",
+  "input": {
+    "item": "minecraft:spider_eye"
+  },
+  "output": {
+    "type": "mysticalagriculture:spider",
+    "souls": 1
+  }
+}

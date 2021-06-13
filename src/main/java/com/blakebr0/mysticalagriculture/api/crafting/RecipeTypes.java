@@ -1,6 +1,6 @@
 package com.blakebr0.mysticalagriculture.api.crafting;
 
-import com.blakebr0.mysticalagriculture.MysticalAgriculture;
+import com.blakebr0.mysticalagriculture.api.MysticalAgricultureAPI;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.item.crafting.IRecipeType;
@@ -23,9 +23,16 @@ public class RecipeTypes {
             return recipe.matches(inv, world) ? Optional.of((IReprocessorRecipe) recipe) : Optional.empty();
         }
     };
+    public static final IRecipeType<ISoulExtractionRecipe> SOUL_EXTRACTION = new IRecipeType<ISoulExtractionRecipe>() {
+        @Override
+        public <C extends IInventory> Optional<ISoulExtractionRecipe> matches(IRecipe<C> recipe, World world, C inv) {
+            return recipe.matches(inv, world) ? Optional.of((ISoulExtractionRecipe) recipe) : Optional.empty();
+        }
+    };
 
     static {
-        Registry.register(Registry.RECIPE_TYPE, new ResourceLocation(MysticalAgriculture.MOD_ID, "infusion"), INFUSION);
-        Registry.register(Registry.RECIPE_TYPE, new ResourceLocation(MysticalAgriculture.MOD_ID, "reprocessor"), REPROCESSOR);
+        Registry.register(Registry.RECIPE_TYPE, new ResourceLocation(MysticalAgricultureAPI.MOD_ID, "infusion"), INFUSION);
+        Registry.register(Registry.RECIPE_TYPE, new ResourceLocation(MysticalAgricultureAPI.MOD_ID, "reprocessor"), REPROCESSOR);
+        Registry.register(Registry.RECIPE_TYPE, new ResourceLocation(MysticalAgricultureAPI.MOD_ID, "soul_extraction"), SOUL_EXTRACTION);
     }
 }

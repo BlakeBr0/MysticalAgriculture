@@ -4,11 +4,13 @@ import com.blakebr0.mysticalagriculture.MysticalAgriculture;
 import com.blakebr0.mysticalagriculture.api.crafting.RecipeTypes;
 import com.blakebr0.mysticalagriculture.api.soul.IMobSoulType;
 import com.blakebr0.mysticalagriculture.api.util.MobSoulUtils;
+import com.blakebr0.mysticalagriculture.client.screen.SoulExtractorScreen;
 import com.blakebr0.mysticalagriculture.init.ModBlocks;
 import com.blakebr0.mysticalagriculture.init.ModItems;
 import mezz.jei.api.IModPlugin;
 import mezz.jei.api.JeiPlugin;
 import mezz.jei.api.helpers.IGuiHelper;
+import mezz.jei.api.registration.IGuiHandlerRegistration;
 import mezz.jei.api.registration.IRecipeCatalystRegistration;
 import mezz.jei.api.registration.IRecipeCategoryRegistration;
 import mezz.jei.api.registration.IRecipeRegistration;
@@ -34,7 +36,8 @@ public final class JeiCompat implements IModPlugin {
 
         registration.addRecipeCategories(
                 new InfusionCategory(guiHelper),
-                new ReprocessorCategory(guiHelper)
+                new ReprocessorCategory(guiHelper),
+                new SoulExtractorCategory(guiHelper)
         );
     }
 
@@ -48,6 +51,7 @@ public final class JeiCompat implements IModPlugin {
         registration.addRecipeCatalyst(new ItemStack(ModBlocks.TERTIUM_REPROCESSOR.get()), ReprocessorCategory.UID);
         registration.addRecipeCatalyst(new ItemStack(ModBlocks.IMPERIUM_REPROCESSOR.get()), ReprocessorCategory.UID);
         registration.addRecipeCatalyst(new ItemStack(ModBlocks.SUPREMIUM_REPROCESSOR.get()), ReprocessorCategory.UID);
+        registration.addRecipeCatalyst(new ItemStack(ModBlocks.SOUL_EXTRACTOR.get()), SoulExtractorCategory.UID);
     }
 
     @Override
@@ -58,7 +62,13 @@ public final class JeiCompat implements IModPlugin {
 
             registration.addRecipes(manager.getRecipes(RecipeTypes.INFUSION).values(), InfusionCategory.UID);
             registration.addRecipes(manager.getRecipes(RecipeTypes.REPROCESSOR).values(), ReprocessorCategory.UID);
+            registration.addRecipes(manager.getRecipes(RecipeTypes.SOUL_EXTRACTION).values(), SoulExtractorCategory.UID);
         }
+    }
+
+    @Override
+    public void registerGuiHandlers(IGuiHandlerRegistration registration) {
+        registration.addRecipeClickArea(SoulExtractorScreen.class, 99, 52, 22, 15, SoulExtractorCategory.UID);
     }
 
     @Override

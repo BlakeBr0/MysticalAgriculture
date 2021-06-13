@@ -1,0 +1,8 @@
+{
+  "parent": "block/orientable",
+  "textures": {
+    "top": "mysticalagriculture:block/basic_reprocessor_side",
+    "front": "mysticalagriculture:block/soul_extractor_front",
+    "side": "mysticalagriculture:block/basic_reprocessor_side"
+  }
+}

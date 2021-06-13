@@ -1,0 +1,10 @@
+{
+  "type": "mysticalagriculture:soul_extraction",
+  "input": {
+    "tag": "minecraft:wool"
+  },
+  "output": {
+    "type": "mysticalagriculture:sheep",
+    "souls": 0.2
+  }
+}

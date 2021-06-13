@@ -1,0 +1,10 @@
+{
+  "type": "mysticalagriculture:soul_extraction",
+  "input": {
+    "item": "minecraft:rotten_flesh"
+  },
+  "output": {
+    "type": "mysticalagriculture:zombie",
+    "souls": 0.5
+  }
+}

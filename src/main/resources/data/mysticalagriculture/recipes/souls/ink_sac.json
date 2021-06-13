@@ -1,0 +1,10 @@
+{
+  "type": "mysticalagriculture:soul_extraction",
+  "input": {
+    "item": "minecraft:ink_sac"
+  },
+  "output": {
+    "type": "mysticalagriculture:squid",
+    "souls": 0.25
+  }
+}
