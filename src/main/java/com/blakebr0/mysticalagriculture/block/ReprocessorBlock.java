@@ -1,15 +1,19 @@
 package com.blakebr0.mysticalagriculture.block;
 
 import com.blakebr0.cucumber.block.BaseTileEntityBlock;
+import com.blakebr0.cucumber.lib.Tooltips;
 import com.blakebr0.mysticalagriculture.lib.ModTooltips;
 import com.blakebr0.mysticalagriculture.tileentity.ReprocessorTileEntity;
+import com.blakebr0.mysticalagriculture.util.ReprocessorTier;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.HorizontalBlock;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
+import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.inventory.InventoryHelper;
 import net.minecraft.inventory.container.INamedContainerProvider;
 import net.minecraft.item.BlockItemUseContext;
@@ -25,14 +29,16 @@ import net.minecraft.util.Rotation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.BlockRayTraceResult;
 import net.minecraft.util.text.ITextComponent;
+import net.minecraft.util.text.StringTextComponent;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.World;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.common.ToolType;
+import net.minecraftforge.fml.network.NetworkHooks;
 
+import java.text.NumberFormat;
 import java.util.List;
-import java.util.function.Supplier;
 
 public class ReprocessorBlock extends BaseTileEntityBlock {
     private static final DirectionProperty FACING = HorizontalBlock.HORIZONTAL_FACING;
@@ -54,7 +60,7 @@ public class ReprocessorBlock extends BaseTileEntityBlock {
         if (!world.isRemote()) {
             TileEntity tile = world.getTileEntity(pos);
             if (tile instanceof ReprocessorTileEntity) {
-                player.openContainer((INamedContainerProvider) tile);
+                NetworkHooks.openGui((ServerPlayerEntity) player, (INamedContainerProvider) tile, pos);
             }
         }
 
@@ -97,51 +103,17 @@ public class ReprocessorBlock extends BaseTileEntityBlock {
     @OnlyIn(Dist.CLIENT)
     @Override
     public void addInformation(ItemStack stack, IBlockReader world, List<ITextComponent> tooltip, ITooltipFlag flag) {
-        tooltip.add(ModTooltips.REPROCESSOR_SPEED.args(this.tier.getOperationTime()).build());
-        tooltip.add(ModTooltips.REPROCESSOR_FUEL_RATE.args(this.tier.getFuelUsage()).build());
-        tooltip.add(ModTooltips.REPROCESSOR_FUEL_CAPACITY.args(this.tier.getFuelCapacity()).build());
+        if (Screen.hasShiftDown()) {
+            tooltip.add(ModTooltips.REPROCESSOR_SPEED.args(this.getStatText(this.tier.getOperationTime())).build());
+            tooltip.add(ModTooltips.REPROCESSOR_FUEL_RATE.args(this.getStatText(this.tier.getFuelUsage())).build());
+            tooltip.add(ModTooltips.REPROCESSOR_FUEL_CAPACITY.args(this.getStatText(this.tier.getFuelCapacity())).build());
+        } else {
+            tooltip.add(Tooltips.HOLD_SHIFT_FOR_INFO.build());
+        }
     }
 
-    public enum ReprocessorTier {
-        BASIC("basic", 200, 1, 1600, ReprocessorTileEntity.Basic::new),
-        INFERIUM("inferium", 100, 2, 6400, ReprocessorTileEntity.Inferium::new),
-        PRUDENTIUM("prudentium", 80, 2, 9600, ReprocessorTileEntity.Prudentium::new),
-        TERTIUM("tertium", 54, 3, 14400, ReprocessorTileEntity.Tertium::new),
-        IMPERIUM("imperium", 20, 7, 20800, ReprocessorTileEntity.Imperium::new),
-        SUPREMIUM("supremium", 5, 26, 28000, ReprocessorTileEntity.Supremium::new);
-
-        private final String name;
-        private final int operationTime;
-        private final int fuelUsage;
-        private final int fuelCapacity;
-        private final Supplier<ReprocessorTileEntity> tileEntitySupplier;
-
-        ReprocessorTier(String name, int operationTime, int fuelUsage, int fuelCapacity, Supplier<ReprocessorTileEntity> tileEntitySupplier) {
-            this.name = name;
-            this.operationTime = operationTime;
-            this.fuelUsage = fuelUsage;
-            this.fuelCapacity = fuelCapacity;
-            this.tileEntitySupplier = tileEntitySupplier;
-        }
-
-        public String getName() {
-            return this.name;
-        }
-
-        public int getOperationTime() {
-            return this.operationTime;
-        }
-
-        public int getFuelUsage() {
-            return this.fuelUsage;
-        }
-
-        public int getFuelCapacity() {
-            return this.fuelCapacity;
-        }
-
-        public ReprocessorTileEntity getNewTileEntity() {
-            return this.tileEntitySupplier.get();
-        }
+    private ITextComponent getStatText(Object stat) {
+        String number = NumberFormat.getInstance().format(stat);
+        return new StringTextComponent(number).mergeStyle(this.tier.getTextColor());
     }
 }

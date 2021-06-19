@@ -3,17 +3,28 @@ package com.blakebr0.mysticalagriculture.client.screen;
 import com.blakebr0.cucumber.client.screen.BaseContainerScreen;
 import com.blakebr0.mysticalagriculture.MysticalAgriculture;
 import com.blakebr0.mysticalagriculture.container.ReprocessorContainer;
+import com.blakebr0.mysticalagriculture.tileentity.ReprocessorTileEntity;
 import com.mojang.blaze3d.matrix.MatrixStack;
+import net.minecraft.client.world.ClientWorld;
 import net.minecraft.entity.player.PlayerInventory;
+import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.StringTextComponent;
 
 public class ReprocessorScreen extends BaseContainerScreen<ReprocessorContainer> {
     private static final ResourceLocation BACKGROUND = new ResourceLocation(MysticalAgriculture.MOD_ID, "textures/gui/reprocessor.png");
+    private ReprocessorTileEntity tile;
 
     public ReprocessorScreen(ReprocessorContainer container, PlayerInventory inv, ITextComponent title) {
-        super(container, inv, title, BACKGROUND, 176, 183);
+        super(container, inv, title, BACKGROUND, 176, 194);
+    }
+
+    @Override
+    protected void init() {
+        super.init();
+
+        this.tile = this.getTileEntity();
     }
 
     @Override
@@ -31,18 +42,17 @@ public class ReprocessorScreen extends BaseContainerScreen<ReprocessorContainer>
         int x = this.getGuiLeft();
         int y = this.getGuiTop();
 
-        ReprocessorContainer container = this.getContainer();
-        int i1 = container.getFuelBarScaled(66);
-        this.blit(stack, x + 20, y + 84 - i1, 176, 97 - i1, 15, i1);
+        int i1 = this.getEnergyBarScaled(78);
+        this.blit(stack, x + 7, y + 95 - i1, 176, 109 - i1, 15, i1);
 
-        if (container.isFuelItemValuable()) {
-            int lol = container.getBurnLeftScaled(13);
-            this.blit(stack, x + 36, y + 33 + 12 - lol, 176, 12 - lol, 14, lol + 1);
+        if (this.getFuelItemValue() > 0) {
+            int lol = this.getBurnLeftScaled(13);
+            this.blit(stack, x + 31, y + 52 - lol, 176, 12 - lol, 14, lol + 1);
         }
 
-        if (container.isProgressing()) {
-            int i2 = container.getCookProgressScaled(24);
-            this.blit(stack, x + 98, y + 41, 176, 14, i2 + 1, 16);
+        if (this.getProgress() > 0) {
+            int i2 = this.getProgressScaled(24);
+            this.blit(stack, x + 98, y + 51, 176, 14, i2 + 1, 16);
         }
     }
 
@@ -53,17 +63,88 @@ public class ReprocessorScreen extends BaseContainerScreen<ReprocessorContainer>
 
         super.renderHoveredTooltip(stack, mouseX, mouseY);
 
-        ReprocessorContainer container = this.getContainer();
-        if (mouseX > x + 19 && mouseX < x + 29 && mouseY > y + 17 && mouseY < y + 84) {
-            StringTextComponent text = new StringTextComponent(container.getFuel() + " / " + container.getFuelCapacity());
+        if (mouseX > x + 7 && mouseX < x + 20 && mouseY > y + 17 && mouseY < y + 94) {
+            StringTextComponent text = new StringTextComponent(number(this.getEnergyStored()) + " / " + number(this.getMaxEnergyStored()) + " FE");
             this.renderTooltip(stack, text, mouseX, mouseY);
         }
 
-        if (container.hasFuel()) {
-            if (mouseX > x + 36 && mouseX < x + 50 && mouseY > y + 33 && mouseY < y + 47) {
-                StringTextComponent text = new StringTextComponent(String.valueOf(container.getFuelLeft()));
-                this.renderTooltip(stack, text, mouseX, mouseY);
+        if (this.getFuelLeft() > 0 && mouseX > x + 30 && mouseX < x + 45 && mouseY > y + 39 && mouseY < y + 53) {
+            StringTextComponent text = new StringTextComponent(number(this.getFuelLeft()) + " FE");
+            this.renderTooltip(stack, text, mouseX, mouseY);
+        }
+    }
+
+    private ReprocessorTileEntity getTileEntity() {
+        ClientWorld world = this.getMinecraft().world;
+
+        if (world != null) {
+            TileEntity tile = world.getTileEntity(this.getContainer().getPos());
+
+            if (tile instanceof ReprocessorTileEntity) {
+                return (ReprocessorTileEntity) tile;
             }
         }
+
+        return null;
+    }
+
+    public int getProgress() {
+        if (this.tile == null)
+            return 0;
+
+        return this.tile.getProgress();
+    }
+
+    public int getOperationTime() {
+        if (this.tile == null)
+            return 0;
+
+        return this.tile.getTier().getOperationTime();
+    }
+
+    public int getFuelLeft() {
+        if (this.tile == null)
+            return 0;
+
+        return this.tile.getFuelLeft();
+    }
+
+    public int getFuelItemValue() {
+        if (this.tile == null)
+            return 0;
+
+        return this.tile.getFuelItemValue();
+    }
+
+    public int getEnergyStored() {
+        if (this.tile == null)
+            return 0;
+
+        return this.tile.getEnergy().getEnergyStored();
+    }
+
+    public int getMaxEnergyStored() {
+        if (this.tile == null)
+            return 0;
+
+        return this.tile.getEnergy().getMaxEnergyStored();
+    }
+
+    public int getProgressScaled(int pixels) {
+        int i = this.getProgress();
+        int j = this.getOperationTime();
+        return j != 0 && i != 0 ? i * pixels / j : 0;
+    }
+
+    public int getEnergyBarScaled(int pixels) {
+        int i = this.getEnergyStored();
+        int j = this.getMaxEnergyStored();
+        return (int) (j != 0 && i != 0 ? (long) i * pixels / j : 0);
+    }
+
+    public int getBurnLeftScaled(int pixels) {
+        int i = this.getFuelLeft();
+        int j = this.getFuelItemValue();
+        return (int) (j != 0 && i != 0 ? (long) i * pixels / j : 0);
     }
 }

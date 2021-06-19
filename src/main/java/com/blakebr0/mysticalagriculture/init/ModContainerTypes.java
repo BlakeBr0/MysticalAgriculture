@@ -27,7 +27,7 @@ public final class ModContainerTypes {
     public static final List<Supplier<ContainerType<?>>> ENTRIES = new ArrayList<>();
 
     public static final RegistryObject<ContainerType<TinkeringTableContainer>> TINKERING_TABLE = register("tinkering_table", () -> new ContainerType<>(TinkeringTableContainer::create));
-    public static final RegistryObject<ContainerType<ReprocessorContainer>> REPROCESSOR = register("reprocessor", () -> new ContainerType<>(ReprocessorContainer::create));
+    public static final RegistryObject<ContainerType<ReprocessorContainer>> REPROCESSOR = register("reprocessor", () -> new ContainerType<>((IContainerFactory<?>) ReprocessorContainer::create));
     public static final RegistryObject<ContainerType<SoulExtractorContainer>> SOUL_EXTRACTOR = register("soul_extractor", () -> new ContainerType<>((IContainerFactory<?>) SoulExtractorContainer::create));
 
     @SubscribeEvent

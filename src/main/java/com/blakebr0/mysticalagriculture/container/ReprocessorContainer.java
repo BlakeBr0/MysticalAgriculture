@@ -12,40 +12,38 @@ import net.minecraft.inventory.container.Container;
 import net.minecraft.inventory.container.ContainerType;
 import net.minecraft.inventory.container.Slot;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.IIntArray;
-import net.minecraft.util.IntArray;
+import net.minecraft.network.PacketBuffer;
+import net.minecraft.util.math.BlockPos;
 import net.minecraftforge.common.ForgeHooks;
 
 import java.util.function.Function;
 
 public class ReprocessorContainer extends Container {
     private final Function<PlayerEntity, Boolean> isUsableByPlayer;
-    private final IIntArray data;
+    private final BlockPos pos;
 
-    private ReprocessorContainer(ContainerType<?> type, int id, PlayerInventory playerInventory) {
-        this(type, id, playerInventory, p -> false, (new ReprocessorTileEntity.Basic()).getInventory(), new IntArray(6));
+    private ReprocessorContainer(ContainerType<?> type, int id, PlayerInventory playerInventory, BlockPos pos) {
+        this(type, id, playerInventory, p -> false, (new ReprocessorTileEntity.Basic()).getInventory(), pos);
     }
 
-    private ReprocessorContainer(ContainerType<?> type, int id, PlayerInventory playerInventory, Function<PlayerEntity, Boolean> isUsableByPlayer, BaseItemStackHandler inventory, IIntArray data) {
+    private ReprocessorContainer(ContainerType<?> type, int id, PlayerInventory playerInventory, Function<PlayerEntity, Boolean> isUsableByPlayer, BaseItemStackHandler inventory, BlockPos pos) {
         super(type, id);
         this.isUsableByPlayer = isUsableByPlayer;
-        this.data = data;
+        this.pos = pos;
 
-        this.addSlot(new BaseItemStackHandlerSlot(inventory, 0, 74, 42));
-        this.addSlot(new BaseItemStackHandlerSlot(inventory, 1, 36, 50));
-        this.addSlot(new BaseItemStackHandlerSlot(inventory, 2, 134, 42));
+        this.addSlot(new BaseItemStackHandlerSlot(inventory, 0, 74, 52));
+        this.addSlot(new BaseItemStackHandlerSlot(inventory, 1, 30, 56));
+        this.addSlot(new BaseItemStackHandlerSlot(inventory, 2, 134, 52));
 
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 9; j++) {
-                this.addSlot(new Slot(playerInventory, j + i * 9 + 9, 8 + j * 18, 101 + i * 18));
+                this.addSlot(new Slot(playerInventory, j + i * 9 + 9, 8 + j * 18, 112 + i * 18));
             }
         }
 
         for (int i = 0; i < 9; i++) {
-            this.addSlot(new Slot(playerInventory, i, 8 + i * 18, 159));
+            this.addSlot(new Slot(playerInventory, i, 8 + i * 18, 170));
         }
-
-        this.trackIntArray(data);
     }
 
     @Override
@@ -104,65 +102,15 @@ public class ReprocessorContainer extends Container {
         return itemstack;
     }
 
-    public static ReprocessorContainer create(int windowId, PlayerInventory playerInventory) {
-        return new ReprocessorContainer(ModContainerTypes.REPROCESSOR.get(), windowId, playerInventory);
+    public BlockPos getPos() {
+        return this.pos;
     }
 
-    public static ReprocessorContainer create(int windowId, PlayerInventory playerInventory, Function<PlayerEntity, Boolean> isUsableByPlayer, BaseItemStackHandler inventory, IIntArray data) {
-        return new ReprocessorContainer(ModContainerTypes.REPROCESSOR.get(), windowId, playerInventory, isUsableByPlayer, inventory, data);
+    public static ReprocessorContainer create(int windowId, PlayerInventory playerInventory, PacketBuffer buffer) {
+        return new ReprocessorContainer(ModContainerTypes.REPROCESSOR.get(), windowId, playerInventory, buffer.readBlockPos());
     }
 
-    public int getCookProgressScaled(int pixels) {
-        int i = this.getProgress();
-        int j = this.getOperationTime();
-        return j != 0 && i != 0 ? i * pixels / j : 0;
-    }
-
-    public int getFuelBarScaled(int pixels) {
-        int i = this.getFuel();
-        int j = this.getFuelCapacity();
-        return (int) (j != 0 && i != 0 ? (long) i * pixels / j : 0);
-    }
-
-    public int getBurnLeftScaled(int pixels) {
-        int i = this.getFuelLeft();
-        int j = this.getFuelItemValue();
-        return (int) (j != 0 && i != 0 ? (long) i * pixels / j : 0);
-    }
-
-    public boolean isFuelItemValuable() {
-        return this.data.get(3) > 0;
-    }
-
-    public boolean isProgressing() {
-        return this.data.get(0) > 0;
-    }
-
-    public boolean hasFuel() {
-        return this.data.get(2) > 0;
-    }
-
-    public int getProgress() {
-        return this.data.get(0);
-    }
-
-    public int getFuel() {
-        return this.data.get(1);
-    }
-
-    public int getFuelLeft() {
-        return this.data.get(2);
-    }
-
-    public int getFuelItemValue() {
-        return this.data.get(3);
-    }
-
-    public int getOperationTime() {
-        return this.data.get(4);
-    }
-
-    public int getFuelCapacity() {
-        return this.data.get(5);
+    public static ReprocessorContainer create(int windowId, PlayerInventory playerInventory, Function<PlayerEntity, Boolean> isUsableByPlayer, BaseItemStackHandler inventory, BlockPos pos) {
+        return new ReprocessorContainer(ModContainerTypes.REPROCESSOR.get(), windowId, playerInventory, isUsableByPlayer, inventory, pos);
     }
 }

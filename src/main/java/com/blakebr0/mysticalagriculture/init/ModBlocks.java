@@ -22,6 +22,7 @@ import com.blakebr0.mysticalagriculture.block.WitherproofBlock;
 import com.blakebr0.mysticalagriculture.block.WitherproofGlassBlock;
 import com.blakebr0.mysticalagriculture.lib.ModCrops;
 import com.blakebr0.mysticalagriculture.registry.CropRegistry;
+import com.blakebr0.mysticalagriculture.util.ReprocessorTier;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
@@ -106,12 +107,12 @@ public final class ModBlocks {
     public static final RegistryObject<Block> INFUSION_ALTAR = register("infusion_altar", InfusionAltarBlock::new);
     public static final RegistryObject<Block> TINKERING_TABLE = register("tinkering_table", TinkeringTableBlock::new);
     public static final RegistryObject<Block> MACHINE_FRAME = register("machine_frame", () -> new BaseBlock(Material.ROCK, SoundType.STONE, 1.5F, 6.0F));
-    public static final RegistryObject<Block> BASIC_REPROCESSOR = register("basic_reprocessor", () -> new ReprocessorBlock(ReprocessorBlock.ReprocessorTier.BASIC));
-    public static final RegistryObject<Block> INFERIUM_REPROCESSOR = register("inferium_reprocessor", () -> new ReprocessorBlock(ReprocessorBlock.ReprocessorTier.INFERIUM));
-    public static final RegistryObject<Block> PRUDENTIUM_REPROCESSOR = register("prudentium_reprocessor", () -> new ReprocessorBlock(ReprocessorBlock.ReprocessorTier.PRUDENTIUM));
-    public static final RegistryObject<Block> TERTIUM_REPROCESSOR = register("tertium_reprocessor", () -> new ReprocessorBlock(ReprocessorBlock.ReprocessorTier.TERTIUM));
-    public static final RegistryObject<Block> IMPERIUM_REPROCESSOR = register("imperium_reprocessor", () -> new ReprocessorBlock(ReprocessorBlock.ReprocessorTier.IMPERIUM));
-    public static final RegistryObject<Block> SUPREMIUM_REPROCESSOR = register("supremium_reprocessor", () -> new ReprocessorBlock(ReprocessorBlock.ReprocessorTier.SUPREMIUM));
+    public static final RegistryObject<Block> BASIC_REPROCESSOR = register("basic_reprocessor", () -> new ReprocessorBlock(ReprocessorTier.BASIC));
+    public static final RegistryObject<Block> INFERIUM_REPROCESSOR = register("inferium_reprocessor", () -> new ReprocessorBlock(ReprocessorTier.INFERIUM));
+    public static final RegistryObject<Block> PRUDENTIUM_REPROCESSOR = register("prudentium_reprocessor", () -> new ReprocessorBlock(ReprocessorTier.PRUDENTIUM));
+    public static final RegistryObject<Block> TERTIUM_REPROCESSOR = register("tertium_reprocessor", () -> new ReprocessorBlock(ReprocessorTier.TERTIUM));
+    public static final RegistryObject<Block> IMPERIUM_REPROCESSOR = register("imperium_reprocessor", () -> new ReprocessorBlock(ReprocessorTier.IMPERIUM));
+    public static final RegistryObject<Block> SUPREMIUM_REPROCESSOR = register("supremium_reprocessor", () -> new ReprocessorBlock(ReprocessorTier.SUPREMIUM));
     public static final RegistryObject<Block> SOUL_EXTRACTOR = register("soul_extractor", SoulExtractorBlock::new);
     public static final RegistryObject<Block> INFERIUM_CROP = registerNoItem("inferium_crop", () -> new InferiumCropBlock(ModCrops.INFERIUM));
 
