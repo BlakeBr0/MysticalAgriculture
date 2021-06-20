@@ -20,6 +20,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
 import java.util.EnumSet;
+import java.util.Iterator;
 import java.util.Map;
 
 public class TillingAOEAugment extends Augment {
@@ -43,24 +44,36 @@ public class TillingAOEAugment extends Augment {
         Direction direction = context.getFace();
         Hand hand = context.getHand();
 
-        if (this.tryTill(stack, player, world, pos, direction, hand)) {
+        boolean playedSound = false;
+
+        if (tryTill(stack, player, world, pos, direction, hand)) {
             world.playSound(player, pos, SoundEvents.ITEM_HOE_TILL, SoundCategory.BLOCKS, 1.0F, 1.0F);
+
+            playedSound = true;
 
             if (!player.isCrouching())
                 return false;
         }
 
         if (player.isCrouching()) {
-            BlockPos.getAllInBox(pos.add(-this.range, 0, -this.range), pos.add(this.range, 0, this.range)).forEach(aoePos -> {
-                this.tryTill(stack, player, world, aoePos, direction, hand);
-            });
+            Iterator<BlockPos> positions = BlockPos.getAllInBox(pos.add(-this.range, 0, -this.range), pos.add(this.range, 0, this.range)).iterator();
+
+            while (positions.hasNext()) {
+                BlockPos aoePos = positions.next();
+
+                if (tryTill(stack, player, world, aoePos, direction, hand) && !playedSound) {
+                    world.playSound(player, pos, SoundEvents.ITEM_HOE_TILL, SoundCategory.BLOCKS, 1.0F, 1.0F);
+
+                    playedSound = true;
+                }
+            }
         }
 
         return true;
     }
 
     // TODO: ForgeHooks.onUseHoe
-    private boolean tryTill(ItemStack stack, PlayerEntity player, World world, BlockPos pos, Direction direction, Hand hand) {
+    private static boolean tryTill(ItemStack stack, PlayerEntity player, World world, BlockPos pos, Direction direction, Hand hand) {
         if (direction != Direction.DOWN && world.isAirBlock(pos.up())) {
             BlockState state = HOE_LOOKUP.get(world.getBlockState(pos).getBlock());
             if (state != null) {

@@ -20,6 +20,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
 import java.util.EnumSet;
+import java.util.Iterator;
 import java.util.Map;
 
 public class PathingAOEAugment extends Augment {
@@ -43,23 +44,35 @@ public class PathingAOEAugment extends Augment {
         Direction direction = context.getFace();
         Hand hand = context.getHand();
 
-        if (this.tryPath(stack, player, world, pos, direction, hand)) {
+        boolean playedSound = false;
+
+        if (tryPath(stack, player, world, pos, direction, hand)) {
             world.playSound(player, pos, SoundEvents.ITEM_SHOVEL_FLATTEN, SoundCategory.BLOCKS, 1.0F, 1.0F);
+
+            playedSound = true;
 
             if (!player.isCrouching())
                 return false;
         }
 
         if (player.isCrouching()) {
-            BlockPos.getAllInBox(pos.add(-this.range, 0, -this.range), pos.add(this.range, 0, this.range)).forEach(aoePos -> {
-                this.tryPath(stack, player, world, aoePos, direction, hand);
-            });
+            Iterator<BlockPos> positions = BlockPos.getAllInBox(pos.add(-this.range, 0, -this.range), pos.add(this.range, 0, this.range)).iterator();
+
+            while (positions.hasNext()) {
+                BlockPos aoePos = positions.next();
+
+                if (tryPath(stack, player, world, aoePos, direction, hand) && !playedSound) {
+                    world.playSound(player, pos, SoundEvents.ITEM_HOE_TILL, SoundCategory.BLOCKS, 1.0F, 1.0F);
+
+                    playedSound = true;
+                }
+            }
         }
 
         return true;
     }
 
-    private boolean tryPath(ItemStack stack, PlayerEntity player, World world, BlockPos pos, Direction direction, Hand hand) {
+    private static boolean tryPath(ItemStack stack, PlayerEntity player, World world, BlockPos pos, Direction direction, Hand hand) {
         if (direction != Direction.DOWN && world.isAirBlock(pos.up())) {
             BlockState state = PATH_LOOKUP.get(world.getBlockState(pos).getBlock());
             if (state != null) {
