@@ -67,11 +67,11 @@ public final class MysticalAgriculture {
 		ModLoadingContext.get().registerConfig(ModConfig.Type.CLIENT, ModConfigs.CLIENT);
 		ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, ModConfigs.COMMON);
 
-		PluginRegistry.getInstance().loadPlugins();
-
 		MysticalAgricultureAPI.setCropRegistry(CropRegistry.getInstance());
 		MysticalAgricultureAPI.setAugmentRegistry(AugmentRegistry.getInstance());
 		MysticalAgricultureAPI.setMobSoulTypeRegistry(MobSoulTypeRegistry.getInstance());
+
+		PluginRegistry.getInstance().loadPlugins();
 
 		ConfigHelper.load(ModConfigs.COMMON, "mysticalagriculture-common.toml");
 	}
