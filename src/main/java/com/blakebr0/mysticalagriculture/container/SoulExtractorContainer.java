@@ -5,6 +5,7 @@ import com.blakebr0.cucumber.inventory.BaseItemStackHandler;
 import com.blakebr0.cucumber.inventory.slot.BaseItemStackHandlerSlot;
 import com.blakebr0.mysticalagriculture.api.crafting.RecipeTypes;
 import com.blakebr0.mysticalagriculture.init.ModContainerTypes;
+import com.blakebr0.mysticalagriculture.init.ModItems;
 import com.blakebr0.mysticalagriculture.tileentity.SoulExtractorTileEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
@@ -60,14 +61,12 @@ public class SoulExtractorContainer extends Container {
             ItemStack itemstack1 = slot.getStack();
             itemstack = itemstack1.copy();
 
-            if (index == 2) {
-                if (!this.mergeItemStack(itemstack1, 3, 39, true)) {
-                    return ItemStack.EMPTY;
-                }
-
-                slot.onSlotChange(itemstack1, itemstack);
-            } else if (index != 1 && index != 0) {
-                if (RecipeHelper.getRecipes(RecipeTypes.SOUL_EXTRACTION).values().stream().anyMatch(r -> r.getIngredients().get(0).test(itemstack1))) {
+            if (index != 1 && index != 0) {
+                if (itemstack1.getItem() == ModItems.SOUL_JAR.get()) {
+                    if (!this.mergeItemStack(itemstack1, 2, 3, false)) {
+                        return ItemStack.EMPTY;
+                    }
+                } else if (RecipeHelper.getRecipes(RecipeTypes.SOUL_EXTRACTION).values().stream().anyMatch(r -> r.getIngredients().get(0).test(itemstack1))) {
                     if (!this.mergeItemStack(itemstack1, 0, 1, false)) {
                         return ItemStack.EMPTY;
                     }

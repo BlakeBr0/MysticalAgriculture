@@ -8,11 +8,11 @@ import com.blakebr0.cucumber.util.Localizable;
 import com.blakebr0.mysticalagriculture.api.crafting.ISoulExtractionRecipe;
 import com.blakebr0.mysticalagriculture.api.crafting.RecipeTypes;
 import com.blakebr0.mysticalagriculture.container.SoulExtractorContainer;
+import com.blakebr0.mysticalagriculture.crafting.recipe.SoulExtractionRecipe;
 import com.blakebr0.mysticalagriculture.init.ModTileEntities;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
-import net.minecraft.inventory.Inventory;
 import net.minecraft.inventory.container.Container;
 import net.minecraft.inventory.container.INamedContainerProvider;
 import net.minecraft.item.ItemStack;
@@ -31,6 +31,7 @@ import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.IItemHandlerModifiable;
 
 public class SoulExtractorTileEntity extends BaseInventoryTileEntity implements INamedContainerProvider, ITickableTileEntity {
+    private static final int FUEL_TICK_MULTIPLIER = 20;
     private final BaseItemStackHandler inventory;
     private final BaseEnergyStorage energy;
     private final LazyOptional<IItemHandlerModifiable>[] inventoryCapabilities;
@@ -39,12 +40,12 @@ public class SoulExtractorTileEntity extends BaseInventoryTileEntity implements 
     private int fuelLeft;
     private int fuelItemValue;
     private int oldEnergy;
-    private ISoulExtractionRecipe recipe;
+    private SoulExtractionRecipe recipe;
 
     public SoulExtractorTileEntity() {
         super(ModTileEntities.SOUL_EXTRACTOR.get());
         this.inventory = new BaseItemStackHandler(3, this::markDirtyAndDispatch);
-        this.energy = new BaseEnergyStorage(100000);
+        this.energy = new BaseEnergyStorage(80000);
         this.inventoryCapabilities = SidedItemStackHandlerWrapper.create(this.inventory, new Direction[] { Direction.UP, Direction.DOWN, Direction.NORTH }, this::canInsertStackSided, null);
     }
 
@@ -76,73 +77,72 @@ public class SoulExtractorTileEntity extends BaseInventoryTileEntity implements 
     @Override
     public void tick() {
         World world = this.getWorld();
-        boolean dirty = false;
+        if (world == null || world.isRemote())
+            return;
 
-        if (world != null) {
-            if (!world.isRemote()) {
-                if (this.energy.getEnergyStored() < this.energy.getMaxEnergyStored()) {
-                    ItemStack fuel = this.inventory.getStackInSlot(1);
+        boolean mark = false;
 
-                    if (this.fuelLeft <= 0 && !fuel.isEmpty()) {
-                        this.fuelItemValue = ForgeHooks.getBurnTime(fuel);
-                        if (this.fuelItemValue > 0) {
-                            this.fuelLeft = this.fuelItemValue * 80;
-                            this.inventory.extractItemSuper(1, 1, false);
+        if (this.energy.getEnergyStored() < this.energy.getMaxEnergyStored()) {
+            ItemStack fuel = this.inventory.getStackInSlot(1);
 
-                            dirty = true;
-                        }
-                    }
+            if (this.fuelLeft <= 0 && !fuel.isEmpty()) {
+                this.fuelItemValue = ForgeHooks.getBurnTime(fuel);
 
-                    if (this.fuelLeft > 0) {
-                        this.fuelLeft -= this.energy.receiveEnergy(80, false);
+                if (this.fuelItemValue > 0) {
+                    this.fuelLeft = this.fuelItemValue *= FUEL_TICK_MULTIPLIER;
+                    this.inventory.extractItemSuper(1, 1, false);
 
-                        if (this.fuelLeft <= 0)
-                            this.fuelItemValue = 0;
-
-                        dirty = true;
-                    }
+                    mark = true;
                 }
             }
 
-            Inventory recipeInventory = new Inventory(this.inventory.getStacks().toArray(new ItemStack[0]));
+            if (this.fuelLeft > 0) {
+                int fuelPerTick = Math.min(Math.min(this.fuelLeft, this.getFuelUsage() * 2), this.energy.getMaxEnergyStored() - this.energy.getEnergyStored());
 
-            if (this.recipe == null || !this.recipe.matches(recipeInventory, world)) {
-                this.recipe = world.getRecipeManager().getRecipe(RecipeTypes.SOUL_EXTRACTION, recipeInventory, world).orElse(null);
+                this.fuelLeft -= this.energy.receiveEnergy(fuelPerTick, false);
+
+                if (this.fuelLeft <= 0)
+                    this.fuelItemValue = 0;
+
+                mark = true;
             }
+        }
 
-            if (!world.isRemote()) {
-                if (this.recipe != null) {
-                    if (this.energy.getEnergyStored() >= 80) {
-                        this.progress++;
-                        this.energy.extractEnergy(80, false);
+        if (this.recipe == null || !this.recipe.matches(this.inventory)) {
+            ISoulExtractionRecipe recipe = world.getRecipeManager().getRecipe(RecipeTypes.SOUL_EXTRACTION, this.inventory.toIInventory(), world).orElse(null);
+            this.recipe = recipe instanceof SoulExtractionRecipe ? (SoulExtractionRecipe) recipe : null;
+        }
 
-                        if (this.progress >= this.getOperationTime()) {
-                            this.inventory.extractItemSuper(0, 1, false);
-                            this.inventory.setStackInSlot(2, this.recipe.getCraftingResult(recipeInventory));
+        if (this.recipe != null) {
+            if (this.energy.getEnergyStored() >= this.getFuelUsage()) {
+                this.progress++;
+                this.energy.extractEnergy(this.getFuelUsage(), false);
 
-                            this.progress = 0;
-                        }
+                if (this.progress >= this.getOperationTime()) {
+                    this.inventory.extractItemSuper(0, 1, false);
+                    this.inventory.setStackInSlot(2, this.recipe.getCraftingResult(this.inventory));
 
-                        dirty = true;
-                    }
-                } else {
-                    if (this.progress > 0) {
-                        this.progress = 0;
-
-                        dirty = true;
-                    }
+                    this.progress = 0;
                 }
-            }
 
-            if (this.oldEnergy != this.energy.getEnergyStored()) {
-                this.oldEnergy = this.energy.getEnergyStored();
-
-                dirty = true;
+                mark = true;
             }
+        } else {
+            if (this.progress > 0) {
+                this.progress = 0;
 
-            if (dirty) {
-                this.markDirtyAndDispatch();
+                mark = true;
             }
+        }
+
+        if (this.oldEnergy != this.energy.getEnergyStored()) {
+            this.oldEnergy = this.energy.getEnergyStored();
+
+            mark = true;
+        }
+
+        if (mark) {
+            this.markDirtyAndDispatch();
         }
     }
 
@@ -195,6 +195,10 @@ public class SoulExtractorTileEntity extends BaseInventoryTileEntity implements 
 
     public int getFuelItemValue() {
         return this.fuelItemValue;
+    }
+
+    public int getFuelUsage() {
+        return 40;
     }
 
     private boolean canInsertStackSided(int slot, ItemStack stack, Direction direction) {

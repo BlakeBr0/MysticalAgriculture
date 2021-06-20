@@ -69,7 +69,7 @@ public class SoulExtractorScreen extends BaseContainerScreen<SoulExtractorContai
         }
 
         if (mouseX > x + 30 && mouseX < x + 45 && mouseY > y + 39 && mouseY < y + 53) {
-            StringTextComponent text = new StringTextComponent(number(this.getFuelLeft()));
+            StringTextComponent text = new StringTextComponent(number(this.getFuelLeft()) + " FE");
             this.renderTooltip(stack, text, mouseX, mouseY);
         }
     }
