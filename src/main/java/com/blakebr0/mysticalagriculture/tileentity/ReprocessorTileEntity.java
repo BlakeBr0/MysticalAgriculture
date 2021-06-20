@@ -28,6 +28,8 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.ForgeHooks;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.util.LazyOptional;
+import net.minecraftforge.energy.CapabilityEnergy;
+import net.minecraftforge.energy.IEnergyStorage;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.IItemHandlerModifiable;
 
@@ -36,6 +38,7 @@ public abstract class ReprocessorTileEntity extends BaseInventoryTileEntity impl
     private final BaseItemStackHandler inventory;
     private final BaseEnergyStorage energy;
     private final LazyOptional<IItemHandlerModifiable>[] inventoryCapabilities;
+    private final LazyOptional<IEnergyStorage> energyCapability = LazyOptional.of(this::getEnergy);
     private final ReprocessorTier tier;
     private ReprocessorRecipe recipe;
     private int progress;
@@ -172,13 +175,19 @@ public abstract class ReprocessorTileEntity extends BaseInventoryTileEntity impl
 
     @Override
     public <T> LazyOptional<T> getCapability(Capability<T> cap, Direction side) {
-        if (!this.isRemoved() && side != null && cap == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY) {
-            if (side == Direction.UP) {
-                return this.inventoryCapabilities[0].cast();
-            } else if (side == Direction.DOWN) {
-                return this.inventoryCapabilities[1].cast();
-            } else {
-                return this.inventoryCapabilities[2].cast();
+        if (!this.isRemoved()) {
+            if (cap == CapabilityEnergy.ENERGY) {
+                return CapabilityEnergy.ENERGY.orEmpty(cap, this.energyCapability);
+            }
+
+            if (side != null && cap == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY) {
+                if (side == Direction.UP) {
+                    return this.inventoryCapabilities[0].cast();
+                } else if (side == Direction.DOWN) {
+                    return this.inventoryCapabilities[1].cast();
+                } else {
+                    return this.inventoryCapabilities[2].cast();
+                }
             }
         }
 
