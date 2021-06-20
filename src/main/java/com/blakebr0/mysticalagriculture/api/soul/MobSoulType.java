@@ -1,5 +1,6 @@
 package com.blakebr0.mysticalagriculture.api.soul;
 
+import com.google.common.collect.Sets;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.util.ResourceLocation;
@@ -7,7 +8,6 @@ import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.TranslationTextComponent;
 import net.minecraftforge.registries.ForgeRegistries;
 
-import java.util.Collections;
 import java.util.Set;
 
 /**
@@ -33,7 +33,7 @@ public class MobSoulType implements IMobSoulType {
      */
     public MobSoulType(ResourceLocation id, ResourceLocation entityId, double soulRequirement, int color) {
         this.id = id;
-        this.entityIds = Collections.singleton(entityId);
+        this.entityIds = Sets.newHashSet(entityId);
         this.soulRequirement = soulRequirement;
         this.color = color;
         this.enabled = true;
@@ -49,7 +49,7 @@ public class MobSoulType implements IMobSoulType {
      */
     public MobSoulType(ResourceLocation id, ResourceLocation entityId, String entityDisplayNameKey, double soulRequirement, int color) {
         this.id = id;
-        this.entityIds = Collections.singleton(entityId);
+        this.entityIds = Sets.newHashSet(entityId);
         this.soulRequirement = soulRequirement;
         this.entityDisplayNameKey = entityDisplayNameKey;
         this.color = color;

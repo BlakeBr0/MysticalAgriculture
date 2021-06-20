@@ -1,5 +1,6 @@
 package com.blakebr0.mysticalagriculture.api.soul;
 
+import com.blakebr0.mysticalagriculture.api.registry.IMobSoulTypeRegistry;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.ITextComponent;
@@ -34,7 +35,9 @@ public interface IMobSoulType {
     }
 
     /**
-     * The resource location ids of the entity types for this mob soul type
+     * The resource location ids of the entity types for this mob soul type,
+     * don't modify this directly use {@link IMobSoulTypeRegistry#addEntityTo(IMobSoulType, ResourceLocation)} or
+     * {@link IMobSoulTypeRegistry#removeEntityFrom(IMobSoulType, ResourceLocation)}
      * @return the ids of the entities for this mob soul type
      */
     Set<ResourceLocation> getEntityIds();

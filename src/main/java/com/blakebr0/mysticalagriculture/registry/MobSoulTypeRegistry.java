@@ -54,6 +54,37 @@ public final class MobSoulTypeRegistry implements IMobSoulTypeRegistry {
         return this.mobSoulTypes.values().stream().filter(t -> t.isEntityApplicable(entity)).findFirst().orElse(null);
     }
 
+    @Override
+    public Set<ResourceLocation> getUsedEntityIds() {
+        return Collections.unmodifiableSet(this.usedEntityIds);
+    }
+
+    @Override
+    public boolean addEntityTo(IMobSoulType type, ResourceLocation entity) {
+        if (!this.usedEntityIds.contains(entity)) {
+            this.usedEntityIds.add(entity);
+
+            type.getEntityIds().add(entity);
+
+            return true;
+        }
+
+        return false;
+    }
+
+    @Override
+    public boolean removeEntityFrom(IMobSoulType type, ResourceLocation entity) {
+        if (type.getEntityIds().contains(entity)) {
+            type.getEntityIds().remove(entity);
+
+            this.usedEntityIds.remove(entity);
+
+            return true;
+        }
+
+        return false;
+    }
+
     public static MobSoulTypeRegistry getInstance() {
         return INSTANCE;
     }

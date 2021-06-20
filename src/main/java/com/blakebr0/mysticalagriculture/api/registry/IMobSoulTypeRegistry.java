@@ -5,6 +5,7 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.util.ResourceLocation;
 
 import java.util.List;
+import java.util.Set;
 
 public interface IMobSoulTypeRegistry {
     /**
@@ -32,4 +33,26 @@ public interface IMobSoulTypeRegistry {
      * @return the mob soul type for this entity
      */
     IMobSoulType getMobSoulTypeByEntity(LivingEntity entity);
+
+    /**
+     * Get an unmodifiable set of all of the currently entity ids currently used by a mob soul type
+     * @return a set of the used entity ids
+     */
+    Set<ResourceLocation> getUsedEntityIds();
+
+    /**
+     * Adds a new entity id to the specified mob soul type, if it's currently unused
+     * @param type the mob soul type to modify
+     * @param entity the id of the entity to add
+     * @return was this entity added successfully
+     */
+    boolean addEntityTo(IMobSoulType type, ResourceLocation entity);
+
+    /**
+     * Removes an entity id from the specified mob soul type, if it's currently added
+     * @param type the mob soul type to modify
+     * @param entity the id of the entity to remove
+     * @return was this entity removed successfully
+     */
+    boolean removeEntityFrom(IMobSoulType type, ResourceLocation entity);
 }
