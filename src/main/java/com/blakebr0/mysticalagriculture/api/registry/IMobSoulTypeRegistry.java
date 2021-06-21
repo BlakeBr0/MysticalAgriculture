@@ -35,7 +35,7 @@ public interface IMobSoulTypeRegistry {
     IMobSoulType getMobSoulTypeByEntity(LivingEntity entity);
 
     /**
-     * Get an unmodifiable set of all of the currently entity ids currently used by a mob soul type
+     * Get an unmodifiable set of all of the entity ids currently used by a mob soul type
      * @return a set of the used entity ids
      */
     Set<ResourceLocation> getUsedEntityIds();
