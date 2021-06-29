@@ -12,31 +12,33 @@ import net.minecraft.world.World;
 
 import java.util.function.Function;
 
+import net.minecraft.item.Item.Properties;
+
 public class ExperienceDropletItem extends BaseItem {
     public ExperienceDropletItem(Function<Properties, Properties> properties) {
         super(properties);
     }
 
     @Override
-    public ActionResult<ItemStack> onItemRightClick(World world, PlayerEntity player, Hand hand) {
-        ItemStack stack = player.getHeldItem(hand);
+    public ActionResult<ItemStack> use(World world, PlayerEntity player, Hand hand) {
+        ItemStack stack = player.getItemInHand(hand);
         int used = 0;
 
-        if (!world.isRemote()) {
+        if (!world.isClientSide()) {
             if (player.isCrouching()) {
                 int xp = 0;
                 for (int i = 0; i < stack.getCount(); i++) {
                     xp += Utils.randInt(8, 12);
                 }
 
-                ExperienceOrbEntity orb = new ExperienceOrbEntity(world, player.getPosX(), player.getPosY(), player.getPosZ(), xp);
-                world.addEntity(orb);
+                ExperienceOrbEntity orb = new ExperienceOrbEntity(world, player.getX(), player.getY(), player.getZ(), xp);
+                world.addFreshEntity(orb);
 
                 used = stack.getCount();
             } else {
                 int xp = Utils.randInt(8, 12);
-                ExperienceOrbEntity orb = new ExperienceOrbEntity(world, player.getPosX(), player.getPosY(), player.getPosZ(), xp);
-                world.addEntity(orb);
+                ExperienceOrbEntity orb = new ExperienceOrbEntity(world, player.getX(), player.getY(), player.getZ(), xp);
+                world.addFreshEntity(orb);
                 used = 1;
             }
         }

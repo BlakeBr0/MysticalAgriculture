@@ -26,6 +26,8 @@ import java.util.List;
 import java.util.UUID;
 import java.util.function.Function;
 
+import net.minecraft.item.Item.Properties;
+
 public class EssenceLeggingsItem extends BaseArmorItem implements ITinkerable {
     private static final UUID[] ARMOR_MODIFIERS = new UUID[] { UUID.fromString("845DB27C-C624-495F-8C9F-6020A9A58B6B"), UUID.fromString("D8499B04-0E66-4726-AB29-64469D734E0D"), UUID.fromString("9F3D476D-C118-4544-8365-64846904B48E"), UUID.fromString("2AD3F246-FEE1-4E67-B886-69FD380BB150") };
     private static final EnumSet<AugmentType> TYPES = EnumSet.of(AugmentType.ARMOR, AugmentType.LEGGINGS);
@@ -45,20 +47,20 @@ public class EssenceLeggingsItem extends BaseArmorItem implements ITinkerable {
 
     @OnlyIn(Dist.CLIENT)
     @Override
-    public void addInformation(ItemStack stack, World world, List<ITextComponent> tooltip, ITooltipFlag flag) {
+    public void appendHoverText(ItemStack stack, World world, List<ITextComponent> tooltip, ITooltipFlag flag) {
         tooltip.add(ModTooltips.getTooltipForTier(this.tinkerableTier));
         AugmentUtils.getAugments(stack).forEach(a -> {
-            tooltip.add(a.getDisplayName().mergeStyle(TextFormatting.GRAY));
+            tooltip.add(a.getDisplayName().withStyle(TextFormatting.GRAY));
         });
     }
 
     @Override
     public Multimap<Attribute, AttributeModifier> getAttributeModifiers(EquipmentSlotType slot, ItemStack stack) {
         Multimap<Attribute, AttributeModifier> modifiers = HashMultimap.create();
-        if (slot == this.getEquipmentSlot()) {
-            IArmorMaterial material = this.getArmorMaterial();
+        if (slot == this.getSlot()) {
+            IArmorMaterial material = this.getMaterial();
 
-            modifiers.put(Attributes.ARMOR, new AttributeModifier(ARMOR_MODIFIERS[slot.getIndex()], "Armor modifier", material.getDamageReductionAmount(slot), AttributeModifier.Operation.ADDITION));
+            modifiers.put(Attributes.ARMOR, new AttributeModifier(ARMOR_MODIFIERS[slot.getIndex()], "Armor modifier", material.getDefenseForSlot(slot), AttributeModifier.Operation.ADDITION));
             modifiers.put(Attributes.ARMOR_TOUGHNESS, new AttributeModifier(ARMOR_MODIFIERS[slot.getIndex()], "Armor toughness", material.getToughness(), AttributeModifier.Operation.ADDITION));
 
             if (material.getKnockbackResistance() > 0) {

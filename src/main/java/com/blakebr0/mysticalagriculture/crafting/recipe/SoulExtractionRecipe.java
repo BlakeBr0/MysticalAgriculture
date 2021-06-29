@@ -30,7 +30,7 @@ public class SoulExtractionRecipe implements ISpecialRecipe, ISoulExtractionReci
 
     public SoulExtractionRecipe(ResourceLocation recipeId, Ingredient input, IMobSoulType type, double souls) {
         this.recipeId = recipeId;
-        this.inputs = NonNullList.from(Ingredient.EMPTY, input);
+        this.inputs = NonNullList.of(Ingredient.EMPTY, input);
         this.type = type;
         this.souls = souls;
         this.output = MobSoulUtils.getSoulJar(type, souls);
@@ -47,12 +47,12 @@ public class SoulExtractionRecipe implements ISpecialRecipe, ISoulExtractionReci
     }
 
     @Override
-    public boolean canFit(int width, int height) {
+    public boolean canCraftInDimensions(int width, int height) {
         return true;
     }
 
     @Override
-    public ItemStack getRecipeOutput() {
+    public ItemStack getResultItem() {
         return this.output;
     }
 
@@ -83,7 +83,7 @@ public class SoulExtractionRecipe implements ISpecialRecipe, ISoulExtractionReci
             return false;
 
         ItemStack output = inventory.getStackInSlot(2);
-        if (!output.isItemEqual(this.output))
+        if (!output.sameItem(this.output))
             return false;
 
         return MobSoulUtils.canAddTypeToJar(output, this.type) && !MobSoulUtils.isJarFull(output);
@@ -101,12 +101,12 @@ public class SoulExtractionRecipe implements ISpecialRecipe, ISoulExtractionReci
 
     public static class Serializer extends ForgeRegistryEntry<IRecipeSerializer<?>> implements IRecipeSerializer<SoulExtractionRecipe> {
         @Override
-        public SoulExtractionRecipe read(ResourceLocation recipeId, JsonObject json) {
+        public SoulExtractionRecipe fromJson(ResourceLocation recipeId, JsonObject json) {
             JsonObject ingredient = json.getAsJsonObject("input");
-            Ingredient input = Ingredient.deserialize(ingredient);
-            JsonObject output = JSONUtils.getJsonObject(json, "output");
-            String type = JSONUtils.getString(output, "type");
-            float amount = JSONUtils.getFloat(output, "souls");
+            Ingredient input = Ingredient.fromJson(ingredient);
+            JsonObject output = JSONUtils.getAsJsonObject(json, "output");
+            String type = JSONUtils.getAsString(output, "type");
+            float amount = JSONUtils.getAsFloat(output, "souls");
 
             IMobSoulType mobSoulType = MobSoulTypeRegistry.getInstance().getMobSoulTypeById(new ResourceLocation(type));
             if (mobSoulType == null) {
@@ -117,8 +117,8 @@ public class SoulExtractionRecipe implements ISpecialRecipe, ISoulExtractionReci
         }
 
         @Override
-        public SoulExtractionRecipe read(ResourceLocation recipeId, PacketBuffer buffer) {
-            Ingredient input = Ingredient.read(buffer);
+        public SoulExtractionRecipe fromNetwork(ResourceLocation recipeId, PacketBuffer buffer) {
+            Ingredient input = Ingredient.fromNetwork(buffer);
             ResourceLocation type = buffer.readResourceLocation();
             double souls = buffer.readDouble();
 
@@ -128,8 +128,8 @@ public class SoulExtractionRecipe implements ISpecialRecipe, ISoulExtractionReci
         }
 
         @Override
-        public void write(PacketBuffer buffer, SoulExtractionRecipe recipe) {
-            recipe.inputs.get(0).write(buffer);
+        public void toNetwork(PacketBuffer buffer, SoulExtractionRecipe recipe) {
+            recipe.inputs.get(0).toNetwork(buffer);
             buffer.writeResourceLocation(recipe.type.getId());
             buffer.writeDouble(recipe.souls);
         }

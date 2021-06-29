@@ -28,7 +28,7 @@ public final class ModWorldgenRegistration {
         switch (category) {
             case NETHER:
                 if (ModConfigs.GENERATE_SOULSTONE.get()) {
-                    generation.withFeature(GenerationStage.Decoration.RAW_GENERATION, configuredSoulstoneFeature);
+                    generation.addFeature(GenerationStage.Decoration.RAW_GENERATION, configuredSoulstoneFeature);
                 }
 
                 break;
@@ -36,11 +36,11 @@ public final class ModWorldgenRegistration {
                 break;
             default:
                 if (ModConfigs.GENERATE_PROSPERITY.get()) {
-                    generation.withFeature(GenerationStage.Decoration.UNDERGROUND_ORES, configuredProsperityOreFeature);
+                    generation.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, configuredProsperityOreFeature);
                 }
 
                 if (ModConfigs.GENERATE_INFERIUM.get()) {
-                    generation.withFeature(GenerationStage.Decoration.UNDERGROUND_ORES, configuredInferiumOreFeature);
+                    generation.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, configuredInferiumOreFeature);
                 }
 
                 break;
@@ -54,33 +54,33 @@ public final class ModWorldgenRegistration {
         size = ModConfigs.SOULSTONE_SPAWN_SIZE.get();
         rate = ModConfigs.SOULSTONE_SPAWN_RATE.get();
         height = ModConfigs.SOULSTONE_SPAWN_HEIGHT.get();
-        config = new OreFeatureConfig(OreFeatureConfig.FillerBlockType.BASE_STONE_NETHER, ModBlocks.SOULSTONE.get().getDefaultState(), size);
-        configuredSoulstoneFeature = ModWorldFeatures.SOULSTONE.get().withConfiguration(config)
+        config = new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NETHER_ORE_REPLACEABLES, ModBlocks.SOULSTONE.get().defaultBlockState(), size);
+        configuredSoulstoneFeature = ModWorldFeatures.SOULSTONE.get().configured(config)
                 .range(height)
-                .square()
-                .func_242732_c(rate);
+                .squared()
+                .countRandom(rate);
 
         Registry.register(WorldGenRegistries.CONFIGURED_FEATURE, new ResourceLocation(MysticalAgriculture.MOD_ID, "soulstone"), configuredSoulstoneFeature);
 
         size = ModConfigs.PROSPERITY_SPAWN_SIZE.get();
         rate = ModConfigs.PROSPERITY_SPAWN_RATE.get();
         height = ModConfigs.PROSPERITY_SPAWN_HEIGHT.get();
-        config = new OreFeatureConfig(OreFeatureConfig.FillerBlockType.BASE_STONE_OVERWORLD, ModBlocks.PROSPERITY_ORE.get().getDefaultState(), size);
-        configuredProsperityOreFeature = Feature.ORE.withConfiguration(config)
+        config = new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, ModBlocks.PROSPERITY_ORE.get().defaultBlockState(), size);
+        configuredProsperityOreFeature = Feature.ORE.configured(config)
                 .range(height)
-                .square()
-                .func_242732_c(rate);
+                .squared()
+                .countRandom(rate);
 
         Registry.register(WorldGenRegistries.CONFIGURED_FEATURE, new ResourceLocation(MysticalAgriculture.MOD_ID, "prosperity_ore"), configuredProsperityOreFeature);
 
         size = ModConfigs.INFERIUM_SPAWN_SIZE.get();
         rate = ModConfigs.INFERIUM_SPAWN_RATE.get();
         height = ModConfigs.INFERIUM_SPAWN_HEIGHT.get();
-        config = new OreFeatureConfig(OreFeatureConfig.FillerBlockType.BASE_STONE_OVERWORLD, ModBlocks.INFERIUM_ORE.get().getDefaultState(), size);
-        configuredInferiumOreFeature = Feature.ORE.withConfiguration(config)
+        config = new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, ModBlocks.INFERIUM_ORE.get().defaultBlockState(), size);
+        configuredInferiumOreFeature = Feature.ORE.configured(config)
                 .range(height)
-                .square()
-                .func_242732_c(rate);
+                .squared()
+                .countRandom(rate);
 
         Registry.register(WorldGenRegistries.CONFIGURED_FEATURE, new ResourceLocation(MysticalAgriculture.MOD_ID, "inferium_ore"), configuredInferiumOreFeature);
     }

@@ -26,19 +26,19 @@ public class AugmentSlot extends SlotItemHandler implements IToggleableSlot {
     @Override
     public ItemStack onTake(PlayerEntity player, ItemStack stack) {
         ItemStack take = super.onTake(player, stack);
-        this.container.onCraftMatrixChanged(null);
+        this.container.slotsChanged(null);
         return take;
     }
 
     @Override
-    public void putStack(ItemStack stack) {
-        super.putStack(stack);
-        this.container.onCraftMatrixChanged(null);
+    public void set(ItemStack stack) {
+        super.set(stack);
+        this.container.slotsChanged(null);
     }
 
     @Override
-    public boolean isItemValid(ItemStack stack) {
-        if (!super.isItemValid(stack))
+    public boolean mayPlace(ItemStack stack) {
+        if (!super.mayPlace(stack))
             return false;
 
         ItemStack stackInSlot = this.getItemHandler().getStackInSlot(0);
@@ -55,7 +55,7 @@ public class AugmentSlot extends SlotItemHandler implements IToggleableSlot {
     }
 
     @Override
-    public boolean isEnabled() {
+    public boolean isActive() {
         ItemStack stack = this.getItemHandler().getStackInSlot(0);
         Item item = stack.getItem();
         if (item instanceof ITinkerable) {

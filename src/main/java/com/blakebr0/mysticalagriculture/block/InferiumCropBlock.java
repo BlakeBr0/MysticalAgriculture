@@ -22,7 +22,7 @@ public class InferiumCropBlock extends MysticalCropBlock {
 
     @Override
     public List<ItemStack> getDrops(BlockState state, LootContext.Builder builder) {
-        int age = state.get(AGE);
+        int age = state.getValue(AGE);
 
         int crop = 0;
         int seed = 1;
@@ -30,11 +30,11 @@ public class InferiumCropBlock extends MysticalCropBlock {
         if (age == this.getMaxAge()) {
             crop = 1;
 
-            Vector3d vec = builder.get(LootParameters.field_237457_g_);
+            Vector3d vec = builder.getOptionalParameter(LootParameters.ORIGIN);
             if (vec != null) {
-                ServerWorld world = builder.getWorld();
+                ServerWorld world = builder.getLevel();
                 BlockPos pos = new BlockPos(vec);
-                Block below = world.getBlockState(pos.down()).getBlock();
+                Block below = world.getBlockState(pos.below()).getBlock();
 
                 if (below instanceof IEssenceFarmland) {
                     IEssenceFarmland farmland = (IEssenceFarmland) below;
@@ -54,7 +54,7 @@ public class InferiumCropBlock extends MysticalCropBlock {
         if (crop > 0)
             drops.add(new ItemStack(this.getCropsItem(), crop));
 
-        drops.add(new ItemStack(this.getSeedsItem(), seed));
+        drops.add(new ItemStack(this.getBaseSeedId(), seed));
 
         return drops;
     }

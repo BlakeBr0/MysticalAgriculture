@@ -24,6 +24,8 @@ import java.util.Set;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
+import net.minecraft.item.Item.Properties;
+
 public class MysticalSeedsItem extends BlockNamedItem implements ICropGetter, IEnableable {
     private final ICrop crop;
 
@@ -33,35 +35,35 @@ public class MysticalSeedsItem extends BlockNamedItem implements ICropGetter, IE
     }
 
     @Override
-    public void fillItemGroup(ItemGroup group, NonNullList<ItemStack> items) {
+    public void fillItemCategory(ItemGroup group, NonNullList<ItemStack> items) {
         if (this.isEnabled()) {
-            super.fillItemGroup(group, items);
+            super.fillItemCategory(group, items);
         }
     }
 
     @Override
-    public ITextComponent getDisplayName(ItemStack stack) {
+    public ITextComponent getName(ItemStack stack) {
         return Localizable.of("item.mysticalagriculture.mystical_seeds").args(this.crop.getDisplayName()).build();
     }
 
     @Override
-    public ITextComponent getName() {
-        return this.getDisplayName(ItemStack.EMPTY);
+    public ITextComponent getDescription() {
+        return this.getName(ItemStack.EMPTY);
     }
 
     @Override
-    public String getTranslationKey() {
+    public String getDescriptionId() {
         return Localizable.of("item.mysticalagriculture.mystical_seeds").args(this.crop.getDisplayName()).buildString();
     }
 
     @Override
-    public boolean hasEffect(ItemStack stack) {
-        return this.crop.hasEffect(stack) || super.hasEffect(stack);
+    public boolean isFoil(ItemStack stack) {
+        return this.crop.hasEffect(stack) || super.isFoil(stack);
     }
 
     @OnlyIn(Dist.CLIENT)
     @Override
-    public void addInformation(ItemStack stack, World world, List<ITextComponent> tooltip, ITooltipFlag flag) {
+    public void appendHoverText(ItemStack stack, World world, List<ITextComponent> tooltip, ITooltipFlag flag) {
         ITextComponent tier = this.crop.getTier().getDisplayName();
 
         tooltip.add(ModTooltips.TIER.args(tier).build());

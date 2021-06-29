@@ -16,13 +16,13 @@ public class FlightAugment extends Augment {
 
     @Override
     public void onPlayerTick(World world, PlayerEntity player, AbilityCache cache) {
-        if (!player.abilities.allowFlying || !cache.isCached(this, player)) {
-            player.abilities.allowFlying = true;
+        if (!player.abilities.mayfly || !cache.isCached(this, player)) {
+            player.abilities.mayfly = true;
 
             cache.add(this, player, () -> {
-                if (!player.abilities.isCreativeMode && !player.isSpectator()) {
-                    player.abilities.allowFlying = false;
-                    player.abilities.isFlying = false;
+                if (!player.abilities.instabuild && !player.isSpectator()) {
+                    player.abilities.mayfly = false;
+                    player.abilities.flying = false;
                 }
             });
         }

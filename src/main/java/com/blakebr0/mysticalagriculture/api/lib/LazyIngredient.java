@@ -51,14 +51,14 @@ public class LazyIngredient {
     public Ingredient getIngredient() {
         if (this.ingredient == null) {
             if (this.isTag()) {
-                ITag<Item> tag = TagCollectionManager.getManager().getItemTags().get(new ResourceLocation(this.name));
-                if (tag != null && !tag.getAllElements().isEmpty())
-                    this.ingredient = Ingredient.fromTag(tag);
+                ITag<Item> tag = TagCollectionManager.getInstance().getItems().getTag(new ResourceLocation(this.name));
+                if (tag != null && !tag.getValues().isEmpty())
+                    this.ingredient = Ingredient.of(tag);
             } else if (this.isItem()) {
                 Item item = ForgeRegistries.ITEMS.getValue(new ResourceLocation(this.name));
                 if (item != null) {
                     if (this.nbt == null || this.nbt.isEmpty()) {
-                        this.ingredient = Ingredient.fromItems(item);
+                        this.ingredient = Ingredient.of(item);
                     } else {
                         ItemStack stack = new ItemStack(item);
                         stack.setTag(this.nbt);

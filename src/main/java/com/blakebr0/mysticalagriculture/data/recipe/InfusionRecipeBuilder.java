@@ -34,7 +34,7 @@ public class InfusionRecipeBuilder {
     }
 
     public void addIngredient(IItemProvider ingredient) {
-        this.ingredients.add(Ingredient.fromItems(ingredient));
+        this.ingredients.add(Ingredient.of(ingredient));
     }
 
     public void addCondition(JsonObject condition) {
@@ -98,14 +98,14 @@ public class InfusionRecipeBuilder {
         }
 
         @Override
-        public void serialize(JsonObject json) {
+        public void serializeRecipeData(JsonObject json) {
             json.add("conditions", this.conditions);
 
-            json.add("input", this.input.serialize());
+            json.add("input", this.input.toJson());
 
             JsonArray ingredients = new JsonArray();
             for (Ingredient ingredient : this.ingredients) {
-                ingredients.add(ingredient.serialize());
+                ingredients.add(ingredient.toJson());
             }
 
             json.add("ingredients", ingredients);
@@ -121,22 +121,22 @@ public class InfusionRecipeBuilder {
         }
 
         @Override
-        public ResourceLocation getID() {
+        public ResourceLocation getId() {
             return this.id;
         }
 
         @Override
-        public IRecipeSerializer<?> getSerializer() {
+        public IRecipeSerializer<?> getType() {
             return ModRecipeSerializers.INFUSION;
         }
 
         @Override
-        public JsonObject getAdvancementJson() {
+        public JsonObject serializeAdvancement() {
             return null;
         }
 
         @Override
-        public ResourceLocation getAdvancementID() {
+        public ResourceLocation getAdvancementId() {
             return null;
         }
     }

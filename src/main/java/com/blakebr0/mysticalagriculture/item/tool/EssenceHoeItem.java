@@ -35,6 +35,8 @@ import java.util.EnumSet;
 import java.util.List;
 import java.util.function.Function;
 
+import net.minecraft.item.Item.Properties;
+
 public class EssenceHoeItem extends BaseHoeItem implements ITinkerable {
     private static final EnumSet<AugmentType> TYPES = EnumSet.of(AugmentType.TOOL, AugmentType.HOE);
     private final int tinkerableTier;
@@ -47,8 +49,8 @@ public class EssenceHoeItem extends BaseHoeItem implements ITinkerable {
     }
 
     @Override
-    public ActionResultType onItemUse(ItemUseContext context) {
-        List<IAugment> augments = AugmentUtils.getAugments(context.getItem());
+    public ActionResultType useOn(ItemUseContext context) {
+        List<IAugment> augments = AugmentUtils.getAugments(context.getItemInHand());
         boolean success = false;
         for (IAugment augment : augments) {
             if (augment.onItemUse(context))
@@ -58,12 +60,12 @@ public class EssenceHoeItem extends BaseHoeItem implements ITinkerable {
         if (success)
             return ActionResultType.SUCCESS;
 
-        return super.onItemUse(context);
+        return super.useOn(context);
     }
 
     @Override
-    public ActionResult<ItemStack> onItemRightClick(World world, PlayerEntity player, Hand hand) {
-        ItemStack stack = player.getHeldItem(hand);
+    public ActionResult<ItemStack> use(World world, PlayerEntity player, Hand hand) {
+        ItemStack stack = player.getItemInHand(hand);
         List<IAugment> augments = AugmentUtils.getAugments(stack);
         boolean success = false;
         for (IAugment augment : augments) {
@@ -78,7 +80,7 @@ public class EssenceHoeItem extends BaseHoeItem implements ITinkerable {
     }
 
     @Override
-    public ActionResultType itemInteractionForEntity(ItemStack stack, PlayerEntity player, LivingEntity target, Hand hand) {
+    public ActionResultType interactLivingEntity(ItemStack stack, PlayerEntity player, LivingEntity target, Hand hand) {
         List<IAugment> augments = AugmentUtils.getAugments(stack);
         boolean success = false;
         for (IAugment augment : augments) {
@@ -90,7 +92,7 @@ public class EssenceHoeItem extends BaseHoeItem implements ITinkerable {
     }
 
     @Override
-    public boolean hitEntity(ItemStack stack, LivingEntity target, LivingEntity attacker) {
+    public boolean hurtEnemy(ItemStack stack, LivingEntity target, LivingEntity attacker) {
         List<IAugment> augments = AugmentUtils.getAugments(stack);
         boolean success = false;
         for (IAugment augment : augments) {
@@ -102,7 +104,7 @@ public class EssenceHoeItem extends BaseHoeItem implements ITinkerable {
     }
 
     @Override
-    public boolean onBlockDestroyed(ItemStack stack, World world, BlockState state, BlockPos pos, LivingEntity entity) {
+    public boolean mineBlock(ItemStack stack, World world, BlockState state, BlockPos pos, LivingEntity entity) {
         List<IAugment> augments = AugmentUtils.getAugments(stack);
         boolean success = false;
         for (IAugment augment : augments) {
@@ -132,10 +134,10 @@ public class EssenceHoeItem extends BaseHoeItem implements ITinkerable {
 
     @OnlyIn(Dist.CLIENT)
     @Override
-    public void addInformation(ItemStack stack, World world, List<ITextComponent> tooltip, ITooltipFlag flag) {
+    public void appendHoverText(ItemStack stack, World world, List<ITextComponent> tooltip, ITooltipFlag flag) {
         tooltip.add(ModTooltips.getTooltipForTier(this.tinkerableTier));
         AugmentUtils.getAugments(stack).forEach(a -> {
-            tooltip.add(a.getDisplayName().mergeStyle(TextFormatting.GRAY));
+            tooltip.add(a.getDisplayName().withStyle(TextFormatting.GRAY));
         });
     }
 
@@ -143,8 +145,8 @@ public class EssenceHoeItem extends BaseHoeItem implements ITinkerable {
     public Multimap<Attribute, AttributeModifier> getAttributeModifiers(EquipmentSlotType slot, ItemStack stack) {
         Multimap<Attribute, AttributeModifier> modifiers = HashMultimap.create();
         if (slot == EquipmentSlotType.MAINHAND) {
-            modifiers.put(Attributes.ATTACK_DAMAGE, new AttributeModifier(ATTACK_DAMAGE_MODIFIER, "Tool modifier", 0, AttributeModifier.Operation.ADDITION));
-            modifiers.put(Attributes.ATTACK_SPEED, new AttributeModifier(ATTACK_SPEED_MODIFIER, "Tool modifier", this.getAttackSpeed(), AttributeModifier.Operation.ADDITION));
+            modifiers.put(Attributes.ATTACK_DAMAGE, new AttributeModifier(BASE_ATTACK_DAMAGE_UUID, "Tool modifier", 0, AttributeModifier.Operation.ADDITION));
+            modifiers.put(Attributes.ATTACK_SPEED, new AttributeModifier(BASE_ATTACK_SPEED_UUID, "Tool modifier", this.getAttackSpeed(), AttributeModifier.Operation.ADDITION));
 
             AugmentUtils.getAugments(stack).forEach(a -> {
                 a.addToolAttributeModifiers(modifiers, slot, stack);

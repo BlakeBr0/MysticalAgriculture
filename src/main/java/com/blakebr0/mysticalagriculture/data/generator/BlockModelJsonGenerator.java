@@ -40,7 +40,7 @@ public class BlockModelJsonGenerator extends BlockStateProvider {
             ModelFile[] models = stemModels.get(crop.getType().getName());
 
             this.getVariantBuilder(block).forAllStates(state -> {
-                Integer age = state.get(CropsBlock.AGE);
+                Integer age = state.getValue(CropsBlock.AGE);
                 if (age == block.getMaxAge()) {
                     BlockModelBuilder model = this.models().getBuilder(crop.getNameWithSuffix("crop"))
                             .parent(models[7])

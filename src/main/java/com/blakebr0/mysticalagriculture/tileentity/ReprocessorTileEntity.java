@@ -62,8 +62,8 @@ public abstract class ReprocessorTileEntity extends BaseInventoryTileEntity impl
     }
 
     @Override
-    public void read(BlockState state, CompoundNBT tag) {
-        super.read(state, tag);
+    public void load(BlockState state, CompoundNBT tag) {
+        super.load(state, tag);
         this.progress = tag.getInt("Progress");
         this.fuelLeft = tag.getInt("FuelLeft");
         this.fuelItemValue = tag.getInt("FuelItemValue");
@@ -71,8 +71,8 @@ public abstract class ReprocessorTileEntity extends BaseInventoryTileEntity impl
     }
 
     @Override
-    public CompoundNBT write(CompoundNBT tag) {
-        tag = super.write(tag);
+    public CompoundNBT save(CompoundNBT tag) {
+        tag = super.save(tag);
         tag.putInt("Progress", this.progress);
         tag.putInt("FuelLeft", this.fuelLeft);
         tag.putInt("FuelItemValue", this.fuelItemValue);
@@ -83,8 +83,8 @@ public abstract class ReprocessorTileEntity extends BaseInventoryTileEntity impl
 
     @Override
     public void tick() {
-        World world = this.getWorld();
-        if (world == null || world.isRemote())
+        World world = this.getLevel();
+        if (world == null || world.isClientSide())
             return;
 
         boolean mark = false;
@@ -121,7 +121,7 @@ public abstract class ReprocessorTileEntity extends BaseInventoryTileEntity impl
 
             if (!input.isEmpty()) {
                 if (this.recipe == null || !this.recipe.matches(this.inventory)) {
-                    IReprocessorRecipe recipe = world.getRecipeManager().getRecipe(RecipeTypes.REPROCESSOR, this.inventory.toIInventory(), world).orElse(null);
+                    IReprocessorRecipe recipe = world.getRecipeManager().getRecipeFor(RecipeTypes.REPROCESSOR, this.inventory.toIInventory(), world).orElse(null);
                     this.recipe = recipe instanceof ReprocessorRecipe ? (ReprocessorRecipe) recipe : null;
                 }
 
@@ -170,7 +170,7 @@ public abstract class ReprocessorTileEntity extends BaseInventoryTileEntity impl
 
     @Override
     public Container createMenu(int id, PlayerInventory playerInventory, PlayerEntity player) {
-        return ReprocessorContainer.create(id, playerInventory, this::isUsableByPlayer, this.inventory, this.getPos());
+        return ReprocessorContainer.create(id, playerInventory, this::isUsableByPlayer, this.inventory, this.getBlockPos());
     }
 
     @Override

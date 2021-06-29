@@ -48,47 +48,47 @@ public class SoulExtractorContainer extends Container {
     }
 
     @Override
-    public boolean canInteractWith(PlayerEntity player) {
+    public boolean stillValid(PlayerEntity player) {
         return this.isUsableByPlayer.apply(player);
     }
 
     @Override
-    public ItemStack transferStackInSlot(PlayerEntity player, int index) {
+    public ItemStack quickMoveStack(PlayerEntity player, int index) {
         ItemStack itemstack = ItemStack.EMPTY;
-        Slot slot = this.inventorySlots.get(index);
+        Slot slot = this.slots.get(index);
 
-        if (slot != null && slot.getHasStack()) {
-            ItemStack itemstack1 = slot.getStack();
+        if (slot != null && slot.hasItem()) {
+            ItemStack itemstack1 = slot.getItem();
             itemstack = itemstack1.copy();
 
             if (index != 1 && index != 0) {
                 if (itemstack1.getItem() == ModItems.SOUL_JAR.get()) {
-                    if (!this.mergeItemStack(itemstack1, 2, 3, false)) {
+                    if (!this.moveItemStackTo(itemstack1, 2, 3, false)) {
                         return ItemStack.EMPTY;
                     }
                 } else if (RecipeHelper.getRecipes(RecipeTypes.SOUL_EXTRACTION).values().stream().anyMatch(r -> r.getIngredients().get(0).test(itemstack1))) {
-                    if (!this.mergeItemStack(itemstack1, 0, 1, false)) {
+                    if (!this.moveItemStackTo(itemstack1, 0, 1, false)) {
                         return ItemStack.EMPTY;
                     }
                 } else if (ForgeHooks.getBurnTime(itemstack1) > 0) {
-                    if (!this.mergeItemStack(itemstack1, 1, 2, false)) {
+                    if (!this.moveItemStackTo(itemstack1, 1, 2, false)) {
                         return ItemStack.EMPTY;
                     }
                 } else if (index < 30) {
-                    if (!this.mergeItemStack(itemstack1, 30, 39, false)) {
+                    if (!this.moveItemStackTo(itemstack1, 30, 39, false)) {
                         return ItemStack.EMPTY;
                     }
-                } else if (index < 39 && !this.mergeItemStack(itemstack1, 3, 30, false)) {
+                } else if (index < 39 && !this.moveItemStackTo(itemstack1, 3, 30, false)) {
                     return ItemStack.EMPTY;
                 }
-            } else if (!this.mergeItemStack(itemstack1, 3, 39, false)) {
+            } else if (!this.moveItemStackTo(itemstack1, 3, 39, false)) {
                 return ItemStack.EMPTY;
             }
 
             if (itemstack1.isEmpty()) {
-                slot.putStack(ItemStack.EMPTY);
+                slot.set(ItemStack.EMPTY);
             } else {
-                slot.onSlotChanged();
+                slot.setChanged();
             }
 
             if (itemstack1.getCount() == itemstack.getCount()) {

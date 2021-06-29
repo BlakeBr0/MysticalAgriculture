@@ -24,7 +24,7 @@ import java.util.Iterator;
 import java.util.Map;
 
 public class PathingAOEAugment extends Augment {
-    private static final Map<Block, BlockState> PATH_LOOKUP = Maps.newHashMap(ImmutableMap.of(Blocks.GRASS_BLOCK, Blocks.GRASS_PATH.getDefaultState()));
+    private static final Map<Block, BlockState> PATH_LOOKUP = Maps.newHashMap(ImmutableMap.of(Blocks.GRASS_BLOCK, Blocks.GRASS_PATH.defaultBlockState()));
     private final int range;
 
     public PathingAOEAugment(ResourceLocation id, int tier, int range) {
@@ -38,16 +38,16 @@ public class PathingAOEAugment extends Augment {
         if (player == null)
             return false;
 
-        ItemStack stack = context.getItem();
-        World world = context.getWorld();
-        BlockPos pos = context.getPos();
-        Direction direction = context.getFace();
+        ItemStack stack = context.getItemInHand();
+        World world = context.getLevel();
+        BlockPos pos = context.getClickedPos();
+        Direction direction = context.getClickedFace();
         Hand hand = context.getHand();
 
         boolean playedSound = false;
 
         if (tryPath(stack, player, world, pos, direction, hand)) {
-            world.playSound(player, pos, SoundEvents.ITEM_SHOVEL_FLATTEN, SoundCategory.BLOCKS, 1.0F, 1.0F);
+            world.playSound(player, pos, SoundEvents.SHOVEL_FLATTEN, SoundCategory.BLOCKS, 1.0F, 1.0F);
 
             playedSound = true;
 
@@ -56,13 +56,13 @@ public class PathingAOEAugment extends Augment {
         }
 
         if (player.isCrouching()) {
-            Iterator<BlockPos> positions = BlockPos.getAllInBox(pos.add(-this.range, 0, -this.range), pos.add(this.range, 0, this.range)).iterator();
+            Iterator<BlockPos> positions = BlockPos.betweenClosedStream(pos.offset(-this.range, 0, -this.range), pos.offset(this.range, 0, this.range)).iterator();
 
             while (positions.hasNext()) {
                 BlockPos aoePos = positions.next();
 
                 if (tryPath(stack, player, world, aoePos, direction, hand) && !playedSound) {
-                    world.playSound(player, pos, SoundEvents.ITEM_HOE_TILL, SoundCategory.BLOCKS, 1.0F, 1.0F);
+                    world.playSound(player, pos, SoundEvents.HOE_TILL, SoundCategory.BLOCKS, 1.0F, 1.0F);
 
                     playedSound = true;
                 }
@@ -73,14 +73,14 @@ public class PathingAOEAugment extends Augment {
     }
 
     private static boolean tryPath(ItemStack stack, PlayerEntity player, World world, BlockPos pos, Direction direction, Hand hand) {
-        if (direction != Direction.DOWN && world.isAirBlock(pos.up())) {
+        if (direction != Direction.DOWN && world.isEmptyBlock(pos.above())) {
             BlockState state = PATH_LOOKUP.get(world.getBlockState(pos).getBlock());
             if (state != null) {
-                if (!world.isRemote()) {
-                    world.setBlockState(pos, state, 11);
+                if (!world.isClientSide()) {
+                    world.setBlock(pos, state, 11);
                     if (player != null) {
-                        stack.damageItem(1, player, (entity) -> {
-                            entity.sendBreakAnimation(hand);
+                        stack.hurtAndBreak(1, player, (entity) -> {
+                            entity.broadcastBreakEvent(hand);
                         });
                     }
                 }

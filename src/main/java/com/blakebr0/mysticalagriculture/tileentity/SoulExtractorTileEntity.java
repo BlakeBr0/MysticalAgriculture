@@ -55,8 +55,8 @@ public class SoulExtractorTileEntity extends BaseInventoryTileEntity implements 
     }
 
     @Override
-    public void read(BlockState state, CompoundNBT tag) {
-        super.read(state, tag);
+    public void load(BlockState state, CompoundNBT tag) {
+        super.load(state, tag);
         this.progress = tag.getInt("Progress");
         this.fuelLeft = tag.getInt("FuelLeft");
         this.fuelItemValue = tag.getInt("FuelItemValue");
@@ -64,8 +64,8 @@ public class SoulExtractorTileEntity extends BaseInventoryTileEntity implements 
     }
 
     @Override
-    public CompoundNBT write(CompoundNBT tag) {
-        tag = super.write(tag);
+    public CompoundNBT save(CompoundNBT tag) {
+        tag = super.save(tag);
         tag.putInt("Progress", this.progress);
         tag.putInt("FuelLeft", this.fuelLeft);
         tag.putInt("FuelItemValue", this.fuelItemValue);
@@ -76,8 +76,8 @@ public class SoulExtractorTileEntity extends BaseInventoryTileEntity implements 
 
     @Override
     public void tick() {
-        World world = this.getWorld();
-        if (world == null || world.isRemote())
+        World world = this.getLevel();
+        if (world == null || world.isClientSide())
             return;
 
         boolean mark = false;
@@ -109,7 +109,7 @@ public class SoulExtractorTileEntity extends BaseInventoryTileEntity implements 
         }
 
         if (this.recipe == null || !this.recipe.matches(this.inventory)) {
-            ISoulExtractionRecipe recipe = world.getRecipeManager().getRecipe(RecipeTypes.SOUL_EXTRACTION, this.inventory.toIInventory(), world).orElse(null);
+            ISoulExtractionRecipe recipe = world.getRecipeManager().getRecipeFor(RecipeTypes.SOUL_EXTRACTION, this.inventory.toIInventory(), world).orElse(null);
             this.recipe = recipe instanceof SoulExtractionRecipe ? (SoulExtractionRecipe) recipe : null;
         }
 
@@ -153,7 +153,7 @@ public class SoulExtractorTileEntity extends BaseInventoryTileEntity implements 
 
     @Override
     public Container createMenu(int id, PlayerInventory playerInventory, PlayerEntity player) {
-        return SoulExtractorContainer.create(id, playerInventory, this::isUsableByPlayer, this.inventory, this.getPos());
+        return SoulExtractorContainer.create(id, playerInventory, this::isUsableByPlayer, this.inventory, this.getBlockPos());
     }
 
     @Override

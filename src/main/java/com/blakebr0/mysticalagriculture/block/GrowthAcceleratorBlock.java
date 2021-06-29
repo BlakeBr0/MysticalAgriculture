@@ -28,31 +28,31 @@ public class GrowthAcceleratorBlock extends BaseBlock {
     private final TextFormatting textColor;
 
     public GrowthAcceleratorBlock(int range, TextFormatting textColor) {
-        super(Material.ROCK, SoundType.STONE, 5.0F, 8.0F, ToolType.PICKAXE);
+        super(Material.STONE, SoundType.STONE, 5.0F, 8.0F, ToolType.PICKAXE);
         this.range = range;
         this.textColor = textColor;
     }
 
     @Override
-    public void onBlockAdded(BlockState state, World world, BlockPos pos, BlockState oldState, boolean isMoving) {
-        world.getPendingBlockTicks().scheduleTick(pos, this, getTickRate());
+    public void onPlace(BlockState state, World world, BlockPos pos, BlockState oldState, boolean isMoving) {
+        world.getBlockTicks().scheduleTick(pos, this, getTickRate());
     }
 
     @Override
     public void tick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
-        BlockPos.getAllInBox(pos.up(2), pos.add(0, this.range + 2, 0))
+        BlockPos.betweenClosedStream(pos.above(2), pos.offset(0, this.range + 2, 0))
                 .filter(aoePos -> world.getBlockState(aoePos).getBlock() instanceof IGrowable)
                 .findFirst()
                 .ifPresent(aoePos -> world.getBlockState(aoePos).randomTick(world, aoePos, random));
 
-        world.getPendingBlockTicks().scheduleTick(pos, this, getTickRate());
+        world.getBlockTicks().scheduleTick(pos, this, getTickRate());
     }
 
     @OnlyIn(Dist.CLIENT)
     @Override
-    public void addInformation(ItemStack stack, IBlockReader world, List<ITextComponent> tooltip, ITooltipFlag flag) {
+    public void appendHoverText(ItemStack stack, IBlockReader world, List<ITextComponent> tooltip, ITooltipFlag flag) {
         tooltip.add(ModTooltips.GROWTH_ACCELERATOR.build());
-        ITextComponent rangeNumber = new StringTextComponent(String.valueOf(this.range)).mergeStyle(this.textColor);
+        ITextComponent rangeNumber = new StringTextComponent(String.valueOf(this.range)).withStyle(this.textColor);
         tooltip.add(ModTooltips.GROWTH_ACCELERATOR_RANGE.args(rangeNumber).build());
     }
 

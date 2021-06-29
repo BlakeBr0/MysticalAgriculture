@@ -66,7 +66,7 @@ public class SoulExtractorCategory implements IRecipeCategory<SoulExtractionReci
 
     @Override
     public void setIngredients(SoulExtractionRecipe recipe, IIngredients ingredients) {
-        ingredients.setOutput(VanillaTypes.ITEM, recipe.getRecipeOutput());
+        ingredients.setOutput(VanillaTypes.ITEM, recipe.getResultItem());
         ingredients.setInputIngredients(recipe.getIngredients());
     }
 

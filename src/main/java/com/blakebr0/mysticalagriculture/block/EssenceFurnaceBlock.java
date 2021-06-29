@@ -23,55 +23,57 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 import java.util.List;
 import java.util.function.Supplier;
 
+import net.minecraft.block.AbstractBlock.Properties;
+
 public class EssenceFurnaceBlock extends AbstractFurnaceBlock {
     private final FurnaceTier tier;
 
     public EssenceFurnaceBlock(FurnaceTier tier) {
-        super(Properties.from(Blocks.FURNACE));
+        super(Properties.copy(Blocks.FURNACE));
         this.tier = tier;
     }
 
     @Override
-    protected void interactWith(World world, BlockPos pos, PlayerEntity player) {
-        TileEntity tile = world.getTileEntity(pos);
+    protected void openContainer(World world, BlockPos pos, PlayerEntity player) {
+        TileEntity tile = world.getBlockEntity(pos);
         if (tile instanceof EssenceFurnaceTileEntity) {
-            player.openContainer((EssenceFurnaceTileEntity) tile);
-            player.addStat(Stats.INTERACT_WITH_FURNACE);
+            player.openMenu((EssenceFurnaceTileEntity) tile);
+            player.awardStat(Stats.INTERACT_WITH_FURNACE);
         }
     }
 
     @Override
-    public TileEntity createNewTileEntity(IBlockReader world) {
+    public TileEntity newBlockEntity(IBlockReader world) {
         return this.tier.getNewTileEntity();
     }
 
     @Override
-    public void onBlockPlacedBy(World world, BlockPos pos, BlockState state, LivingEntity entity, ItemStack stack) {
+    public void setPlacedBy(World world, BlockPos pos, BlockState state, LivingEntity entity, ItemStack stack) {
 
     }
 
     @Override
-    public void onReplaced(BlockState state, World world, BlockPos pos, BlockState newState, boolean isMoving) {
+    public void onRemove(BlockState state, World world, BlockPos pos, BlockState newState, boolean isMoving) {
         if (state.getBlock() != newState.getBlock()) {
-            TileEntity tile = world.getTileEntity(pos);
+            TileEntity tile = world.getBlockEntity(pos);
             if (tile instanceof EssenceFurnaceTileEntity) {
                 EssenceFurnaceTileEntity furnace = (EssenceFurnaceTileEntity) tile;
-                InventoryHelper.dropInventoryItems(world, pos, furnace);
+                InventoryHelper.dropContents(world, pos, furnace);
             }
         }
 
-        super.onReplaced(state, world, pos, newState, isMoving);
+        super.onRemove(state, world, pos, newState, isMoving);
     }
 
     @OnlyIn(Dist.CLIENT)
     @Override
-    public void addInformation(ItemStack stack, IBlockReader world, List<ITextComponent> tooltip, ITooltipFlag flag) {
+    public void appendHoverText(ItemStack stack, IBlockReader world, List<ITextComponent> tooltip, ITooltipFlag flag) {
         double cookingSpeedDifference = 200D * this.tier.getCookTimeMultiplier();
         double cookingSpeedValue = Math.ceil(((200D - cookingSpeedDifference) / cookingSpeedDifference) * 100D) + 100D;
-        ITextComponent cookingSpeed = new StringTextComponent(String.valueOf((int) cookingSpeedValue)).appendString("%");
+        ITextComponent cookingSpeed = new StringTextComponent(String.valueOf((int) cookingSpeedValue)).append("%");
         double burnTimeDifference = (1600D * this.tier.getBurnTimeMultiplier()) / cookingSpeedDifference;
         double burnTimeValue = Math.ceil(((burnTimeDifference - 8D) / 8D) * 100D) + 100D;
-        ITextComponent fuelEfficiency = new StringTextComponent(String.valueOf((int) burnTimeValue)).appendString("%");
+        ITextComponent fuelEfficiency = new StringTextComponent(String.valueOf((int) burnTimeValue)).append("%");
 
         tooltip.add(ModTooltips.COOKING_SPEED.args(cookingSpeed).build());
         tooltip.add(ModTooltips.FUEL_EFFICIENCY.args(fuelEfficiency).build());

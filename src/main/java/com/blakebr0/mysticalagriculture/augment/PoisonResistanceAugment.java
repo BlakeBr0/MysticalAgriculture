@@ -17,6 +17,6 @@ public class PoisonResistanceAugment extends Augment {
 
     @Override
     public void onArmorTick(ItemStack stack, World world, PlayerEntity player) {
-        player.removePotionEffect(Effects.POISON);
+        player.removeEffect(Effects.POISON);
     }
 }

@@ -18,15 +18,15 @@ public class ItemTagsJsonGenerator extends TagsProvider<Item> {
     }
 
     @Override
-    protected void registerTags() {
+    protected void addTags() {
         CropRegistry.getInstance().getCrops().forEach(crop -> {
-            this.getOrCreateBuilder(MysticalAgricultureAPI.ESSENCES_TAG).add(crop.getEssence());
-            this.getOrCreateBuilder(MysticalAgricultureAPI.SEEDS_TAG).add(crop.getSeeds());
+            this.tag(MysticalAgricultureAPI.ESSENCES_TAG).add(crop.getEssence());
+            this.tag(MysticalAgricultureAPI.SEEDS_TAG).add(crop.getSeeds());
         });
     }
 
     @Override
-    protected Path makePath(ResourceLocation id) {
+    protected Path getPath(ResourceLocation id) {
         return this.generator.getOutputFolder().resolve("data/" + id.getNamespace() + "/tags/items/" + id.getPath() + ".json");
     }
 

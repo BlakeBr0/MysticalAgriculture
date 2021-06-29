@@ -31,17 +31,19 @@ import java.util.List;
 import java.util.UUID;
 import java.util.function.Function;
 
+import net.minecraft.item.Item.Properties;
+
 public class EssenceWateringCanItem extends WateringCanItem {
     private final TextFormatting textColor;
 
     public EssenceWateringCanItem(int range, double chance, TextFormatting textColor, Function<Properties, Properties> properties) {
-        super(range, chance, properties.compose(p -> p.maxStackSize(1)));
+        super(range, chance, properties.compose(p -> p.stacksTo(1)));
         this.textColor = textColor;
     }
 
     @Override
-    public void fillItemGroup(ItemGroup group, NonNullList<ItemStack> items) {
-        if (this.isInGroup(group)) {
+    public void fillItemCategory(ItemGroup group, NonNullList<ItemStack> items) {
+        if (this.allowdedIn(group)) {
             ItemStack stack = new ItemStack(this);
             NBTHelper.setBoolean(stack, "Water", false);
             NBTHelper.setBoolean(stack, "Active", false);
@@ -53,23 +55,23 @@ public class EssenceWateringCanItem extends WateringCanItem {
     public void inventoryTick(ItemStack stack, World world, Entity entity, int slot, boolean selected) {
         if (NBTHelper.getBoolean(stack, "Active") && entity instanceof PlayerEntity) {
             PlayerEntity player = (PlayerEntity) entity;
-            BlockRayTraceResult result = rayTrace(world, player, RayTraceContext.FluidMode.SOURCE_ONLY);
+            BlockRayTraceResult result = getPlayerPOVHitResult(world, player, RayTraceContext.FluidMode.SOURCE_ONLY);
 
             if (result.getType() != RayTraceResult.Type.MISS) {
-                this.doWater(stack, world, player, result.getPos(), result.getFace());
+                this.doWater(stack, world, player, result.getBlockPos(), result.getDirection());
             }
         }
     }
 
     @Override
-    public boolean hasEffect(ItemStack stack) {
+    public boolean isFoil(ItemStack stack) {
         return NBTHelper.getBoolean(stack, "Active");
     }
 
     @Override
-    public ActionResult<ItemStack> onItemRightClick(World world, PlayerEntity player, Hand hand) {
-        ItemStack stack = player.getHeldItem(hand);
-        BlockRayTraceResult trace = rayTrace(world, player, RayTraceContext.FluidMode.SOURCE_ONLY);
+    public ActionResult<ItemStack> use(World world, PlayerEntity player, Hand hand) {
+        ItemStack stack = player.getItemInHand(hand);
+        BlockRayTraceResult trace = getPlayerPOVHitResult(world, player, RayTraceContext.FluidMode.SOURCE_ONLY);
 
         if (trace.getType() != RayTraceResult.Type.BLOCK) {
             if (NBTHelper.getBoolean(stack, "Water") && player.isCrouching()) {
@@ -79,17 +81,17 @@ public class EssenceWateringCanItem extends WateringCanItem {
             return new ActionResult<>(ActionResultType.PASS, stack);
         }
 
-        BlockPos pos = trace.getPos();
-        Direction direction = trace.getFace();
+        BlockPos pos = trace.getBlockPos();
+        Direction direction = trace.getDirection();
 
-        if (world.isBlockModifiable(player, pos) && player.canPlayerEdit(pos.offset(direction), direction, stack)) {
+        if (world.mayInteract(player, pos) && player.mayUseItemAt(pos.relative(direction), direction, stack)) {
             BlockState state = world.getBlockState(pos);
 
             if (state.getMaterial() == Material.WATER) {
                 NBTHelper.setString(stack, "ID", UUID.randomUUID().toString());
                 NBTHelper.setBoolean(stack, "Water", true);
 
-                player.playSound(SoundEvents.ITEM_BUCKET_FILL, 1.0F, 1.0F);
+                player.playSound(SoundEvents.BUCKET_FILL, 1.0F, 1.0F);
 
                 return new ActionResult<>(ActionResultType.SUCCESS, stack);
             }
@@ -112,11 +114,11 @@ public class EssenceWateringCanItem extends WateringCanItem {
 
     @OnlyIn(Dist.CLIENT)
     @Override
-    public void addInformation(ItemStack stack, World world, List<ITextComponent> tooltip, ITooltipFlag advanced) {
-        super.addInformation(stack, world, tooltip, advanced);
+    public void appendHoverText(ItemStack stack, World world, List<ITextComponent> tooltip, ITooltipFlag advanced) {
+        super.appendHoverText(stack, world, tooltip, advanced);
 
         String rangeString = String.valueOf(this.range);
-        ITextComponent rangeNumber = new StringTextComponent(rangeString + "x" + rangeString).mergeStyle(this.textColor);
+        ITextComponent rangeNumber = new StringTextComponent(rangeString + "x" + rangeString).withStyle(this.textColor);
         tooltip.add(ModTooltips.WATERING_CAN_AREA.args(rangeNumber).build());
     }
 }

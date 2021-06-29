@@ -13,12 +13,12 @@ apply plugin: 'idea'
 
 version = '4.2.0'
 group = 'com.blakebr0.mysticalagriculture'
-archivesBaseName = 'MysticalAgriculture-1.16.4'
+archivesBaseName = 'MysticalAgriculture-1.16.5'
 
 sourceCompatibility = targetCompatibility = compileJava.sourceCompatibility = compileJava.targetCompatibility = '1.8'
 
 repositories {
-    maven { url 'http://dvs1.progwml6.com/files/maven/' }
+    maven { url 'https://dvs1.progwml6.com/files/maven/' }
     maven { url 'https://maven.blamejared.com' }
     maven { url 'https://maven.tehnut.info' }
 
@@ -26,7 +26,7 @@ repositories {
 }
 
 minecraft {
-    mappings channel: 'snapshot', version: '20201028-1.16.3'
+    mappings channel: 'official', version: '1.16.5'
 
     accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg')
 
@@ -74,14 +74,14 @@ sourceSets.main.resources {
 }
 
 dependencies {
-    minecraft 'net.minecraftforge:forge:1.16.4-35.1.4'
+    minecraft 'net.minecraftforge:forge:1.16.5-36.1.0'
 
     compile fg.deobf('ignored:Cucumber:1.16.4-4.1.10')
     compileOnly fg.deobf('mcp.mobius.waila:Hwyla:1.10.11-B78_1.16.2:api')
     runtimeOnly fg.deobf('mcp.mobius.waila:Hwyla:1.10.11-B78_1.16.2')
     compileOnly fg.deobf('mezz.jei:jei-1.16.2:7.1.1.15:api')
     runtimeOnly fg.deobf('mezz.jei:jei-1.16.2:7.1.1.15')
-    compile fg.deobf('com.blamejared.crafttweaker:CraftTweaker-1.16.2:7.0.0.26')
+    compile fg.deobf('com.blamejared.crafttweaker:CraftTweaker-1.16.5:7.1.0.326')
     compile fg.deobf('vazkii.patchouli:Patchouli:1.16.2-47')
 }
 

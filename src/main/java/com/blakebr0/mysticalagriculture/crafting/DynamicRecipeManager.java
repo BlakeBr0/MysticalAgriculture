@@ -64,9 +64,9 @@ public class DynamicRecipeManager implements IResourceManagerReloadListener {
         if (material == Ingredient.EMPTY)
             return null;
 
-        Ingredient essence = Ingredient.fromItems(essenceItem);
-        Ingredient craftingSeed = Ingredient.fromItems(craftingSeedItem);
-        NonNullList<Ingredient> inputs = NonNullList.from(Ingredient.EMPTY,
+        Ingredient essence = Ingredient.of(essenceItem);
+        Ingredient craftingSeed = Ingredient.of(craftingSeedItem);
+        NonNullList<Ingredient> inputs = NonNullList.of(Ingredient.EMPTY,
                 craftingSeed, material, essence,
                 material, essence, material,
                 essence, material, essence
@@ -97,9 +97,9 @@ public class DynamicRecipeManager implements IResourceManagerReloadListener {
         if (material == Ingredient.EMPTY)
             return null;
 
-        Ingredient essence = Ingredient.fromItems(essenceItem);
-        Ingredient craftingSeed = Ingredient.fromItems(craftingSeedItem);
-        NonNullList<Ingredient> inputs = NonNullList.from(Ingredient.EMPTY,
+        Ingredient essence = Ingredient.of(essenceItem);
+        Ingredient craftingSeed = Ingredient.of(craftingSeedItem);
+        NonNullList<Ingredient> inputs = NonNullList.of(Ingredient.EMPTY,
                 material, essence, material,
                 essence, craftingSeed, essence,
                 material, essence, material
@@ -115,7 +115,7 @@ public class DynamicRecipeManager implements IResourceManagerReloadListener {
         if (!crop.isEnabled() || !crop.getRecipeConfig().isSeedReprocessorRecipeEnabled())
             return null;
 
-        Ingredient input = Ingredient.fromItems(crop.getSeeds());
+        Ingredient input = Ingredient.of(crop.getSeeds());
         ResourceLocation name = new ResourceLocation(MysticalAgriculture.MOD_ID, crop.getNameWithSuffix("seeds_reprocessor"));
         ItemStack output = new ItemStack(crop.getEssence(), 2);
 

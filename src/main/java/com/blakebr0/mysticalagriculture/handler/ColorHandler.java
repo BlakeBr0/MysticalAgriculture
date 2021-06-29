@@ -33,7 +33,7 @@ public final class ColorHandler {
 
         colors.register(new IColored.ItemBlockColors(), InfusedFarmlandBlock.FARMLANDS.toArray(new InfusedFarmlandBlock[0]));
         colors.register((stack, tint) -> {
-            float damage = (float) (stack.getMaxDamage() - stack.getDamage()) / stack.getMaxDamage();
+            float damage = (float) (stack.getMaxDamage() - stack.getDamageValue()) / stack.getMaxDamage();
             return ColorHelper.saturate(0x00D9D9, damage);
         }, ModItems.INFUSION_CRYSTAL.get());
 

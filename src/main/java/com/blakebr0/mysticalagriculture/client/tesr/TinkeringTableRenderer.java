@@ -21,24 +21,24 @@ public class TinkeringTableRenderer extends TileEntityRenderer<TinkeringTableTil
 
     @Override
     public void render(TinkeringTableTileEntity tile, float v, MatrixStack matrix, IRenderTypeBuffer buffer, int i, int i1) {
-        World world = tile.getWorld();
+        World world = tile.getLevel();
         if (world == null)
             return;
 
-        BlockPos pos = tile.getPos();
+        BlockPos pos = tile.getBlockPos();
         BlockState state = world.getBlockState(pos);
         ItemStack stack = tile.getInventory().getStackInSlot(0);
 
         if (!stack.isEmpty()) {
-            matrix.push();
+            matrix.pushPose();
             matrix.translate(0.5D, 0.9D, 0.5D);
             float scale = 0.7F;
             matrix.scale(scale, scale, scale);
-            matrix.rotate(Vector3f.YP.rotationDegrees(90));
-            int index = state.get(TinkeringTableBlock.FACING).getHorizontalIndex();
-            matrix.rotate(Vector3f.XN.rotationDegrees(90 * index));
-            Minecraft.getInstance().getItemRenderer().renderItem(stack, ItemCameraTransforms.TransformType.FIXED, i, i1, matrix, buffer);
-            matrix.pop();
+            matrix.mulPose(Vector3f.YP.rotationDegrees(90));
+            int index = state.getValue(TinkeringTableBlock.FACING).get2DDataValue();
+            matrix.mulPose(Vector3f.XN.rotationDegrees(90 * index));
+            Minecraft.getInstance().getItemRenderer().renderStatic(stack, ItemCameraTransforms.TransformType.FIXED, i, i1, matrix, buffer);
+            matrix.popPose();
         }
     }
 }

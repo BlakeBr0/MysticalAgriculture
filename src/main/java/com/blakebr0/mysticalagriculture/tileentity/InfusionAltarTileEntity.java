@@ -46,15 +46,15 @@ public class InfusionAltarTileEntity extends BaseInventoryTileEntity implements 
     }
 
     @Override
-    public void read(BlockState state, CompoundNBT tag) {
-        super.read(state, tag);
+    public void load(BlockState state, CompoundNBT tag) {
+        super.load(state, tag);
         this.progress = tag.getInt("Progress");
         this.active = tag.getBoolean("Active");
     }
 
     @Override
-    public CompoundNBT write(CompoundNBT tag) {
-        tag = super.write(tag);
+    public CompoundNBT save(CompoundNBT tag) {
+        tag = super.save(tag);
         tag.putInt("Progress", this.progress);
         tag.putBoolean("Active", this.active);
         return tag;
@@ -62,8 +62,8 @@ public class InfusionAltarTileEntity extends BaseInventoryTileEntity implements 
 
     @Override
     public void tick() {
-        World world = this.getWorld();
-        if (world != null && !world.isRemote()) {
+        World world = this.getLevel();
+        if (world != null && !world.isClientSide()) {
             ItemStack input = this.inventory.getStackInSlot(0);
             if (input.isEmpty()) {
                 this.reset();
@@ -74,7 +74,7 @@ public class InfusionAltarTileEntity extends BaseInventoryTileEntity implements 
                 List<InfusionPedestalTileEntity> pedestals = this.getPedestalsWithStuff();
                 this.updateRecipeInventory(pedestals);
                 if (this.recipe == null || !this.recipe.matches(this.recipeInventory)) {
-                    this.recipe = (InfusionRecipe) world.getRecipeManager().getRecipe(RecipeTypes.INFUSION, this.recipeInventory.toIInventory(), world).orElse(null);
+                    this.recipe = (InfusionRecipe) world.getRecipeManager().getRecipeFor(RecipeTypes.INFUSION, this.recipeInventory.toIInventory(), world).orElse(null);
                 }
 
                 if (this.recipe != null) {
@@ -84,7 +84,7 @@ public class InfusionAltarTileEntity extends BaseInventoryTileEntity implements 
                         for (int i = 0; i < pedestals.size(); i++) {
                             InfusionPedestalTileEntity pedestal = pedestals.get(i);
                             pedestal.getInventory().setStackInSlot(0, remaining.get(i + 1));
-                            this.spawnParticles(ParticleTypes.SMOKE, pedestal.getPos(), 1.2D, 20);
+                            this.spawnParticles(ParticleTypes.SMOKE, pedestal.getBlockPos(), 1.2D, 20);
                         }
 
                         ItemStack result = this.recipe.getCraftingResult(this.recipeInventory);
@@ -92,10 +92,10 @@ public class InfusionAltarTileEntity extends BaseInventoryTileEntity implements 
                         this.setOutput(result);
                         this.reset();
                         this.markDirtyAndDispatch();
-                        this.spawnParticles(ParticleTypes.HAPPY_VILLAGER, this.getPos(), 1.0D, 10);
+                        this.spawnParticles(ParticleTypes.HAPPY_VILLAGER, this.getBlockPos(), 1.0D, 10);
                     } else {
                         pedestals.forEach(pedestal -> {
-                            BlockPos pos = pedestal.getPos();
+                            BlockPos pos = pedestal.getBlockPos();
                             ItemStack stack = pedestal.getInventory().getStackInSlot(0);
                             this.spawnItemParticles(pos, stack);
                         });
@@ -115,13 +115,13 @@ public class InfusionAltarTileEntity extends BaseInventoryTileEntity implements 
     }
 
     public List<BlockPos> getPedestalPositions() {
-        return this.pedestalLocations.get(this.getPos());
+        return this.pedestalLocations.get(this.getBlockPos());
     }
 
     public boolean isActive() {
         if (!this.active) {
-            World world = this.getWorld();
-            this.active = world != null && world.isBlockPowered(this.getPos());
+            World world = this.getLevel();
+            this.active = world != null && world.hasNeighborSignal(this.getBlockPos());
         }
 
         return this.active;
@@ -146,12 +146,12 @@ public class InfusionAltarTileEntity extends BaseInventoryTileEntity implements 
     }
 
     private List<InfusionPedestalTileEntity> getPedestalsWithStuff() {
-        if (this.getWorld() == null)
+        if (this.getLevel() == null)
             return new ArrayList<>();
 
         List<InfusionPedestalTileEntity> pedestals = new ArrayList<>();
         this.getPedestalPositions().forEach(pos -> {
-            TileEntity tile = this.getWorld().getTileEntity(pos);
+            TileEntity tile = this.getLevel().getBlockEntity(pos);
             if (tile instanceof InfusionPedestalTileEntity) {
                 InfusionPedestalTileEntity pedestal = (InfusionPedestalTileEntity) tile;
                 ItemStack stack = pedestal.getInventory().getStackInSlot(0);
@@ -164,22 +164,22 @@ public class InfusionAltarTileEntity extends BaseInventoryTileEntity implements 
     }
 
     private <T extends IParticleData> void spawnParticles(T particle, BlockPos pos, double yOffset, int count) {
-        if (this.getWorld() == null || this.getWorld().isRemote())
+        if (this.getLevel() == null || this.getLevel().isClientSide())
             return;
 
-        ServerWorld world = (ServerWorld) this.getWorld();
+        ServerWorld world = (ServerWorld) this.getLevel();
 
         double x = pos.getX() + 0.5D;
         double y = pos.getY() + yOffset;
         double z = pos.getZ() + 0.5D;
 
-        world.spawnParticle(particle, x, y, z, count, 0, 0, 0, 0.1D);
+        world.sendParticles(particle, x, y, z, count, 0, 0, 0, 0.1D);
     }
 
     private void spawnItemParticles(BlockPos pedestalPos, ItemStack stack) {
-        if (this.getWorld() == null || this.getWorld().isRemote()) return;
-        ServerWorld world = (ServerWorld) this.getWorld();
-        BlockPos pos = this.getPos();
+        if (this.getLevel() == null || this.getLevel().isClientSide()) return;
+        ServerWorld world = (ServerWorld) this.getLevel();
+        BlockPos pos = this.getBlockPos();
 
         double x = pedestalPos.getX() + (world.getRandom().nextDouble() * 0.2D) + 0.4D;
         double y = pedestalPos.getY() + (world.getRandom().nextDouble() * 0.2D) + 1.2D;
@@ -189,7 +189,7 @@ public class InfusionAltarTileEntity extends BaseInventoryTileEntity implements 
         double velY = 0.25D;
         double velZ = pos.getZ() - pedestalPos.getZ();
 
-        world.spawnParticle(new ItemParticleData(ParticleTypes.ITEM, stack), x, y, z, 0, velX, velY, velZ, 0.18D);
+        world.sendParticles(new ItemParticleData(ParticleTypes.ITEM, stack), x, y, z, 0, velX, velY, velZ, 0.18D);
     }
 
     private boolean canInsertStack(int slot, ItemStack stack) {

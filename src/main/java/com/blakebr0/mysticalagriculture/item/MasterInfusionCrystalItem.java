@@ -5,13 +5,15 @@ import net.minecraft.item.ItemStack;
 
 import java.util.function.Function;
 
+import net.minecraft.item.Item.Properties;
+
 public class MasterInfusionCrystalItem extends BaseReusableItem {
     public MasterInfusionCrystalItem(Function<Properties, Properties> properties) {
         super(properties);
     }
 
     @Override
-    public boolean hasEffect(ItemStack stack) {
+    public boolean isFoil(ItemStack stack) {
         return true;
     }
 }

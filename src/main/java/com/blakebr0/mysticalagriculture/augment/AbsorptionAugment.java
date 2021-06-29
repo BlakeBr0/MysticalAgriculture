@@ -22,8 +22,8 @@ public class AbsorptionAugment extends Augment {
 
     @Override
     public void onArmorTick(ItemStack stack, World world, PlayerEntity player) {
-        if (player.getActivePotionEffect(Effects.ABSORPTION) == null) {
-            player.addPotionEffect(new EffectInstance(Effects.ABSORPTION, 9600, this.amplifier, true, false));
+        if (player.getEffect(Effects.ABSORPTION) == null) {
+            player.addEffect(new EffectInstance(Effects.ABSORPTION, 9600, this.amplifier, true, false));
         }
     }
 

@@ -26,7 +26,7 @@ public class TinkerableSlot extends SlotItemHandler {
     }
 
     @Override
-    public void putStack(ItemStack stack) {
+    public void set(ItemStack stack) {
         for (int i = 0; i < 2; i++) {
             ItemStack augmentStack = this.getItemHandler().getStackInSlot(i + 1);
             if (!augmentStack.isEmpty()) {
@@ -39,7 +39,7 @@ public class TinkerableSlot extends SlotItemHandler {
             }
         }
 
-        super.putStack(stack);
-        this.container.onCraftMatrixChanged(null);
+        super.set(stack);
+        this.container.slotsChanged(null);
     }
 }

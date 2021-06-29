@@ -18,22 +18,24 @@ import java.util.List;
 import java.util.function.BiFunction;
 import java.util.function.Function;
 
+import net.minecraft.item.Item.Properties;
+
 public class SouliumDaggerItem extends BaseSwordItem implements ISoulSiphoningItem {
     private final DaggerType type;
 
     public SouliumDaggerItem(IItemTier tier, DaggerType type, Function<Properties, Properties> properties) {
-        super(tier, type.getDamage(), -2.4F, properties.compose(p -> p.defaultMaxDamage(type.getDurability())));
+        super(tier, type.getDamage(), -2.4F, properties.compose(p -> p.defaultDurability(type.getDurability())));
         this.type = type;
     }
 
     @Override
-    public String getTranslationKey(ItemStack stack) {
+    public String getDescriptionId(ItemStack stack) {
         return "item.mysticalagriculture.soulium_dagger";
     }
 
     @OnlyIn(Dist.CLIENT)
     @Override
-    public void addInformation(ItemStack stack, World world, List<ITextComponent> tooltip, ITooltipFlag flag) {
+    public void appendHoverText(ItemStack stack, World world, List<ITextComponent> tooltip, ITooltipFlag flag) {
         switch (this.type) {
             case BASIC:
                 break;
@@ -58,9 +60,9 @@ public class SouliumDaggerItem extends BaseSwordItem implements ISoulSiphoningIt
     }
 
     public enum DaggerType {
-        BASIC(3, ModItemTier.SOULIUM.getMaxUses(), (stack, entity) -> 1.0D),
-        PASSIVE(6, ModItemTier.SOULIUM.getMaxUses() * 2, (stack, entity) -> isPassive(entity) ? 1.5D : 1.0D),
-        HOSTILE(6, ModItemTier.SOULIUM.getMaxUses() * 2, (stack, entity) -> !isPassive(entity) ? 1.5D : 1.0D),
+        BASIC(3, ModItemTier.SOULIUM.getUses(), (stack, entity) -> 1.0D),
+        PASSIVE(6, ModItemTier.SOULIUM.getUses() * 2, (stack, entity) -> isPassive(entity) ? 1.5D : 1.0D),
+        HOSTILE(6, ModItemTier.SOULIUM.getUses() * 2, (stack, entity) -> !isPassive(entity) ? 1.5D : 1.0D),
         CREATIVE(65, -1, (stack, entity) -> Double.MAX_VALUE);
 
         private final int damage;
@@ -86,7 +88,7 @@ public class SouliumDaggerItem extends BaseSwordItem implements ISoulSiphoningIt
         }
 
         private static boolean isPassive(LivingEntity entity) {
-            return entity.getClassification(false).getPeacefulCreature();
+            return entity.getClassification(false).isFriendly();
         }
     }
 }

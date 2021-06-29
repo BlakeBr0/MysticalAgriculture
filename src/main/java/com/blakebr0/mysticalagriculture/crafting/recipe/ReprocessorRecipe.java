@@ -23,7 +23,7 @@ public class ReprocessorRecipe implements ISpecialRecipe, IReprocessorRecipe {
 
     public ReprocessorRecipe(ResourceLocation recipeId, Ingredient input, ItemStack output) {
         this.recipeId = recipeId;
-        this.inputs = NonNullList.from(Ingredient.EMPTY, input);
+        this.inputs = NonNullList.of(Ingredient.EMPTY, input);
         this.output = output;
     }
 
@@ -33,12 +33,12 @@ public class ReprocessorRecipe implements ISpecialRecipe, IReprocessorRecipe {
     }
 
     @Override
-    public boolean canFit(int width, int height) {
+    public boolean canCraftInDimensions(int width, int height) {
         return true;
     }
 
     @Override
-    public ItemStack getRecipeOutput() {
+    public ItemStack getResultItem() {
         return this.output;
     }
 
@@ -70,26 +70,26 @@ public class ReprocessorRecipe implements ISpecialRecipe, IReprocessorRecipe {
 
     public static class Serializer extends ForgeRegistryEntry<IRecipeSerializer<?>> implements IRecipeSerializer<ReprocessorRecipe> {
         @Override
-        public ReprocessorRecipe read(ResourceLocation recipeId, JsonObject json) {
+        public ReprocessorRecipe fromJson(ResourceLocation recipeId, JsonObject json) {
             JsonObject ingredient = json.getAsJsonObject("input");
-            Ingredient input = Ingredient.deserialize(ingredient);
-            ItemStack output = ShapedRecipe.deserializeItem(json.getAsJsonObject("result"));
+            Ingredient input = Ingredient.fromJson(ingredient);
+            ItemStack output = ShapedRecipe.itemFromJson(json.getAsJsonObject("result"));
 
             return new ReprocessorRecipe(recipeId, input, output);
         }
 
         @Override
-        public ReprocessorRecipe read(ResourceLocation recipeId, PacketBuffer buffer) {
-            Ingredient input = Ingredient.read(buffer);
-            ItemStack output = buffer.readItemStack();
+        public ReprocessorRecipe fromNetwork(ResourceLocation recipeId, PacketBuffer buffer) {
+            Ingredient input = Ingredient.fromNetwork(buffer);
+            ItemStack output = buffer.readItem();
 
             return new ReprocessorRecipe(recipeId, input, output);
         }
 
         @Override
-        public void write(PacketBuffer buffer, ReprocessorRecipe recipe) {
-            recipe.inputs.get(0).write(buffer);
-            buffer.writeItemStack(recipe.output);
+        public void toNetwork(PacketBuffer buffer, ReprocessorRecipe recipe) {
+            recipe.inputs.get(0).toNetwork(buffer);
+            buffer.writeItem(recipe.output);
         }
     }
 }

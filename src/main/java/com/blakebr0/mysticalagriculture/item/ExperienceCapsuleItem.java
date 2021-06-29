@@ -14,14 +14,16 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 import java.util.List;
 import java.util.function.Function;
 
+import net.minecraft.item.Item.Properties;
+
 public class ExperienceCapsuleItem extends BaseItem {
     public ExperienceCapsuleItem(Function<Properties, Properties> properties) {
-        super(properties.compose(p -> p.maxStackSize(1)));
+        super(properties.compose(p -> p.stacksTo(1)));
     }
 
     @OnlyIn(Dist.CLIENT)
     @Override
-    public void addInformation(ItemStack stack, World world, List<ITextComponent> tooltip, ITooltipFlag flag) {
+    public void appendHoverText(ItemStack stack, World world, List<ITextComponent> tooltip, ITooltipFlag flag) {
         int experience = ExperienceCapsuleUtils.getExperience(stack);
         tooltip.add(ModTooltips.EXPERIENCE_CAPSULE.args(experience, ExperienceCapsuleUtils.MAX_XP_POINTS).build());
     }

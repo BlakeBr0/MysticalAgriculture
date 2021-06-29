@@ -13,19 +13,19 @@ import java.util.Optional;
 public class RecipeTypes {
     public static final IRecipeType<IInfusionRecipe> INFUSION = new IRecipeType<IInfusionRecipe>() {
         @Override
-        public <C extends IInventory> Optional<IInfusionRecipe> matches(IRecipe<C> recipe, World world, C inv) {
+        public <C extends IInventory> Optional<IInfusionRecipe> tryMatch(IRecipe<C> recipe, World world, C inv) {
             return recipe.matches(inv, world) ? Optional.of((IInfusionRecipe) recipe) : Optional.empty();
         }
     };
     public static final IRecipeType<IReprocessorRecipe> REPROCESSOR = new IRecipeType<IReprocessorRecipe>() {
         @Override
-        public <C extends IInventory> Optional<IReprocessorRecipe> matches(IRecipe<C> recipe, World world, C inv) {
+        public <C extends IInventory> Optional<IReprocessorRecipe> tryMatch(IRecipe<C> recipe, World world, C inv) {
             return recipe.matches(inv, world) ? Optional.of((IReprocessorRecipe) recipe) : Optional.empty();
         }
     };
     public static final IRecipeType<ISoulExtractionRecipe> SOUL_EXTRACTION = new IRecipeType<ISoulExtractionRecipe>() {
         @Override
-        public <C extends IInventory> Optional<ISoulExtractionRecipe> matches(IRecipe<C> recipe, World world, C inv) {
+        public <C extends IInventory> Optional<ISoulExtractionRecipe> tryMatch(IRecipe<C> recipe, World world, C inv) {
             return recipe.matches(inv, world) ? Optional.of((ISoulExtractionRecipe) recipe) : Optional.empty();
         }
     };

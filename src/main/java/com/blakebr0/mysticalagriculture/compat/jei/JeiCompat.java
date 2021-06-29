@@ -57,13 +57,13 @@ public final class JeiCompat implements IModPlugin {
 
     @Override
     public void registerRecipes(IRecipeRegistration registration) {
-        ClientWorld world = Minecraft.getInstance().world;
+        ClientWorld world = Minecraft.getInstance().level;
         if (world != null) {
             RecipeManager manager = world.getRecipeManager();
 
-            registration.addRecipes(manager.getRecipes(RecipeTypes.INFUSION).values(), InfusionCategory.UID);
-            registration.addRecipes(manager.getRecipes(RecipeTypes.REPROCESSOR).values(), ReprocessorCategory.UID);
-            registration.addRecipes(manager.getRecipes(RecipeTypes.SOUL_EXTRACTION).values(), SoulExtractorCategory.UID);
+            registration.addRecipes(manager.byType(RecipeTypes.INFUSION).values(), InfusionCategory.UID);
+            registration.addRecipes(manager.byType(RecipeTypes.REPROCESSOR).values(), ReprocessorCategory.UID);
+            registration.addRecipes(manager.byType(RecipeTypes.SOUL_EXTRACTION).values(), SoulExtractorCategory.UID);
         }
     }
 

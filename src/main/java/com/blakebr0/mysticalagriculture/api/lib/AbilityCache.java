@@ -55,6 +55,6 @@ public class AbilityCache {
     }
 
     private static String getPlayerKey(PlayerEntity player) {
-        return player.getGameProfile().getName() + ":" + player.getEntityWorld().isRemote();
+        return player.getGameProfile().getName() + ":" + player.getCommandSenderWorld().isClientSide();
     }
 }

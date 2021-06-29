@@ -39,9 +39,9 @@ public final class ModContainerTypes {
 
     @OnlyIn(Dist.CLIENT)
     public static void onClientSetup() {
-        TINKERING_TABLE.ifPresent(container -> ScreenManager.registerFactory(container, TinkeringTableScreen::new));
-        REPROCESSOR.ifPresent(container -> ScreenManager.registerFactory(container, ReprocessorScreen::new));
-        SOUL_EXTRACTOR.ifPresent(container -> ScreenManager.registerFactory(container, SoulExtractorScreen::new));
+        TINKERING_TABLE.ifPresent(container -> ScreenManager.register(container, TinkeringTableScreen::new));
+        REPROCESSOR.ifPresent(container -> ScreenManager.register(container, ReprocessorScreen::new));
+        SOUL_EXTRACTOR.ifPresent(container -> ScreenManager.register(container, SoulExtractorScreen::new));
     }
 
     private static <T extends ContainerType<?>> RegistryObject<T> register(String name, Supplier<? extends ContainerType<?>> container) {

@@ -24,17 +24,17 @@ public abstract class EssenceFurnaceTileEntity extends AbstractFurnaceTileEntity
 
     @Override
     protected Container createMenu(int id, PlayerInventory player) {
-        return new FurnaceContainer(id, player, this, this.furnaceData);
+        return new FurnaceContainer(id, player, this, this.dataAccess);
     }
 
     @Override
-    protected int getBurnTime(ItemStack stack) {
-        return (int) (super.getBurnTime(stack) * this.getTier().getBurnTimeMultiplier());
+    protected int getBurnDuration(ItemStack stack) {
+        return (int) (super.getBurnDuration(stack) * this.getTier().getBurnTimeMultiplier());
     }
 
     @Override
-    protected int getCookTime() {
-        return (int) (super.getCookTime() * this.getTier().getCookTimeMultiplier());
+    protected int getTotalCookTime() {
+        return (int) (super.getTotalCookTime() * this.getTier().getCookTimeMultiplier());
     }
 
     public abstract EssenceFurnaceBlock.FurnaceTier getTier();

@@ -114,7 +114,7 @@ public class AugmentUtils {
      * @return the installed augments
      */
     public static List<IAugment> getArmorAugments(PlayerEntity player) {
-        NonNullList<ItemStack> armor = player.inventory.armorInventory;
+        NonNullList<ItemStack> armor = player.inventory.armor;
         List<IAugment> augments = new ArrayList<>();
         for (ItemStack stack : armor) {
             augments.addAll(getAugments(stack));
@@ -145,6 +145,6 @@ public class AugmentUtils {
      * @return the formatted tier
      */
     public static ITextComponent getTooltipForTier(int tier) {
-        return new StringTextComponent(String.valueOf(tier)).mergeStyle(getColorForTier(tier));
+        return new StringTextComponent(String.valueOf(tier)).withStyle(getColorForTier(tier));
     }
 }

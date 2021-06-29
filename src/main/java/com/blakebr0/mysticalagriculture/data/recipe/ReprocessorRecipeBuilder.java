@@ -31,7 +31,7 @@ public class ReprocessorRecipeBuilder {
     }
 
     public static ReprocessorRecipeBuilder newSeedReprocessingRecipe(ICrop crop) {
-        Ingredient input = Ingredient.fromItems(crop.getSeeds());
+        Ingredient input = Ingredient.of(crop.getSeeds());
         IItemProvider output = crop.getEssence();
 
         ReprocessorRecipeBuilder builder = new ReprocessorRecipeBuilder(input, output, 2);
@@ -65,9 +65,9 @@ public class ReprocessorRecipeBuilder {
         }
 
         @Override
-        public void serialize(JsonObject json) {
+        public void serializeRecipeData(JsonObject json) {
             json.add("conditions", this.conditions);
-            json.add("input", this.input.serialize());
+            json.add("input", this.input.toJson());
 
             JsonObject result = new JsonObject();
             result.addProperty("item", Registry.ITEM.getKey(this.result).toString());
@@ -80,22 +80,22 @@ public class ReprocessorRecipeBuilder {
         }
 
         @Override
-        public ResourceLocation getID() {
+        public ResourceLocation getId() {
             return this.id;
         }
 
         @Override
-        public IRecipeSerializer<?> getSerializer() {
+        public IRecipeSerializer<?> getType() {
             return ModRecipeSerializers.REPROCESSOR;
         }
 
         @Override
-        public JsonObject getAdvancementJson() {
+        public JsonObject serializeAdvancement() {
             return null;
         }
 
         @Override
-        public ResourceLocation getAdvancementID() {
+        public ResourceLocation getAdvancementId() {
             return null;
         }
     }

@@ -18,14 +18,14 @@ public class BlockTagsJsonGenerator extends TagsProvider<Block> {
     }
 
     @Override
-    protected void registerTags() {
+    protected void addTags() {
         CropRegistry.getInstance().getCrops().forEach(crop -> {
-            this.getOrCreateBuilder(MysticalAgricultureAPI.CROPS_TAG).add(crop.getCrop());
+            this.tag(MysticalAgricultureAPI.CROPS_TAG).add(crop.getCrop());
         });
     }
 
     @Override
-    protected Path makePath(ResourceLocation id) {
+    protected Path getPath(ResourceLocation id) {
         return this.generator.getOutputFolder().resolve("data/" + id.getNamespace() + "/tags/blocks/" + id.getPath() + ".json");
     }
 

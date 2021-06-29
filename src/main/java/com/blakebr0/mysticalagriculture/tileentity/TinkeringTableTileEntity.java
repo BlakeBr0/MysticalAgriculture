@@ -21,7 +21,7 @@ import net.minecraftforge.common.util.LazyOptional;
 
 public class TinkeringTableTileEntity extends BaseInventoryTileEntity implements INamedContainerProvider {
     private final BaseItemStackHandler inventory = new BaseItemStackHandler(7, () -> {
-        if (this.getWorld() != null && !this.getWorld().isRemote()) {
+        if (this.getLevel() != null && !this.getLevel().isClientSide()) {
             this.markDirtyAndDispatch();
         }
     });

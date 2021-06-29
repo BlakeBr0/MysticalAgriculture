@@ -32,7 +32,7 @@ public class CropComponentIngredient extends Ingredient {
     }
 
     @Override
-    public ItemStack[] getMatchingStacks() {
+    public ItemStack[] getItems() {
         // TODO: this could be improved to check if the MATERIAL ingredient is correct first
         if (this.stacks == null || this.type == ComponentType.MATERIAL)
             this.initMatchingStacks();
@@ -41,7 +41,7 @@ public class CropComponentIngredient extends Ingredient {
     }
 
     @Override
-    public IntList getValidItemStacksPacked() {
+    public IntList getStackingIds() {
         if (this.stacksPacked == null) {
             if (this.stacks == null) {
                 this.initMatchingStacks();
@@ -50,7 +50,7 @@ public class CropComponentIngredient extends Ingredient {
             this.stacksPacked = new IntArrayList(this.stacks.length);
 
             for (ItemStack itemstack : this.stacks) {
-                this.stacksPacked.add(RecipeItemHelper.pack(itemstack));
+                this.stacksPacked.add(RecipeItemHelper.getStackingIndex(itemstack));
             }
 
             this.stacksPacked.sort(IntComparators.NATURAL_COMPARATOR);
@@ -67,7 +67,7 @@ public class CropComponentIngredient extends Ingredient {
             }
 
             for (ItemStack itemstack : this.stacks) {
-                if (itemstack.getItem() == stack.getItem() && itemstack.getDamage() == stack.getDamage()
+                if (itemstack.getItem() == stack.getItem() && itemstack.getDamageValue() == stack.getDamageValue()
                         && (!itemstack.hasTag() || itemstack.areShareTagsEqual(stack))) {
                     return true;
                 }
@@ -78,12 +78,12 @@ public class CropComponentIngredient extends Ingredient {
     }
 
     @Override
-    public boolean hasNoMatchingItems() {
+    public boolean isEmpty() {
         return (this.stacks == null || this.stacks.length == 0) && (this.stacksPacked == null || this.stacksPacked.isEmpty());
     }
 
     @Override
-    public JsonElement serialize() {
+    public JsonElement toJson() {
         JsonObject json = new JsonObject();
 
         json.addProperty("type", "mysticalagriculture:crop_component");
@@ -95,7 +95,7 @@ public class CropComponentIngredient extends Ingredient {
 
     @Override
     public boolean isSimple() {
-        return Arrays.stream(this.stacks).anyMatch(ItemStack::isDamageable);
+        return Arrays.stream(this.stacks).anyMatch(ItemStack::isDamageableItem);
     }
 
     @Override
@@ -116,7 +116,7 @@ public class CropComponentIngredient extends Ingredient {
                 if (material == null)
                     return;
 
-                this.stacks = material.getMatchingStacks();
+                this.stacks = material.getItems();
                 break;
         }
     }
@@ -124,16 +124,16 @@ public class CropComponentIngredient extends Ingredient {
     public static class Serializer implements IIngredientSerializer<CropComponentIngredient> {
         @Override
         public CropComponentIngredient parse(PacketBuffer buffer) {
-            ICrop crop = CropRegistry.getInstance().getCropById(new ResourceLocation(buffer.readString()));
-            ComponentType type = ComponentType.fromName(buffer.readString());
+            ICrop crop = CropRegistry.getInstance().getCropById(new ResourceLocation(buffer.readUtf()));
+            ComponentType type = ComponentType.fromName(buffer.readUtf());
 
             return new CropComponentIngredient(crop, type);
         }
 
         @Override
         public CropComponentIngredient parse(JsonObject json) {
-            String cropId = JSONUtils.getString(json, "crop");
-            String typeName = JSONUtils.getString(json, "component");
+            String cropId = JSONUtils.getAsString(json, "crop");
+            String typeName = JSONUtils.getAsString(json, "component");
             ICrop crop = CropRegistry.getInstance().getCropById(new ResourceLocation(cropId));
             ComponentType type = ComponentType.fromName(typeName);
 
@@ -142,8 +142,8 @@ public class CropComponentIngredient extends Ingredient {
 
         @Override
         public void write(PacketBuffer buffer, CropComponentIngredient ingredient) {
-            buffer.writeString(ingredient.crop.getId().toString());
-            buffer.writeString(ingredient.type.name);
+            buffer.writeUtf(ingredient.crop.getId().toString());
+            buffer.writeUtf(ingredient.type.name);
         }
     }
 

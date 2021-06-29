@@ -18,9 +18,9 @@ public class FireResistanceAugment extends Augment {
 
     @Override
     public void onArmorTick(ItemStack stack, World world, PlayerEntity player) {
-        player.addPotionEffect(new EffectInstance(Effects.FIRE_RESISTANCE, 5, 0, true, false));
+        player.addEffect(new EffectInstance(Effects.FIRE_RESISTANCE, 5, 0, true, false));
 
-        if (player.isBurning())
-            player.extinguish();
+        if (player.isOnFire())
+            player.clearFire();
     }
 }

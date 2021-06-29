@@ -29,17 +29,19 @@ import java.util.List;
 import java.util.Random;
 import java.util.Set;
 
+import net.minecraft.block.AbstractBlock.Properties;
+
 public class MysticalCropBlock extends CropsBlock implements ICropGetter {
-    private static final VoxelShape SHAPE = Block.makeCuboidShape(0.0D, 0.0D, 0.0D, 16.0D, 4.0D, 16.0D);
+    private static final VoxelShape SHAPE = Block.box(0.0D, 0.0D, 0.0D, 16.0D, 4.0D, 16.0D);
     private final ICrop crop;
 
     public MysticalCropBlock(ICrop crop) {
-        super(Properties.from(Blocks.WHEAT));
+        super(Properties.copy(Blocks.WHEAT));
         this.crop = crop;
     }
 
     @Override
-    public boolean canUseBonemeal(World world, Random rand, BlockPos pos, BlockState state) {
+    public boolean isBonemealSuccess(World world, Random rand, BlockPos pos, BlockState state) {
         return false;
     }
 
@@ -57,13 +59,13 @@ public class MysticalCropBlock extends CropsBlock implements ICropGetter {
     }
 
     @Override
-    public String getTranslationKey() {
+    public String getDescriptionId() {
         return Localizable.of("block.mysticalagriculture.mystical_crop").args(this.crop.getDisplayName()).buildString();
     }
 
     @Override
     public List<ItemStack> getDrops(BlockState state, LootContext.Builder builder) {
-        int age = state.get(AGE);
+        int age = state.getValue(AGE);
 
         int crop = 0;
         int seed = 1;
@@ -72,11 +74,11 @@ public class MysticalCropBlock extends CropsBlock implements ICropGetter {
         if (age == this.getMaxAge()) {
             crop = 1;
 
-            Vector3d vec = builder.get(LootParameters.field_237457_g_);
+            Vector3d vec = builder.getOptionalParameter(LootParameters.ORIGIN);
             if (vec != null) {
-                ServerWorld world = builder.getWorld();
+                ServerWorld world = builder.getLevel();
                 BlockPos pos = new BlockPos(vec);
-                Block below = world.getBlockState(pos.down()).getBlock();
+                Block below = world.getBlockState(pos.below()).getBlock();
                 double chance = this.crop.getSecondaryChance(below);
 
                 if (Math.random() < chance)
@@ -95,7 +97,7 @@ public class MysticalCropBlock extends CropsBlock implements ICropGetter {
         if (crop > 0)
             drops.add(new ItemStack(this.getCropsItem(), crop));
 
-        drops.add(new ItemStack(this.getSeedsItem(), seed));
+        drops.add(new ItemStack(this.getBaseSeedId(), seed));
 
         if (fertilizer > 0)
             drops.add(new ItemStack(ModItems.FERTILIZED_ESSENCE.get()));
@@ -104,29 +106,29 @@ public class MysticalCropBlock extends CropsBlock implements ICropGetter {
     }
 
     @Override
-    public void grow(ServerWorld world, Random rand, BlockPos pos, BlockState state) {
+    public void performBonemeal(ServerWorld world, Random rand, BlockPos pos, BlockState state) {
         if (!this.canGrow(world, pos))
             return;
 
-        super.grow(world, rand, pos, state);
+        super.performBonemeal(world, rand, pos, state);
     }
 
     @Override
-    public boolean canGrow(IBlockReader world, BlockPos pos, BlockState state, boolean isClient) {
+    public boolean isValidBonemealTarget(IBlockReader world, BlockPos pos, BlockState state, boolean isClient) {
         if (world instanceof World) {
-            return this.canGrow((World) world, pos) && super.canGrow(world, pos, state, isClient);
+            return this.canGrow((World) world, pos) && super.isValidBonemealTarget(world, pos, state, isClient);
         }
 
-        return super.canGrow(world, pos, state, isClient);
+        return super.isValidBonemealTarget(world, pos, state, isClient);
     }
 
     @Override
-    protected boolean isValidGround(BlockState state, IBlockReader world, BlockPos pos) {
+    protected boolean mayPlaceOn(BlockState state, IBlockReader world, BlockPos pos) {
         return state.getBlock() instanceof FarmlandBlock;
     }
 
     @Override
-    protected IItemProvider getSeedsItem() {
+    protected IItemProvider getBaseSeedId() {
         return this.crop.getSeeds();
     }
 
@@ -142,7 +144,7 @@ public class MysticalCropBlock extends CropsBlock implements ICropGetter {
     private boolean canGrow(World world, BlockPos pos) {
         Block crux = this.crop.getCrux();
         if (crux != null) {
-            Block block = world.getBlockState(pos.down(2)).getBlock();
+            Block block = world.getBlockState(pos.below(2)).getBlock();
             if (block != crux)
                 return false;
         }

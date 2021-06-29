@@ -22,7 +22,7 @@ public class JumpBoostAugment extends Augment {
 
     @Override
     public void onArmorTick(ItemStack stack, World world, PlayerEntity player) {
-        player.addPotionEffect(new EffectInstance(Effects.JUMP_BOOST, 5, this.amplifier, true, false));
+        player.addEffect(new EffectInstance(Effects.JUMP, 5, this.amplifier, true, false));
     }
 
     private static int getColor(int color, int tier) {

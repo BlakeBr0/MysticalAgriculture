@@ -13,7 +13,7 @@ public class MAItemGroup extends ItemGroup {
 
 	@OnlyIn(Dist.CLIENT)
 	@Override
-	public ItemStack createIcon() {
+	public ItemStack makeIcon() {
 		return new ItemStack(ModItems.INFERIUM_ESSENCE.get());
 	}
 }

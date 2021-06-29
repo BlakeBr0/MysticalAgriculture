@@ -29,16 +29,16 @@ public interface IFarmlandConverter {
      * Call this using {@link Item#onItemUse(ItemUseContext)} to allow default farmland conversion mechanics
      */
     default ActionResultType convert(ItemUseContext context) {
-        BlockPos pos = context.getPos();
-        World world = context.getWorld();
-        ItemStack stack = context.getItem();
+        BlockPos pos = context.getClickedPos();
+        World world = context.getLevel();
+        ItemStack stack = context.getItemInHand();
         BlockState state = world.getBlockState(pos);
         Block block = state.getBlock();
 
         if (block == Blocks.FARMLAND) {
-            BlockState newState = this.getConvertedFarmland().getDefaultState().with(FarmlandBlock.MOISTURE, state.get(FarmlandBlock.MOISTURE));
+            BlockState newState = this.getConvertedFarmland().defaultBlockState().setValue(FarmlandBlock.MOISTURE, state.getValue(FarmlandBlock.MOISTURE));
 
-            world.setBlockState(pos, newState);
+            world.setBlockAndUpdate(pos, newState);
             stack.shrink(1);
 
             return ActionResultType.SUCCESS;
@@ -50,13 +50,13 @@ public interface IFarmlandConverter {
                 CropTier tier = ((ICropTierProvider) item).getTier();
 
                 if (tier != farmland.getTier()) {
-                    BlockState newState = this.getConvertedFarmland().getDefaultState().with(FarmlandBlock.MOISTURE, state.get(FarmlandBlock.MOISTURE));
+                    BlockState newState = this.getConvertedFarmland().defaultBlockState().setValue(FarmlandBlock.MOISTURE, state.getValue(FarmlandBlock.MOISTURE));
 
-                    world.setBlockState(pos, newState);
+                    world.setBlockAndUpdate(pos, newState);
                     stack.shrink(1);
 
                     if (Math.random() < 0.25) {
-                        Block.spawnAsEntity(world, pos.up(), new ItemStack(farmland.getTier().getEssence()));
+                        Block.popResource(world, pos.above(), new ItemStack(farmland.getTier().getEssence()));
                     }
 
                     return ActionResultType.SUCCESS;

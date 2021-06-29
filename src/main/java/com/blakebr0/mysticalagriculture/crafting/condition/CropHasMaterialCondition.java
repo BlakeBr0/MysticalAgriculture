@@ -30,7 +30,7 @@ public class CropHasMaterialCondition implements ICondition {
             return false;
 
         Ingredient material = crop.getCraftingMaterial();
-        return material != null && !material.hasNoMatchingItems();
+        return material != null && !material.isEmpty();
     }
 
     public static class Serializer implements IConditionSerializer<CropHasMaterialCondition> {
@@ -43,7 +43,7 @@ public class CropHasMaterialCondition implements ICondition {
 
         @Override
         public CropHasMaterialCondition read(JsonObject json) {
-            String crop = JSONUtils.getString(json, "crop");
+            String crop = JSONUtils.getAsString(json, "crop");
             return new CropHasMaterialCondition(new ResourceLocation(crop));
         }
 

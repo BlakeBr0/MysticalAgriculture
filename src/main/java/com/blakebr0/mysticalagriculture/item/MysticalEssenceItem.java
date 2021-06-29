@@ -17,6 +17,8 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 import java.util.List;
 import java.util.function.Function;
 
+import net.minecraft.item.Item.Properties;
+
 public class MysticalEssenceItem extends BaseItem implements ICropGetter, IEnableable {
     private final ICrop crop;
 
@@ -26,28 +28,28 @@ public class MysticalEssenceItem extends BaseItem implements ICropGetter, IEnabl
     }
 
     @Override
-    public ITextComponent getDisplayName(ItemStack stack) {
+    public ITextComponent getName(ItemStack stack) {
         return Localizable.of("item.mysticalagriculture.mystical_essence").args(this.crop.getDisplayName()).build();
     }
 
     @Override
-    public ITextComponent getName() {
-        return this.getDisplayName(ItemStack.EMPTY);
+    public ITextComponent getDescription() {
+        return this.getName(ItemStack.EMPTY);
     }
 
     @Override
-    public String getTranslationKey() {
+    public String getDescriptionId() {
         return Localizable.of("item.mysticalagriculture.mystical_essence").args(this.crop.getDisplayName()).buildString();
     }
 
     @Override
-    public boolean hasEffect(ItemStack stack) {
-        return this.crop.hasEffect(stack) || super.hasEffect(stack);
+    public boolean isFoil(ItemStack stack) {
+        return this.crop.hasEffect(stack) || super.isFoil(stack);
     }
 
     @OnlyIn(Dist.CLIENT)
     @Override
-    public void addInformation(ItemStack stack, World world, List<ITextComponent> tooltip, ITooltipFlag flag) {
+    public void appendHoverText(ItemStack stack, World world, List<ITextComponent> tooltip, ITooltipFlag flag) {
         if (!this.crop.getModId().equals(MysticalAgriculture.MOD_ID)) {
             tooltip.add(ModTooltips.getAddedByTooltip(this.crop.getModId()));
         }

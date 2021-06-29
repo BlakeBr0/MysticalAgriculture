@@ -18,6 +18,6 @@ public class WaterBreathingAugment extends Augment {
 
     @Override
     public void onArmorTick(ItemStack stack, World world, PlayerEntity player) {
-        player.addPotionEffect(new EffectInstance(Effects.WATER_BREATHING, 5, 0, true, false));
+        player.addEffect(new EffectInstance(Effects.WATER_BREATHING, 5, 0, true, false));
     }
 }

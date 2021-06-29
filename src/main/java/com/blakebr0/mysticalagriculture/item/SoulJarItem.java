@@ -20,16 +20,18 @@ import java.text.DecimalFormat;
 import java.util.List;
 import java.util.function.Function;
 
+import net.minecraft.item.Item.Properties;
+
 public class SoulJarItem extends BaseItem {
     private static final DecimalFormat DECIMAL_FORMAT = new DecimalFormat("0.00");
 
     public SoulJarItem(Function<Properties, Properties> properties) {
-        super(properties.compose(p -> p.maxStackSize(1)));
+        super(properties.compose(p -> p.stacksTo(1)));
     }
 
     @Override
-    public void fillItemGroup(ItemGroup group, NonNullList<ItemStack> items) {
-        if (this.isInGroup(group)) {
+    public void fillItemCategory(ItemGroup group, NonNullList<ItemStack> items) {
+        if (this.allowdedIn(group)) {
             items.add(new ItemStack(this));
 
             MobSoulTypeRegistry.getInstance().getMobSoulTypes().forEach(type -> {
@@ -42,7 +44,7 @@ public class SoulJarItem extends BaseItem {
 
     @OnlyIn(Dist.CLIENT)
     @Override
-    public void addInformation(ItemStack stack, World world, List<ITextComponent> tooltip, ITooltipFlag flag) {
+    public void appendHoverText(ItemStack stack, World world, List<ITextComponent> tooltip, ITooltipFlag flag) {
         IMobSoulType type = MobSoulUtils.getType(stack);
         if (type != null) {
             ITextComponent entityName = type.getEntityDisplayName();

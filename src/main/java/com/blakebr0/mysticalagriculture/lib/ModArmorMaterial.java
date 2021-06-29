@@ -13,20 +13,20 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 import java.util.function.Supplier;
 
 public enum ModArmorMaterial implements IArmorMaterial {
-    INFERIUM("mysticalagriculture:inferium", 40, new int[] { 3, 6, 8, 4 }, 12, SoundEvents.ITEM_ARMOR_EQUIP_GOLD, 2.0F, 0.0F, () -> {
-        return Ingredient.fromItems(ModItems.INFERIUM_INGOT.get());
+    INFERIUM("mysticalagriculture:inferium", 40, new int[] { 3, 6, 8, 4 }, 12, SoundEvents.ARMOR_EQUIP_GOLD, 2.0F, 0.0F, () -> {
+        return Ingredient.of(ModItems.INFERIUM_INGOT.get());
     }),
-    PRUDENTIUM("mysticalagriculture:prudentium", 60, new int[] { 4, 7, 8, 4 }, 14, SoundEvents.ITEM_ARMOR_EQUIP_GOLD, 2.25F, 0.0F, () -> {
-        return Ingredient.fromItems(ModItems.PRUDENTIUM_INGOT.get());
+    PRUDENTIUM("mysticalagriculture:prudentium", 60, new int[] { 4, 7, 8, 4 }, 14, SoundEvents.ARMOR_EQUIP_GOLD, 2.25F, 0.0F, () -> {
+        return Ingredient.of(ModItems.PRUDENTIUM_INGOT.get());
     }),
-    TERTIUM("mysticalagriculture:tertium", 80, new int[] { 4, 8, 9, 5 }, 16, SoundEvents.ITEM_ARMOR_EQUIP_GOLD, 2.5F, 0.0F, () -> {
-       return Ingredient.fromItems(ModItems.TERTIUM_INGOT.get());
+    TERTIUM("mysticalagriculture:tertium", 80, new int[] { 4, 8, 9, 5 }, 16, SoundEvents.ARMOR_EQUIP_GOLD, 2.5F, 0.0F, () -> {
+       return Ingredient.of(ModItems.TERTIUM_INGOT.get());
     }),
-    IMPERIUM("mysticalagriculture:imperium", 140, new int[] { 5, 8, 9, 5 }, 18, SoundEvents.ITEM_ARMOR_EQUIP_GOLD, 2.75F, 0.0F, () -> {
-        return Ingredient.fromItems(ModItems.IMPERIUM_INGOT.get());
+    IMPERIUM("mysticalagriculture:imperium", 140, new int[] { 5, 8, 9, 5 }, 18, SoundEvents.ARMOR_EQUIP_GOLD, 2.75F, 0.0F, () -> {
+        return Ingredient.of(ModItems.IMPERIUM_INGOT.get());
     }),
-    SUPREMIUM("mysticalagriculture:supremium", 280, new int[] { 5, 8, 10, 6 }, 20, SoundEvents.ITEM_ARMOR_EQUIP_GOLD, 3.0F, 0.0F, () -> {
-        return Ingredient.fromItems(ModItems.SUPREMIUM_INGOT.get());
+    SUPREMIUM("mysticalagriculture:supremium", 280, new int[] { 5, 8, 10, 6 }, 20, SoundEvents.ARMOR_EQUIP_GOLD, 3.0F, 0.0F, () -> {
+        return Ingredient.of(ModItems.SUPREMIUM_INGOT.get());
     });
 
     private static final int[] MAX_DAMAGE_ARRAY = new int[] { 13, 15, 16, 11 };
@@ -51,28 +51,28 @@ public enum ModArmorMaterial implements IArmorMaterial {
     }
 
     @Override
-    public int getDurability(EquipmentSlotType slot) {
+    public int getDurabilityForSlot(EquipmentSlotType slot) {
         return MAX_DAMAGE_ARRAY[slot.getIndex()] * this.maxDamageFactor;
     }
 
     @Override
-    public int getDamageReductionAmount(EquipmentSlotType slot) {
+    public int getDefenseForSlot(EquipmentSlotType slot) {
         return this.damageReductionAmountArray[slot.getIndex()];
     }
 
     @Override
-    public int getEnchantability() {
+    public int getEnchantmentValue() {
         return this.enchantability;
     }
 
     @Override
-    public SoundEvent getSoundEvent() {
+    public SoundEvent getEquipSound() {
         return this.soundEvent;
     }
 
     @Override
-    public Ingredient getRepairMaterial() {
-        return this.repairMaterial.getValue();
+    public Ingredient getRepairIngredient() {
+        return this.repairMaterial.get();
     }
 
     @OnlyIn(Dist.CLIENT)

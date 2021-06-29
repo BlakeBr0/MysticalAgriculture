@@ -9,22 +9,22 @@ import java.util.function.Supplier;
 
 public enum ModItemTier implements IItemTier {
     INFERIUM(3, 2000, 9.0F, 4.0F, 12, () -> {
-        return Ingredient.fromItems(ModItems.INFERIUM_INGOT.get());
+        return Ingredient.of(ModItems.INFERIUM_INGOT.get());
     }),
     PRUDENTIUM(3, 2800, 11.0F, 6.0F, 14, () -> {
-        return Ingredient.fromItems(ModItems.PRUDENTIUM_INGOT.get());
+        return Ingredient.of(ModItems.PRUDENTIUM_INGOT.get());
     }),
     TERTIUM(4, 4000, 14.0F, 9.0F, 16, () -> {
-        return Ingredient.fromItems(ModItems.TERTIUM_INGOT.get());
+        return Ingredient.of(ModItems.TERTIUM_INGOT.get());
     }),
     IMPERIUM(4, 6000, 19.0F, 13.0F, 18, () -> {
-        return Ingredient.fromItems(ModItems.IMPERIUM_INGOT.get());
+        return Ingredient.of(ModItems.IMPERIUM_INGOT.get());
     }),
     SUPREMIUM(5, -1, 25.0F, 20.0F, 20, () -> {
-        return Ingredient.fromItems(ModItems.SUPREMIUM_INGOT.get());
+        return Ingredient.of(ModItems.SUPREMIUM_INGOT.get());
     }),
     SOULIUM(0, 400, 5.0F, 3.0F, 15, () -> {
-        return Ingredient.fromItems(ModItems.SOULIUM_INGOT.get());
+        return Ingredient.of(ModItems.SOULIUM_INGOT.get());
     });
 
     private final int harvestLevel;
@@ -44,32 +44,32 @@ public enum ModItemTier implements IItemTier {
     }
 
     @Override
-    public int getMaxUses() {
+    public int getUses() {
         return this.maxUses;
     }
 
     @Override
-    public float getEfficiency() {
+    public float getSpeed() {
         return this.efficiency;
     }
 
     @Override
-    public float getAttackDamage() {
+    public float getAttackDamageBonus() {
         return this.attackDamage;
     }
 
     @Override
-    public int getHarvestLevel() {
+    public int getLevel() {
         return this.harvestLevel;
     }
 
     @Override
-    public int getEnchantability() {
+    public int getEnchantmentValue() {
         return this.enchantability;
     }
 
     @Override
-    public Ingredient getRepairMaterial() {
-        return this.repairMaterial.getValue();
+    public Ingredient getRepairIngredient() {
+        return this.repairMaterial.get();
     }
 }

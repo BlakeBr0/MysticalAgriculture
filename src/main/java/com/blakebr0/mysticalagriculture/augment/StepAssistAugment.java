@@ -16,11 +16,11 @@ public class StepAssistAugment extends Augment {
 
     @Override
     public void onPlayerTick(World world, PlayerEntity player, AbilityCache cache) {
-        if (player.stepHeight < 1.0625F || !cache.isCached(this, player)) {
-            player.stepHeight = 1.0625F;
+        if (player.maxUpStep < 1.0625F || !cache.isCached(this, player)) {
+            player.maxUpStep = 1.0625F;
 
             cache.add(this, player, () -> {
-                player.stepHeight = 0.6F;
+                player.maxUpStep = 0.6F;
             });
         }
     }

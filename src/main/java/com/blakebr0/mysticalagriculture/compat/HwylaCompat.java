@@ -35,7 +35,7 @@ public class HwylaCompat implements IWailaPlugin {
             @Override
             public void appendHead(List<ITextComponent> tooltip, IDataAccessor accessor, IPluginConfig config) {
                 ItemStack stack = accessor.getStack();
-                StringTextComponent text = new StringTextComponent(Colors.WHITE + stack.getDisplayName().getString());
+                StringTextComponent text = new StringTextComponent(Colors.WHITE + stack.getHoverName().getString());
 
                 tooltip.set(0, text);
             }
@@ -50,15 +50,15 @@ public class HwylaCompat implements IWailaPlugin {
                 tooltip.add(ModTooltips.TIER.args(crop.getTier().getDisplayName()).build());
 
                 BlockPos pos = accessor.getPosition();
-                BlockPos downPos = pos.down();
+                BlockPos downPos = pos.below();
                 World world = accessor.getWorld();
                 Block belowBlock = world.getBlockState(downPos).getBlock();
 
                 double secondaryChance = crop.getSecondaryChance(belowBlock);
                 if (secondaryChance > 0) {
                     ITextComponent chanceText = new StringTextComponent(String.valueOf((int) (secondaryChance * 100)))
-                            .appendString("%")
-                            .mergeStyle(crop.getTier().getTextColor());
+                            .append("%")
+                            .withStyle(crop.getTier().getTextColor());
 
                     tooltip.add(ModTooltips.SECONDARY_CHANCE.args(chanceText).build());
                 }
@@ -66,7 +66,7 @@ public class HwylaCompat implements IWailaPlugin {
                 Block crux = crop.getCrux();
                 if (crux != null) {
                     ItemStack stack = new ItemStack(crux);
-                    tooltip.add(ModTooltips.REQUIRES_CRUX.args(stack.getDisplayName()).build());
+                    tooltip.add(ModTooltips.REQUIRES_CRUX.args(stack.getHoverName()).build());
                 }
 
                 Set<ResourceLocation> biomes = crop.getRequiredBiomes();
@@ -84,7 +84,7 @@ public class HwylaCompat implements IWailaPlugin {
             public void appendBody(List<ITextComponent> tooltip, IDataAccessor accessor, IPluginConfig config) {
                 Block block = accessor.getBlock();
                 ICrop crop = ((ICropGetter) block).getCrop();
-                BlockPos downPos = accessor.getPosition().down();
+                BlockPos downPos = accessor.getPosition().below();
                 Block belowBlock = accessor.getWorld().getBlockState(downPos).getBlock();
 
                 int output = 100;
@@ -94,7 +94,7 @@ public class HwylaCompat implements IWailaPlugin {
                     output = (tier * 50) + 50;
                 }
 
-                ITextComponent inferiumOutputText = new StringTextComponent(String.valueOf(output)).appendString("%").mergeStyle(crop.getTier().getTextColor());
+                ITextComponent inferiumOutputText = new StringTextComponent(String.valueOf(output)).append("%").withStyle(crop.getTier().getTextColor());
                 tooltip.add(ModTooltips.INFERIUM_OUTPUT.args(inferiumOutputText).build());
             }
         }, TooltipPosition.BODY, InferiumCropBlock.class);

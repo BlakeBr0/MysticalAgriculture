@@ -21,6 +21,8 @@ import java.util.List;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
+import net.minecraft.item.Item.Properties;
+
 public class AugmentItem extends BaseItem implements IAugmentGetter, IEnableable {
     private final IAugment augment;
 
@@ -30,23 +32,23 @@ public class AugmentItem extends BaseItem implements IAugmentGetter, IEnableable
     }
 
     @Override
-    public ITextComponent getDisplayName(ItemStack stack) {
+    public ITextComponent getName(ItemStack stack) {
         return Localizable.of("item.mysticalagriculture.augment").args(this.augment.getDisplayName()).build();
     }
 
     @Override
-    public ITextComponent getName() {
-        return this.getDisplayName(ItemStack.EMPTY);
+    public ITextComponent getDescription() {
+        return this.getName(ItemStack.EMPTY);
     }
 
     @Override
-    public boolean hasEffect(ItemStack stack) {
+    public boolean isFoil(ItemStack stack) {
         return this.augment.hasEffect();
     }
 
     @OnlyIn(Dist.CLIENT)
     @Override
-    public void addInformation(ItemStack stack, World world, List<ITextComponent> tooltip, ITooltipFlag flag) {
+    public void appendHoverText(ItemStack stack, World world, List<ITextComponent> tooltip, ITooltipFlag flag) {
         tooltip.add(ModTooltips.getTooltipForTier(this.augment.getTier()));
         tooltip.add(new StringTextComponent(Colors.GRAY + this.augment.getAugmentTypes()
                 .stream()

@@ -11,7 +11,7 @@ import net.minecraftforge.common.ToolType;
 public class WitherproofGlassBlock extends BaseGlassBlock {
     public WitherproofGlassBlock() {
         super(Material.GLASS, p -> p
-            .hardnessAndResistance(18.0F, 2000.0F)
+            .strength(18.0F, 2000.0F)
             .sound(SoundType.STONE)
             .harvestLevel(1)
             .harvestTool(ToolType.PICKAXE)
@@ -19,10 +19,10 @@ public class WitherproofGlassBlock extends BaseGlassBlock {
     }
 
     @Override
-    public void onExplosionDestroy(World world, BlockPos pos, Explosion explosion) { }
+    public void wasExploded(World world, BlockPos pos, Explosion explosion) { }
 
     @Override
-    public boolean canDropFromExplosion(Explosion explosion) {
+    public boolean dropFromExplosion(Explosion explosion) {
         return false;
     }
 }

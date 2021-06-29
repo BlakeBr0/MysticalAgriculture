@@ -26,8 +26,8 @@ public class SoulJarEmptyRecipe extends ShapelessRecipe {
     @Override
     public boolean matches(CraftingInventory inv, World world) {
         boolean hasJar = false;
-        for (int i = 0; i < inv.getSizeInventory(); i++) {
-            ItemStack stack = inv.getStackInSlot(i);
+        for (int i = 0; i < inv.getContainerSize(); i++) {
+            ItemStack stack = inv.getItem(i);
             if (hasJar && !stack.isEmpty())
                 return false;
 
@@ -52,20 +52,20 @@ public class SoulJarEmptyRecipe extends ShapelessRecipe {
 
     public static class Serializer extends ForgeRegistryEntry<IRecipeSerializer<?>> implements IRecipeSerializer<SoulJarEmptyRecipe> {
         @Override
-        public SoulJarEmptyRecipe read(ResourceLocation recipeId, JsonObject json) {
+        public SoulJarEmptyRecipe fromJson(ResourceLocation recipeId, JsonObject json) {
             NonNullList<Ingredient> ingredients = NonNullList.withSize(1, new FilledSoulJarIngredient());
 
             return new SoulJarEmptyRecipe(recipeId, "", new ItemStack(ModItems.SOUL_JAR.get()), ingredients);
         }
 
         @Override
-        public SoulJarEmptyRecipe read(ResourceLocation recipeId, PacketBuffer buffer) {
+        public SoulJarEmptyRecipe fromNetwork(ResourceLocation recipeId, PacketBuffer buffer) {
             NonNullList<Ingredient> ingredients = NonNullList.withSize(1, new FilledSoulJarIngredient());
 
             return new SoulJarEmptyRecipe(recipeId, "", new ItemStack(ModItems.SOUL_JAR.get()), ingredients);
         }
 
         @Override
-        public void write(PacketBuffer buffer, SoulJarEmptyRecipe recipe) { }
+        public void toNetwork(PacketBuffer buffer, SoulJarEmptyRecipe recipe) { }
     }
 }

@@ -38,7 +38,7 @@ public class AugmentEnabledCondition implements ICondition {
 
         @Override
         public AugmentEnabledCondition read(JsonObject json) {
-            return new AugmentEnabledCondition(new ResourceLocation(JSONUtils.getString(json, "augment")));
+            return new AugmentEnabledCondition(new ResourceLocation(JSONUtils.getAsString(json, "augment")));
         }
 
         @Override

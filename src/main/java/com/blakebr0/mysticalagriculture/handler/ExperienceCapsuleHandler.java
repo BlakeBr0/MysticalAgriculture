@@ -20,20 +20,20 @@ public final class ExperienceCapsuleHandler {
             List<ItemStack> capsules = this.getExperienceCapsules(player);
             if (!capsules.isEmpty()) {
                 for (ItemStack stack : capsules) {
-                    int remaining = ExperienceCapsuleUtils.addExperienceToCapsule(stack, orb.getXpValue());
+                    int remaining = ExperienceCapsuleUtils.addExperienceToCapsule(stack, orb.getValue());
                     if (remaining == 0) {
-                        orb.xpValue = 0;
+                        orb.value = 0;
                         return;
                     }
 
-                    orb.xpValue = remaining;
+                    orb.value = remaining;
                 }
             }
         }
     }
 
     private List<ItemStack> getExperienceCapsules(PlayerEntity player) {
-        return player.inventory.mainInventory.stream()
+        return player.inventory.items.stream()
                 .filter(s -> s.getItem() instanceof ExperienceCapsuleItem)
                 .collect(Collectors.toList());
     }

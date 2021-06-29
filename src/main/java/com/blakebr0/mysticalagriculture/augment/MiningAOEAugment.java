@@ -25,9 +25,9 @@ public class MiningAOEAugment extends Augment {
 
     @Override
     public boolean onBlockStartBreak(ItemStack stack, BlockPos pos, PlayerEntity player) {
-        World world = player.getEntityWorld();
+        World world = player.getCommandSenderWorld();
         BlockRayTraceResult trace = BlockHelper.rayTraceBlocks(world, player);
-        int side = trace.getFace().ordinal();
+        int side = trace.getDirection().ordinal();
 
         return !harvest(stack, this.range, world, pos, side, player);
     }
@@ -51,16 +51,16 @@ public class MiningAOEAugment extends Augment {
         }
 
         BlockState state = world.getBlockState(pos);
-        float hardness = state.getBlockHardness(world, pos);
+        float hardness = state.getDestroySpeed(world, pos);
 
         if (!tryHarvestBlock(world, pos, false, stack, player))
             return false;
 
         if (radius > 0 && hardness >= 0.2F && canHarvestBlock(stack, state)) {
-            BlockPos.getAllInBox(pos.add(-xRange, -yRange, -zRange), pos.add(xRange, yRange, zRange)).forEach(aoePos -> {
+            BlockPos.betweenClosedStream(pos.offset(-xRange, -yRange, -zRange), pos.offset(xRange, yRange, zRange)).forEach(aoePos -> {
                 if (aoePos != pos) {
                     BlockState aoeState = world.getBlockState(aoePos);
-                    if (!aoeState.hasTileEntity() && aoeState.getBlockHardness(world, aoePos) <= hardness + 5.0F) {
+                    if (!aoeState.hasTileEntity() && aoeState.getDestroySpeed(world, aoePos) <= hardness + 5.0F) {
                         if (canHarvestBlock(stack, aoeState)) {
                             tryHarvestBlock(world, aoePos, true, stack, player);
                         }
@@ -74,8 +74,8 @@ public class MiningAOEAugment extends Augment {
 
     private static boolean tryHarvestBlock(World world, BlockPos pos, boolean extra, ItemStack stack, PlayerEntity player) {
         BlockState state = world.getBlockState(pos);
-        float hardness = state.getBlockHardness(world, pos);
-        boolean harvest = (ForgeHooks.canHarvestBlock(state, player, world, pos) || stack.canHarvestBlock(state)) && (!extra || stack.getDestroySpeed(state) > 1.0F);
+        float hardness = state.getDestroySpeed(world, pos);
+        boolean harvest = (ForgeHooks.canHarvestBlock(state, player, world, pos) || stack.isCorrectToolForDrops(state)) && (!extra || stack.getDestroySpeed(state) > 1.0F);
 
         if (hardness >= 0.0F && (!extra || harvest))
             return BlockHelper.breakBlocksAOE(stack, world, player, pos, !extra);
@@ -84,7 +84,7 @@ public class MiningAOEAugment extends Augment {
     }
 
     private static boolean canHarvestBlock(ItemStack stack, BlockState state) {
-        return stack.canHarvestBlock(state) || (!state.getRequiresTool() && stack.getDestroySpeed(state) > 1.0F);
+        return stack.isCorrectToolForDrops(state) || (!state.requiresCorrectToolForDrops() && stack.getDestroySpeed(state) > 1.0F);
     }
 
     private static int getColor(int color, int tier) {

@@ -54,7 +54,7 @@ public class TinkeringTableContainer extends Container {
     }
 
     @Override
-    public void onCraftMatrixChanged(IInventory inventory) {
+    public void slotsChanged(IInventory inventory) {
         ItemStack tinkerable = this.inventory.getStackInSlot(0);
         if (!tinkerable.isEmpty()) {
             for (int i = 0; i < 2; i++) {
@@ -71,41 +71,41 @@ public class TinkeringTableContainer extends Container {
             }
         }
 
-        super.onCraftMatrixChanged(inventory);
+        super.slotsChanged(inventory);
     }
 
     @Override
-    public boolean canInteractWith(PlayerEntity player) {
+    public boolean stillValid(PlayerEntity player) {
         return this.isUsableByPlayer.apply(player);
     }
 
     @Override
-    public ItemStack transferStackInSlot(PlayerEntity player, int slotNumber) {
+    public ItemStack quickMoveStack(PlayerEntity player, int slotNumber) {
         ItemStack itemstack = ItemStack.EMPTY;
-        Slot slot = this.inventorySlots.get(slotNumber);
+        Slot slot = this.slots.get(slotNumber);
 
-        if (slot != null && slot.getHasStack()) {
-            ItemStack itemstack1 = slot.getStack();
+        if (slot != null && slot.hasItem()) {
+            ItemStack itemstack1 = slot.getItem();
             itemstack = itemstack1.copy();
 
             if (slotNumber == 0) {
-                if (!this.mergeItemStack(itemstack1, 7, 43, true)) {
+                if (!this.moveItemStackTo(itemstack1, 7, 43, true)) {
                     return ItemStack.EMPTY;
                 }
 
-                slot.onSlotChange(itemstack1, itemstack);
+                slot.onQuickCraft(itemstack1, itemstack);
             } else if (slotNumber >= 7 && slotNumber < 43) {
-                if (!this.mergeItemStack(itemstack1, 0, 7, false)) {
+                if (!this.moveItemStackTo(itemstack1, 0, 7, false)) {
                     return ItemStack.EMPTY;
                 }
-            } else if (!this.mergeItemStack(itemstack1, 7, 43, false)) {
+            } else if (!this.moveItemStackTo(itemstack1, 7, 43, false)) {
                 return ItemStack.EMPTY;
             }
 
             if (itemstack1.isEmpty()) {
-                slot.putStack(ItemStack.EMPTY);
+                slot.set(ItemStack.EMPTY);
             } else {
-                slot.onSlotChanged();
+                slot.setChanged();
             }
 
             if (itemstack1.getCount() == itemstack.getCount()) {

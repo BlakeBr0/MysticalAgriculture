@@ -120,7 +120,7 @@ public class MobSoulType implements IMobSoulType {
                 if (entityId != null) {
                     EntityType<?> entity = ForgeRegistries.ENTITIES.getValue(entityId);
                     if (entity != null) {
-                        this.entityDisplayName = entity.getName();
+                        this.entityDisplayName = entity.getDescription();
                         return this.entityDisplayName;
                     }
                 }

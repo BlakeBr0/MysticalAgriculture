@@ -11,6 +11,8 @@ import net.minecraft.util.ActionResultType;
 
 import java.util.function.Function;
 
+import net.minecraft.item.Item.Properties;
+
 public class EssenceItem extends BaseItem implements IFarmlandConverter, ICropTierProvider {
     private final CropTier tier;
 
@@ -20,7 +22,7 @@ public class EssenceItem extends BaseItem implements IFarmlandConverter, ICropTi
     }
 
     @Override
-    public ActionResultType onItemUse(ItemUseContext context) {
+    public ActionResultType useOn(ItemUseContext context) {
         if (!ModConfigs.ESSENCE_FARMLAND_CONVERSION.get())
             return ActionResultType.PASS;
 

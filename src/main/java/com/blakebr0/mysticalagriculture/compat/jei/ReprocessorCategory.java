@@ -66,7 +66,7 @@ public class ReprocessorCategory implements IRecipeCategory<ReprocessorRecipe> {
 
     @Override
     public void setIngredients(ReprocessorRecipe recipe, IIngredients ingredients) {
-        ingredients.setOutput(VanillaTypes.ITEM, recipe.getRecipeOutput());
+        ingredients.setOutput(VanillaTypes.ITEM, recipe.getResultItem());
         ingredients.setInputIngredients(recipe.getIngredients());
     }
 

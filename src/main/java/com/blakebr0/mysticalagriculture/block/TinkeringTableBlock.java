@@ -29,7 +29,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.ToolType;
 
 public class TinkeringTableBlock extends BaseTileEntityBlock {
-    public static final DirectionProperty FACING = HorizontalBlock.HORIZONTAL_FACING;
+    public static final DirectionProperty FACING = HorizontalBlock.FACING;
     public static final VoxelShape TABLE_SHAPE = new VoxelShapeBuilder()
             .cuboid(15, 4, 15, 1, 0, 1).cuboid(12.5, 9, 12.5, 3.5, 5, 3.5)
             .cuboid(16, 13, 16, 0, 10, 0).cuboid(13, 13.8, 15.8, 3, 12.8, 14.8)
@@ -43,8 +43,8 @@ public class TinkeringTableBlock extends BaseTileEntityBlock {
             .build();
 
     public TinkeringTableBlock() {
-        super(Material.ROCK, SoundType.STONE, 10.0F, 12.0F, ToolType.PICKAXE);
-        this.setDefaultState(this.getStateContainer().getBaseState().with(FACING, Direction.NORTH));
+        super(Material.STONE, SoundType.STONE, 10.0F, 12.0F, ToolType.PICKAXE);
+        this.registerDefaultState(this.getStateDefinition().any().setValue(FACING, Direction.NORTH));
     }
 
     @Override
@@ -53,27 +53,27 @@ public class TinkeringTableBlock extends BaseTileEntityBlock {
     }
 
     @Override
-    public ActionResultType onBlockActivated(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockRayTraceResult hit) {
-        if (!world.isRemote()) {
-            TileEntity tile = world.getTileEntity(pos);
+    public ActionResultType use(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockRayTraceResult hit) {
+        if (!world.isClientSide()) {
+            TileEntity tile = world.getBlockEntity(pos);
             if (tile instanceof TinkeringTableTileEntity)
-                player.openContainer((TinkeringTableTileEntity) tile);
+                player.openMenu((TinkeringTableTileEntity) tile);
         }
 
         return ActionResultType.SUCCESS;
     }
 
     @Override
-    public void onReplaced(BlockState state, World world, BlockPos pos, BlockState newState, boolean isMoving) {
+    public void onRemove(BlockState state, World world, BlockPos pos, BlockState newState, boolean isMoving) {
         if (state.getBlock() != newState.getBlock()) {
-            TileEntity tile = world.getTileEntity(pos);
+            TileEntity tile = world.getBlockEntity(pos);
             if (tile instanceof TinkeringTableTileEntity) {
                 TinkeringTableTileEntity table = (TinkeringTableTileEntity) tile;
-                InventoryHelper.dropItems(world, pos, table.getInventory().getStacks());
+                InventoryHelper.dropContents(world, pos, table.getInventory().getStacks());
             }
         }
 
-        super.onReplaced(state, world, pos, newState, isMoving);
+        super.onRemove(state, world, pos, newState, isMoving);
     }
 
     @Override
@@ -83,21 +83,21 @@ public class TinkeringTableBlock extends BaseTileEntityBlock {
 
     @Override
     public BlockState getStateForPlacement(BlockItemUseContext context) {
-        return this.getDefaultState().with(FACING, context.getPlacementHorizontalFacing());
+        return this.defaultBlockState().setValue(FACING, context.getHorizontalDirection());
     }
 
     @Override
     public BlockState rotate(BlockState state, IWorld world, BlockPos pos, Rotation rotation) {
-        return state.with(FACING, rotation.rotate(state.get(FACING)));
+        return state.setValue(FACING, rotation.rotate(state.getValue(FACING)));
     }
 
     @Override
     public BlockState mirror(BlockState state, Mirror mirror) {
-        return state.rotate(mirror.toRotation(state.get(FACING)));
+        return state.rotate(mirror.getRotation(state.getValue(FACING)));
     }
 
     @Override
-    protected void fillStateContainer(StateContainer.Builder<Block, BlockState> builder) {
+    protected void createBlockStateDefinition(StateContainer.Builder<Block, BlockState> builder) {
         builder.add(FACING);
     }
 }

@@ -29,7 +29,7 @@ public class FilledSoulJarIngredient extends Ingredient {
     }
 
     @Override
-    public ItemStack[] getMatchingStacks() {
+    public ItemStack[] getItems() {
         if (this.stacks == null) {
             this.initMatchingStacks();
         }
@@ -38,14 +38,14 @@ public class FilledSoulJarIngredient extends Ingredient {
     }
 
     @Override
-    public IntList getValidItemStacksPacked() {
+    public IntList getStackingIds() {
         if (this.stacksPacked == null) {
             if (this.stacks == null) {
                 this.initMatchingStacks();
             }
 
             this.stacksPacked = new IntArrayList(this.stacks.length);
-            Arrays.stream(this.stacks).forEach(s -> this.stacksPacked.add(RecipeItemHelper.pack(s)));
+            Arrays.stream(this.stacks).forEach(s -> this.stacksPacked.add(RecipeItemHelper.getStackingIndex(s)));
             this.stacksPacked.sort(IntComparators.NATURAL_COMPARATOR);
         }
 
@@ -66,12 +66,12 @@ public class FilledSoulJarIngredient extends Ingredient {
     }
 
     @Override
-    public boolean hasNoMatchingItems() {
+    public boolean isEmpty() {
         return (this.stacks == null || this.stacks.length == 0) && (this.stacksPacked == null || this.stacksPacked.isEmpty());
     }
 
     @Override
-    public JsonElement serialize() {
+    public JsonElement toJson() {
         JsonArray json = new JsonArray();
         JsonObject obj = new JsonObject();
 

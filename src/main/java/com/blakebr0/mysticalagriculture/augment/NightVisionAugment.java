@@ -18,6 +18,6 @@ public class NightVisionAugment extends Augment {
 
     @Override
     public void onArmorTick(ItemStack stack, World world, PlayerEntity player) {
-        player.addPotionEffect(new EffectInstance(Effects.NIGHT_VISION, 240, 0, true, false));
+        player.addEffect(new EffectInstance(Effects.NIGHT_VISION, 240, 0, true, false));
     }
 }

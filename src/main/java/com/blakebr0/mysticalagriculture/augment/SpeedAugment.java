@@ -21,7 +21,7 @@ public class SpeedAugment extends Augment {
 
     @Override
     public void onPlayerTick(World world, PlayerEntity player, AbilityCache cache) {
-        boolean flying = player.abilities.isFlying;
+        boolean flying = player.abilities.flying;
         boolean swimming = player.isSwimming();
         boolean inWater = player.isInWater();
 
@@ -37,14 +37,14 @@ public class SpeedAugment extends Augment {
                     * (swimming ? 0.8F : 1.0F)
                     * this.amplifier;
 
-            if (player.moveForward > 0F) {
+            if (player.zza > 0F) {
                 player.moveRelative(1F, new Vector3d(0F, 0F, speed));
-            } else if (player.moveForward < 0F) {
+            } else if (player.zza < 0F) {
                 player.moveRelative(1F, new Vector3d(0F, 0F, -speed * 0.3F));
             }
 
-            if (player.moveStrafing != 0F) {
-                player.moveRelative(1F, new Vector3d(speed * 0.5F * Math.signum(player.moveStrafing), 0F, 0F));
+            if (player.xxa != 0F) {
+                player.moveRelative(1F, new Vector3d(speed * 0.5F * Math.signum(player.xxa), 0F, 0F));
             }
         }
     }

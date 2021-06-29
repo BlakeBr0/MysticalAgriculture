@@ -17,6 +17,6 @@ public class WitherResistanceAugment extends Augment {
 
     @Override
     public void onArmorTick(ItemStack stack, World world, PlayerEntity player) {
-        player.removePotionEffect(Effects.WITHER);
+        player.removeEffect(Effects.WITHER);
     }
 }

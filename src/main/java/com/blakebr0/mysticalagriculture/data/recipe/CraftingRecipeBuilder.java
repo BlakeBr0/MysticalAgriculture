@@ -106,7 +106,7 @@ public class CraftingRecipeBuilder {
         }
 
         @Override
-        public void serialize(JsonObject json) {
+        public void serializeRecipeData(JsonObject json) {
             if (!this.group.isEmpty()) {
                 json.addProperty("group", this.group);
             }
@@ -121,7 +121,7 @@ public class CraftingRecipeBuilder {
 
             JsonObject key = new JsonObject();
 
-            this.key.forEach((c, i) -> key.add(c.toString(), i.serialize()));
+            this.key.forEach((c, i) -> key.add(c.toString(), i.toJson()));
 
             json.add("key", key);
 
@@ -136,22 +136,22 @@ public class CraftingRecipeBuilder {
         }
 
         @Override
-        public ResourceLocation getID() {
+        public ResourceLocation getId() {
             return this.id;
         }
 
         @Override
-        public IRecipeSerializer<?> getSerializer() {
-            return IRecipeSerializer.CRAFTING_SHAPED;
+        public IRecipeSerializer<?> getType() {
+            return IRecipeSerializer.SHAPED_RECIPE;
         }
 
         @Override
-        public JsonObject getAdvancementJson() {
+        public JsonObject serializeAdvancement() {
             return null;
         }
 
         @Override
-        public ResourceLocation getAdvancementID() {
+        public ResourceLocation getAdvancementId() {
             return null;
         }
     }

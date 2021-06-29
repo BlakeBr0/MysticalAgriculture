@@ -20,9 +20,9 @@ public class MysticalAgricultureAPI {
     public static final String MOD_ID = "mysticalagriculture";
     public static final Set<CropType> CROP_TYPES = new HashSet<>();
     public static final Set<CropTier> CROP_TIERS = new HashSet<>();
-    public static final ITag.INamedTag<Block> CROPS_TAG = BlockTags.makeWrapperTag("mysticalagriculture:crops");
-    public static final ITag.INamedTag<Item> ESSENCES_TAG = ItemTags.makeWrapperTag("mysticalagriculture:essences");
-    public static final ITag.INamedTag<Item> SEEDS_TAG = ItemTags.makeWrapperTag("mysticalagriculture:seeds");
+    public static final ITag.INamedTag<Block> CROPS_TAG = BlockTags.bind("mysticalagriculture:crops");
+    public static final ITag.INamedTag<Item> ESSENCES_TAG = ItemTags.bind("mysticalagriculture:essences");
+    public static final ITag.INamedTag<Item> SEEDS_TAG = ItemTags.bind("mysticalagriculture:seeds");
 
     private static ICropRegistry cropRegistry;
     private static IAugmentRegistry augmentRegistry;

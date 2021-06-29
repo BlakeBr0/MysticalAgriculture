@@ -29,38 +29,38 @@ public class InfusionAltarRenderer extends TileEntityRenderer<InfusionAltarTileE
         Minecraft minecraft = Minecraft.getInstance();
         ItemStack stack = inventory.getStackInSlot(1).isEmpty() ? inventory.getStackInSlot(0) : inventory.getStackInSlot(1);
         if (!stack.isEmpty()) {
-            matrix.push();
+            matrix.pushPose();
             matrix.translate(0.5D, 1.1D, 0.5D);
             float scale = stack.getItem() instanceof BlockItem ? 0.95F : 0.75F;
             matrix.scale(scale, scale, scale);
             double tick = System.currentTimeMillis() / 800.0D;
             matrix.translate(0.0D, Math.sin(tick % (2 * Math.PI)) * 0.065D, 0.0D);
-            matrix.rotate(Vector3f.YP.rotationDegrees((float) ((tick * 40.0D) % 360)));
-            minecraft.getItemRenderer().renderItem(stack, ItemCameraTransforms.TransformType.GROUND, i, i1, matrix, buffer);
-            matrix.pop();
+            matrix.mulPose(Vector3f.YP.rotationDegrees((float) ((tick * 40.0D) % 360)));
+            minecraft.getItemRenderer().renderStatic(stack, ItemCameraTransforms.TransformType.GROUND, i, i1, matrix, buffer);
+            matrix.popPose();
         }
 
-        BlockPos pos = tile.getPos();
-        World world = tile.getWorld();
+        BlockPos pos = tile.getBlockPos();
+        World world = tile.getLevel();
         IVertexBuilder builder = buffer.getBuffer(ModRenderTypes.GHOST);
 
-        matrix.push();
+        matrix.pushPose();
         matrix.translate(-pos.getX(), -pos.getY(), -pos.getZ());
 
         tile.getPedestalPositions().forEach(aoePos -> {
-            if (world != null && world.isAirBlock(aoePos)) {
-                matrix.push();
+            if (world != null && world.isEmptyBlock(aoePos)) {
+                matrix.pushPose();
                 matrix.translate(aoePos.getX(), aoePos.getY(), aoePos.getZ());
-                minecraft.getBlockRendererDispatcher().renderModel(ModBlocks.INFUSION_PEDESTAL.get().getDefaultState(), aoePos, world, matrix, builder, false, world.getRandom(), EmptyModelData.INSTANCE);
-                matrix.pop();
+                minecraft.getBlockRenderer().renderModel(ModBlocks.INFUSION_PEDESTAL.get().defaultBlockState(), aoePos, world, matrix, builder, false, world.getRandom(), EmptyModelData.INSTANCE);
+                matrix.popPose();
             }
         });
 
-        matrix.pop();
+        matrix.popPose();
     }
 
     @Override
-    public boolean isGlobalRenderer(InfusionAltarTileEntity tile) {
+    public boolean shouldRenderOffScreen(InfusionAltarTileEntity tile) {
         return true;
     }
 }

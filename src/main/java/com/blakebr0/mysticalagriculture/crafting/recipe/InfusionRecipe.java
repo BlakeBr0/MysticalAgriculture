@@ -30,12 +30,12 @@ public class InfusionRecipe implements ISpecialRecipe, IInfusionRecipe {
     }
 
     @Override
-    public boolean canFit(int width, int height) {
+    public boolean canCraftInDimensions(int width, int height) {
         return true;
     }
 
     @Override
-    public ItemStack getRecipeOutput() {
+    public ItemStack getResultItem() {
         return this.output;
     }
 
@@ -72,45 +72,45 @@ public class InfusionRecipe implements ISpecialRecipe, IInfusionRecipe {
 
     public static class Serializer extends ForgeRegistryEntry<IRecipeSerializer<?>> implements IRecipeSerializer<InfusionRecipe> {
         @Override
-        public InfusionRecipe read(ResourceLocation recipeId, JsonObject json) {
+        public InfusionRecipe fromJson(ResourceLocation recipeId, JsonObject json) {
             NonNullList<Ingredient> inputs = NonNullList.create();
-            JsonObject input = JSONUtils.getJsonObject(json, "input");
+            JsonObject input = JSONUtils.getAsJsonObject(json, "input");
 
-            inputs.add(Ingredient.deserialize(input));
+            inputs.add(Ingredient.fromJson(input));
 
-            JsonArray ingredients = JSONUtils.getJsonArray(json, "ingredients");
+            JsonArray ingredients = JSONUtils.getAsJsonArray(json, "ingredients");
             for (int i = 0; i < ingredients.size(); i++) {
-                inputs.add(Ingredient.deserialize(ingredients.get(i)));
+                inputs.add(Ingredient.fromJson(ingredients.get(i)));
             }
 
-            ItemStack output = ShapedRecipe.deserializeItem(json.getAsJsonObject("result"));
+            ItemStack output = ShapedRecipe.itemFromJson(json.getAsJsonObject("result"));
 
             return new InfusionRecipe(recipeId, inputs, output);
         }
 
         @Override
-        public InfusionRecipe read(ResourceLocation recipeId, PacketBuffer buffer) {
+        public InfusionRecipe fromNetwork(ResourceLocation recipeId, PacketBuffer buffer) {
             int size = buffer.readVarInt();
 
             NonNullList<Ingredient> inputs = NonNullList.withSize(size, Ingredient.EMPTY);
             for (int i = 0; i < size; i++) {
-                inputs.set(i, Ingredient.read(buffer));
+                inputs.set(i, Ingredient.fromNetwork(buffer));
             }
 
-            ItemStack output = buffer.readItemStack();
+            ItemStack output = buffer.readItem();
 
             return new InfusionRecipe(recipeId, inputs, output);
         }
 
         @Override
-        public void write(PacketBuffer buffer, InfusionRecipe recipe) {
+        public void toNetwork(PacketBuffer buffer, InfusionRecipe recipe) {
             buffer.writeVarInt(recipe.inputs.size());
 
             for (Ingredient ingredient : recipe.inputs) {
-                ingredient.write(buffer);
+                ingredient.toNetwork(buffer);
             }
 
-            buffer.writeItemStack(recipe.output);
+            buffer.writeItem(recipe.output);
         }
     }
 }

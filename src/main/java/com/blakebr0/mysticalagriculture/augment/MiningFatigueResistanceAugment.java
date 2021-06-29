@@ -17,6 +17,6 @@ public class MiningFatigueResistanceAugment extends Augment {
 
     @Override
     public void onArmorTick(ItemStack stack, World world, PlayerEntity player) {
-        player.removePotionEffect(Effects.MINING_FATIGUE);
+        player.removeEffect(Effects.DIG_SLOWDOWN);
     }
 }

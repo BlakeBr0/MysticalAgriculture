@@ -21,7 +21,7 @@ public class SoulstoneFeature extends Feature<OreFeatureConfig> {
     }
 
     @Override
-    public boolean generate(ISeedReader world, ChunkGenerator chunkGenerator, Random random, BlockPos pos, OreFeatureConfig config) {
+    public boolean place(ISeedReader world, ChunkGenerator chunkGenerator, Random random, BlockPos pos, OreFeatureConfig config) {
         float f = random.nextFloat() * (float) Math.PI;
         float f1 = (float) config.size / 8.0F;
         int i = MathHelper.ceil(((float) config.size / 16.0F * 2.0F + 1.0F) / 2.0F);
@@ -40,7 +40,7 @@ public class SoulstoneFeature extends Feature<OreFeatureConfig> {
         for (int l1 = k; l1 <= k + j1; ++l1) {
             for (int i2 = i1; i2 <= i1 + j1; ++i2) {
                 if (l <= world.getHeight(Heightmap.Type.OCEAN_FLOOR_WG, l1, i2)) {
-                    return this.func_207803_a(world, random,config, d0, d1, d2, d3, d4, d5, k, l, i1, j1, k1);
+                    return this.doPlace(world, random,config, d0, d1, d2, d3, d4, d5, k, l, i1, j1, k1);
                 }
             }
         }
@@ -48,7 +48,7 @@ public class SoulstoneFeature extends Feature<OreFeatureConfig> {
         return false;
     }
 
-    protected boolean func_207803_a(IWorld world, Random random, OreFeatureConfig config, double p_207803_4_, double p_207803_6_, double p_207803_8_, double p_207803_10_, double p_207803_12_, double p_207803_14_, int p_207803_16_, int p_207803_17_, int p_207803_18_, int p_207803_19_, int p_207803_20_) {
+    protected boolean doPlace(IWorld world, Random random, OreFeatureConfig config, double p_207803_4_, double p_207803_6_, double p_207803_8_, double p_207803_10_, double p_207803_12_, double p_207803_14_, int p_207803_16_, int p_207803_17_, int p_207803_18_, int p_207803_19_, int p_207803_20_) {
         int i = 0;
         BitSet bitset = new BitSet(p_207803_19_ * p_207803_20_ * p_207803_19_);
         BlockPos.Mutable blockpos$mutableblockpos = new BlockPos.Mutable();
@@ -112,12 +112,12 @@ public class SoulstoneFeature extends Feature<OreFeatureConfig> {
                                         int k2 = l1 - p_207803_16_ + (i2 - p_207803_17_) * p_207803_19_ + (j2 - p_207803_18_) * p_207803_19_ * p_207803_20_;
                                         if (!bitset.get(k2)) {
                                             bitset.set(k2);
-                                            blockpos$mutableblockpos.setPos(l1, i2, j2);
+                                            blockpos$mutableblockpos.set(l1, i2, j2);
                                             if (config.target.test(world.getBlockState(blockpos$mutableblockpos), random)) {
                                                 if (ModBlocks.SOULIUM_ORE.isPresent() && random.nextDouble() < ModConfigs.SOULIUM_ORE_CHANCE.get()) {
-                                                    world.setBlockState(blockpos$mutableblockpos, ModBlocks.SOULIUM_ORE.get().getDefaultState(), 2);
+                                                    world.setBlock(blockpos$mutableblockpos, ModBlocks.SOULIUM_ORE.get().defaultBlockState(), 2);
                                                 } else {
-                                                    world.setBlockState(blockpos$mutableblockpos, config.state, 2);
+                                                    world.setBlock(blockpos$mutableblockpos, config.state, 2);
                                                 }
 
                                                 i++;

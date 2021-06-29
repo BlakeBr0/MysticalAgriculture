@@ -17,6 +17,8 @@ import java.util.EnumSet;
 import java.util.List;
 import java.util.function.Function;
 
+import net.minecraft.item.Item.Properties;
+
 public class EssenceStaffItem extends BaseItem implements ITinkerable, IElementalItem {
     private static final EnumSet<AugmentType> TYPES = EnumSet.of(AugmentType.STAFF);
     private final int tinkerableTier;
@@ -30,7 +32,7 @@ public class EssenceStaffItem extends BaseItem implements ITinkerable, IElementa
 
     @OnlyIn(Dist.CLIENT)
     @Override
-    public void addInformation(ItemStack stack, World world, List<ITextComponent> tooltip, ITooltipFlag flag) {
+    public void appendHoverText(ItemStack stack, World world, List<ITextComponent> tooltip, ITooltipFlag flag) {
         tooltip.add(ModTooltips.getTooltipForTier(this.tinkerableTier));
         tooltip.add(Tooltips.NOT_YET_IMPLEMENTED.build());
     }

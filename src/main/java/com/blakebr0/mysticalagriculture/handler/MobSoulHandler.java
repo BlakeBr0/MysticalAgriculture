@@ -19,11 +19,11 @@ import java.util.stream.Collectors;
 public final class MobSoulHandler {
     @SubscribeEvent
     public void onLivingDeath(LivingDeathEvent event) {
-        Entity source = event.getSource().getTrueSource();
+        Entity source = event.getSource().getEntity();
 
         if (source instanceof PlayerEntity) {
             PlayerEntity player = (PlayerEntity) source;
-            ItemStack held = player.getHeldItem(Hand.MAIN_HAND);
+            ItemStack held = player.getItemInHand(Hand.MAIN_HAND);
 
             if (held.getItem() instanceof ISoulSiphoningItem) {
                 LivingEntity entity = event.getEntityLiving();
@@ -49,7 +49,7 @@ public final class MobSoulHandler {
     }
 
     private static List<ItemStack> getValidSoulJars(PlayerEntity player, IMobSoulType type) {
-        return player.inventory.mainInventory.stream()
+        return player.inventory.items.stream()
                 .filter(s -> s.getItem() instanceof SoulJarItem)
                 .filter(s -> MobSoulUtils.canAddTypeToJar(s, type))
                 .sorted((a, b) -> MobSoulUtils.getType(a) != null ? -1 : MobSoulUtils.getType(b) != null ? 0 : 1)

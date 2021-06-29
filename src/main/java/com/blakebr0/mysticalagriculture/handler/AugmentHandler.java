@@ -20,7 +20,7 @@ public final class AugmentHandler {
         LivingEntity entity = event.getEntityLiving();
         if (entity instanceof PlayerEntity) {
             PlayerEntity player = (PlayerEntity) entity;
-            World world = player.getEntityWorld();
+            World world = player.getCommandSenderWorld();
             List<IAugment> augments = AugmentUtils.getArmorAugments(player);
             augments.forEach(a -> a.onPlayerTick(world, player, ABILITY_CACHE));
 
@@ -37,7 +37,7 @@ public final class AugmentHandler {
         LivingEntity entity = event.getEntityLiving();
         if (entity instanceof PlayerEntity) {
             PlayerEntity player = (PlayerEntity) entity;
-            World world = player.getEntityWorld();
+            World world = player.getCommandSenderWorld();
             AugmentUtils.getArmorAugments(player).forEach(a -> {
                 a.onPlayerFall(world, player, event);
             });

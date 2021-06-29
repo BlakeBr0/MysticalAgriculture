@@ -38,7 +38,7 @@ public class CropEnabledCondition implements ICondition {
 
         @Override
         public CropEnabledCondition read(JsonObject json) {
-            String crop = JSONUtils.getString(json, "crop");
+            String crop = JSONUtils.getAsString(json, "crop");
             return new CropEnabledCondition(new ResourceLocation(crop));
         }
 
