@@ -13,6 +13,7 @@ import net.minecraft.entity.item.ItemEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.world.GameRules;
 import net.minecraft.world.World;
 import net.minecraftforge.event.entity.living.LivingDropsEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -24,6 +25,10 @@ public final class MobDropHandler {
     public void onLivingDrops(LivingDropsEvent event) {
         LivingEntity entity = event.getEntityLiving();
         World world = entity.getCommandSenderWorld();
+
+        if (!world.getGameRules().getBoolean(GameRules.RULE_DOMOBLOOT))
+            return;
+
         Collection<ItemEntity> drops = event.getDrops();
         Entity attacker = event.getSource().getEntity();
         double inferiumDropChance = ModConfigs.INFERIUM_DROP_CHANCE.get();
