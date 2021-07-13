@@ -1,0 +1,16 @@
+{
+  "type": "mysticalagriculture:reprocessor",
+  "conditions": [
+    {
+      "type": "mysticalagriculture:crop_enabled",
+      "crop": "mysticalagriculture:ruby"
+    }
+  ],
+  "input": {
+    "item": "mysticalagriculture:ruby_seeds"
+  },
+  "result": {
+    "item": "mysticalagriculture:ruby_essence",
+    "count": 2
+  }
+}
