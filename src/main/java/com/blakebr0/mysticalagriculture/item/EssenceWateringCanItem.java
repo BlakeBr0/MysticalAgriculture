@@ -81,6 +81,10 @@ public class EssenceWateringCanItem extends WateringCanItem {
             return new ActionResult<>(ActionResultType.PASS, stack);
         }
 
+        if (NBTHelper.getBoolean(stack, "Water")) {
+            return new ActionResult<>(ActionResultType.PASS, stack);
+        }
+
         BlockPos pos = trace.getBlockPos();
         Direction direction = trace.getDirection();
 
