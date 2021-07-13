@@ -36,7 +36,8 @@ minecraft {
 
             property 'forge.logging.markers', 'SCAN,REGISTRIES,REGISTRYDUMP'
             property 'forge.logging.console.level', 'info'
-            property 'mixin.env.disableRefMap', 'true'
+            property 'mixin.env.remapRefMap', 'true'
+            property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
 
             ideaModule "${project.name}.main"
             environment 'MOD_CLASSES', "${project.file('out/production/resources').canonicalPath}${File.pathSeparator}${project.file('out/production/classes').canonicalPath}"
@@ -47,7 +48,8 @@ minecraft {
 
             property 'forge.logging.markers', 'SCAN,REGISTRIES,REGISTRYDUMP'
             property 'forge.logging.console.level', 'info'
-            property 'mixin.env.disableRefMap', 'true'
+            property 'mixin.env.remapRefMap', 'true'
+            property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
 
             ideaModule "${project.name}.main"
             environment 'MOD_CLASSES', "${project.file('out/production/resources').canonicalPath}${File.pathSeparator}${project.file('out/production/classes').canonicalPath}"
@@ -59,7 +61,8 @@ minecraft {
             property 'forge.logging.markers', 'REGISTRIES,REGISTRYDUMP'
             property 'forge.logging.console.level', 'debug'
             property 'fml.earlyprogresswindow', 'false'
-            property 'mixin.env.disableRefMap', 'true'
+            property 'mixin.env.remapRefMap', 'true'
+            property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
 
             ideaModule "${project.name}.main"
             environment 'MOD_CLASSES', "${project.file('out/production/resources').canonicalPath}${File.pathSeparator}${project.file('out/production/classes').canonicalPath}"
@@ -69,8 +72,13 @@ minecraft {
     }
 }
 
-sourceSets.main.resources {
-    srcDir 'src/generated/resources'
+sourceSets {
+    main {
+        resources {
+            srcDirs 'src/generated/resources'
+            exclude '.cache'
+        }
+    }
 }
 
 dependencies {
