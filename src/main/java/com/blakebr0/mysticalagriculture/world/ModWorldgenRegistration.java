@@ -15,6 +15,8 @@ import net.minecraftforge.common.world.BiomeGenerationSettingsBuilder;
 import net.minecraftforge.event.world.BiomeLoadingEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 
+import java.util.List;
+
 public final class ModWorldgenRegistration {
     private static ConfiguredFeature<?, ?> configuredSoulstoneFeature;
     private static ConfiguredFeature<?, ?> configuredProsperityOreFeature;
@@ -24,11 +26,19 @@ public final class ModWorldgenRegistration {
     public void onBiomesLoading(BiomeLoadingEvent event) {
         Biome.Category category = event.getCategory();
         BiomeGenerationSettingsBuilder generation = event.getGeneration();
+        ResourceLocation name = event.getName();
+
+        if (name == null)
+            return;
 
         switch (category) {
             case NETHER:
                 if (ModConfigs.GENERATE_SOULSTONE.get()) {
-                    generation.addFeature(GenerationStage.Decoration.RAW_GENERATION, configuredSoulstoneFeature);
+                    List<String> whitelist = ModConfigs.SOULSTONE_BIOME_WHITELIST.get();
+
+                    if (whitelist.isEmpty() || whitelist.contains(name.toString())) {
+                        generation.addFeature(GenerationStage.Decoration.RAW_GENERATION, configuredSoulstoneFeature);
+                    }
                 }
 
                 break;
@@ -36,11 +46,19 @@ public final class ModWorldgenRegistration {
                 break;
             default:
                 if (ModConfigs.GENERATE_PROSPERITY.get()) {
-                    generation.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, configuredProsperityOreFeature);
+                    List<String> whitelist = ModConfigs.PROSPERITY_BIOME_WHITELIST.get();
+
+                    if (whitelist.isEmpty() || whitelist.contains(name.toString())) {
+                        generation.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, configuredProsperityOreFeature);
+                    }
                 }
 
                 if (ModConfigs.GENERATE_INFERIUM.get()) {
-                    generation.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, configuredInferiumOreFeature);
+                    List<String> whitelist = ModConfigs.INFERIUM_BIOME_WHITELIST.get();
+
+                    if (whitelist.isEmpty() || whitelist.contains(name.toString())) {
+                        generation.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, configuredInferiumOreFeature);
+                    }
                 }
 
                 break;
