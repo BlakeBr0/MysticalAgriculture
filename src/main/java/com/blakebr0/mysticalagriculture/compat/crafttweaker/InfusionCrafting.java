@@ -62,9 +62,13 @@ public final class InfusionCrafting {
         });
     }
 
-    private static NonNullList<Ingredient> toIngredientsList(IIngredient... ingredients) {
-        return Arrays.stream(ingredients)
-                .map(IIngredient::asVanillaIngredient)
-                .collect(Collectors.toCollection(NonNullList::create));
+    private static NonNullList<Ingredient> toIngredientsList(IIngredient... iingredients) {
+        NonNullList<Ingredient> ingredients = NonNullList.withSize(InfusionRecipe.RECIPE_SIZE, Ingredient.EMPTY);
+
+        for (int i = 0; i < iingredients.length; i++) {
+            ingredients.set(i, iingredients[i].asVanillaIngredient());
+        }
+
+        return ingredients;
     }
 }

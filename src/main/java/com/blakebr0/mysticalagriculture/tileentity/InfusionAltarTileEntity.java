@@ -71,14 +71,16 @@ public class InfusionAltarTileEntity extends BaseInventoryTileEntity implements 
             }
 
             if (this.isActive()) {
-                List<InfusionPedestalTileEntity> pedestals = this.getPedestalsWithStuff();
+                List<InfusionPedestalTileEntity> pedestals = this.getPedestals();
                 this.updateRecipeInventory(pedestals);
+
                 if (this.recipe == null || !this.recipe.matches(this.recipeInventory)) {
                     this.recipe = (InfusionRecipe) world.getRecipeManager().getRecipeFor(RecipeTypes.INFUSION, this.recipeInventory.toIInventory(), world).orElse(null);
                 }
 
                 if (this.recipe != null) {
                     this.progress++;
+
                     if (this.progress >= 100) {
                         NonNullList<ItemStack> remaining = this.recipe.getRemainingItems(this.recipeInventory);
                         for (int i = 0; i < pedestals.size(); i++) {
@@ -137,26 +139,26 @@ public class InfusionAltarTileEntity extends BaseInventoryTileEntity implements 
     }
 
     private void updateRecipeInventory(List<InfusionPedestalTileEntity> pedestals) {
-        this.recipeInventory.setSize(pedestals.size() + 1);
+        this.recipeInventory.setSize(InfusionRecipe.RECIPE_SIZE);
         this.recipeInventory.setStackInSlot(0, this.inventory.getStackInSlot(0));
+
         for (int i = 0; i < pedestals.size(); i++) {
             ItemStack stack = pedestals.get(i).getInventory().getStackInSlot(0);
             this.recipeInventory.setStackInSlot(i + 1, stack);
         }
     }
 
-    private List<InfusionPedestalTileEntity> getPedestalsWithStuff() {
+    private List<InfusionPedestalTileEntity> getPedestals() {
         if (this.getLevel() == null)
             return new ArrayList<>();
 
         List<InfusionPedestalTileEntity> pedestals = new ArrayList<>();
+
         this.getPedestalPositions().forEach(pos -> {
             TileEntity tile = this.getLevel().getBlockEntity(pos);
             if (tile instanceof InfusionPedestalTileEntity) {
                 InfusionPedestalTileEntity pedestal = (InfusionPedestalTileEntity) tile;
-                ItemStack stack = pedestal.getInventory().getStackInSlot(0);
-                if (!stack.isEmpty())
-                    pedestals.add(pedestal);
+                pedestals.add(pedestal);
             }
         });
 
@@ -177,7 +179,9 @@ public class InfusionAltarTileEntity extends BaseInventoryTileEntity implements 
     }
 
     private void spawnItemParticles(BlockPos pedestalPos, ItemStack stack) {
-        if (this.getLevel() == null || this.getLevel().isClientSide()) return;
+        if (this.getLevel() == null || this.getLevel().isClientSide() || stack.isEmpty())
+            return;
+
         ServerWorld world = (ServerWorld) this.getLevel();
         BlockPos pos = this.getBlockPos();
 

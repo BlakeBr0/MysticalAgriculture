@@ -19,6 +19,7 @@ import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.registries.ForgeRegistryEntry;
 
 public class InfusionRecipe implements ISpecialRecipe, IInfusionRecipe {
+    public static final int RECIPE_SIZE = 9;
     private final ResourceLocation recipeId;
     private final NonNullList<Ingredient> inputs;
     private final ItemStack output;
@@ -73,14 +74,14 @@ public class InfusionRecipe implements ISpecialRecipe, IInfusionRecipe {
     public static class Serializer extends ForgeRegistryEntry<IRecipeSerializer<?>> implements IRecipeSerializer<InfusionRecipe> {
         @Override
         public InfusionRecipe fromJson(ResourceLocation recipeId, JsonObject json) {
-            NonNullList<Ingredient> inputs = NonNullList.create();
+            NonNullList<Ingredient> inputs = NonNullList.withSize(RECIPE_SIZE, Ingredient.EMPTY);
             JsonObject input = JSONUtils.getAsJsonObject(json, "input");
 
-            inputs.add(Ingredient.fromJson(input));
+            inputs.set(0, Ingredient.fromJson(input));
 
             JsonArray ingredients = JSONUtils.getAsJsonArray(json, "ingredients");
             for (int i = 0; i < ingredients.size(); i++) {
-                inputs.add(Ingredient.fromJson(ingredients.get(i)));
+                inputs.set(i + 1, Ingredient.fromJson(ingredients.get(i)));
             }
 
             ItemStack output = ShapedRecipe.itemFromJson(json.getAsJsonObject("result"));
