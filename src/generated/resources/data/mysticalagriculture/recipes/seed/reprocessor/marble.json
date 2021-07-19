@@ -1,0 +1,16 @@
+{
+  "type": "mysticalagriculture:reprocessor",
+  "conditions": [
+    {
+      "type": "mysticalagriculture:crop_enabled",
+      "crop": "mysticalagriculture:marble"
+    }
+  ],
+  "input": {
+    "item": "mysticalagriculture:marble_seeds"
+  },
+  "result": {
+    "item": "mysticalagriculture:marble_essence",
+    "count": 2
+  }
+}

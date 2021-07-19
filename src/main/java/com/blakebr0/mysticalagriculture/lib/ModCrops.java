@@ -138,6 +138,11 @@ public final class ModCrops {
     public static final Crop REFINED_GLOWSTONE = new Crop(new ResourceLocation(MOD_ID, "refined_glowstone"), CropTier.FOUR, CropType.RESOURCE, LazyIngredient.tag("forge:ingots/refined_glowstone"));
     public static final Crop REFINED_OBSIDIAN = new Crop(new ResourceLocation(MOD_ID, "refined_obsidian"), CropTier.FOUR, CropType.RESOURCE, LazyIngredient.tag("forge:ingots/refined_obsidian"));
 
+    // CHISEL
+    public static final Crop MARBLE = new Crop(new ResourceLocation(MOD_ID, "marble"), CropTier.TWO, CropType.RESOURCE, LazyIngredient.tag("chisel:marble"));
+    public static final Crop LIMESTONE = new Crop(new ResourceLocation(MOD_ID, "limestone"), CropTier.TWO, CropType.RESOURCE, LazyIngredient.tag("chisel:limestone"));
+    public static final Crop BASALT = new Crop(new ResourceLocation(MOD_ID, "basalt"), CropTier.TWO, CropType.RESOURCE, LazyIngredient.tag("chisel:basalt"));
+
     // TWILIGHT FOREST
     public static final Crop STEELEAF = new Crop(new ResourceLocation(MOD_ID, "steeleaf"), CropTier.THREE, CropType.RESOURCE, LazyIngredient.item("twilightforest:steeleaf_ingot"));
     public static final Crop IRONWOOD = new Crop(new ResourceLocation(MOD_ID, "ironwood"), CropTier.THREE, CropType.RESOURCE, LazyIngredient.item("twilightforest:ironwood_ingot"));
@@ -293,6 +298,11 @@ public final class ModCrops {
         registry.register(withRequiredMods(FLUORITE, "mekanism"));
         registry.register(withRequiredMods(REFINED_GLOWSTONE, "mekanism"));
         registry.register(withRequiredMods(REFINED_OBSIDIAN, "mekanism"));
+
+        // CHISEL
+        registry.register(withRequiredMods(MARBLE, "chisel", "quark", "astralsorcery"));
+        registry.register(withRequiredMods(LIMESTONE, "chisel"));
+        registry.register(withRequiredMods(BASALT, "chisel"));
 
         // TWILIGHT FOREST
         registry.register(withRequiredMods(STEELEAF, "twilightforest"));
