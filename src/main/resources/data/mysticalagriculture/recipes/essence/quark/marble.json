@@ -1,0 +1,30 @@
+{
+  "type": "cucumber:shaped_no_mirror",
+  "conditions": [
+    {
+      "type": "mysticalagriculture:crop_enabled",
+      "crop": "mysticalagriculture:marble"
+    },
+    {
+      "type": "mysticalagriculture:crop_enabled",
+      "crop": "mysticalagriculture:stone"
+    }
+  ],
+  "pattern": [
+    "EEE",
+    "EFE",
+    "EEE"
+  ],
+  "key": {
+    "E": {
+      "item": "mysticalagriculture:marble_essence"
+    },
+    "F": {
+      "item": "mysticalagriculture:stone_essence"
+    }
+  },
+  "result": {
+    "item": "quark:marble",
+    "count": 16
+  }
+}

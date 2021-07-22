@@ -1,0 +1,30 @@
+{
+  "type": "cucumber:shaped_no_mirror",
+  "conditions": [
+    {
+      "type": "mysticalagriculture:crop_enabled",
+      "crop": "mysticalagriculture:aquamarine"
+    },
+    {
+      "type": "mysticalagriculture:crop_enabled",
+      "crop": "mysticalagriculture:aquamarine"
+    }
+  ],
+  "pattern": [
+    "EEE",
+    "EFE",
+    "EEE"
+  ],
+  "key": {
+    "E": {
+      "item": "mysticalagriculture:marble_essence"
+    },
+    "F": {
+      "item": "mysticalagriculture:aquamarine_essence"
+    }
+  },
+  "result": {
+    "item": "astralsorcery:marble_raw",
+    "count": 16
+  }
+}
