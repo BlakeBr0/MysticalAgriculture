@@ -6,6 +6,10 @@ import com.blakebr0.mysticalagriculture.api.soul.IMobSoulType;
 import com.blakebr0.mysticalagriculture.api.util.MobSoulUtils;
 import com.blakebr0.mysticalagriculture.client.screen.ReprocessorScreen;
 import com.blakebr0.mysticalagriculture.client.screen.SoulExtractorScreen;
+import com.blakebr0.mysticalagriculture.compat.jei.category.CruxCategory;
+import com.blakebr0.mysticalagriculture.compat.jei.category.InfusionCategory;
+import com.blakebr0.mysticalagriculture.compat.jei.category.ReprocessorCategory;
+import com.blakebr0.mysticalagriculture.compat.jei.category.SoulExtractorCategory;
 import com.blakebr0.mysticalagriculture.init.ModBlocks;
 import com.blakebr0.mysticalagriculture.init.ModItems;
 import mezz.jei.api.IModPlugin;
@@ -38,7 +42,8 @@ public final class JeiCompat implements IModPlugin {
         registration.addRecipeCategories(
                 new InfusionCategory(guiHelper),
                 new ReprocessorCategory(guiHelper),
-                new SoulExtractorCategory(guiHelper)
+                new SoulExtractorCategory(guiHelper),
+                new CruxCategory(guiHelper)
         );
     }
 
@@ -64,6 +69,7 @@ public final class JeiCompat implements IModPlugin {
             registration.addRecipes(manager.byType(RecipeTypes.INFUSION).values(), InfusionCategory.UID);
             registration.addRecipes(manager.byType(RecipeTypes.REPROCESSOR).values(), ReprocessorCategory.UID);
             registration.addRecipes(manager.byType(RecipeTypes.SOUL_EXTRACTION).values(), SoulExtractorCategory.UID);
+            registration.addRecipes(CruxRecipe.getGeneratedRecipes(), CruxCategory.UID);
         }
     }
 

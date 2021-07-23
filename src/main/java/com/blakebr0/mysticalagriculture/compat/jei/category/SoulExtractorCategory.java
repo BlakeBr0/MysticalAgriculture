@@ -1,4 +1,4 @@
-package com.blakebr0.mysticalagriculture.compat.jei;
+package com.blakebr0.mysticalagriculture.compat.jei.category;
 
 import com.blakebr0.cucumber.util.Localizable;
 import com.blakebr0.mysticalagriculture.MysticalAgriculture;
