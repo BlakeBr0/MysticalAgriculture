@@ -3,6 +3,7 @@ package com.blakebr0.mysticalagriculture;
 import com.blakebr0.cucumber.helper.ConfigHelper;
 import com.blakebr0.mysticalagriculture.api.MysticalAgricultureAPI;
 import com.blakebr0.mysticalagriculture.client.ModelHandler;
+import com.blakebr0.mysticalagriculture.compat.TOPCompat;
 import com.blakebr0.mysticalagriculture.config.ModConfigs;
 import com.blakebr0.mysticalagriculture.crafting.DynamicRecipeManager;
 import com.blakebr0.mysticalagriculture.data.ModDataGenerators;
@@ -36,6 +37,7 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
+import net.minecraftforge.fml.event.lifecycle.InterModEnqueueEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 
 @Mod(MysticalAgriculture.MOD_ID)
@@ -101,5 +103,10 @@ public final class MysticalAgriculture {
 
 		ModTileEntities.onClientSetup();
 		ModContainerTypes.onClientSetup();
+	}
+
+	@SubscribeEvent
+	public void onInterModEnqueue(InterModEnqueueEvent event) {
+		TOPCompat.onInterModEnqueue();
 	}
 }
