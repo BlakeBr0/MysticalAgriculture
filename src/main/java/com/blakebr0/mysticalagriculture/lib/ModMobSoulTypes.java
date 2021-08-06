@@ -4,7 +4,7 @@ import com.blakebr0.mysticalagriculture.api.registry.IMobSoulTypeRegistry;
 import com.blakebr0.mysticalagriculture.api.soul.IMobSoulType;
 import com.blakebr0.mysticalagriculture.api.soul.MobSoulType;
 import com.google.common.collect.Sets;
-import net.minecraft.util.ResourceLocation;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.fml.ModList;
 
 import java.util.Arrays;

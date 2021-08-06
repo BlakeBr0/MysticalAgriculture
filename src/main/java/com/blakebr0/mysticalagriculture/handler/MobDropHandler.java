@@ -4,17 +4,17 @@ import com.blakebr0.cucumber.util.Utils;
 import com.blakebr0.mysticalagriculture.api.tinkering.ITinkerable;
 import com.blakebr0.mysticalagriculture.config.ModConfigs;
 import com.blakebr0.mysticalagriculture.init.ModItems;
-import net.minecraft.entity.CreatureEntity;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.boss.WitherEntity;
-import net.minecraft.entity.boss.dragon.EnderDragonEntity;
-import net.minecraft.entity.item.ItemEntity;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.world.GameRules;
-import net.minecraft.world.World;
+import net.minecraft.world.entity.PathfinderMob;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.boss.wither.WitherBoss;
+import net.minecraft.world.entity.boss.enderdragon.EnderDragon;
+import net.minecraft.world.entity.item.ItemEntity;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.GameRules;
+import net.minecraft.world.level.Level;
 import net.minecraftforge.event.entity.living.LivingDropsEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 
@@ -24,7 +24,7 @@ public final class MobDropHandler {
     @SubscribeEvent
     public void onLivingDrops(LivingDropsEvent event) {
         LivingEntity entity = event.getEntityLiving();
-        World world = entity.getCommandSenderWorld();
+        Level world = entity.getCommandSenderWorld();
 
         if (!world.getGameRules().getBoolean(GameRules.RULE_DOMOBLOOT))
             return;
@@ -33,19 +33,19 @@ public final class MobDropHandler {
         Entity attacker = event.getSource().getEntity();
         double inferiumDropChance = ModConfigs.INFERIUM_DROP_CHANCE.get();
 
-        if (entity instanceof CreatureEntity && Math.random() < inferiumDropChance) {
+        if (entity instanceof PathfinderMob && Math.random() < inferiumDropChance) {
             drops.add(new ItemEntity(world, entity.getX(), entity.getY(), entity.getZ(), new ItemStack(ModItems.INFERIUM_ESSENCE.get())));
         }
 
-        if (attacker instanceof PlayerEntity) {
-            PlayerEntity player = (PlayerEntity) attacker;
+        if (attacker instanceof Player) {
+            Player player = (Player) attacker;
             Item item = player.getMainHandItem().getItem();
 
             if (item instanceof ITinkerable) {
                 ITinkerable tinkerable = (ITinkerable) item;
 
                 boolean witherDropsEssence = ModConfigs.WITHER_DROPS_ESSENCE.get();
-                if (witherDropsEssence && entity instanceof WitherEntity) {
+                if (witherDropsEssence && entity instanceof WitherBoss) {
                     ItemStack stack = getEssenceForTinkerable(tinkerable, 1, 3);
 
                     if (!stack.isEmpty()) {
@@ -54,7 +54,7 @@ public final class MobDropHandler {
                 }
 
                 boolean dragonDropsEssence = ModConfigs.DRAGON_DROPS_ESSENCE.get();
-                if (dragonDropsEssence && entity instanceof EnderDragonEntity) {
+                if (dragonDropsEssence && entity instanceof EnderDragon) {
                     ItemStack stack = getEssenceForTinkerable(tinkerable, 2, 4);
 
                     if (!stack.isEmpty()) {

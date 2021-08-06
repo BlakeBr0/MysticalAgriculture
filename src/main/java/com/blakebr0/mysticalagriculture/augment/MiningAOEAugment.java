@@ -4,13 +4,13 @@ import com.blakebr0.cucumber.helper.BlockHelper;
 import com.blakebr0.cucumber.helper.ColorHelper;
 import com.blakebr0.mysticalagriculture.api.tinkering.Augment;
 import com.blakebr0.mysticalagriculture.api.tinkering.AugmentType;
-import net.minecraft.block.BlockState;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.BlockRayTraceResult;
-import net.minecraft.world.World;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.phys.BlockHitResult;
+import net.minecraft.world.level.Level;
 import net.minecraftforge.common.ForgeHooks;
 
 import java.util.EnumSet;
@@ -24,15 +24,15 @@ public class MiningAOEAugment extends Augment {
     }
 
     @Override
-    public boolean onBlockStartBreak(ItemStack stack, BlockPos pos, PlayerEntity player) {
-        World world = player.getCommandSenderWorld();
-        BlockRayTraceResult trace = BlockHelper.rayTraceBlocks(world, player);
+    public boolean onBlockStartBreak(ItemStack stack, BlockPos pos, Player player) {
+        Level world = player.getCommandSenderWorld();
+        BlockHitResult trace = BlockHelper.rayTraceBlocks(world, player);
         int side = trace.getDirection().ordinal();
 
         return !harvest(stack, this.range, world, pos, side, player);
     }
 
-    private static boolean harvest(ItemStack stack, int radius, World world, BlockPos pos, int side, PlayerEntity player) {
+    private static boolean harvest(ItemStack stack, int radius, Level world, BlockPos pos, int side, Player player) {
         if (player.isCrouching())
             radius = 0;
 
@@ -72,7 +72,7 @@ public class MiningAOEAugment extends Augment {
         return true;
     }
 
-    private static boolean tryHarvestBlock(World world, BlockPos pos, boolean extra, ItemStack stack, PlayerEntity player) {
+    private static boolean tryHarvestBlock(Level world, BlockPos pos, boolean extra, ItemStack stack, Player player) {
         BlockState state = world.getBlockState(pos);
         float hardness = state.getDestroySpeed(world, pos);
         boolean harvest = (ForgeHooks.canHarvestBlock(state, player, world, pos) || stack.isCorrectToolForDrops(state)) && (!extra || stack.getDestroySpeed(state) > 1.0F);

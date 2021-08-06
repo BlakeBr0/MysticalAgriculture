@@ -1,7 +1,7 @@
 package com.blakebr0.mysticalagriculture.api.soul;
 
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.item.ItemStack;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.item.ItemStack;
 
 /**
  * Implement this interface on items that give mob souls when used to kill mobs

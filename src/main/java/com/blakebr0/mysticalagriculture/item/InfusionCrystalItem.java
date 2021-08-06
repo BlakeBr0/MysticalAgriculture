@@ -2,11 +2,11 @@ package com.blakebr0.mysticalagriculture.item;
 
 import com.blakebr0.cucumber.item.BaseReusableItem;
 import com.blakebr0.mysticalagriculture.config.ModConfigs;
-import net.minecraft.item.ItemStack;
+import net.minecraft.world.item.ItemStack;
 
 import java.util.function.Function;
 
-import net.minecraft.item.Item.Properties;
+import net.minecraft.world.item.Item.Properties;
 
 public class InfusionCrystalItem extends BaseReusableItem {
     public InfusionCrystalItem(Function<Properties, Properties> properties) {

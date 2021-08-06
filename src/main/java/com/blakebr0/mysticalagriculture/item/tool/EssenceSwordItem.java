@@ -9,25 +9,25 @@ import com.blakebr0.mysticalagriculture.config.ModConfigs;
 import com.blakebr0.mysticalagriculture.lib.ModTooltips;
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
-import net.minecraft.block.BlockState;
-import net.minecraft.client.util.ITooltipFlag;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.ai.attributes.Attribute;
-import net.minecraft.entity.ai.attributes.AttributeModifier;
-import net.minecraft.entity.ai.attributes.Attributes;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.inventory.EquipmentSlotType;
-import net.minecraft.item.IItemTier;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.ItemUseContext;
-import net.minecraft.util.ActionResult;
-import net.minecraft.util.ActionResultType;
-import net.minecraft.util.Hand;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.text.ITextComponent;
-import net.minecraft.util.text.TextFormatting;
-import net.minecraft.world.World;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.ai.attributes.Attribute;
+import net.minecraft.world.entity.ai.attributes.AttributeModifier;
+import net.minecraft.world.entity.ai.attributes.Attributes;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.item.Tier;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.context.UseOnContext;
+import net.minecraft.world.InteractionResultHolder;
+import net.minecraft.world.InteractionResult;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.core.BlockPos;
+import net.minecraft.network.chat.Component;
+import net.minecraft.ChatFormatting;
+import net.minecraft.world.level.Level;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 
@@ -35,21 +35,21 @@ import java.util.EnumSet;
 import java.util.List;
 import java.util.function.Function;
 
-import net.minecraft.item.Item.Properties;
+import net.minecraft.world.item.Item.Properties;
 
 public class EssenceSwordItem extends BaseSwordItem implements ITinkerable {
     private static final EnumSet<AugmentType> TYPES = EnumSet.of(AugmentType.WEAPON, AugmentType.SWORD);
     private final int tinkerableTier;
     private final int slots;
 
-    public EssenceSwordItem(IItemTier tier, int tinkerableTier, int slots, Function<Properties, Properties> properties) {
+    public EssenceSwordItem(Tier tier, int tinkerableTier, int slots, Function<Properties, Properties> properties) {
         super(tier, properties);
         this.tinkerableTier = tinkerableTier;
         this.slots = slots;
     }
 
     @Override
-    public ActionResultType useOn(ItemUseContext context) {
+    public InteractionResult useOn(UseOnContext context) {
         List<IAugment> augments = AugmentUtils.getAugments(context.getItemInHand());
         boolean success = false;
         for (IAugment augment : augments) {
@@ -58,13 +58,13 @@ public class EssenceSwordItem extends BaseSwordItem implements ITinkerable {
         }
 
         if (success)
-            return ActionResultType.SUCCESS;
+            return InteractionResult.SUCCESS;
 
         return super.useOn(context);
     }
 
     @Override
-    public ActionResult<ItemStack> use(World world, PlayerEntity player, Hand hand) {
+    public InteractionResultHolder<ItemStack> use(Level world, Player player, InteractionHand hand) {
         ItemStack stack = player.getItemInHand(hand);
         List<IAugment> augments = AugmentUtils.getAugments(stack);
         boolean success = false;
@@ -74,13 +74,13 @@ public class EssenceSwordItem extends BaseSwordItem implements ITinkerable {
         }
 
         if (success)
-            return new ActionResult<>(ActionResultType.SUCCESS, stack);
+            return new InteractionResultHolder<>(InteractionResult.SUCCESS, stack);
 
-        return new ActionResult<>(ActionResultType.PASS, stack);
+        return new InteractionResultHolder<>(InteractionResult.PASS, stack);
     }
 
     @Override
-    public ActionResultType interactLivingEntity(ItemStack stack, PlayerEntity player, LivingEntity target, Hand hand) {
+    public InteractionResult interactLivingEntity(ItemStack stack, Player player, LivingEntity target, InteractionHand hand) {
         List<IAugment> augments = AugmentUtils.getAugments(stack);
         boolean success = false;
         for (IAugment augment : augments) {
@@ -88,7 +88,7 @@ public class EssenceSwordItem extends BaseSwordItem implements ITinkerable {
                 success = true;
         }
 
-        return success ? ActionResultType.SUCCESS : ActionResultType.PASS;
+        return success ? InteractionResult.SUCCESS : InteractionResult.PASS;
     }
 
     @Override
@@ -104,7 +104,7 @@ public class EssenceSwordItem extends BaseSwordItem implements ITinkerable {
     }
 
     @Override
-    public boolean mineBlock(ItemStack stack, World world, BlockState state, BlockPos pos, LivingEntity entity) {
+    public boolean mineBlock(ItemStack stack, Level world, BlockState state, BlockPos pos, LivingEntity entity) {
         super.mineBlock(stack, world, state, pos, entity);
 
         List<IAugment> augments = AugmentUtils.getAugments(stack);
@@ -118,7 +118,7 @@ public class EssenceSwordItem extends BaseSwordItem implements ITinkerable {
     }
 
     @Override
-    public boolean onBlockStartBreak(ItemStack stack, BlockPos pos, PlayerEntity player) {
+    public boolean onBlockStartBreak(ItemStack stack, BlockPos pos, Player player) {
         List<IAugment> augments = AugmentUtils.getAugments(stack);
         boolean success = false;
         for (IAugment augment : augments) {
@@ -130,23 +130,23 @@ public class EssenceSwordItem extends BaseSwordItem implements ITinkerable {
     }
 
     @Override
-    public void inventoryTick(ItemStack stack, World world, Entity entity, int slot, boolean isSelected) {
+    public void inventoryTick(ItemStack stack, Level world, Entity entity, int slot, boolean isSelected) {
         AugmentUtils.getAugments(stack).forEach(a -> a.onInventoryTick(stack, world, entity, slot, isSelected));
     }
 
     @OnlyIn(Dist.CLIENT)
     @Override
-    public void appendHoverText(ItemStack stack, World world, List<ITextComponent> tooltip, ITooltipFlag flag) {
+    public void appendHoverText(ItemStack stack, Level world, List<Component> tooltip, TooltipFlag flag) {
         tooltip.add(ModTooltips.getTooltipForTier(this.tinkerableTier));
         AugmentUtils.getAugments(stack).forEach(a -> {
-            tooltip.add(a.getDisplayName().withStyle(TextFormatting.GRAY));
+            tooltip.add(a.getDisplayName().withStyle(ChatFormatting.GRAY));
         });
     }
 
     @Override
-    public Multimap<Attribute, AttributeModifier> getAttributeModifiers(EquipmentSlotType slot, ItemStack stack) {
+    public Multimap<Attribute, AttributeModifier> getAttributeModifiers(EquipmentSlot slot, ItemStack stack) {
         Multimap<Attribute, AttributeModifier> modifiers = HashMultimap.create();
-        if (slot == EquipmentSlotType.MAINHAND) {
+        if (slot == EquipmentSlot.MAINHAND) {
             modifiers.put(Attributes.ATTACK_DAMAGE, new AttributeModifier(BASE_ATTACK_DAMAGE_UUID, "Tool modifier", this.getDamage(), AttributeModifier.Operation.ADDITION));
             modifiers.put(Attributes.ATTACK_SPEED, new AttributeModifier(BASE_ATTACK_SPEED_UUID, "Tool modifier", this.getAttackSpeed(), AttributeModifier.Operation.ADDITION));
 

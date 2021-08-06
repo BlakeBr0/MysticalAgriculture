@@ -1,7 +1,7 @@
 package com.blakebr0.mysticalagriculture.api.lib;
 
 import com.blakebr0.mysticalagriculture.api.tinkering.IAugment;
-import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.world.entity.player.Player;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -18,7 +18,7 @@ public class AbilityCache {
      * @param player the player
      * @param onRemove a callback to execute when they are removed from the cache
      */
-    public void add(IAugment augment, PlayerEntity player, Runnable onRemove) {
+    public void add(IAugment augment, Player player, Runnable onRemove) {
         String key = getPlayerKey(player);
         this.cache.computeIfAbsent(augment.getId().toString(), s -> new HashMap<>()).put(key, onRemove);
     }
@@ -28,7 +28,7 @@ public class AbilityCache {
      * @param augment the augment id
      * @param player the player
      */
-    public void remove(String augment, PlayerEntity player) {
+    public void remove(String augment, Player player) {
         String key = getPlayerKey(player);
         this.cache.getOrDefault(augment, EMPTY_MAP).remove(key).run();
     }
@@ -39,7 +39,7 @@ public class AbilityCache {
      * @param player the player
      * @return is cached
      */
-    public boolean isCached(IAugment augment, PlayerEntity player) {
+    public boolean isCached(IAugment augment, Player player) {
         String key = getPlayerKey(player);
         return this.cache.getOrDefault(augment.getId().toString(), EMPTY_MAP).containsKey(key);
     }
@@ -49,12 +49,12 @@ public class AbilityCache {
      * @param player the player
      * @return the augment ids
      */
-    public Set<String> getCachedAbilities(PlayerEntity player) {
+    public Set<String> getCachedAbilities(Player player) {
         String key = getPlayerKey(player);
         return this.cache.entrySet().stream().filter(e -> e.getValue().containsKey(key)).map(Map.Entry::getKey).collect(Collectors.toSet());
     }
 
-    private static String getPlayerKey(PlayerEntity player) {
+    private static String getPlayerKey(Player player) {
         return player.getGameProfile().getName() + ":" + player.getCommandSenderWorld().isClientSide();
     }
 }

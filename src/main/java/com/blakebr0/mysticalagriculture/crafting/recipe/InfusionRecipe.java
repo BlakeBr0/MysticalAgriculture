@@ -6,15 +6,15 @@ import com.blakebr0.mysticalagriculture.api.crafting.RecipeTypes;
 import com.blakebr0.mysticalagriculture.init.ModRecipeSerializers;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.crafting.IRecipeSerializer;
-import net.minecraft.item.crafting.IRecipeType;
-import net.minecraft.item.crafting.Ingredient;
-import net.minecraft.item.crafting.ShapedRecipe;
-import net.minecraft.network.PacketBuffer;
-import net.minecraft.util.JSONUtils;
-import net.minecraft.util.NonNullList;
-import net.minecraft.util.ResourceLocation;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.crafting.RecipeSerializer;
+import net.minecraft.world.item.crafting.RecipeType;
+import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.world.item.crafting.ShapedRecipe;
+import net.minecraft.network.FriendlyByteBuf;
+import net.minecraft.util.GsonHelper;
+import net.minecraft.core.NonNullList;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.registries.ForgeRegistryEntry;
 
@@ -51,12 +51,12 @@ public class InfusionRecipe implements ISpecialRecipe, IInfusionRecipe {
     }
 
     @Override
-    public IRecipeSerializer<InfusionRecipe> getSerializer() {
+    public RecipeSerializer<InfusionRecipe> getSerializer() {
         return ModRecipeSerializers.INFUSION;
     }
 
     @Override
-    public IRecipeType<? extends IInfusionRecipe> getType() {
+    public RecipeType<? extends IInfusionRecipe> getType() {
         return RecipeTypes.INFUSION;
     }
 
@@ -71,15 +71,15 @@ public class InfusionRecipe implements ISpecialRecipe, IInfusionRecipe {
         return !this.inputs.isEmpty() && this.inputs.get(0).test(altarStack) && ISpecialRecipe.super.matches(inventory);
     }
 
-    public static class Serializer extends ForgeRegistryEntry<IRecipeSerializer<?>> implements IRecipeSerializer<InfusionRecipe> {
+    public static class Serializer extends ForgeRegistryEntry<RecipeSerializer<?>> implements RecipeSerializer<InfusionRecipe> {
         @Override
         public InfusionRecipe fromJson(ResourceLocation recipeId, JsonObject json) {
             NonNullList<Ingredient> inputs = NonNullList.withSize(RECIPE_SIZE, Ingredient.EMPTY);
-            JsonObject input = JSONUtils.getAsJsonObject(json, "input");
+            JsonObject input = GsonHelper.getAsJsonObject(json, "input");
 
             inputs.set(0, Ingredient.fromJson(input));
 
-            JsonArray ingredients = JSONUtils.getAsJsonArray(json, "ingredients");
+            JsonArray ingredients = GsonHelper.getAsJsonArray(json, "ingredients");
             for (int i = 0; i < ingredients.size(); i++) {
                 inputs.set(i + 1, Ingredient.fromJson(ingredients.get(i)));
             }
@@ -90,7 +90,7 @@ public class InfusionRecipe implements ISpecialRecipe, IInfusionRecipe {
         }
 
         @Override
-        public InfusionRecipe fromNetwork(ResourceLocation recipeId, PacketBuffer buffer) {
+        public InfusionRecipe fromNetwork(ResourceLocation recipeId, FriendlyByteBuf buffer) {
             int size = buffer.readVarInt();
 
             NonNullList<Ingredient> inputs = NonNullList.withSize(size, Ingredient.EMPTY);
@@ -104,7 +104,7 @@ public class InfusionRecipe implements ISpecialRecipe, IInfusionRecipe {
         }
 
         @Override
-        public void toNetwork(PacketBuffer buffer, InfusionRecipe recipe) {
+        public void toNetwork(FriendlyByteBuf buffer, InfusionRecipe recipe) {
             buffer.writeVarInt(recipe.inputs.size());
 
             for (Ingredient ingredient : recipe.inputs) {

@@ -6,24 +6,24 @@ import com.blakebr0.cucumber.util.MultiblockPositions;
 import com.blakebr0.mysticalagriculture.api.crafting.RecipeTypes;
 import com.blakebr0.mysticalagriculture.crafting.recipe.InfusionRecipe;
 import com.blakebr0.mysticalagriculture.init.ModTileEntities;
-import net.minecraft.block.BlockState;
-import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.CompoundNBT;
-import net.minecraft.particles.IParticleData;
-import net.minecraft.particles.ItemParticleData;
-import net.minecraft.particles.ParticleTypes;
-import net.minecraft.tileentity.ITickableTileEntity;
-import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.NonNullList;
-import net.minecraft.util.math.AxisAlignedBB;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.World;
-import net.minecraft.world.server.ServerWorld;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.core.particles.ParticleOptions;
+import net.minecraft.core.particles.ItemParticleOption;
+import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.world.level.block.entity.TickableBlockEntity;
+import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.core.NonNullList;
+import net.minecraft.world.phys.AABB;
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.level.Level;
+import net.minecraft.server.level.ServerLevel;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class InfusionAltarTileEntity extends BaseInventoryTileEntity implements ITickableTileEntity {
+public class InfusionAltarTileEntity extends BaseInventoryTileEntity implements TickableBlockEntity {
     private final BaseItemStackHandler inventory = new BaseItemStackHandler(2, this::markDirtyAndDispatch);
     private final BaseItemStackHandler recipeInventory = new BaseItemStackHandler(9);
     private final MultiblockPositions pedestalLocations = new MultiblockPositions.Builder()
@@ -46,14 +46,14 @@ public class InfusionAltarTileEntity extends BaseInventoryTileEntity implements 
     }
 
     @Override
-    public void load(BlockState state, CompoundNBT tag) {
+    public void load(BlockState state, CompoundTag tag) {
         super.load(state, tag);
         this.progress = tag.getInt("Progress");
         this.active = tag.getBoolean("Active");
     }
 
     @Override
-    public CompoundNBT save(CompoundNBT tag) {
+    public CompoundTag save(CompoundTag tag) {
         tag = super.save(tag);
         tag.putInt("Progress", this.progress);
         tag.putBoolean("Active", this.active);
@@ -62,7 +62,7 @@ public class InfusionAltarTileEntity extends BaseInventoryTileEntity implements 
 
     @Override
     public void tick() {
-        World world = this.getLevel();
+        Level world = this.getLevel();
         if (world != null && !world.isClientSide()) {
             ItemStack input = this.inventory.getStackInSlot(0);
             if (input.isEmpty()) {
@@ -112,7 +112,7 @@ public class InfusionAltarTileEntity extends BaseInventoryTileEntity implements 
     }
 
     @Override
-    public AxisAlignedBB getRenderBoundingBox() {
+    public AABB getRenderBoundingBox() {
         return INFINITE_EXTENT_AABB;
     }
 
@@ -122,7 +122,7 @@ public class InfusionAltarTileEntity extends BaseInventoryTileEntity implements 
 
     public boolean isActive() {
         if (!this.active) {
-            World world = this.getLevel();
+            Level world = this.getLevel();
             this.active = world != null && world.hasNeighborSignal(this.getBlockPos());
         }
 
@@ -155,7 +155,7 @@ public class InfusionAltarTileEntity extends BaseInventoryTileEntity implements 
         List<InfusionPedestalTileEntity> pedestals = new ArrayList<>();
 
         this.getPedestalPositions().forEach(pos -> {
-            TileEntity tile = this.getLevel().getBlockEntity(pos);
+            BlockEntity tile = this.getLevel().getBlockEntity(pos);
             if (tile instanceof InfusionPedestalTileEntity) {
                 InfusionPedestalTileEntity pedestal = (InfusionPedestalTileEntity) tile;
                 pedestals.add(pedestal);
@@ -165,11 +165,11 @@ public class InfusionAltarTileEntity extends BaseInventoryTileEntity implements 
         return pedestals;
     }
 
-    private <T extends IParticleData> void spawnParticles(T particle, BlockPos pos, double yOffset, int count) {
+    private <T extends ParticleOptions> void spawnParticles(T particle, BlockPos pos, double yOffset, int count) {
         if (this.getLevel() == null || this.getLevel().isClientSide())
             return;
 
-        ServerWorld world = (ServerWorld) this.getLevel();
+        ServerLevel world = (ServerLevel) this.getLevel();
 
         double x = pos.getX() + 0.5D;
         double y = pos.getY() + yOffset;
@@ -182,7 +182,7 @@ public class InfusionAltarTileEntity extends BaseInventoryTileEntity implements 
         if (this.getLevel() == null || this.getLevel().isClientSide() || stack.isEmpty())
             return;
 
-        ServerWorld world = (ServerWorld) this.getLevel();
+        ServerLevel world = (ServerLevel) this.getLevel();
         BlockPos pos = this.getBlockPos();
 
         double x = pedestalPos.getX() + (world.getRandom().nextDouble() * 0.2D) + 0.4D;
@@ -193,7 +193,7 @@ public class InfusionAltarTileEntity extends BaseInventoryTileEntity implements 
         double velY = 0.25D;
         double velZ = pos.getZ() - pedestalPos.getZ();
 
-        world.sendParticles(new ItemParticleData(ParticleTypes.ITEM, stack), x, y, z, 0, velX, velY, velZ, 0.18D);
+        world.sendParticles(new ItemParticleOption(ParticleTypes.ITEM, stack), x, y, z, 0, velX, velY, velZ, 0.18D);
     }
 
     private boolean canInsertStack(int slot, ItemStack stack) {

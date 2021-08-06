@@ -21,10 +21,10 @@ import mezz.jei.api.registration.IRecipeCategoryRegistration;
 import mezz.jei.api.registration.IRecipeRegistration;
 import mezz.jei.api.registration.ISubtypeRegistration;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.world.ClientWorld;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.crafting.RecipeManager;
-import net.minecraft.util.ResourceLocation;
+import net.minecraft.client.multiplayer.ClientLevel;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.crafting.RecipeManager;
+import net.minecraft.resources.ResourceLocation;
 
 @JeiPlugin
 public final class JeiCompat implements IModPlugin {
@@ -62,7 +62,7 @@ public final class JeiCompat implements IModPlugin {
 
     @Override
     public void registerRecipes(IRecipeRegistration registration) {
-        ClientWorld world = Minecraft.getInstance().level;
+        ClientLevel world = Minecraft.getInstance().level;
         if (world != null) {
             RecipeManager manager = world.getRecipeManager();
 

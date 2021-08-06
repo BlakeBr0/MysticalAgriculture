@@ -5,14 +5,14 @@ import com.blakebr0.mysticalagriculture.api.crafting.IReprocessorRecipe;
 import com.blakebr0.mysticalagriculture.api.crafting.RecipeTypes;
 import com.blakebr0.mysticalagriculture.init.ModRecipeSerializers;
 import com.google.gson.JsonObject;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.crafting.IRecipeSerializer;
-import net.minecraft.item.crafting.IRecipeType;
-import net.minecraft.item.crafting.Ingredient;
-import net.minecraft.item.crafting.ShapedRecipe;
-import net.minecraft.network.PacketBuffer;
-import net.minecraft.util.NonNullList;
-import net.minecraft.util.ResourceLocation;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.crafting.RecipeSerializer;
+import net.minecraft.world.item.crafting.RecipeType;
+import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.world.item.crafting.ShapedRecipe;
+import net.minecraft.network.FriendlyByteBuf;
+import net.minecraft.core.NonNullList;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.registries.ForgeRegistryEntry;
 
@@ -53,12 +53,12 @@ public class ReprocessorRecipe implements ISpecialRecipe, IReprocessorRecipe {
     }
 
     @Override
-    public IRecipeSerializer<ReprocessorRecipe> getSerializer() {
+    public RecipeSerializer<ReprocessorRecipe> getSerializer() {
         return ModRecipeSerializers.REPROCESSOR;
     }
 
     @Override
-    public IRecipeType<? extends IReprocessorRecipe> getType() {
+    public RecipeType<? extends IReprocessorRecipe> getType() {
         return RecipeTypes.REPROCESSOR;
     }
 
@@ -68,7 +68,7 @@ public class ReprocessorRecipe implements ISpecialRecipe, IReprocessorRecipe {
         return this.inputs.get(0).test(stack);
     }
 
-    public static class Serializer extends ForgeRegistryEntry<IRecipeSerializer<?>> implements IRecipeSerializer<ReprocessorRecipe> {
+    public static class Serializer extends ForgeRegistryEntry<RecipeSerializer<?>> implements RecipeSerializer<ReprocessorRecipe> {
         @Override
         public ReprocessorRecipe fromJson(ResourceLocation recipeId, JsonObject json) {
             JsonObject ingredient = json.getAsJsonObject("input");
@@ -79,7 +79,7 @@ public class ReprocessorRecipe implements ISpecialRecipe, IReprocessorRecipe {
         }
 
         @Override
-        public ReprocessorRecipe fromNetwork(ResourceLocation recipeId, PacketBuffer buffer) {
+        public ReprocessorRecipe fromNetwork(ResourceLocation recipeId, FriendlyByteBuf buffer) {
             Ingredient input = Ingredient.fromNetwork(buffer);
             ItemStack output = buffer.readItem();
 
@@ -87,7 +87,7 @@ public class ReprocessorRecipe implements ISpecialRecipe, IReprocessorRecipe {
         }
 
         @Override
-        public void toNetwork(PacketBuffer buffer, ReprocessorRecipe recipe) {
+        public void toNetwork(FriendlyByteBuf buffer, ReprocessorRecipe recipe) {
             recipe.inputs.get(0).toNetwork(buffer);
             buffer.writeItem(recipe.output);
         }

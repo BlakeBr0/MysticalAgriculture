@@ -2,17 +2,17 @@ package com.blakebr0.mysticalagriculture.item;
 
 import com.blakebr0.cucumber.item.BaseItem;
 import com.blakebr0.cucumber.util.Utils;
-import net.minecraft.entity.item.ExperienceOrbEntity;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.ActionResult;
-import net.minecraft.util.ActionResultType;
-import net.minecraft.util.Hand;
-import net.minecraft.world.World;
+import net.minecraft.world.entity.ExperienceOrb;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.InteractionResultHolder;
+import net.minecraft.world.InteractionResult;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.level.Level;
 
 import java.util.function.Function;
 
-import net.minecraft.item.Item.Properties;
+import net.minecraft.world.item.Item.Properties;
 
 public class ExperienceDropletItem extends BaseItem {
     public ExperienceDropletItem(Function<Properties, Properties> properties) {
@@ -20,7 +20,7 @@ public class ExperienceDropletItem extends BaseItem {
     }
 
     @Override
-    public ActionResult<ItemStack> use(World world, PlayerEntity player, Hand hand) {
+    public InteractionResultHolder<ItemStack> use(Level world, Player player, InteractionHand hand) {
         ItemStack stack = player.getItemInHand(hand);
         int used = 0;
 
@@ -31,13 +31,13 @@ public class ExperienceDropletItem extends BaseItem {
                     xp += Utils.randInt(8, 12);
                 }
 
-                ExperienceOrbEntity orb = new ExperienceOrbEntity(world, player.getX(), player.getY(), player.getZ(), xp);
+                ExperienceOrb orb = new ExperienceOrb(world, player.getX(), player.getY(), player.getZ(), xp);
                 world.addFreshEntity(orb);
 
                 used = stack.getCount();
             } else {
                 int xp = Utils.randInt(8, 12);
-                ExperienceOrbEntity orb = new ExperienceOrbEntity(world, player.getX(), player.getY(), player.getZ(), xp);
+                ExperienceOrb orb = new ExperienceOrb(world, player.getX(), player.getY(), player.getZ(), xp);
                 world.addFreshEntity(orb);
                 used = 1;
             }
@@ -46,6 +46,6 @@ public class ExperienceDropletItem extends BaseItem {
         if (!player.isCreative())
             stack.shrink(used);
 
-        return new ActionResult<>(ActionResultType.SUCCESS, stack);
+        return new InteractionResultHolder<>(InteractionResult.SUCCESS, stack);
     }
 }

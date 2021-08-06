@@ -1,14 +1,14 @@
 package com.blakebr0.mysticalagriculture.api.crop;
 
 import com.blakebr0.mysticalagriculture.api.lib.LazyIngredient;
-import net.minecraft.block.Block;
-import net.minecraft.block.CropsBlock;
-import net.minecraft.item.BlockNamedItem;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.crafting.Ingredient;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.text.ITextComponent;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.CropBlock;
+import net.minecraft.world.item.ItemNameBlockItem;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.network.chat.Component;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -21,16 +21,16 @@ import java.util.function.Supplier;
  */
 public class Crop implements ICrop {
     private final ResourceLocation id;
-    private ITextComponent displayName;
+    private Component displayName;
     private CropTier tier;
     private CropType type;
     private int flowerColor;
     private int essenceColor;
     private int seedColor;
     private CropTextures textures;
-    private Supplier<? extends CropsBlock> crop;
+    private Supplier<? extends CropBlock> crop;
     private Supplier<? extends Item> essence;
-    private Supplier<? extends BlockNamedItem> seeds;
+    private Supplier<? extends ItemNameBlockItem> seeds;
     private Supplier<? extends Block> crux;
     private LazyIngredient craftingMaterial;
     private boolean enabled;
@@ -106,12 +106,12 @@ public class Crop implements ICrop {
     }
 
     @Override
-    public ITextComponent getDisplayName() {
+    public Component getDisplayName() {
         return this.displayName != null ? this.displayName : ICrop.super.getDisplayName();
     }
 
     @Override
-    public ICrop setDisplayName(ITextComponent name) {
+    public ICrop setDisplayName(Component name) {
         this.displayName = name;
         return this;
     }
@@ -177,12 +177,12 @@ public class Crop implements ICrop {
     }
 
     @Override
-    public CropsBlock getCrop() {
+    public CropBlock getCrop() {
         return this.crop == null ? null : this.crop.get();
     }
 
     @Override
-    public ICrop setCrop(Supplier<? extends CropsBlock> crop, boolean register) {
+    public ICrop setCrop(Supplier<? extends CropBlock> crop, boolean register) {
         this.crop = crop;
         this.registerCropBlock = register;
         return this;
@@ -211,12 +211,12 @@ public class Crop implements ICrop {
     }
 
     @Override
-    public BlockNamedItem getSeeds() {
+    public ItemNameBlockItem getSeeds() {
         return this.seeds == null ? null : this.seeds.get();
     }
 
     @Override
-    public ICrop setSeeds(Supplier<? extends BlockNamedItem> seeds, boolean register) {
+    public ICrop setSeeds(Supplier<? extends ItemNameBlockItem> seeds, boolean register) {
         this.seeds = seeds;
         this.registerSeedsItem = register;
         return this;

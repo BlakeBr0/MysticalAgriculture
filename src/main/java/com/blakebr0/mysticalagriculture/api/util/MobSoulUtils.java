@@ -2,10 +2,10 @@ package com.blakebr0.mysticalagriculture.api.util;
 
 import com.blakebr0.mysticalagriculture.api.MysticalAgricultureAPI;
 import com.blakebr0.mysticalagriculture.api.soul.IMobSoulType;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.CompoundNBT;
-import net.minecraft.util.ResourceLocation;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.ForgeRegistries;
 
@@ -17,7 +17,7 @@ public class MobSoulUtils {
      * @param type the mod soul type
      * @return a tag compound for the specified mob soul type
      */
-    public static CompoundNBT makeTag(IMobSoulType type) {
+    public static CompoundTag makeTag(IMobSoulType type) {
         return makeTag(type, type.getSoulRequirement());
     }
 
@@ -27,8 +27,8 @@ public class MobSoulUtils {
      * @param souls the amount of souls in this tag
      * @return a tag compound for the specified mob soul type
      */
-    public static CompoundNBT makeTag(IMobSoulType type, double souls) {
-        CompoundNBT nbt = new CompoundNBT();
+    public static CompoundTag makeTag(IMobSoulType type, double souls) {
+        CompoundTag nbt = new CompoundTag();
         nbt.putString("Type", type.getId().toString());
         nbt.putDouble("Souls", Math.min(souls, type.getSoulRequirement()));
 
@@ -53,7 +53,7 @@ public class MobSoulUtils {
      * @return the soul jar
      */
     public static ItemStack getSoulJar(IMobSoulType type, double souls, Item item) {
-        CompoundNBT nbt = makeTag(type, souls);
+        CompoundTag nbt = makeTag(type, souls);
         ItemStack stack = new ItemStack(item);
         stack.setTag(nbt);
 
@@ -76,7 +76,7 @@ public class MobSoulUtils {
      * @return the filled soul jar
      */
     public static ItemStack getFilledSoulJar(IMobSoulType type, Item item) {
-        CompoundNBT nbt = makeTag(type);
+        CompoundTag nbt = makeTag(type);
         ItemStack stack = new ItemStack(item);
         stack.setTag(nbt);
 
@@ -89,7 +89,7 @@ public class MobSoulUtils {
      * @return the mob soul type
      */
     public static IMobSoulType getType(ItemStack stack) {
-        CompoundNBT nbt = stack.getTag();
+        CompoundTag nbt = stack.getTag();
         if (nbt != null && nbt.contains("Type")) {
             String type = nbt.getString("Type");
             return MysticalAgricultureAPI.getMobSoulTypeRegistry().getMobSoulTypeById(new ResourceLocation(type));
@@ -104,7 +104,7 @@ public class MobSoulUtils {
      * @return the amount of souls
      */
     public static double getSouls(ItemStack stack) {
-        CompoundNBT nbt = stack.getTag();
+        CompoundTag nbt = stack.getTag();
         if (nbt != null && nbt.contains("Souls"))
             return nbt.getDouble("Souls");
 
@@ -146,14 +146,14 @@ public class MobSoulUtils {
 
         double requirement = type.getSoulRequirement();
         if (containedType == null) {
-            CompoundNBT nbt = makeTag(type, amount);
+            CompoundTag nbt = makeTag(type, amount);
             stack.setTag(nbt);
 
             return Math.max(0, amount - requirement);
         } else {
             double souls = getSouls(stack);
             if (souls < requirement) {
-                CompoundNBT nbt = stack.getTag();
+                CompoundTag nbt = stack.getTag();
 
                 if (nbt != null) {
                     double newSouls = Math.min(requirement, souls + amount);

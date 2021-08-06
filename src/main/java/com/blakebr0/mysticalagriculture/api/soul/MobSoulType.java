@@ -1,11 +1,11 @@
 package com.blakebr0.mysticalagriculture.api.soul;
 
 import com.google.common.collect.Sets;
-import net.minecraft.entity.EntityType;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.text.ITextComponent;
-import net.minecraft.util.text.TranslationTextComponent;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraftforge.registries.ForgeRegistries;
 
 import java.util.Set;
@@ -21,7 +21,7 @@ public class MobSoulType implements IMobSoulType {
     private double soulRequirement;
     private int color;
     private String entityDisplayNameKey = null;
-    private ITextComponent entityDisplayName = null;
+    private Component entityDisplayName = null;
     private boolean enabled;
 
     /**
@@ -111,10 +111,10 @@ public class MobSoulType implements IMobSoulType {
     }
 
     @Override
-    public ITextComponent getEntityDisplayName() {
+    public Component getEntityDisplayName() {
         if (this.entityDisplayName == null) {
             if (this.entityDisplayNameKey != null) {
-                this.entityDisplayName = new TranslationTextComponent(String.format("mobSoulType.%s.%s", this.getModId(), this.entityDisplayNameKey));
+                this.entityDisplayName = new TranslatableComponent(String.format("mobSoulType.%s.%s", this.getModId(), this.entityDisplayNameKey));
             } else {
                 ResourceLocation entityId = this.entityIds.stream().findFirst().orElse(null);
                 if (entityId != null) {
@@ -125,7 +125,7 @@ public class MobSoulType implements IMobSoulType {
                     }
                 }
 
-                this.entityDisplayName = new TranslationTextComponent("tooltip.mysticalagriculture.invalid_entity");
+                this.entityDisplayName = new TranslatableComponent("tooltip.mysticalagriculture.invalid_entity");
             }
         }
 
@@ -133,7 +133,7 @@ public class MobSoulType implements IMobSoulType {
     }
 
     @Override
-    public MobSoulType setEntityDisplayName(ITextComponent name) {
+    public MobSoulType setEntityDisplayName(Component name) {
         this.entityDisplayName = name;
         return this;
     }

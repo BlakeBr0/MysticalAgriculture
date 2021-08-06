@@ -1,6 +1,6 @@
 package com.blakebr0.mysticalagriculture.api.crop;
 
-import net.minecraft.util.ResourceLocation;
+import net.minecraft.resources.ResourceLocation;
 
 import static com.blakebr0.mysticalagriculture.api.MysticalAgricultureAPI.MOD_ID;
 

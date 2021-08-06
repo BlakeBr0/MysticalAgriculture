@@ -4,21 +4,21 @@ import com.blakebr0.cucumber.client.screen.BaseContainerScreen;
 import com.blakebr0.cucumber.iface.IToggleableSlot;
 import com.blakebr0.mysticalagriculture.MysticalAgriculture;
 import com.blakebr0.mysticalagriculture.container.TinkeringTableContainer;
-import com.mojang.blaze3d.matrix.MatrixStack;
-import net.minecraft.entity.player.PlayerInventory;
-import net.minecraft.inventory.container.Slot;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.text.ITextComponent;
+import com.mojang.blaze3d.vertex.PoseStack;
+import net.minecraft.world.entity.player.Inventory;
+import net.minecraft.world.inventory.Slot;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.network.chat.Component;
 
 public class TinkeringTableScreen extends BaseContainerScreen<TinkeringTableContainer> {
     private static final ResourceLocation BACKGROUND = new ResourceLocation(MysticalAgriculture.MOD_ID, "textures/gui/tinkering_table.png");
 
-    public TinkeringTableScreen(TinkeringTableContainer container, PlayerInventory inv, ITextComponent title) {
+    public TinkeringTableScreen(TinkeringTableContainer container, Inventory inv, Component title) {
         super(container, inv, title, BACKGROUND, 176, 197);
     }
 
     @Override
-    protected void renderLabels(MatrixStack stack, int mouseX, int mouseY) {
+    protected void renderLabels(PoseStack stack, int mouseX, int mouseY) {
         String title = this.getTitle().getString();
         this.font.draw(stack, title, (float) (this.imageWidth / 2 - this.font.width(title) / 2), 6.0F, 4210752);
         String inventory = this.inventory.getDisplayName().getString();
@@ -26,7 +26,7 @@ public class TinkeringTableScreen extends BaseContainerScreen<TinkeringTableCont
     }
 
     @Override
-    protected void renderBg(MatrixStack stack, float partialTicks, int mouseX, int mouseY) {
+    protected void renderBg(PoseStack stack, float partialTicks, int mouseX, int mouseY) {
         super.renderBg(stack, partialTicks, mouseX, mouseY);
 
         int x = this.getGuiLeft();

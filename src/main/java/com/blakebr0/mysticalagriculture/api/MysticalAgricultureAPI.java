@@ -5,12 +5,12 @@ import com.blakebr0.mysticalagriculture.api.crop.CropType;
 import com.blakebr0.mysticalagriculture.api.registry.IAugmentRegistry;
 import com.blakebr0.mysticalagriculture.api.registry.ICropRegistry;
 import com.blakebr0.mysticalagriculture.api.registry.IMobSoulTypeRegistry;
-import net.minecraft.block.Block;
-import net.minecraft.item.Item;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.item.Item;
 import net.minecraft.tags.BlockTags;
-import net.minecraft.tags.ITag;
+import net.minecraft.tags.Tag;
 import net.minecraft.tags.ItemTags;
-import net.minecraft.util.ResourceLocation;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.fml.ModLoadingContext;
 
 import java.util.HashSet;
@@ -20,9 +20,9 @@ public class MysticalAgricultureAPI {
     public static final String MOD_ID = "mysticalagriculture";
     public static final Set<CropType> CROP_TYPES = new HashSet<>();
     public static final Set<CropTier> CROP_TIERS = new HashSet<>();
-    public static final ITag.INamedTag<Block> CROPS_TAG = BlockTags.bind("mysticalagriculture:crops");
-    public static final ITag.INamedTag<Item> ESSENCES_TAG = ItemTags.bind("mysticalagriculture:essences");
-    public static final ITag.INamedTag<Item> SEEDS_TAG = ItemTags.bind("mysticalagriculture:seeds");
+    public static final Tag.Named<Block> CROPS_TAG = BlockTags.bind("mysticalagriculture:crops");
+    public static final Tag.Named<Item> ESSENCES_TAG = ItemTags.bind("mysticalagriculture:essences");
+    public static final Tag.Named<Item> SEEDS_TAG = ItemTags.bind("mysticalagriculture:seeds");
 
     private static ICropRegistry cropRegistry;
     private static IAugmentRegistry augmentRegistry;

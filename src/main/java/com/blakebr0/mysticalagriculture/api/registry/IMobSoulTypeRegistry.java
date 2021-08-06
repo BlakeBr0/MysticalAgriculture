@@ -1,8 +1,8 @@
 package com.blakebr0.mysticalagriculture.api.registry;
 
 import com.blakebr0.mysticalagriculture.api.soul.IMobSoulType;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.util.ResourceLocation;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.resources.ResourceLocation;
 
 import java.util.List;
 import java.util.Set;

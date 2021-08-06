@@ -4,8 +4,8 @@ import com.blakebr0.mysticalagriculture.MysticalAgriculture;
 import com.blakebr0.mysticalagriculture.api.crop.ICrop;
 import com.blakebr0.mysticalagriculture.registry.CropRegistry;
 import com.google.gson.JsonObject;
-import net.minecraft.util.JSONUtils;
-import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.GsonHelper;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.common.crafting.conditions.ICondition;
 import net.minecraftforge.common.crafting.conditions.IConditionSerializer;
 
@@ -38,7 +38,7 @@ public class CropEnabledCondition implements ICondition {
 
         @Override
         public CropEnabledCondition read(JsonObject json) {
-            String crop = JSONUtils.getAsString(json, "crop");
+            String crop = GsonHelper.getAsString(json, "crop");
             return new CropEnabledCondition(new ResourceLocation(crop));
         }
 

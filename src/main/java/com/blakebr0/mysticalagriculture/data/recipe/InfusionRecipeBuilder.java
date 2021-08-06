@@ -6,13 +6,13 @@ import com.blakebr0.mysticalagriculture.init.ModRecipeSerializers;
 import com.google.common.collect.Lists;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
-import net.minecraft.data.IFinishedRecipe;
-import net.minecraft.item.Item;
-import net.minecraft.item.crafting.IRecipeSerializer;
-import net.minecraft.item.crafting.Ingredient;
-import net.minecraft.util.IItemProvider;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.registry.Registry;
+import net.minecraft.data.recipes.FinishedRecipe;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.crafting.RecipeSerializer;
+import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.world.level.ItemLike;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.core.Registry;
 
 import java.util.List;
 import java.util.function.Consumer;
@@ -24,7 +24,7 @@ public class InfusionRecipeBuilder {
     private final JsonArray conditions = new JsonArray();
     private Ingredient input = Ingredient.EMPTY;
 
-    public InfusionRecipeBuilder(IItemProvider output, int count) {
+    public InfusionRecipeBuilder(ItemLike output, int count) {
         this.result = output.asItem();
         this.count = count;
     }
@@ -33,7 +33,7 @@ public class InfusionRecipeBuilder {
         this.ingredients.add(ingredient);
     }
 
-    public void addIngredient(IItemProvider ingredient) {
+    public void addIngredient(ItemLike ingredient) {
         this.ingredients.add(Ingredient.of(ingredient));
     }
 
@@ -76,11 +76,11 @@ public class InfusionRecipeBuilder {
         return builder;
     }
 
-    public void build(Consumer<IFinishedRecipe> consumer, ResourceLocation id) {
+    public void build(Consumer<FinishedRecipe> consumer, ResourceLocation id) {
         consumer.accept(new InfusionRecipeBuilder.Result(id, this.result, this.count, this.input, this.ingredients, this.conditions));
     }
 
-    public static class Result implements IFinishedRecipe {
+    public static class Result implements FinishedRecipe {
         private final ResourceLocation id;
         private final Item result;
         private final int count;
@@ -126,7 +126,7 @@ public class InfusionRecipeBuilder {
         }
 
         @Override
-        public IRecipeSerializer<?> getType() {
+        public RecipeSerializer<?> getType() {
             return ModRecipeSerializers.INFUSION;
         }
 

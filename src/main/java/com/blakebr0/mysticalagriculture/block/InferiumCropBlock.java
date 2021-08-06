@@ -3,14 +3,14 @@ package com.blakebr0.mysticalagriculture.block;
 import com.blakebr0.mysticalagriculture.api.crop.ICrop;
 import com.blakebr0.mysticalagriculture.api.farmland.IEssenceFarmland;
 import com.blakebr0.mysticalagriculture.config.ModConfigs;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.item.ItemStack;
-import net.minecraft.loot.LootContext;
-import net.minecraft.loot.LootParameters;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.vector.Vector3d;
-import net.minecraft.world.server.ServerWorld;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.storage.loot.LootContext;
+import net.minecraft.world.level.storage.loot.parameters.LootContextParams;
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.phys.Vec3;
+import net.minecraft.server.level.ServerLevel;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,9 +30,9 @@ public class InferiumCropBlock extends MysticalCropBlock {
         if (age == this.getMaxAge()) {
             crop = 1;
 
-            Vector3d vec = builder.getOptionalParameter(LootParameters.ORIGIN);
+            Vec3 vec = builder.getOptionalParameter(LootContextParams.ORIGIN);
             if (vec != null) {
-                ServerWorld world = builder.getLevel();
+                ServerLevel world = builder.getLevel();
                 BlockPos pos = new BlockPos(vec);
                 Block below = world.getBlockState(pos.below()).getBlock();
 

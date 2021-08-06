@@ -4,8 +4,8 @@ import com.blakebr0.mysticalagriculture.MysticalAgriculture;
 import com.blakebr0.mysticalagriculture.api.tinkering.IAugment;
 import com.blakebr0.mysticalagriculture.registry.AugmentRegistry;
 import com.google.gson.JsonObject;
-import net.minecraft.util.JSONUtils;
-import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.GsonHelper;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.common.crafting.conditions.ICondition;
 import net.minecraftforge.common.crafting.conditions.IConditionSerializer;
 
@@ -38,7 +38,7 @@ public class AugmentEnabledCondition implements ICondition {
 
         @Override
         public AugmentEnabledCondition read(JsonObject json) {
-            return new AugmentEnabledCondition(new ResourceLocation(JSONUtils.getAsString(json, "augment")));
+            return new AugmentEnabledCondition(new ResourceLocation(GsonHelper.getAsString(json, "augment")));
         }
 
         @Override

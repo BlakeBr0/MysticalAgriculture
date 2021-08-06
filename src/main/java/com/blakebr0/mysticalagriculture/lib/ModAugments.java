@@ -20,7 +20,7 @@ import com.blakebr0.mysticalagriculture.augment.StrengthAugment;
 import com.blakebr0.mysticalagriculture.augment.TillingAOEAugment;
 import com.blakebr0.mysticalagriculture.augment.WaterBreathingAugment;
 import com.blakebr0.mysticalagriculture.augment.WitherResistanceAugment;
-import net.minecraft.util.ResourceLocation;
+import net.minecraft.resources.ResourceLocation;
 
 import static com.blakebr0.mysticalagriculture.MysticalAgriculture.MOD_ID;
 

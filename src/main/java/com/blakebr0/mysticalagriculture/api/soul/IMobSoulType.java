@@ -1,9 +1,9 @@
 package com.blakebr0.mysticalagriculture.api.soul;
 
 import com.blakebr0.mysticalagriculture.api.registry.IMobSoulTypeRegistry;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.text.ITextComponent;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.network.chat.Component;
 
 import java.util.Set;
 
@@ -77,14 +77,14 @@ public interface IMobSoulType {
      * Gets the display name of the entity tooltip for this mob soul type
      * @return the entity display name
      */
-    ITextComponent getEntityDisplayName();
+    Component getEntityDisplayName();
 
     /**
      * Sets the display name of the entity tooltip for this mob soul type
      * @param name the new display name
      * @return this mob soul type
      */
-    MobSoulType setEntityDisplayName(ITextComponent name);
+    MobSoulType setEntityDisplayName(Component name);
 
     /**
      * Whether or not this mob soul type has recipes and shows up in the creative menu

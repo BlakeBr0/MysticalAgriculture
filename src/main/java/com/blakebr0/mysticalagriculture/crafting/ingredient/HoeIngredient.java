@@ -7,11 +7,11 @@ import com.google.gson.JsonObject;
 import it.unimi.dsi.fastutil.ints.IntArrayList;
 import it.unimi.dsi.fastutil.ints.IntComparators;
 import it.unimi.dsi.fastutil.ints.IntList;
-import net.minecraft.item.HoeItem;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.crafting.Ingredient;
-import net.minecraft.item.crafting.RecipeItemHelper;
-import net.minecraft.network.PacketBuffer;
+import net.minecraft.world.item.HoeItem;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.world.entity.player.StackedContents;
+import net.minecraft.network.FriendlyByteBuf;
 import net.minecraftforge.common.crafting.IIngredientSerializer;
 
 import java.util.ArrayList;
@@ -45,7 +45,7 @@ public class HoeIngredient extends Ingredient {
             }
 
             this.stacksPacked = new IntArrayList(this.stacks.length);
-            Arrays.stream(this.stacks).forEach(s -> this.stacksPacked.add(RecipeItemHelper.getStackingIndex(s)));
+            Arrays.stream(this.stacks).forEach(s -> this.stacksPacked.add(StackedContents.getStackingIndex(s)));
             this.stacksPacked.sort(IntComparators.NATURAL_COMPARATOR);
         }
 
@@ -112,7 +112,7 @@ public class HoeIngredient extends Ingredient {
 
     public static class Serializer implements IIngredientSerializer<HoeIngredient> {
         @Override
-        public HoeIngredient parse(PacketBuffer buffer) {
+        public HoeIngredient parse(FriendlyByteBuf buffer) {
             return new HoeIngredient();
         }
 
@@ -122,7 +122,7 @@ public class HoeIngredient extends Ingredient {
         }
 
         @Override
-        public void write(PacketBuffer buffer, HoeIngredient ingredient) {
+        public void write(FriendlyByteBuf buffer, HoeIngredient ingredient) {
 
         }
     }

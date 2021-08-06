@@ -14,15 +14,15 @@ import mcp.mobius.waila.api.IRegistrar;
 import mcp.mobius.waila.api.IWailaPlugin;
 import mcp.mobius.waila.api.TooltipPosition;
 import mcp.mobius.waila.api.WailaPlugin;
-import net.minecraft.block.Block;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.text.ITextComponent;
-import net.minecraft.util.text.StringTextComponent;
-import net.minecraft.util.text.TextFormatting;
-import net.minecraft.world.World;
-import net.minecraft.world.biome.Biome;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.core.BlockPos;
+import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.TextComponent;
+import net.minecraft.ChatFormatting;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.biome.Biome;
 
 import java.util.List;
 import java.util.Set;
@@ -33,9 +33,9 @@ public class HwylaCompat implements IWailaPlugin {
     public void register(IRegistrar registrar) {
         registrar.registerComponentProvider(new IComponentProvider() {
             @Override
-            public void appendHead(List<ITextComponent> tooltip, IDataAccessor accessor, IPluginConfig config) {
+            public void appendHead(List<Component> tooltip, IDataAccessor accessor, IPluginConfig config) {
                 ItemStack stack = accessor.getStack();
-                StringTextComponent text = new StringTextComponent(Colors.WHITE + stack.getHoverName().getString());
+                TextComponent text = new TextComponent(Colors.WHITE + stack.getHoverName().getString());
 
                 tooltip.set(0, text);
             }
@@ -43,7 +43,7 @@ public class HwylaCompat implements IWailaPlugin {
 
         registrar.registerComponentProvider(new IComponentProvider() {
             @Override
-            public void appendBody(List<ITextComponent> tooltip, IDataAccessor accessor, IPluginConfig config) {
+            public void appendBody(List<Component> tooltip, IDataAccessor accessor, IPluginConfig config) {
                 Block block = accessor.getBlock();
                 ICrop crop = ((ICropGetter) block).getCrop();
 
@@ -51,12 +51,12 @@ public class HwylaCompat implements IWailaPlugin {
 
                 BlockPos pos = accessor.getPosition();
                 BlockPos downPos = pos.below();
-                World world = accessor.getWorld();
+                Level world = accessor.getWorld();
                 Block belowBlock = world.getBlockState(downPos).getBlock();
 
                 double secondaryChance = crop.getSecondaryChance(belowBlock);
                 if (secondaryChance > 0) {
-                    ITextComponent chanceText = new StringTextComponent(String.valueOf((int) (secondaryChance * 100)))
+                    Component chanceText = new TextComponent(String.valueOf((int) (secondaryChance * 100)))
                             .append("%")
                             .withStyle(crop.getTier().getTextColor());
 
@@ -73,7 +73,7 @@ public class HwylaCompat implements IWailaPlugin {
                 if (!biomes.isEmpty()) {
                     Biome biome = world.getBiome(pos);
                     if (!biomes.contains(biome.getRegistryName())) {
-                        tooltip.add(ModTooltips.INVALID_BIOME.color(TextFormatting.RED).build());
+                        tooltip.add(ModTooltips.INVALID_BIOME.color(ChatFormatting.RED).build());
                     }
                 }
             }
@@ -81,7 +81,7 @@ public class HwylaCompat implements IWailaPlugin {
 
         registrar.registerComponentProvider(new IComponentProvider() {
             @Override
-            public void appendBody(List<ITextComponent> tooltip, IDataAccessor accessor, IPluginConfig config) {
+            public void appendBody(List<Component> tooltip, IDataAccessor accessor, IPluginConfig config) {
                 Block block = accessor.getBlock();
                 ICrop crop = ((ICropGetter) block).getCrop();
                 BlockPos downPos = accessor.getPosition().below();
@@ -94,14 +94,14 @@ public class HwylaCompat implements IWailaPlugin {
                     output = (tier * 50) + 50;
                 }
 
-                ITextComponent inferiumOutputText = new StringTextComponent(String.valueOf(output)).append("%").withStyle(crop.getTier().getTextColor());
+                Component inferiumOutputText = new TextComponent(String.valueOf(output)).append("%").withStyle(crop.getTier().getTextColor());
                 tooltip.add(ModTooltips.INFERIUM_OUTPUT.args(inferiumOutputText).build());
             }
         }, TooltipPosition.BODY, InferiumCropBlock.class);
 
         registrar.registerComponentProvider(new IComponentProvider() {
             @Override
-            public void appendBody(List<ITextComponent> tooltip, IDataAccessor accessor, IPluginConfig config) {
+            public void appendBody(List<Component> tooltip, IDataAccessor accessor, IPluginConfig config) {
                 Block block = accessor.getBlock();
                 IEssenceFarmland farmland = (IEssenceFarmland) block;
 

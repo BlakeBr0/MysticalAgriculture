@@ -2,8 +2,8 @@ package com.blakebr0.mysticalagriculture.lib;
 
 import com.blakebr0.cucumber.util.Tooltip;
 import com.blakebr0.mysticalagriculture.api.util.AugmentUtils;
-import net.minecraft.util.text.ITextComponent;
-import net.minecraft.util.text.TextFormatting;
+import net.minecraft.network.chat.Component;
+import net.minecraft.ChatFormatting;
 import net.minecraftforge.fml.ModList;
 
 public final class ModTooltips {
@@ -39,11 +39,11 @@ public final class ModTooltips {
     public static final Tooltip FERTILIZED_ESSENCE_CHANCE = new Tooltip("tooltip.mysticalagriculture.fertilized_essence_chance");
     public static final Tooltip MYSTICAL_FERTILIZER = new Tooltip("tooltip.mysticalagriculture.mystical_fertilizer");
 
-    public static ITextComponent getTooltipForTier(int tier) {
-        return TIER.args(AugmentUtils.getTooltipForTier(tier)).color(TextFormatting.GRAY).build();
+    public static Component getTooltipForTier(int tier) {
+        return TIER.args(AugmentUtils.getTooltipForTier(tier)).color(ChatFormatting.GRAY).build();
     }
 
-    public static ITextComponent getAddedByTooltip(String modid) {
+    public static Component getAddedByTooltip(String modid) {
         String name = ModList.get().getModFileById(modid).getMods().get(0).getDisplayName();
         return ModTooltips.ADDED_BY.args(name).build();
     }

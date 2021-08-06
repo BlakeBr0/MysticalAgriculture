@@ -10,14 +10,14 @@ import com.blakebr0.mysticalagriculture.init.ModRecipeSerializers;
 import com.blakebr0.mysticalagriculture.registry.MobSoulTypeRegistry;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.crafting.IRecipeSerializer;
-import net.minecraft.item.crafting.IRecipeType;
-import net.minecraft.item.crafting.Ingredient;
-import net.minecraft.network.PacketBuffer;
-import net.minecraft.util.JSONUtils;
-import net.minecraft.util.NonNullList;
-import net.minecraft.util.ResourceLocation;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.crafting.RecipeSerializer;
+import net.minecraft.world.item.crafting.RecipeType;
+import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.network.FriendlyByteBuf;
+import net.minecraft.util.GsonHelper;
+import net.minecraft.core.NonNullList;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.registries.ForgeRegistryEntry;
 
@@ -67,12 +67,12 @@ public class SoulExtractionRecipe implements ISpecialRecipe, ISoulExtractionReci
     }
 
     @Override
-    public IRecipeSerializer<SoulExtractionRecipe> getSerializer() {
+    public RecipeSerializer<SoulExtractionRecipe> getSerializer() {
         return ModRecipeSerializers.SOUL_EXTRACTION;
     }
 
     @Override
-    public IRecipeType<? extends ISoulExtractionRecipe> getType() {
+    public RecipeType<? extends ISoulExtractionRecipe> getType() {
         return RecipeTypes.SOUL_EXTRACTION;
     }
 
@@ -99,14 +99,14 @@ public class SoulExtractionRecipe implements ISpecialRecipe, ISoulExtractionReci
         return this.souls;
     }
 
-    public static class Serializer extends ForgeRegistryEntry<IRecipeSerializer<?>> implements IRecipeSerializer<SoulExtractionRecipe> {
+    public static class Serializer extends ForgeRegistryEntry<RecipeSerializer<?>> implements RecipeSerializer<SoulExtractionRecipe> {
         @Override
         public SoulExtractionRecipe fromJson(ResourceLocation recipeId, JsonObject json) {
             JsonObject ingredient = json.getAsJsonObject("input");
             Ingredient input = Ingredient.fromJson(ingredient);
-            JsonObject output = JSONUtils.getAsJsonObject(json, "output");
-            String type = JSONUtils.getAsString(output, "type");
-            float amount = JSONUtils.getAsFloat(output, "souls");
+            JsonObject output = GsonHelper.getAsJsonObject(json, "output");
+            String type = GsonHelper.getAsString(output, "type");
+            float amount = GsonHelper.getAsFloat(output, "souls");
 
             IMobSoulType mobSoulType = MobSoulTypeRegistry.getInstance().getMobSoulTypeById(new ResourceLocation(type));
             if (mobSoulType == null) {
@@ -117,7 +117,7 @@ public class SoulExtractionRecipe implements ISpecialRecipe, ISoulExtractionReci
         }
 
         @Override
-        public SoulExtractionRecipe fromNetwork(ResourceLocation recipeId, PacketBuffer buffer) {
+        public SoulExtractionRecipe fromNetwork(ResourceLocation recipeId, FriendlyByteBuf buffer) {
             Ingredient input = Ingredient.fromNetwork(buffer);
             ResourceLocation type = buffer.readResourceLocation();
             double souls = buffer.readDouble();
@@ -128,7 +128,7 @@ public class SoulExtractionRecipe implements ISpecialRecipe, ISoulExtractionReci
         }
 
         @Override
-        public void toNetwork(PacketBuffer buffer, SoulExtractionRecipe recipe) {
+        public void toNetwork(FriendlyByteBuf buffer, SoulExtractionRecipe recipe) {
             recipe.inputs.get(0).toNetwork(buffer);
             buffer.writeResourceLocation(recipe.type.getId());
             buffer.writeDouble(recipe.souls);

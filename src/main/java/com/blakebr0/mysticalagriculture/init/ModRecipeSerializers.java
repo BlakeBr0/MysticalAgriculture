@@ -9,9 +9,9 @@ import com.blakebr0.mysticalagriculture.crafting.ingredient.CropComponentIngredi
 import com.blakebr0.mysticalagriculture.crafting.ingredient.FilledSoulJarIngredient;
 import com.blakebr0.mysticalagriculture.crafting.ingredient.HoeIngredient;
 import com.blakebr0.mysticalagriculture.crafting.recipe.*;
-import net.minecraft.item.HoeItem;
-import net.minecraft.item.crafting.IRecipeSerializer;
-import net.minecraft.util.ResourceLocation;
+import net.minecraft.world.item.HoeItem;
+import net.minecraft.world.item.crafting.RecipeSerializer;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.common.crafting.CraftingHelper;
 import net.minecraftforge.common.crafting.IIngredientSerializer;
 import net.minecraftforge.event.RegistryEvent;
@@ -20,20 +20,20 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.IForgeRegistry;
 
 public final class ModRecipeSerializers {
-    public static final IRecipeSerializer<FarmlandTillRecipe> CRAFTING_FARMLAND_TILL = new FarmlandTillRecipe.Serializer();
-    public static final IRecipeSerializer<InfusionRecipe> INFUSION = new InfusionRecipe.Serializer();
-    public static final IRecipeSerializer<ReprocessorRecipe> REPROCESSOR = new ReprocessorRecipe.Serializer();
-    public static final IRecipeSerializer<SoulExtractionRecipe> SOUL_EXTRACTION = new SoulExtractionRecipe.Serializer();
-    public static final IRecipeSerializer<TagRecipe> CRAFTING_TAG = new TagRecipe.Serializer();
-    public static final IRecipeSerializer<SoulJarEmptyRecipe> CRAFTING_SOUL_JAR_EMPTY = new SoulJarEmptyRecipe.Serializer();
+    public static final RecipeSerializer<FarmlandTillRecipe> CRAFTING_FARMLAND_TILL = new FarmlandTillRecipe.Serializer();
+    public static final RecipeSerializer<InfusionRecipe> INFUSION = new InfusionRecipe.Serializer();
+    public static final RecipeSerializer<ReprocessorRecipe> REPROCESSOR = new ReprocessorRecipe.Serializer();
+    public static final RecipeSerializer<SoulExtractionRecipe> SOUL_EXTRACTION = new SoulExtractionRecipe.Serializer();
+    public static final RecipeSerializer<TagRecipe> CRAFTING_TAG = new TagRecipe.Serializer();
+    public static final RecipeSerializer<SoulJarEmptyRecipe> CRAFTING_SOUL_JAR_EMPTY = new SoulJarEmptyRecipe.Serializer();
 
     public static final IIngredientSerializer<HoeIngredient> HOE_INGREDIENT = new HoeIngredient.Serializer();
     public static final IIngredientSerializer<FilledSoulJarIngredient> FILLED_SOUL_JAR_INGREDIENT = new FilledSoulJarIngredient.Serializer();
     public static final IIngredientSerializer<CropComponentIngredient> CROP_COMPONENT_INGREDIENT = new CropComponentIngredient.Serializer();
 
     @SubscribeEvent
-    public void onRegisterSerializers(RegistryEvent.Register<IRecipeSerializer<?>> event) {
-        IForgeRegistry<IRecipeSerializer<?>> registry = event.getRegistry();
+    public void onRegisterSerializers(RegistryEvent.Register<RecipeSerializer<?>> event) {
+        IForgeRegistry<RecipeSerializer<?>> registry = event.getRegistry();
 
         registry.register(CRAFTING_FARMLAND_TILL.setRegistryName(new ResourceLocation(MysticalAgriculture.MOD_ID, "farmland_till")));
         registry.register(INFUSION.setRegistryName(new ResourceLocation(MysticalAgriculture.MOD_ID, "infusion")));

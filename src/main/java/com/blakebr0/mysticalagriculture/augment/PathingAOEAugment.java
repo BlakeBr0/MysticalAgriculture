@@ -5,19 +5,19 @@ import com.blakebr0.mysticalagriculture.api.tinkering.Augment;
 import com.blakebr0.mysticalagriculture.api.tinkering.AugmentType;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Maps;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.ItemUseContext;
-import net.minecraft.util.Direction;
-import net.minecraft.util.Hand;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.SoundCategory;
-import net.minecraft.util.SoundEvents;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.World;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.context.UseOnContext;
+import net.minecraft.core.Direction;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.sounds.SoundSource;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.level.Level;
 
 import java.util.EnumSet;
 import java.util.Iterator;
@@ -33,21 +33,21 @@ public class PathingAOEAugment extends Augment {
     }
 
     @Override
-    public boolean onItemUse(ItemUseContext context) {
-        PlayerEntity player = context.getPlayer();
+    public boolean onItemUse(UseOnContext context) {
+        Player player = context.getPlayer();
         if (player == null)
             return false;
 
         ItemStack stack = context.getItemInHand();
-        World world = context.getLevel();
+        Level world = context.getLevel();
         BlockPos pos = context.getClickedPos();
         Direction direction = context.getClickedFace();
-        Hand hand = context.getHand();
+        InteractionHand hand = context.getHand();
 
         boolean playedSound = false;
 
         if (tryPath(stack, player, world, pos, direction, hand)) {
-            world.playSound(player, pos, SoundEvents.SHOVEL_FLATTEN, SoundCategory.BLOCKS, 1.0F, 1.0F);
+            world.playSound(player, pos, SoundEvents.SHOVEL_FLATTEN, SoundSource.BLOCKS, 1.0F, 1.0F);
 
             playedSound = true;
 
@@ -62,7 +62,7 @@ public class PathingAOEAugment extends Augment {
                 BlockPos aoePos = positions.next();
 
                 if (tryPath(stack, player, world, aoePos, direction, hand) && !playedSound) {
-                    world.playSound(player, pos, SoundEvents.HOE_TILL, SoundCategory.BLOCKS, 1.0F, 1.0F);
+                    world.playSound(player, pos, SoundEvents.HOE_TILL, SoundSource.BLOCKS, 1.0F, 1.0F);
 
                     playedSound = true;
                 }
@@ -72,7 +72,7 @@ public class PathingAOEAugment extends Augment {
         return true;
     }
 
-    private static boolean tryPath(ItemStack stack, PlayerEntity player, World world, BlockPos pos, Direction direction, Hand hand) {
+    private static boolean tryPath(ItemStack stack, Player player, Level world, BlockPos pos, Direction direction, InteractionHand hand) {
         if (direction != Direction.DOWN && world.isEmptyBlock(pos.above())) {
             BlockState state = PATH_LOOKUP.get(world.getBlockState(pos).getBlock());
             if (state != null) {

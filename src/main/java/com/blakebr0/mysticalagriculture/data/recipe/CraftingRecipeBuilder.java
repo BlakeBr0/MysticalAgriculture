@@ -6,13 +6,13 @@ import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
-import net.minecraft.data.IFinishedRecipe;
-import net.minecraft.item.Item;
-import net.minecraft.item.crafting.IRecipeSerializer;
-import net.minecraft.item.crafting.Ingredient;
-import net.minecraft.util.IItemProvider;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.registry.Registry;
+import net.minecraft.data.recipes.FinishedRecipe;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.crafting.RecipeSerializer;
+import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.world.level.ItemLike;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.core.Registry;
 
 import java.util.List;
 import java.util.Map;
@@ -26,7 +26,7 @@ public class CraftingRecipeBuilder {
     private final JsonArray conditions = new JsonArray();
     private String group = "";
 
-    public CraftingRecipeBuilder(IItemProvider output, int count) {
+    public CraftingRecipeBuilder(ItemLike output, int count) {
         this.result = output.asItem();
         this.count = count;
     }
@@ -82,11 +82,11 @@ public class CraftingRecipeBuilder {
         return builder;
     }
 
-    public void build(Consumer<IFinishedRecipe> consumer, ResourceLocation id) {
+    public void build(Consumer<FinishedRecipe> consumer, ResourceLocation id) {
         consumer.accept(new CraftingRecipeBuilder.Result(id, this.result, this.count, this.group, this.pattern, this.key, this.conditions));
     }
 
-    public static class Result implements IFinishedRecipe {
+    public static class Result implements FinishedRecipe {
         private final ResourceLocation id;
         private final Item result;
         private final int count;
@@ -141,8 +141,8 @@ public class CraftingRecipeBuilder {
         }
 
         @Override
-        public IRecipeSerializer<?> getType() {
-            return IRecipeSerializer.SHAPED_RECIPE;
+        public RecipeSerializer<?> getType() {
+            return RecipeSerializer.SHAPED_RECIPE;
         }
 
         @Override

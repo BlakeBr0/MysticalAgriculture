@@ -5,17 +5,17 @@ import com.blakebr0.mysticalagriculture.init.ModRecipeSerializers;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
-import net.minecraft.inventory.CraftingInventory;
-import net.minecraft.item.HoeItem;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.crafting.IRecipeSerializer;
-import net.minecraft.item.crafting.Ingredient;
-import net.minecraft.item.crafting.ShapedRecipe;
-import net.minecraft.item.crafting.ShapelessRecipe;
-import net.minecraft.network.PacketBuffer;
-import net.minecraft.util.JSONUtils;
-import net.minecraft.util.NonNullList;
-import net.minecraft.util.ResourceLocation;
+import net.minecraft.world.inventory.CraftingContainer;
+import net.minecraft.world.item.HoeItem;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.crafting.RecipeSerializer;
+import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.world.item.crafting.ShapedRecipe;
+import net.minecraft.world.item.crafting.ShapelessRecipe;
+import net.minecraft.network.FriendlyByteBuf;
+import net.minecraft.util.GsonHelper;
+import net.minecraft.core.NonNullList;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.registries.ForgeRegistryEntry;
 
 public class FarmlandTillRecipe extends ShapelessRecipe {
@@ -24,7 +24,7 @@ public class FarmlandTillRecipe extends ShapelessRecipe {
     }
 
     @Override
-    public NonNullList<ItemStack> getRemainingItems(CraftingInventory inv) {
+    public NonNullList<ItemStack> getRemainingItems(CraftingContainer inv) {
         NonNullList<ItemStack> remaining = super.getRemainingItems(inv);
         for (int i = 0; i < inv.getContainerSize(); i++) {
             ItemStack stack = inv.getItem(i);
@@ -40,19 +40,19 @@ public class FarmlandTillRecipe extends ShapelessRecipe {
     }
 
     @Override
-    public IRecipeSerializer<?> getSerializer() {
+    public RecipeSerializer<?> getSerializer() {
         return ModRecipeSerializers.CRAFTING_FARMLAND_TILL;
     }
 
-    public static class Serializer extends ForgeRegistryEntry<IRecipeSerializer<?>> implements IRecipeSerializer<FarmlandTillRecipe> {
+    public static class Serializer extends ForgeRegistryEntry<RecipeSerializer<?>> implements RecipeSerializer<FarmlandTillRecipe> {
         @Override
         public FarmlandTillRecipe fromJson(ResourceLocation recipeId, JsonObject json) {
-            String s = JSONUtils.getAsString(json, "group", "");
-            NonNullList<Ingredient> ingredients = readIngredients(JSONUtils.getAsJsonArray(json, "ingredients"));
+            String s = GsonHelper.getAsString(json, "group", "");
+            NonNullList<Ingredient> ingredients = readIngredients(GsonHelper.getAsJsonArray(json, "ingredients"));
             if (ingredients.isEmpty()) {
                 throw new JsonParseException("No ingredients for shapeless recipe");
             } else {
-                ItemStack itemstack = ShapedRecipe.itemFromJson(JSONUtils.getAsJsonObject(json, "result"));
+                ItemStack itemstack = ShapedRecipe.itemFromJson(GsonHelper.getAsJsonObject(json, "result"));
                 return new FarmlandTillRecipe(recipeId, s, itemstack, ingredients);
             }
         }
@@ -71,7 +71,7 @@ public class FarmlandTillRecipe extends ShapelessRecipe {
         }
 
         @Override
-        public FarmlandTillRecipe fromNetwork(ResourceLocation recipeId, PacketBuffer buffer) {
+        public FarmlandTillRecipe fromNetwork(ResourceLocation recipeId, FriendlyByteBuf buffer) {
             String s = buffer.readUtf(32767);
             int i = buffer.readVarInt();
             NonNullList<Ingredient> inputs = NonNullList.withSize(i, Ingredient.EMPTY);
@@ -85,7 +85,7 @@ public class FarmlandTillRecipe extends ShapelessRecipe {
         }
 
         @Override
-        public void toNetwork(PacketBuffer buffer, FarmlandTillRecipe recipe) {
+        public void toNetwork(FriendlyByteBuf buffer, FarmlandTillRecipe recipe) {
             buffer.writeUtf(recipe.getGroup());
             buffer.writeVarInt(recipe.getIngredients().size());
 

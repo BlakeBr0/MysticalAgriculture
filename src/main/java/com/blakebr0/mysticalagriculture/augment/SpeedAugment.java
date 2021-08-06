@@ -4,10 +4,10 @@ import com.blakebr0.cucumber.helper.ColorHelper;
 import com.blakebr0.mysticalagriculture.api.lib.AbilityCache;
 import com.blakebr0.mysticalagriculture.api.tinkering.Augment;
 import com.blakebr0.mysticalagriculture.api.tinkering.AugmentType;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.math.vector.Vector3d;
-import net.minecraft.world.World;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.phys.Vec3;
+import net.minecraft.world.level.Level;
 
 import java.util.EnumSet;
 
@@ -20,7 +20,7 @@ public class SpeedAugment extends Augment {
     }
 
     @Override
-    public void onPlayerTick(World world, PlayerEntity player, AbilityCache cache) {
+    public void onPlayerTick(Level world, Player player, AbilityCache cache) {
         boolean flying = player.abilities.flying;
         boolean swimming = player.isSwimming();
         boolean inWater = player.isInWater();
@@ -38,13 +38,13 @@ public class SpeedAugment extends Augment {
                     * this.amplifier;
 
             if (player.zza > 0F) {
-                player.moveRelative(1F, new Vector3d(0F, 0F, speed));
+                player.moveRelative(1F, new Vec3(0F, 0F, speed));
             } else if (player.zza < 0F) {
-                player.moveRelative(1F, new Vector3d(0F, 0F, -speed * 0.3F));
+                player.moveRelative(1F, new Vec3(0F, 0F, -speed * 0.3F));
             }
 
             if (player.xxa != 0F) {
-                player.moveRelative(1F, new Vector3d(speed * 0.5F * Math.signum(player.xxa), 0F, 0F));
+                player.moveRelative(1F, new Vec3(speed * 0.5F * Math.signum(player.xxa), 0F, 0F));
             }
         }
     }

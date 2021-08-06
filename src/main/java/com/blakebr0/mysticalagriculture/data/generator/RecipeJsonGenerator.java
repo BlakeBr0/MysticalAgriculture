@@ -6,9 +6,9 @@ import com.blakebr0.mysticalagriculture.data.recipe.InfusionRecipeBuilder;
 import com.blakebr0.mysticalagriculture.data.recipe.ReprocessorRecipeBuilder;
 import com.blakebr0.mysticalagriculture.registry.CropRegistry;
 import net.minecraft.data.DataGenerator;
-import net.minecraft.data.IFinishedRecipe;
-import net.minecraft.data.RecipeProvider;
-import net.minecraft.util.ResourceLocation;
+import net.minecraft.data.recipes.FinishedRecipe;
+import net.minecraft.data.recipes.RecipeProvider;
+import net.minecraft.resources.ResourceLocation;
 
 import java.util.function.Consumer;
 
@@ -18,7 +18,7 @@ public class RecipeJsonGenerator extends RecipeProvider {
     }
 
     @Override
-    protected void buildShapelessRecipes(Consumer<IFinishedRecipe> consumer) {
+    protected void buildShapelessRecipes(Consumer<FinishedRecipe> consumer) {
         CropRegistry.getInstance().getCrops().forEach(crop -> {
             String craftingId = "seed/crafting/" + crop.getName();
             CraftingRecipeBuilder.newSeedRecipe(crop).build(consumer, new ResourceLocation(crop.getModId(), craftingId));

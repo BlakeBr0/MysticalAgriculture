@@ -3,9 +3,9 @@ package com.blakebr0.mysticalagriculture.augment;
 import com.blakebr0.mysticalagriculture.api.lib.AbilityCache;
 import com.blakebr0.mysticalagriculture.api.tinkering.Augment;
 import com.blakebr0.mysticalagriculture.api.tinkering.AugmentType;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.world.World;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.level.Level;
 
 import java.util.EnumSet;
 
@@ -15,7 +15,7 @@ public class FlightAugment extends Augment {
     }
 
     @Override
-    public void onPlayerTick(World world, PlayerEntity player, AbilityCache cache) {
+    public void onPlayerTick(Level world, Player player, AbilityCache cache) {
         if (!player.abilities.mayfly || !cache.isCached(this, player)) {
             player.abilities.mayfly = true;
 

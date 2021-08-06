@@ -5,11 +5,11 @@ import com.blakebr0.mysticalagriculture.api.soul.ISoulSiphoningItem;
 import com.blakebr0.mysticalagriculture.api.util.MobSoulUtils;
 import com.blakebr0.mysticalagriculture.item.SoulJarItem;
 import com.blakebr0.mysticalagriculture.registry.MobSoulTypeRegistry;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.Hand;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.InteractionHand;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 
@@ -21,9 +21,9 @@ public final class MobSoulHandler {
     public void onLivingDeath(LivingDeathEvent event) {
         Entity source = event.getSource().getEntity();
 
-        if (source instanceof PlayerEntity) {
-            PlayerEntity player = (PlayerEntity) source;
-            ItemStack held = player.getItemInHand(Hand.MAIN_HAND);
+        if (source instanceof Player) {
+            Player player = (Player) source;
+            ItemStack held = player.getItemInHand(InteractionHand.MAIN_HAND);
 
             if (held.getItem() instanceof ISoulSiphoningItem) {
                 LivingEntity entity = event.getEntityLiving();
@@ -48,7 +48,7 @@ public final class MobSoulHandler {
         }
     }
 
-    private static List<ItemStack> getValidSoulJars(PlayerEntity player, IMobSoulType type) {
+    private static List<ItemStack> getValidSoulJars(Player player, IMobSoulType type) {
         return player.inventory.items.stream()
                 .filter(s -> s.getItem() instanceof SoulJarItem)
                 .filter(s -> MobSoulUtils.canAddTypeToJar(s, type))

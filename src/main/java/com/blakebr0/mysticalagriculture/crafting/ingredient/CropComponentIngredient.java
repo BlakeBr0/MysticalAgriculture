@@ -8,12 +8,12 @@ import com.google.gson.JsonObject;
 import it.unimi.dsi.fastutil.ints.IntArrayList;
 import it.unimi.dsi.fastutil.ints.IntComparators;
 import it.unimi.dsi.fastutil.ints.IntList;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.crafting.Ingredient;
-import net.minecraft.item.crafting.RecipeItemHelper;
-import net.minecraft.network.PacketBuffer;
-import net.minecraft.util.JSONUtils;
-import net.minecraft.util.ResourceLocation;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.world.entity.player.StackedContents;
+import net.minecraft.network.FriendlyByteBuf;
+import net.minecraft.util.GsonHelper;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.common.crafting.IIngredientSerializer;
 
 import java.util.Arrays;
@@ -50,7 +50,7 @@ public class CropComponentIngredient extends Ingredient {
             this.stacksPacked = new IntArrayList(this.stacks.length);
 
             for (ItemStack itemstack : this.stacks) {
-                this.stacksPacked.add(RecipeItemHelper.getStackingIndex(itemstack));
+                this.stacksPacked.add(StackedContents.getStackingIndex(itemstack));
             }
 
             this.stacksPacked.sort(IntComparators.NATURAL_COMPARATOR);
@@ -123,7 +123,7 @@ public class CropComponentIngredient extends Ingredient {
 
     public static class Serializer implements IIngredientSerializer<CropComponentIngredient> {
         @Override
-        public CropComponentIngredient parse(PacketBuffer buffer) {
+        public CropComponentIngredient parse(FriendlyByteBuf buffer) {
             ICrop crop = CropRegistry.getInstance().getCropById(new ResourceLocation(buffer.readUtf()));
             ComponentType type = ComponentType.fromName(buffer.readUtf());
 
@@ -132,8 +132,8 @@ public class CropComponentIngredient extends Ingredient {
 
         @Override
         public CropComponentIngredient parse(JsonObject json) {
-            String cropId = JSONUtils.getAsString(json, "crop");
-            String typeName = JSONUtils.getAsString(json, "component");
+            String cropId = GsonHelper.getAsString(json, "crop");
+            String typeName = GsonHelper.getAsString(json, "component");
             ICrop crop = CropRegistry.getInstance().getCropById(new ResourceLocation(cropId));
             ComponentType type = ComponentType.fromName(typeName);
 
@@ -141,7 +141,7 @@ public class CropComponentIngredient extends Ingredient {
         }
 
         @Override
-        public void write(PacketBuffer buffer, CropComponentIngredient ingredient) {
+        public void write(FriendlyByteBuf buffer, CropComponentIngredient ingredient) {
             buffer.writeUtf(ingredient.crop.getId().toString());
             buffer.writeUtf(ingredient.type.name);
         }

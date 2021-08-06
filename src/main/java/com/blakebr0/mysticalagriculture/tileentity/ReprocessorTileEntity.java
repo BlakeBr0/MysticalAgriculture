@@ -12,19 +12,19 @@ import com.blakebr0.mysticalagriculture.container.ReprocessorContainer;
 import com.blakebr0.mysticalagriculture.crafting.recipe.ReprocessorRecipe;
 import com.blakebr0.mysticalagriculture.init.ModTileEntities;
 import com.blakebr0.mysticalagriculture.util.ReprocessorTier;
-import net.minecraft.block.BlockState;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.entity.player.PlayerInventory;
-import net.minecraft.inventory.container.Container;
-import net.minecraft.inventory.container.INamedContainerProvider;
-import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.CompoundNBT;
-import net.minecraft.tileentity.FurnaceTileEntity;
-import net.minecraft.tileentity.ITickableTileEntity;
-import net.minecraft.tileentity.TileEntityType;
-import net.minecraft.util.Direction;
-import net.minecraft.util.text.ITextComponent;
-import net.minecraft.world.World;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.entity.player.Inventory;
+import net.minecraft.world.inventory.AbstractContainerMenu;
+import net.minecraft.world.MenuProvider;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.world.level.block.entity.FurnaceBlockEntity;
+import net.minecraft.world.level.block.entity.TickableBlockEntity;
+import net.minecraft.world.level.block.entity.BlockEntityType;
+import net.minecraft.core.Direction;
+import net.minecraft.network.chat.Component;
+import net.minecraft.world.level.Level;
 import net.minecraftforge.common.ForgeHooks;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.util.LazyOptional;
@@ -33,7 +33,7 @@ import net.minecraftforge.energy.IEnergyStorage;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.IItemHandlerModifiable;
 
-public abstract class ReprocessorTileEntity extends BaseInventoryTileEntity implements INamedContainerProvider, ITickableTileEntity {
+public abstract class ReprocessorTileEntity extends BaseInventoryTileEntity implements MenuProvider, TickableBlockEntity {
     private static final int FUEL_TICK_MULTIPLIER = 20;
     private final BaseItemStackHandler inventory;
     private final BaseEnergyStorage energy;
@@ -46,7 +46,7 @@ public abstract class ReprocessorTileEntity extends BaseInventoryTileEntity impl
     private int fuelItemValue;
     private int oldEnergy;
 
-    public ReprocessorTileEntity(TileEntityType<?> type, ReprocessorTier tier) {
+    public ReprocessorTileEntity(BlockEntityType<?> type, ReprocessorTier tier) {
         super(type);
         this.inventory = new BaseItemStackHandler(3);
         this.energy = new BaseEnergyStorage(tier.getFuelCapacity());
@@ -62,7 +62,7 @@ public abstract class ReprocessorTileEntity extends BaseInventoryTileEntity impl
     }
 
     @Override
-    public void load(BlockState state, CompoundNBT tag) {
+    public void load(BlockState state, CompoundTag tag) {
         super.load(state, tag);
         this.progress = tag.getInt("Progress");
         this.fuelLeft = tag.getInt("FuelLeft");
@@ -71,7 +71,7 @@ public abstract class ReprocessorTileEntity extends BaseInventoryTileEntity impl
     }
 
     @Override
-    public CompoundNBT save(CompoundNBT tag) {
+    public CompoundTag save(CompoundTag tag) {
         tag = super.save(tag);
         tag.putInt("Progress", this.progress);
         tag.putInt("FuelLeft", this.fuelLeft);
@@ -83,7 +83,7 @@ public abstract class ReprocessorTileEntity extends BaseInventoryTileEntity impl
 
     @Override
     public void tick() {
-        World world = this.getLevel();
+        Level world = this.getLevel();
         if (world == null || world.isClientSide())
             return;
 
@@ -164,12 +164,12 @@ public abstract class ReprocessorTileEntity extends BaseInventoryTileEntity impl
     }
 
     @Override
-    public ITextComponent getDisplayName() {
+    public Component getDisplayName() {
         return Localizable.of("container.mysticalagriculture.reprocessor").build();
     }
 
     @Override
-    public Container createMenu(int id, PlayerInventory playerInventory, PlayerEntity player) {
+    public AbstractContainerMenu createMenu(int id, Inventory playerInventory, Player player) {
         return ReprocessorContainer.create(id, playerInventory, this::isUsableByPlayer, this.inventory, this.getBlockPos());
     }
 
@@ -220,7 +220,7 @@ public abstract class ReprocessorTileEntity extends BaseInventoryTileEntity impl
         if (slot == 0 && direction == Direction.UP)
             return true;
         if (slot == 1 && direction == Direction.NORTH)
-            return FurnaceTileEntity.isFuel(stack);
+            return FurnaceBlockEntity.isFuel(stack);
 
         return false;
     }

@@ -11,8 +11,8 @@ import com.blakebr0.mysticalagriculture.api.util.ExperienceCapsuleUtils;
 import com.blakebr0.mysticalagriculture.api.util.MobSoulUtils;
 import com.blakebr0.mysticalagriculture.init.ModBlocks;
 import com.blakebr0.mysticalagriculture.init.ModItems;
-import net.minecraft.block.CropsBlock;
-import net.minecraft.util.ResourceLocation;
+import net.minecraft.world.level.block.CropBlock;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.fml.ModList;
 
 import java.util.Arrays;
@@ -180,7 +180,7 @@ public final class ModCrops {
     public static final Crop URANINITE = new Crop(new ResourceLocation(MOD_ID, "uraninite"), CropTier.FIVE, CropType.RESOURCE, LazyIngredient.item("powah:uraninite"));
 
     public static void onRegisterCrops(ICropRegistry registry) {
-        INFERIUM.setCrop(() -> (CropsBlock) ModBlocks.INFERIUM_CROP.get())
+        INFERIUM.setCrop(() -> (CropBlock) ModBlocks.INFERIUM_CROP.get())
                 .setEssence(ModItems.INFERIUM_ESSENCE);
 
         registry.register(AIR);

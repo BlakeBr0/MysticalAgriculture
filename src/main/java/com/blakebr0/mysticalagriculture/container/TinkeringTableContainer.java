@@ -8,27 +8,27 @@ import com.blakebr0.mysticalagriculture.container.slot.ElementSlot;
 import com.blakebr0.mysticalagriculture.container.slot.TinkerableSlot;
 import com.blakebr0.mysticalagriculture.init.ModContainerTypes;
 import com.blakebr0.mysticalagriculture.tileentity.TinkeringTableTileEntity;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.entity.player.PlayerInventory;
-import net.minecraft.inventory.IInventory;
-import net.minecraft.inventory.container.Container;
-import net.minecraft.inventory.container.ContainerType;
-import net.minecraft.inventory.container.Slot;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.entity.player.Inventory;
+import net.minecraft.world.Container;
+import net.minecraft.world.inventory.AbstractContainerMenu;
+import net.minecraft.world.inventory.MenuType;
+import net.minecraft.world.inventory.Slot;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.items.IItemHandlerModifiable;
 
 import java.util.function.Function;
 
-public class TinkeringTableContainer extends Container {
-    private final Function<PlayerEntity, Boolean> isUsableByPlayer;
+public class TinkeringTableContainer extends AbstractContainerMenu {
+    private final Function<Player, Boolean> isUsableByPlayer;
     private final IItemHandlerModifiable inventory;
 
-    private TinkeringTableContainer(ContainerType<?> type, int id, PlayerInventory playerInventory) {
+    private TinkeringTableContainer(MenuType<?> type, int id, Inventory playerInventory) {
         this(type, id, playerInventory, p -> false, (new TinkeringTableTileEntity()).getInventory());
     }
 
-    private TinkeringTableContainer(ContainerType<?> type, int id, PlayerInventory playerInventory, Function<PlayerEntity, Boolean> isUsableByPlayer, IItemHandlerModifiable inventory) {
+    private TinkeringTableContainer(MenuType<?> type, int id, Inventory playerInventory, Function<Player, Boolean> isUsableByPlayer, IItemHandlerModifiable inventory) {
         super(type, id);
         this.isUsableByPlayer = isUsableByPlayer;
         this.inventory = inventory;
@@ -54,7 +54,7 @@ public class TinkeringTableContainer extends Container {
     }
 
     @Override
-    public void slotsChanged(IInventory inventory) {
+    public void slotsChanged(Container inventory) {
         ItemStack tinkerable = this.inventory.getStackInSlot(0);
         if (!tinkerable.isEmpty()) {
             for (int i = 0; i < 2; i++) {
@@ -75,12 +75,12 @@ public class TinkeringTableContainer extends Container {
     }
 
     @Override
-    public boolean stillValid(PlayerEntity player) {
+    public boolean stillValid(Player player) {
         return this.isUsableByPlayer.apply(player);
     }
 
     @Override
-    public ItemStack quickMoveStack(PlayerEntity player, int slotNumber) {
+    public ItemStack quickMoveStack(Player player, int slotNumber) {
         ItemStack itemstack = ItemStack.EMPTY;
         Slot slot = this.slots.get(slotNumber);
 
@@ -118,11 +118,11 @@ public class TinkeringTableContainer extends Container {
         return itemstack;
     }
 
-    public static TinkeringTableContainer create(int windowId, PlayerInventory playerInventory) {
+    public static TinkeringTableContainer create(int windowId, Inventory playerInventory) {
         return new TinkeringTableContainer(ModContainerTypes.TINKERING_TABLE.get(), windowId, playerInventory);
     }
 
-    public static TinkeringTableContainer create(int windowId, PlayerInventory playerInventory, Function<PlayerEntity, Boolean> isUsableByPlayer, IItemHandlerModifiable inventory) {
+    public static TinkeringTableContainer create(int windowId, Inventory playerInventory, Function<Player, Boolean> isUsableByPlayer, IItemHandlerModifiable inventory) {
         return new TinkeringTableContainer(ModContainerTypes.TINKERING_TABLE.get(), windowId, playerInventory, isUsableByPlayer, inventory);
     }
 }

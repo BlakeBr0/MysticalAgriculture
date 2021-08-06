@@ -1,7 +1,7 @@
 package com.blakebr0.mysticalagriculture.api.tinkering;
 
-import net.minecraft.util.text.ITextComponent;
-import net.minecraft.util.text.TranslationTextComponent;
+import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.TranslatableComponent;
 
 public enum AugmentType {
     TOOL("tool"),
@@ -28,7 +28,7 @@ public enum AugmentType {
         return this.name;
     }
 
-    public ITextComponent getDisplayName() {
-        return new TranslationTextComponent("augmentType.mysticalagriculture." + this.name);
+    public Component getDisplayName() {
+        return new TranslatableComponent("augmentType.mysticalagriculture." + this.name);
     }
 }

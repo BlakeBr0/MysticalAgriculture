@@ -11,10 +11,10 @@ import com.google.gson.JsonObject;
 import it.unimi.dsi.fastutil.ints.IntArrayList;
 import it.unimi.dsi.fastutil.ints.IntComparators;
 import it.unimi.dsi.fastutil.ints.IntList;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.crafting.Ingredient;
-import net.minecraft.item.crafting.RecipeItemHelper;
-import net.minecraft.network.PacketBuffer;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.world.entity.player.StackedContents;
+import net.minecraft.network.FriendlyByteBuf;
 import net.minecraftforge.common.crafting.IIngredientSerializer;
 
 import java.util.Arrays;
@@ -45,7 +45,7 @@ public class FilledSoulJarIngredient extends Ingredient {
             }
 
             this.stacksPacked = new IntArrayList(this.stacks.length);
-            Arrays.stream(this.stacks).forEach(s -> this.stacksPacked.add(RecipeItemHelper.getStackingIndex(s)));
+            Arrays.stream(this.stacks).forEach(s -> this.stacksPacked.add(StackedContents.getStackingIndex(s)));
             this.stacksPacked.sort(IntComparators.NATURAL_COMPARATOR);
         }
 
@@ -105,7 +105,7 @@ public class FilledSoulJarIngredient extends Ingredient {
 
     public static class Serializer implements IIngredientSerializer<FilledSoulJarIngredient> {
         @Override
-        public FilledSoulJarIngredient parse(PacketBuffer buffer) {
+        public FilledSoulJarIngredient parse(FriendlyByteBuf buffer) {
             return new FilledSoulJarIngredient();
         }
 
@@ -115,7 +115,7 @@ public class FilledSoulJarIngredient extends Ingredient {
         }
 
         @Override
-        public void write(PacketBuffer buffer, FilledSoulJarIngredient ingredient) {
+        public void write(FriendlyByteBuf buffer, FilledSoulJarIngredient ingredient) {
 
         }
     }

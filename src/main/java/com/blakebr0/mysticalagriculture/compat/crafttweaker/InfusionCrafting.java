@@ -8,10 +8,10 @@ import com.blamejared.crafttweaker.api.actions.IRuntimeAction;
 import com.blamejared.crafttweaker.api.annotations.ZenRegister;
 import com.blamejared.crafttweaker.api.item.IIngredient;
 import com.blamejared.crafttweaker.api.item.IItemStack;
-import net.minecraft.item.crafting.IRecipe;
-import net.minecraft.item.crafting.Ingredient;
-import net.minecraft.util.NonNullList;
-import net.minecraft.util.ResourceLocation;
+import net.minecraft.world.item.crafting.Recipe;
+import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.core.NonNullList;
+import net.minecraft.resources.ResourceLocation;
 import org.openzen.zencode.java.ZenCodeType;
 
 import java.util.Arrays;
@@ -47,7 +47,7 @@ public final class InfusionCrafting {
                         .getOrDefault(RecipeTypes.INFUSION, new HashMap<>())
                         .values().stream()
                         .filter(r -> r.getResultItem().sameItem(stack.getInternal()))
-                        .map(IRecipe::getId)
+                        .map(Recipe::getId)
                         .collect(Collectors.toList());
 
                 recipes.forEach(r -> {

@@ -4,13 +4,13 @@ import com.blakebr0.mysticalagriculture.api.crop.ICrop;
 import com.blakebr0.mysticalagriculture.init.ModRecipeSerializers;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
-import net.minecraft.data.IFinishedRecipe;
-import net.minecraft.item.Item;
-import net.minecraft.item.crafting.IRecipeSerializer;
-import net.minecraft.item.crafting.Ingredient;
-import net.minecraft.util.IItemProvider;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.registry.Registry;
+import net.minecraft.data.recipes.FinishedRecipe;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.crafting.RecipeSerializer;
+import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.world.level.ItemLike;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.core.Registry;
 
 import java.util.function.Consumer;
 
@@ -20,7 +20,7 @@ public class ReprocessorRecipeBuilder {
     private final int count;
     private final JsonArray conditions = new JsonArray();
 
-    public ReprocessorRecipeBuilder(Ingredient input, IItemProvider output, int count) {
+    public ReprocessorRecipeBuilder(Ingredient input, ItemLike output, int count) {
         this.input = input;
         this.result = output.asItem();
         this.count = count;
@@ -32,7 +32,7 @@ public class ReprocessorRecipeBuilder {
 
     public static ReprocessorRecipeBuilder newSeedReprocessingRecipe(ICrop crop) {
         Ingredient input = Ingredient.of(crop.getSeeds());
-        IItemProvider output = crop.getEssence();
+        ItemLike output = crop.getEssence();
 
         ReprocessorRecipeBuilder builder = new ReprocessorRecipeBuilder(input, output, 2);
 
@@ -45,11 +45,11 @@ public class ReprocessorRecipeBuilder {
         return builder;
     }
 
-    public void build(Consumer<IFinishedRecipe> consumer, ResourceLocation id) {
+    public void build(Consumer<FinishedRecipe> consumer, ResourceLocation id) {
         consumer.accept(new ReprocessorRecipeBuilder.Result(id, this.result, this.count, this.input, this.conditions));
     }
 
-    public static class Result implements IFinishedRecipe {
+    public static class Result implements FinishedRecipe {
         private final ResourceLocation id;
         private final Item result;
         private final int count;
@@ -85,7 +85,7 @@ public class ReprocessorRecipeBuilder {
         }
 
         @Override
-        public IRecipeSerializer<?> getType() {
+        public RecipeSerializer<?> getType() {
             return ModRecipeSerializers.REPROCESSOR;
         }
 

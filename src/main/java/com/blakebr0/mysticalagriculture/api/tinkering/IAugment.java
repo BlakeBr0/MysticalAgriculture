@@ -2,22 +2,22 @@ package com.blakebr0.mysticalagriculture.api.tinkering;
 
 import com.blakebr0.mysticalagriculture.api.lib.AbilityCache;
 import com.google.common.collect.Multimap;
-import net.minecraft.block.BlockState;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.ai.attributes.Attribute;
-import net.minecraft.entity.ai.attributes.AttributeModifier;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.inventory.EquipmentSlotType;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.ItemUseContext;
-import net.minecraft.util.Hand;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.text.IFormattableTextComponent;
-import net.minecraft.util.text.TranslationTextComponent;
-import net.minecraft.world.World;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.ai.attributes.Attribute;
+import net.minecraft.world.entity.ai.attributes.AttributeModifier;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.context.UseOnContext;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.core.BlockPos;
+import net.minecraft.network.chat.MutableComponent;
+import net.minecraft.network.chat.TranslatableComponent;
+import net.minecraft.world.level.Level;
 import net.minecraftforge.event.entity.living.LivingEvent.LivingUpdateEvent;
 import net.minecraftforge.event.entity.living.LivingFallEvent;
 
@@ -55,8 +55,8 @@ public interface IAugment {
      * Get the localized name of this augment using the key augment.{@link IAugment#getModId()}.{@link IAugment#getName()}
      * @return the localized name of this augment
      */
-    default IFormattableTextComponent getDisplayName() {
-        return new TranslationTextComponent(String.format("augment.%s.%s", this.getModId(), this.getName()));
+    default MutableComponent getDisplayName() {
+        return new TranslatableComponent(String.format("augment.%s.%s", this.getModId(), this.getName()));
     }
 
     /**
@@ -122,7 +122,7 @@ public interface IAugment {
      * @param context the item use context
      * @return was the action successful
      */
-    default boolean onItemUse(ItemUseContext context) {
+    default boolean onItemUse(UseOnContext context) {
         return false;
     }
 
@@ -134,7 +134,7 @@ public interface IAugment {
      * @param hand the hand
      * @return was the action successful
      */
-    default boolean onRightClick(ItemStack stack, World world, PlayerEntity player, Hand hand) {
+    default boolean onRightClick(ItemStack stack, Level world, Player player, InteractionHand hand) {
         return false;
     }
 
@@ -146,7 +146,7 @@ public interface IAugment {
      * @param hand the hand
      * @return was the action successful
      */
-    default boolean onRightClickEntity(ItemStack stack, PlayerEntity player, LivingEntity target, Hand hand) {
+    default boolean onRightClickEntity(ItemStack stack, Player player, LivingEntity target, InteractionHand hand) {
         return false;
     }
 
@@ -170,7 +170,7 @@ public interface IAugment {
      * @param entity the entity that destroyed the block
      * @return was the action successful
      */
-    default boolean onBlockDestroyed(ItemStack stack, World world, BlockState state, BlockPos pos, LivingEntity entity) {
+    default boolean onBlockDestroyed(ItemStack stack, Level world, BlockState state, BlockPos pos, LivingEntity entity) {
         return false;
     }
 
@@ -181,7 +181,7 @@ public interface IAugment {
      * @param player the player
      * @return was the action successful
      */
-    default boolean onBlockStartBreak(ItemStack stack, BlockPos pos, PlayerEntity player) {
+    default boolean onBlockStartBreak(ItemStack stack, BlockPos pos, Player player) {
         return false;
     }
 
@@ -193,7 +193,7 @@ public interface IAugment {
      * @param slot the slot
      * @param isSelected is currently being held
      */
-    default void onInventoryTick(ItemStack stack, World world, Entity entity, int slot, boolean isSelected) {
+    default void onInventoryTick(ItemStack stack, Level world, Entity entity, int slot, boolean isSelected) {
 
     }
 
@@ -203,7 +203,7 @@ public interface IAugment {
      * @param world the world
      * @param player the player
      */
-    default void onArmorTick(ItemStack stack, World world, PlayerEntity player) {
+    default void onArmorTick(ItemStack stack, Level world, Player player) {
 
     }
 
@@ -213,7 +213,7 @@ public interface IAugment {
      * @param player the player
      * @param cache the ability cache
      */
-    default void onPlayerTick(World world, PlayerEntity player, AbilityCache cache) {
+    default void onPlayerTick(Level world, Player player, AbilityCache cache) {
 
     }
 
@@ -223,7 +223,7 @@ public interface IAugment {
      * @param player the player
      * @param event the fall event
      */
-    default void onPlayerFall(World world, PlayerEntity player, LivingFallEvent event) {
+    default void onPlayerFall(Level world, Player player, LivingFallEvent event) {
 
     }
 
@@ -233,7 +233,7 @@ public interface IAugment {
      * @param slot the equipment slot type
      * @param stack the item
      */
-    default void addToolAttributeModifiers(Multimap<Attribute, AttributeModifier> attributes, EquipmentSlotType slot, ItemStack stack) {
+    default void addToolAttributeModifiers(Multimap<Attribute, AttributeModifier> attributes, EquipmentSlot slot, ItemStack stack) {
 
     }
 
@@ -243,7 +243,7 @@ public interface IAugment {
      * @param slot the equipment slot type
      * @param stack the item
      */
-    default void addArmorAttributeModifiers(Multimap<Attribute, AttributeModifier> attributes, EquipmentSlotType slot, ItemStack stack) {
+    default void addArmorAttributeModifiers(Multimap<Attribute, AttributeModifier> attributes, EquipmentSlot slot, ItemStack stack) {
 
     }
 }

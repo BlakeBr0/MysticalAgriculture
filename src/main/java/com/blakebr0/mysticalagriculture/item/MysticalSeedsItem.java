@@ -6,16 +6,16 @@ import com.blakebr0.mysticalagriculture.MysticalAgriculture;
 import com.blakebr0.mysticalagriculture.api.crop.ICrop;
 import com.blakebr0.mysticalagriculture.api.crop.ICropGetter;
 import com.blakebr0.mysticalagriculture.lib.ModTooltips;
-import net.minecraft.client.util.ITooltipFlag;
-import net.minecraft.item.BlockNamedItem;
-import net.minecraft.item.ItemGroup;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.NonNullList;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.text.ITextComponent;
-import net.minecraft.util.text.StringTextComponent;
-import net.minecraft.util.text.TextFormatting;
-import net.minecraft.world.World;
+import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.world.item.ItemNameBlockItem;
+import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.core.NonNullList;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.TextComponent;
+import net.minecraft.ChatFormatting;
+import net.minecraft.world.level.Level;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 
@@ -24,9 +24,9 @@ import java.util.Set;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
-import net.minecraft.item.Item.Properties;
+import net.minecraft.world.item.Item.Properties;
 
-public class MysticalSeedsItem extends BlockNamedItem implements ICropGetter, IEnableable {
+public class MysticalSeedsItem extends ItemNameBlockItem implements ICropGetter, IEnableable {
     private final ICrop crop;
 
     public MysticalSeedsItem(ICrop crop, Function<Properties, Properties> properties) {
@@ -35,19 +35,19 @@ public class MysticalSeedsItem extends BlockNamedItem implements ICropGetter, IE
     }
 
     @Override
-    public void fillItemCategory(ItemGroup group, NonNullList<ItemStack> items) {
+    public void fillItemCategory(CreativeModeTab group, NonNullList<ItemStack> items) {
         if (this.isEnabled()) {
             super.fillItemCategory(group, items);
         }
     }
 
     @Override
-    public ITextComponent getName(ItemStack stack) {
+    public Component getName(ItemStack stack) {
         return Localizable.of("item.mysticalagriculture.mystical_seeds").args(this.crop.getDisplayName()).build();
     }
 
     @Override
-    public ITextComponent getDescription() {
+    public Component getDescription() {
         return this.getName(ItemStack.EMPTY);
     }
 
@@ -63,8 +63,8 @@ public class MysticalSeedsItem extends BlockNamedItem implements ICropGetter, IE
 
     @OnlyIn(Dist.CLIENT)
     @Override
-    public void appendHoverText(ItemStack stack, World world, List<ITextComponent> tooltip, ITooltipFlag flag) {
-        ITextComponent tier = this.crop.getTier().getDisplayName();
+    public void appendHoverText(ItemStack stack, Level world, List<Component> tooltip, TooltipFlag flag) {
+        Component tier = this.crop.getTier().getDisplayName();
 
         tooltip.add(ModTooltips.TIER.args(tier).build());
 
@@ -76,17 +76,17 @@ public class MysticalSeedsItem extends BlockNamedItem implements ICropGetter, IE
         if (!biomes.isEmpty()) {
             tooltip.add(ModTooltips.REQUIRED_BIOMES.build());
 
-            List<StringTextComponent> ids = biomes.stream()
+            List<TextComponent> ids = biomes.stream()
                     .map(ResourceLocation::toString)
                     .map(s -> " - " + s)
-                    .map(StringTextComponent::new)
+                    .map(TextComponent::new)
                     .collect(Collectors.toList());
 
             tooltip.addAll(ids);
         }
 
         if (flag.isAdvanced()) {
-            tooltip.add(ModTooltips.CROP_ID.args(this.crop.getId()).color(TextFormatting.DARK_GRAY).build());
+            tooltip.add(ModTooltips.CROP_ID.args(this.crop.getId()).color(ChatFormatting.DARK_GRAY).build());
         }
     }
 

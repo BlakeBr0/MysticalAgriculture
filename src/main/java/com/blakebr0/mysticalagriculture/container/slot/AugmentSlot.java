@@ -4,27 +4,27 @@ import com.blakebr0.cucumber.iface.IToggleableSlot;
 import com.blakebr0.mysticalagriculture.api.tinkering.IAugment;
 import com.blakebr0.mysticalagriculture.api.tinkering.IAugmentGetter;
 import com.blakebr0.mysticalagriculture.api.tinkering.ITinkerable;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.inventory.container.Container;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.inventory.AbstractContainerMenu;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.SlotItemHandler;
 
 import javax.annotation.Nonnull;
 
 public class AugmentSlot extends SlotItemHandler implements IToggleableSlot {
-    private final Container container;
+    private final AbstractContainerMenu container;
     private final int augmentSlot;
 
-    public AugmentSlot(Container container, IItemHandler inventory, int index, int xPosition, int yPosition, int augmentSlot) {
+    public AugmentSlot(AbstractContainerMenu container, IItemHandler inventory, int index, int xPosition, int yPosition, int augmentSlot) {
         super(inventory, index, xPosition, yPosition);
         this.container = container;
         this.augmentSlot = augmentSlot;
     }
 
     @Override
-    public ItemStack onTake(PlayerEntity player, ItemStack stack) {
+    public ItemStack onTake(Player player, ItemStack stack) {
         ItemStack take = super.onTake(player, stack);
         this.container.slotsChanged(null);
         return take;

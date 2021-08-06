@@ -1,33 +1,33 @@
 package com.blakebr0.mysticalagriculture.api.crop;
 
 import com.blakebr0.mysticalagriculture.api.MysticalAgricultureAPI;
-import net.minecraft.block.Block;
-import net.minecraft.block.FarmlandBlock;
-import net.minecraft.item.Item;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.text.IFormattableTextComponent;
-import net.minecraft.util.text.TextFormatting;
-import net.minecraft.util.text.TranslationTextComponent;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.FarmBlock;
+import net.minecraft.world.item.Item;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.network.chat.MutableComponent;
+import net.minecraft.ChatFormatting;
+import net.minecraft.network.chat.TranslatableComponent;
 
 import java.util.function.Supplier;
 
 import static com.blakebr0.mysticalagriculture.api.MysticalAgricultureAPI.MOD_ID;
 
 public class CropTier {
-    public static final CropTier ELEMENTAL = new CropTier(new ResourceLocation(MOD_ID, "elemental"), 1, 0x748E00, TextFormatting.YELLOW);
-    public static final CropTier ONE = new CropTier(new ResourceLocation(MOD_ID, "1"), 1, 0x748E00, TextFormatting.YELLOW);
-    public static final CropTier TWO = new CropTier(new ResourceLocation(MOD_ID, "2"), 2, 0x008C23, TextFormatting.GREEN);
-    public static final CropTier THREE = new CropTier(new ResourceLocation(MOD_ID, "3"), 3, 0xB74900, TextFormatting.GOLD);
-    public static final CropTier FOUR = new CropTier(new ResourceLocation(MOD_ID, "4"), 4, 0x007FDB, TextFormatting.AQUA);
-    public static final CropTier FIVE = new CropTier(new ResourceLocation(MOD_ID, "5"), 5, 0xC40000, TextFormatting.RED);
+    public static final CropTier ELEMENTAL = new CropTier(new ResourceLocation(MOD_ID, "elemental"), 1, 0x748E00, ChatFormatting.YELLOW);
+    public static final CropTier ONE = new CropTier(new ResourceLocation(MOD_ID, "1"), 1, 0x748E00, ChatFormatting.YELLOW);
+    public static final CropTier TWO = new CropTier(new ResourceLocation(MOD_ID, "2"), 2, 0x008C23, ChatFormatting.GREEN);
+    public static final CropTier THREE = new CropTier(new ResourceLocation(MOD_ID, "3"), 3, 0xB74900, ChatFormatting.GOLD);
+    public static final CropTier FOUR = new CropTier(new ResourceLocation(MOD_ID, "4"), 4, 0x007FDB, ChatFormatting.AQUA);
+    public static final CropTier FIVE = new CropTier(new ResourceLocation(MOD_ID, "5"), 5, 0xC40000, ChatFormatting.RED);
 
     private final ResourceLocation id;
     private final int value;
     private final int color;
-    private final TextFormatting textColor;
-    private Supplier<? extends FarmlandBlock> farmland;
+    private final ChatFormatting textColor;
+    private Supplier<? extends FarmBlock> farmland;
     private Supplier<? extends Item> essence;
-    private IFormattableTextComponent displayName;
+    private MutableComponent displayName;
     private boolean fertilizable;
     private boolean secondarySeedDrop;
 
@@ -38,7 +38,7 @@ public class CropTier {
      * @param color the color of this tier
      * @param textColor the text color of this tier
      */
-    public CropTier(ResourceLocation id, int value, int color, TextFormatting textColor) {
+    public CropTier(ResourceLocation id, int value, int color, ChatFormatting textColor) {
         this.id = id;
         this.value = value;
         this.color = color;
@@ -80,7 +80,7 @@ public class CropTier {
     /**
      * @return the text color of this tier
      */
-    public TextFormatting getTextColor() {
+    public ChatFormatting getTextColor() {
         return this.textColor;
     }
 
@@ -95,7 +95,7 @@ public class CropTier {
      * Gets the block instance of the effective farmland for this tier
      * @return the farmland for this tier
      */
-    public FarmlandBlock getFarmland() {
+    public FarmBlock getFarmland() {
         return this.farmland == null ? null : this.farmland.get();
     }
 
@@ -105,7 +105,7 @@ public class CropTier {
      * @return this tier
      */
     // TODO: 1.17: change to ? extends Block
-    public CropTier setFarmland(Supplier<? extends FarmlandBlock> farmland) {
+    public CropTier setFarmland(Supplier<? extends FarmBlock> farmland) {
         this.farmland = farmland;
         return this;
     }
@@ -142,11 +142,11 @@ public class CropTier {
      * Example: cropTier.mysticalagriculture.1
      * @return the localized name of this tier
      */
-    public IFormattableTextComponent getDisplayName() {
+    public MutableComponent getDisplayName() {
         if (this.displayName != null)
             return this.displayName.withStyle(this.getTextColor());
 
-        return new TranslationTextComponent(String.format("cropTier.%s.%s", this.getModId(), this.getName())).withStyle(this.getTextColor());
+        return new TranslatableComponent(String.format("cropTier.%s.%s", this.getModId(), this.getName())).withStyle(this.getTextColor());
     }
 
     /**
@@ -154,7 +154,7 @@ public class CropTier {
      * @param name the new display name
      * @return this tier
      */
-    public CropTier setDisplayName(IFormattableTextComponent name) {
+    public CropTier setDisplayName(MutableComponent name) {
         this.displayName = name;
         return this;
     }

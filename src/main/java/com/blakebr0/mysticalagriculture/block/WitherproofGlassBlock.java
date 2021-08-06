@@ -1,11 +1,11 @@
 package com.blakebr0.mysticalagriculture.block;
 
 import com.blakebr0.cucumber.block.BaseGlassBlock;
-import net.minecraft.block.SoundType;
-import net.minecraft.block.material.Material;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.Explosion;
-import net.minecraft.world.World;
+import net.minecraft.world.level.block.SoundType;
+import net.minecraft.world.level.material.Material;
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.level.Explosion;
+import net.minecraft.world.level.Level;
 import net.minecraftforge.common.ToolType;
 
 public class WitherproofGlassBlock extends BaseGlassBlock {
@@ -19,7 +19,7 @@ public class WitherproofGlassBlock extends BaseGlassBlock {
     }
 
     @Override
-    public void wasExploded(World world, BlockPos pos, Explosion explosion) { }
+    public void wasExploded(Level world, BlockPos pos, Explosion explosion) { }
 
     @Override
     public boolean dropFromExplosion(Explosion explosion) {

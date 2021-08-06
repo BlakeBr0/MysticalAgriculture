@@ -13,22 +13,22 @@ import com.blakebr0.mysticalagriculture.item.SoulJarItem;
 import com.blakebr0.mysticalagriculture.registry.CropRegistry;
 import com.google.common.base.Stopwatch;
 import com.google.common.collect.ImmutableMap;
-import net.minecraft.block.CropsBlock;
+import net.minecraft.world.level.block.CropBlock;
 import net.minecraft.client.renderer.RenderType;
-import net.minecraft.client.renderer.RenderTypeLookup;
-import net.minecraft.client.renderer.model.BlockModel;
-import net.minecraft.client.renderer.model.IBakedModel;
-import net.minecraft.client.renderer.model.IUnbakedModel;
-import net.minecraft.client.renderer.model.ItemModelGenerator;
-import net.minecraft.client.renderer.model.ModelBakery;
-import net.minecraft.client.renderer.model.ModelResourceLocation;
-import net.minecraft.client.renderer.model.ModelRotation;
-import net.minecraft.client.renderer.model.RenderMaterial;
+import net.minecraft.client.renderer.ItemBlockRenderTypes;
+import net.minecraft.client.renderer.block.model.BlockModel;
+import net.minecraft.client.resources.model.BakedModel;
+import net.minecraft.client.resources.model.UnbakedModel;
+import net.minecraft.client.renderer.block.model.ItemModelGenerator;
+import net.minecraft.client.resources.model.ModelBakery;
+import net.minecraft.client.resources.model.ModelResourceLocation;
+import net.minecraft.client.resources.model.BlockModelRotation;
+import net.minecraft.client.resources.model.Material;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
-import net.minecraft.item.BlockNamedItem;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemModelsProperties;
-import net.minecraft.util.ResourceLocation;
+import net.minecraft.world.item.ItemNameBlockItem;
+import net.minecraft.world.item.Item;
+import net.minecraft.client.renderer.item.ItemProperties;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.client.event.ModelBakeEvent;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.client.event.TextureStitchEvent;
@@ -74,47 +74,47 @@ public final class ModelHandler {
     public void onModelBake(ModelBakeEvent event) {
         Stopwatch stopwatch = Stopwatch.createStarted();
 
-        Map<ResourceLocation, IBakedModel> registry = event.getModelRegistry();
+        Map<ResourceLocation, BakedModel> registry = event.getModelRegistry();
         ModelBakery bakery = event.getModelLoader();
 
         if (!ModConfigs.ANIMATED_GROWTH_ACCELERATORS.get()) {
             for (String tier : new String[] { "inferium", "prudentium", "tertium", "imperium", "supremium" }) {
                 String loc = String.format("%s_growth_accelerator", tier);
-                IBakedModel blockModel = registry.get(new ResourceLocation(MysticalAgriculture.MOD_ID, "block/" + loc + "_static"));
+                BakedModel blockModel = registry.get(new ResourceLocation(MysticalAgriculture.MOD_ID, "block/" + loc + "_static"));
                 registry.replace(new ModelResourceLocation(MysticalAgriculture.MOD_ID + ":" + loc), blockModel);
-                IBakedModel itemModel = registry.get(new ResourceLocation(MysticalAgriculture.MOD_ID, "item/" + loc + "_static"));
+                BakedModel itemModel = registry.get(new ResourceLocation(MysticalAgriculture.MOD_ID, "item/" + loc + "_static"));
                 registry.replace(new ModelResourceLocation(MysticalAgriculture.MOD_ID + ":" + loc, "inventory"), itemModel);
             }
         }
 
-        Map<String, IBakedModel[]> cropModels = new HashMap<>();
+        Map<String, BakedModel[]> cropModels = new HashMap<>();
         Map<String, RetextureableBlockModelWrapper> cropModelsGrown = new HashMap<>();
         MysticalAgricultureAPI.CROP_TYPES.forEach(type -> {
             cropModels.put(type.getName(), IntStream.range(0, 7)
                     .mapToObj(i -> registry.get(new ResourceLocation(type.getStemModel() + "_" + i)))
-                    .toArray(IBakedModel[]::new));
+                    .toArray(BakedModel[]::new));
 
-            IUnbakedModel model = bakery.getModel(new ResourceLocation(type.getStemModel() + "_7"));
+            UnbakedModel model = bakery.getModel(new ResourceLocation(type.getStemModel() + "_7"));
             RetextureableBlockModelWrapper modelWrapper = new RetextureableBlockModelWrapper((BlockModel) model);
             cropModelsGrown.put(type.getName(), modelWrapper);
         });
 
-        Function<RenderMaterial, TextureAtlasSprite> getSprite = bakery.getSpriteMap()::getSprite;
+        Function<Material, TextureAtlasSprite> getSprite = bakery.getSpriteMap()::getSprite;
         ItemModelGenerator generator = new ItemModelGenerator();
 
-        IUnbakedModel essenceModel = bakery.getModel(new ResourceLocation(MysticalAgriculture.MOD_ID, "item/mystical_essence"));
+        UnbakedModel essenceModel = bakery.getModel(new ResourceLocation(MysticalAgriculture.MOD_ID, "item/mystical_essence"));
         RetextureableItemModelWrapper essenceModelWrapper = new RetextureableItemModelWrapper((BlockModel) essenceModel);
-        IUnbakedModel seedsModel = bakery.getModel(new ResourceLocation(MysticalAgriculture.MOD_ID, "item/mystical_seeds"));
+        UnbakedModel seedsModel = bakery.getModel(new ResourceLocation(MysticalAgriculture.MOD_ID, "item/mystical_seeds"));
         RetextureableItemModelWrapper seedsModelWrapper = new RetextureableItemModelWrapper((BlockModel) seedsModel);
 
         CropRegistry.getInstance().getCrops().forEach(crop -> {
             CropTextures textures = crop.getTextures();
 
-            CropsBlock crops = crop.getCrop();
+            CropBlock crops = crop.getCrop();
             if (crops.getRegistryName() != null) {
                 for (int i = 0; i < 7; i++) {
                     ModelResourceLocation location = new ModelResourceLocation(crops.getRegistryName(), "age=" + i);
-                    IBakedModel bakedModel = registry.get(location);
+                    BakedModel bakedModel = registry.get(location);
                     if (bakedModel == null || bakedModel.getParticleTexture(EmptyModelData.INSTANCE).getName().equals(MISSING_NO)) {
                         String type = crop.getType().getName();
                         registry.replace(location, cropModels.get(type)[i]);
@@ -122,11 +122,11 @@ public final class ModelHandler {
                 }
 
                 ModelResourceLocation location = new ModelResourceLocation(crops.getRegistryName(), "age=7");
-                IBakedModel bakedModel = registry.get(location);
+                BakedModel bakedModel = registry.get(location);
                 if (bakedModel == null || bakedModel.getParticleTexture(EmptyModelData.INSTANCE).getName().equals(MISSING_NO)) {
                     ResourceLocation texture = crop.getTextures().getFlowerTexture();
-                    IUnbakedModel cropRetexturedModel = cropModelsGrown.get(crop.getType().getName()).retexture(ImmutableMap.of("flower", texture.toString()));
-                    IBakedModel cropBakedModel = cropRetexturedModel.bake(bakery, getSprite, ModelRotation.X0_Y0, location);
+                    UnbakedModel cropRetexturedModel = cropModelsGrown.get(crop.getType().getName()).retexture(ImmutableMap.of("flower", texture.toString()));
+                    BakedModel cropBakedModel = cropRetexturedModel.bake(bakery, getSprite, BlockModelRotation.X0_Y0, location);
                     registry.replace(location, cropBakedModel);
                 }
             }
@@ -134,25 +134,25 @@ public final class ModelHandler {
             Item essence = crop.getEssence();
             if (essence.getRegistryName() != null) {
                 ModelResourceLocation location = new ModelResourceLocation(essence.getRegistryName(), "inventory");
-                IBakedModel bakedModel = registry.get(location);
+                BakedModel bakedModel = registry.get(location);
                 if (bakedModel == null || bakedModel.getParticleTexture(EmptyModelData.INSTANCE).getName().equals(MISSING_NO)) {
                     ResourceLocation texture = textures.getEssenceTexture();
                     RetextureableItemModelWrapper retexture = essenceModelWrapper.retexture(ImmutableMap.of("layer0", texture.toString()));
                     BlockModel generated = generator.generateBlockModel(getSprite, retexture);
-                    IBakedModel model = generated.bake(bakery, generated, getSprite, ModelRotation.X0_Y0, location, false);
+                    BakedModel model = generated.bake(bakery, generated, getSprite, BlockModelRotation.X0_Y0, location, false);
                     registry.replace(location, model);
                 }
             }
 
-            BlockNamedItem seeds = crop.getSeeds();
+            ItemNameBlockItem seeds = crop.getSeeds();
             if (seeds.getRegistryName() != null) {
                 ModelResourceLocation location = new ModelResourceLocation(seeds.getRegistryName(), "inventory");
-                IBakedModel bakedModel = registry.get(location);
+                BakedModel bakedModel = registry.get(location);
                 if (bakedModel == null || bakedModel.getParticleTexture(EmptyModelData.INSTANCE).getName().equals(MISSING_NO)) {
                     ResourceLocation texture = textures.getSeedTexture();
                     RetextureableItemModelWrapper retexture = seedsModelWrapper.retexture(ImmutableMap.of("layer0", texture.toString()));
                     BlockModel generated = generator.generateBlockModel(getSprite, retexture);
-                    IBakedModel model = generated.bake(bakery, generated, getSprite, ModelRotation.X0_Y0, location, false);
+                    BakedModel model = generated.bake(bakery, generated, getSprite, BlockModelRotation.X0_Y0, location, false);
                     registry.replace(location, model);
                 }
             }
@@ -176,19 +176,19 @@ public final class ModelHandler {
     }
 
     public static void onClientSetup(FMLClientSetupEvent event) {
-        RenderTypeLookup.setRenderLayer(ModBlocks.PROSPERITY_ORE.get(), RenderType.cutoutMipped());
-        RenderTypeLookup.setRenderLayer(ModBlocks.INFERIUM_ORE.get(), RenderType.cutoutMipped());
-        RenderTypeLookup.setRenderLayer(ModBlocks.SOULIUM_ORE.get(), RenderType.cutoutMipped());
-        RenderTypeLookup.setRenderLayer(ModBlocks.SOUL_GLASS.get(), RenderType.translucent());
-        RenderTypeLookup.setRenderLayer(ModBlocks.WITHERPROOF_GLASS.get(), RenderType.translucent());
+        ItemBlockRenderTypes.setRenderLayer(ModBlocks.PROSPERITY_ORE.get(), RenderType.cutoutMipped());
+        ItemBlockRenderTypes.setRenderLayer(ModBlocks.INFERIUM_ORE.get(), RenderType.cutoutMipped());
+        ItemBlockRenderTypes.setRenderLayer(ModBlocks.SOULIUM_ORE.get(), RenderType.cutoutMipped());
+        ItemBlockRenderTypes.setRenderLayer(ModBlocks.SOUL_GLASS.get(), RenderType.translucent());
+        ItemBlockRenderTypes.setRenderLayer(ModBlocks.WITHERPROOF_GLASS.get(), RenderType.translucent());
 
         CropRegistry.getInstance().getCrops().forEach(crop -> {
-            RenderTypeLookup.setRenderLayer(crop.getCrop(), RenderType.cutoutMipped());
+            ItemBlockRenderTypes.setRenderLayer(crop.getCrop(), RenderType.cutoutMipped());
         });
 
         event.enqueueWork(() -> {
-            ItemModelsProperties.register(ModItems.EXPERIENCE_CAPSULE.get(), new ResourceLocation("fill"), ExperienceCapsuleItem.getFillPropertyGetter());
-            ItemModelsProperties.register(ModItems.SOUL_JAR.get(), new ResourceLocation("fill"), SoulJarItem.getFillPropertyGetter());
+            ItemProperties.register(ModItems.EXPERIENCE_CAPSULE.get(), new ResourceLocation("fill"), ExperienceCapsuleItem.getFillPropertyGetter());
+            ItemProperties.register(ModItems.SOUL_JAR.get(), new ResourceLocation("fill"), SoulJarItem.getFillPropertyGetter());
         });
     }
 }

@@ -9,8 +9,8 @@ import com.blakebr0.mysticalagriculture.init.ModItems;
 import com.blakebr0.mysticalagriculture.lib.ModCrops;
 import com.blakebr0.mysticalagriculture.registry.AugmentRegistry;
 import com.blakebr0.mysticalagriculture.registry.CropRegistry;
-import net.minecraft.client.renderer.color.BlockColors;
-import net.minecraft.client.renderer.color.ItemColors;
+import net.minecraft.client.color.block.BlockColors;
+import net.minecraft.client.color.item.ItemColors;
 import net.minecraftforge.client.event.ColorHandlerEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 

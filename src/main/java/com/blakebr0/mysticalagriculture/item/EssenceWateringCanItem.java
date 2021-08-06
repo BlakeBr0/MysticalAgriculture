@@ -2,28 +2,28 @@ package com.blakebr0.mysticalagriculture.item;
 
 import com.blakebr0.cucumber.helper.NBTHelper;
 import com.blakebr0.mysticalagriculture.lib.ModTooltips;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.material.Material;
-import net.minecraft.client.util.ITooltipFlag;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.ItemGroup;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.ItemUseContext;
-import net.minecraft.util.ActionResult;
-import net.minecraft.util.ActionResultType;
-import net.minecraft.util.Direction;
-import net.minecraft.util.Hand;
-import net.minecraft.util.NonNullList;
-import net.minecraft.util.SoundEvents;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.BlockRayTraceResult;
-import net.minecraft.util.math.RayTraceContext;
-import net.minecraft.util.math.RayTraceResult;
-import net.minecraft.util.text.ITextComponent;
-import net.minecraft.util.text.StringTextComponent;
-import net.minecraft.util.text.TextFormatting;
-import net.minecraft.world.World;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.material.Material;
+import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.context.UseOnContext;
+import net.minecraft.world.InteractionResultHolder;
+import net.minecraft.world.InteractionResult;
+import net.minecraft.core.Direction;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.core.NonNullList;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.phys.BlockHitResult;
+import net.minecraft.world.level.ClipContext;
+import net.minecraft.world.phys.HitResult;
+import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.TextComponent;
+import net.minecraft.ChatFormatting;
+import net.minecraft.world.level.Level;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 
@@ -31,18 +31,18 @@ import java.util.List;
 import java.util.UUID;
 import java.util.function.Function;
 
-import net.minecraft.item.Item.Properties;
+import net.minecraft.world.item.Item.Properties;
 
 public class EssenceWateringCanItem extends WateringCanItem {
-    private final TextFormatting textColor;
+    private final ChatFormatting textColor;
 
-    public EssenceWateringCanItem(int range, double chance, TextFormatting textColor, Function<Properties, Properties> properties) {
+    public EssenceWateringCanItem(int range, double chance, ChatFormatting textColor, Function<Properties, Properties> properties) {
         super(range, chance, properties.compose(p -> p.stacksTo(1)));
         this.textColor = textColor;
     }
 
     @Override
-    public void fillItemCategory(ItemGroup group, NonNullList<ItemStack> items) {
+    public void fillItemCategory(CreativeModeTab group, NonNullList<ItemStack> items) {
         if (this.allowdedIn(group)) {
             ItemStack stack = new ItemStack(this);
             NBTHelper.setBoolean(stack, "Water", false);
@@ -52,12 +52,12 @@ public class EssenceWateringCanItem extends WateringCanItem {
     }
 
     @Override
-    public void inventoryTick(ItemStack stack, World world, Entity entity, int slot, boolean selected) {
-        if (NBTHelper.getBoolean(stack, "Active") && entity instanceof PlayerEntity) {
-            PlayerEntity player = (PlayerEntity) entity;
-            BlockRayTraceResult result = getPlayerPOVHitResult(world, player, RayTraceContext.FluidMode.SOURCE_ONLY);
+    public void inventoryTick(ItemStack stack, Level world, Entity entity, int slot, boolean selected) {
+        if (NBTHelper.getBoolean(stack, "Active") && entity instanceof Player) {
+            Player player = (Player) entity;
+            BlockHitResult result = getPlayerPOVHitResult(world, player, ClipContext.Fluid.SOURCE_ONLY);
 
-            if (result.getType() != RayTraceResult.Type.MISS) {
+            if (result.getType() != HitResult.Type.MISS) {
                 this.doWater(stack, world, player, result.getBlockPos(), result.getDirection());
             }
         }
@@ -69,20 +69,20 @@ public class EssenceWateringCanItem extends WateringCanItem {
     }
 
     @Override
-    public ActionResult<ItemStack> use(World world, PlayerEntity player, Hand hand) {
+    public InteractionResultHolder<ItemStack> use(Level world, Player player, InteractionHand hand) {
         ItemStack stack = player.getItemInHand(hand);
-        BlockRayTraceResult trace = getPlayerPOVHitResult(world, player, RayTraceContext.FluidMode.SOURCE_ONLY);
+        BlockHitResult trace = getPlayerPOVHitResult(world, player, ClipContext.Fluid.SOURCE_ONLY);
 
-        if (trace.getType() != RayTraceResult.Type.BLOCK) {
+        if (trace.getType() != HitResult.Type.BLOCK) {
             if (NBTHelper.getBoolean(stack, "Water") && player.isCrouching()) {
                 NBTHelper.flipBoolean(stack, "Active");
             }
 
-            return new ActionResult<>(ActionResultType.PASS, stack);
+            return new InteractionResultHolder<>(InteractionResult.PASS, stack);
         }
 
         if (NBTHelper.getBoolean(stack, "Water")) {
-            return new ActionResult<>(ActionResultType.PASS, stack);
+            return new InteractionResultHolder<>(InteractionResult.PASS, stack);
         }
 
         BlockPos pos = trace.getBlockPos();
@@ -97,32 +97,32 @@ public class EssenceWateringCanItem extends WateringCanItem {
 
                 player.playSound(SoundEvents.BUCKET_FILL, 1.0F, 1.0F);
 
-                return new ActionResult<>(ActionResultType.SUCCESS, stack);
+                return new InteractionResultHolder<>(InteractionResult.SUCCESS, stack);
             }
         }
 
-        return new ActionResult<>(ActionResultType.PASS, stack);
+        return new InteractionResultHolder<>(InteractionResult.PASS, stack);
     }
 
     @Override
-    public ActionResultType onItemUseFirst(ItemStack stack, ItemUseContext context) {
-        PlayerEntity player = context.getPlayer();
+    public InteractionResult onItemUseFirst(ItemStack stack, UseOnContext context) {
+        Player player = context.getPlayer();
         if (player == null)
-            return ActionResultType.PASS;
+            return InteractionResult.PASS;
 
         if (NBTHelper.getBoolean(stack, "Active"))
-            return ActionResultType.PASS;
+            return InteractionResult.PASS;
 
         return super.onItemUseFirst(stack, context);
     }
 
     @OnlyIn(Dist.CLIENT)
     @Override
-    public void appendHoverText(ItemStack stack, World world, List<ITextComponent> tooltip, ITooltipFlag advanced) {
+    public void appendHoverText(ItemStack stack, Level world, List<Component> tooltip, TooltipFlag advanced) {
         super.appendHoverText(stack, world, tooltip, advanced);
 
         String rangeString = String.valueOf(this.range);
-        ITextComponent rangeNumber = new StringTextComponent(rangeString + "x" + rangeString).withStyle(this.textColor);
+        Component rangeNumber = new TextComponent(rangeString + "x" + rangeString).withStyle(this.textColor);
         tooltip.add(ModTooltips.WATERING_CAN_AREA.args(rangeNumber).build());
     }
 }

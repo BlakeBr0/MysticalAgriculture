@@ -8,25 +8,25 @@ import com.blakebr0.mysticalagriculture.config.ModConfigs;
 import com.blakebr0.mysticalagriculture.crafting.recipe.InfusionRecipe;
 import com.blakebr0.mysticalagriculture.crafting.recipe.ReprocessorRecipe;
 import com.blakebr0.mysticalagriculture.registry.CropRegistry;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.crafting.IRecipe;
-import net.minecraft.item.crafting.Ingredient;
-import net.minecraft.item.crafting.ShapedRecipe;
-import net.minecraft.resources.IResourceManager;
-import net.minecraft.resources.IResourceManagerReloadListener;
-import net.minecraft.util.NonNullList;
-import net.minecraft.util.ResourceLocation;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.crafting.Recipe;
+import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.world.item.crafting.ShapedRecipe;
+import net.minecraft.server.packs.resources.ResourceManager;
+import net.minecraft.server.packs.resources.ResourceManagerReloadListener;
+import net.minecraft.core.NonNullList;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.event.AddReloadListenerEvent;
 import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 
-public class DynamicRecipeManager implements IResourceManagerReloadListener {
+public class DynamicRecipeManager implements ResourceManagerReloadListener {
     @Override
-    public void onResourceManagerReload(IResourceManager resourceManager) {
+    public void onResourceManagerReload(ResourceManager resourceManager) {
         CropRegistry.getInstance().getCrops().forEach(crop -> {
             ISpecialRecipe seed = this.makeSeedRecipe(crop);
-            IRecipe<?> seed2 = this.makeRegularSeedRecipe(crop);
+            Recipe<?> seed2 = this.makeRegularSeedRecipe(crop);
             ISpecialRecipe reprocessor = this.makeReprocessorRecipe(crop);
 
             if (seed != null) {
@@ -78,7 +78,7 @@ public class DynamicRecipeManager implements IResourceManagerReloadListener {
         return new InfusionRecipe(name, inputs, output);
     }
 
-    private IRecipe<?> makeRegularSeedRecipe(ICrop crop) {
+    private Recipe<?> makeRegularSeedRecipe(ICrop crop) {
         if (!crop.isEnabled() || !crop.getRecipeConfig().isSeedCraftingRecipeEnabled())
             return null;
 

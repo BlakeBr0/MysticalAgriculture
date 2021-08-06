@@ -1,18 +1,18 @@
 package com.blakebr0.mysticalagriculture.lib;
 
 import com.blakebr0.mysticalagriculture.init.ModItems;
-import net.minecraft.inventory.EquipmentSlotType;
-import net.minecraft.item.IArmorMaterial;
-import net.minecraft.item.crafting.Ingredient;
-import net.minecraft.util.LazyValue;
-import net.minecraft.util.SoundEvent;
-import net.minecraft.util.SoundEvents;
+import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.item.ArmorMaterial;
+import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.util.LazyLoadedValue;
+import net.minecraft.sounds.SoundEvent;
+import net.minecraft.sounds.SoundEvents;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 
 import java.util.function.Supplier;
 
-public enum ModArmorMaterial implements IArmorMaterial {
+public enum ModArmorMaterial implements ArmorMaterial {
     INFERIUM("mysticalagriculture:inferium", 40, new int[] { 3, 6, 8, 4 }, 12, SoundEvents.ARMOR_EQUIP_GOLD, 2.0F, 0.0F, () -> {
         return Ingredient.of(ModItems.INFERIUM_INGOT.get());
     }),
@@ -37,7 +37,7 @@ public enum ModArmorMaterial implements IArmorMaterial {
     private final SoundEvent soundEvent;
     private final float toughness;
     private final float knockbackResistance;
-    private final LazyValue<Ingredient> repairMaterial;
+    private final LazyLoadedValue<Ingredient> repairMaterial;
 
     ModArmorMaterial(String name, int maxDamageFactor, int[] damageReductionAmountArray, int enchantability, SoundEvent soundEvent, float toughness, float knockbackResistance, Supplier<Ingredient> repairMaterial) {
         this.name = name;
@@ -47,16 +47,16 @@ public enum ModArmorMaterial implements IArmorMaterial {
         this.soundEvent = soundEvent;
         this.toughness = toughness;
         this.knockbackResistance = knockbackResistance;
-        this.repairMaterial = new LazyValue<>(repairMaterial);
+        this.repairMaterial = new LazyLoadedValue<>(repairMaterial);
     }
 
     @Override
-    public int getDurabilityForSlot(EquipmentSlotType slot) {
+    public int getDurabilityForSlot(EquipmentSlot slot) {
         return MAX_DAMAGE_ARRAY[slot.getIndex()] * this.maxDamageFactor;
     }
 
     @Override
-    public int getDefenseForSlot(EquipmentSlotType slot) {
+    public int getDefenseForSlot(EquipmentSlot slot) {
         return this.damageReductionAmountArray[slot.getIndex()];
     }
 

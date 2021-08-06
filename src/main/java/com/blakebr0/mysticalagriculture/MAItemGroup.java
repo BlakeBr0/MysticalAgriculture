@@ -1,12 +1,12 @@
 package com.blakebr0.mysticalagriculture;
 
 import com.blakebr0.mysticalagriculture.init.ModItems;
-import net.minecraft.item.ItemGroup;
-import net.minecraft.item.ItemStack;
+import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 
-public class MAItemGroup extends ItemGroup {
+public class MAItemGroup extends CreativeModeTab {
 	public MAItemGroup() {
 		super(MysticalAgriculture.MOD_ID);
 	}

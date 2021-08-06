@@ -4,19 +4,19 @@ import com.blakebr0.cucumber.client.screen.BaseContainerScreen;
 import com.blakebr0.mysticalagriculture.MysticalAgriculture;
 import com.blakebr0.mysticalagriculture.container.ReprocessorContainer;
 import com.blakebr0.mysticalagriculture.tileentity.ReprocessorTileEntity;
-import com.mojang.blaze3d.matrix.MatrixStack;
-import net.minecraft.client.world.ClientWorld;
-import net.minecraft.entity.player.PlayerInventory;
-import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.text.ITextComponent;
-import net.minecraft.util.text.StringTextComponent;
+import com.mojang.blaze3d.vertex.PoseStack;
+import net.minecraft.client.multiplayer.ClientLevel;
+import net.minecraft.world.entity.player.Inventory;
+import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.TextComponent;
 
 public class ReprocessorScreen extends BaseContainerScreen<ReprocessorContainer> {
     private static final ResourceLocation BACKGROUND = new ResourceLocation(MysticalAgriculture.MOD_ID, "textures/gui/reprocessor.png");
     private ReprocessorTileEntity tile;
 
-    public ReprocessorScreen(ReprocessorContainer container, PlayerInventory inv, ITextComponent title) {
+    public ReprocessorScreen(ReprocessorContainer container, Inventory inv, Component title) {
         super(container, inv, title, BACKGROUND, 176, 194);
     }
 
@@ -28,7 +28,7 @@ public class ReprocessorScreen extends BaseContainerScreen<ReprocessorContainer>
     }
 
     @Override
-    protected void renderLabels(MatrixStack stack, int mouseX, int mouseY) {
+    protected void renderLabels(PoseStack stack, int mouseX, int mouseY) {
         String title = this.getTitle().getString();
         this.font.draw(stack, title, (float) (this.imageWidth / 2 - this.font.width(title) / 2), 6.0F, 4210752);
         String inventory = this.inventory.getDisplayName().getString();
@@ -36,7 +36,7 @@ public class ReprocessorScreen extends BaseContainerScreen<ReprocessorContainer>
     }
 
     @Override
-    protected void renderBg(MatrixStack stack, float partialTicks, int mouseX, int mouseY) {
+    protected void renderBg(PoseStack stack, float partialTicks, int mouseX, int mouseY) {
         super.renderBg(stack, partialTicks, mouseX, mouseY);
 
         int x = this.getGuiLeft();
@@ -57,28 +57,28 @@ public class ReprocessorScreen extends BaseContainerScreen<ReprocessorContainer>
     }
 
     @Override
-    protected void renderTooltip(MatrixStack stack, int mouseX, int mouseY) {
+    protected void renderTooltip(PoseStack stack, int mouseX, int mouseY) {
         int x = this.getGuiLeft();
         int y = this.getGuiTop();
 
         super.renderTooltip(stack, mouseX, mouseY);
 
         if (mouseX > x + 7 && mouseX < x + 20 && mouseY > y + 17 && mouseY < y + 94) {
-            StringTextComponent text = new StringTextComponent(number(this.getEnergyStored()) + " / " + number(this.getMaxEnergyStored()) + " FE");
+            TextComponent text = new TextComponent(number(this.getEnergyStored()) + " / " + number(this.getMaxEnergyStored()) + " FE");
             this.renderTooltip(stack, text, mouseX, mouseY);
         }
 
         if (this.getFuelLeft() > 0 && mouseX > x + 30 && mouseX < x + 45 && mouseY > y + 39 && mouseY < y + 53) {
-            StringTextComponent text = new StringTextComponent(number(this.getFuelLeft()) + " FE");
+            TextComponent text = new TextComponent(number(this.getFuelLeft()) + " FE");
             this.renderTooltip(stack, text, mouseX, mouseY);
         }
     }
 
     private ReprocessorTileEntity getTileEntity() {
-        ClientWorld world = this.getMinecraft().level;
+        ClientLevel world = this.getMinecraft().level;
 
         if (world != null) {
-            TileEntity tile = world.getBlockEntity(this.getMenu().getPos());
+            BlockEntity tile = world.getBlockEntity(this.getMenu().getPos());
 
             if (tile instanceof ReprocessorTileEntity) {
                 return (ReprocessorTileEntity) tile;

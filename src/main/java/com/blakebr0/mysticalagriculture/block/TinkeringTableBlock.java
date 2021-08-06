@@ -3,33 +3,33 @@ package com.blakebr0.mysticalagriculture.block;
 import com.blakebr0.cucumber.block.BaseTileEntityBlock;
 import com.blakebr0.cucumber.util.VoxelShapeBuilder;
 import com.blakebr0.mysticalagriculture.tileentity.TinkeringTableTileEntity;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.HorizontalBlock;
-import net.minecraft.block.SoundType;
-import net.minecraft.block.material.Material;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.inventory.InventoryHelper;
-import net.minecraft.item.BlockItemUseContext;
-import net.minecraft.state.DirectionProperty;
-import net.minecraft.state.StateContainer;
-import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.ActionResultType;
-import net.minecraft.util.Direction;
-import net.minecraft.util.Hand;
-import net.minecraft.util.Mirror;
-import net.minecraft.util.Rotation;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.BlockRayTraceResult;
-import net.minecraft.util.math.shapes.ISelectionContext;
-import net.minecraft.util.math.shapes.VoxelShape;
-import net.minecraft.world.IBlockReader;
-import net.minecraft.world.IWorld;
-import net.minecraft.world.World;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.HorizontalDirectionalBlock;
+import net.minecraft.world.level.block.SoundType;
+import net.minecraft.world.level.material.Material;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.Containers;
+import net.minecraft.world.item.context.BlockPlaceContext;
+import net.minecraft.world.level.block.state.properties.DirectionProperty;
+import net.minecraft.world.level.block.state.StateDefinition;
+import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.InteractionResult;
+import net.minecraft.core.Direction;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.level.block.Mirror;
+import net.minecraft.world.level.block.Rotation;
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.phys.BlockHitResult;
+import net.minecraft.world.phys.shapes.CollisionContext;
+import net.minecraft.world.phys.shapes.VoxelShape;
+import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.Level;
 import net.minecraftforge.common.ToolType;
 
 public class TinkeringTableBlock extends BaseTileEntityBlock {
-    public static final DirectionProperty FACING = HorizontalBlock.FACING;
+    public static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
     public static final VoxelShape TABLE_SHAPE = new VoxelShapeBuilder()
             .cuboid(15, 4, 15, 1, 0, 1).cuboid(12.5, 9, 12.5, 3.5, 5, 3.5)
             .cuboid(16, 13, 16, 0, 10, 0).cuboid(13, 13.8, 15.8, 3, 12.8, 14.8)
@@ -48,28 +48,28 @@ public class TinkeringTableBlock extends BaseTileEntityBlock {
     }
 
     @Override
-    public TileEntity createTileEntity(BlockState state, IBlockReader world) {
+    public BlockEntity createTileEntity(BlockState state, BlockGetter world) {
         return new TinkeringTableTileEntity();
     }
 
     @Override
-    public ActionResultType use(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockRayTraceResult hit) {
+    public InteractionResult use(BlockState state, Level world, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {
         if (!world.isClientSide()) {
-            TileEntity tile = world.getBlockEntity(pos);
+            BlockEntity tile = world.getBlockEntity(pos);
             if (tile instanceof TinkeringTableTileEntity)
                 player.openMenu((TinkeringTableTileEntity) tile);
         }
 
-        return ActionResultType.SUCCESS;
+        return InteractionResult.SUCCESS;
     }
 
     @Override
-    public void onRemove(BlockState state, World world, BlockPos pos, BlockState newState, boolean isMoving) {
+    public void onRemove(BlockState state, Level world, BlockPos pos, BlockState newState, boolean isMoving) {
         if (state.getBlock() != newState.getBlock()) {
-            TileEntity tile = world.getBlockEntity(pos);
+            BlockEntity tile = world.getBlockEntity(pos);
             if (tile instanceof TinkeringTableTileEntity) {
                 TinkeringTableTileEntity table = (TinkeringTableTileEntity) tile;
-                InventoryHelper.dropContents(world, pos, table.getInventory().getStacks());
+                Containers.dropContents(world, pos, table.getInventory().getStacks());
             }
         }
 
@@ -77,17 +77,17 @@ public class TinkeringTableBlock extends BaseTileEntityBlock {
     }
 
     @Override
-    public VoxelShape getShape(BlockState state, IBlockReader world, BlockPos pos, ISelectionContext context) {
+    public VoxelShape getShape(BlockState state, BlockGetter world, BlockPos pos, CollisionContext context) {
         return TABLE_SHAPE;
     }
 
     @Override
-    public BlockState getStateForPlacement(BlockItemUseContext context) {
+    public BlockState getStateForPlacement(BlockPlaceContext context) {
         return this.defaultBlockState().setValue(FACING, context.getHorizontalDirection());
     }
 
     @Override
-    public BlockState rotate(BlockState state, IWorld world, BlockPos pos, Rotation rotation) {
+    public BlockState rotate(BlockState state, LevelAccessor world, BlockPos pos, Rotation rotation) {
         return state.setValue(FACING, rotation.rotate(state.getValue(FACING)));
     }
 
@@ -97,7 +97,7 @@ public class TinkeringTableBlock extends BaseTileEntityBlock {
     }
 
     @Override
-    protected void createBlockStateDefinition(StateContainer.Builder<Block, BlockState> builder) {
+    protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
         builder.add(FACING);
     }
 }

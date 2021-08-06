@@ -8,11 +8,11 @@ import com.blakebr0.mysticalagriculture.api.registry.ICropRegistry;
 import com.blakebr0.mysticalagriculture.block.MysticalCropBlock;
 import com.blakebr0.mysticalagriculture.item.MysticalEssenceItem;
 import com.blakebr0.mysticalagriculture.item.MysticalSeedsItem;
-import net.minecraft.block.Block;
-import net.minecraft.block.CropsBlock;
-import net.minecraft.item.BlockNamedItem;
-import net.minecraft.item.Item;
-import net.minecraft.util.ResourceLocation;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.CropBlock;
+import net.minecraft.world.item.ItemNameBlockItem;
+import net.minecraft.world.item.Item;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.registries.IForgeRegistry;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -75,9 +75,9 @@ public final class CropRegistry implements ICropRegistry {
         Collection<ICrop> crops = this.crops.values();
 
         crops.stream().filter(ICrop::shouldRegisterCropBlock).forEach(c -> {
-            CropsBlock crop = c.getCrop();
+            CropBlock crop = c.getCrop();
             if (crop == null) {
-                CropsBlock defaultCrop = new MysticalCropBlock(c);
+                CropBlock defaultCrop = new MysticalCropBlock(c);
                 crop = defaultCrop;
                 c.setCrop(() -> defaultCrop);
             }
@@ -109,9 +109,9 @@ public final class CropRegistry implements ICropRegistry {
         });
 
         crops.stream().filter(ICrop::shouldRegisterSeedsItem).forEach(c -> {
-            BlockNamedItem seeds = c.getSeeds();
+            ItemNameBlockItem seeds = c.getSeeds();
             if (seeds == null) {
-                BlockNamedItem defaultSeeds = new MysticalSeedsItem(c, p -> p.tab(MysticalAgriculture.ITEM_GROUP));
+                ItemNameBlockItem defaultSeeds = new MysticalSeedsItem(c, p -> p.tab(MysticalAgriculture.ITEM_GROUP));
                 seeds = defaultSeeds;
                 c.setSeeds(() -> defaultSeeds);
             }

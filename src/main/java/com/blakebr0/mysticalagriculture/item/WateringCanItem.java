@@ -4,32 +4,32 @@ import com.blakebr0.cucumber.helper.NBTHelper;
 import com.blakebr0.cucumber.item.BaseItem;
 import com.blakebr0.mysticalagriculture.config.ModConfigs;
 import com.blakebr0.mysticalagriculture.lib.ModTooltips;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
-import net.minecraft.block.FarmlandBlock;
-import net.minecraft.block.IGrowable;
-import net.minecraft.block.material.Material;
-import net.minecraft.client.util.ITooltipFlag;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.ItemGroup;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.ItemUseContext;
-import net.minecraft.item.UseAction;
-import net.minecraft.particles.ParticleTypes;
-import net.minecraft.util.ActionResult;
-import net.minecraft.util.ActionResultType;
-import net.minecraft.util.Direction;
-import net.minecraft.util.Hand;
-import net.minecraft.util.NonNullList;
-import net.minecraft.util.SoundEvents;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.BlockRayTraceResult;
-import net.minecraft.util.math.RayTraceContext;
-import net.minecraft.util.math.RayTraceResult;
-import net.minecraft.util.text.ITextComponent;
-import net.minecraft.world.World;
-import net.minecraft.world.server.ServerWorld;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.FarmBlock;
+import net.minecraft.world.level.block.BonemealableBlock;
+import net.minecraft.world.level.material.Material;
+import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.context.UseOnContext;
+import net.minecraft.world.item.UseAnim;
+import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.world.InteractionResultHolder;
+import net.minecraft.world.InteractionResult;
+import net.minecraft.core.Direction;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.core.NonNullList;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.phys.BlockHitResult;
+import net.minecraft.world.level.ClipContext;
+import net.minecraft.world.phys.HitResult;
+import net.minecraft.network.chat.Component;
+import net.minecraft.world.level.Level;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.common.IPlantable;
@@ -42,7 +42,7 @@ import java.util.UUID;
 import java.util.function.Function;
 import java.util.stream.Stream;
 
-import net.minecraft.item.Item.Properties;
+import net.minecraft.world.item.Item.Properties;
 
 public class WateringCanItem extends BaseItem {
     private static final Map<String, Long> THROTTLES = new HashMap<>();
@@ -60,7 +60,7 @@ public class WateringCanItem extends BaseItem {
     }
 
     @Override
-    public void fillItemCategory(ItemGroup group, NonNullList<ItemStack> items) {
+    public void fillItemCategory(CreativeModeTab group, NonNullList<ItemStack> items) {
         if (this.allowdedIn(group)) {
             ItemStack stack = new ItemStack(this);
             NBTHelper.setBoolean(stack, "Water", false);
@@ -69,20 +69,20 @@ public class WateringCanItem extends BaseItem {
     }
 
     @Override
-    public UseAction getUseAnimation(ItemStack stack) {
-        return UseAction.NONE;
+    public UseAnim getUseAnimation(ItemStack stack) {
+        return UseAnim.NONE;
     }
 
     @Override
-    public ActionResult<ItemStack> use(World world, PlayerEntity player, Hand hand) {
+    public InteractionResultHolder<ItemStack> use(Level world, Player player, InteractionHand hand) {
         ItemStack stack = player.getItemInHand(hand);
         if (NBTHelper.getBoolean(stack, "Water")) {
-            return new ActionResult<>(ActionResultType.PASS, stack);
+            return new InteractionResultHolder<>(InteractionResult.PASS, stack);
         }
 
-        BlockRayTraceResult trace = getPlayerPOVHitResult(world, player, RayTraceContext.FluidMode.SOURCE_ONLY);
-        if (trace.getType() != RayTraceResult.Type.BLOCK) {
-            return new ActionResult<>(ActionResultType.PASS, stack);
+        BlockHitResult trace = getPlayerPOVHitResult(world, player, ClipContext.Fluid.SOURCE_ONLY);
+        if (trace.getType() != HitResult.Type.BLOCK) {
+            return new InteractionResultHolder<>(InteractionResult.PASS, stack);
         }
 
         BlockPos pos = trace.getBlockPos();
@@ -95,35 +95,35 @@ public class WateringCanItem extends BaseItem {
 
                 player.playSound(SoundEvents.BUCKET_FILL, 1.0F, 1.0F);
 
-                return new ActionResult<>(ActionResultType.SUCCESS, stack);
+                return new InteractionResultHolder<>(InteractionResult.SUCCESS, stack);
             }
         }
 
-        return new ActionResult<>(ActionResultType.PASS, stack);
+        return new InteractionResultHolder<>(InteractionResult.PASS, stack);
     }
 
     @Override
-    public ActionResultType onItemUseFirst(ItemStack stack, ItemUseContext context) {
-        PlayerEntity player = context.getPlayer();
+    public InteractionResult onItemUseFirst(ItemStack stack, UseOnContext context) {
+        Player player = context.getPlayer();
         if (player == null)
-            return ActionResultType.FAIL;
+            return InteractionResult.FAIL;
 
-        World world = context.getLevel();
+        Level world = context.getLevel();
         BlockPos pos = context.getClickedPos();
         Direction direction = context.getClickedFace();
 
         if (!player.mayUseItemAt(pos.relative(direction), direction, stack))
-            return ActionResultType.FAIL;
+            return InteractionResult.FAIL;
 
         if (!NBTHelper.getBoolean(stack, "Water"))
-            return ActionResultType.PASS;
+            return InteractionResult.PASS;
 
         return this.doWater(stack, world, player, pos, direction);
     }
 
     @OnlyIn(Dist.CLIENT)
     @Override
-    public void appendHoverText(ItemStack stack, World world, List<ITextComponent> tooltip, ITooltipFlag advanced) {
+    public void appendHoverText(ItemStack stack, Level world, List<Component> tooltip, TooltipFlag advanced) {
         if (NBTHelper.getBoolean(stack, "Water")) {
             tooltip.add(ModTooltips.FILLED.build());
         } else {
@@ -131,24 +131,24 @@ public class WateringCanItem extends BaseItem {
         }
     }
 
-    protected ActionResultType doWater(ItemStack stack, World world, PlayerEntity player, BlockPos pos, Direction direction) {
+    protected InteractionResult doWater(ItemStack stack, Level world, Player player, BlockPos pos, Direction direction) {
         if (player == null)
-            return ActionResultType.FAIL;
+            return InteractionResult.FAIL;
 
         if (!player.mayUseItemAt(pos.relative(direction), direction, stack))
-            return ActionResultType.FAIL;
+            return InteractionResult.FAIL;
 
         if (!NBTHelper.getBoolean(stack, "Water"))
-            return ActionResultType.PASS;
+            return InteractionResult.PASS;
 
         if (!ModConfigs.FAKE_PLAYER_WATERING.get() && player instanceof FakePlayer)
-            return ActionResultType.PASS;
+            return InteractionResult.PASS;
 
         if (!world.isClientSide()) {
             String id = getID(stack);
             long throttle = THROTTLES.getOrDefault(id, 0L);
             if (world.getGameTime() - throttle < getThrottleTicks(player))
-                return ActionResultType.PASS;
+                return InteractionResult.PASS;
 
             THROTTLES.put(id, world.getGameTime());
         }
@@ -157,10 +157,10 @@ public class WateringCanItem extends BaseItem {
         Stream<BlockPos> blocks = BlockPos.betweenClosedStream(pos.offset(-range, -range, -range), pos.offset(range, range, range));
         blocks.forEach(aoePos -> {
             BlockState aoeState = world.getBlockState(aoePos);
-            if (aoeState.getBlock() instanceof FarmlandBlock) {
-                int moisture = aoeState.getValue(FarmlandBlock.MOISTURE);
+            if (aoeState.getBlock() instanceof FarmBlock) {
+                int moisture = aoeState.getValue(FarmBlock.MOISTURE);
                 if (moisture < 7) {
-                    world.setBlock(aoePos, aoeState.setValue(FarmlandBlock.MOISTURE, 7), 3);
+                    world.setBlock(aoePos, aoeState.setValue(FarmBlock.MOISTURE, 7), 3);
                 }
             }
         });
@@ -172,7 +172,7 @@ public class WateringCanItem extends BaseItem {
                 double d2 = pos.offset(x, 0, z).getZ() + world.getRandom().nextFloat();
 
                 BlockState state = world.getBlockState(pos);
-                if (state.canOcclude() || state.getBlock() instanceof FarmlandBlock)
+                if (state.canOcclude() || state.getBlock() instanceof FarmBlock)
                     d1 += 0.3D;
 
                 world.addParticle(ParticleTypes.RAIN, d0, d1, d2, 0.0D, 0.0D, 0.0D);
@@ -185,16 +185,16 @@ public class WateringCanItem extends BaseItem {
                 blocks.forEach(aoePos -> {
                     BlockState state = world.getBlockState(aoePos);
                     Block plantBlock = state.getBlock();
-                    if (plantBlock instanceof IGrowable || plantBlock instanceof IPlantable || plantBlock == Blocks.MYCELIUM || plantBlock == Blocks.CHORUS_FLOWER) {
-                        state.randomTick((ServerWorld) world, aoePos, random);
+                    if (plantBlock instanceof BonemealableBlock || plantBlock instanceof IPlantable || plantBlock == Blocks.MYCELIUM || plantBlock == Blocks.CHORUS_FLOWER) {
+                        state.randomTick((ServerLevel) world, aoePos, random);
                     }
                 });
 
-                return ActionResultType.PASS;
+                return InteractionResult.PASS;
             }
         }
 
-        return ActionResultType.PASS;
+        return InteractionResult.PASS;
     }
 
     private static String getID(ItemStack stack) {
@@ -205,7 +205,7 @@ public class WateringCanItem extends BaseItem {
         return NBTHelper.getString(stack, "ID");
     }
 
-    private static long getThrottleTicks(PlayerEntity player) {
+    private static long getThrottleTicks(Player player) {
         return player instanceof FakePlayer ? 10L : 5L;
     }
 }

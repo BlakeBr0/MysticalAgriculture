@@ -6,10 +6,10 @@ import com.blakebr0.mysticalagriculture.api.tinkering.AugmentType;
 import com.blakebr0.mysticalagriculture.api.tinkering.IElementalItem;
 import com.blakebr0.mysticalagriculture.api.tinkering.ITinkerable;
 import com.blakebr0.mysticalagriculture.lib.ModTooltips;
-import net.minecraft.client.util.ITooltipFlag;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.text.ITextComponent;
-import net.minecraft.world.World;
+import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.network.chat.Component;
+import net.minecraft.world.level.Level;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 
@@ -17,7 +17,7 @@ import java.util.EnumSet;
 import java.util.List;
 import java.util.function.Function;
 
-import net.minecraft.item.Item.Properties;
+import net.minecraft.world.item.Item.Properties;
 
 public class EssenceStaffItem extends BaseItem implements ITinkerable, IElementalItem {
     private static final EnumSet<AugmentType> TYPES = EnumSet.of(AugmentType.STAFF);
@@ -32,7 +32,7 @@ public class EssenceStaffItem extends BaseItem implements ITinkerable, IElementa
 
     @OnlyIn(Dist.CLIENT)
     @Override
-    public void appendHoverText(ItemStack stack, World world, List<ITextComponent> tooltip, ITooltipFlag flag) {
+    public void appendHoverText(ItemStack stack, Level world, List<Component> tooltip, TooltipFlag flag) {
         tooltip.add(ModTooltips.getTooltipForTier(this.tinkerableTier));
         tooltip.add(Tooltips.NOT_YET_IMPLEMENTED.build());
     }

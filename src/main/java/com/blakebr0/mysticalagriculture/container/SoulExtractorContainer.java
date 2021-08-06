@@ -7,27 +7,27 @@ import com.blakebr0.mysticalagriculture.api.crafting.RecipeTypes;
 import com.blakebr0.mysticalagriculture.init.ModContainerTypes;
 import com.blakebr0.mysticalagriculture.init.ModItems;
 import com.blakebr0.mysticalagriculture.tileentity.SoulExtractorTileEntity;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.entity.player.PlayerInventory;
-import net.minecraft.inventory.container.Container;
-import net.minecraft.inventory.container.ContainerType;
-import net.minecraft.inventory.container.Slot;
-import net.minecraft.item.ItemStack;
-import net.minecraft.network.PacketBuffer;
-import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.entity.player.Inventory;
+import net.minecraft.world.inventory.AbstractContainerMenu;
+import net.minecraft.world.inventory.MenuType;
+import net.minecraft.world.inventory.Slot;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.network.FriendlyByteBuf;
+import net.minecraft.core.BlockPos;
 import net.minecraftforge.common.ForgeHooks;
 
 import java.util.function.Function;
 
-public class SoulExtractorContainer extends Container {
-    private final Function<PlayerEntity, Boolean> isUsableByPlayer;
+public class SoulExtractorContainer extends AbstractContainerMenu {
+    private final Function<Player, Boolean> isUsableByPlayer;
     private final BlockPos pos;
 
-    private SoulExtractorContainer(ContainerType<?> type, int id, PlayerInventory playerInventory, PacketBuffer buffer) {
+    private SoulExtractorContainer(MenuType<?> type, int id, Inventory playerInventory, FriendlyByteBuf buffer) {
         this(type, id, playerInventory, p -> false, (new SoulExtractorTileEntity()).getInventory(), buffer.readBlockPos());
     }
 
-    private SoulExtractorContainer(ContainerType<?> type, int id, PlayerInventory playerInventory, Function<PlayerEntity, Boolean> isUsableByPlayer, BaseItemStackHandler inventory, BlockPos pos) {
+    private SoulExtractorContainer(MenuType<?> type, int id, Inventory playerInventory, Function<Player, Boolean> isUsableByPlayer, BaseItemStackHandler inventory, BlockPos pos) {
         super(type, id);
         this.isUsableByPlayer = isUsableByPlayer;
         this.pos = pos;
@@ -48,12 +48,12 @@ public class SoulExtractorContainer extends Container {
     }
 
     @Override
-    public boolean stillValid(PlayerEntity player) {
+    public boolean stillValid(Player player) {
         return this.isUsableByPlayer.apply(player);
     }
 
     @Override
-    public ItemStack quickMoveStack(PlayerEntity player, int index) {
+    public ItemStack quickMoveStack(Player player, int index) {
         ItemStack itemstack = ItemStack.EMPTY;
         Slot slot = this.slots.get(index);
 
@@ -105,11 +105,11 @@ public class SoulExtractorContainer extends Container {
         return this.pos;
     }
 
-    public static SoulExtractorContainer create(int windowId, PlayerInventory playerInventory, PacketBuffer buffer) {
+    public static SoulExtractorContainer create(int windowId, Inventory playerInventory, FriendlyByteBuf buffer) {
         return new SoulExtractorContainer(ModContainerTypes.SOUL_EXTRACTOR.get(), windowId, playerInventory, buffer);
     }
 
-    public static SoulExtractorContainer create(int windowId, PlayerInventory playerInventory, Function<PlayerEntity, Boolean> isUsableByPlayer, BaseItemStackHandler inventory, BlockPos pos) {
+    public static SoulExtractorContainer create(int windowId, Inventory playerInventory, Function<Player, Boolean> isUsableByPlayer, BaseItemStackHandler inventory, BlockPos pos) {
         return new SoulExtractorContainer(ModContainerTypes.SOUL_EXTRACTOR.get(), windowId, playerInventory, isUsableByPlayer, inventory, pos);
     }
 }

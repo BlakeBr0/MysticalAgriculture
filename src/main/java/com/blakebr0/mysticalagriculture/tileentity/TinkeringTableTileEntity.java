@@ -8,18 +8,18 @@ import com.blakebr0.mysticalagriculture.api.tinkering.ITinkerable;
 import com.blakebr0.mysticalagriculture.container.TinkeringTableContainer;
 import com.blakebr0.mysticalagriculture.init.ModTileEntities;
 import com.blakebr0.mysticalagriculture.lib.ModCrops;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.entity.player.PlayerInventory;
-import net.minecraft.inventory.container.Container;
-import net.minecraft.inventory.container.INamedContainerProvider;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.Direction;
-import net.minecraft.util.text.ITextComponent;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.entity.player.Inventory;
+import net.minecraft.world.inventory.AbstractContainerMenu;
+import net.minecraft.world.MenuProvider;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.core.Direction;
+import net.minecraft.network.chat.Component;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.util.LazyOptional;
 
-public class TinkeringTableTileEntity extends BaseInventoryTileEntity implements INamedContainerProvider {
+public class TinkeringTableTileEntity extends BaseInventoryTileEntity implements MenuProvider {
     private final BaseItemStackHandler inventory = new BaseItemStackHandler(7, () -> {
         if (this.getLevel() != null && !this.getLevel().isClientSide()) {
             this.markDirtyAndDispatch();
@@ -38,12 +38,12 @@ public class TinkeringTableTileEntity extends BaseInventoryTileEntity implements
     }
 
     @Override
-    public ITextComponent getDisplayName() {
+    public Component getDisplayName() {
         return Localizable.of("container.mysticalagriculture.tinkering_table").build();
     }
 
     @Override
-    public Container createMenu(int windowId, PlayerInventory playerInventory, PlayerEntity player) {
+    public AbstractContainerMenu createMenu(int windowId, Inventory playerInventory, Player player) {
         return TinkeringTableContainer.create(windowId, playerInventory, this::isUsableByPlayer, this.inventory);
     }
 

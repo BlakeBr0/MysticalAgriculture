@@ -11,17 +11,17 @@ import mcjty.theoneprobe.api.IProbeInfo;
 import mcjty.theoneprobe.api.IProbeInfoProvider;
 import mcjty.theoneprobe.api.ITheOneProbe;
 import mcjty.theoneprobe.api.ProbeMode;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.text.ITextComponent;
-import net.minecraft.util.text.StringTextComponent;
-import net.minecraft.util.text.TextFormatting;
-import net.minecraft.world.World;
-import net.minecraft.world.biome.Biome;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.core.BlockPos;
+import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.TextComponent;
+import net.minecraft.ChatFormatting;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.biome.Biome;
 import net.minecraftforge.fml.InterModComms;
 
 import java.util.Set;
@@ -37,7 +37,7 @@ public class TOPCompat implements Function<ITheOneProbe, Void> {
             }
 
             @Override
-            public void addProbeInfo(ProbeMode mode, IProbeInfo info, PlayerEntity player, World world, BlockState state, IProbeHitData data) {
+            public void addProbeInfo(ProbeMode mode, IProbeInfo info, Player player, Level world, BlockState state, IProbeHitData data) {
                 Block block = state.getBlock();
                 BlockPos pos = data.getPos();
 
@@ -49,7 +49,7 @@ public class TOPCompat implements Function<ITheOneProbe, Void> {
 
                     double secondaryChance = crop.getSecondaryChance(belowBlock);
                     if (secondaryChance > 0) {
-                        ITextComponent chanceText = new StringTextComponent(String.valueOf((int) (secondaryChance * 100)))
+                        Component chanceText = new TextComponent(String.valueOf((int) (secondaryChance * 100)))
                                 .append("%")
                                 .withStyle(crop.getTier().getTextColor());
 
@@ -68,7 +68,7 @@ public class TOPCompat implements Function<ITheOneProbe, Void> {
                         Biome biome = world.getBiome(pos);
 
                         if (!biomes.contains(biome.getRegistryName())) {
-                            info.text(ModTooltips.INVALID_BIOME.color(TextFormatting.RED).build());
+                            info.text(ModTooltips.INVALID_BIOME.color(ChatFormatting.RED).build());
                         }
                     }
 
@@ -80,7 +80,7 @@ public class TOPCompat implements Function<ITheOneProbe, Void> {
                             output = (tier * 50) + 50;
                         }
 
-                        ITextComponent inferiumOutputText = new StringTextComponent(String.valueOf(output))
+                        Component inferiumOutputText = new TextComponent(String.valueOf(output))
                                 .append("%")
                                 .withStyle(crop.getTier().getTextColor());
 

@@ -4,16 +4,16 @@ import com.blakebr0.mysticalagriculture.api.MysticalAgricultureAPI;
 import com.blakebr0.mysticalagriculture.api.crop.CropTier;
 import com.blakebr0.mysticalagriculture.api.tinkering.IAugment;
 import com.blakebr0.mysticalagriculture.api.tinkering.ITinkerable;
-import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.inventory.EquipmentSlotType;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.CompoundNBT;
-import net.minecraft.util.NonNullList;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.text.ITextComponent;
-import net.minecraft.util.text.StringTextComponent;
-import net.minecraft.util.text.TextFormatting;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.core.NonNullList;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.TextComponent;
+import net.minecraft.ChatFormatting;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,9 +30,9 @@ public class AugmentUtils {
         if (item instanceof ITinkerable) {
             ITinkerable tinkerable = (ITinkerable) item;
             if (slot < tinkerable.getAugmentSlots() && tinkerable.getTinkerableTier() >= augment.getTier()) {
-                CompoundNBT nbt = stack.getTag();
+                CompoundTag nbt = stack.getTag();
                 if (nbt == null) {
-                    nbt = new CompoundNBT();
+                    nbt = new CompoundTag();
                     stack.setTag(nbt);
                 }
 
@@ -47,7 +47,7 @@ public class AugmentUtils {
      * @param slot the augment slot
      */
     public static void removeAugment(ItemStack stack, int slot) {
-        CompoundNBT nbt = stack.getTag();
+        CompoundTag nbt = stack.getTag();
         if (nbt == null)
             return;
 
@@ -67,7 +67,7 @@ public class AugmentUtils {
      * @return the augment
      */
     public static IAugment getAugment(ItemStack stack, int slot) {
-        CompoundNBT nbt = stack.getTag();
+        CompoundTag nbt = stack.getTag();
         if (nbt == null)
             return null;
 
@@ -89,7 +89,7 @@ public class AugmentUtils {
      * @return the installed augments
      */
     public static List<IAugment> getAugments(ItemStack stack) {
-        CompoundNBT nbt = stack.getTag();
+        CompoundTag nbt = stack.getTag();
         List<IAugment> augments = new ArrayList<>();
         if (nbt == null)
             return augments;
@@ -113,7 +113,7 @@ public class AugmentUtils {
      * @param player the player
      * @return the installed augments
      */
-    public static List<IAugment> getArmorAugments(PlayerEntity player) {
+    public static List<IAugment> getArmorAugments(Player player) {
         NonNullList<ItemStack> armor = player.inventory.armor;
         List<IAugment> augments = new ArrayList<>();
         for (ItemStack stack : armor) {
@@ -128,14 +128,14 @@ public class AugmentUtils {
      * @param tier the tier
      * @return the color
      */
-    public static TextFormatting getColorForTier(int tier) {
+    public static ChatFormatting getColorForTier(int tier) {
         switch (tier) {
             case 1: return CropTier.ONE.getTextColor();
             case 2: return CropTier.TWO.getTextColor();
             case 3: return CropTier.THREE.getTextColor();
             case 4: return CropTier.FOUR.getTextColor();
             case 5: return CropTier.FIVE.getTextColor();
-            default: return TextFormatting.GRAY;
+            default: return ChatFormatting.GRAY;
         }
     }
 
@@ -144,7 +144,7 @@ public class AugmentUtils {
      * @param tier the tier
      * @return the formatted tier
      */
-    public static ITextComponent getTooltipForTier(int tier) {
-        return new StringTextComponent(String.valueOf(tier)).withStyle(getColorForTier(tier));
+    public static Component getTooltipForTier(int tier) {
+        return new TextComponent(String.valueOf(tier)).withStyle(getColorForTier(tier));
     }
 }

@@ -5,13 +5,13 @@ import com.blakebr0.mysticalagriculture.api.crop.CropTier;
 import com.blakebr0.mysticalagriculture.api.crop.ICropTierProvider;
 import com.blakebr0.mysticalagriculture.api.farmland.IFarmlandConverter;
 import com.blakebr0.mysticalagriculture.config.ModConfigs;
-import net.minecraft.block.FarmlandBlock;
-import net.minecraft.item.ItemUseContext;
-import net.minecraft.util.ActionResultType;
+import net.minecraft.world.level.block.FarmBlock;
+import net.minecraft.world.item.context.UseOnContext;
+import net.minecraft.world.InteractionResult;
 
 import java.util.function.Function;
 
-import net.minecraft.item.Item.Properties;
+import net.minecraft.world.item.Item.Properties;
 
 public class EssenceItem extends BaseItem implements IFarmlandConverter, ICropTierProvider {
     private final CropTier tier;
@@ -22,15 +22,15 @@ public class EssenceItem extends BaseItem implements IFarmlandConverter, ICropTi
     }
 
     @Override
-    public ActionResultType useOn(ItemUseContext context) {
+    public InteractionResult useOn(UseOnContext context) {
         if (!ModConfigs.ESSENCE_FARMLAND_CONVERSION.get())
-            return ActionResultType.PASS;
+            return InteractionResult.PASS;
 
         return this.convert(context);
     }
 
     @Override
-    public FarmlandBlock getConvertedFarmland() {
+    public FarmBlock getConvertedFarmland() {
         return this.tier.getFarmland();
     }
 

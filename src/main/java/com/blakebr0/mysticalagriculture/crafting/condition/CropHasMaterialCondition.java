@@ -4,9 +4,9 @@ import com.blakebr0.mysticalagriculture.MysticalAgriculture;
 import com.blakebr0.mysticalagriculture.api.crop.ICrop;
 import com.blakebr0.mysticalagriculture.registry.CropRegistry;
 import com.google.gson.JsonObject;
-import net.minecraft.item.crafting.Ingredient;
-import net.minecraft.util.JSONUtils;
-import net.minecraft.util.ResourceLocation;
+import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.util.GsonHelper;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.common.crafting.conditions.ICondition;
 import net.minecraftforge.common.crafting.conditions.IConditionSerializer;
 
@@ -43,7 +43,7 @@ public class CropHasMaterialCondition implements ICondition {
 
         @Override
         public CropHasMaterialCondition read(JsonObject json) {
-            String crop = JSONUtils.getAsString(json, "crop");
+            String crop = GsonHelper.getAsString(json, "crop");
             return new CropHasMaterialCondition(new ResourceLocation(crop));
         }
 

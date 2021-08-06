@@ -2,8 +2,8 @@ package com.blakebr0.mysticalagriculture.registry;
 
 import com.blakebr0.mysticalagriculture.api.registry.IMobSoulTypeRegistry;
 import com.blakebr0.mysticalagriculture.api.soul.IMobSoulType;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.util.ResourceLocation;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.resources.ResourceLocation;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 

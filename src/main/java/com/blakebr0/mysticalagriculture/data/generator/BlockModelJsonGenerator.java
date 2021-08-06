@@ -3,9 +3,9 @@ package com.blakebr0.mysticalagriculture.data.generator;
 import com.blakebr0.mysticalagriculture.MysticalAgriculture;
 import com.blakebr0.mysticalagriculture.api.MysticalAgricultureAPI;
 import com.blakebr0.mysticalagriculture.registry.CropRegistry;
-import net.minecraft.block.CropsBlock;
+import net.minecraft.world.level.block.CropBlock;
 import net.minecraft.data.DataGenerator;
-import net.minecraft.util.ResourceLocation;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.client.model.generators.BlockModelBuilder;
 import net.minecraftforge.client.model.generators.BlockStateProvider;
 import net.minecraftforge.client.model.generators.ConfiguredModel;
@@ -36,11 +36,11 @@ public class BlockModelJsonGenerator extends BlockStateProvider {
         });
 
         CropRegistry.getInstance().getCrops().forEach(crop -> {
-            CropsBlock block = crop.getCrop();
+            CropBlock block = crop.getCrop();
             ModelFile[] models = stemModels.get(crop.getType().getName());
 
             this.getVariantBuilder(block).forAllStates(state -> {
-                Integer age = state.getValue(CropsBlock.AGE);
+                Integer age = state.getValue(CropBlock.AGE);
                 if (age == block.getMaxAge()) {
                     BlockModelBuilder model = this.models().getBuilder(crop.getNameWithSuffix("crop"))
                             .parent(models[7])

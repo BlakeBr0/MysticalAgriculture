@@ -1,7 +1,7 @@
 package com.blakebr0.mysticalagriculture.api.registry;
 
 import com.blakebr0.mysticalagriculture.api.crop.ICrop;
-import net.minecraft.util.ResourceLocation;
+import net.minecraft.resources.ResourceLocation;
 
 import java.util.List;
 

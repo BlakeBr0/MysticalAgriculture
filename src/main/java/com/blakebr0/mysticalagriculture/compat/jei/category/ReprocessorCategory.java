@@ -4,7 +4,7 @@ import com.blakebr0.cucumber.util.Localizable;
 import com.blakebr0.mysticalagriculture.MysticalAgriculture;
 import com.blakebr0.mysticalagriculture.crafting.recipe.ReprocessorRecipe;
 import com.blakebr0.mysticalagriculture.init.ModBlocks;
-import com.mojang.blaze3d.matrix.MatrixStack;
+import com.mojang.blaze3d.vertex.PoseStack;
 import mezz.jei.api.constants.VanillaTypes;
 import mezz.jei.api.gui.IRecipeLayout;
 import mezz.jei.api.gui.drawable.IDrawable;
@@ -14,8 +14,8 @@ import mezz.jei.api.gui.ingredient.IGuiItemStackGroup;
 import mezz.jei.api.helpers.IGuiHelper;
 import mezz.jei.api.ingredients.IIngredients;
 import mezz.jei.api.recipe.category.IRecipeCategory;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.ResourceLocation;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.resources.ResourceLocation;
 
 import java.util.List;
 
@@ -60,7 +60,7 @@ public class ReprocessorCategory implements IRecipeCategory<ReprocessorRecipe> {
     }
 
     @Override
-    public void draw(ReprocessorRecipe recipe, MatrixStack stack, double mouseX, double mouseY) {
+    public void draw(ReprocessorRecipe recipe, PoseStack stack, double mouseX, double mouseY) {
         this.arrow.draw(stack, 24, 4);
     }
 

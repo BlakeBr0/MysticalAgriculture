@@ -2,15 +2,15 @@ package com.blakebr0.mysticalagriculture.api.crop;
 
 import com.blakebr0.mysticalagriculture.api.farmland.IEssenceFarmland;
 import com.blakebr0.mysticalagriculture.api.lib.LazyIngredient;
-import net.minecraft.block.Block;
-import net.minecraft.block.CropsBlock;
-import net.minecraft.item.BlockNamedItem;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.crafting.Ingredient;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.text.ITextComponent;
-import net.minecraft.util.text.TranslationTextComponent;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.CropBlock;
+import net.minecraft.world.item.ItemNameBlockItem;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.TranslatableComponent;
 
 import java.util.Collections;
 import java.util.Set;
@@ -52,8 +52,8 @@ public interface ICrop {
      * or the display name set via {@link ICrop#setDisplayName(ITextComponent)}
      * @return the localized name of this crop
      */
-    default ITextComponent getDisplayName() {
-        return new TranslationTextComponent(String.format("crop.%s.%s", this.getModId(), this.getName()));
+    default Component getDisplayName() {
+        return new TranslatableComponent(String.format("crop.%s.%s", this.getModId(), this.getName()));
     }
 
     /**
@@ -61,7 +61,7 @@ public interface ICrop {
      * @param name the new display name
      * @return this crop
      */
-    default ICrop setDisplayName(ITextComponent name) {
+    default ICrop setDisplayName(Component name) {
         return this;
     }
 
@@ -172,14 +172,14 @@ public interface ICrop {
      * The crop block for this crop type
      * @return the crop block
      */
-    CropsBlock getCrop();
+    CropBlock getCrop();
 
     /**
      * Used to set the crop block instance for this crop, the supplier should return the same instance every time
      * @param crop the crop block
      * @return this crop
      */
-    default ICrop setCrop(Supplier<? extends CropsBlock> crop) {
+    default ICrop setCrop(Supplier<? extends CropBlock> crop) {
         return this.setCrop(crop, false);
     }
 
@@ -189,7 +189,7 @@ public interface ICrop {
      * @param register should this block be registered
      * @return this crop
      */
-    ICrop setCrop(Supplier<? extends CropsBlock> crop, boolean register);
+    ICrop setCrop(Supplier<? extends CropBlock> crop, boolean register);
 
     /**
      * Should this crop's crop block be registered
@@ -230,14 +230,14 @@ public interface ICrop {
      * The seeds item for this crop type
      * @return the seed item
      */
-    BlockNamedItem getSeeds();
+    ItemNameBlockItem getSeeds();
 
     /**
      * Used to set the seeds item instance for this crop, the supplier should return the same instance every time
      * @param seeds the seeds item
      * @return this crop
      */
-    default ICrop setSeeds(Supplier<? extends BlockNamedItem> seeds) {
+    default ICrop setSeeds(Supplier<? extends ItemNameBlockItem> seeds) {
         return this.setSeeds(seeds, false);
     }
 
@@ -247,7 +247,7 @@ public interface ICrop {
      * @param register should this item be registered
      * @return this crop
      */
-    ICrop setSeeds(Supplier<? extends BlockNamedItem> seeds, boolean register);
+    ICrop setSeeds(Supplier<? extends ItemNameBlockItem> seeds, boolean register);
 
     /**
      * Should this crop's seeds item be registered

@@ -1,33 +1,33 @@
 buildscript {
     repositories {
-        maven { url = 'https://files.minecraftforge.net/maven' }
-        jcenter()
+        maven { url = 'https://maven.minecraftforge.net' }
         mavenCentral()
     }
     dependencies {
-        classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '4.+', changing: true
+        classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '5.1.+', changing: true
     }
 }
 apply plugin: 'net.minecraftforge.gradle'
-apply plugin: 'idea'
+apply plugin: 'eclipse'
+apply plugin: 'maven-publish'
 
 version = '4.2.1'
 group = 'com.blakebr0.mysticalagriculture'
-archivesBaseName = 'MysticalAgriculture-1.16.5'
+archivesBaseName = 'MysticalAgriculture-1.17.1'
 
-sourceCompatibility = targetCompatibility = compileJava.sourceCompatibility = compileJava.targetCompatibility = '1.8'
+java.toolchain.languageVersion = JavaLanguageVersion.of(16)
+
+println('Java: ' + System.getProperty('java.version') + ' JVM: ' + System.getProperty('java.vm.version') + '(' + System.getProperty('java.vendor') + ') Arch: ' + System.getProperty('os.arch'))
 
 repositories {
     maven { url 'https://dvs1.progwml6.com/files/maven/' }
     maven { url 'https://maven.blamejared.com' }
     maven { url 'https://maven.tehnut.info' }
     maven { url "https://maven.tterrag.com" }
-
-    flatDir { dir 'libs' }
 }
 
 minecraft {
-    mappings channel: 'official', version: '1.16.5'
+    mappings channel: 'official', version: '1.17.1'
 
     accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg')
 
@@ -35,40 +35,31 @@ minecraft {
         client {
             workingDirectory project.file('run')
 
-            property 'forge.logging.markers', 'SCAN,REGISTRIES,REGISTRYDUMP'
-            property 'forge.logging.console.level', 'info'
-            property 'mixin.env.remapRefMap', 'true'
-            property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
+            property 'forge.logging.markers', 'REGISTRIES'
+            property 'forge.logging.console.level', 'debug'
 
-            ideaModule "${project.name}.main"
-            environment 'MOD_CLASSES', "${project.file('out/production/resources').canonicalPath}${File.pathSeparator}${project.file('out/production/classes').canonicalPath}"
+            ideaModule "${rootProject.name}.${project.name}.main"
+
+            mods {
+                cucumber {
+                    source sourceSets.main
+                }
+            }
         }
 
         server {
             workingDirectory project.file('run')
 
-            property 'forge.logging.markers', 'SCAN,REGISTRIES,REGISTRYDUMP'
-            property 'forge.logging.console.level', 'info'
-            property 'mixin.env.remapRefMap', 'true'
-            property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
-
-            ideaModule "${project.name}.main"
-            environment 'MOD_CLASSES', "${project.file('out/production/resources').canonicalPath}${File.pathSeparator}${project.file('out/production/classes').canonicalPath}"
-        }
-
-        data {
-            workingDirectory project.file('run')
-
-            property 'forge.logging.markers', 'REGISTRIES,REGISTRYDUMP'
+            property 'forge.logging.markers', 'REGISTRIES'
             property 'forge.logging.console.level', 'debug'
-            property 'fml.earlyprogresswindow', 'false'
-            property 'mixin.env.remapRefMap', 'true'
-            property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
 
-            ideaModule "${project.name}.main"
-            environment 'MOD_CLASSES', "${project.file('out/production/resources').canonicalPath}${File.pathSeparator}${project.file('out/production/classes').canonicalPath}"
+            ideaModule "${rootProject.name}.${project.name}.main"
 
-            args '--mod', 'mysticalagriculture', '--all', '--output', file('src/generated/resources/'), '--existing', sourceSets.main.resources.srcDirs[0]
+            mods {
+                cucumber {
+                    source sourceSets.main
+                }
+            }
         }
     }
 }
@@ -83,17 +74,24 @@ sourceSets {
 }
 
 dependencies {
-    minecraft 'net.minecraftforge:forge:1.16.5-36.1.0'
+    minecraft 'net.minecraftforge:forge:1.17.1-37.0.19'
 
-    compile fg.deobf('ignored:Cucumber:1.16.4-4.1.10')
-    compileOnly fg.deobf('mcp.mobius.waila:Hwyla:1.10.11-B78_1.16.2:api')
-    runtimeOnly fg.deobf('mcp.mobius.waila:Hwyla:1.10.11-B78_1.16.2')
-    compileOnly fg.deobf('mezz.jei:jei-1.16.2:7.1.1.15:api')
-    runtimeOnly fg.deobf('mezz.jei:jei-1.16.2:7.1.1.15')
-    compile fg.deobf('com.blamejared.crafttweaker:CraftTweaker-1.16.5:7.1.0.326')
-    compile fg.deobf('vazkii.patchouli:Patchouli:1.16.2-47')
-    compile fg.deobf("mcjty.theoneprobe:TheOneProbe-1.16:1.16-3.1.3-21") { transitive = false }
+    implementation project(':Cucumber')
 }
+
+//dependencies {
+//    minecraft 'net.minecraftforge:forge:1.16.5-36.1.0'
+//
+////    implementation project(':Cucumber')
+//    implementation fg.deobf("curse.maven:cucumber-272335:3349690")
+//    compileOnly fg.deobf('mcp.mobius.waila:Hwyla:1.10.11-B78_1.16.2:api')
+//    runtimeOnly fg.deobf('mcp.mobius.waila:Hwyla:1.10.11-B78_1.16.2')
+//    compileOnly fg.deobf('mezz.jei:jei-1.16.2:7.1.1.15:api')
+//    runtimeOnly fg.deobf('mezz.jei:jei-1.16.2:7.1.1.15')
+//    compileOnly fg.deobf('com.blamejared.crafttweaker:CraftTweaker-1.16.5:7.1.0.326')
+//    compileOnly fg.deobf('vazkii.patchouli:Patchouli:1.16.2-47')
+//    compileOnly fg.deobf("mcjty.theoneprobe:TheOneProbe-1.16:1.16-3.1.3-21") { transitive = false }
+//}
 
 task apiJar(type: Jar) {
     // Remove sources from the api jar when MinecraftForge/ForgeGradle#369 is fixed
@@ -110,16 +108,30 @@ artifacts {
 }
 
 jar {
-    from sourceSets.main.output
     manifest {
         attributes([
-            'Specification-Title': 'Mystical Agriculture',
-            'Specification-Vendor': 'BlakeBr0',
-            'Specification-Version': '1',
-            'Implementation-Title': project.name,
-            'Implementation-Version': "${version}",
-            'Implementation-Vendor' : 'BlakeBr0',
-            'Implementation-Timestamp': new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
+                'Specification-Title': 'Mystical Agriculture',
+                'Specification-Vendor': 'BlakeBr0',
+                'Specification-Version': '1',
+                'Implementation-Title': project.name,
+                'Implementation-Version': "${archiveVersion}",
+                'Implementation-Vendor' : 'BlakeBr0',
+                'Implementation-Timestamp': new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
         ])
+    }
+}
+
+jar.finalizedBy('reobfJar')
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            artifact jar
+        }
+    }
+    repositories {
+        maven {
+            url "file://${project.projectDir}/mcmodsrepo"
+        }
     }
 }

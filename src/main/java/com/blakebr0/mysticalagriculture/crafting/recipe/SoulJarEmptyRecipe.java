@@ -6,16 +6,16 @@ import com.blakebr0.mysticalagriculture.init.ModItems;
 import com.blakebr0.mysticalagriculture.init.ModRecipeSerializers;
 import com.blakebr0.mysticalagriculture.item.SoulJarItem;
 import com.google.gson.JsonObject;
-import net.minecraft.inventory.CraftingInventory;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.crafting.IRecipeSerializer;
-import net.minecraft.item.crafting.Ingredient;
-import net.minecraft.item.crafting.ShapelessRecipe;
-import net.minecraft.network.PacketBuffer;
-import net.minecraft.util.NonNullList;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.world.World;
+import net.minecraft.world.inventory.CraftingContainer;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.crafting.RecipeSerializer;
+import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.world.item.crafting.ShapelessRecipe;
+import net.minecraft.network.FriendlyByteBuf;
+import net.minecraft.core.NonNullList;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.level.Level;
 import net.minecraftforge.registries.ForgeRegistryEntry;
 
 public class SoulJarEmptyRecipe extends ShapelessRecipe {
@@ -24,7 +24,7 @@ public class SoulJarEmptyRecipe extends ShapelessRecipe {
     }
 
     @Override
-    public boolean matches(CraftingInventory inv, World world) {
+    public boolean matches(CraftingContainer inv, Level world) {
         boolean hasJar = false;
         for (int i = 0; i < inv.getContainerSize(); i++) {
             ItemStack stack = inv.getItem(i);
@@ -46,11 +46,11 @@ public class SoulJarEmptyRecipe extends ShapelessRecipe {
     }
 
     @Override
-    public IRecipeSerializer<?> getSerializer() {
+    public RecipeSerializer<?> getSerializer() {
         return ModRecipeSerializers.CRAFTING_SOUL_JAR_EMPTY;
     }
 
-    public static class Serializer extends ForgeRegistryEntry<IRecipeSerializer<?>> implements IRecipeSerializer<SoulJarEmptyRecipe> {
+    public static class Serializer extends ForgeRegistryEntry<RecipeSerializer<?>> implements RecipeSerializer<SoulJarEmptyRecipe> {
         @Override
         public SoulJarEmptyRecipe fromJson(ResourceLocation recipeId, JsonObject json) {
             NonNullList<Ingredient> ingredients = NonNullList.withSize(1, new FilledSoulJarIngredient());
@@ -59,13 +59,13 @@ public class SoulJarEmptyRecipe extends ShapelessRecipe {
         }
 
         @Override
-        public SoulJarEmptyRecipe fromNetwork(ResourceLocation recipeId, PacketBuffer buffer) {
+        public SoulJarEmptyRecipe fromNetwork(ResourceLocation recipeId, FriendlyByteBuf buffer) {
             NonNullList<Ingredient> ingredients = NonNullList.withSize(1, new FilledSoulJarIngredient());
 
             return new SoulJarEmptyRecipe(recipeId, "", new ItemStack(ModItems.SOUL_JAR.get()), ingredients);
         }
 
         @Override
-        public void toNetwork(PacketBuffer buffer, SoulJarEmptyRecipe recipe) { }
+        public void toNetwork(FriendlyByteBuf buffer, SoulJarEmptyRecipe recipe) { }
     }
 }

@@ -3,18 +3,18 @@ package com.blakebr0.mysticalagriculture.item;
 import com.blakebr0.cucumber.item.BaseItem;
 import com.blakebr0.mysticalagriculture.api.util.ExperienceCapsuleUtils;
 import com.blakebr0.mysticalagriculture.lib.ModTooltips;
-import net.minecraft.client.util.ITooltipFlag;
-import net.minecraft.item.IItemPropertyGetter;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.text.ITextComponent;
-import net.minecraft.world.World;
+import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.client.renderer.item.ItemPropertyFunction;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.network.chat.Component;
+import net.minecraft.world.level.Level;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 
 import java.util.List;
 import java.util.function.Function;
 
-import net.minecraft.item.Item.Properties;
+import net.minecraft.world.item.Item.Properties;
 
 public class ExperienceCapsuleItem extends BaseItem {
     public ExperienceCapsuleItem(Function<Properties, Properties> properties) {
@@ -23,12 +23,12 @@ public class ExperienceCapsuleItem extends BaseItem {
 
     @OnlyIn(Dist.CLIENT)
     @Override
-    public void appendHoverText(ItemStack stack, World world, List<ITextComponent> tooltip, ITooltipFlag flag) {
+    public void appendHoverText(ItemStack stack, Level world, List<Component> tooltip, TooltipFlag flag) {
         int experience = ExperienceCapsuleUtils.getExperience(stack);
         tooltip.add(ModTooltips.EXPERIENCE_CAPSULE.args(experience, ExperienceCapsuleUtils.MAX_XP_POINTS).build());
     }
 
-    public static IItemPropertyGetter getFillPropertyGetter() {
+    public static ItemPropertyFunction getFillPropertyGetter() {
         return (stack, world, entity) -> {
             int experience = ExperienceCapsuleUtils.getExperience(stack);
             if (experience > 0) {

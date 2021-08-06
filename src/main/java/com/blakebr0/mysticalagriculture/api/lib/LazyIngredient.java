@@ -1,12 +1,12 @@
 package com.blakebr0.mysticalagriculture.api.lib;
 
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.crafting.Ingredient;
-import net.minecraft.nbt.CompoundNBT;
-import net.minecraft.tags.ITag;
-import net.minecraft.tags.TagCollectionManager;
-import net.minecraft.util.ResourceLocation;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.tags.Tag;
+import net.minecraft.tags.SerializationTags;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.registries.ForgeRegistries;
 
 public class LazyIngredient {
@@ -18,11 +18,11 @@ public class LazyIngredient {
     };
 
     private final String name;
-    private final CompoundNBT nbt;
+    private final CompoundTag nbt;
     private final Type type;
     private Ingredient ingredient;
 
-    private LazyIngredient(String name, Type type, CompoundNBT nbt) {
+    private LazyIngredient(String name, Type type, CompoundTag nbt) {
         this.name = name;
         this.type = type;
         this.nbt = nbt;
@@ -32,7 +32,7 @@ public class LazyIngredient {
         return item(name, null);
     }
 
-    public static LazyIngredient item(String name, CompoundNBT nbt) {
+    public static LazyIngredient item(String name, CompoundTag nbt) {
         return new LazyIngredient(name, Type.ITEM, nbt);
     }
 
@@ -51,7 +51,7 @@ public class LazyIngredient {
     public Ingredient getIngredient() {
         if (this.ingredient == null) {
             if (this.isTag()) {
-                ITag<Item> tag = TagCollectionManager.getInstance().getItems().getTag(new ResourceLocation(this.name));
+                Tag<Item> tag = SerializationTags.getInstance().getItems().getTag(new ResourceLocation(this.name));
                 if (tag != null && !tag.getValues().isEmpty())
                     this.ingredient = Ingredient.of(tag);
             } else if (this.isItem()) {

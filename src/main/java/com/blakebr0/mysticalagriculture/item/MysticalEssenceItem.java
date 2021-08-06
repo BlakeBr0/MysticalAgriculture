@@ -7,17 +7,17 @@ import com.blakebr0.mysticalagriculture.MysticalAgriculture;
 import com.blakebr0.mysticalagriculture.api.crop.ICrop;
 import com.blakebr0.mysticalagriculture.api.crop.ICropGetter;
 import com.blakebr0.mysticalagriculture.lib.ModTooltips;
-import net.minecraft.client.util.ITooltipFlag;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.text.ITextComponent;
-import net.minecraft.world.World;
+import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.network.chat.Component;
+import net.minecraft.world.level.Level;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 
 import java.util.List;
 import java.util.function.Function;
 
-import net.minecraft.item.Item.Properties;
+import net.minecraft.world.item.Item.Properties;
 
 public class MysticalEssenceItem extends BaseItem implements ICropGetter, IEnableable {
     private final ICrop crop;
@@ -28,12 +28,12 @@ public class MysticalEssenceItem extends BaseItem implements ICropGetter, IEnabl
     }
 
     @Override
-    public ITextComponent getName(ItemStack stack) {
+    public Component getName(ItemStack stack) {
         return Localizable.of("item.mysticalagriculture.mystical_essence").args(this.crop.getDisplayName()).build();
     }
 
     @Override
-    public ITextComponent getDescription() {
+    public Component getDescription() {
         return this.getName(ItemStack.EMPTY);
     }
 
@@ -49,7 +49,7 @@ public class MysticalEssenceItem extends BaseItem implements ICropGetter, IEnabl
 
     @OnlyIn(Dist.CLIENT)
     @Override
-    public void appendHoverText(ItemStack stack, World world, List<ITextComponent> tooltip, ITooltipFlag flag) {
+    public void appendHoverText(ItemStack stack, Level world, List<Component> tooltip, TooltipFlag flag) {
         if (!this.crop.getModId().equals(MysticalAgriculture.MOD_ID)) {
             tooltip.add(ModTooltips.getAddedByTooltip(this.crop.getModId()));
         }

@@ -3,28 +3,28 @@ package com.blakebr0.mysticalagriculture.tileentity;
 import com.blakebr0.cucumber.util.Localizable;
 import com.blakebr0.mysticalagriculture.block.EssenceFurnaceBlock;
 import com.blakebr0.mysticalagriculture.init.ModTileEntities;
-import net.minecraft.entity.player.PlayerInventory;
-import net.minecraft.inventory.container.Container;
-import net.minecraft.inventory.container.FurnaceContainer;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.crafting.IRecipeType;
-import net.minecraft.tileentity.AbstractFurnaceTileEntity;
-import net.minecraft.tileentity.TileEntityType;
-import net.minecraft.util.text.ITextComponent;
+import net.minecraft.world.entity.player.Inventory;
+import net.minecraft.world.inventory.AbstractContainerMenu;
+import net.minecraft.world.inventory.FurnaceMenu;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.crafting.RecipeType;
+import net.minecraft.world.level.block.entity.AbstractFurnaceBlockEntity;
+import net.minecraft.world.level.block.entity.BlockEntityType;
+import net.minecraft.network.chat.Component;
 
-public abstract class EssenceFurnaceTileEntity extends AbstractFurnaceTileEntity {
-    public EssenceFurnaceTileEntity(TileEntityType<?> type) {
-        super(type, IRecipeType.SMELTING);
+public abstract class EssenceFurnaceTileEntity extends AbstractFurnaceBlockEntity {
+    public EssenceFurnaceTileEntity(BlockEntityType<?> type) {
+        super(type, RecipeType.SMELTING);
     }
 
     @Override
-    protected ITextComponent getDefaultName() {
+    protected Component getDefaultName() {
         return Localizable.of(String.format("container.mysticalagriculture.%s_furnace", this.getTier().getName())).build();
     }
 
     @Override
-    protected Container createMenu(int id, PlayerInventory player) {
-        return new FurnaceContainer(id, player, this, this.dataAccess);
+    protected AbstractContainerMenu createMenu(int id, Inventory player) {
+        return new FurnaceMenu(id, player, this, this.dataAccess);
     }
 
     @Override

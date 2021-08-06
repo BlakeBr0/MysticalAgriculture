@@ -4,25 +4,25 @@ import com.blakebr0.cucumber.item.BaseItem;
 import com.blakebr0.mysticalagriculture.api.crop.ICropGetter;
 import com.blakebr0.mysticalagriculture.init.ModItems;
 import com.blakebr0.mysticalagriculture.lib.ModTooltips;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.CropsBlock;
-import net.minecraft.block.DispenserBlock;
-import net.minecraft.block.IGrowable;
-import net.minecraft.block.SaplingBlock;
-import net.minecraft.client.util.ITooltipFlag;
-import net.minecraft.dispenser.IBlockSource;
-import net.minecraft.dispenser.OptionalDispenseBehavior;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.ItemUseContext;
-import net.minecraft.util.ActionResultType;
-import net.minecraft.util.Direction;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.text.ITextComponent;
-import net.minecraft.world.World;
-import net.minecraft.world.gen.ChunkGenerator;
-import net.minecraft.world.server.ServerWorld;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.CropBlock;
+import net.minecraft.world.level.block.DispenserBlock;
+import net.minecraft.world.level.block.BonemealableBlock;
+import net.minecraft.world.level.block.SaplingBlock;
+import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.core.BlockSource;
+import net.minecraft.core.dispenser.OptionalDispenseItemBehavior;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.context.UseOnContext;
+import net.minecraft.world.InteractionResult;
+import net.minecraft.core.Direction;
+import net.minecraft.core.BlockPos;
+import net.minecraft.network.chat.Component;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.chunk.ChunkGenerator;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.common.util.Constants;
@@ -32,7 +32,7 @@ import java.util.List;
 import java.util.Random;
 import java.util.function.Function;
 
-import net.minecraft.item.Item.Properties;
+import net.minecraft.world.item.Item.Properties;
 
 public class MysticalFertilizerItem extends BaseItem {
     public MysticalFertilizerItem(Function<Properties, Properties> properties) {
@@ -40,35 +40,35 @@ public class MysticalFertilizerItem extends BaseItem {
     }
 
     @Override
-    public ActionResultType useOn(ItemUseContext context) {
+    public InteractionResult useOn(UseOnContext context) {
         ItemStack stack = context.getItemInHand();
         BlockPos pos = context.getClickedPos();
-        PlayerEntity player = context.getPlayer();
-        World world = context.getLevel();
+        Player player = context.getPlayer();
+        Level world = context.getLevel();
         Direction direction = context.getClickedFace();
 
         if (player == null || !player.mayUseItemAt(pos.relative(direction), direction, stack)) {
-            return ActionResultType.FAIL;
+            return InteractionResult.FAIL;
         } else {
             if (applyFertilizer(stack, world, pos, player)) {
                 if (!world.isClientSide()) {
                     world.levelEvent(Constants.WorldEvents.BONEMEAL_PARTICLES, pos, 0);
                 }
 
-                return ActionResultType.SUCCESS;
+                return InteractionResult.SUCCESS;
             }
         }
 
-        return ActionResultType.PASS;
+        return InteractionResult.PASS;
     }
 
     @OnlyIn(Dist.CLIENT)
     @Override
-    public void appendHoverText(ItemStack stack, World world, List<ITextComponent> tooltip, ITooltipFlag flag) {
+    public void appendHoverText(ItemStack stack, Level world, List<Component> tooltip, TooltipFlag flag) {
         tooltip.add(ModTooltips.MYSTICAL_FERTILIZER.build());
     }
 
-    public static boolean applyFertilizer(ItemStack stack, World world, BlockPos pos, PlayerEntity player) {
+    public static boolean applyFertilizer(ItemStack stack, Level world, BlockPos pos, Player player) {
         BlockState state = world.getBlockState(pos);
 
         if (player != null) {
@@ -77,17 +77,17 @@ public class MysticalFertilizerItem extends BaseItem {
         }
 
         Block block = state.getBlock();
-        if (block instanceof IGrowable) {
-            IGrowable growable = (IGrowable) block;
+        if (block instanceof BonemealableBlock) {
+            BonemealableBlock growable = (BonemealableBlock) block;
 
             if (growable.isValidBonemealTarget(world, pos, state, world.isClientSide())) {
                 if (!world.isClientSide()) {
                     Random rand = world.getRandom();
                     if (growable.isBonemealSuccess(world, rand, pos, state) || canGrowResourceCrops(growable) || growable instanceof SaplingBlock) {
-                        ServerWorld serverWorld = (ServerWorld) world;
+                        ServerLevel serverWorld = (ServerLevel) world;
 
-                        if (growable instanceof CropsBlock) {
-                            CropsBlock crop = (CropsBlock) block;
+                        if (growable instanceof CropBlock) {
+                            CropBlock crop = (CropBlock) block;
                             world.setBlock(pos, crop.getStateForAge(crop.getMaxAge()), 2);
                         } else if (growable instanceof SaplingBlock) {
                             if (!ForgeEventFactory.saplingGrowTree(world, rand, pos))
@@ -110,16 +110,16 @@ public class MysticalFertilizerItem extends BaseItem {
         return false;
     }
 
-    private static boolean canGrowResourceCrops(IGrowable growable) {
+    private static boolean canGrowResourceCrops(BonemealableBlock growable) {
         return growable instanceof ICropGetter && ((ICropGetter) growable).getCrop().getTier().isFertilizable();
     }
 
-    public static class DispenserBehavior extends OptionalDispenseBehavior {
+    public static class DispenserBehavior extends OptionalDispenseItemBehavior {
         @Override
-        protected ItemStack execute(IBlockSource source, ItemStack stack) {
+        protected ItemStack execute(BlockSource source, ItemStack stack) {
             this.setSuccess(true);
 
-            World world = source.getLevel();
+            Level world = source.getLevel();
             BlockPos pos = source.getPos().relative(source.getBlockState().getValue(DispenserBlock.FACING));
 
             if (MysticalFertilizerItem.applyFertilizer(stack, world, pos, null)) {

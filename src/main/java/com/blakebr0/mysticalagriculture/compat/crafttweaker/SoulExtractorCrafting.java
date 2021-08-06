@@ -11,8 +11,8 @@ import com.blamejared.crafttweaker.api.actions.IRuntimeAction;
 import com.blamejared.crafttweaker.api.annotations.ZenRegister;
 import com.blamejared.crafttweaker.api.item.IIngredient;
 import com.blamejared.crafttweaker.api.item.IItemStack;
-import net.minecraft.item.crafting.IRecipe;
-import net.minecraft.util.ResourceLocation;
+import net.minecraft.world.item.crafting.Recipe;
+import net.minecraft.resources.ResourceLocation;
 import org.openzen.zencode.java.ZenCodeType;
 
 import java.util.HashMap;
@@ -48,7 +48,7 @@ public final class SoulExtractorCrafting {
                         .getOrDefault(RecipeTypes.SOUL_EXTRACTION, new HashMap<>())
                         .values().stream()
                         .filter(r -> r.getIngredients().get(0).test(stack.getInternal()))
-                        .map(IRecipe::getId)
+                        .map(Recipe::getId)
                         .collect(Collectors.toList());
 
                 recipes.forEach(r -> {
@@ -72,7 +72,7 @@ public final class SoulExtractorCrafting {
                         .getOrDefault(RecipeTypes.SOUL_EXTRACTION, new HashMap<>())
                         .values().stream()
                         .filter(r -> type.equals(((ISoulExtractionRecipe) r).getMobSoulType().getId().toString()))
-                        .map(IRecipe::getId)
+                        .map(Recipe::getId)
                         .collect(Collectors.toList());
 
                 recipes.forEach(r -> {

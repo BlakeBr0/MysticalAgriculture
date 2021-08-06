@@ -4,12 +4,12 @@ import com.blakebr0.cucumber.helper.ColorHelper;
 import com.blakebr0.mysticalagriculture.api.tinkering.Augment;
 import com.blakebr0.mysticalagriculture.api.tinkering.AugmentType;
 import com.google.common.collect.Multimap;
-import net.minecraft.entity.ai.attributes.Attribute;
-import net.minecraft.entity.ai.attributes.AttributeModifier;
-import net.minecraft.entity.ai.attributes.Attributes;
-import net.minecraft.inventory.EquipmentSlotType;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.ResourceLocation;
+import net.minecraft.world.entity.ai.attributes.Attribute;
+import net.minecraft.world.entity.ai.attributes.AttributeModifier;
+import net.minecraft.world.entity.ai.attributes.Attributes;
+import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.resources.ResourceLocation;
 
 import java.util.EnumSet;
 import java.util.UUID;
@@ -24,7 +24,7 @@ public class HealthBoostAugment extends Augment {
     }
 
     @Override
-    public void addArmorAttributeModifiers(Multimap<Attribute, AttributeModifier> attributes, EquipmentSlotType slot, ItemStack stack) {
+    public void addArmorAttributeModifiers(Multimap<Attribute, AttributeModifier> attributes, EquipmentSlot slot, ItemStack stack) {
         attributes.put(Attributes.MAX_HEALTH, new AttributeModifier(ATTRIBUTE_ID, "Armor modifier", 4 * this.amplifier, AttributeModifier.Operation.ADDITION));
     }
 

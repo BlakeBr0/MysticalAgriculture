@@ -4,13 +4,13 @@ import com.blakebr0.cucumber.item.tool.BaseSwordItem;
 import com.blakebr0.mysticalagriculture.api.soul.ISoulSiphoningItem;
 import com.blakebr0.mysticalagriculture.lib.ModItemTier;
 import com.blakebr0.mysticalagriculture.lib.ModTooltips;
-import net.minecraft.client.util.ITooltipFlag;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.item.IItemTier;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.text.ITextComponent;
-import net.minecraft.util.text.TextFormatting;
-import net.minecraft.world.World;
+import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.item.Tier;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.network.chat.Component;
+import net.minecraft.ChatFormatting;
+import net.minecraft.world.level.Level;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 
@@ -18,12 +18,12 @@ import java.util.List;
 import java.util.function.BiFunction;
 import java.util.function.Function;
 
-import net.minecraft.item.Item.Properties;
+import net.minecraft.world.item.Item.Properties;
 
 public class SouliumDaggerItem extends BaseSwordItem implements ISoulSiphoningItem {
     private final DaggerType type;
 
-    public SouliumDaggerItem(IItemTier tier, DaggerType type, Function<Properties, Properties> properties) {
+    public SouliumDaggerItem(Tier tier, DaggerType type, Function<Properties, Properties> properties) {
         super(tier, type.getDamage(), -2.4F, properties.compose(p -> p.defaultDurability(type.getDurability())));
         this.type = type;
     }
@@ -35,20 +35,20 @@ public class SouliumDaggerItem extends BaseSwordItem implements ISoulSiphoningIt
 
     @OnlyIn(Dist.CLIENT)
     @Override
-    public void appendHoverText(ItemStack stack, World world, List<ITextComponent> tooltip, ITooltipFlag flag) {
+    public void appendHoverText(ItemStack stack, Level world, List<Component> tooltip, TooltipFlag flag) {
         switch (this.type) {
             case BASIC:
                 break;
             case PASSIVE:
-                tooltip.add(ModTooltips.PASSIVE_ATTUNED.color(TextFormatting.GREEN).build());
+                tooltip.add(ModTooltips.PASSIVE_ATTUNED.color(ChatFormatting.GREEN).build());
                 tooltip.add(ModTooltips.PASSIVE_SOULIUM_DAGGER.build());
                 break;
             case HOSTILE:
-                tooltip.add(ModTooltips.HOSTILE_ATTUNED.color(TextFormatting.RED).build());
+                tooltip.add(ModTooltips.HOSTILE_ATTUNED.color(ChatFormatting.RED).build());
                 tooltip.add(ModTooltips.HOSTILE_SOULIUM_DAGGER.build());
                 break;
             case CREATIVE:
-                tooltip.add(ModTooltips.CREATIVE_ATTUNED.color(TextFormatting.LIGHT_PURPLE).build());
+                tooltip.add(ModTooltips.CREATIVE_ATTUNED.color(ChatFormatting.LIGHT_PURPLE).build());
                 tooltip.add(ModTooltips.CREATIVE_SOULIUM_DAGGER.build());
                 break;
         }
