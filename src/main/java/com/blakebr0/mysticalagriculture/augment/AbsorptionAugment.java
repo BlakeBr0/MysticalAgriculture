@@ -22,7 +22,7 @@ public class AbsorptionAugment extends Augment {
 
     @Override
     public void onArmorTick(ItemStack stack, World world, PlayerEntity player) {
-        if (player.getEffect(Effects.ABSORPTION) == null) {
+        if (!player.hasEffect(Effects.ABSORPTION)) {
             player.addEffect(new EffectInstance(Effects.ABSORPTION, 9600, this.amplifier, true, false));
         }
     }
