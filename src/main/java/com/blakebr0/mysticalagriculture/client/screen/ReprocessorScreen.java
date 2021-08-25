@@ -5,12 +5,10 @@ import com.blakebr0.mysticalagriculture.MysticalAgriculture;
 import com.blakebr0.mysticalagriculture.container.ReprocessorContainer;
 import com.blakebr0.mysticalagriculture.tileentity.ReprocessorTileEntity;
 import com.mojang.blaze3d.vertex.PoseStack;
-import net.minecraft.client.multiplayer.ClientLevel;
-import net.minecraft.world.entity.player.Inventory;
-import net.minecraft.world.level.block.entity.BlockEntity;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.TextComponent;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.entity.player.Inventory;
 
 public class ReprocessorScreen extends BaseContainerScreen<ReprocessorContainer> {
     private static final ResourceLocation BACKGROUND = new ResourceLocation(MysticalAgriculture.MOD_ID, "textures/gui/reprocessor.png");
@@ -29,10 +27,10 @@ public class ReprocessorScreen extends BaseContainerScreen<ReprocessorContainer>
 
     @Override
     protected void renderLabels(PoseStack stack, int mouseX, int mouseY) {
-        String title = this.getTitle().getString();
+        var title = this.getTitle().getString();
+
         this.font.draw(stack, title, (float) (this.imageWidth / 2 - this.font.width(title) / 2), 6.0F, 4210752);
-        String inventory = this.inventory.getDisplayName().getString();
-        this.font.draw(stack, inventory, 8.0F, (float) (this.imageHeight - 96 + 2), 4210752);
+        this.font.draw(stack, this.playerInventoryTitle, 8.0F, (float) (this.imageHeight - 96 + 2), 4210752);
     }
 
     @Override
@@ -43,6 +41,7 @@ public class ReprocessorScreen extends BaseContainerScreen<ReprocessorContainer>
         int y = this.getGuiTop();
 
         int i1 = this.getEnergyBarScaled(78);
+
         this.blit(stack, x + 7, y + 95 - i1, 176, 109 - i1, 15, i1);
 
         if (this.getFuelItemValue() > 0) {
@@ -64,24 +63,24 @@ public class ReprocessorScreen extends BaseContainerScreen<ReprocessorContainer>
         super.renderTooltip(stack, mouseX, mouseY);
 
         if (mouseX > x + 7 && mouseX < x + 20 && mouseY > y + 17 && mouseY < y + 94) {
-            TextComponent text = new TextComponent(number(this.getEnergyStored()) + " / " + number(this.getMaxEnergyStored()) + " FE");
+            var text = new TextComponent(number(this.getEnergyStored()) + " / " + number(this.getMaxEnergyStored()) + " FE");
             this.renderTooltip(stack, text, mouseX, mouseY);
         }
 
         if (this.getFuelLeft() > 0 && mouseX > x + 30 && mouseX < x + 45 && mouseY > y + 39 && mouseY < y + 53) {
-            TextComponent text = new TextComponent(number(this.getFuelLeft()) + " FE");
+            var text = new TextComponent(number(this.getFuelLeft()) + " FE");
             this.renderTooltip(stack, text, mouseX, mouseY);
         }
     }
 
     private ReprocessorTileEntity getTileEntity() {
-        ClientLevel world = this.getMinecraft().level;
+        var level = this.getMinecraft().level;
 
-        if (world != null) {
-            BlockEntity tile = world.getBlockEntity(this.getMenu().getPos());
+        if (level != null) {
+            var tile = level.getBlockEntity(this.getMenu().getPos());
 
-            if (tile instanceof ReprocessorTileEntity) {
-                return (ReprocessorTileEntity) tile;
+            if (tile instanceof ReprocessorTileEntity reprocessor) {
+                return reprocessor;
             }
         }
 

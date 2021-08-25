@@ -10,14 +10,14 @@ import com.blakebr0.mysticalagriculture.init.ModRecipeSerializers;
 import com.blakebr0.mysticalagriculture.registry.MobSoulTypeRegistry;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
+import net.minecraft.core.NonNullList;
+import net.minecraft.network.FriendlyByteBuf;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.util.GsonHelper;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.item.crafting.RecipeType;
-import net.minecraft.world.item.crafting.Ingredient;
-import net.minecraft.network.FriendlyByteBuf;
-import net.minecraft.util.GsonHelper;
-import net.minecraft.core.NonNullList;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.registries.ForgeRegistryEntry;
 
@@ -37,9 +37,9 @@ public class SoulExtractionRecipe implements ISpecialRecipe, ISoulExtractionReci
     }
 
     @Override
-    public ItemStack getCraftingResult(IItemHandler inventory) {
-        ItemStack stack = inventory.getStackInSlot(2);
-        ItemStack jar = StackHelper.withSize(stack, 1, false);
+    public ItemStack assemble(IItemHandler inventory) {
+        var stack = inventory.getStackInSlot(2);
+        var jar = StackHelper.withSize(stack, 1, false);
 
         MobSoulUtils.addSoulsToJar(jar, this.type, this.souls);
 
@@ -78,11 +78,13 @@ public class SoulExtractionRecipe implements ISpecialRecipe, ISoulExtractionReci
 
     @Override
     public boolean matches(IItemHandler inventory, int startIndex, int endIndex) {
-        ItemStack input = inventory.getStackInSlot(0);
+        var input = inventory.getStackInSlot(0);
+
         if (!this.inputs.get(0).test(input))
             return false;
 
-        ItemStack output = inventory.getStackInSlot(2);
+        var output = inventory.getStackInSlot(2);
+
         if (!output.sameItem(this.output))
             return false;
 
@@ -102,13 +104,14 @@ public class SoulExtractionRecipe implements ISpecialRecipe, ISoulExtractionReci
     public static class Serializer extends ForgeRegistryEntry<RecipeSerializer<?>> implements RecipeSerializer<SoulExtractionRecipe> {
         @Override
         public SoulExtractionRecipe fromJson(ResourceLocation recipeId, JsonObject json) {
-            JsonObject ingredient = json.getAsJsonObject("input");
-            Ingredient input = Ingredient.fromJson(ingredient);
-            JsonObject output = GsonHelper.getAsJsonObject(json, "output");
-            String type = GsonHelper.getAsString(output, "type");
+            var ingredient = json.getAsJsonObject("input");
+            var input = Ingredient.fromJson(ingredient);
+            var output = GsonHelper.getAsJsonObject(json, "output");
+            var type = GsonHelper.getAsString(output, "type");
             float amount = GsonHelper.getAsFloat(output, "souls");
 
-            IMobSoulType mobSoulType = MobSoulTypeRegistry.getInstance().getMobSoulTypeById(new ResourceLocation(type));
+            var mobSoulType = MobSoulTypeRegistry.getInstance().getMobSoulTypeById(new ResourceLocation(type));
+
             if (mobSoulType == null) {
                 throw new JsonParseException("Invalid mob soul type id: " + type);
             }
@@ -118,11 +121,11 @@ public class SoulExtractionRecipe implements ISpecialRecipe, ISoulExtractionReci
 
         @Override
         public SoulExtractionRecipe fromNetwork(ResourceLocation recipeId, FriendlyByteBuf buffer) {
-            Ingredient input = Ingredient.fromNetwork(buffer);
-            ResourceLocation type = buffer.readResourceLocation();
+            var input = Ingredient.fromNetwork(buffer);
+            var type = buffer.readResourceLocation();
             double souls = buffer.readDouble();
 
-            IMobSoulType mobSoulType = MobSoulTypeRegistry.getInstance().getMobSoulTypeById(type);
+            var mobSoulType = MobSoulTypeRegistry.getInstance().getMobSoulTypeById(type);
 
             return new SoulExtractionRecipe(recipeId, input, mobSoulType, souls);
         }

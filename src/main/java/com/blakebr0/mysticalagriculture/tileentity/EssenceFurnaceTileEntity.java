@@ -3,6 +3,7 @@ package com.blakebr0.mysticalagriculture.tileentity;
 import com.blakebr0.cucumber.util.Localizable;
 import com.blakebr0.mysticalagriculture.block.EssenceFurnaceBlock;
 import com.blakebr0.mysticalagriculture.init.ModTileEntities;
+import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.FurnaceMenu;
@@ -10,7 +11,6 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.level.block.entity.AbstractFurnaceBlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
-import net.minecraft.network.chat.Component;
 
 public abstract class EssenceFurnaceTileEntity extends AbstractFurnaceBlockEntity {
     public EssenceFurnaceTileEntity(BlockEntityType<?> type) {

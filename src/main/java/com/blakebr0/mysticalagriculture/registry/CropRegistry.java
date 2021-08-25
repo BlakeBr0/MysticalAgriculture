@@ -1,23 +1,24 @@
 package com.blakebr0.mysticalagriculture.registry;
 
 import com.blakebr0.mysticalagriculture.MysticalAgriculture;
-import com.blakebr0.mysticalagriculture.api.crop.CropRecipes;
 import com.blakebr0.mysticalagriculture.api.crop.ICrop;
 import com.blakebr0.mysticalagriculture.api.lib.PluginConfig;
 import com.blakebr0.mysticalagriculture.api.registry.ICropRegistry;
 import com.blakebr0.mysticalagriculture.block.MysticalCropBlock;
 import com.blakebr0.mysticalagriculture.item.MysticalEssenceItem;
 import com.blakebr0.mysticalagriculture.item.MysticalSeedsItem;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.CropBlock;
-import net.minecraft.world.item.ItemNameBlockItem;
-import net.minecraft.world.item.Item;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.level.block.Block;
 import net.minecraftforge.registries.IForgeRegistry;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import java.util.*;
+import java.util.Collection;
+import java.util.Comparator;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
 
 public final class CropRegistry implements ICropRegistry {
     private static final Logger LOGGER = LogManager.getLogger(MysticalAgriculture.NAME);
@@ -44,7 +45,7 @@ public final class CropRegistry implements ICropRegistry {
 
     @Override
     public List<ICrop> getCrops() {
-        return Collections.unmodifiableList(new ArrayList<>(this.crops.values()));
+        return List.copyOf(this.crops.values());
     }
 
     @Override
@@ -72,12 +73,12 @@ public final class CropRegistry implements ICropRegistry {
             plugin.onRegisterCrops(this);
         });
 
-        Collection<ICrop> crops = this.crops.values();
+        var crops = this.crops.values();
 
         crops.stream().filter(ICrop::shouldRegisterCropBlock).forEach(c -> {
-            CropBlock crop = c.getCrop();
+            var crop = c.getCrop();
             if (crop == null) {
-                CropBlock defaultCrop = new MysticalCropBlock(c);
+                var defaultCrop = new MysticalCropBlock(c);
                 crop = defaultCrop;
                 c.setCrop(() -> defaultCrop);
             }
@@ -95,9 +96,9 @@ public final class CropRegistry implements ICropRegistry {
         Collection<ICrop> crops = this.crops.values();
 
         crops.stream().filter(ICrop::shouldRegisterEssenceItem).forEach(c -> {
-            Item essence = c.getEssence();
+            var essence = c.getEssence();
             if (essence == null) {
-                Item defaultEssence = new MysticalEssenceItem(c, p -> p.tab(MysticalAgriculture.ITEM_GROUP));
+                var defaultEssence = new MysticalEssenceItem(c, p -> p.tab(MysticalAgriculture.ITEM_GROUP));
                 essence = defaultEssence;
                 c.setEssence(() -> defaultEssence);
             }
@@ -109,9 +110,9 @@ public final class CropRegistry implements ICropRegistry {
         });
 
         crops.stream().filter(ICrop::shouldRegisterSeedsItem).forEach(c -> {
-            ItemNameBlockItem seeds = c.getSeeds();
+            var seeds = c.getSeeds();
             if (seeds == null) {
-                ItemNameBlockItem defaultSeeds = new MysticalSeedsItem(c, p -> p.tab(MysticalAgriculture.ITEM_GROUP));
+                var defaultSeeds = new MysticalSeedsItem(c, p -> p.tab(MysticalAgriculture.ITEM_GROUP));
                 seeds = defaultSeeds;
                 c.setSeeds(() -> defaultSeeds);
             }
@@ -128,8 +129,8 @@ public final class CropRegistry implements ICropRegistry {
     }
 
     private void loadRecipeConfig(ICrop crop) {
-        CropRecipes recipes = crop.getRecipeConfig();
-        PluginConfig config = this.currentPluginConfig;
+        var recipes = crop.getRecipeConfig();
+        var config = this.currentPluginConfig;
 
         recipes.setSeedCraftingRecipeEnabled(config.isDynamicSeedCraftingRecipesEnabled());
         recipes.setSeedInfusionRecipeEnabled(config.isDynamicSeedInfusionRecipesEnabled());

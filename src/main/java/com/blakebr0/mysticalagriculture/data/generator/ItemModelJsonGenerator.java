@@ -16,7 +16,8 @@ public class ItemModelJsonGenerator extends ItemModelProvider {
 
     @Override
     protected void registerModels() {
-        ModelFile.UncheckedModelFile generatedModel = new ModelFile.UncheckedModelFile("item/generated");
+        var generatedModel = new ModelFile.UncheckedModelFile("item/generated");
+
         CropRegistry.getInstance().getCrops().forEach(crop -> {
             this.getBuilder(crop.getNameWithSuffix("essence"))
                     .parent(generatedModel)
@@ -27,7 +28,8 @@ public class ItemModelJsonGenerator extends ItemModelProvider {
                     .texture("layer0", crop.getTextures().getSeedTexture());
         });
 
-        ModelFile.UncheckedModelFile augmentModel = new ModelFile.UncheckedModelFile(new ResourceLocation(MysticalAgriculture.MOD_ID, "item/augment"));
+        var augmentModel = new ModelFile.UncheckedModelFile(new ResourceLocation(MysticalAgriculture.MOD_ID, "item/augment"));
+
         AugmentRegistry.getInstance().getAugments().forEach(augment -> {
             this.getBuilder(augment.getNameWithSuffix("augment"))
                     .parent(augmentModel);

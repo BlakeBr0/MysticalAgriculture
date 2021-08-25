@@ -11,10 +11,10 @@ import com.google.gson.JsonObject;
 import it.unimi.dsi.fastutil.ints.IntArrayList;
 import it.unimi.dsi.fastutil.ints.IntComparators;
 import it.unimi.dsi.fastutil.ints.IntList;
+import net.minecraft.network.FriendlyByteBuf;
+import net.minecraft.world.entity.player.StackedContents;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
-import net.minecraft.world.entity.player.StackedContents;
-import net.minecraft.network.FriendlyByteBuf;
 import net.minecraftforge.common.crafting.IIngredientSerializer;
 
 import java.util.Arrays;
@@ -72,8 +72,8 @@ public class FilledSoulJarIngredient extends Ingredient {
 
     @Override
     public JsonElement toJson() {
-        JsonArray json = new JsonArray();
-        JsonObject obj = new JsonObject();
+        var json = new JsonArray();
+        var obj = new JsonObject();
 
         obj.addProperty("item", "mysticalagriculture:soul_jar");
         json.add(obj);

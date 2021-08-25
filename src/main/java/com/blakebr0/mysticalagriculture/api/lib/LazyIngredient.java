@@ -1,12 +1,11 @@
 package com.blakebr0.mysticalagriculture.api.lib;
 
-import net.minecraft.world.item.Item;
+import net.minecraft.core.Registry;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.SerializationTags;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
-import net.minecraft.nbt.CompoundTag;
-import net.minecraft.tags.Tag;
-import net.minecraft.tags.SerializationTags;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.registries.ForgeRegistries;
 
 public class LazyIngredient {
@@ -51,17 +50,20 @@ public class LazyIngredient {
     public Ingredient getIngredient() {
         if (this.ingredient == null) {
             if (this.isTag()) {
-                Tag<Item> tag = SerializationTags.getInstance().getItems().getTag(new ResourceLocation(this.name));
+                var tag = SerializationTags.getInstance().getOrEmpty(Registry.ITEM_REGISTRY).getTag(new ResourceLocation(this.name));
                 if (tag != null && !tag.getValues().isEmpty())
                     this.ingredient = Ingredient.of(tag);
             } else if (this.isItem()) {
-                Item item = ForgeRegistries.ITEMS.getValue(new ResourceLocation(this.name));
+                var item = ForgeRegistries.ITEMS.getValue(new ResourceLocation(this.name));
+
                 if (item != null) {
                     if (this.nbt == null || this.nbt.isEmpty()) {
                         this.ingredient = Ingredient.of(item);
                     } else {
-                        ItemStack stack = new ItemStack(item);
+                        var stack = new ItemStack(item);
+
                         stack.setTag(this.nbt);
+
                         this.ingredient = new NBTIngredient(stack);
                     }
                 }

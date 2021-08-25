@@ -2,23 +2,23 @@ package com.blakebr0.mysticalagriculture.client.tesr;
 
 import com.blakebr0.mysticalagriculture.tileentity.InfusionPedestalTileEntity;
 import com.mojang.blaze3d.vertex.PoseStack;
+import com.mojang.math.Vector3f;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.block.model.ItemTransforms;
-import net.minecraft.client.renderer.blockentity.BlockEntityRenderer;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderDispatcher;
+import net.minecraft.client.renderer.blockentity.BlockEntityRenderer;
 import net.minecraft.world.item.BlockItem;
-import net.minecraft.world.item.ItemStack;
-import com.mojang.math.Vector3f;
 
-public class InfusionPedestalRenderer extends BlockEntityRenderer<InfusionPedestalTileEntity> {
+public class InfusionPedestalRenderer implements BlockEntityRenderer<InfusionPedestalTileEntity> {
     public InfusionPedestalRenderer(BlockEntityRenderDispatcher dispatcher) {
         super(dispatcher);
     }
 
     @Override
     public void render(InfusionPedestalTileEntity tile, float v, PoseStack matrix, MultiBufferSource buffer, int i, int i1) {
-        ItemStack stack = tile.getInventory().getStackInSlot(0);
+        var stack = tile.getInventory().getStackInSlot(0);
+
         if (!stack.isEmpty()) {
             matrix.pushPose();
             matrix.translate(0.5D, 1.2D, 0.5D);

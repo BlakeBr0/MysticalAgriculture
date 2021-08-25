@@ -5,31 +5,25 @@ import com.blakebr0.mysticalagriculture.api.crop.ICrop;
 import com.blakebr0.mysticalagriculture.api.crop.ICropGetter;
 import com.blakebr0.mysticalagriculture.config.ModConfigs;
 import com.blakebr0.mysticalagriculture.init.ModItems;
+import net.minecraft.core.BlockPos;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.ItemLike;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.CropBlock;
 import net.minecraft.world.level.block.FarmBlock;
-import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.storage.loot.LootContext;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParams;
-import net.minecraft.world.level.ItemLike;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.core.BlockPos;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import net.minecraft.world.phys.Vec3;
-import net.minecraft.world.level.BlockGetter;
-import net.minecraft.world.level.Level;
-import net.minecraft.world.level.biome.Biome;
-import net.minecraft.server.level.ServerLevel;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
-import java.util.Set;
-
-import net.minecraft.world.level.block.state.BlockBehaviour.Properties;
 
 public class MysticalCropBlock extends CropBlock implements ICropGetter {
     private static final VoxelShape SHAPE = Block.box(0.0D, 0.0D, 0.0D, 16.0D, 4.0D, 16.0D);
@@ -74,11 +68,12 @@ public class MysticalCropBlock extends CropBlock implements ICropGetter {
         if (age == this.getMaxAge()) {
             crop = 1;
 
-            Vec3 vec = builder.getOptionalParameter(LootContextParams.ORIGIN);
+            var vec = builder.getOptionalParameter(LootContextParams.ORIGIN);
+
             if (vec != null) {
-                ServerLevel world = builder.getLevel();
-                BlockPos pos = new BlockPos(vec);
-                Block below = world.getBlockState(pos.below()).getBlock();
+                var world = builder.getLevel();
+                var pos = new BlockPos(vec);
+                var below = world.getBlockState(pos.below()).getBlock();
                 double chance = this.crop.getSecondaryChance(below);
 
                 if (Math.random() < chance)
@@ -94,6 +89,7 @@ public class MysticalCropBlock extends CropBlock implements ICropGetter {
         }
 
         List<ItemStack> drops = new ArrayList<>();
+
         if (crop > 0)
             drops.add(new ItemStack(this.getCropsItem(), crop));
 
@@ -142,16 +138,18 @@ public class MysticalCropBlock extends CropBlock implements ICropGetter {
     }
 
     private boolean canGrow(Level world, BlockPos pos) {
-        Block crux = this.crop.getCrux();
+        var crux = this.crop.getCrux();
+
         if (crux != null) {
-            Block block = world.getBlockState(pos.below(2)).getBlock();
+            var block = world.getBlockState(pos.below(2)).getBlock();
             if (block != crux)
                 return false;
         }
 
-        Set<ResourceLocation> biomes = this.crop.getRequiredBiomes();
+        var biomes = this.crop.getRequiredBiomes();
+
         if (!biomes.isEmpty()) {
-            Biome biome = world.getBiome(pos);
+            var biome = world.getBiome(pos);
             return biomes.contains(biome.getRegistryName());
         }
 

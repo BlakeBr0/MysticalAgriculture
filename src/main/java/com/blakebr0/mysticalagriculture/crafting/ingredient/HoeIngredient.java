@@ -7,11 +7,11 @@ import com.google.gson.JsonObject;
 import it.unimi.dsi.fastutil.ints.IntArrayList;
 import it.unimi.dsi.fastutil.ints.IntComparators;
 import it.unimi.dsi.fastutil.ints.IntList;
+import net.minecraft.network.FriendlyByteBuf;
+import net.minecraft.world.entity.player.StackedContents;
 import net.minecraft.world.item.HoeItem;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
-import net.minecraft.world.entity.player.StackedContents;
-import net.minecraft.network.FriendlyByteBuf;
 import net.minecraftforge.common.crafting.IIngredientSerializer;
 
 import java.util.ArrayList;
@@ -63,7 +63,7 @@ public class HoeIngredient extends Ingredient {
                 this.initMatchingStacks();
             }
 
-            for (ItemStack itemstack : this.stacks) {
+            for (var itemstack : this.stacks) {
                 if (itemstack.getItem() == stack.getItem()) {
                     return true;
                 }
@@ -80,9 +80,10 @@ public class HoeIngredient extends Ingredient {
 
     @Override
     public JsonElement toJson() {
-        JsonArray json = new JsonArray();
+        var json = new JsonArray();
+
         ALL_HOES.stream().filter(h -> h.getRegistryName() != null).forEach(h -> {
-            JsonObject obj = new JsonObject();
+            var obj = new JsonObject();
             obj.addProperty("item", h.getRegistryName().toString());
             json.add(obj);
         });

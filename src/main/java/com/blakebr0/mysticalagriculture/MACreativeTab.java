@@ -6,8 +6,8 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 
-public class MAItemGroup extends CreativeModeTab {
-	public MAItemGroup() {
+public class MACreativeTab extends CreativeModeTab {
+	public MACreativeTab() {
 		super(MysticalAgriculture.MOD_ID);
 	}
 

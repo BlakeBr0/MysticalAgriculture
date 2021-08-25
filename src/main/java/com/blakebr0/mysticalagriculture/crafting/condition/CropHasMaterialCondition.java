@@ -1,12 +1,10 @@
 package com.blakebr0.mysticalagriculture.crafting.condition;
 
 import com.blakebr0.mysticalagriculture.MysticalAgriculture;
-import com.blakebr0.mysticalagriculture.api.crop.ICrop;
 import com.blakebr0.mysticalagriculture.registry.CropRegistry;
 import com.google.gson.JsonObject;
-import net.minecraft.world.item.crafting.Ingredient;
-import net.minecraft.util.GsonHelper;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.util.GsonHelper;
 import net.minecraftforge.common.crafting.conditions.ICondition;
 import net.minecraftforge.common.crafting.conditions.IConditionSerializer;
 
@@ -25,11 +23,12 @@ public class CropHasMaterialCondition implements ICondition {
 
     @Override
     public boolean test() {
-        ICrop crop = CropRegistry.getInstance().getCropById(this.crop);
+        var crop = CropRegistry.getInstance().getCropById(this.crop);
         if (crop == null)
             return false;
 
-        Ingredient material = crop.getCraftingMaterial();
+        var material = crop.getCraftingMaterial();
+
         return material != null && !material.isEmpty();
     }
 
@@ -43,7 +42,7 @@ public class CropHasMaterialCondition implements ICondition {
 
         @Override
         public CropHasMaterialCondition read(JsonObject json) {
-            String crop = GsonHelper.getAsString(json, "crop");
+            var crop = GsonHelper.getAsString(json, "crop");
             return new CropHasMaterialCondition(new ResourceLocation(crop));
         }
 

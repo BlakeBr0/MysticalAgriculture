@@ -6,14 +6,14 @@ import com.blakebr0.cucumber.inventory.slot.BaseItemStackHandlerSlot;
 import com.blakebr0.mysticalagriculture.api.crafting.RecipeTypes;
 import com.blakebr0.mysticalagriculture.init.ModContainerTypes;
 import com.blakebr0.mysticalagriculture.tileentity.ReprocessorTileEntity;
-import net.minecraft.world.entity.player.Player;
+import net.minecraft.core.BlockPos;
+import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.world.entity.player.Inventory;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.MenuType;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.network.FriendlyByteBuf;
-import net.minecraft.core.BlockPos;
 import net.minecraftforge.common.ForgeHooks;
 
 import java.util.function.Function;
@@ -53,11 +53,11 @@ public class ReprocessorContainer extends AbstractContainerMenu {
 
     @Override
     public ItemStack quickMoveStack(Player player, int index) {
-        ItemStack itemstack = ItemStack.EMPTY;
-        Slot slot = this.slots.get(index);
+        var itemstack = ItemStack.EMPTY;
+        var slot = this.slots.get(index);
 
-        if (slot != null && slot.hasItem()) {
-            ItemStack itemstack1 = slot.getItem();
+        if (slot.hasItem()) {
+            var itemstack1 = slot.getItem();
             itemstack = itemstack1.copy();
 
             if (index == 2) {

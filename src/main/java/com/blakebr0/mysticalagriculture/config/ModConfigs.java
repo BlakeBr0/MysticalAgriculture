@@ -13,7 +13,7 @@ public final class ModConfigs {
 
     // Client
     static {
-        final ForgeConfigSpec.Builder client = new ForgeConfigSpec.Builder();
+        final var client = new ForgeConfigSpec.Builder();
 
         client.comment("General configuration options.").push("General");
         ANIMATED_GROWTH_ACCELERATORS = client
@@ -56,7 +56,7 @@ public final class ModConfigs {
 
     // Common
     static {
-        final ForgeConfigSpec.Builder common = new ForgeConfigSpec.Builder();
+        final var common = new ForgeConfigSpec.Builder();
 
         common.comment("General configuration options.").push("General");
         INFERIUM_DROP_CHANCE = common

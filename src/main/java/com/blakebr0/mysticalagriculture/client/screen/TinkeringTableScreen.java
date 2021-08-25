@@ -5,10 +5,10 @@ import com.blakebr0.cucumber.iface.IToggleableSlot;
 import com.blakebr0.mysticalagriculture.MysticalAgriculture;
 import com.blakebr0.mysticalagriculture.container.TinkeringTableContainer;
 import com.mojang.blaze3d.vertex.PoseStack;
+import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.inventory.Slot;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.network.chat.Component;
 
 public class TinkeringTableScreen extends BaseContainerScreen<TinkeringTableContainer> {
     private static final ResourceLocation BACKGROUND = new ResourceLocation(MysticalAgriculture.MOD_ID, "textures/gui/tinkering_table.png");
@@ -19,10 +19,10 @@ public class TinkeringTableScreen extends BaseContainerScreen<TinkeringTableCont
 
     @Override
     protected void renderLabels(PoseStack stack, int mouseX, int mouseY) {
-        String title = this.getTitle().getString();
+        var title = this.getTitle().getString();
+
         this.font.draw(stack, title, (float) (this.imageWidth / 2 - this.font.width(title) / 2), 6.0F, 4210752);
-        String inventory = this.inventory.getDisplayName().getString();
-        this.font.draw(stack, inventory, 8.0F, (float) (this.imageHeight - 96 + 2), 4210752);
+        this.font.draw(stack, this.playerInventoryTitle, 8.0F, (float) (this.imageHeight - 96 + 2), 4210752);
     }
 
     @Override

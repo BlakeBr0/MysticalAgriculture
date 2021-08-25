@@ -5,17 +5,17 @@ import com.blakebr0.mysticalagriculture.init.ModRecipeSerializers;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
+import net.minecraft.core.NonNullList;
+import net.minecraft.network.FriendlyByteBuf;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.util.GsonHelper;
 import net.minecraft.world.inventory.CraftingContainer;
 import net.minecraft.world.item.HoeItem;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.item.crafting.ShapedRecipe;
 import net.minecraft.world.item.crafting.ShapelessRecipe;
-import net.minecraft.network.FriendlyByteBuf;
-import net.minecraft.util.GsonHelper;
-import net.minecraft.core.NonNullList;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.registries.ForgeRegistryEntry;
 
 public class FarmlandTillRecipe extends ShapelessRecipe {
@@ -25,11 +25,14 @@ public class FarmlandTillRecipe extends ShapelessRecipe {
 
     @Override
     public NonNullList<ItemStack> getRemainingItems(CraftingContainer inv) {
-        NonNullList<ItemStack> remaining = super.getRemainingItems(inv);
+        var remaining = super.getRemainingItems(inv);
+
         for (int i = 0; i < inv.getContainerSize(); i++) {
-            ItemStack stack = inv.getItem(i);
+            var stack = inv.getItem(i);
+
             if (stack.getItem() instanceof HoeItem) {
-                ItemStack hoe = stack.copy();
+                var hoe = stack.copy();
+
                 if (!hoe.hurt(1, Utils.RANDOM, null)) {
                     remaining.set(i, hoe);
                 }
@@ -47,13 +50,14 @@ public class FarmlandTillRecipe extends ShapelessRecipe {
     public static class Serializer extends ForgeRegistryEntry<RecipeSerializer<?>> implements RecipeSerializer<FarmlandTillRecipe> {
         @Override
         public FarmlandTillRecipe fromJson(ResourceLocation recipeId, JsonObject json) {
-            String s = GsonHelper.getAsString(json, "group", "");
-            NonNullList<Ingredient> ingredients = readIngredients(GsonHelper.getAsJsonArray(json, "ingredients"));
+            var group = GsonHelper.getAsString(json, "group", "");
+            var ingredients = readIngredients(GsonHelper.getAsJsonArray(json, "ingredients"));
+
             if (ingredients.isEmpty()) {
                 throw new JsonParseException("No ingredients for shapeless recipe");
             } else {
-                ItemStack itemstack = ShapedRecipe.itemFromJson(GsonHelper.getAsJsonObject(json, "result"));
-                return new FarmlandTillRecipe(recipeId, s, itemstack, ingredients);
+                var result = ShapedRecipe.itemStackFromJson(GsonHelper.getAsJsonObject(json, "result"));
+                return new FarmlandTillRecipe(recipeId, group, result, ingredients);
             }
         }
 
@@ -61,7 +65,8 @@ public class FarmlandTillRecipe extends ShapelessRecipe {
             NonNullList<Ingredient> ingredients = NonNullList.create();
 
             for (int i = 0; i < array.size(); ++i) {
-                Ingredient ingredient = Ingredient.fromJson(array.get(i));
+                var ingredient = Ingredient.fromJson(array.get(i));
+
                 if (!ingredient.isEmpty()) {
                     ingredients.add(ingredient);
                 }
@@ -72,16 +77,17 @@ public class FarmlandTillRecipe extends ShapelessRecipe {
 
         @Override
         public FarmlandTillRecipe fromNetwork(ResourceLocation recipeId, FriendlyByteBuf buffer) {
-            String s = buffer.readUtf(32767);
-            int i = buffer.readVarInt();
-            NonNullList<Ingredient> inputs = NonNullList.withSize(i, Ingredient.EMPTY);
+            var group = buffer.readUtf(32767);
+            int size = buffer.readVarInt();
+            var inputs = NonNullList.withSize(size, Ingredient.EMPTY);
 
             for (int j = 0; j < inputs.size(); ++j) {
                 inputs.set(j, Ingredient.fromNetwork(buffer));
             }
 
-            ItemStack itemstack = buffer.readItem();
-            return new FarmlandTillRecipe(recipeId, s, itemstack, inputs);
+            var result = buffer.readItem();
+
+            return new FarmlandTillRecipe(recipeId, group, result, inputs);
         }
 
         @Override
@@ -89,7 +95,7 @@ public class FarmlandTillRecipe extends ShapelessRecipe {
             buffer.writeUtf(recipe.getGroup());
             buffer.writeVarInt(recipe.getIngredients().size());
 
-            for (Ingredient ingredient : recipe.getIngredients()) {
+            for (var ingredient : recipe.getIngredients()) {
                 ingredient.toNetwork(buffer);
             }
 

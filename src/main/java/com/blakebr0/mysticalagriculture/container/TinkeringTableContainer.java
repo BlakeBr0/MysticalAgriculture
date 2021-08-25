@@ -1,6 +1,5 @@
 package com.blakebr0.mysticalagriculture.container;
 
-import com.blakebr0.mysticalagriculture.api.tinkering.IAugment;
 import com.blakebr0.mysticalagriculture.api.tinkering.IAugmentGetter;
 import com.blakebr0.mysticalagriculture.api.util.AugmentUtils;
 import com.blakebr0.mysticalagriculture.container.slot.AugmentSlot;
@@ -8,13 +7,12 @@ import com.blakebr0.mysticalagriculture.container.slot.ElementSlot;
 import com.blakebr0.mysticalagriculture.container.slot.TinkerableSlot;
 import com.blakebr0.mysticalagriculture.init.ModContainerTypes;
 import com.blakebr0.mysticalagriculture.tileentity.TinkeringTableTileEntity;
-import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.Container;
+import net.minecraft.world.entity.player.Inventory;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.MenuType;
 import net.minecraft.world.inventory.Slot;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.items.IItemHandlerModifiable;
 
@@ -55,14 +53,16 @@ public class TinkeringTableContainer extends AbstractContainerMenu {
 
     @Override
     public void slotsChanged(Container inventory) {
-        ItemStack tinkerable = this.inventory.getStackInSlot(0);
+        var tinkerable = this.inventory.getStackInSlot(0);
+
         if (!tinkerable.isEmpty()) {
             for (int i = 0; i < 2; i++) {
-                ItemStack stack = this.inventory.getStackInSlot(i + 1);
-                Item item = stack.getItem();
-                IAugment augmentInSlot = AugmentUtils.getAugment(tinkerable, i);
+                var stack = this.inventory.getStackInSlot(i + 1);
+                var item = stack.getItem();
+                var augmentInSlot = AugmentUtils.getAugment(tinkerable, i);
+
                 if (!stack.isEmpty() && item instanceof IAugmentGetter) {
-                    IAugment augment = ((IAugmentGetter) item).getAugment();
+                    var augment = ((IAugmentGetter) item).getAugment();
                     if (augment != augmentInSlot)
                         AugmentUtils.addAugment(tinkerable, augment, i);
                 } else if (augmentInSlot != null) {
@@ -81,11 +81,11 @@ public class TinkeringTableContainer extends AbstractContainerMenu {
 
     @Override
     public ItemStack quickMoveStack(Player player, int slotNumber) {
-        ItemStack itemstack = ItemStack.EMPTY;
-        Slot slot = this.slots.get(slotNumber);
+        var itemstack = ItemStack.EMPTY;
+        var slot = this.slots.get(slotNumber);
 
-        if (slot != null && slot.hasItem()) {
-            ItemStack itemstack1 = slot.getItem();
+        if (slot.hasItem()) {
+            var itemstack1 = slot.getItem();
             itemstack = itemstack1.copy();
 
             if (slotNumber == 0) {

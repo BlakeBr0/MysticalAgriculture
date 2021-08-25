@@ -2,8 +2,8 @@ package com.blakebr0.mysticalagriculture.lib;
 
 import com.blakebr0.cucumber.util.Tooltip;
 import com.blakebr0.mysticalagriculture.api.util.AugmentUtils;
-import net.minecraft.network.chat.Component;
 import net.minecraft.ChatFormatting;
+import net.minecraft.network.chat.Component;
 import net.minecraftforge.fml.ModList;
 
 public final class ModTooltips {
@@ -44,7 +44,7 @@ public final class ModTooltips {
     }
 
     public static Component getAddedByTooltip(String modid) {
-        String name = ModList.get().getModFileById(modid).getMods().get(0).getDisplayName();
+        var name = ModList.get().getModFileById(modid).getMods().get(0).getDisplayName();
         return ModTooltips.ADDED_BY.args(name).build();
     }
 }

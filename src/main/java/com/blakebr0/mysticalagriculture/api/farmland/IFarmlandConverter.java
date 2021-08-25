@@ -2,16 +2,13 @@ package com.blakebr0.mysticalagriculture.api.farmland;
 
 import com.blakebr0.mysticalagriculture.api.crop.CropTier;
 import com.blakebr0.mysticalagriculture.api.crop.ICropTierProvider;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.FarmBlock;
+import net.minecraft.world.InteractionResult;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.UseOnContext;
-import net.minecraft.world.InteractionResult;
-import net.minecraft.core.BlockPos;
-import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.FarmBlock;
 
 /**
  * Implement this on items that are used to convert vanilla farmland to essence farmland
@@ -29,28 +26,27 @@ public interface IFarmlandConverter {
      * Call this using {@link Item#onItemUse(ItemUseContext)} to allow default farmland conversion mechanics
      */
     default InteractionResult convert(UseOnContext context) {
-        BlockPos pos = context.getClickedPos();
-        Level world = context.getLevel();
-        ItemStack stack = context.getItemInHand();
-        BlockState state = world.getBlockState(pos);
-        Block block = state.getBlock();
+        var pos = context.getClickedPos();
+        var world = context.getLevel();
+        var stack = context.getItemInHand();
+        var state = world.getBlockState(pos);
+        var block = state.getBlock();
 
         if (block == Blocks.FARMLAND) {
-            BlockState newState = this.getConvertedFarmland().defaultBlockState().setValue(FarmBlock.MOISTURE, state.getValue(FarmBlock.MOISTURE));
+            var newState = this.getConvertedFarmland().defaultBlockState().setValue(FarmBlock.MOISTURE, state.getValue(FarmBlock.MOISTURE));
 
             world.setBlockAndUpdate(pos, newState);
             stack.shrink(1);
 
             return InteractionResult.SUCCESS;
-        } else if (block instanceof IEssenceFarmland) {
-            IEssenceFarmland farmland = (IEssenceFarmland) block;
-            Item item = stack.getItem();
+        } else if (block instanceof IEssenceFarmland farmland) {
+            var item = stack.getItem();
 
-            if (item instanceof ICropTierProvider) {
-                CropTier tier = ((ICropTierProvider) item).getTier();
+            if (item instanceof ICropTierProvider provider) {
+                var tier = provider.getTier();
 
                 if (tier != farmland.getTier()) {
-                    BlockState newState = this.getConvertedFarmland().defaultBlockState().setValue(FarmBlock.MOISTURE, state.getValue(FarmBlock.MOISTURE));
+                    var newState = this.getConvertedFarmland().defaultBlockState().setValue(FarmBlock.MOISTURE, state.getValue(FarmBlock.MOISTURE));
 
                     world.setBlockAndUpdate(pos, newState);
                     stack.shrink(1);

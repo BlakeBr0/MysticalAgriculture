@@ -19,7 +19,7 @@ public class AbilityCache {
      * @param onRemove a callback to execute when they are removed from the cache
      */
     public void add(IAugment augment, Player player, Runnable onRemove) {
-        String key = getPlayerKey(player);
+        var key = getPlayerKey(player);
         this.cache.computeIfAbsent(augment.getId().toString(), s -> new HashMap<>()).put(key, onRemove);
     }
 
@@ -29,7 +29,7 @@ public class AbilityCache {
      * @param player the player
      */
     public void remove(String augment, Player player) {
-        String key = getPlayerKey(player);
+        var key = getPlayerKey(player);
         this.cache.getOrDefault(augment, EMPTY_MAP).remove(key).run();
     }
 
@@ -40,7 +40,7 @@ public class AbilityCache {
      * @return is cached
      */
     public boolean isCached(IAugment augment, Player player) {
-        String key = getPlayerKey(player);
+        var key = getPlayerKey(player);
         return this.cache.getOrDefault(augment.getId().toString(), EMPTY_MAP).containsKey(key);
     }
 
@@ -50,7 +50,7 @@ public class AbilityCache {
      * @return the augment ids
      */
     public Set<String> getCachedAbilities(Player player) {
-        String key = getPlayerKey(player);
+        var key = getPlayerKey(player);
         return this.cache.entrySet().stream().filter(e -> e.getValue().containsKey(key)).map(Map.Entry::getKey).collect(Collectors.toSet());
     }
 

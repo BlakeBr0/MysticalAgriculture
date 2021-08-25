@@ -4,17 +4,16 @@ import com.blakebr0.cucumber.crafting.ISpecialRecipe;
 import com.blakebr0.mysticalagriculture.api.crafting.IInfusionRecipe;
 import com.blakebr0.mysticalagriculture.api.crafting.RecipeTypes;
 import com.blakebr0.mysticalagriculture.init.ModRecipeSerializers;
-import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
+import net.minecraft.core.NonNullList;
+import net.minecraft.network.FriendlyByteBuf;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.util.GsonHelper;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.item.crafting.RecipeType;
-import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.ShapedRecipe;
-import net.minecraft.network.FriendlyByteBuf;
-import net.minecraft.util.GsonHelper;
-import net.minecraft.core.NonNullList;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.registries.ForgeRegistryEntry;
 
@@ -28,6 +27,11 @@ public class InfusionRecipe implements ISpecialRecipe, IInfusionRecipe {
         this.recipeId = recipeId;
         this.inputs = inputs;
         this.output = output;
+    }
+
+    @Override
+    public ItemStack assemble(IItemHandler inventory) {
+        return this.output.copy();
     }
 
     @Override
@@ -61,39 +65,35 @@ public class InfusionRecipe implements ISpecialRecipe, IInfusionRecipe {
     }
 
     @Override
-    public ItemStack getCraftingResult(IItemHandler inventory) {
-        return this.output.copy();
-    }
-
-    @Override
     public boolean matches(IItemHandler inventory) {
-        ItemStack altarStack = inventory.getStackInSlot(0);
+        var altarStack = inventory.getStackInSlot(0);
         return !this.inputs.isEmpty() && this.inputs.get(0).test(altarStack) && ISpecialRecipe.super.matches(inventory);
     }
 
     public static class Serializer extends ForgeRegistryEntry<RecipeSerializer<?>> implements RecipeSerializer<InfusionRecipe> {
         @Override
         public InfusionRecipe fromJson(ResourceLocation recipeId, JsonObject json) {
-            NonNullList<Ingredient> inputs = NonNullList.withSize(RECIPE_SIZE, Ingredient.EMPTY);
-            JsonObject input = GsonHelper.getAsJsonObject(json, "input");
+            var inputs = NonNullList.withSize(RECIPE_SIZE, Ingredient.EMPTY);
+            var input = GsonHelper.getAsJsonObject(json, "input");
 
             inputs.set(0, Ingredient.fromJson(input));
 
-            JsonArray ingredients = GsonHelper.getAsJsonArray(json, "ingredients");
+            var ingredients = GsonHelper.getAsJsonArray(json, "ingredients");
+
             for (int i = 0; i < ingredients.size(); i++) {
                 inputs.set(i + 1, Ingredient.fromJson(ingredients.get(i)));
             }
 
-            ItemStack output = ShapedRecipe.itemFromJson(json.getAsJsonObject("result"));
+            var result = ShapedRecipe.itemStackFromJson(json.getAsJsonObject("result"));
 
-            return new InfusionRecipe(recipeId, inputs, output);
+            return new InfusionRecipe(recipeId, inputs, result);
         }
 
         @Override
         public InfusionRecipe fromNetwork(ResourceLocation recipeId, FriendlyByteBuf buffer) {
             int size = buffer.readVarInt();
+            var inputs = NonNullList.withSize(size, Ingredient.EMPTY);
 
-            NonNullList<Ingredient> inputs = NonNullList.withSize(size, Ingredient.EMPTY);
             for (int i = 0; i < size; i++) {
                 inputs.set(i, Ingredient.fromNetwork(buffer));
             }
@@ -107,7 +107,7 @@ public class InfusionRecipe implements ISpecialRecipe, IInfusionRecipe {
         public void toNetwork(FriendlyByteBuf buffer, InfusionRecipe recipe) {
             buffer.writeVarInt(recipe.inputs.size());
 
-            for (Ingredient ingredient : recipe.inputs) {
+            for (var ingredient : recipe.inputs) {
                 ingredient.toNetwork(buffer);
             }
 

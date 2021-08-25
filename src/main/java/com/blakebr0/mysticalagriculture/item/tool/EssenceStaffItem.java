@@ -6,9 +6,9 @@ import com.blakebr0.mysticalagriculture.api.tinkering.AugmentType;
 import com.blakebr0.mysticalagriculture.api.tinkering.IElementalItem;
 import com.blakebr0.mysticalagriculture.api.tinkering.ITinkerable;
 import com.blakebr0.mysticalagriculture.lib.ModTooltips;
-import net.minecraft.world.item.TooltipFlag;
-import net.minecraft.world.item.ItemStack;
 import net.minecraft.network.chat.Component;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
@@ -16,8 +16,6 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 import java.util.EnumSet;
 import java.util.List;
 import java.util.function.Function;
-
-import net.minecraft.world.item.Item.Properties;
 
 public class EssenceStaffItem extends BaseItem implements ITinkerable, IElementalItem {
     private static final EnumSet<AugmentType> TYPES = EnumSet.of(AugmentType.STAFF);

@@ -3,28 +3,27 @@ package com.blakebr0.mysticalagriculture.block;
 import com.blakebr0.cucumber.iface.IColored;
 import com.blakebr0.mysticalagriculture.api.crop.CropTier;
 import com.blakebr0.mysticalagriculture.api.farmland.IEssenceFarmland;
-import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.FarmBlock;
-import net.minecraft.world.item.enchantment.EnchantmentHelper;
-import net.minecraft.world.item.enchantment.Enchantments;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.level.storage.loot.LootContext;
-import net.minecraft.world.level.storage.loot.parameters.LootContextParams;
-import net.minecraft.core.Direction;
-import net.minecraft.core.BlockPos;
+import net.minecraft.world.item.enchantment.EnchantmentHelper;
+import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
-import net.minecraft.server.level.ServerLevel;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.FarmBlock;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.storage.loot.LootContext;
+import net.minecraft.world.level.storage.loot.parameters.LootContextParams;
 import net.minecraftforge.common.IPlantable;
 import net.minecraftforge.common.PlantType;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
-
-import net.minecraft.world.level.block.state.BlockBehaviour.Properties;
 
 public class InfusedFarmlandBlock extends FarmBlock implements IColored, IEssenceFarmland {
     public static final List<InfusedFarmlandBlock> FARMLANDS = new ArrayList<>();
@@ -39,13 +38,13 @@ public class InfusedFarmlandBlock extends FarmBlock implements IColored, IEssenc
 
     @Override
     public boolean canSustainPlant(BlockState state, BlockGetter world, BlockPos pos, Direction direction, IPlantable plantable) {
-        PlantType type = plantable.getPlantType(world, pos.relative(direction));
+        var type = plantable.getPlantType(world, pos.relative(direction));
         return type == PlantType.CROP || type == PlantType.PLAINS;
     }
 
     @Override
-    public void fallOn(Level world, BlockPos pos, Entity entity, float fallDistance) {
-        entity.causeFallDamage(fallDistance, 1.0F);
+    public void fallOn(Level level, BlockState state, BlockPos pos, Entity entity, float fallDistance) {
+        entity.causeFallDamage(fallDistance, 1.0F, DamageSource.FALL);
     }
 
     @Override
@@ -65,12 +64,13 @@ public class InfusedFarmlandBlock extends FarmBlock implements IColored, IEssenc
     @Override
     public List<ItemStack> getDrops(BlockState state, LootContext.Builder builder) {
         List<ItemStack> drops = new ArrayList<>();
-        ItemStack stack = builder.getOptionalParameter(LootContextParams.TOOL);
+        var stack = builder.getOptionalParameter(LootContextParams.TOOL);
 
         if (stack != null && EnchantmentHelper.getItemEnchantmentLevel(Enchantments.SILK_TOUCH, stack) > 0) {
             drops.add(new ItemStack(this));
         } else {
             drops.add(new ItemStack(Blocks.DIRT));
+
             if (builder.getLevel().getRandom().nextInt(100) < 25)
                 drops.add(new ItemStack(this.tier.getEssence(), 1));
         }

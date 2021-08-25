@@ -4,16 +4,13 @@ import com.blakebr0.mysticalagriculture.api.MysticalAgricultureAPI;
 import com.blakebr0.mysticalagriculture.api.crop.CropTier;
 import com.blakebr0.mysticalagriculture.api.tinkering.IAugment;
 import com.blakebr0.mysticalagriculture.api.tinkering.ITinkerable;
-import net.minecraft.world.entity.player.Player;
-import net.minecraft.inventory.EquipmentSlotType;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemStack;
+import net.minecraft.ChatFormatting;
 import net.minecraft.nbt.CompoundTag;
-import net.minecraft.core.NonNullList;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.TextComponent;
-import net.minecraft.ChatFormatting;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,11 +23,12 @@ public class AugmentUtils {
      * @param slot the augment slot
      */
     public static void addAugment(ItemStack stack, IAugment augment, int slot) {
-        Item item = stack.getItem();
-        if (item instanceof ITinkerable) {
-            ITinkerable tinkerable = (ITinkerable) item;
+        var item = stack.getItem();
+
+        if (item instanceof ITinkerable tinkerable) {
             if (slot < tinkerable.getAugmentSlots() && tinkerable.getTinkerableTier() >= augment.getTier()) {
-                CompoundTag nbt = stack.getTag();
+                var nbt = stack.getTag();
+
                 if (nbt == null) {
                     nbt = new CompoundTag();
                     stack.setTag(nbt);
@@ -47,13 +45,13 @@ public class AugmentUtils {
      * @param slot the augment slot
      */
     public static void removeAugment(ItemStack stack, int slot) {
-        CompoundTag nbt = stack.getTag();
+        var nbt = stack.getTag();
         if (nbt == null)
             return;
 
-        Item item = stack.getItem();
-        if (item instanceof ITinkerable) {
-            ITinkerable tinkerable = (ITinkerable) item;
+        var item = stack.getItem();
+
+        if (item instanceof ITinkerable tinkerable) {
             if (slot < tinkerable.getAugmentSlots() && nbt.contains("Augment-" + slot)) {
                 nbt.remove("Augment-" + slot);
             }
@@ -67,15 +65,15 @@ public class AugmentUtils {
      * @return the augment
      */
     public static IAugment getAugment(ItemStack stack, int slot) {
-        CompoundTag nbt = stack.getTag();
+        var nbt = stack.getTag();
         if (nbt == null)
             return null;
 
-        Item item = stack.getItem();
-        if (item instanceof ITinkerable) {
-            ITinkerable tinkerable = (ITinkerable) item;
+        var item = stack.getItem();
+
+        if (item instanceof ITinkerable tinkerable) {
             if (slot < tinkerable.getAugmentSlots() && nbt.contains("Augment-" + slot)) {
-                String name = nbt.getString("Augment-" + slot);
+                var name = nbt.getString("Augment-" + slot);
                 return MysticalAgricultureAPI.getAugmentRegistry().getAugmentById(new ResourceLocation(name));
             }
         }
@@ -89,17 +87,19 @@ public class AugmentUtils {
      * @return the installed augments
      */
     public static List<IAugment> getAugments(ItemStack stack) {
-        CompoundTag nbt = stack.getTag();
+        var nbt = stack.getTag();
         List<IAugment> augments = new ArrayList<>();
+
         if (nbt == null)
             return augments;
 
-        Item item = stack.getItem();
-        if (item instanceof ITinkerable) {
-            ITinkerable tinkerable = (ITinkerable) item;
+        var item = stack.getItem();
+
+        if (item instanceof ITinkerable tinkerable) {
             int slots = tinkerable.getAugmentSlots();
+
             for (int i = 0; i < slots; i++) {
-                IAugment augment = getAugment(stack, i);
+                var augment = getAugment(stack, i);
                 if (augment != null)
                     augments.add(augment);
             }
@@ -114,9 +114,10 @@ public class AugmentUtils {
      * @return the installed augments
      */
     public static List<IAugment> getArmorAugments(Player player) {
-        NonNullList<ItemStack> armor = player.inventory.armor;
+        var armor = player.getInventory().armor;
         List<IAugment> augments = new ArrayList<>();
-        for (ItemStack stack : armor) {
+
+        for (var stack : armor) {
             augments.addAll(getAugments(stack));
         }
 
@@ -129,14 +130,14 @@ public class AugmentUtils {
      * @return the color
      */
     public static ChatFormatting getColorForTier(int tier) {
-        switch (tier) {
-            case 1: return CropTier.ONE.getTextColor();
-            case 2: return CropTier.TWO.getTextColor();
-            case 3: return CropTier.THREE.getTextColor();
-            case 4: return CropTier.FOUR.getTextColor();
-            case 5: return CropTier.FIVE.getTextColor();
-            default: return ChatFormatting.GRAY;
-        }
+        return switch (tier) {
+            case 1 -> CropTier.ONE.getTextColor();
+            case 2 -> CropTier.TWO.getTextColor();
+            case 3 -> CropTier.THREE.getTextColor();
+            case 4 -> CropTier.FOUR.getTextColor();
+            case 5 -> CropTier.FIVE.getTextColor();
+            default -> ChatFormatting.GRAY;
+        };
     }
 
     /**

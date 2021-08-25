@@ -29,7 +29,6 @@ import com.blakebr0.mysticalagriculture.world.ModWorldgenRegistration;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.DistExecutor;
 import net.minecraftforge.fml.ModLoadingContext;
@@ -45,10 +44,10 @@ public final class MysticalAgriculture {
 	public static final String MOD_ID = "mysticalagriculture";
 	public static final String NAME = "Mystical Agriculture";
 	
-	public static final CreativeModeTab ITEM_GROUP = new MAItemGroup();
+	public static final CreativeModeTab ITEM_GROUP = new MACreativeTab();
 
 	public MysticalAgriculture() {
-		IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
+		var bus = FMLJavaModLoadingContext.get().getModEventBus();
 
 		bus.register(this);
 		bus.register(new ModBlocks());

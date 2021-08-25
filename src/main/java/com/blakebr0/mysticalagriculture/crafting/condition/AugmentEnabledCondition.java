@@ -1,11 +1,10 @@
 package com.blakebr0.mysticalagriculture.crafting.condition;
 
 import com.blakebr0.mysticalagriculture.MysticalAgriculture;
-import com.blakebr0.mysticalagriculture.api.tinkering.IAugment;
 import com.blakebr0.mysticalagriculture.registry.AugmentRegistry;
 import com.google.gson.JsonObject;
-import net.minecraft.util.GsonHelper;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.util.GsonHelper;
 import net.minecraftforge.common.crafting.conditions.ICondition;
 import net.minecraftforge.common.crafting.conditions.IConditionSerializer;
 
@@ -24,7 +23,7 @@ public class AugmentEnabledCondition implements ICondition {
 
     @Override
     public boolean test() {
-        IAugment augment = AugmentRegistry.getInstance().getAugmentById(this.augment);
+        var augment = AugmentRegistry.getInstance().getAugmentById(this.augment);
         return augment != null && augment.isEnabled();
     }
 

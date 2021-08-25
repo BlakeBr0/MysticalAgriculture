@@ -4,19 +4,16 @@ import com.blakebr0.cucumber.crafting.TagMapper;
 import com.blakebr0.cucumber.crafting.recipe.ShapedNoMirrorRecipe;
 import com.blakebr0.mysticalagriculture.init.ModRecipeSerializers;
 import com.google.gson.JsonObject;
-import net.minecraft.world.item.Item;
+import net.minecraft.core.NonNullList;
+import net.minecraft.network.FriendlyByteBuf;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.util.GsonHelper;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
-import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.item.crafting.ShapedRecipe;
-import net.minecraft.network.FriendlyByteBuf;
-import net.minecraft.util.GsonHelper;
-import net.minecraft.core.NonNullList;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.registries.ForgeRegistryEntry;
-
-import java.util.Map;
 
 public class TagRecipe extends ShapedNoMirrorRecipe {
     public TagRecipe(ResourceLocation id, String group, int width, int height, NonNullList<Ingredient> inputs, ItemStack output) {
@@ -31,21 +28,22 @@ public class TagRecipe extends ShapedNoMirrorRecipe {
     public static class Serializer extends ForgeRegistryEntry<RecipeSerializer<?>> implements RecipeSerializer<TagRecipe> {
         @Override
         public TagRecipe fromJson(ResourceLocation recipeId, JsonObject json) {
-            String group = GsonHelper.getAsString(json, "group", "");
-            Map<String, Ingredient> map = ShapedRecipe.keyFromJson(GsonHelper.getAsJsonObject(json, "key"));
-            String[] pattern = ShapedRecipe.shrink(ShapedRecipe.patternFromJson(GsonHelper.getAsJsonArray(json, "pattern")));
+            var group = GsonHelper.getAsString(json, "group", "");
+            var map = ShapedRecipe.keyFromJson(GsonHelper.getAsJsonObject(json, "key"));
+            var pattern = ShapedRecipe.shrink(ShapedRecipe.patternFromJson(GsonHelper.getAsJsonArray(json, "pattern")));
             int width = pattern[0].length();
             int height = pattern.length;
-            NonNullList<Ingredient> ingredients = ShapedRecipe.dissolvePattern(pattern, map, width, height);
+            var ingredients = ShapedRecipe.dissolvePattern(pattern, map, width, height);
 
-            JsonObject result = GsonHelper.getAsJsonObject(json, "result");
-            String tag = GsonHelper.getAsString(result, "tag");
+            var result = GsonHelper.getAsJsonObject(json, "result");
+            var tag = GsonHelper.getAsString(result, "tag");
             int count = GsonHelper.getAsInt(result, "count", 1);
-            Item item = TagMapper.getItemForTag(tag);
+            var item = TagMapper.getItemForTag(tag);
+
             if (item == Items.AIR)
                 return null;
 
-            ItemStack output = new ItemStack(item, count);
+            var output = new ItemStack(item, count);
 
             return new TagRecipe(recipeId, group, width, height, ingredients, output);
         }
@@ -54,14 +52,14 @@ public class TagRecipe extends ShapedNoMirrorRecipe {
         public TagRecipe fromNetwork(ResourceLocation recipeId, FriendlyByteBuf buffer) {
             int width = buffer.readVarInt();
             int height = buffer.readVarInt();
-            String group = buffer.readUtf(32767);
-            NonNullList<Ingredient> ingredients = NonNullList.withSize(width * height, Ingredient.EMPTY);
+            var group = buffer.readUtf(32767);
+            var ingredients = NonNullList.withSize(width * height, Ingredient.EMPTY);
 
             for (int k = 0; k < ingredients.size(); k++) {
                 ingredients.set(k, Ingredient.fromNetwork(buffer));
             }
 
-            ItemStack output = buffer.readItem();
+            var output = buffer.readItem();
 
             return new TagRecipe(recipeId, group, width, height, ingredients, output);
         }
@@ -72,7 +70,7 @@ public class TagRecipe extends ShapedNoMirrorRecipe {
             buffer.writeVarInt(recipe.getHeight());
             buffer.writeUtf(recipe.getGroup());
 
-            for (Ingredient ingredient : recipe.getIngredients()) {
+            for (var ingredient : recipe.getIngredients()) {
                 ingredient.toNetwork(buffer);
             }
 

@@ -4,30 +4,26 @@ import com.blakebr0.cucumber.client.ModRenderTypes;
 import com.blakebr0.mysticalagriculture.init.ModBlocks;
 import com.blakebr0.mysticalagriculture.tileentity.InfusionAltarTileEntity;
 import com.mojang.blaze3d.vertex.PoseStack;
-import com.mojang.blaze3d.vertex.VertexConsumer;
+import com.mojang.math.Vector3f;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.block.model.ItemTransforms;
-import net.minecraft.client.renderer.blockentity.BlockEntityRenderer;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderDispatcher;
+import net.minecraft.client.renderer.blockentity.BlockEntityRenderer;
 import net.minecraft.world.item.BlockItem;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.core.BlockPos;
-import com.mojang.math.Vector3f;
-import net.minecraft.world.level.Level;
 import net.minecraftforge.client.model.data.EmptyModelData;
-import net.minecraftforge.items.ItemStackHandler;
 
-public class InfusionAltarRenderer extends BlockEntityRenderer<InfusionAltarTileEntity> {
+public class InfusionAltarRenderer implements BlockEntityRenderer<InfusionAltarTileEntity> {
     public InfusionAltarRenderer(BlockEntityRenderDispatcher dispatcher) {
         super(dispatcher);
     }
 
     @Override
     public void render(InfusionAltarTileEntity tile, float v, PoseStack matrix, MultiBufferSource buffer, int i, int i1) {
-        ItemStackHandler inventory = tile.getInventory();
-        Minecraft minecraft = Minecraft.getInstance();
-        ItemStack stack = inventory.getStackInSlot(1).isEmpty() ? inventory.getStackInSlot(0) : inventory.getStackInSlot(1);
+        var inventory = tile.getInventory();
+        var minecraft = Minecraft.getInstance();
+        var stack = inventory.getStackInSlot(1).isEmpty() ? inventory.getStackInSlot(0) : inventory.getStackInSlot(1);
+
         if (!stack.isEmpty()) {
             matrix.pushPose();
             matrix.translate(0.5D, 1.1D, 0.5D);
@@ -40,18 +36,18 @@ public class InfusionAltarRenderer extends BlockEntityRenderer<InfusionAltarTile
             matrix.popPose();
         }
 
-        BlockPos pos = tile.getBlockPos();
-        Level world = tile.getLevel();
-        VertexConsumer builder = buffer.getBuffer(ModRenderTypes.GHOST);
+        var pos = tile.getBlockPos();
+        var level = tile.getLevel();
+        var builder = buffer.getBuffer(ModRenderTypes.GHOST);
 
         matrix.pushPose();
         matrix.translate(-pos.getX(), -pos.getY(), -pos.getZ());
 
         tile.getPedestalPositions().forEach(aoePos -> {
-            if (world != null && world.isEmptyBlock(aoePos)) {
+            if (level != null && level.isEmptyBlock(aoePos)) {
                 matrix.pushPose();
                 matrix.translate(aoePos.getX(), aoePos.getY(), aoePos.getZ());
-                minecraft.getBlockRenderer().renderModel(ModBlocks.INFUSION_PEDESTAL.get().defaultBlockState(), aoePos, world, matrix, builder, false, world.getRandom(), EmptyModelData.INSTANCE);
+                minecraft.getBlockRenderer().renderBatched(ModBlocks.INFUSION_PEDESTAL.get().defaultBlockState(), aoePos, level, matrix, builder, false, level.getRandom(), EmptyModelData.INSTANCE);
                 matrix.popPose();
             }
         });

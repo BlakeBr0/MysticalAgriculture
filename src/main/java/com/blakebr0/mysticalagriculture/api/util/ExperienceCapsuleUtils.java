@@ -1,11 +1,11 @@
 package com.blakebr0.mysticalagriculture.api.util;
 
 import com.blakebr0.mysticalagriculture.api.MysticalAgricultureAPI;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemStack;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraftforge.fml.RegistryObject;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraftforge.fmllegacy.RegistryObject;
 import net.minecraftforge.registries.ForgeRegistries;
 
 public class ExperienceCapsuleUtils {
@@ -21,7 +21,8 @@ public class ExperienceCapsuleUtils {
      * @return a tag compound for the specified amount of xp
      */
     public static CompoundTag makeTag(int xp) {
-        CompoundTag nbt = new CompoundTag();
+        var nbt = new CompoundTag();
+
         nbt.putInt("Experience", Math.min(MAX_XP_POINTS, xp));
 
         return nbt;
@@ -32,9 +33,11 @@ public class ExperienceCapsuleUtils {
      * @param xp the amount of xp points
      * @return the experience capsule
      */
+    // TODO: take the stack in as parameter
     public static ItemStack getExperienceCapsule(int xp) {
-        CompoundTag nbt = makeTag(xp);
-        ItemStack stack = new ItemStack(EXPERIENCE_CAPSULE.get());
+        var nbt = makeTag(xp);
+        var stack = new ItemStack(EXPERIENCE_CAPSULE.get());
+
         stack.setTag(nbt);
         return stack;
     }
@@ -45,7 +48,7 @@ public class ExperienceCapsuleUtils {
      * @return the amount of experience
      */
     public static int getExperience(ItemStack stack) {
-        CompoundTag nbt = stack.getTag();
+        var nbt = stack.getTag();
         if (nbt != null && nbt.contains("Experience"))
             return nbt.getInt("Experience");
 
@@ -64,9 +67,11 @@ public class ExperienceCapsuleUtils {
             return amount;
         } else {
             int newAmount = Math.min(MAX_XP_POINTS, xp + amount);
-            CompoundTag nbt = stack.getTag();
+            var nbt = stack.getTag();
+
             if (nbt == null) {
-                CompoundTag tag = makeTag(newAmount);
+                var tag = makeTag(newAmount);
+
                 stack.setTag(tag);
             } else {
                 nbt.putInt("Experience", newAmount);

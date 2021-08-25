@@ -4,35 +4,28 @@ import com.blakebr0.cucumber.item.BaseItem;
 import com.blakebr0.mysticalagriculture.api.crop.ICropGetter;
 import com.blakebr0.mysticalagriculture.init.ModItems;
 import com.blakebr0.mysticalagriculture.lib.ModTooltips;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.block.CropBlock;
-import net.minecraft.world.level.block.DispenserBlock;
-import net.minecraft.world.level.block.BonemealableBlock;
-import net.minecraft.world.level.block.SaplingBlock;
-import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.core.BlockPos;
 import net.minecraft.core.BlockSource;
 import net.minecraft.core.dispenser.OptionalDispenseItemBehavior;
+import net.minecraft.network.chat.Component;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.context.UseOnContext;
-import net.minecraft.world.InteractionResult;
-import net.minecraft.core.Direction;
-import net.minecraft.core.BlockPos;
-import net.minecraft.network.chat.Component;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.chunk.ChunkGenerator;
-import net.minecraft.server.level.ServerLevel;
+import net.minecraft.world.level.block.BonemealableBlock;
+import net.minecraft.world.level.block.CropBlock;
+import net.minecraft.world.level.block.DispenserBlock;
+import net.minecraft.world.level.block.SaplingBlock;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.common.util.Constants;
 import net.minecraftforge.event.ForgeEventFactory;
 
 import java.util.List;
-import java.util.Random;
 import java.util.function.Function;
-
-import net.minecraft.world.item.Item.Properties;
 
 public class MysticalFertilizerItem extends BaseItem {
     public MysticalFertilizerItem(Function<Properties, Properties> properties) {
@@ -41,11 +34,11 @@ public class MysticalFertilizerItem extends BaseItem {
 
     @Override
     public InteractionResult useOn(UseOnContext context) {
-        ItemStack stack = context.getItemInHand();
-        BlockPos pos = context.getClickedPos();
-        Player player = context.getPlayer();
-        Level world = context.getLevel();
-        Direction direction = context.getClickedFace();
+        var stack = context.getItemInHand();
+        var pos = context.getClickedPos();
+        var player = context.getPlayer();
+        var world = context.getLevel();
+        var direction = context.getClickedFace();
 
         if (player == null || !player.mayUseItemAt(pos.relative(direction), direction, stack)) {
             return InteractionResult.FAIL;
@@ -69,49 +62,47 @@ public class MysticalFertilizerItem extends BaseItem {
     }
 
     public static boolean applyFertilizer(ItemStack stack, Level world, BlockPos pos, Player player) {
-        BlockState state = world.getBlockState(pos);
+        var state = world.getBlockState(pos);
 
         if (player != null) {
             int hook = ForgeEventFactory.onApplyBonemeal(player, world, pos, state, stack);
             if (hook != 0) return hook > 0;
         }
 
-        Block block = state.getBlock();
-        if (block instanceof BonemealableBlock) {
-            BonemealableBlock growable = (BonemealableBlock) block;
+        var block = state.getBlock();
 
-            if (growable.isValidBonemealTarget(world, pos, state, world.isClientSide())) {
-                if (!world.isClientSide()) {
-                    Random rand = world.getRandom();
-                    if (growable.isBonemealSuccess(world, rand, pos, state) || canGrowResourceCrops(growable) || growable instanceof SaplingBlock) {
-                        ServerLevel serverWorld = (ServerLevel) world;
+        if (block instanceof BonemealableBlock growable && growable.isValidBonemealTarget(world, pos, state, world.isClientSide())) {
+            if (!world.isClientSide()) {
+                var rand = world.getRandom();
 
-                        if (growable instanceof CropBlock) {
-                            CropBlock crop = (CropBlock) block;
-                            world.setBlock(pos, crop.getStateForAge(crop.getMaxAge()), 2);
-                        } else if (growable instanceof SaplingBlock) {
-                            if (!ForgeEventFactory.saplingGrowTree(world, rand, pos))
-                                return false;
+                if (growable.isBonemealSuccess(world, rand, pos, state) || canGrowResourceCrops(growable) || growable instanceof SaplingBlock) {
+                    var serverWorld = (ServerLevel) world;
 
-                            ChunkGenerator chunkGenerator = serverWorld.getChunkSource().getGenerator();
-                            ((SaplingBlock) growable).treeGrower.growTree(serverWorld, chunkGenerator, pos, state, rand);
-                        } else {
-                            growable.performBonemeal(serverWorld, rand, pos, state);
-                        }
+                    if (growable instanceof CropBlock crop) {
+                        world.setBlock(pos, crop.getStateForAge(crop.getMaxAge()), 2);
+                    } else if (growable instanceof SaplingBlock sapling) {
+                        if (!ForgeEventFactory.saplingGrowTree(world, rand, pos))
+                            return false;
+
+                        var chunkGenerator = serverWorld.getChunkSource().getGenerator();
+
+                        sapling.treeGrower.growTree(serverWorld, chunkGenerator, pos, state, rand);
+                    } else {
+                        growable.performBonemeal(serverWorld, rand, pos, state);
                     }
-
-                    stack.shrink(1);
                 }
 
-                return true;
+                stack.shrink(1);
             }
+
+            return true;
         }
 
         return false;
     }
 
     private static boolean canGrowResourceCrops(BonemealableBlock growable) {
-        return growable instanceof ICropGetter && ((ICropGetter) growable).getCrop().getTier().isFertilizable();
+        return growable instanceof ICropGetter cropGetter && cropGetter.getCrop().getTier().isFertilizable();
     }
 
     public static class DispenserBehavior extends OptionalDispenseItemBehavior {
@@ -119,8 +110,8 @@ public class MysticalFertilizerItem extends BaseItem {
         protected ItemStack execute(BlockSource source, ItemStack stack) {
             this.setSuccess(true);
 
-            Level world = source.getLevel();
-            BlockPos pos = source.getPos().relative(source.getBlockState().getValue(DispenserBlock.FACING));
+            var world = source.getLevel();
+            var pos = source.getPos().relative(source.getBlockState().getValue(DispenserBlock.FACING));
 
             if (MysticalFertilizerItem.applyFertilizer(stack, world, pos, null)) {
                 if (!world.isClientSide()) {

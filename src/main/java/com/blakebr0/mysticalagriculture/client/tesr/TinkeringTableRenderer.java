@@ -3,31 +3,22 @@ package com.blakebr0.mysticalagriculture.client.tesr;
 import com.blakebr0.mysticalagriculture.block.TinkeringTableBlock;
 import com.blakebr0.mysticalagriculture.tileentity.TinkeringTableTileEntity;
 import com.mojang.blaze3d.vertex.PoseStack;
-import net.minecraft.world.level.block.state.BlockState;
+import com.mojang.math.Vector3f;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.block.model.ItemTransforms;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderer;
-import net.minecraft.client.renderer.blockentity.BlockEntityRenderDispatcher;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.core.BlockPos;
-import com.mojang.math.Vector3f;
-import net.minecraft.world.level.Level;
 
-public class TinkeringTableRenderer extends BlockEntityRenderer<TinkeringTableTileEntity> {
-    public TinkeringTableRenderer(BlockEntityRenderDispatcher dispatcher) {
-        super(dispatcher);
-    }
-
+public class TinkeringTableRenderer implements BlockEntityRenderer<TinkeringTableTileEntity> {
     @Override
     public void render(TinkeringTableTileEntity tile, float v, PoseStack matrix, MultiBufferSource buffer, int i, int i1) {
-        Level world = tile.getLevel();
-        if (world == null)
+        var level = tile.getLevel();
+        if (level == null)
             return;
 
-        BlockPos pos = tile.getBlockPos();
-        BlockState state = world.getBlockState(pos);
-        ItemStack stack = tile.getInventory().getStackInSlot(0);
+        var pos = tile.getBlockPos();
+        var state = level.getBlockState(pos);
+        var stack = tile.getInventory().getStackInSlot(0);
 
         if (!stack.isEmpty()) {
             matrix.pushPose();

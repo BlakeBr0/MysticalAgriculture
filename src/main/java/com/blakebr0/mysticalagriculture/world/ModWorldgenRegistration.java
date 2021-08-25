@@ -3,15 +3,13 @@ package com.blakebr0.mysticalagriculture.world;
 import com.blakebr0.mysticalagriculture.MysticalAgriculture;
 import com.blakebr0.mysticalagriculture.config.ModConfigs;
 import com.blakebr0.mysticalagriculture.init.ModBlocks;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.core.Registry;
 import net.minecraft.data.BuiltinRegistries;
-import net.minecraft.world.level.biome.Biome;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.levelgen.GenerationStep;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.configurations.OreConfiguration;
-import net.minecraftforge.common.world.BiomeGenerationSettingsBuilder;
 import net.minecraftforge.event.world.BiomeLoadingEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 
@@ -24,9 +22,9 @@ public final class ModWorldgenRegistration {
 
     @SubscribeEvent
     public void onBiomesLoading(BiomeLoadingEvent event) {
-        Biome.BiomeCategory category = event.getCategory();
-        BiomeGenerationSettingsBuilder generation = event.getGeneration();
-        ResourceLocation name = event.getName();
+        var category = event.getCategory();
+        var generation = event.getGeneration();
+        var name = event.getName();
 
         if (name == null)
             return;

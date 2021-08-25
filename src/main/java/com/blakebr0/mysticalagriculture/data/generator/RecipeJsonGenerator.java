@@ -18,15 +18,15 @@ public class RecipeJsonGenerator extends RecipeProvider {
     }
 
     @Override
-    protected void buildShapelessRecipes(Consumer<FinishedRecipe> consumer) {
+    protected void buildCraftingRecipes(Consumer<FinishedRecipe> consumer) {
         CropRegistry.getInstance().getCrops().forEach(crop -> {
-            String craftingId = "seed/crafting/" + crop.getName();
+            var craftingId = "seed/crafting/" + crop.getName();
             CraftingRecipeBuilder.newSeedRecipe(crop).build(consumer, new ResourceLocation(crop.getModId(), craftingId));
 
-            String infusionId = "seed/infusion/" + crop.getName();
+            var infusionId = "seed/infusion/" + crop.getName();
             InfusionRecipeBuilder.newSeedRecipe(crop).build(consumer, new ResourceLocation(crop.getModId(), infusionId));
 
-            String reprocessorId = "seed/reprocessor/" + crop.getName();
+            var reprocessorId = "seed/reprocessor/" + crop.getName();
             ReprocessorRecipeBuilder.newSeedReprocessingRecipe(crop).build(consumer, new ResourceLocation(crop.getModId(), reprocessorId));
         });
     }

@@ -6,13 +6,13 @@ import com.blakebr0.mysticalagriculture.init.ModRecipeSerializers;
 import com.google.common.collect.Lists;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
-import net.minecraft.data.recipes.FinishedRecipe;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.crafting.RecipeSerializer;
-import net.minecraft.world.item.crafting.Ingredient;
-import net.minecraft.world.level.ItemLike;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.core.Registry;
+import net.minecraft.data.recipes.FinishedRecipe;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.world.item.crafting.RecipeSerializer;
+import net.minecraft.world.level.ItemLike;
 
 import java.util.List;
 import java.util.function.Consumer;
@@ -42,11 +42,11 @@ public class InfusionRecipeBuilder {
     }
 
     public static InfusionRecipeBuilder newSeedRecipe(ICrop crop) {
-        InfusionRecipeBuilder builder = new InfusionRecipeBuilder(crop.getSeeds(), 1);
+        var builder = new InfusionRecipeBuilder(crop.getSeeds(), 1);
 
-        Ingredient essence = new CropComponentIngredient(crop, CropComponentIngredient.ComponentType.ESSENCE);
-        Ingredient seed = new CropComponentIngredient(crop, CropComponentIngredient.ComponentType.SEED);
-        Ingredient material = new CropComponentIngredient(crop, CropComponentIngredient.ComponentType.MATERIAL);
+        var essence = new CropComponentIngredient(crop, CropComponentIngredient.ComponentType.ESSENCE);
+        var seed = new CropComponentIngredient(crop, CropComponentIngredient.ComponentType.SEED);
+        var material = new CropComponentIngredient(crop, CropComponentIngredient.ComponentType.MATERIAL);
 
         builder.input = seed;
 
@@ -103,14 +103,15 @@ public class InfusionRecipeBuilder {
 
             json.add("input", this.input.toJson());
 
-            JsonArray ingredients = new JsonArray();
-            for (Ingredient ingredient : this.ingredients) {
+            var ingredients = new JsonArray();
+            for (var ingredient : this.ingredients) {
                 ingredients.add(ingredient.toJson());
             }
 
             json.add("ingredients", ingredients);
 
-            JsonObject result = new JsonObject();
+            var result = new JsonObject();
+
             result.addProperty("item", Registry.ITEM.getKey(this.result).toString());
 
             if (this.count > 1) {

@@ -1,17 +1,16 @@
 package com.blakebr0.mysticalagriculture.item;
 
 import com.blakebr0.cucumber.item.BaseItem;
-import com.blakebr0.mysticalagriculture.api.soul.IMobSoulType;
 import com.blakebr0.mysticalagriculture.api.util.MobSoulUtils;
 import com.blakebr0.mysticalagriculture.lib.ModTooltips;
 import com.blakebr0.mysticalagriculture.registry.MobSoulTypeRegistry;
-import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.ChatFormatting;
 import net.minecraft.client.renderer.item.ItemPropertyFunction;
-import net.minecraft.world.item.CreativeModeTab;
-import net.minecraft.world.item.ItemStack;
 import net.minecraft.core.NonNullList;
 import net.minecraft.network.chat.Component;
-import net.minecraft.ChatFormatting;
+import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
@@ -19,8 +18,6 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 import java.text.DecimalFormat;
 import java.util.List;
 import java.util.function.Function;
-
-import net.minecraft.world.item.Item.Properties;
 
 public class SoulJarItem extends BaseItem {
     private static final DecimalFormat DECIMAL_FORMAT = new DecimalFormat("0.00");
@@ -45,11 +42,12 @@ public class SoulJarItem extends BaseItem {
     @OnlyIn(Dist.CLIENT)
     @Override
     public void appendHoverText(ItemStack stack, Level world, List<Component> tooltip, TooltipFlag flag) {
-        IMobSoulType type = MobSoulUtils.getType(stack);
+        var type = MobSoulUtils.getType(stack);
+
         if (type != null) {
-            Component entityName = type.getEntityDisplayName();
-            String souls = DECIMAL_FORMAT.format(MobSoulUtils.getSouls(stack));
-            String requirement = DECIMAL_FORMAT.format(type.getSoulRequirement());
+            var entityName = type.getEntityDisplayName();
+            var souls = DECIMAL_FORMAT.format(MobSoulUtils.getSouls(stack));
+            var requirement = DECIMAL_FORMAT.format(type.getSoulRequirement());
 
             tooltip.add(ModTooltips.SOUL_JAR.args(entityName, souls, requirement).build());
 
@@ -60,10 +58,12 @@ public class SoulJarItem extends BaseItem {
     }
 
     public static ItemPropertyFunction getFillPropertyGetter() {
-        return (stack, world, entity) -> {
-            IMobSoulType type = MobSoulUtils.getType(stack);
+        return (stack, world, entity, _unused) -> {
+            var type = MobSoulUtils.getType(stack);
+
             if (type != null) {
                 double souls = MobSoulUtils.getSouls(stack);
+
                 if (souls > 0) {
                     return (int) ((souls / type.getSoulRequirement()) * 9);
                 }

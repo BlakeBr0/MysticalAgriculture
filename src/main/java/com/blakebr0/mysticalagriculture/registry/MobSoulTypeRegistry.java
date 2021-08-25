@@ -2,12 +2,11 @@ package com.blakebr0.mysticalagriculture.registry;
 
 import com.blakebr0.mysticalagriculture.api.registry.IMobSoulTypeRegistry;
 import com.blakebr0.mysticalagriculture.api.soul.IMobSoulType;
-import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.entity.LivingEntity;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.LinkedHashMap;
@@ -26,7 +25,7 @@ public final class MobSoulTypeRegistry implements IMobSoulTypeRegistry {
     @Override
     public void register(IMobSoulType mobSoulType) {
         if (this.mobSoulTypes.values().stream().noneMatch(m -> m.getId().equals(mobSoulType.getId()))) {
-            Set<ResourceLocation> duplicates = mobSoulType.getEntityIds().stream().filter(this.usedEntityIds::contains).collect(Collectors.toSet());
+            var duplicates = mobSoulType.getEntityIds().stream().filter(this.usedEntityIds::contains).collect(Collectors.toSet());
 
             if (duplicates.isEmpty()) {
                 this.mobSoulTypes.put(mobSoulType.getId(), mobSoulType);
@@ -41,7 +40,7 @@ public final class MobSoulTypeRegistry implements IMobSoulTypeRegistry {
 
     @Override
     public List<IMobSoulType> getMobSoulTypes() {
-        return Collections.unmodifiableList(new ArrayList<>(this.mobSoulTypes.values()));
+        return List.copyOf(this.mobSoulTypes.values());
     }
 
     @Override

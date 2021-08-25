@@ -6,13 +6,13 @@ import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
-import net.minecraft.data.recipes.FinishedRecipe;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.crafting.RecipeSerializer;
-import net.minecraft.world.item.crafting.Ingredient;
-import net.minecraft.world.level.ItemLike;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.core.Registry;
+import net.minecraft.data.recipes.FinishedRecipe;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.world.item.crafting.RecipeSerializer;
+import net.minecraft.world.level.ItemLike;
 
 import java.util.List;
 import java.util.Map;
@@ -44,11 +44,11 @@ public class CraftingRecipeBuilder {
     }
 
     public static CraftingRecipeBuilder newSeedRecipe(ICrop crop) {
-        CraftingRecipeBuilder builder = new CraftingRecipeBuilder(crop.getSeeds(), 1);
+        var builder = new CraftingRecipeBuilder(crop.getSeeds(), 1);
 
-        Ingredient essence = new CropComponentIngredient(crop, CropComponentIngredient.ComponentType.ESSENCE);
-        Ingredient seed = new CropComponentIngredient(crop, CropComponentIngredient.ComponentType.SEED);
-        Ingredient material = new CropComponentIngredient(crop, CropComponentIngredient.ComponentType.MATERIAL);
+        var essence = new CropComponentIngredient(crop, CropComponentIngredient.ComponentType.ESSENCE);
+        var seed = new CropComponentIngredient(crop, CropComponentIngredient.ComponentType.SEED);
+        var material = new CropComponentIngredient(crop, CropComponentIngredient.ComponentType.MATERIAL);
 
         builder.group = "mysticalagriculture:seeds";
 
@@ -113,19 +113,20 @@ public class CraftingRecipeBuilder {
 
             json.add("conditions", this.conditions);
 
-            JsonArray pattern = new JsonArray();
+            var pattern = new JsonArray();
 
             this.pattern.forEach(pattern::add);
 
             json.add("pattern", pattern);
 
-            JsonObject key = new JsonObject();
+            var key = new JsonObject();
 
             this.key.forEach((c, i) -> key.add(c.toString(), i.toJson()));
 
             json.add("key", key);
 
-            JsonObject result = new JsonObject();
+            var result = new JsonObject();
+
             result.addProperty("item", Registry.ITEM.getKey(this.result).toString());
 
             if (this.count > 1) {

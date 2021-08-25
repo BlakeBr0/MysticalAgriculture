@@ -4,13 +4,13 @@ import com.blakebr0.mysticalagriculture.api.crop.ICrop;
 import com.blakebr0.mysticalagriculture.init.ModRecipeSerializers;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
-import net.minecraft.data.recipes.FinishedRecipe;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.crafting.RecipeSerializer;
-import net.minecraft.world.item.crafting.Ingredient;
-import net.minecraft.world.level.ItemLike;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.core.Registry;
+import net.minecraft.data.recipes.FinishedRecipe;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.world.item.crafting.RecipeSerializer;
+import net.minecraft.world.level.ItemLike;
 
 import java.util.function.Consumer;
 
@@ -31,12 +31,12 @@ public class ReprocessorRecipeBuilder {
     }
 
     public static ReprocessorRecipeBuilder newSeedReprocessingRecipe(ICrop crop) {
-        Ingredient input = Ingredient.of(crop.getSeeds());
-        ItemLike output = crop.getEssence();
+        var input = Ingredient.of(crop.getSeeds());
+        var output = crop.getEssence();
 
-        ReprocessorRecipeBuilder builder = new ReprocessorRecipeBuilder(input, output, 2);
+        var builder = new ReprocessorRecipeBuilder(input, output, 2);
 
-        JsonObject condition = new JsonObject();
+        var condition = new JsonObject();
         condition.addProperty("type", "mysticalagriculture:crop_enabled");
         condition.addProperty("crop", crop.getId().toString());
 
@@ -69,7 +69,8 @@ public class ReprocessorRecipeBuilder {
             json.add("conditions", this.conditions);
             json.add("input", this.input.toJson());
 
-            JsonObject result = new JsonObject();
+            var result = new JsonObject();
+
             result.addProperty("item", Registry.ITEM.getKey(this.result).toString());
 
             if (this.count > 1) {

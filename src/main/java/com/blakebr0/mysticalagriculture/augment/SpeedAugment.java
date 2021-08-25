@@ -4,10 +4,10 @@ import com.blakebr0.cucumber.helper.ColorHelper;
 import com.blakebr0.mysticalagriculture.api.lib.AbilityCache;
 import com.blakebr0.mysticalagriculture.api.tinkering.Augment;
 import com.blakebr0.mysticalagriculture.api.tinkering.AugmentType;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.phys.Vec3;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.phys.Vec3;
 
 import java.util.EnumSet;
 
@@ -21,13 +21,13 @@ public class SpeedAugment extends Augment {
 
     @Override
     public void onPlayerTick(Level world, Player player, AbilityCache cache) {
-        boolean flying = player.abilities.flying;
-        boolean swimming = player.isSwimming();
-        boolean inWater = player.isInWater();
+        var flying = player.getAbilities().flying;
+        var swimming = player.isSwimming();
+        var inWater = player.isInWater();
 
         if (player.isOnGround() || flying || swimming || inWater) {
-            boolean sneaking = player.isCrouching();
-            boolean sprinting = player.isSprinting();
+            var sneaking = player.isCrouching();
+            var sprinting = player.isSprinting();
 
             float speed = 0.1F
                     * (flying ? 0.6F : 1.0F)

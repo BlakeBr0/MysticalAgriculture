@@ -3,13 +3,15 @@ package com.blakebr0.mysticalagriculture.registry;
 import com.blakebr0.mysticalagriculture.api.registry.IAugmentRegistry;
 import com.blakebr0.mysticalagriculture.api.tinkering.IAugment;
 import com.blakebr0.mysticalagriculture.item.AugmentItem;
-import net.minecraft.world.item.Item;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.Item;
 import net.minecraftforge.registries.IForgeRegistry;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import java.util.*;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
 
 import static com.blakebr0.mysticalagriculture.MysticalAgriculture.ITEM_GROUP;
 
@@ -30,7 +32,7 @@ public final class AugmentRegistry implements IAugmentRegistry {
 
     @Override
     public List<IAugment> getAugments() {
-        return Collections.unmodifiableList(new ArrayList<>(this.augments.values()));
+        return List.copyOf(this.augments.values());
     }
 
     @Override

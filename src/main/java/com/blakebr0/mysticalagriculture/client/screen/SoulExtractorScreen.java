@@ -5,12 +5,10 @@ import com.blakebr0.mysticalagriculture.MysticalAgriculture;
 import com.blakebr0.mysticalagriculture.container.SoulExtractorContainer;
 import com.blakebr0.mysticalagriculture.tileentity.SoulExtractorTileEntity;
 import com.mojang.blaze3d.vertex.PoseStack;
-import net.minecraft.client.multiplayer.ClientLevel;
-import net.minecraft.world.entity.player.Inventory;
-import net.minecraft.world.level.block.entity.BlockEntity;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.TextComponent;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.entity.player.Inventory;
 
 public class SoulExtractorScreen extends BaseContainerScreen<SoulExtractorContainer> {
     private static final ResourceLocation BACKGROUND = new ResourceLocation(MysticalAgriculture.MOD_ID, "textures/gui/soul_extractor.png");
@@ -29,10 +27,10 @@ public class SoulExtractorScreen extends BaseContainerScreen<SoulExtractorContai
 
     @Override
     protected void renderLabels(PoseStack stack, int mouseX, int mouseY) {
-        String title = this.getTitle().getString();
+        var title = this.getTitle().getString();
+
         this.font.draw(stack, title, (float) (this.imageWidth / 2 - this.font.width(title) / 2), 6.0F, 4210752);
-        String inventory = this.inventory.getDisplayName().getString();
-        this.font.draw(stack, inventory, 8.0F, (float) (this.imageHeight - 96 + 2), 4210752);
+        this.font.draw(stack, this.playerInventoryTitle, 8.0F, (float) (this.imageHeight - 96 + 2), 4210752);
     }
 
     @Override
@@ -43,6 +41,7 @@ public class SoulExtractorScreen extends BaseContainerScreen<SoulExtractorContai
         int y = this.getGuiTop();
 
         int i1 = this.getEnergyBarScaled(78);
+
         this.blit(stack, x + 7, y + 95 - i1, 176, 109 - i1, 15, i1);
 
         if (this.getFuelItemValue() > 0) {
@@ -75,13 +74,13 @@ public class SoulExtractorScreen extends BaseContainerScreen<SoulExtractorContai
     }
 
     private SoulExtractorTileEntity getTileEntity() {
-        ClientLevel world = this.getMinecraft().level;
+        var level = this.getMinecraft().level;
 
-        if (world != null) {
-            BlockEntity tile = world.getBlockEntity(this.getMenu().getPos());
+        if (level != null) {
+            var tile = level.getBlockEntity(this.getMenu().getPos());
 
-            if (tile instanceof SoulExtractorTileEntity) {
-                return (SoulExtractorTileEntity) tile;
+            if (tile instanceof SoulExtractorTileEntity extractor) {
+                return extractor;
             }
         }
 

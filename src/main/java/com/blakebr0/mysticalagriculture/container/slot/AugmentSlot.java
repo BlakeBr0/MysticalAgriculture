@@ -1,17 +1,13 @@
 package com.blakebr0.mysticalagriculture.container.slot;
 
 import com.blakebr0.cucumber.iface.IToggleableSlot;
-import com.blakebr0.mysticalagriculture.api.tinkering.IAugment;
 import com.blakebr0.mysticalagriculture.api.tinkering.IAugmentGetter;
 import com.blakebr0.mysticalagriculture.api.tinkering.ITinkerable;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.SlotItemHandler;
-
-import javax.annotation.Nonnull;
 
 public class AugmentSlot extends SlotItemHandler implements IToggleableSlot {
     private final AbstractContainerMenu container;
@@ -24,10 +20,9 @@ public class AugmentSlot extends SlotItemHandler implements IToggleableSlot {
     }
 
     @Override
-    public ItemStack onTake(Player player, ItemStack stack) {
-        ItemStack take = super.onTake(player, stack);
+    public void onTake(Player player, ItemStack stack) {
+        super.onTake(player, stack);
         this.container.slotsChanged(null);
-        return take;
     }
 
     @Override
@@ -41,12 +36,12 @@ public class AugmentSlot extends SlotItemHandler implements IToggleableSlot {
         if (!super.mayPlace(stack))
             return false;
 
-        ItemStack stackInSlot = this.getItemHandler().getStackInSlot(0);
-        Item tinkerableItem = stackInSlot.getItem();
-        Item augmentItem = stack.getItem();
-        if (tinkerableItem instanceof ITinkerable && augmentItem instanceof IAugmentGetter) {
-            ITinkerable tinkerable = (ITinkerable) tinkerableItem;
-            IAugment augment = ((IAugmentGetter) augmentItem).getAugment();
+        var stackInSlot = this.getItemHandler().getStackInSlot(0);
+        var tinkerableItem = stackInSlot.getItem();
+        var augmentItem = stack.getItem();
+
+        if (tinkerableItem instanceof ITinkerable tinkerable && augmentItem instanceof IAugmentGetter augmentGetter) {
+            var augment = augmentGetter.getAugment();
 
             return tinkerable.canApplyAugment(augment);
         }
@@ -56,10 +51,10 @@ public class AugmentSlot extends SlotItemHandler implements IToggleableSlot {
 
     @Override
     public boolean isActive() {
-        ItemStack stack = this.getItemHandler().getStackInSlot(0);
-        Item item = stack.getItem();
-        if (item instanceof ITinkerable) {
-            ITinkerable tinkerable = (ITinkerable) item;
+        var stack = this.getItemHandler().getStackInSlot(0);
+        var item = stack.getItem();
+
+        if (item instanceof ITinkerable tinkerable) {
             return this.augmentSlot < tinkerable.getAugmentSlots();
         }
 

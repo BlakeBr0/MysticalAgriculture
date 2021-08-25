@@ -2,9 +2,9 @@ package com.blakebr0.mysticalagriculture.compat.jei;
 
 import com.blakebr0.mysticalagriculture.registry.CropRegistry;
 import com.google.common.collect.Lists;
-import net.minecraft.world.level.block.Block;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.world.level.block.Block;
 
 import java.util.List;
 import java.util.stream.Collectors;

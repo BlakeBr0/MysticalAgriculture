@@ -2,11 +2,11 @@ package com.blakebr0.mysticalagriculture.api.util;
 
 import com.blakebr0.mysticalagriculture.api.MysticalAgricultureAPI;
 import com.blakebr0.mysticalagriculture.api.soul.IMobSoulType;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemStack;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraftforge.fml.RegistryObject;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraftforge.fmllegacy.RegistryObject;
 import net.minecraftforge.registries.ForgeRegistries;
 
 public class MobSoulUtils {
@@ -28,7 +28,8 @@ public class MobSoulUtils {
      * @return a tag compound for the specified mob soul type
      */
     public static CompoundTag makeTag(IMobSoulType type, double souls) {
-        CompoundTag nbt = new CompoundTag();
+        var nbt = new CompoundTag();
+
         nbt.putString("Type", type.getId().toString());
         nbt.putDouble("Souls", Math.min(souls, type.getSoulRequirement()));
 
@@ -41,6 +42,7 @@ public class MobSoulUtils {
      * @param souls the amount of souls in this soul jar
      * @return the soul jar
      */
+    // TODO: remove
     public static ItemStack getSoulJar(IMobSoulType type, double souls) {
         return getSoulJar(type, souls, SOUL_JAR.get());
     }
@@ -53,8 +55,9 @@ public class MobSoulUtils {
      * @return the soul jar
      */
     public static ItemStack getSoulJar(IMobSoulType type, double souls, Item item) {
-        CompoundTag nbt = makeTag(type, souls);
-        ItemStack stack = new ItemStack(item);
+        var nbt = makeTag(type, souls);
+        var stack = new ItemStack(item);
+
         stack.setTag(nbt);
 
         return stack;
@@ -76,8 +79,9 @@ public class MobSoulUtils {
      * @return the filled soul jar
      */
     public static ItemStack getFilledSoulJar(IMobSoulType type, Item item) {
-        CompoundTag nbt = makeTag(type);
-        ItemStack stack = new ItemStack(item);
+        var nbt = makeTag(type);
+        var stack = new ItemStack(item);
+
         stack.setTag(nbt);
 
         return stack;
@@ -89,9 +93,10 @@ public class MobSoulUtils {
      * @return the mob soul type
      */
     public static IMobSoulType getType(ItemStack stack) {
-        CompoundTag nbt = stack.getTag();
+        var nbt = stack.getTag();
+
         if (nbt != null && nbt.contains("Type")) {
-            String type = nbt.getString("Type");
+            var type = nbt.getString("Type");
             return MysticalAgricultureAPI.getMobSoulTypeRegistry().getMobSoulTypeById(new ResourceLocation(type));
         }
 
@@ -104,7 +109,7 @@ public class MobSoulUtils {
      * @return the amount of souls
      */
     public static double getSouls(ItemStack stack) {
-        CompoundTag nbt = stack.getTag();
+        var nbt = stack.getTag();
         if (nbt != null && nbt.contains("Souls"))
             return nbt.getDouble("Souls");
 
@@ -118,7 +123,7 @@ public class MobSoulUtils {
      * @return can this soul type be added to this soul jar
      */
     public static boolean canAddTypeToJar(ItemStack stack, IMobSoulType type) {
-        IMobSoulType containedType = getType(stack);
+        var containedType = getType(stack);
         return containedType == null || containedType == type;
     }
 
@@ -128,7 +133,7 @@ public class MobSoulUtils {
      * @return is the provided soul jar full
      */
     public static boolean isJarFull(ItemStack stack) {
-        IMobSoulType type = getType(stack);
+        var type = getType(stack);
         return type != null && getSouls(stack) >= type.getSoulRequirement();
     }
 
@@ -140,23 +145,25 @@ public class MobSoulUtils {
      * @return any souls that weren't added
      */
     public static double addSoulsToJar(ItemStack stack, IMobSoulType type, double amount) {
-        IMobSoulType containedType = getType(stack);
+        var containedType = getType(stack);
         if (containedType != null && containedType != type)
             return amount;
 
         double requirement = type.getSoulRequirement();
         if (containedType == null) {
-            CompoundTag nbt = makeTag(type, amount);
+            var nbt = makeTag(type, amount);
+
             stack.setTag(nbt);
 
             return Math.max(0, amount - requirement);
         } else {
             double souls = getSouls(stack);
             if (souls < requirement) {
-                CompoundTag nbt = stack.getTag();
+                var nbt = stack.getTag();
 
                 if (nbt != null) {
                     double newSouls = Math.min(requirement, souls + amount);
+
                     nbt.putDouble("Souls", newSouls);
 
                     return Math.max(0, amount - (newSouls - souls));

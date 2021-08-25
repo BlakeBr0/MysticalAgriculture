@@ -8,16 +8,20 @@ import com.blakebr0.mysticalagriculture.crafting.condition.SeedCraftingRecipesEn
 import com.blakebr0.mysticalagriculture.crafting.ingredient.CropComponentIngredient;
 import com.blakebr0.mysticalagriculture.crafting.ingredient.FilledSoulJarIngredient;
 import com.blakebr0.mysticalagriculture.crafting.ingredient.HoeIngredient;
-import com.blakebr0.mysticalagriculture.crafting.recipe.*;
+import com.blakebr0.mysticalagriculture.crafting.recipe.FarmlandTillRecipe;
+import com.blakebr0.mysticalagriculture.crafting.recipe.InfusionRecipe;
+import com.blakebr0.mysticalagriculture.crafting.recipe.ReprocessorRecipe;
+import com.blakebr0.mysticalagriculture.crafting.recipe.SoulExtractionRecipe;
+import com.blakebr0.mysticalagriculture.crafting.recipe.SoulJarEmptyRecipe;
+import com.blakebr0.mysticalagriculture.crafting.recipe.TagRecipe;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.HoeItem;
 import net.minecraft.world.item.crafting.RecipeSerializer;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.common.crafting.CraftingHelper;
 import net.minecraftforge.common.crafting.IIngredientSerializer;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.registries.ForgeRegistries;
-import net.minecraftforge.registries.IForgeRegistry;
 
 public final class ModRecipeSerializers {
     public static final RecipeSerializer<FarmlandTillRecipe> CRAFTING_FARMLAND_TILL = new FarmlandTillRecipe.Serializer();
@@ -33,7 +37,7 @@ public final class ModRecipeSerializers {
 
     @SubscribeEvent
     public void onRegisterSerializers(RegistryEvent.Register<RecipeSerializer<?>> event) {
-        IForgeRegistry<RecipeSerializer<?>> registry = event.getRegistry();
+        var registry = event.getRegistry();
 
         registry.register(CRAFTING_FARMLAND_TILL.setRegistryName(new ResourceLocation(MysticalAgriculture.MOD_ID, "farmland_till")));
         registry.register(INFUSION.setRegistryName(new ResourceLocation(MysticalAgriculture.MOD_ID, "infusion")));

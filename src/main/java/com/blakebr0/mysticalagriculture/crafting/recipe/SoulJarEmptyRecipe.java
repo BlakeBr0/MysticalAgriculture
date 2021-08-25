@@ -6,15 +6,14 @@ import com.blakebr0.mysticalagriculture.init.ModItems;
 import com.blakebr0.mysticalagriculture.init.ModRecipeSerializers;
 import com.blakebr0.mysticalagriculture.item.SoulJarItem;
 import com.google.gson.JsonObject;
-import net.minecraft.world.inventory.CraftingContainer;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.crafting.RecipeSerializer;
-import net.minecraft.world.item.crafting.Ingredient;
-import net.minecraft.world.item.crafting.ShapelessRecipe;
-import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.core.NonNullList;
+import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.inventory.CraftingContainer;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.world.item.crafting.RecipeSerializer;
+import net.minecraft.world.item.crafting.ShapelessRecipe;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.registries.ForgeRegistryEntry;
 
@@ -25,13 +24,16 @@ public class SoulJarEmptyRecipe extends ShapelessRecipe {
 
     @Override
     public boolean matches(CraftingContainer inv, Level world) {
-        boolean hasJar = false;
+        var hasJar = false;
+
         for (int i = 0; i < inv.getContainerSize(); i++) {
-            ItemStack stack = inv.getItem(i);
+            var stack = inv.getItem(i);
+
             if (hasJar && !stack.isEmpty())
                 return false;
 
-            Item item = stack.getItem();
+            var item = stack.getItem();
+
             if (item instanceof SoulJarItem) {
                 double souls = MobSoulUtils.getSouls(stack);
                 if (souls > 0) {

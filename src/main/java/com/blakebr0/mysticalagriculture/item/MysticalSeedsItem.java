@@ -6,25 +6,22 @@ import com.blakebr0.mysticalagriculture.MysticalAgriculture;
 import com.blakebr0.mysticalagriculture.api.crop.ICrop;
 import com.blakebr0.mysticalagriculture.api.crop.ICropGetter;
 import com.blakebr0.mysticalagriculture.lib.ModTooltips;
-import net.minecraft.world.item.TooltipFlag;
-import net.minecraft.world.item.ItemNameBlockItem;
-import net.minecraft.world.item.CreativeModeTab;
-import net.minecraft.world.item.ItemStack;
+import net.minecraft.ChatFormatting;
 import net.minecraft.core.NonNullList;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.TextComponent;
-import net.minecraft.ChatFormatting;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.item.ItemNameBlockItem;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 
 import java.util.List;
-import java.util.Set;
 import java.util.function.Function;
 import java.util.stream.Collectors;
-
-import net.minecraft.world.item.Item.Properties;
 
 public class MysticalSeedsItem extends ItemNameBlockItem implements ICropGetter, IEnableable {
     private final ICrop crop;
@@ -64,7 +61,7 @@ public class MysticalSeedsItem extends ItemNameBlockItem implements ICropGetter,
     @OnlyIn(Dist.CLIENT)
     @Override
     public void appendHoverText(ItemStack stack, Level world, List<Component> tooltip, TooltipFlag flag) {
-        Component tier = this.crop.getTier().getDisplayName();
+        var tier = this.crop.getTier().getDisplayName();
 
         tooltip.add(ModTooltips.TIER.args(tier).build());
 
@@ -72,11 +69,12 @@ public class MysticalSeedsItem extends ItemNameBlockItem implements ICropGetter,
             tooltip.add(ModTooltips.getAddedByTooltip(this.crop.getModId()));
         }
 
-        Set<ResourceLocation> biomes = this.crop.getRequiredBiomes();
+        var biomes = this.crop.getRequiredBiomes();
+
         if (!biomes.isEmpty()) {
             tooltip.add(ModTooltips.REQUIRED_BIOMES.build());
 
-            List<TextComponent> ids = biomes.stream()
+            var ids = biomes.stream()
                     .map(ResourceLocation::toString)
                     .map(s -> " - " + s)
                     .map(TextComponent::new)

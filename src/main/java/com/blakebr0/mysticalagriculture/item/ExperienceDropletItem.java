@@ -2,17 +2,15 @@ package com.blakebr0.mysticalagriculture.item;
 
 import com.blakebr0.cucumber.item.BaseItem;
 import com.blakebr0.cucumber.util.Utils;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResult;
+import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.ExperienceOrb;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.InteractionResultHolder;
-import net.minecraft.world.InteractionResult;
-import net.minecraft.world.InteractionHand;
 import net.minecraft.world.level.Level;
 
 import java.util.function.Function;
-
-import net.minecraft.world.item.Item.Properties;
 
 public class ExperienceDropletItem extends BaseItem {
     public ExperienceDropletItem(Function<Properties, Properties> properties) {
@@ -21,7 +19,7 @@ public class ExperienceDropletItem extends BaseItem {
 
     @Override
     public InteractionResultHolder<ItemStack> use(Level world, Player player, InteractionHand hand) {
-        ItemStack stack = player.getItemInHand(hand);
+        var stack = player.getItemInHand(hand);
         int used = 0;
 
         if (!world.isClientSide()) {
@@ -31,14 +29,17 @@ public class ExperienceDropletItem extends BaseItem {
                     xp += Utils.randInt(8, 12);
                 }
 
-                ExperienceOrb orb = new ExperienceOrb(world, player.getX(), player.getY(), player.getZ(), xp);
+                var orb = new ExperienceOrb(world, player.getX(), player.getY(), player.getZ(), xp);
+
                 world.addFreshEntity(orb);
 
                 used = stack.getCount();
             } else {
                 int xp = Utils.randInt(8, 12);
-                ExperienceOrb orb = new ExperienceOrb(world, player.getX(), player.getY(), player.getZ(), xp);
+                var orb = new ExperienceOrb(world, player.getX(), player.getY(), player.getZ(), xp);
+
                 world.addFreshEntity(orb);
+
                 used = 1;
             }
         }

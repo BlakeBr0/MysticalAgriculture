@@ -3,14 +3,13 @@ package com.blakebr0.mysticalagriculture.block;
 import com.blakebr0.mysticalagriculture.api.crop.ICrop;
 import com.blakebr0.mysticalagriculture.api.farmland.IEssenceFarmland;
 import com.blakebr0.mysticalagriculture.config.ModConfigs;
+import net.minecraft.core.BlockPos;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.storage.loot.LootContext;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParams;
-import net.minecraft.core.BlockPos;
-import net.minecraft.world.phys.Vec3;
-import net.minecraft.server.level.ServerLevel;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,16 +29,17 @@ public class InferiumCropBlock extends MysticalCropBlock {
         if (age == this.getMaxAge()) {
             crop = 1;
 
-            Vec3 vec = builder.getOptionalParameter(LootContextParams.ORIGIN);
+            var vec = builder.getOptionalParameter(LootContextParams.ORIGIN);
+
             if (vec != null) {
                 ServerLevel world = builder.getLevel();
                 BlockPos pos = new BlockPos(vec);
                 Block below = world.getBlockState(pos.below()).getBlock();
 
-                if (below instanceof IEssenceFarmland) {
-                    IEssenceFarmland farmland = (IEssenceFarmland) below;
+                if (below instanceof IEssenceFarmland farmland) {
                     int tier = farmland.getTier().getValue();
                     crop = (int) ((0.5D * tier) + 0.5D);
+
                     if (tier > 1 && tier % 2 == 0 && Math.random() < 0.5D)
                         crop++;
                 }
@@ -51,6 +51,7 @@ public class InferiumCropBlock extends MysticalCropBlock {
         }
 
         List<ItemStack> drops = new ArrayList<>();
+
         if (crop > 0)
             drops.add(new ItemStack(this.getCropsItem(), crop));
 

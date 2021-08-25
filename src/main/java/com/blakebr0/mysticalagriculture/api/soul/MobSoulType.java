@@ -1,11 +1,10 @@
 package com.blakebr0.mysticalagriculture.api.soul;
 
 import com.google.common.collect.Sets;
-import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.TranslatableComponent;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraftforge.registries.ForgeRegistries;
 
 import java.util.Set;
@@ -116,9 +115,11 @@ public class MobSoulType implements IMobSoulType {
             if (this.entityDisplayNameKey != null) {
                 this.entityDisplayName = new TranslatableComponent(String.format("mobSoulType.%s.%s", this.getModId(), this.entityDisplayNameKey));
             } else {
-                ResourceLocation entityId = this.entityIds.stream().findFirst().orElse(null);
+                var entityId = this.entityIds.stream().findFirst().orElse(null);
+
                 if (entityId != null) {
-                    EntityType<?> entity = ForgeRegistries.ENTITIES.getValue(entityId);
+                    var entity = ForgeRegistries.ENTITIES.getValue(entityId);
+
                     if (entity != null) {
                         this.entityDisplayName = entity.getDescription();
                         return this.entityDisplayName;

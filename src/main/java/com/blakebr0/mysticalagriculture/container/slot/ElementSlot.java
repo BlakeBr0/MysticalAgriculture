@@ -4,7 +4,6 @@ import com.blakebr0.cucumber.iface.IToggleableSlot;
 import com.blakebr0.mysticalagriculture.api.tinkering.IElementalItem;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.SlotItemHandler;
@@ -18,10 +17,9 @@ public class ElementSlot extends SlotItemHandler implements IToggleableSlot {
     }
 
     @Override
-    public ItemStack onTake(Player player, ItemStack stack) {
-        ItemStack take = super.onTake(player, stack);
+    public void onTake(Player player, ItemStack stack) {
+        super.onTake(player, stack);
         this.container.slotsChanged(null);
-        return take;
     }
 
     @Override
@@ -32,8 +30,9 @@ public class ElementSlot extends SlotItemHandler implements IToggleableSlot {
 
     @Override
     public boolean isActive() {
-        ItemStack stack = this.getItemHandler().getStackInSlot(0);
-        Item item = stack.getItem();
+        var stack = this.getItemHandler().getStackInSlot(0);
+        var item = stack.getItem();
+
         return item instanceof IElementalItem;
     }
 }

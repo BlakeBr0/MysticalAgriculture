@@ -96,8 +96,8 @@ public class CropTextures {
      * @return this crop textures instance with non-null locations
      */
     public CropTextures init(ResourceLocation id) {
-        String modid = id.getNamespace();
-        String name = id.getPath();
+        var modid = id.getNamespace();
+        var name = id.getPath();
 
         if (this.flowerTexture == null)
             this.flowerTexture = new ResourceLocation(modid, "block/" + name + "_flower");

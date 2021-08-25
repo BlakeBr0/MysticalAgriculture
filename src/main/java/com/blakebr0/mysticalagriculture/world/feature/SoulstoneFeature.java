@@ -5,11 +5,10 @@ import com.blakebr0.mysticalagriculture.init.ModBlocks;
 import com.mojang.serialization.Codec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.util.Mth;
-import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.LevelAccessor;
-import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.level.levelgen.feature.Feature;
+import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.feature.configurations.OreConfiguration;
 
 import java.util.BitSet;
@@ -21,7 +20,12 @@ public class SoulstoneFeature extends Feature<OreConfiguration> {
     }
 
     @Override
-    public boolean place(WorldGenLevel world, ChunkGenerator chunkGenerator, Random random, BlockPos pos, OreConfiguration config) {
+    public boolean place(FeaturePlaceContext<OreConfiguration> context) {
+        var random = context.random();
+        var config = context.config();
+        var pos = context.origin();
+        var level = context.level();
+
         float f = random.nextFloat() * (float) Math.PI;
         float f1 = (float) config.size / 8.0F;
         int i = Mth.ceil(((float) config.size / 16.0F * 2.0F + 1.0F) / 2.0F);
@@ -39,8 +43,8 @@ public class SoulstoneFeature extends Feature<OreConfiguration> {
 
         for (int l1 = k; l1 <= k + j1; ++l1) {
             for (int i2 = i1; i2 <= i1 + j1; ++i2) {
-                if (l <= world.getHeight(Heightmap.Types.OCEAN_FLOOR_WG, l1, i2)) {
-                    return this.doPlace(world, random,config, d0, d1, d2, d3, d4, d5, k, l, i1, j1, k1);
+                if (l <= level.getHeight(Heightmap.Types.OCEAN_FLOOR_WG, l1, i2)) {
+                    return this.doPlace(level, random,config, d0, d1, d2, d3, d4, d5, k, l, i1, j1, k1);
                 }
             }
         }
