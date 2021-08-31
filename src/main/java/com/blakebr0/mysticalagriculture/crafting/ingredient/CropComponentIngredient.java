@@ -3,6 +3,7 @@ package com.blakebr0.mysticalagriculture.crafting.ingredient;
 import com.blakebr0.mysticalagriculture.api.crop.ICrop;
 import com.blakebr0.mysticalagriculture.init.ModRecipeSerializers;
 import com.blakebr0.mysticalagriculture.registry.CropRegistry;
+import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.Ingredient;
@@ -29,6 +30,17 @@ public class CropComponentIngredient extends Ingredient {
         super(itemList);
         this.crop = crop;
         this.type = type;
+    }
+
+    @Override
+    public JsonElement toJson() {
+        JsonObject json = new JsonObject();
+
+        json.addProperty("type", "mysticalagriculture:crop_component");
+        json.addProperty("component", this.type.name);
+        json.addProperty("crop", this.crop.getId().toString());
+
+        return json;
     }
 
     @Override
@@ -59,10 +71,10 @@ public class CropComponentIngredient extends Ingredient {
 
             switch (type) {
                 case ESSENCE:
-                    itemList = new SingleItemList(new ItemStack(crop.getEssence()));
+                    itemList = new SingleItemList(new ItemStack(crop.getTier().getEssence()));
                     break;
                 case SEED:
-                    itemList = new SingleItemList(new ItemStack(crop.getSeeds()));
+                    itemList = new SingleItemList(new ItemStack(crop.getType().getCraftingSeed()));
                     break;
                 case MATERIAL:
                     itemList = crop.getLazyIngredient().createItemList();
