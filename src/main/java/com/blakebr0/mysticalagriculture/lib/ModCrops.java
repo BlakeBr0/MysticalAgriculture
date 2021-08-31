@@ -160,6 +160,9 @@ public final class ModCrops {
     // PNEUMATICCRAFT
     public static final Crop COMPRESSED_IRON = new Crop(new ResourceLocation(MOD_ID, "compressed_iron"), CropTier.FOUR, CropType.RESOURCE, LazyIngredient.tag("forge:ingots/compressed_iron"));
 
+    // DRACONIC EVOLUTION
+    public static final Crop DRACONIUM = new Crop(new ResourceLocation(MOD_ID, "draconium"), CropTier.FIVE, CropType.RESOURCE, LazyIngredient.tag("forge:ingots/draconium"));
+
     // EXTREME REACTORS 2
     public static final Crop YELLORIUM = new Crop(new ResourceLocation(MOD_ID, "yellorium"), CropTier.FIVE, CropType.RESOURCE, LazyIngredient.tag("forge:ingots/yellorium"));
     public static final Crop CYANITE = new Crop(new ResourceLocation(MOD_ID, "cyanite"), CropTier.FIVE, CropType.RESOURCE, LazyIngredient.tag("forge:ingots/cyanite"));
@@ -320,6 +323,9 @@ public final class ModCrops {
 
         // PNEUMATICCRAFT
         registry.register(withRequiredMods(COMPRESSED_IRON, "pneumaticcraft"));
+
+        // DRACONIC EVOLUTION
+        registry.register(withRequiredMods(DRACONIUM, "draconicevolution"));
 
         // EXTREME REACTORS 2
         registry.register(withRequiredMods(YELLORIUM, "bigreactors"));
