@@ -139,7 +139,7 @@ public final class ModCrops {
     public static final Crop REFINED_OBSIDIAN = new Crop(new ResourceLocation(MOD_ID, "refined_obsidian"), CropTier.FOUR, CropType.RESOURCE, LazyIngredient.tag("forge:ingots/refined_obsidian"));
 
     // CHISEL
-    public static final Crop MARBLE = new Crop(new ResourceLocation(MOD_ID, "marble"), CropTier.TWO, CropType.RESOURCE, LazyIngredient.tag("chisel:marble"));
+    public static final Crop MARBLE = new Crop(new ResourceLocation(MOD_ID, "marble"), CropTier.TWO, CropType.RESOURCE, LazyIngredient.tag("mysticalagriculture:material/marble"));
     public static final Crop LIMESTONE = new Crop(new ResourceLocation(MOD_ID, "limestone"), CropTier.TWO, CropType.RESOURCE, LazyIngredient.tag("chisel:limestone"));
     public static final Crop BASALT = new Crop(new ResourceLocation(MOD_ID, "basalt"), CropTier.TWO, CropType.RESOURCE, LazyIngredient.tag("chisel:basalt"));
 
