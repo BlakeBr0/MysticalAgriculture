@@ -11,8 +11,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.SlotItemHandler;
 
-import javax.annotation.Nonnull;
-
 public class AugmentSlot extends SlotItemHandler implements IToggleableSlot {
     private final Container container;
     private final int augmentSlot;
@@ -37,13 +35,19 @@ public class AugmentSlot extends SlotItemHandler implements IToggleableSlot {
     }
 
     @Override
+    public int getMaxStackSize(ItemStack stack) {
+        return 1;
+    }
+
+    @Override
     public boolean mayPlace(ItemStack stack) {
-        if (!super.mayPlace(stack))
+        if (!super.mayPlace(stack) || !this.isActive())
             return false;
 
         ItemStack stackInSlot = this.getItemHandler().getStackInSlot(0);
         Item tinkerableItem = stackInSlot.getItem();
         Item augmentItem = stack.getItem();
+
         if (tinkerableItem instanceof ITinkerable && augmentItem instanceof IAugmentGetter) {
             ITinkerable tinkerable = (ITinkerable) tinkerableItem;
             IAugment augment = ((IAugmentGetter) augmentItem).getAugment();
