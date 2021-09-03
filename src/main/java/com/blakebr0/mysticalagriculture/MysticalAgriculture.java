@@ -32,6 +32,7 @@ import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.DistExecutor;
+import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.config.ModConfig;
@@ -107,6 +108,7 @@ public final class MysticalAgriculture {
 
 	@SubscribeEvent
 	public void onInterModEnqueue(InterModEnqueueEvent event) {
-		TOPCompat.onInterModEnqueue();
+		if (ModList.get().isLoaded("theoneprobe"))
+			TOPCompat.onInterModEnqueue();
 	}
 }
