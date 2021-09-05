@@ -47,6 +47,22 @@ public class LazyIngredient {
         return this.type == Type.TAG;
     }
 
+    public Ingredient.IItemList createItemList() {
+        if (this.isTag()) {
+            ITag<Item> tag = TagCollectionManager.getInstance().getItems().getTag(new ResourceLocation(this.name));
+            if (tag != null) {
+                return new Ingredient.TagList(tag);
+            }
+        } else if (this.isItem()) {
+            Item item = ForgeRegistries.ITEMS.getValue(new ResourceLocation(this.name));
+            if (item != null) {
+                return new Ingredient.SingleItemList(new ItemStack(item));
+            }
+        }
+
+        return null;
+    }
+
     public Ingredient getIngredient() {
         if (this.ingredient == null) {
             if (this.isTag()) {

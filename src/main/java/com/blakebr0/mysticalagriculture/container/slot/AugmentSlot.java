@@ -23,12 +23,18 @@ public class AugmentSlot extends SlotItemHandler implements IToggleableSlot {
     public void onTake(Player player, ItemStack stack) {
         super.onTake(player, stack);
         this.container.slotsChanged(null);
+        return take;
     }
 
     @Override
     public void set(ItemStack stack) {
         super.set(stack);
         this.container.slotsChanged(null);
+    }
+
+    @Override
+    public int getMaxStackSize(ItemStack stack) {
+        return 1;
     }
 
     @Override

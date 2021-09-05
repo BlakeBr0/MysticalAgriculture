@@ -139,7 +139,7 @@ public final class ModCrops {
     public static final Crop REFINED_OBSIDIAN = new Crop(new ResourceLocation(MOD_ID, "refined_obsidian"), CropTier.FOUR, CropType.RESOURCE, LazyIngredient.tag("forge:ingots/refined_obsidian"));
 
     // CHISEL
-    public static final Crop MARBLE = new Crop(new ResourceLocation(MOD_ID, "marble"), CropTier.TWO, CropType.RESOURCE, LazyIngredient.tag("chisel:marble"));
+    public static final Crop MARBLE = new Crop(new ResourceLocation(MOD_ID, "marble"), CropTier.TWO, CropType.RESOURCE, LazyIngredient.tag("mysticalagriculture:material/marble"));
     public static final Crop LIMESTONE = new Crop(new ResourceLocation(MOD_ID, "limestone"), CropTier.TWO, CropType.RESOURCE, LazyIngredient.tag("chisel:limestone"));
     public static final Crop BASALT = new Crop(new ResourceLocation(MOD_ID, "basalt"), CropTier.TWO, CropType.RESOURCE, LazyIngredient.tag("chisel:basalt"));
 
@@ -159,6 +159,9 @@ public final class ModCrops {
 
     // PNEUMATICCRAFT
     public static final Crop COMPRESSED_IRON = new Crop(new ResourceLocation(MOD_ID, "compressed_iron"), CropTier.FOUR, CropType.RESOURCE, LazyIngredient.tag("forge:ingots/compressed_iron"));
+
+    // DRACONIC EVOLUTION
+    public static final Crop DRACONIUM = new Crop(new ResourceLocation(MOD_ID, "draconium"), CropTier.FIVE, CropType.RESOURCE, LazyIngredient.tag("forge:ingots/draconium"));
 
     // EXTREME REACTORS 2
     public static final Crop YELLORIUM = new Crop(new ResourceLocation(MOD_ID, "yellorium"), CropTier.FIVE, CropType.RESOURCE, LazyIngredient.tag("forge:ingots/yellorium"));
@@ -320,6 +323,9 @@ public final class ModCrops {
 
         // PNEUMATICCRAFT
         registry.register(withRequiredMods(COMPRESSED_IRON, "pneumaticcraft"));
+
+        // DRACONIC EVOLUTION
+        registry.register(withRequiredMods(DRACONIUM, "draconicevolution"));
 
         // EXTREME REACTORS 2
         registry.register(withRequiredMods(YELLORIUM, "bigreactors"));

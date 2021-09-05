@@ -239,6 +239,11 @@ public class Crop implements ICrop {
     }
 
     @Override
+    public LazyIngredient getLazyIngredient() {
+        return this.craftingMaterial;
+    }
+
+    @Override
     public boolean isEnabled() {
         return this.enabled;
     }

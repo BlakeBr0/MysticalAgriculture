@@ -5,25 +5,20 @@ import com.blakebr0.mysticalagriculture.init.ModRecipeSerializers;
 import com.blakebr0.mysticalagriculture.registry.CropRegistry;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
-import it.unimi.dsi.fastutil.ints.IntArrayList;
-import it.unimi.dsi.fastutil.ints.IntComparators;
-import it.unimi.dsi.fastutil.ints.IntList;
-import net.minecraft.network.FriendlyByteBuf;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.util.GsonHelper;
-import net.minecraft.world.entity.player.StackedContents;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.crafting.Ingredient;
+import net.minecraft.network.PacketBuffer;
+import net.minecraft.util.JSONUtils;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.crafting.IIngredientSerializer;
 
-import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.stream.Stream;
 
 public class CropComponentIngredient extends Ingredient {
     private final ICrop crop;
     private final ComponentType type;
-    private ItemStack[] stacks;
-    private IntList stacksPacked;
 
     public CropComponentIngredient(ICrop crop, ComponentType type) {
         super(Stream.empty());
@@ -31,60 +26,15 @@ public class CropComponentIngredient extends Ingredient {
         this.type = type;
     }
 
-    @Override
-    public ItemStack[] getItems() {
-        // TODO: this could be improved to check if the MATERIAL ingredient is correct first
-        if (this.stacks == null || this.type == ComponentType.MATERIAL)
-            this.initMatchingStacks();
-
-        return this.stacks;
-    }
-
-    @Override
-    public IntList getStackingIds() {
-        if (this.stacksPacked == null) {
-            if (this.stacks == null) {
-                this.initMatchingStacks();
-            }
-
-            this.stacksPacked = new IntArrayList(this.stacks.length);
-
-            for (var stack : this.stacks) {
-                this.stacksPacked.add(StackedContents.getStackingIndex(stack));
-            }
-
-            this.stacksPacked.sort(IntComparators.NATURAL_COMPARATOR);
-        }
-
-        return this.stacksPacked;
-    }
-
-    @Override
-    public boolean test(ItemStack stack) {
-        if (stack != null) {
-            if (this.stacks == null) {
-                this.initMatchingStacks();
-            }
-
-            for (var itemstack : this.stacks) {
-                if (itemstack.getItem() == stack.getItem() && itemstack.getDamageValue() == stack.getDamageValue()
-                        && (!itemstack.hasTag() || itemstack.areShareTagsEqual(stack))) {
-                    return true;
-                }
-            }
-        }
-
-        return false;
-    }
-
-    @Override
-    public boolean isEmpty() {
-        return (this.stacks == null || this.stacks.length == 0) && (this.stacksPacked == null || this.stacksPacked.isEmpty());
+    public CropComponentIngredient(ICrop crop, ComponentType type, Stream<IItemList> itemList) {
+        super(itemList);
+        this.crop = crop;
+        this.type = type;
     }
 
     @Override
     public JsonElement toJson() {
-        var json = new JsonObject();
+        JsonObject json = new JsonObject();
 
         json.addProperty("type", "mysticalagriculture:crop_component");
         json.addProperty("component", this.type.name);
@@ -94,52 +44,62 @@ public class CropComponentIngredient extends Ingredient {
     }
 
     @Override
-    public boolean isSimple() {
-        return Arrays.stream(this.stacks).anyMatch(ItemStack::isDamageableItem);
-    }
-
-    @Override
     public IIngredientSerializer<? extends Ingredient> getSerializer() {
         return ModRecipeSerializers.CROP_COMPONENT_INGREDIENT;
     }
 
-    protected void initMatchingStacks() {
-        switch (this.type) {
-            case ESSENCE -> this.stacks = new ItemStack[] { new ItemStack(this.crop.getTier().getEssence()) };
-            case SEED -> this.stacks = new ItemStack[] { new ItemStack(this.crop.getType().getCraftingSeed()) };
-            case MATERIAL -> {
-                var material = this.crop.getCraftingMaterial();
-                if (material == null)
-                    return;
-
-                this.stacks = material.getItems();
-            }
-        }
-    }
-
     public static class Serializer implements IIngredientSerializer<CropComponentIngredient> {
         @Override
-        public CropComponentIngredient parse(FriendlyByteBuf buffer) {
-            var crop = CropRegistry.getInstance().getCropById(new ResourceLocation(buffer.readUtf()));
-            var type = ComponentType.fromName(buffer.readUtf());
+        public CropComponentIngredient parse(PacketBuffer buffer) {
+            ICrop crop = CropRegistry.getInstance().getCropById(new ResourceLocation(buffer.readUtf()));
+            ComponentType type = ComponentType.fromName(buffer.readUtf());
 
-            return new CropComponentIngredient(crop, type);
+            Stream<IItemList> itemList = Stream.generate(buffer::readItem)
+                    .limit(buffer.readVarInt())
+                    .map(SingleItemList::new);
+
+            return new CropComponentIngredient(crop, type, itemList);
         }
 
         @Override
         public CropComponentIngredient parse(JsonObject json) {
-            var cropId = GsonHelper.getAsString(json, "crop");
-            var typeName = GsonHelper.getAsString(json, "component");
-            var crop = CropRegistry.getInstance().getCropById(new ResourceLocation(cropId));
-            var type = ComponentType.fromName(typeName);
+            String cropId = JSONUtils.getAsString(json, "crop");
+            String typeName = JSONUtils.getAsString(json, "component");
+            ICrop crop = CropRegistry.getInstance().getCropById(new ResourceLocation(cropId));
+            ComponentType type = ComponentType.fromName(typeName);
+            IItemList itemList = null;
 
-            return new CropComponentIngredient(crop, type);
+            switch (type) {
+                case ESSENCE:
+                    itemList = new SingleItemList(new ItemStack(crop.getTier().getEssence()));
+                    break;
+                case SEED:
+                    itemList = new SingleItemList(new ItemStack(crop.getType().getCraftingSeed()));
+                    break;
+                case MATERIAL:
+                    itemList = crop.getLazyIngredient().createItemList();
+                    break;
+            }
+
+            if (itemList == null) {
+                return new CropComponentIngredient(crop, type);
+            }
+
+            return new CropComponentIngredient(crop, type, Stream.of(itemList));
         }
 
         @Override
-        public void write(FriendlyByteBuf buffer, CropComponentIngredient ingredient) {
+        public void write(PacketBuffer buffer, CropComponentIngredient ingredient) {
             buffer.writeUtf(ingredient.crop.getId().toString());
             buffer.writeUtf(ingredient.type.name);
+
+            ItemStack[] items = ingredient.getItems();
+
+            buffer.writeVarInt(items.length);
+
+            for (ItemStack item : items) {
+                buffer.writeItem(item);
+            }
         }
     }
 
@@ -148,14 +108,21 @@ public class CropComponentIngredient extends Ingredient {
         SEED("seed"),
         MATERIAL("material");
 
+        private static final Map<String, ComponentType> LOOKUP = new HashMap<>();
         public final String name;
+
+        static {
+            for (ComponentType value : values()) {
+                LOOKUP.put(value.name, value);
+            }
+        }
 
         ComponentType(String name) {
             this.name = name;
         }
 
         public static ComponentType fromName(String name) {
-            return Arrays.stream(values()).filter(t -> t.name.equals(name)).findFirst().orElse(null);
+            return LOOKUP.get(name);
         }
     }
 }

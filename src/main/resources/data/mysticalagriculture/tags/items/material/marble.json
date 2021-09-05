@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [],
+  "optional": [
+    "#chisel:marble",
+    "astralsorcery:marble_raw",
+    "quark:marble"
+  ]
+}

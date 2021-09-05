@@ -286,6 +286,15 @@ public interface ICrop {
     ICrop setCraftingMaterial(LazyIngredient ingredient);
 
     /**
+     * The underlying {@link LazyIngredient} for this crop, use {@link ICrop#getCraftingMaterial()}
+     * to get the actual ingredient
+     * @return the underlying lazy ingredient of this crop
+     */
+    default LazyIngredient getLazyIngredient() {
+        return LazyIngredient.EMPTY;
+    }
+
+    /**
      * Whether or not this crop has recipes and shows up in the creative menu
      * @return is this crop enabled
      */
