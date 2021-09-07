@@ -3,8 +3,8 @@ package com.blakebr0.mysticalagriculture.item;
 import com.blakebr0.cucumber.iface.IEnableable;
 import com.blakebr0.cucumber.util.Localizable;
 import com.blakebr0.mysticalagriculture.MysticalAgriculture;
-import com.blakebr0.mysticalagriculture.api.crop.ICrop;
-import com.blakebr0.mysticalagriculture.api.crop.ICropGetter;
+import com.blakebr0.mysticalagriculture.api.crop.Crop;
+import com.blakebr0.mysticalagriculture.api.crop.ICropProvider;
 import com.blakebr0.mysticalagriculture.lib.ModTooltips;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.NonNullList;
@@ -23,11 +23,11 @@ import java.util.List;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
-public class MysticalSeedsItem extends ItemNameBlockItem implements ICropGetter, IEnableable {
-    private final ICrop crop;
+public class MysticalSeedsItem extends ItemNameBlockItem implements ICropProvider, IEnableable {
+    private final Crop crop;
 
-    public MysticalSeedsItem(ICrop crop, Function<Properties, Properties> properties) {
-        super(crop.getCrop(), properties.apply(new Properties()));
+    public MysticalSeedsItem(Crop crop, Function<Properties, Properties> properties) {
+        super(crop.getCropBlock(), properties.apply(new Properties()));
         this.crop = crop;
     }
 
@@ -89,7 +89,7 @@ public class MysticalSeedsItem extends ItemNameBlockItem implements ICropGetter,
     }
 
     @Override
-    public ICrop getCrop() {
+    public Crop getCrop() {
         return this.crop;
     }
 

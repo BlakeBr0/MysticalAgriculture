@@ -20,8 +20,8 @@ public class ItemTagsJsonGenerator extends TagsProvider<Item> {
     @Override
     protected void addTags() {
         CropRegistry.getInstance().getCrops().forEach(crop -> {
-            this.tag(MysticalAgricultureAPI.ESSENCES_TAG).add(crop.getEssence());
-            this.tag(MysticalAgricultureAPI.SEEDS_TAG).add(crop.getSeeds());
+            this.tag(MysticalAgricultureAPI.ESSENCES_TAG).add(crop.getEssenceItem());
+            this.tag(MysticalAgricultureAPI.SEEDS_TAG).add(crop.getSeedsItem());
         });
     }
 

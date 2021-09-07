@@ -1,8 +1,8 @@
 package com.blakebr0.mysticalagriculture.block;
 
 import com.blakebr0.cucumber.util.Localizable;
-import com.blakebr0.mysticalagriculture.api.crop.ICrop;
-import com.blakebr0.mysticalagriculture.api.crop.ICropGetter;
+import com.blakebr0.mysticalagriculture.api.crop.Crop;
+import com.blakebr0.mysticalagriculture.api.crop.ICropProvider;
 import com.blakebr0.mysticalagriculture.config.ModConfigs;
 import com.blakebr0.mysticalagriculture.init.ModItems;
 import net.minecraft.core.BlockPos;
@@ -25,11 +25,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class MysticalCropBlock extends CropBlock implements ICropGetter {
+public class MysticalCropBlock extends CropBlock implements ICropProvider {
     private static final VoxelShape SHAPE = Block.box(0.0D, 0.0D, 0.0D, 16.0D, 4.0D, 16.0D);
-    private final ICrop crop;
+    private final Crop crop;
 
-    public MysticalCropBlock(ICrop crop) {
+    public MysticalCropBlock(Crop crop) {
         super(Properties.copy(Blocks.WHEAT));
         this.crop = crop;
     }
@@ -125,20 +125,20 @@ public class MysticalCropBlock extends CropBlock implements ICropGetter {
 
     @Override
     protected ItemLike getBaseSeedId() {
-        return this.crop.getSeeds();
+        return this.crop.getSeedsItem();
     }
 
     @Override
-    public ICrop getCrop() {
+    public Crop getCrop() {
         return this.crop;
     }
 
     protected ItemLike getCropsItem() {
-        return this.crop.getEssence();
+        return this.crop.getEssenceItem();
     }
 
     private boolean canGrow(Level world, BlockPos pos) {
-        var crux = this.crop.getCrux();
+        var crux = this.crop.getCruxBlock();
 
         if (crux != null) {
             var block = world.getBlockState(pos.below(2)).getBlock();

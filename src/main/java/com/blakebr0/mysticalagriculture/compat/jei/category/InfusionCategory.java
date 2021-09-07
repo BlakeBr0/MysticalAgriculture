@@ -7,14 +7,12 @@ import com.blakebr0.mysticalagriculture.init.ModBlocks;
 import mezz.jei.api.constants.VanillaTypes;
 import mezz.jei.api.gui.IRecipeLayout;
 import mezz.jei.api.gui.drawable.IDrawable;
-import mezz.jei.api.gui.ingredient.IGuiItemStackGroup;
 import mezz.jei.api.helpers.IGuiHelper;
 import mezz.jei.api.ingredients.IIngredients;
 import mezz.jei.api.recipe.category.IRecipeCategory;
+import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
-
-import java.util.List;
 
 public class InfusionCategory implements IRecipeCategory<InfusionRecipe> {
     public static final ResourceLocation UID = new ResourceLocation(MysticalAgriculture.MOD_ID, "infusion");
@@ -38,8 +36,8 @@ public class InfusionCategory implements IRecipeCategory<InfusionRecipe> {
     }
 
     @Override
-    public String getTitle() {
-        return Localizable.of("jei.category.mysticalagriculture.infusion").buildString();
+    public Component getTitle() {
+        return Localizable.of("jei.category.mysticalagriculture.infusion").build();
     }
 
     @Override
@@ -60,9 +58,9 @@ public class InfusionCategory implements IRecipeCategory<InfusionRecipe> {
 
     @Override
     public void setRecipe(IRecipeLayout layout, InfusionRecipe recipe, IIngredients ingredients) {
-        IGuiItemStackGroup stacks = layout.getItemStacks();
-        List<List<ItemStack>> inputs = ingredients.getInputs(VanillaTypes.ITEM);
-        List<List<ItemStack>> outputs = ingredients.getOutputs(VanillaTypes.ITEM);
+        var stacks = layout.getItemStacks();
+        var inputs = ingredients.getInputs(VanillaTypes.ITEM);
+        var outputs = ingredients.getOutputs(VanillaTypes.ITEM);
 
         stacks.init(0, true, 32, 32);
         stacks.init(1, true, 6, 6);

@@ -3,7 +3,10 @@ package com.blakebr0.mysticalagriculture.augment;
 import com.blakebr0.mysticalagriculture.api.tinkering.Augment;
 import com.blakebr0.mysticalagriculture.api.tinkering.AugmentType;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.Level;
 
 import java.util.EnumSet;
 
@@ -13,9 +16,9 @@ public class PoisonResistanceAugment extends Augment {
     }
 
     @Override
-    public void onArmorTick(ItemStack stack, World world, PlayerEntity player) {
-        if (player.hasEffect(Effects.POISON)) {
-            player.removeEffect(Effects.POISON);
+    public void onArmorTick(ItemStack stack, Level level, Player player) {
+        if (player.hasEffect(MobEffects.POISON)) {
+            player.removeEffect(MobEffects.POISON);
         }
     }
 }

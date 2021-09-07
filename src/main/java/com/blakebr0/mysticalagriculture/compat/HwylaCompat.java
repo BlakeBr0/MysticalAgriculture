@@ -1,8 +1,7 @@
 package com.blakebr0.mysticalagriculture.compat;
 
 import com.blakebr0.cucumber.lib.Colors;
-import com.blakebr0.mysticalagriculture.api.crop.ICrop;
-import com.blakebr0.mysticalagriculture.api.crop.ICropGetter;
+import com.blakebr0.mysticalagriculture.api.crop.ICropProvider;
 import com.blakebr0.mysticalagriculture.api.farmland.IEssenceFarmland;
 import com.blakebr0.mysticalagriculture.block.InferiumCropBlock;
 import com.blakebr0.mysticalagriculture.block.MysticalCropBlock;
@@ -45,7 +44,7 @@ public class HwylaCompat implements IWailaPlugin {
             @Override
             public void appendBody(List<Component> tooltip, IDataAccessor accessor, IPluginConfig config) {
                 Block block = accessor.getBlock();
-                ICrop crop = ((ICropGetter) block).getCrop();
+                ICrop crop = ((ICropProvider) block).getCrop();
 
                 tooltip.add(ModTooltips.TIER.args(crop.getTier().getDisplayName()).build());
 
@@ -83,7 +82,7 @@ public class HwylaCompat implements IWailaPlugin {
             @Override
             public void appendBody(List<Component> tooltip, IDataAccessor accessor, IPluginConfig config) {
                 Block block = accessor.getBlock();
-                ICrop crop = ((ICropGetter) block).getCrop();
+                ICrop crop = ((ICropProvider) block).getCrop();
                 BlockPos downPos = accessor.getPosition().below();
                 Block belowBlock = accessor.getWorld().getBlockState(downPos).getBlock();
 

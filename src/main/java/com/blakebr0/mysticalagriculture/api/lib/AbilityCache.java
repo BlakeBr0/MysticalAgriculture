@@ -1,6 +1,6 @@
 package com.blakebr0.mysticalagriculture.api.lib;
 
-import com.blakebr0.mysticalagriculture.api.tinkering.IAugment;
+import com.blakebr0.mysticalagriculture.api.tinkering.Augment;
 import net.minecraft.world.entity.player.Player;
 
 import java.util.HashMap;
@@ -18,7 +18,7 @@ public class AbilityCache {
      * @param player the player
      * @param onRemove a callback to execute when they are removed from the cache
      */
-    public void add(IAugment augment, Player player, Runnable onRemove) {
+    public void add(Augment augment, Player player, Runnable onRemove) {
         var key = getPlayerKey(player);
         this.cache.computeIfAbsent(augment.getId().toString(), s -> new HashMap<>()).put(key, onRemove);
     }
@@ -39,7 +39,7 @@ public class AbilityCache {
      * @param player the player
      * @return is cached
      */
-    public boolean isCached(IAugment augment, Player player) {
+    public boolean isCached(Augment augment, Player player) {
         var key = getPlayerKey(player);
         return this.cache.getOrDefault(augment.getId().toString(), EMPTY_MAP).containsKey(key);
     }

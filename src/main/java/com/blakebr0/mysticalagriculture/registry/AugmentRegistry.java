@@ -1,7 +1,7 @@
 package com.blakebr0.mysticalagriculture.registry;
 
 import com.blakebr0.mysticalagriculture.api.registry.IAugmentRegistry;
-import com.blakebr0.mysticalagriculture.api.tinkering.IAugment;
+import com.blakebr0.mysticalagriculture.api.tinkering.Augment;
 import com.blakebr0.mysticalagriculture.item.AugmentItem;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
@@ -19,10 +19,10 @@ public final class AugmentRegistry implements IAugmentRegistry {
     private static final Logger LOGGER = LogManager.getLogger();
     private static final AugmentRegistry INSTANCE = new AugmentRegistry();
 
-    private final Map<ResourceLocation, IAugment> augments = new LinkedHashMap<>();
+    private final Map<ResourceLocation, Augment> augments = new LinkedHashMap<>();
 
     @Override
-    public void register(IAugment augment) {
+    public void register(Augment augment) {
         if (this.augments.values().stream().noneMatch(c -> c.getId().equals(augment.getId()))) {
             this.augments.put(augment.getId(), augment);
         } else {
@@ -31,12 +31,12 @@ public final class AugmentRegistry implements IAugmentRegistry {
     }
 
     @Override
-    public List<IAugment> getAugments() {
+    public List<Augment> getAugments() {
         return List.copyOf(this.augments.values());
     }
 
     @Override
-    public IAugment getAugmentById(ResourceLocation id) {
+    public Augment getAugmentById(ResourceLocation id) {
         return this.augments.get(id);
     }
 
@@ -48,7 +48,8 @@ public final class AugmentRegistry implements IAugmentRegistry {
         PluginRegistry.getInstance().forEach((plugin, config) -> plugin.onRegisterAugments(this));
 
         this.augments.forEach((id, a) -> {
-            Item item = new AugmentItem(a, p -> p.tab(ITEM_GROUP));
+            var item = new AugmentItem(a, p -> p.tab(ITEM_GROUP));
+
             item.setRegistryName(a.getNameWithSuffix("augment"));
 
             registry.register(item);

@@ -1,7 +1,7 @@
 package com.blakebr0.mysticalagriculture.handler;
 
-import com.blakebr0.mysticalagriculture.api.soul.IMobSoulType;
 import com.blakebr0.mysticalagriculture.api.soul.ISoulSiphoningItem;
+import com.blakebr0.mysticalagriculture.api.soul.MobSoulType;
 import com.blakebr0.mysticalagriculture.api.util.MobSoulUtils;
 import com.blakebr0.mysticalagriculture.item.SoulJarItem;
 import com.blakebr0.mysticalagriculture.registry.MobSoulTypeRegistry;
@@ -44,7 +44,7 @@ public final class MobSoulHandler {
         }
     }
 
-    private static List<ItemStack> getValidSoulJars(Player player, IMobSoulType type) {
+    private static List<ItemStack> getValidSoulJars(Player player, MobSoulType type) {
         return player.getInventory().items.stream()
                 .filter(s -> s.getItem() instanceof SoulJarItem)
                 .filter(s -> MobSoulUtils.canAddTypeToJar(s, type))

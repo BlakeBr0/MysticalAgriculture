@@ -1,7 +1,7 @@
 package com.blakebr0.mysticalagriculture.container.slot;
 
 import com.blakebr0.cucumber.iface.IToggleableSlot;
-import com.blakebr0.mysticalagriculture.api.tinkering.IAugmentGetter;
+import com.blakebr0.mysticalagriculture.api.tinkering.IAugmentProvider;
 import com.blakebr0.mysticalagriculture.api.tinkering.ITinkerable;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
@@ -23,7 +23,6 @@ public class AugmentSlot extends SlotItemHandler implements IToggleableSlot {
     public void onTake(Player player, ItemStack stack) {
         super.onTake(player, stack);
         this.container.slotsChanged(null);
-        return take;
     }
 
     @Override
@@ -46,8 +45,8 @@ public class AugmentSlot extends SlotItemHandler implements IToggleableSlot {
         var tinkerableItem = stackInSlot.getItem();
         var augmentItem = stack.getItem();
 
-        if (tinkerableItem instanceof ITinkerable tinkerable && augmentItem instanceof IAugmentGetter augmentGetter) {
-            var augment = augmentGetter.getAugment();
+        if (tinkerableItem instanceof ITinkerable tinkerable && augmentItem instanceof IAugmentProvider augmentProvider) {
+            var augment = augmentProvider.getAugment();
 
             return tinkerable.canApplyAugment(augment);
         }

@@ -2,7 +2,6 @@ package com.blakebr0.mysticalagriculture.compat.jei;
 
 import com.blakebr0.mysticalagriculture.MysticalAgriculture;
 import com.blakebr0.mysticalagriculture.api.crafting.RecipeTypes;
-import com.blakebr0.mysticalagriculture.api.soul.IMobSoulType;
 import com.blakebr0.mysticalagriculture.api.util.MobSoulUtils;
 import com.blakebr0.mysticalagriculture.client.screen.ReprocessorScreen;
 import com.blakebr0.mysticalagriculture.client.screen.SoulExtractorScreen;
@@ -82,7 +81,7 @@ public final class JeiCompat implements IModPlugin {
     @Override
     public void registerItemSubtypes(ISubtypeRegistration registration) {
         ModItems.SOUL_JAR.ifPresent(jar ->
-            registration.registerSubtypeInterpreter(jar, stack -> {
+            registration.registerSubtypeInterpreter(jar, (stack, context) -> {
                 IMobSoulType type = MobSoulUtils.getType(stack);
                 return type != null ? type.getEntityIds().toString() : "";
             })

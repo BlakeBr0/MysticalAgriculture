@@ -1,20 +1,25 @@
 package com.blakebr0.mysticalagriculture.tileentity;
 
 import com.blakebr0.cucumber.util.Localizable;
-import com.blakebr0.mysticalagriculture.block.EssenceFurnaceBlock;
 import com.blakebr0.mysticalagriculture.init.ModTileEntities;
+import com.blakebr0.mysticalagriculture.util.FurnaceTier;
+import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
+import net.minecraft.world.Container;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.FurnaceMenu;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.crafting.AbstractCookingRecipe;
 import net.minecraft.world.item.crafting.RecipeType;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.AbstractFurnaceBlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
+import net.minecraft.world.level.block.state.BlockState;
 
 public abstract class EssenceFurnaceTileEntity extends AbstractFurnaceBlockEntity {
-    public EssenceFurnaceTileEntity(BlockEntityType<?> type) {
-        super(type, RecipeType.SMELTING);
+    public EssenceFurnaceTileEntity(BlockEntityType<?> type, BlockPos pos, BlockState state) {
+        super(type, pos, state, RecipeType.SMELTING);
     }
 
     @Override
@@ -33,64 +38,64 @@ public abstract class EssenceFurnaceTileEntity extends AbstractFurnaceBlockEntit
     }
 
     @Override
-    protected int getTotalCookTime() {
-        return (int) (super.getTotalCookTime() * this.getTier().getCookTimeMultiplier());
+    protected int getTotalCookTime(Level level, RecipeType<? extends AbstractCookingRecipe> recipeType, Container container) {
+        return (int) (super.getTotalCookTime(level, recipeType, container) * this.getTier().getCookTimeMultiplier());
     }
 
-    public abstract EssenceFurnaceBlock.FurnaceTier getTier();
+    public abstract FurnaceTier getTier();
 
     public static class Inferium extends EssenceFurnaceTileEntity {
-        public Inferium() {
-            super(ModTileEntities.INFERIUM_FURNACE.get());
+        public Inferium(BlockPos pos, BlockState state) {
+            super(ModTileEntities.INFERIUM_FURNACE.get(), pos, state);
         }
 
         @Override
-        public EssenceFurnaceBlock.FurnaceTier getTier() {
-            return EssenceFurnaceBlock.FurnaceTier.INFERIUM;
+        public FurnaceTier getTier() {
+            return FurnaceTier.INFERIUM;
         }
     }
 
     public static class Prudentium extends EssenceFurnaceTileEntity {
-        public Prudentium() {
-            super(ModTileEntities.PRUDENTIUM_FURNACE.get());
+        public Prudentium(BlockPos pos, BlockState state) {
+            super(ModTileEntities.PRUDENTIUM_FURNACE.get(), pos, state);
         }
 
         @Override
-        public EssenceFurnaceBlock.FurnaceTier getTier() {
-            return EssenceFurnaceBlock.FurnaceTier.PRUDENTIUM;
+        public FurnaceTier getTier() {
+            return FurnaceTier.PRUDENTIUM;
         }
     }
 
     public static class Tertium extends EssenceFurnaceTileEntity {
-        public Tertium() {
-            super(ModTileEntities.TERTIUM_FURNACE.get());
+        public Tertium(BlockPos pos, BlockState state) {
+            super(ModTileEntities.TERTIUM_FURNACE.get(), pos, state);
         }
 
         @Override
-        public EssenceFurnaceBlock.FurnaceTier getTier() {
-            return EssenceFurnaceBlock.FurnaceTier.TERTIUM;
+        public FurnaceTier getTier() {
+            return FurnaceTier.TERTIUM;
         }
     }
 
     public static class Imperium extends EssenceFurnaceTileEntity {
-        public Imperium() {
-            super(ModTileEntities.IMPERIUM_FURNACE.get());
+        public Imperium(BlockPos pos, BlockState state) {
+            super(ModTileEntities.IMPERIUM_FURNACE.get(), pos, state);
         }
 
         @Override
-        public EssenceFurnaceBlock.FurnaceTier getTier() {
-            return EssenceFurnaceBlock.FurnaceTier.IMPERIUM;
+        public FurnaceTier getTier() {
+            return FurnaceTier.IMPERIUM;
         }
     }
 
     public static class Supremium extends EssenceFurnaceTileEntity {
-        public Supremium() {
-            super(ModTileEntities.SUPREMIUM_FURNACE.get());
+        public Supremium(BlockPos pos, BlockState state) {
+            super(ModTileEntities.SUPREMIUM_FURNACE.get(), pos, state);
         }
 
         @Override
-        public EssenceFurnaceBlock.FurnaceTier getTier() {
-            return EssenceFurnaceBlock.FurnaceTier.SUPREMIUM;
+        public FurnaceTier getTier() {
+            return FurnaceTier.SUPREMIUM;
         }
     }
 }

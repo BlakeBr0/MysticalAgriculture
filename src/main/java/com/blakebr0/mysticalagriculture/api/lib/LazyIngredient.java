@@ -4,6 +4,7 @@ import net.minecraft.core.Registry;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.SerializationTags;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -47,16 +48,16 @@ public class LazyIngredient {
         return this.type == Type.TAG;
     }
 
-    public Ingredient.IItemList createItemList() {
+    public Ingredient.Value createValue() {
         if (this.isTag()) {
-            ITag<Item> tag = TagCollectionManager.getInstance().getItems().getTag(new ResourceLocation(this.name));
+            var tag = SerializationTags.getInstance().getOrEmpty(Registry.ITEM_REGISTRY).getTag(new ResourceLocation(this.name));
             if (tag != null) {
-                return new Ingredient.TagList(tag);
+                return new Ingredient.TagValue(tag);
             }
         } else if (this.isItem()) {
             Item item = ForgeRegistries.ITEMS.getValue(new ResourceLocation(this.name));
             if (item != null) {
-                return new Ingredient.SingleItemList(new ItemStack(item));
+                return new Ingredient.ItemValue(new ItemStack(item));
             }
         }
 

@@ -1,15 +1,15 @@
 package com.blakebr0.mysticalagriculture.crafting.ingredient;
 
-import com.blakebr0.mysticalagriculture.api.crop.ICrop;
+import com.blakebr0.mysticalagriculture.api.crop.Crop;
 import com.blakebr0.mysticalagriculture.init.ModRecipeSerializers;
 import com.blakebr0.mysticalagriculture.registry.CropRegistry;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.crafting.Ingredient;
-import net.minecraft.network.PacketBuffer;
-import net.minecraft.util.JSONUtils;
-import net.minecraft.util.ResourceLocation;
+import net.minecraft.network.FriendlyByteBuf;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.util.GsonHelper;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraftforge.common.crafting.IIngredientSerializer;
 
 import java.util.HashMap;
@@ -17,16 +17,16 @@ import java.util.Map;
 import java.util.stream.Stream;
 
 public class CropComponentIngredient extends Ingredient {
-    private final ICrop crop;
+    private final Crop crop;
     private final ComponentType type;
 
-    public CropComponentIngredient(ICrop crop, ComponentType type) {
+    public CropComponentIngredient(Crop crop, ComponentType type) {
         super(Stream.empty());
         this.crop = crop;
         this.type = type;
     }
 
-    public CropComponentIngredient(ICrop crop, ComponentType type, Stream<IItemList> itemList) {
+    public CropComponentIngredient(Crop crop, ComponentType type, Stream<Value> itemList) {
         super(itemList);
         this.crop = crop;
         this.type = type;
@@ -50,36 +50,28 @@ public class CropComponentIngredient extends Ingredient {
 
     public static class Serializer implements IIngredientSerializer<CropComponentIngredient> {
         @Override
-        public CropComponentIngredient parse(PacketBuffer buffer) {
-            ICrop crop = CropRegistry.getInstance().getCropById(new ResourceLocation(buffer.readUtf()));
+        public CropComponentIngredient parse(FriendlyByteBuf buffer) {
+            Crop crop = CropRegistry.getInstance().getCropById(new ResourceLocation(buffer.readUtf()));
             ComponentType type = ComponentType.fromName(buffer.readUtf());
 
-            Stream<IItemList> itemList = Stream.generate(buffer::readItem)
+            Stream<Value> itemList = Stream.generate(buffer::readItem)
                     .limit(buffer.readVarInt())
-                    .map(SingleItemList::new);
+                    .map(ItemValue::new);
 
             return new CropComponentIngredient(crop, type, itemList);
         }
 
         @Override
         public CropComponentIngredient parse(JsonObject json) {
-            String cropId = JSONUtils.getAsString(json, "crop");
-            String typeName = JSONUtils.getAsString(json, "component");
-            ICrop crop = CropRegistry.getInstance().getCropById(new ResourceLocation(cropId));
+            String cropId = GsonHelper.getAsString(json, "crop");
+            String typeName = GsonHelper.getAsString(json, "component");
+            Crop crop = CropRegistry.getInstance().getCropById(new ResourceLocation(cropId));
             ComponentType type = ComponentType.fromName(typeName);
-            IItemList itemList = null;
-
-            switch (type) {
-                case ESSENCE:
-                    itemList = new SingleItemList(new ItemStack(crop.getTier().getEssence()));
-                    break;
-                case SEED:
-                    itemList = new SingleItemList(new ItemStack(crop.getType().getCraftingSeed()));
-                    break;
-                case MATERIAL:
-                    itemList = crop.getLazyIngredient().createItemList();
-                    break;
-            }
+            Value itemList = switch (type) {
+                case ESSENCE -> new ItemValue(new ItemStack(crop.getTier().getEssence()));
+                case SEED -> new ItemValue(new ItemStack(crop.getType().getCraftingSeed()));
+                case MATERIAL -> crop.getLazyIngredient().createValue();
+            };
 
             if (itemList == null) {
                 return new CropComponentIngredient(crop, type);
@@ -89,15 +81,15 @@ public class CropComponentIngredient extends Ingredient {
         }
 
         @Override
-        public void write(PacketBuffer buffer, CropComponentIngredient ingredient) {
+        public void write(FriendlyByteBuf buffer, CropComponentIngredient ingredient) {
             buffer.writeUtf(ingredient.crop.getId().toString());
             buffer.writeUtf(ingredient.type.name);
 
-            ItemStack[] items = ingredient.getItems();
+            var items = ingredient.getItems();
 
             buffer.writeVarInt(items.length);
 
-            for (ItemStack item : items) {
+            for (var item : items) {
                 buffer.writeItem(item);
             }
         }
@@ -112,7 +104,7 @@ public class CropComponentIngredient extends Ingredient {
         public final String name;
 
         static {
-            for (ComponentType value : values()) {
+            for (var value : values()) {
                 LOOKUP.put(value.name, value);
             }
         }

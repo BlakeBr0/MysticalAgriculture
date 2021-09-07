@@ -1,6 +1,5 @@
 package com.blakebr0.mysticalagriculture.api.farmland;
 
-import com.blakebr0.mysticalagriculture.api.crop.CropTier;
 import com.blakebr0.mysticalagriculture.api.crop.ICropTierProvider;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.item.Item;

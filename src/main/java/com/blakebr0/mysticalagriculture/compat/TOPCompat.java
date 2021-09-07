@@ -1,8 +1,7 @@
 package com.blakebr0.mysticalagriculture.compat;
 
 import com.blakebr0.mysticalagriculture.MysticalAgriculture;
-import com.blakebr0.mysticalagriculture.api.crop.ICrop;
-import com.blakebr0.mysticalagriculture.api.crop.ICropGetter;
+import com.blakebr0.mysticalagriculture.api.crop.ICropProvider;
 import com.blakebr0.mysticalagriculture.api.farmland.IEssenceFarmland;
 import com.blakebr0.mysticalagriculture.block.InferiumCropBlock;
 import com.blakebr0.mysticalagriculture.lib.ModTooltips;
@@ -41,8 +40,8 @@ public class TOPCompat implements Function<ITheOneProbe, Void> {
                 Block block = state.getBlock();
                 BlockPos pos = data.getPos();
 
-                if (block instanceof ICropGetter) {
-                    ICrop crop = ((ICropGetter) block).getCrop();
+                if (block instanceof ICropProvider) {
+                    ICrop crop = ((ICropProvider) block).getCrop();
                     Block belowBlock = world.getBlockState(pos.below()).getBlock();
 
                     info.text(ModTooltips.TIER.args(crop.getTier().getDisplayName()).build());

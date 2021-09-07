@@ -1,6 +1,6 @@
 package com.blakebr0.mysticalagriculture.data.recipe;
 
-import com.blakebr0.mysticalagriculture.api.crop.ICrop;
+import com.blakebr0.mysticalagriculture.api.crop.Crop;
 import com.blakebr0.mysticalagriculture.init.ModRecipeSerializers;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
@@ -30,9 +30,9 @@ public class ReprocessorRecipeBuilder {
         this.conditions.add(condition);
     }
 
-    public static ReprocessorRecipeBuilder newSeedReprocessingRecipe(ICrop crop) {
-        var input = Ingredient.of(crop.getSeeds());
-        var output = crop.getEssence();
+    public static ReprocessorRecipeBuilder newSeedReprocessingRecipe(Crop crop) {
+        var input = Ingredient.of(crop.getSeedsItem());
+        var output = crop.getEssenceItem();
 
         var builder = new ReprocessorRecipeBuilder(input, output, 2);
 

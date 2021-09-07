@@ -3,7 +3,7 @@ package com.blakebr0.mysticalagriculture.crafting;
 import com.blakebr0.cucumber.crafting.ISpecialRecipe;
 import com.blakebr0.cucumber.helper.RecipeHelper;
 import com.blakebr0.mysticalagriculture.MysticalAgriculture;
-import com.blakebr0.mysticalagriculture.api.crop.ICrop;
+import com.blakebr0.mysticalagriculture.api.crop.Crop;
 import com.blakebr0.mysticalagriculture.config.ModConfigs;
 import com.blakebr0.mysticalagriculture.crafting.recipe.InfusionRecipe;
 import com.blakebr0.mysticalagriculture.crafting.recipe.ReprocessorRecipe;
@@ -47,7 +47,7 @@ public class DynamicRecipeManager implements ResourceManagerReloadListener {
         event.addListener(this);
     }
 
-    private ISpecialRecipe makeSeedRecipe(ICrop crop) {
+    private ISpecialRecipe makeSeedRecipe(Crop crop) {
         if (!crop.isEnabled() || !crop.getRecipeConfig().isSeedInfusionRecipeEnabled())
             return null;
 
@@ -72,12 +72,12 @@ public class DynamicRecipeManager implements ResourceManagerReloadListener {
         );
 
         var name = new ResourceLocation(MysticalAgriculture.MOD_ID, crop.getNameWithSuffix("seeds_infusion"));
-        var output = new ItemStack(crop.getSeeds());
+        var output = new ItemStack(crop.getSeedsItem());
 
         return new InfusionRecipe(name, inputs, output);
     }
 
-    private Recipe<?> makeRegularSeedRecipe(ICrop crop) {
+    private Recipe<?> makeRegularSeedRecipe(Crop crop) {
         if (!crop.isEnabled() || !crop.getRecipeConfig().isSeedCraftingRecipeEnabled())
             return null;
 
@@ -105,18 +105,18 @@ public class DynamicRecipeManager implements ResourceManagerReloadListener {
         );
 
         var name = new ResourceLocation(MysticalAgriculture.MOD_ID, crop.getNameWithSuffix("seeds_vanilla"));
-        var output = new ItemStack(crop.getSeeds());
+        var output = new ItemStack(crop.getSeedsItem());
 
         return new ShapedRecipe(name, "", 3, 3, inputs, output);
     }
 
-    private ISpecialRecipe makeReprocessorRecipe(ICrop crop) {
+    private ISpecialRecipe makeReprocessorRecipe(Crop crop) {
         if (!crop.isEnabled() || !crop.getRecipeConfig().isSeedReprocessorRecipeEnabled())
             return null;
 
-        var input = Ingredient.of(crop.getSeeds());
+        var input = Ingredient.of(crop.getSeedsItem());
         var name = new ResourceLocation(MysticalAgriculture.MOD_ID, crop.getNameWithSuffix("seeds_reprocessor"));
-        var output = new ItemStack(crop.getEssence(), 2);
+        var output = new ItemStack(crop.getEssenceItem(), 2);
 
         return new ReprocessorRecipe(name, input, output);
     }

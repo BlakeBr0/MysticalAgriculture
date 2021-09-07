@@ -1,5 +1,6 @@
 package com.blakebr0.mysticalagriculture.api.soul;
 
+import com.blakebr0.mysticalagriculture.api.registry.IMobSoulTypeRegistry;
 import com.google.common.collect.Sets;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.TranslatableComponent;
@@ -10,11 +11,11 @@ import net.minecraftforge.registries.ForgeRegistries;
 import java.util.Set;
 
 /**
- * The default implementation of {@link IMobSoulType}
+ * The default implementation of {@link MobSoulType}
  *
  * Use or extend this class for your mob soul types
  */
-public class MobSoulType implements IMobSoulType {
+public class MobSoulType {
     private final ResourceLocation id;
     private final Set<ResourceLocation> entityIds;
     private double soulRequirement;
@@ -72,44 +73,89 @@ public class MobSoulType implements IMobSoulType {
         this.enabled = true;
     }
 
-    @Override
+    /**
+     * The id of this mob soul type, the modid is taken from the namespace for {@link MobSoulType#getModId()},
+     * and the path is used for {@link MobSoulType#getName()}
+     * @return the id of this mob soul type
+     */
     public ResourceLocation getId() {
         return this.id;
     }
 
-    @Override
+    /**
+     * The internal name of this mob soul type.
+     * This is used for registration, so it MUST be all lowercase with underscores for spaces
+     * @return the internal name of this mob soul type
+     */
+    public String getName() {
+        return this.getId().getPath();
+    }
+
+    /**
+     * The modid of the mod that registered this mob soul type
+     * @return the modid of this mob soul type
+     */
+    public String getModId() {
+        return this.getId().getNamespace();
+    }
+
+    /**
+     * The resource location ids of the entity types for this mob soul type.
+     * Don't modify this directly, use {@link IMobSoulTypeRegistry#addEntityTo(MobSoulType, ResourceLocation)} or
+     * {@link IMobSoulTypeRegistry#removeEntityFrom(MobSoulType, ResourceLocation)}
+     * @return the ids of the entities for this mob soul type
+     */
     public Set<ResourceLocation> getEntityIds() {
         return this.entityIds;
     }
 
-    @Override
+    /**
+     * The required amount of souls to fill up a soul jar
+     * @return the max amount of souls
+     */
     public double getSoulRequirement() {
         return this.soulRequirement;
     }
 
-    @Override
-    public IMobSoulType setSoulRequirement(double soulRequirement) {
+    /**
+     * Sets the required amount of souls to fill up a soul jar
+     * @param soulRequirement the new soul requirement
+     */
+    public MobSoulType setSoulRequirement(double soulRequirement) {
         this.soulRequirement = soulRequirement;
         return this;
     }
 
-    @Override
+    /**
+     * The color of a jar with this mob soul type in it
+     * @return the color of this mob soul type
+     */
     public int getColor() {
         return this.color;
     }
 
-    @Override
-    public IMobSoulType setColor(int color) {
+    /**
+     * Sets the color of a jar with this mob soul type in it
+     * @param color the new color of this mob soul type
+     */
+    public MobSoulType setColor(int color) {
         this.color = color;
         return this;
     }
 
-    @Override
+    /**
+     * Checks if the supplied entity is valid for this mob soul type
+     * @param entity the entity to test
+     * @return is the entity valid
+     */
     public boolean isEntityApplicable(LivingEntity entity) {
         return this.entityIds.contains(entity.getType().getRegistryName());
     }
 
-    @Override
+    /**
+     * Gets the display name of the entity tooltip for this mob soul type
+     * @return the entity display name
+     */
     public Component getEntityDisplayName() {
         if (this.entityDisplayName == null) {
             if (this.entityDisplayNameKey != null) {
@@ -133,19 +179,29 @@ public class MobSoulType implements IMobSoulType {
         return this.entityDisplayName;
     }
 
-    @Override
+    /**
+     * Sets the display name of the entity tooltip for this mob soul type
+     * @param name the new display name
+     * @return this mob soul type
+     */
     public MobSoulType setEntityDisplayName(Component name) {
         this.entityDisplayName = name;
         return this;
     }
 
-    @Override
+    /**
+     * Whether this mob soul type has recipes and shows up in the creative menu
+     * @return is this mob soul type enabled
+     */
     public boolean isEnabled() {
         return this.enabled;
     }
 
-    @Override
-    public IMobSoulType setEnabled(boolean enabled) {
+    /**
+     * Set whether this crop should be hidden from the game
+     * @param enabled the enabled state
+     */
+    public MobSoulType setEnabled(boolean enabled) {
         this.enabled = enabled;
         return this;
     }

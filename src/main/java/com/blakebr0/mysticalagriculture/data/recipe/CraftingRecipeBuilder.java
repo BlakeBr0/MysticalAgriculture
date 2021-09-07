@@ -1,6 +1,6 @@
 package com.blakebr0.mysticalagriculture.data.recipe;
 
-import com.blakebr0.mysticalagriculture.api.crop.ICrop;
+import com.blakebr0.mysticalagriculture.api.crop.Crop;
 import com.blakebr0.mysticalagriculture.crafting.ingredient.CropComponentIngredient;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
@@ -43,8 +43,8 @@ public class CraftingRecipeBuilder {
         this.conditions.add(condition);
     }
 
-    public static CraftingRecipeBuilder newSeedRecipe(ICrop crop) {
-        var builder = new CraftingRecipeBuilder(crop.getSeeds(), 1);
+    public static CraftingRecipeBuilder newSeedRecipe(Crop crop) {
+        var builder = new CraftingRecipeBuilder(crop.getSeedsItem(), 1);
 
         var essence = new CropComponentIngredient(crop, CropComponentIngredient.ComponentType.ESSENCE);
         var seed = new CropComponentIngredient(crop, CropComponentIngredient.ComponentType.SEED);

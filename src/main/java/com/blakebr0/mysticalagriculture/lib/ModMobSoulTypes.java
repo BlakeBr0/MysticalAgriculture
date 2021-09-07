@@ -1,7 +1,6 @@
 package com.blakebr0.mysticalagriculture.lib;
 
 import com.blakebr0.mysticalagriculture.api.registry.IMobSoulTypeRegistry;
-import com.blakebr0.mysticalagriculture.api.soul.IMobSoulType;
 import com.blakebr0.mysticalagriculture.api.soul.MobSoulType;
 import com.google.common.collect.Sets;
 import net.minecraft.resources.ResourceLocation;
@@ -66,7 +65,7 @@ public final class ModMobSoulTypes {
         registry.register(withRequiredMods(BASALZ, "thermal"));
     }
 
-    private static IMobSoulType withRequiredMods(IMobSoulType type, String... mods) {
+    private static MobSoulType withRequiredMods(MobSoulType type, String... mods) {
         if (DEBUG) return type;
 
         boolean enabled = Arrays.stream(mods).anyMatch(ModList.get()::isLoaded);

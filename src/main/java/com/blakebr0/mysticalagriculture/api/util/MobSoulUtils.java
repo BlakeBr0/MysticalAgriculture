@@ -1,23 +1,19 @@
 package com.blakebr0.mysticalagriculture.api.util;
 
 import com.blakebr0.mysticalagriculture.api.MysticalAgricultureAPI;
-import com.blakebr0.mysticalagriculture.api.soul.IMobSoulType;
+import com.blakebr0.mysticalagriculture.api.soul.MobSoulType;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-import net.minecraftforge.fmllegacy.RegistryObject;
-import net.minecraftforge.registries.ForgeRegistries;
 
 public class MobSoulUtils {
-    private static final RegistryObject<Item> SOUL_JAR = RegistryObject.of(new ResourceLocation(MysticalAgricultureAPI.MOD_ID, "soul_jar"), ForgeRegistries.ITEMS);
-
     /**
      * Creates a tag compound for this mob soul type using the max amount of souls
      * @param type the mod soul type
      * @return a tag compound for the specified mob soul type
      */
-    public static CompoundTag makeTag(IMobSoulType type) {
+    public static CompoundTag makeTag(MobSoulType type) {
         return makeTag(type, type.getSoulRequirement());
     }
 
@@ -27,7 +23,7 @@ public class MobSoulUtils {
      * @param souls the amount of souls in this tag
      * @return a tag compound for the specified mob soul type
      */
-    public static CompoundTag makeTag(IMobSoulType type, double souls) {
+    public static CompoundTag makeTag(MobSoulType type, double souls) {
         var nbt = new CompoundTag();
 
         nbt.putString("Type", type.getId().toString());
@@ -40,21 +36,10 @@ public class MobSoulUtils {
      * Get a new soul jar filled with the provided amount of souls of the provided mob soul type
      * @param type the mob soul type
      * @param souls the amount of souls in this soul jar
-     * @return the soul jar
-     */
-    // TODO: remove
-    public static ItemStack getSoulJar(IMobSoulType type, double souls) {
-        return getSoulJar(type, souls, SOUL_JAR.get());
-    }
-
-    /**
-     * Get a new soul jar filled with the provided amount of souls of the provided mob soul type
-     * @param type the mob soul type
-     * @param souls the amount of souls in this soul jar
      * @param item the soul jar item instance
      * @return the soul jar
      */
-    public static ItemStack getSoulJar(IMobSoulType type, double souls, Item item) {
+    public static ItemStack getSoulJar(MobSoulType type, double souls, Item item) {
         var nbt = makeTag(type, souls);
         var stack = new ItemStack(item);
 
@@ -66,19 +51,10 @@ public class MobSoulUtils {
     /**
      * Gets a new soul jar filled with the provided soul type
      * @param type the mob soul type
-     * @return the filled soul jar
-     */
-    public static ItemStack getFilledSoulJar(IMobSoulType type) {
-        return getFilledSoulJar(type, SOUL_JAR.get());
-    }
-
-    /**
-     * Gets a new soul jar filled with the provided soul type
-     * @param type the mob soul type
      * @param item the soul jar item instance
      * @return the filled soul jar
      */
-    public static ItemStack getFilledSoulJar(IMobSoulType type, Item item) {
+    public static ItemStack getFilledSoulJar(MobSoulType type, Item item) {
         var nbt = makeTag(type);
         var stack = new ItemStack(item);
 
@@ -92,7 +68,7 @@ public class MobSoulUtils {
      * @param stack the soul jar stack
      * @return the mob soul type
      */
-    public static IMobSoulType getType(ItemStack stack) {
+    public static MobSoulType getType(ItemStack stack) {
         var nbt = stack.getTag();
 
         if (nbt != null && nbt.contains("Type")) {
@@ -122,7 +98,7 @@ public class MobSoulUtils {
      * @param type the mob soul type to add
      * @return can this soul type be added to this soul jar
      */
-    public static boolean canAddTypeToJar(ItemStack stack, IMobSoulType type) {
+    public static boolean canAddTypeToJar(ItemStack stack, MobSoulType type) {
         var containedType = getType(stack);
         return containedType == null || containedType == type;
     }
@@ -144,7 +120,7 @@ public class MobSoulUtils {
      * @param amount the amount of souls to add
      * @return any souls that weren't added
      */
-    public static double addSoulsToJar(ItemStack stack, IMobSoulType type, double amount) {
+    public static double addSoulsToJar(ItemStack stack, MobSoulType type, double amount) {
         var containedType = getType(stack);
         if (containedType != null && containedType != type)
             return amount;

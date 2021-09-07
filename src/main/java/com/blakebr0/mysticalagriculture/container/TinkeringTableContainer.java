@@ -1,6 +1,6 @@
 package com.blakebr0.mysticalagriculture.container;
 
-import com.blakebr0.mysticalagriculture.api.tinkering.IAugmentGetter;
+import com.blakebr0.mysticalagriculture.api.tinkering.IAugmentProvider;
 import com.blakebr0.mysticalagriculture.api.util.AugmentUtils;
 import com.blakebr0.mysticalagriculture.container.slot.AugmentSlot;
 import com.blakebr0.mysticalagriculture.container.slot.ElementSlot;
@@ -61,8 +61,8 @@ public class TinkeringTableContainer extends AbstractContainerMenu {
                 var item = stack.getItem();
                 var augmentInSlot = AugmentUtils.getAugment(tinkerable, i);
 
-                if (!stack.isEmpty() && item instanceof IAugmentGetter) {
-                    var augment = ((IAugmentGetter) item).getAugment();
+                if (!stack.isEmpty() && item instanceof IAugmentProvider) {
+                    var augment = ((IAugmentProvider) item).getAugment();
                     if (augment != augmentInSlot)
                         AugmentUtils.addAugment(tinkerable, augment, i);
                 } else if (augmentInSlot != null) {

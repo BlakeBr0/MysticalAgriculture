@@ -4,7 +4,6 @@ import com.blakebr0.mysticalagriculture.api.crop.Crop;
 import com.blakebr0.mysticalagriculture.api.crop.CropTextures;
 import com.blakebr0.mysticalagriculture.api.crop.CropTier;
 import com.blakebr0.mysticalagriculture.api.crop.CropType;
-import com.blakebr0.mysticalagriculture.api.crop.ICrop;
 import com.blakebr0.mysticalagriculture.api.lib.LazyIngredient;
 import com.blakebr0.mysticalagriculture.api.registry.ICropRegistry;
 import com.blakebr0.mysticalagriculture.api.util.ExperienceCapsuleUtils;
@@ -183,8 +182,8 @@ public final class ModCrops {
     public static final Crop URANINITE = new Crop(new ResourceLocation(MOD_ID, "uraninite"), CropTier.FIVE, CropType.RESOURCE, LazyIngredient.item("powah:uraninite"));
 
     public static void onRegisterCrops(ICropRegistry registry) {
-        INFERIUM.setCrop(() -> (CropBlock) ModBlocks.INFERIUM_CROP.get())
-                .setEssence(ModItems.INFERIUM_ESSENCE);
+        INFERIUM.setCropBlock(() -> (CropBlock) ModBlocks.INFERIUM_CROP.get())
+                .setEssenceItem(ModItems.INFERIUM_ESSENCE);
 
         registry.register(AIR);
         registry.register(EARTH);
@@ -347,7 +346,7 @@ public final class ModCrops {
         registry.register(withRequiredMods(URANINITE, "powah"));
     }
 
-    private static ICrop withRequiredMods(ICrop crop, String... mods) {
+    private static Crop withRequiredMods(Crop crop, String... mods) {
         if (DEBUG) return crop;
         
         boolean enabled = Arrays.stream(mods).anyMatch(ModList.get()::isLoaded);

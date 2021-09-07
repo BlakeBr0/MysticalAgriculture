@@ -106,7 +106,7 @@ public final class ModelHandler {
 
         CropRegistry.getInstance().getCrops().forEach(crop -> {
             var textures = crop.getTextures();
-            var crops = crop.getCrop();
+            var crops = crop.getCropBlock();
 
             if (crops.getRegistryName() != null) {
                 for (int i = 0; i < 7; i++) {
@@ -131,7 +131,7 @@ public final class ModelHandler {
                 }
             }
 
-            var essence = crop.getEssence();
+            var essence = crop.getEssenceItem();
 
             if (essence.getRegistryName() != null) {
                 var location = new ModelResourceLocation(essence.getRegistryName(), "inventory");
@@ -147,7 +147,7 @@ public final class ModelHandler {
                 }
             }
 
-            var seeds = crop.getSeeds();
+            var seeds = crop.getSeedsItem();
 
             if (seeds.getRegistryName() != null) {
                 var location = new ModelResourceLocation(seeds.getRegistryName(), "inventory");
@@ -190,7 +190,7 @@ public final class ModelHandler {
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.WITHERPROOF_GLASS.get(), RenderType.translucent());
 
         CropRegistry.getInstance().getCrops().forEach(crop -> {
-            ItemBlockRenderTypes.setRenderLayer(crop.getCrop(), RenderType.cutoutMipped());
+            ItemBlockRenderTypes.setRenderLayer(crop.getCropBlock(), RenderType.cutoutMipped());
         });
 
         event.enqueueWork(() -> {

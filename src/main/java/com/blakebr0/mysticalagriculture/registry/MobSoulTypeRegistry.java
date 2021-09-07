@@ -1,7 +1,7 @@
 package com.blakebr0.mysticalagriculture.registry;
 
 import com.blakebr0.mysticalagriculture.api.registry.IMobSoulTypeRegistry;
-import com.blakebr0.mysticalagriculture.api.soul.IMobSoulType;
+import com.blakebr0.mysticalagriculture.api.soul.MobSoulType;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.LivingEntity;
 import org.apache.logging.log4j.LogManager;
@@ -19,11 +19,11 @@ public final class MobSoulTypeRegistry implements IMobSoulTypeRegistry {
     private static final Logger LOGGER = LogManager.getLogger();
     private static final MobSoulTypeRegistry INSTANCE = new MobSoulTypeRegistry();
 
-    private final Map<ResourceLocation, IMobSoulType> mobSoulTypes = new LinkedHashMap<>();
+    private final Map<ResourceLocation, MobSoulType> mobSoulTypes = new LinkedHashMap<>();
     private final Set<ResourceLocation> usedEntityIds = new HashSet<>();
 
     @Override
-    public void register(IMobSoulType mobSoulType) {
+    public void register(MobSoulType mobSoulType) {
         if (this.mobSoulTypes.values().stream().noneMatch(m -> m.getId().equals(mobSoulType.getId()))) {
             var duplicates = mobSoulType.getEntityIds().stream().filter(this.usedEntityIds::contains).collect(Collectors.toSet());
 
@@ -39,17 +39,17 @@ public final class MobSoulTypeRegistry implements IMobSoulTypeRegistry {
     }
 
     @Override
-    public List<IMobSoulType> getMobSoulTypes() {
+    public List<MobSoulType> getMobSoulTypes() {
         return List.copyOf(this.mobSoulTypes.values());
     }
 
     @Override
-    public IMobSoulType getMobSoulTypeById(ResourceLocation id) {
+    public MobSoulType getMobSoulTypeById(ResourceLocation id) {
         return this.mobSoulTypes.get(id);
     }
 
     @Override
-    public IMobSoulType getMobSoulTypeByEntity(LivingEntity entity) {
+    public MobSoulType getMobSoulTypeByEntity(LivingEntity entity) {
         return this.mobSoulTypes.values().stream().filter(t -> t.isEntityApplicable(entity)).findFirst().orElse(null);
     }
 
@@ -59,7 +59,7 @@ public final class MobSoulTypeRegistry implements IMobSoulTypeRegistry {
     }
 
     @Override
-    public boolean addEntityTo(IMobSoulType type, ResourceLocation entity) {
+    public boolean addEntityTo(MobSoulType type, ResourceLocation entity) {
         if (!this.usedEntityIds.contains(entity)) {
             this.usedEntityIds.add(entity);
 
@@ -72,7 +72,7 @@ public final class MobSoulTypeRegistry implements IMobSoulTypeRegistry {
     }
 
     @Override
-    public boolean removeEntityFrom(IMobSoulType type, ResourceLocation entity) {
+    public boolean removeEntityFrom(MobSoulType type, ResourceLocation entity) {
         if (type.getEntityIds().contains(entity)) {
             type.getEntityIds().remove(entity);
 

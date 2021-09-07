@@ -3,19 +3,20 @@ package com.blakebr0.mysticalagriculture.tileentity;
 import com.blakebr0.cucumber.inventory.BaseItemStackHandler;
 import com.blakebr0.cucumber.tileentity.BaseInventoryTileEntity;
 import com.blakebr0.cucumber.util.Localizable;
-import com.blakebr0.mysticalagriculture.api.tinkering.IAugmentGetter;
+import com.blakebr0.mysticalagriculture.api.tinkering.IAugmentProvider;
 import com.blakebr0.mysticalagriculture.api.tinkering.ITinkerable;
 import com.blakebr0.mysticalagriculture.container.TinkeringTableContainer;
 import com.blakebr0.mysticalagriculture.init.ModTileEntities;
 import com.blakebr0.mysticalagriculture.lib.ModCrops;
+import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.MenuProvider;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.util.LazyOptional;
 
@@ -26,8 +27,8 @@ public class TinkeringTableTileEntity extends BaseInventoryTileEntity implements
         }
     });
 
-    public TinkeringTableTileEntity() {
-        super(ModTileEntities.TINKERING_TABLE.get());
+    public TinkeringTableTileEntity(BlockPos pos, BlockState state) {
+        super(ModTileEntities.TINKERING_TABLE.get(), pos, state);
         this.inventory.setDefaultSlotLimit(1);
         this.inventory.setSlotValidator(this::canInsertStack);
     }
@@ -53,16 +54,15 @@ public class TinkeringTableTileEntity extends BaseInventoryTileEntity implements
     }
 
     private boolean canInsertStack(int slot, ItemStack stack) {
-        Item item = stack.getItem();
-        switch (slot) {
-            case 0: return item instanceof ITinkerable;
-            case 1:
-            case 2: return item instanceof IAugmentGetter;
-            case 3: return item == ModCrops.AIR.getEssence();
-            case 4: return item == ModCrops.EARTH.getEssence();
-            case 5: return item == ModCrops.WATER.getEssence();
-            case 6: return item == ModCrops.FIRE.getEssence();
-            default: return true;
-        }
+        var item = stack.getItem();
+        return switch (slot) {
+            case 0 -> item instanceof ITinkerable;
+            case 1, 2 -> item instanceof IAugmentProvider;
+            case 3 -> item == ModCrops.AIR.getEssenceItem();
+            case 4 -> item == ModCrops.EARTH.getEssenceItem();
+            case 5 -> item == ModCrops.WATER.getEssenceItem();
+            case 6 -> item == ModCrops.FIRE.getEssenceItem();
+            default -> true;
+        };
     }
 }

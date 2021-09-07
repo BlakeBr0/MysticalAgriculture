@@ -26,7 +26,7 @@ public interface ITinkerable {
      * @param augment the augment
      * @return can this augment be applied
      */
-    default boolean canApplyAugment(IAugment augment) {
+    default boolean canApplyAugment(Augment augment) {
         return augment.getAugmentTypes().stream().anyMatch(t -> this.getAugmentTypes().contains(t)) && augment.getTier() <= this.getTinkerableTier();
     }
 }

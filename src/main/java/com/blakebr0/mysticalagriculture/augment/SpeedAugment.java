@@ -20,7 +20,7 @@ public class SpeedAugment extends Augment {
     }
 
     @Override
-    public void onPlayerTick(Level world, Player player, AbilityCache cache) {
+    public void onPlayerTick(Level level, Player player, AbilityCache cache) {
         var flying = player.getAbilities().flying;
         var swimming = player.isSwimming();
         var inWater = player.isInWater();

@@ -19,8 +19,8 @@ public final class ColorHandler {
         colors.register(new IColored.BlockColors(), InfusedFarmlandBlock.FARMLANDS.toArray(new InfusedFarmlandBlock[0]));
 
         CropRegistry.getInstance().getCrops().forEach(crop -> {
-            if (crop.isFlowerColored() && crop.getCrop() != null)
-                colors.register((state, world, pos, tint) -> crop.getFlowerColor(), crop.getCrop());
+            if (crop.isFlowerColored() && crop.getCropBlock() != null)
+                colors.register((state, world, pos, tint) -> crop.getFlowerColor(), crop.getCropBlock());
         });
     }
 
@@ -45,10 +45,10 @@ public final class ColorHandler {
         }, ModItems.SOUL_JAR.get());
 
         CropRegistry.getInstance().getCrops().forEach(crop -> {
-            if (crop.isEssenceColored() && crop.getEssence() != null)
-                colors.register((stack, tint) -> crop.getEssenceColor(), crop.getEssence());
-            if (crop.isSeedColored() && crop.getSeeds() != null)
-                colors.register((stack, tint) -> crop.getSeedColor(), crop.getSeeds());
+            if (crop.isEssenceColored() && crop.getEssenceItem() != null)
+                colors.register((stack, tint) -> crop.getEssenceColor(), crop.getEssenceItem());
+            if (crop.isSeedColored() && crop.getSeedsItem() != null)
+                colors.register((stack, tint) -> crop.getSeedColor(), crop.getSeedsItem());
         });
 
         AugmentRegistry.getInstance().getAugments().forEach(augment -> {

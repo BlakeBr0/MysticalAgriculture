@@ -4,8 +4,9 @@ import com.blakebr0.cucumber.crafting.ISpecialRecipe;
 import com.blakebr0.cucumber.helper.StackHelper;
 import com.blakebr0.mysticalagriculture.api.crafting.ISoulExtractionRecipe;
 import com.blakebr0.mysticalagriculture.api.crafting.RecipeTypes;
-import com.blakebr0.mysticalagriculture.api.soul.IMobSoulType;
+import com.blakebr0.mysticalagriculture.api.soul.MobSoulType;
 import com.blakebr0.mysticalagriculture.api.util.MobSoulUtils;
+import com.blakebr0.mysticalagriculture.init.ModItems;
 import com.blakebr0.mysticalagriculture.init.ModRecipeSerializers;
 import com.blakebr0.mysticalagriculture.registry.MobSoulTypeRegistry;
 import com.google.gson.JsonObject;
@@ -24,16 +25,16 @@ import net.minecraftforge.registries.ForgeRegistryEntry;
 public class SoulExtractionRecipe implements ISpecialRecipe, ISoulExtractionRecipe {
     private final ResourceLocation recipeId;
     private final NonNullList<Ingredient> inputs;
-    private final IMobSoulType type;
+    private final MobSoulType type;
     private final double souls;
     private final ItemStack output;
 
-    public SoulExtractionRecipe(ResourceLocation recipeId, Ingredient input, IMobSoulType type, double souls) {
+    public SoulExtractionRecipe(ResourceLocation recipeId, Ingredient input, MobSoulType type, double souls) {
         this.recipeId = recipeId;
         this.inputs = NonNullList.of(Ingredient.EMPTY, input);
         this.type = type;
         this.souls = souls;
-        this.output = MobSoulUtils.getSoulJar(type, souls);
+        this.output = MobSoulUtils.getSoulJar(type, souls, ModItems.SOUL_JAR.get());
     }
 
     @Override
@@ -92,7 +93,7 @@ public class SoulExtractionRecipe implements ISpecialRecipe, ISoulExtractionReci
     }
 
     @Override
-    public IMobSoulType getMobSoulType() {
+    public MobSoulType getMobSoulType() {
         return this.type;
     }
 

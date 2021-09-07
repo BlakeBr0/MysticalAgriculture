@@ -7,23 +7,19 @@ import com.blakebr0.mysticalagriculture.api.crafting.RecipeTypes;
 import com.blakebr0.mysticalagriculture.crafting.recipe.InfusionRecipe;
 import com.blakebr0.mysticalagriculture.init.ModTileEntities;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.NonNullList;
 import net.minecraft.core.particles.ItemParticleOption;
 import net.minecraft.core.particles.ParticleOptions;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.entity.BlockEntity;
-import net.minecraft.world.level.block.entity.TickableBlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.AABB;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class InfusionAltarTileEntity extends BaseInventoryTileEntity implements TickableBlockEntity {
+public class InfusionAltarTileEntity extends BaseInventoryTileEntity {
     private final BaseItemStackHandler inventory = new BaseItemStackHandler(2, this::markDirtyAndDispatch);
     private final BaseItemStackHandler recipeInventory = new BaseItemStackHandler(9);
     private final MultiblockPositions pedestalLocations = new MultiblockPositions.Builder()
@@ -33,8 +29,8 @@ public class InfusionAltarTileEntity extends BaseInventoryTileEntity implements 
     private int progress;
     private boolean active;
 
-    public InfusionAltarTileEntity() {
-        super(ModTileEntities.INFUSION_ALTAR.get());
+    public InfusionAltarTileEntity(BlockPos pos, BlockState state) {
+        super(ModTileEntities.INFUSION_ALTAR.get(), pos, state);
         this.inventory.setDefaultSlotLimit(1);
         this.inventory.setSlotValidator(this::canInsertStack);
         this.inventory.setOutputSlots(1);
@@ -46,8 +42,8 @@ public class InfusionAltarTileEntity extends BaseInventoryTileEntity implements 
     }
 
     @Override
-    public void load(BlockState state, CompoundTag tag) {
-        super.load(state, tag);
+    public void load(CompoundTag tag) {
+        super.load(tag);
         this.progress = tag.getInt("Progress");
         this.active = tag.getBoolean("Active");
     }
@@ -62,7 +58,7 @@ public class InfusionAltarTileEntity extends BaseInventoryTileEntity implements 
 
     @Override
     public void tick() {
-        Level world = this.getLevel();
+        var world = this.getLevel();
         if (world != null && !world.isClientSide()) {
             ItemStack input = this.inventory.getStackInSlot(0);
             if (input.isEmpty()) {
@@ -82,14 +78,15 @@ public class InfusionAltarTileEntity extends BaseInventoryTileEntity implements 
                     this.progress++;
 
                     if (this.progress >= 100) {
-                        NonNullList<ItemStack> remaining = this.recipe.getRemainingItems(this.recipeInventory);
+                        var remaining = this.recipe.getRemainingItems(this.recipeInventory);
+
                         for (int i = 0; i < pedestals.size(); i++) {
-                            InfusionPedestalTileEntity pedestal = pedestals.get(i);
+                            var pedestal = pedestals.get(i);
                             pedestal.getInventory().setStackInSlot(0, remaining.get(i + 1));
                             this.spawnParticles(ParticleTypes.SMOKE, pedestal.getBlockPos(), 1.2D, 20);
                         }
 
-                        ItemStack result = this.recipe.getCraftingResult(this.recipeInventory);
+                        var result = this.recipe.assemble(this.recipeInventory);
 
                         this.setOutput(result);
                         this.reset();
@@ -97,8 +94,9 @@ public class InfusionAltarTileEntity extends BaseInventoryTileEntity implements 
                         this.spawnParticles(ParticleTypes.HAPPY_VILLAGER, this.getBlockPos(), 1.0D, 10);
                     } else {
                         pedestals.forEach(pedestal -> {
-                            BlockPos pos = pedestal.getBlockPos();
-                            ItemStack stack = pedestal.getInventory().getStackInSlot(0);
+                            var pos = pedestal.getBlockPos();
+                            var stack = pedestal.getInventory().getStackInSlot(0);
+
                             this.spawnItemParticles(pos, stack);
                         });
                     }
@@ -122,7 +120,7 @@ public class InfusionAltarTileEntity extends BaseInventoryTileEntity implements 
 
     public boolean isActive() {
         if (!this.active) {
-            Level world = this.getLevel();
+            var world = this.getLevel();
             this.active = world != null && world.hasNeighborSignal(this.getBlockPos());
         }
 
@@ -143,7 +141,8 @@ public class InfusionAltarTileEntity extends BaseInventoryTileEntity implements 
         this.recipeInventory.setStackInSlot(0, this.inventory.getStackInSlot(0));
 
         for (int i = 0; i < pedestals.size(); i++) {
-            ItemStack stack = pedestals.get(i).getInventory().getStackInSlot(0);
+            var stack = pedestals.get(i).getInventory().getStackInSlot(0);
+
             this.recipeInventory.setStackInSlot(i + 1, stack);
         }
     }
@@ -155,11 +154,9 @@ public class InfusionAltarTileEntity extends BaseInventoryTileEntity implements 
         List<InfusionPedestalTileEntity> pedestals = new ArrayList<>();
 
         this.getPedestalPositions().forEach(pos -> {
-            BlockEntity tile = this.getLevel().getBlockEntity(pos);
-            if (tile instanceof InfusionPedestalTileEntity) {
-                InfusionPedestalTileEntity pedestal = (InfusionPedestalTileEntity) tile;
+            var tile = this.getLevel().getBlockEntity(pos);
+            if (tile instanceof InfusionPedestalTileEntity pedestal)
                 pedestals.add(pedestal);
-            }
         });
 
         return pedestals;
@@ -169,31 +166,31 @@ public class InfusionAltarTileEntity extends BaseInventoryTileEntity implements 
         if (this.getLevel() == null || this.getLevel().isClientSide())
             return;
 
-        ServerLevel world = (ServerLevel) this.getLevel();
+        var level = (ServerLevel) this.getLevel();
 
         double x = pos.getX() + 0.5D;
         double y = pos.getY() + yOffset;
         double z = pos.getZ() + 0.5D;
 
-        world.sendParticles(particle, x, y, z, count, 0, 0, 0, 0.1D);
+        level.sendParticles(particle, x, y, z, count, 0, 0, 0, 0.1D);
     }
 
     private void spawnItemParticles(BlockPos pedestalPos, ItemStack stack) {
         if (this.getLevel() == null || this.getLevel().isClientSide() || stack.isEmpty())
             return;
 
-        ServerLevel world = (ServerLevel) this.getLevel();
-        BlockPos pos = this.getBlockPos();
+        var level = (ServerLevel) this.getLevel();
+        var pos = this.getBlockPos();
 
-        double x = pedestalPos.getX() + (world.getRandom().nextDouble() * 0.2D) + 0.4D;
-        double y = pedestalPos.getY() + (world.getRandom().nextDouble() * 0.2D) + 1.2D;
-        double z = pedestalPos.getZ() + (world.getRandom().nextDouble() * 0.2D) + 0.4D;
+        double x = pedestalPos.getX() + (level.getRandom().nextDouble() * 0.2D) + 0.4D;
+        double y = pedestalPos.getY() + (level.getRandom().nextDouble() * 0.2D) + 1.2D;
+        double z = pedestalPos.getZ() + (level.getRandom().nextDouble() * 0.2D) + 0.4D;
 
         double velX = pos.getX() - pedestalPos.getX();
         double velY = 0.25D;
         double velZ = pos.getZ() - pedestalPos.getZ();
 
-        world.sendParticles(new ItemParticleOption(ParticleTypes.ITEM, stack), x, y, z, 0, velX, velY, velZ, 0.18D);
+        level.sendParticles(new ItemParticleOption(ParticleTypes.ITEM, stack), x, y, z, 0, velX, velY, velZ, 0.18D);
     }
 
     private boolean canInsertStack(int slot, ItemStack stack) {

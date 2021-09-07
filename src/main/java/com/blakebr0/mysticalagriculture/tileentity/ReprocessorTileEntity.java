@@ -1,6 +1,5 @@
 package com.blakebr0.mysticalagriculture.tileentity;
 
-import com.blakebr0.cucumber.energy.BaseEnergyStorage;
 import com.blakebr0.cucumber.helper.StackHelper;
 import com.blakebr0.cucumber.inventory.BaseItemStackHandler;
 import com.blakebr0.cucumber.inventory.SidedItemStackHandlerWrapper;
@@ -12,6 +11,7 @@ import com.blakebr0.mysticalagriculture.container.ReprocessorContainer;
 import com.blakebr0.mysticalagriculture.crafting.recipe.ReprocessorRecipe;
 import com.blakebr0.mysticalagriculture.init.ModTileEntities;
 import com.blakebr0.mysticalagriculture.util.ReprocessorTier;
+import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
@@ -23,20 +23,20 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.entity.FurnaceBlockEntity;
-import net.minecraft.world.level.block.entity.TickableBlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.common.ForgeHooks;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.energy.CapabilityEnergy;
+import net.minecraftforge.energy.EnergyStorage;
 import net.minecraftforge.energy.IEnergyStorage;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.IItemHandlerModifiable;
 
-public abstract class ReprocessorTileEntity extends BaseInventoryTileEntity implements MenuProvider, TickableBlockEntity {
+public abstract class ReprocessorTileEntity extends BaseInventoryTileEntity implements MenuProvider {
     private static final int FUEL_TICK_MULTIPLIER = 20;
     private final BaseItemStackHandler inventory;
-    private final BaseEnergyStorage energy;
+    private final EnergyStorage energy;
     private final LazyOptional<IItemHandlerModifiable>[] inventoryCapabilities;
     private final LazyOptional<IEnergyStorage> energyCapability = LazyOptional.of(this::getEnergy);
     private final ReprocessorTier tier;
@@ -46,10 +46,10 @@ public abstract class ReprocessorTileEntity extends BaseInventoryTileEntity impl
     private int fuelItemValue;
     private int oldEnergy;
 
-    public ReprocessorTileEntity(BlockEntityType<?> type, ReprocessorTier tier) {
-        super(type);
+    public ReprocessorTileEntity(BlockEntityType<?> type, ReprocessorTier tier, BlockPos pos, BlockState state) {
+        super(type, pos, state);
         this.inventory = new BaseItemStackHandler(3);
-        this.energy = new BaseEnergyStorage(tier.getFuelCapacity());
+        this.energy = new EnergyStorage(tier.getFuelCapacity());
         this.inventoryCapabilities = SidedItemStackHandlerWrapper.create(this.inventory, new Direction[] { Direction.UP, Direction.DOWN, Direction.NORTH }, this::canInsertStackSided, null);
         this.tier = tier;
 
@@ -62,12 +62,12 @@ public abstract class ReprocessorTileEntity extends BaseInventoryTileEntity impl
     }
 
     @Override
-    public void load(BlockState state, CompoundTag tag) {
-        super.load(state, tag);
+    public void load(CompoundTag tag) {
+        super.load(tag);
         this.progress = tag.getInt("Progress");
         this.fuelLeft = tag.getInt("FuelLeft");
         this.fuelItemValue = tag.getInt("FuelItemValue");
-        this.energy.setEnergy(tag.getInt("Energy"));
+        this.energy.deserializeNBT(tag.get("Energy"));
     }
 
     @Override
@@ -76,12 +76,11 @@ public abstract class ReprocessorTileEntity extends BaseInventoryTileEntity impl
         tag.putInt("Progress", this.progress);
         tag.putInt("FuelLeft", this.fuelLeft);
         tag.putInt("FuelItemValue", this.fuelItemValue);
-        tag.putInt("Energy", this.energy.getEnergyStored());
+        tag.put("Energy", this.energy.serializeNBT());
 
         return tag;
     }
 
-    @Override
     public void tick() {
         Level world = this.getLevel();
         if (world == null || world.isClientSide())
@@ -90,7 +89,7 @@ public abstract class ReprocessorTileEntity extends BaseInventoryTileEntity impl
         boolean mark = false;
 
         if (this.energy.getEnergyStored() < this.energy.getMaxEnergyStored()) {
-            ItemStack fuel = this.inventory.getStackInSlot(1);
+            var fuel = this.inventory.getStackInSlot(1);
 
             if (this.fuelLeft <= 0 && !fuel.isEmpty()) {
                 this.fuelItemValue = ForgeHooks.getBurnTime(fuel);
@@ -126,7 +125,7 @@ public abstract class ReprocessorTileEntity extends BaseInventoryTileEntity impl
                 }
 
                 if (this.recipe != null) {
-                    ItemStack recipeOutput = this.recipe.getCraftingResult(this.inventory);
+                    var recipeOutput = this.recipe.assemble(this.inventory);
                     if (!recipeOutput.isEmpty() && (output.isEmpty() || StackHelper.canCombineStacks(output, recipeOutput))) {
                         this.progress++;
                         this.energy.extractEnergy(this.tier.getFuelUsage(), false);
@@ -134,7 +133,7 @@ public abstract class ReprocessorTileEntity extends BaseInventoryTileEntity impl
                         if (this.progress >= this.tier.getOperationTime()) {
                             this.inventory.extractItemSuper(0, 1, false);
 
-                            ItemStack result = StackHelper.combineStacks(output, recipeOutput);
+                            var result = StackHelper.combineStacks(output, recipeOutput);
                             this.inventory.setStackInSlot(2, result);
 
                             this.progress = 0;
@@ -198,7 +197,7 @@ public abstract class ReprocessorTileEntity extends BaseInventoryTileEntity impl
         return this.tier;
     }
 
-    public BaseEnergyStorage getEnergy() {
+    public EnergyStorage getEnergy() {
         return this.energy;
     }
 
@@ -226,38 +225,38 @@ public abstract class ReprocessorTileEntity extends BaseInventoryTileEntity impl
     }
 
     public static class Basic extends ReprocessorTileEntity {
-        public Basic() {
-            super(ModTileEntities.BASIC_REPROCESSOR.get(), ReprocessorTier.BASIC);
+        public Basic(BlockPos pos, BlockState state) {
+            super(ModTileEntities.BASIC_REPROCESSOR.get(), ReprocessorTier.BASIC, pos, state);
         }
     }
 
     public static class Inferium extends ReprocessorTileEntity {
-        public Inferium() {
-            super(ModTileEntities.INFERIUM_REPROCESSOR.get(), ReprocessorTier.INFERIUM);
+        public Inferium(BlockPos pos, BlockState state) {
+            super(ModTileEntities.INFERIUM_REPROCESSOR.get(), ReprocessorTier.INFERIUM, pos, state);
         }
     }
 
     public static class Prudentium extends ReprocessorTileEntity {
-        public Prudentium() {
-            super(ModTileEntities.PRUDENTIUM_REPROCESSOR.get(), ReprocessorTier.PRUDENTIUM);
+        public Prudentium(BlockPos pos, BlockState state) {
+            super(ModTileEntities.PRUDENTIUM_REPROCESSOR.get(), ReprocessorTier.PRUDENTIUM, pos, state);
         }
     }
 
     public static class Tertium extends ReprocessorTileEntity {
-        public Tertium() {
-            super(ModTileEntities.TERTIUM_REPROCESSOR.get(), ReprocessorTier.TERTIUM);
+        public Tertium(BlockPos pos, BlockState state) {
+            super(ModTileEntities.TERTIUM_REPROCESSOR.get(), ReprocessorTier.TERTIUM, pos, state);
         }
     }
 
     public static class Imperium extends ReprocessorTileEntity {
-        public Imperium() {
-            super(ModTileEntities.IMPERIUM_REPROCESSOR.get(), ReprocessorTier.IMPERIUM);
+        public Imperium(BlockPos pos, BlockState state) {
+            super(ModTileEntities.IMPERIUM_REPROCESSOR.get(), ReprocessorTier.IMPERIUM, pos, state);
         }
     }
 
     public static class Supremium extends ReprocessorTileEntity {
-        public Supremium() {
-            super(ModTileEntities.SUPREMIUM_REPROCESSOR.get(), ReprocessorTier.SUPREMIUM);
+        public Supremium(BlockPos pos, BlockState state) {
+            super(ModTileEntities.SUPREMIUM_REPROCESSOR.get(), ReprocessorTier.SUPREMIUM, pos, state);
         }
     }
 }

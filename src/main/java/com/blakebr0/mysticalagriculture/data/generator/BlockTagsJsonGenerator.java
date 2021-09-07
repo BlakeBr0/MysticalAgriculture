@@ -20,7 +20,7 @@ public class BlockTagsJsonGenerator extends TagsProvider<Block> {
     @Override
     protected void addTags() {
         CropRegistry.getInstance().getCrops().forEach(crop -> {
-            this.tag(MysticalAgricultureAPI.CROPS_TAG).add(crop.getCrop());
+            this.tag(MysticalAgricultureAPI.CROPS_TAG).add(crop.getCropBlock());
         });
     }
 

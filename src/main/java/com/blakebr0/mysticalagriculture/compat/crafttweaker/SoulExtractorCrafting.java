@@ -3,7 +3,6 @@ package com.blakebr0.mysticalagriculture.compat.crafttweaker;
 import com.blakebr0.cucumber.helper.RecipeHelper;
 import com.blakebr0.mysticalagriculture.api.crafting.ISoulExtractionRecipe;
 import com.blakebr0.mysticalagriculture.api.crafting.RecipeTypes;
-import com.blakebr0.mysticalagriculture.api.soul.IMobSoulType;
 import com.blakebr0.mysticalagriculture.crafting.recipe.SoulExtractionRecipe;
 import com.blakebr0.mysticalagriculture.registry.MobSoulTypeRegistry;
 import com.blamejared.crafttweaker.api.CraftTweakerAPI;

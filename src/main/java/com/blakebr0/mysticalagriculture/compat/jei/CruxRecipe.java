@@ -38,11 +38,11 @@ public class CruxRecipe {
 
         return CropRegistry.getInstance().getCrops()
                 .stream()
-                .filter(c -> c.getCrux() != null)
+                .filter(c -> c.getCruxBlock() != null)
                 .map(c -> new CruxRecipe(
-                        new ItemStack(c.getSeeds()),
-                        new ItemStack(c.getCrux()),
-                        new ItemStack(c.getEssence())
+                        new ItemStack(c.getSeedsItem()),
+                        new ItemStack(c.getCruxBlock()),
+                        new ItemStack(c.getEssenceItem())
                 ))
                 .collect(Collectors.toList());
     }

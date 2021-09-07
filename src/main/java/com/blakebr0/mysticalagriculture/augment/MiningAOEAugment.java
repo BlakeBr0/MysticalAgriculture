@@ -31,7 +31,7 @@ public class MiningAOEAugment extends Augment {
         return !harvest(stack, this.range, world, pos, side, player);
     }
 
-    private static boolean harvest(ItemStack stack, int radius, Level world, BlockPos pos, int side, Player player) {
+    private static boolean harvest(ItemStack stack, int radius, Level level, BlockPos pos, int side, Player player) {
         if (player.isCrouching())
             radius = 0;
 
@@ -49,20 +49,20 @@ public class MiningAOEAugment extends Augment {
             zRange = radius;
         }
 
-        var state = world.getBlockState(pos);
-        float hardness = state.getDestroySpeed(world, pos);
+        var state = level.getBlockState(pos);
+        float hardness = state.getDestroySpeed(level, pos);
 
-        if (!tryHarvestBlock(world, pos, false, stack, player))
+        if (!tryHarvestBlock(level, pos, false, stack, player))
             return false;
 
         if (radius > 0 && hardness >= 0.2F && canHarvestBlock(stack, state)) {
             BlockPos.betweenClosedStream(pos.offset(-xRange, -yRange, -zRange), pos.offset(xRange, yRange, zRange)).forEach(aoePos -> {
                 if (aoePos != pos) {
-                    var aoeState = world.getBlockState(aoePos);
+                    var aoeState = level.getBlockState(aoePos);
 
-                    if (!aoeState.hasTileEntity() && aoeState.getDestroySpeed(world, aoePos) <= hardness + 5.0F) {
+                    if (!aoeState.hasTileEntity() && aoeState.getDestroySpeed(level, aoePos) <= hardness + 5.0F) {
                         if (canHarvestBlock(stack, aoeState)) {
-                            tryHarvestBlock(world, aoePos, true, stack, player);
+                            tryHarvestBlock(level, aoePos, true, stack, player);
                         }
                     }
                 }

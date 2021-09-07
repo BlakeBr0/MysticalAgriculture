@@ -2,7 +2,7 @@ package com.blakebr0.mysticalagriculture.api.util;
 
 import com.blakebr0.mysticalagriculture.api.MysticalAgricultureAPI;
 import com.blakebr0.mysticalagriculture.api.crop.CropTier;
-import com.blakebr0.mysticalagriculture.api.tinkering.IAugment;
+import com.blakebr0.mysticalagriculture.api.tinkering.Augment;
 import com.blakebr0.mysticalagriculture.api.tinkering.ITinkerable;
 import net.minecraft.ChatFormatting;
 import net.minecraft.nbt.CompoundTag;
@@ -22,7 +22,7 @@ public class AugmentUtils {
      * @param augment the augment
      * @param slot the augment slot
      */
-    public static void addAugment(ItemStack stack, IAugment augment, int slot) {
+    public static void addAugment(ItemStack stack, Augment augment, int slot) {
         var item = stack.getItem();
 
         if (item instanceof ITinkerable tinkerable) {
@@ -64,7 +64,7 @@ public class AugmentUtils {
      * @param slot the augment slot
      * @return the augment
      */
-    public static IAugment getAugment(ItemStack stack, int slot) {
+    public static Augment getAugment(ItemStack stack, int slot) {
         var nbt = stack.getTag();
         if (nbt == null)
             return null;
@@ -86,9 +86,9 @@ public class AugmentUtils {
      * @param stack the {@link ITinkerable}
      * @return the installed augments
      */
-    public static List<IAugment> getAugments(ItemStack stack) {
+    public static List<Augment> getAugments(ItemStack stack) {
         var nbt = stack.getTag();
-        List<IAugment> augments = new ArrayList<>();
+        List<Augment> augments = new ArrayList<>();
 
         if (nbt == null)
             return augments;
@@ -113,9 +113,9 @@ public class AugmentUtils {
      * @param player the player
      * @return the installed augments
      */
-    public static List<IAugment> getArmorAugments(Player player) {
+    public static List<Augment> getArmorAugments(Player player) {
         var armor = player.getInventory().armor;
-        List<IAugment> augments = new ArrayList<>();
+        List<Augment> augments = new ArrayList<>();
 
         for (var stack : armor) {
             augments.addAll(getAugments(stack));

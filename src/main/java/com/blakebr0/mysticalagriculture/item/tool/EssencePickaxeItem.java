@@ -2,7 +2,6 @@ package com.blakebr0.mysticalagriculture.item.tool;
 
 import com.blakebr0.cucumber.item.tool.BasePickaxeItem;
 import com.blakebr0.mysticalagriculture.api.tinkering.AugmentType;
-import com.blakebr0.mysticalagriculture.api.tinkering.IAugment;
 import com.blakebr0.mysticalagriculture.api.tinkering.ITinkerable;
 import com.blakebr0.mysticalagriculture.api.util.AugmentUtils;
 import com.blakebr0.mysticalagriculture.config.ModConfigs;
@@ -125,7 +124,7 @@ public class EssencePickaxeItem extends BasePickaxeItem implements ITinkerable {
         var augments = AugmentUtils.getAugments(stack);
         var success = false;
 
-        for (IAugment augment : augments) {
+        for (var augment : augments) {
             if (augment.onBlockStartBreak(stack, pos, player))
                 success = true;
         }

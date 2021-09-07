@@ -9,15 +9,12 @@ import mezz.jei.api.constants.VanillaTypes;
 import mezz.jei.api.gui.IRecipeLayout;
 import mezz.jei.api.gui.drawable.IDrawable;
 import mezz.jei.api.gui.drawable.IDrawableAnimated;
-import mezz.jei.api.gui.drawable.IDrawableStatic;
-import mezz.jei.api.gui.ingredient.IGuiItemStackGroup;
 import mezz.jei.api.helpers.IGuiHelper;
 import mezz.jei.api.ingredients.IIngredients;
 import mezz.jei.api.recipe.category.IRecipeCategory;
+import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
-
-import java.util.List;
 
 public class ReprocessorCategory implements IRecipeCategory<ReprocessorRecipe> {
     public static final ResourceLocation UID = new ResourceLocation(MysticalAgriculture.MOD_ID, "reprocessor");
@@ -30,7 +27,7 @@ public class ReprocessorCategory implements IRecipeCategory<ReprocessorRecipe> {
         this.background = helper.createDrawable(TEXTURE, 0, 0, 82, 26);
         this.icon = helper.createDrawableIngredient(new ItemStack(ModBlocks.BASIC_REPROCESSOR.get()));
 
-        IDrawableStatic arrow = helper.createDrawable(TEXTURE, 85, 0, 24, 17);
+        var arrow = helper.createDrawable(TEXTURE, 85, 0, 24, 17);
         this.arrow = helper.createAnimatedDrawable(arrow, 100, IDrawableAnimated.StartDirection.LEFT, false);
     }
 
@@ -45,8 +42,8 @@ public class ReprocessorCategory implements IRecipeCategory<ReprocessorRecipe> {
     }
 
     @Override
-    public String getTitle() {
-        return Localizable.of("jei.category.mysticalagriculture.reprocessor").buildString();
+    public Component getTitle() {
+        return Localizable.of("jei.category.mysticalagriculture.reprocessor").build();
     }
 
     @Override
@@ -72,9 +69,9 @@ public class ReprocessorCategory implements IRecipeCategory<ReprocessorRecipe> {
 
     @Override
     public void setRecipe(IRecipeLayout layout, ReprocessorRecipe recipe, IIngredients ingredients) {
-        IGuiItemStackGroup group = layout.getItemStacks();
-        List<List<ItemStack>> inputs = ingredients.getInputs(VanillaTypes.ITEM);
-        List<List<ItemStack>> outputs = ingredients.getOutputs(VanillaTypes.ITEM);
+        var group = layout.getItemStacks();
+        var inputs = ingredients.getInputs(VanillaTypes.ITEM);
+        var outputs = ingredients.getOutputs(VanillaTypes.ITEM);
 
         group.init(0, true, 0, 4);
         group.init(1, false, 60, 4);

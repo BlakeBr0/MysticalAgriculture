@@ -1,7 +1,7 @@
 package com.blakebr0.mysticalagriculture.item;
 
 import com.blakebr0.cucumber.item.BaseItem;
-import com.blakebr0.mysticalagriculture.api.crop.ICropGetter;
+import com.blakebr0.mysticalagriculture.api.crop.ICropProvider;
 import com.blakebr0.mysticalagriculture.init.ModItems;
 import com.blakebr0.mysticalagriculture.lib.ModTooltips;
 import net.minecraft.core.BlockPos;
@@ -102,7 +102,7 @@ public class MysticalFertilizerItem extends BaseItem {
     }
 
     private static boolean canGrowResourceCrops(BonemealableBlock growable) {
-        return growable instanceof ICropGetter cropGetter && cropGetter.getCrop().getTier().isFertilizable();
+        return growable instanceof ICropProvider cropGetter && cropGetter.getCrop().getTier().isFertilizable();
     }
 
     public static class DispenserBehavior extends OptionalDispenseItemBehavior {

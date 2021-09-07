@@ -35,7 +35,7 @@ public class BlockModelJsonGenerator extends BlockStateProvider {
         });
 
         CropRegistry.getInstance().getCrops().forEach(crop -> {
-            var block = crop.getCrop();
+            var block = crop.getCropBlock();
             var models = stemModels.get(crop.getType().getName());
 
             this.getVariantBuilder(block).forAllStates(state -> {

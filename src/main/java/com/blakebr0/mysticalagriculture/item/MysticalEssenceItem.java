@@ -4,8 +4,8 @@ import com.blakebr0.cucumber.iface.IEnableable;
 import com.blakebr0.cucumber.item.BaseItem;
 import com.blakebr0.cucumber.util.Localizable;
 import com.blakebr0.mysticalagriculture.MysticalAgriculture;
-import com.blakebr0.mysticalagriculture.api.crop.ICrop;
-import com.blakebr0.mysticalagriculture.api.crop.ICropGetter;
+import com.blakebr0.mysticalagriculture.api.crop.Crop;
+import com.blakebr0.mysticalagriculture.api.crop.ICropProvider;
 import com.blakebr0.mysticalagriculture.lib.ModTooltips;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.ItemStack;
@@ -17,10 +17,10 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 import java.util.List;
 import java.util.function.Function;
 
-public class MysticalEssenceItem extends BaseItem implements ICropGetter, IEnableable {
-    private final ICrop crop;
+public class MysticalEssenceItem extends BaseItem implements ICropProvider, IEnableable {
+    private final Crop crop;
 
-    public MysticalEssenceItem(ICrop crop, Function<Properties, Properties> properties) {
+    public MysticalEssenceItem(Crop crop, Function<Properties, Properties> properties) {
         super(properties);
         this.crop = crop;
     }
@@ -54,7 +54,7 @@ public class MysticalEssenceItem extends BaseItem implements ICropGetter, IEnabl
     }
 
     @Override
-    public ICrop getCrop() {
+    public Crop getCrop() {
         return this.crop;
     }
 

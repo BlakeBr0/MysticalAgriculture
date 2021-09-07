@@ -4,9 +4,9 @@ import com.blakebr0.cucumber.iface.IEnableable;
 import com.blakebr0.cucumber.item.BaseItem;
 import com.blakebr0.cucumber.lib.Colors;
 import com.blakebr0.cucumber.util.Localizable;
+import com.blakebr0.mysticalagriculture.api.tinkering.Augment;
 import com.blakebr0.mysticalagriculture.api.tinkering.AugmentType;
-import com.blakebr0.mysticalagriculture.api.tinkering.IAugment;
-import com.blakebr0.mysticalagriculture.api.tinkering.IAugmentGetter;
+import com.blakebr0.mysticalagriculture.api.tinkering.IAugmentProvider;
 import com.blakebr0.mysticalagriculture.lib.ModTooltips;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
@@ -21,10 +21,10 @@ import java.util.List;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
-public class AugmentItem extends BaseItem implements IAugmentGetter, IEnableable {
-    private final IAugment augment;
+public class AugmentItem extends BaseItem implements IAugmentProvider, IEnableable {
+    private final Augment augment;
 
-    public AugmentItem(IAugment augment, Function<Properties, Properties> properties) {
+    public AugmentItem(Augment augment, Function<Properties, Properties> properties) {
         super(properties);
         this.augment = augment;
     }
@@ -61,7 +61,7 @@ public class AugmentItem extends BaseItem implements IAugmentGetter, IEnableable
     }
 
     @Override
-    public IAugment getAugment() {
+    public Augment getAugment() {
         return this.augment;
     }
 

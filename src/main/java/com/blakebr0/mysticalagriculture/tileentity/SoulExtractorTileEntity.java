@@ -1,6 +1,5 @@
 package com.blakebr0.mysticalagriculture.tileentity;
 
-import com.blakebr0.cucumber.energy.BaseEnergyStorage;
 import com.blakebr0.cucumber.inventory.BaseItemStackHandler;
 import com.blakebr0.cucumber.inventory.SidedItemStackHandlerWrapper;
 import com.blakebr0.cucumber.tileentity.BaseInventoryTileEntity;
@@ -10,6 +9,7 @@ import com.blakebr0.mysticalagriculture.api.crafting.RecipeTypes;
 import com.blakebr0.mysticalagriculture.container.SoulExtractorContainer;
 import com.blakebr0.mysticalagriculture.crafting.recipe.SoulExtractionRecipe;
 import com.blakebr0.mysticalagriculture.init.ModTileEntities;
+import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
@@ -20,20 +20,20 @@ import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.FurnaceBlockEntity;
-import net.minecraft.world.level.block.entity.TickableBlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.common.ForgeHooks;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.energy.CapabilityEnergy;
+import net.minecraftforge.energy.EnergyStorage;
 import net.minecraftforge.energy.IEnergyStorage;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.IItemHandlerModifiable;
 
-public class SoulExtractorTileEntity extends BaseInventoryTileEntity implements MenuProvider, TickableBlockEntity {
+public class SoulExtractorTileEntity extends BaseInventoryTileEntity implements MenuProvider {
     private static final int FUEL_TICK_MULTIPLIER = 20;
     private final BaseItemStackHandler inventory;
-    private final BaseEnergyStorage energy;
+    private final EnergyStorage energy;
     private final LazyOptional<IItemHandlerModifiable>[] inventoryCapabilities;
     private final LazyOptional<IEnergyStorage> energyCapability = LazyOptional.of(this::getEnergy);
     private int progress;
@@ -42,10 +42,10 @@ public class SoulExtractorTileEntity extends BaseInventoryTileEntity implements 
     private int oldEnergy;
     private SoulExtractionRecipe recipe;
 
-    public SoulExtractorTileEntity() {
-        super(ModTileEntities.SOUL_EXTRACTOR.get());
+    public SoulExtractorTileEntity(BlockPos pos, BlockState state) {
+        super(ModTileEntities.SOUL_EXTRACTOR.get(), pos, state);
         this.inventory = new BaseItemStackHandler(3, this::markDirtyAndDispatch);
-        this.energy = new BaseEnergyStorage(80000);
+        this.energy = new EnergyStorage(80000);
         this.inventoryCapabilities = SidedItemStackHandlerWrapper.create(this.inventory, new Direction[] { Direction.UP, Direction.DOWN, Direction.NORTH }, this::canInsertStackSided, null);
     }
 
@@ -55,12 +55,12 @@ public class SoulExtractorTileEntity extends BaseInventoryTileEntity implements 
     }
 
     @Override
-    public void load(BlockState state, CompoundTag tag) {
-        super.load(state, tag);
+    public void load(CompoundTag tag) {
+        super.load(tag);
         this.progress = tag.getInt("Progress");
         this.fuelLeft = tag.getInt("FuelLeft");
         this.fuelItemValue = tag.getInt("FuelItemValue");
-        this.energy.setEnergy(tag.getInt("Energy"));
+        this.energy.deserializeNBT(tag.get("Energy"));
     }
 
     @Override
@@ -83,7 +83,7 @@ public class SoulExtractorTileEntity extends BaseInventoryTileEntity implements 
         boolean mark = false;
 
         if (this.energy.getEnergyStored() < this.energy.getMaxEnergyStored()) {
-            ItemStack fuel = this.inventory.getStackInSlot(1);
+            var fuel = this.inventory.getStackInSlot(1);
 
             if (this.fuelLeft <= 0 && !fuel.isEmpty()) {
                 this.fuelItemValue = ForgeHooks.getBurnTime(fuel);
@@ -120,7 +120,7 @@ public class SoulExtractorTileEntity extends BaseInventoryTileEntity implements 
 
                 if (this.progress >= this.getOperationTime()) {
                     this.inventory.extractItemSuper(0, 1, false);
-                    this.inventory.setStackInSlot(2, this.recipe.getCraftingResult(this.inventory));
+                    this.inventory.setStackInSlot(2, this.recipe.assemble(this.inventory));
 
                     this.progress = 0;
                 }
@@ -177,7 +177,7 @@ public class SoulExtractorTileEntity extends BaseInventoryTileEntity implements 
         return super.getCapability(cap, side);
     }
 
-    public BaseEnergyStorage getEnergy() {
+    public EnergyStorage getEnergy() {
         return this.energy;
     }
 

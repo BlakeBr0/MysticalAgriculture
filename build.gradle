@@ -23,7 +23,7 @@ repositories {
     maven { url 'https://dvs1.progwml6.com/files/maven/' }
     maven { url 'https://maven.blamejared.com' }
     maven { url 'https://maven.tehnut.info' }
-    maven { url "https://maven.tterrag.com" }
+    maven { url 'https://maven.tterrag.com' }
 }
 
 minecraft {
@@ -41,8 +41,12 @@ minecraft {
             ideaModule "${rootProject.name}.${project.name}.main"
 
             mods {
-                cucumber {
+                mysticalagriculture {
                     source sourceSets.main
+                }
+
+                cucumber {
+                    source project(':Cucumber').sourceSets.main
                 }
             }
         }
@@ -56,8 +60,12 @@ minecraft {
             ideaModule "${rootProject.name}.${project.name}.main"
 
             mods {
-                cucumber {
+                mysticalagriculture {
                     source sourceSets.main
+                }
+
+                cucumber {
+                    source project(':Cucumber').sourceSets.main
                 }
             }
         }
@@ -77,13 +85,15 @@ dependencies {
     minecraft 'net.minecraftforge:forge:1.17.1-37.0.19'
 
     implementation project(':Cucumber')
+
+    compileOnly 'mezz.jei:jei-1.17.1:8.0.0.14:api'
+
+    runtimeOnly 'mezz.jei:jei-1.17.1:8.0.0.14'
 }
 
 //dependencies {
 //    minecraft 'net.minecraftforge:forge:1.16.5-36.1.0'
 //
-////    implementation project(':Cucumber')
-//    implementation fg.deobf("curse.maven:cucumber-272335:3349690")
 //    compileOnly fg.deobf('mcp.mobius.waila:Hwyla:1.10.11-B78_1.16.2:api')
 //    runtimeOnly fg.deobf('mcp.mobius.waila:Hwyla:1.10.11-B78_1.16.2')
 //    compileOnly fg.deobf('mezz.jei:jei-1.16.2:7.1.1.15:api')
