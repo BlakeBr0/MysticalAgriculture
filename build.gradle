@@ -22,8 +22,13 @@ println('Java: ' + System.getProperty('java.version') + ' JVM: ' + System.getPro
 repositories {
     maven { url 'https://dvs1.progwml6.com/files/maven/' }
     maven { url 'https://maven.blamejared.com' }
-    maven { url 'https://maven.tehnut.info' }
     maven { url 'https://maven.tterrag.com' }
+    maven {
+        url 'https://cursemaven.com'
+        content {
+            includeGroup 'curse.maven'
+        }
+    }
 }
 
 minecraft {
@@ -85,19 +90,16 @@ dependencies {
     minecraft 'net.minecraftforge:forge:1.17.1-37.0.19'
 
     implementation project(':Cucumber')
+    implementation fg.deobf('curse.maven:jade-324717:3447700')
+
+    runtimeOnly fg.deobf('mezz.jei:jei-1.17.1:8.0.0.14')
 
     compileOnly 'mezz.jei:jei-1.17.1:8.0.0.14:api'
-
-    runtimeOnly 'mezz.jei:jei-1.17.1:8.0.0.14'
 }
 
 //dependencies {
 //    minecraft 'net.minecraftforge:forge:1.16.5-36.1.0'
 //
-//    compileOnly fg.deobf('mcp.mobius.waila:Hwyla:1.10.11-B78_1.16.2:api')
-//    runtimeOnly fg.deobf('mcp.mobius.waila:Hwyla:1.10.11-B78_1.16.2')
-//    compileOnly fg.deobf('mezz.jei:jei-1.16.2:7.1.1.15:api')
-//    runtimeOnly fg.deobf('mezz.jei:jei-1.16.2:7.1.1.15')
 //    compileOnly fg.deobf('com.blamejared.crafttweaker:CraftTweaker-1.16.5:7.1.0.326')
 //    compileOnly fg.deobf('vazkii.patchouli:Patchouli:1.16.2-47')
 //    compileOnly fg.deobf("mcjty.theoneprobe:TheOneProbe-1.16:1.16-3.1.3-21") { transitive = false }
