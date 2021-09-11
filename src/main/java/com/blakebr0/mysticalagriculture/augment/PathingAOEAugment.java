@@ -23,7 +23,7 @@ import java.util.EnumSet;
 import java.util.Map;
 
 public class PathingAOEAugment extends Augment {
-    private static final Map<Block, BlockState> PATH_LOOKUP = Maps.newHashMap(ImmutableMap.of(Blocks.GRASS_BLOCK, Blocks.GRASS_PATH.defaultBlockState()));
+    private static final Map<Block, BlockState> PATH_LOOKUP = Maps.newHashMap(ImmutableMap.of(Blocks.GRASS_BLOCK, Blocks.DIRT_PATH.defaultBlockState()));
     private final int range;
 
     public PathingAOEAugment(ResourceLocation id, int tier, int range) {

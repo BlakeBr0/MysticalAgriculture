@@ -40,7 +40,7 @@ import java.util.Map;
 import java.util.function.Function;
 import java.util.function.Supplier;
 
-import static com.blakebr0.mysticalagriculture.MysticalAgriculture.ITEM_GROUP;
+import static com.blakebr0.mysticalagriculture.MysticalAgriculture.CREATIVE_TAB;
 
 public final class ModBlocks {
     public static final Map<RegistryObject<Block>, Supplier<Block>> ENTRIES = new LinkedHashMap<>();
@@ -132,7 +132,7 @@ public final class ModBlocks {
     }
 
     private static RegistryObject<Block> register(String name, Supplier<Block> block) {
-        return register(name, block, b -> () -> new BaseBlockItem(b.get(), p -> p.tab(ITEM_GROUP)));
+        return register(name, block, b -> () -> new BaseBlockItem(b.get(), p -> p.tab(CREATIVE_TAB)));
     }
 
     private static RegistryObject<Block> register(String name, Supplier<Block> block, Function<RegistryObject<Block>, Supplier<? extends BlockItem>> item) {

@@ -23,7 +23,7 @@ public class ReprocessorContainer extends AbstractContainerMenu {
     private final BlockPos pos;
 
     private ReprocessorContainer(MenuType<?> type, int id, Inventory playerInventory, BlockPos pos) {
-        this(type, id, playerInventory, p -> false, (new ReprocessorTileEntity.Basic()).getInventory(), pos);
+        this(type, id, playerInventory, p -> false, new BaseItemStackHandler(1), pos);
     }
 
     private ReprocessorContainer(MenuType<?> type, int id, Inventory playerInventory, Function<Player, Boolean> isUsableByPlayer, BaseItemStackHandler inventory, BlockPos pos) {
@@ -71,7 +71,7 @@ public class ReprocessorContainer extends AbstractContainerMenu {
                     if (!this.moveItemStackTo(itemstack1, 0, 1, false)) {
                         return ItemStack.EMPTY;
                     }
-                } else if (ForgeHooks.getBurnTime(itemstack1) > 0) {
+                } else if (ForgeHooks.getBurnTime(itemstack1, null) > 0) {
                     if (!this.moveItemStackTo(itemstack1, 1, 2, false)) {
                         return ItemStack.EMPTY;
                     }

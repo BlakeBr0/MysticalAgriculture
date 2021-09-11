@@ -15,11 +15,14 @@ import net.minecraft.core.NonNullList;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.GsonHelper;
+import net.minecraft.world.Container;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.item.crafting.RecipeType;
+import net.minecraft.world.level.Level;
 import net.minecraftforge.items.IItemHandler;
+import net.minecraftforge.items.wrapper.InvWrapper;
 import net.minecraftforge.registries.ForgeRegistryEntry;
 
 public class SoulExtractionRecipe implements ISpecialRecipe, ISoulExtractionRecipe {
@@ -45,6 +48,11 @@ public class SoulExtractionRecipe implements ISpecialRecipe, ISoulExtractionReci
         MobSoulUtils.addSoulsToJar(jar, this.type, this.souls);
 
         return jar;
+    }
+
+    @Override
+    public ItemStack assemble(Container inv) {
+        return this.assemble(new InvWrapper(inv));
     }
 
     @Override
@@ -90,6 +98,11 @@ public class SoulExtractionRecipe implements ISpecialRecipe, ISoulExtractionReci
             return false;
 
         return MobSoulUtils.canAddTypeToJar(output, this.type) && !MobSoulUtils.isJarFull(output);
+    }
+
+    @Override
+    public boolean matches(Container inv, Level level) {
+        return this.matches(new InvWrapper(inv));
     }
 
     @Override

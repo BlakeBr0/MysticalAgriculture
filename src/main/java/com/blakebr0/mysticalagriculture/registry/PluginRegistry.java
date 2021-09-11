@@ -24,16 +24,16 @@ public final class PluginRegistry {
 
         ModList.get().getAllScanData().forEach(data -> {
             data.getAnnotations().forEach(annotation -> {
-                if (annotation.getAnnotationType().getClassName().equals(MysticalAgriculturePlugin.class.getName())) {
+                if (annotation.clazz().getClassName().equals(MysticalAgriculturePlugin.class.getName())) {
                     try {
-                        Class<?> clazz = Class.forName(annotation.getMemberName());
+                        Class<?> clazz = Class.forName(annotation.memberName());
                         if (IMysticalAgriculturePlugin.class.isAssignableFrom(clazz)) {
                             IMysticalAgriculturePlugin plugin = (IMysticalAgriculturePlugin) clazz.newInstance();
                             this.plugins.put(plugin, new PluginConfig());
-                            LOGGER.info("Registered plugin: {}", annotation.getMemberName());
+                            LOGGER.info("Registered plugin: {}", annotation.memberName());
                         }
                     } catch (Exception e) {
-                        LOGGER.error("Error loading plugin: {}", annotation.getMemberName(), e);
+                        LOGGER.error("Error loading plugin: {}", annotation.memberName(), e);
                     }
                 }
             });

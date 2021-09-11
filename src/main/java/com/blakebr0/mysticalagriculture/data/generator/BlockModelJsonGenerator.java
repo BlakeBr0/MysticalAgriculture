@@ -38,18 +38,20 @@ public class BlockModelJsonGenerator extends BlockStateProvider {
             var block = crop.getCropBlock();
             var models = stemModels.get(crop.getType().getName());
 
-            this.getVariantBuilder(block).forAllStates(state -> {
-                var age = state.getValue(CropBlock.AGE);
-                if (age == block.getMaxAge()) {
-                    var model = this.models().getBuilder(crop.getNameWithSuffix("crop"))
-                            .parent(models[7])
-                            .texture("flower", crop.getTextures().getFlowerTexture());
+            if (crop.shouldRegisterCropBlock()) {
+                this.getVariantBuilder(block).forAllStates(state -> {
+                    var age = state.getValue(CropBlock.AGE);
+                    if (age == block.getMaxAge()) {
+                        var model = this.models().getBuilder(crop.getNameWithSuffix("crop"))
+                                .parent(models[7])
+                                .texture("flower", crop.getTextures().getFlowerTexture());
 
-                    return ConfiguredModel.builder().modelFile(model).build();
-                }
+                        return ConfiguredModel.builder().modelFile(model).build();
+                    }
 
-                return ConfiguredModel.builder().modelFile(models[age]).build();
-            });
+                    return ConfiguredModel.builder().modelFile(models[age]).build();
+                });
+            }
         });
     }
 

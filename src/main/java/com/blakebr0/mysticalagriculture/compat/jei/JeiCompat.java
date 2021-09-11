@@ -82,7 +82,7 @@ public final class JeiCompat implements IModPlugin {
     public void registerItemSubtypes(ISubtypeRegistration registration) {
         ModItems.SOUL_JAR.ifPresent(jar ->
             registration.registerSubtypeInterpreter(jar, (stack, context) -> {
-                IMobSoulType type = MobSoulUtils.getType(stack);
+                var type = MobSoulUtils.getType(stack);
                 return type != null ? type.getEntityIds().toString() : "";
             })
         );

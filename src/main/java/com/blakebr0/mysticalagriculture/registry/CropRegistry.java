@@ -98,7 +98,7 @@ public final class CropRegistry implements ICropRegistry {
         crops.stream().filter(Crop::shouldRegisterEssenceItem).forEach(c -> {
             var essence = c.getEssenceItem();
             if (essence == null) {
-                var defaultEssence = new MysticalEssenceItem(c, p -> p.tab(MysticalAgriculture.ITEM_GROUP));
+                var defaultEssence = new MysticalEssenceItem(c, p -> p.tab(MysticalAgriculture.CREATIVE_TAB));
                 essence = defaultEssence;
                 c.setEssenceItem(() -> defaultEssence);
             }
@@ -112,7 +112,7 @@ public final class CropRegistry implements ICropRegistry {
         crops.stream().filter(Crop::shouldRegisterSeedsItem).forEach(c -> {
             var seeds = c.getSeedsItem();
             if (seeds == null) {
-                var defaultSeeds = new MysticalSeedsItem(c, p -> p.tab(MysticalAgriculture.ITEM_GROUP));
+                var defaultSeeds = new MysticalSeedsItem(c, p -> p.tab(MysticalAgriculture.CREATIVE_TAB));
                 seeds = defaultSeeds;
                 c.setSeedsItem(() -> defaultSeeds);
             }

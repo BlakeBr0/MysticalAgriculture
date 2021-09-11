@@ -19,13 +19,17 @@ public class ItemModelJsonGenerator extends ItemModelProvider {
         var generatedModel = new ModelFile.UncheckedModelFile("item/generated");
 
         CropRegistry.getInstance().getCrops().forEach(crop -> {
-            this.getBuilder(crop.getNameWithSuffix("essence"))
-                    .parent(generatedModel)
-                    .texture("layer0", crop.getTextures().getEssenceTexture());
+            if (crop.shouldRegisterEssenceItem()) {
+                this.getBuilder(crop.getNameWithSuffix("essence"))
+                        .parent(generatedModel)
+                        .texture("layer0", crop.getTextures().getEssenceTexture());
+            }
 
-            this.getBuilder(crop.getNameWithSuffix("seeds"))
-                    .parent(generatedModel)
-                    .texture("layer0", crop.getTextures().getSeedTexture());
+            if (crop.shouldRegisterSeedsItem()) {
+                this.getBuilder(crop.getNameWithSuffix("seeds"))
+                        .parent(generatedModel)
+                        .texture("layer0", crop.getTextures().getSeedTexture());
+            }
         });
 
         var augmentModel = new ModelFile.UncheckedModelFile(new ResourceLocation(MysticalAgriculture.MOD_ID, "item/augment"));

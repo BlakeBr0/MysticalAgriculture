@@ -60,7 +60,7 @@ public class MiningAOEAugment extends Augment {
                 if (aoePos != pos) {
                     var aoeState = level.getBlockState(aoePos);
 
-                    if (!aoeState.hasTileEntity() && aoeState.getDestroySpeed(level, aoePos) <= hardness + 5.0F) {
+                    if (level.getBlockEntity(aoePos) == null && aoeState.getDestroySpeed(level, aoePos) <= hardness + 5.0F) {
                         if (canHarvestBlock(stack, aoeState)) {
                             tryHarvestBlock(level, aoePos, true, stack, player);
                         }
@@ -75,7 +75,7 @@ public class MiningAOEAugment extends Augment {
     private static boolean tryHarvestBlock(Level world, BlockPos pos, boolean extra, ItemStack stack, Player player) {
         var state = world.getBlockState(pos);
         float hardness = state.getDestroySpeed(world, pos);
-        var harvest = (ForgeHooks.canHarvestBlock(state, player, world, pos) || stack.isCorrectToolForDrops(state)) && (!extra || stack.getDestroySpeed(state) > 1.0F);
+        var harvest = (ForgeHooks.isCorrectToolForDrops(state, player) || stack.isCorrectToolForDrops(state)) && (!extra || stack.getDestroySpeed(state) > 1.0F);
 
         if (hardness >= 0.0F && (!extra || harvest))
             return BlockHelper.breakBlocksAOE(stack, world, player, pos, !extra);

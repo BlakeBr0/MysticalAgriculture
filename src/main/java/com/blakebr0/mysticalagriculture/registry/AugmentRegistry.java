@@ -13,7 +13,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-import static com.blakebr0.mysticalagriculture.MysticalAgriculture.ITEM_GROUP;
+import static com.blakebr0.mysticalagriculture.MysticalAgriculture.CREATIVE_TAB;
 
 public final class AugmentRegistry implements IAugmentRegistry {
     private static final Logger LOGGER = LogManager.getLogger();
@@ -48,7 +48,7 @@ public final class AugmentRegistry implements IAugmentRegistry {
         PluginRegistry.getInstance().forEach((plugin, config) -> plugin.onRegisterAugments(this));
 
         this.augments.forEach((id, a) -> {
-            var item = new AugmentItem(a, p -> p.tab(ITEM_GROUP));
+            var item = new AugmentItem(a, p -> p.tab(CREATIVE_TAB));
 
             item.setRegistryName(a.getNameWithSuffix("augment"));
 

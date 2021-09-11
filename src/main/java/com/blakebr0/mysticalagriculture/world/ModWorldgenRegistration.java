@@ -7,11 +7,17 @@ import net.minecraft.core.Registry;
 import net.minecraft.data.BuiltinRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.levelgen.GenerationStep;
+import net.minecraft.world.level.levelgen.WorldGenerationContext;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.configurations.OreConfiguration;
+import net.minecraft.world.level.levelgen.feature.configurations.RangeDecoratorConfiguration;
+import net.minecraft.world.level.levelgen.heightproviders.HeightProvider;
+import net.minecraft.world.level.levelgen.heightproviders.HeightProviderType;
 import net.minecraftforge.event.world.BiomeLoadingEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+
+import java.util.Random;
 
 public final class ModWorldgenRegistration {
     private static ConfiguredFeature<?, ?> configuredSoulstoneFeature;
@@ -59,15 +65,24 @@ public final class ModWorldgenRegistration {
     }
 
     public static void onCommonSetup() {
-        int size, rate, height;
+        int size, rate;
         OreConfiguration config;
 
         size = ModConfigs.SOULSTONE_SPAWN_SIZE.get();
         rate = ModConfigs.SOULSTONE_SPAWN_RATE.get();
-        height = ModConfigs.SOULSTONE_SPAWN_HEIGHT.get();
         config = new OreConfiguration(OreConfiguration.Predicates.NETHER_ORE_REPLACEABLES, ModBlocks.SOULSTONE.get().defaultBlockState(), size);
         configuredSoulstoneFeature = ModWorldFeatures.SOULSTONE.get().configured(config)
-                .range(height)
+                .range(new RangeDecoratorConfiguration(new HeightProvider() {
+                    @Override
+                    public int sample(Random random, WorldGenerationContext context) {
+                        return ModConfigs.SOULSTONE_SPAWN_HEIGHT.get();
+                    }
+
+                    @Override
+                    public HeightProviderType<?> getType() {
+                        return HeightProviderType.CONSTANT;
+                    }
+                }))
                 .squared()
                 .countRandom(rate);
 
@@ -75,10 +90,19 @@ public final class ModWorldgenRegistration {
 
         size = ModConfigs.PROSPERITY_SPAWN_SIZE.get();
         rate = ModConfigs.PROSPERITY_SPAWN_RATE.get();
-        height = ModConfigs.PROSPERITY_SPAWN_HEIGHT.get();
         config = new OreConfiguration(OreConfiguration.Predicates.NATURAL_STONE, ModBlocks.PROSPERITY_ORE.get().defaultBlockState(), size);
         configuredProsperityOreFeature = Feature.ORE.configured(config)
-                .range(height)
+                .range(new RangeDecoratorConfiguration(new HeightProvider() {
+                    @Override
+                    public int sample(Random random, WorldGenerationContext context) {
+                        return ModConfigs.PROSPERITY_SPAWN_HEIGHT.get();
+                    }
+
+                    @Override
+                    public HeightProviderType<?> getType() {
+                        return HeightProviderType.CONSTANT;
+                    }
+                }))
                 .squared()
                 .countRandom(rate);
 
@@ -86,10 +110,19 @@ public final class ModWorldgenRegistration {
 
         size = ModConfigs.INFERIUM_SPAWN_SIZE.get();
         rate = ModConfigs.INFERIUM_SPAWN_RATE.get();
-        height = ModConfigs.INFERIUM_SPAWN_HEIGHT.get();
         config = new OreConfiguration(OreConfiguration.Predicates.NATURAL_STONE, ModBlocks.INFERIUM_ORE.get().defaultBlockState(), size);
         configuredInferiumOreFeature = Feature.ORE.configured(config)
-                .range(height)
+                .range(new RangeDecoratorConfiguration(new HeightProvider() {
+                    @Override
+                    public int sample(Random random, WorldGenerationContext context) {
+                        return ModConfigs.INFERIUM_SPAWN_HEIGHT.get();
+                    }
+
+                    @Override
+                    public HeightProviderType<?> getType() {
+                        return HeightProviderType.CONSTANT;
+                    }
+                }))
                 .squared()
                 .countRandom(rate);
 

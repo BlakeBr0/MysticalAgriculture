@@ -37,10 +37,11 @@ public abstract class EssenceFurnaceTileEntity extends AbstractFurnaceBlockEntit
         return (int) (super.getBurnDuration(stack) * this.getTier().getBurnTimeMultiplier());
     }
 
-    @Override
-    protected int getTotalCookTime(Level level, RecipeType<? extends AbstractCookingRecipe> recipeType, Container container) {
-        return (int) (super.getTotalCookTime(level, recipeType, container) * this.getTier().getCookTimeMultiplier());
-    }
+    // TODO: how would I do this now
+//    @Override
+//    protected int getTotalCookTime(Level level, RecipeType<? extends AbstractCookingRecipe> recipeType, Container container) {
+//        return (int) (super.getTotalCookTime(level, recipeType, container) * this.getTier().getCookTimeMultiplier());
+//    }
 
     public abstract FurnaceTier getTier();
 

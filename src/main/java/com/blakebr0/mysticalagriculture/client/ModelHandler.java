@@ -113,7 +113,7 @@ public final class ModelHandler {
                     var location = new ModelResourceLocation(crops.getRegistryName(), "age=" + i);
                     var bakedModel = registry.get(location);
 
-                    if (bakedModel == null || bakedModel.getParticleTexture(EmptyModelData.INSTANCE).getName().equals(MISSING_NO)) {
+                    if (bakedModel == null || bakedModel.getParticleIcon(EmptyModelData.INSTANCE).getName().equals(MISSING_NO)) {
                         String type = crop.getType().getName();
                         registry.replace(location, cropModels.get(type)[i]);
                     }
@@ -122,7 +122,7 @@ public final class ModelHandler {
                 var location = new ModelResourceLocation(crops.getRegistryName(), "age=7");
                 var bakedModel = registry.get(location);
 
-                if (bakedModel == null || bakedModel.getParticleTexture(EmptyModelData.INSTANCE).getName().equals(MISSING_NO)) {
+                if (bakedModel == null || bakedModel.getParticleIcon(EmptyModelData.INSTANCE).getName().equals(MISSING_NO)) {
                     var texture = crop.getTextures().getFlowerTexture();
                     var cropRetexturedModel = cropModelsGrown.get(crop.getType().getName()).retexture(ImmutableMap.of("flower", texture.toString()));
                     var cropBakedModel = cropRetexturedModel.bake(bakery, getSprite, BlockModelRotation.X0_Y0, location);
@@ -137,7 +137,7 @@ public final class ModelHandler {
                 var location = new ModelResourceLocation(essence.getRegistryName(), "inventory");
                 var bakedModel = registry.get(location);
 
-                if (bakedModel == null || bakedModel.getParticleTexture(EmptyModelData.INSTANCE).getName().equals(MISSING_NO)) {
+                if (bakedModel == null || bakedModel.getParticleIcon(EmptyModelData.INSTANCE).getName().equals(MISSING_NO)) {
                     var texture = textures.getEssenceTexture();
                     var retexture = essenceModelWrapper.retexture(ImmutableMap.of("layer0", texture.toString()));
                     var generated = generator.generateBlockModel(getSprite, retexture);
@@ -153,7 +153,7 @@ public final class ModelHandler {
                 var location = new ModelResourceLocation(seeds.getRegistryName(), "inventory");
                 var bakedModel = registry.get(location);
 
-                if (bakedModel == null || bakedModel.getParticleTexture(EmptyModelData.INSTANCE).getName().equals(MISSING_NO)) {
+                if (bakedModel == null || bakedModel.getParticleIcon(EmptyModelData.INSTANCE).getName().equals(MISSING_NO)) {
                     var texture = textures.getSeedTexture();
                     var retexture = seedsModelWrapper.retexture(ImmutableMap.of("layer0", texture.toString()));
                     var generated = generator.generateBlockModel(getSprite, retexture);

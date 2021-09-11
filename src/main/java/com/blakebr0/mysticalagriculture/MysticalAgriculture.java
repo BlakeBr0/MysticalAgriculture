@@ -3,7 +3,6 @@ package com.blakebr0.mysticalagriculture;
 import com.blakebr0.cucumber.helper.ConfigHelper;
 import com.blakebr0.mysticalagriculture.api.MysticalAgricultureAPI;
 import com.blakebr0.mysticalagriculture.client.ModelHandler;
-import com.blakebr0.mysticalagriculture.compat.TOPCompat;
 import com.blakebr0.mysticalagriculture.config.ModConfigs;
 import com.blakebr0.mysticalagriculture.crafting.DynamicRecipeManager;
 import com.blakebr0.mysticalagriculture.data.ModDataGenerators;
@@ -40,24 +39,26 @@ import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.InterModEnqueueEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 
+import java.lang.reflect.Field;
+
 @Mod(MysticalAgriculture.MOD_ID)
 public final class MysticalAgriculture {
 	public static final String MOD_ID = "mysticalagriculture";
 	public static final String NAME = "Mystical Agriculture";
 	
-	public static final CreativeModeTab ITEM_GROUP = new MACreativeTab();
+	public static final CreativeModeTab CREATIVE_TAB = new MACreativeTab();
 
-	public MysticalAgriculture() {
+	public MysticalAgriculture() throws NoSuchFieldException, IllegalAccessException {
 		var bus = FMLJavaModLoadingContext.get().getModEventBus();
 
 		bus.register(this);
 		bus.register(new ModBlocks());
 		bus.register(new ModItems());
 		bus.register(new ModRecipeSerializers());
-		bus.register(new ModTileEntities());
 		bus.register(new ModContainerTypes());
 		bus.register(new ModDataGenerators());
 
+		ModTileEntities.REGISTRY.register(bus);
 		ModWorldFeatures.REGISTRY.register(bus);
 
 		DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> () -> {
@@ -70,9 +71,7 @@ public final class MysticalAgriculture {
 		ModLoadingContext.get().registerConfig(ModConfig.Type.CLIENT, ModConfigs.CLIENT);
 		ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, ModConfigs.COMMON);
 
-		MysticalAgricultureAPI.setCropRegistry(CropRegistry.getInstance());
-		MysticalAgricultureAPI.setAugmentRegistry(AugmentRegistry.getInstance());
-		MysticalAgricultureAPI.setMobSoulTypeRegistry(MobSoulTypeRegistry.getInstance());
+		initAPI();
 
 		PluginRegistry.getInstance().loadPlugins();
 
@@ -108,7 +107,22 @@ public final class MysticalAgriculture {
 
 	@SubscribeEvent
 	public void onInterModEnqueue(InterModEnqueueEvent event) {
-		if (ModList.get().isLoaded("theoneprobe"))
-			TOPCompat.onInterModEnqueue();
+		if (ModList.get().isLoaded("theoneprobe"));
+//			TOPCompat.onInterModEnqueue();
+	}
+
+	private static void initAPI() throws NoSuchFieldException, IllegalAccessException {
+		var api = MysticalAgricultureAPI.class;
+
+		var cropRegistry = api.getDeclaredField("cropRegistry");
+		var augmentRegistry = api.getDeclaredField("augmentRegistry");
+		var soulTypeRegistry = api.getDeclaredField("soulTypeRegistry");
+
+		cropRegistry.setAccessible(true);
+		cropRegistry.set(null, CropRegistry.getInstance());
+		augmentRegistry.setAccessible(true);
+		augmentRegistry.set(null, AugmentRegistry.getInstance());
+		soulTypeRegistry.setAccessible(true);
+		soulTypeRegistry.set(null, MobSoulTypeRegistry.getInstance());
 	}
 }

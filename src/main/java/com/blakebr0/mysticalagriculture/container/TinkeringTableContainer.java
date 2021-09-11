@@ -1,5 +1,6 @@
 package com.blakebr0.mysticalagriculture.container;
 
+import com.blakebr0.cucumber.inventory.BaseItemStackHandler;
 import com.blakebr0.mysticalagriculture.api.tinkering.IAugmentProvider;
 import com.blakebr0.mysticalagriculture.api.util.AugmentUtils;
 import com.blakebr0.mysticalagriculture.container.slot.AugmentSlot;
@@ -23,7 +24,7 @@ public class TinkeringTableContainer extends AbstractContainerMenu {
     private final IItemHandlerModifiable inventory;
 
     private TinkeringTableContainer(MenuType<?> type, int id, Inventory playerInventory) {
-        this(type, id, playerInventory, p -> false, (new TinkeringTableTileEntity()).getInventory());
+        this(type, id, playerInventory, p -> false, new BaseItemStackHandler(1));
     }
 
     private TinkeringTableContainer(MenuType<?> type, int id, Inventory playerInventory, Function<Player, Boolean> isUsableByPlayer, IItemHandlerModifiable inventory) {

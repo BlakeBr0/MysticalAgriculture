@@ -9,12 +9,15 @@ import net.minecraft.core.NonNullList;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.GsonHelper;
+import net.minecraft.world.Container;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.item.crafting.ShapedRecipe;
+import net.minecraft.world.level.Level;
 import net.minecraftforge.items.IItemHandler;
+import net.minecraftforge.items.wrapper.InvWrapper;
 import net.minecraftforge.registries.ForgeRegistryEntry;
 
 public class InfusionRecipe implements ISpecialRecipe, IInfusionRecipe {
@@ -32,6 +35,11 @@ public class InfusionRecipe implements ISpecialRecipe, IInfusionRecipe {
     @Override
     public ItemStack assemble(IItemHandler inventory) {
         return this.output.copy();
+    }
+
+    @Override
+    public ItemStack assemble(Container inv) {
+        return this.assemble(new InvWrapper(inv));
     }
 
     @Override
@@ -68,6 +76,11 @@ public class InfusionRecipe implements ISpecialRecipe, IInfusionRecipe {
     public boolean matches(IItemHandler inventory) {
         var altarStack = inventory.getStackInSlot(0);
         return !this.inputs.isEmpty() && this.inputs.get(0).test(altarStack) && ISpecialRecipe.super.matches(inventory);
+    }
+
+    @Override
+    public boolean matches(Container inv, Level level) {
+        return this.matches(new InvWrapper(inv));
     }
 
     public static class Serializer extends ForgeRegistryEntry<RecipeSerializer<?>> implements RecipeSerializer<InfusionRecipe> {

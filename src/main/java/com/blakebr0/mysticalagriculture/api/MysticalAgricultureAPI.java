@@ -55,15 +55,6 @@ public class MysticalAgricultureAPI {
     }
 
     /**
-     * Used internally to set the crop registry, don't use this
-     */
-    public static void setCropRegistry(ICropRegistry registry) {
-        if (cropRegistry == null && isMysticalAgriculture()) {
-            cropRegistry = registry;
-        }
-    }
-
-    /**
      * The registry in which all augments are stored
      * @return the augment registry
      */
@@ -72,32 +63,10 @@ public class MysticalAgricultureAPI {
     }
 
     /**
-     * Used internally to set the augment registry, don't use this
-     */
-    public static void setAugmentRegistry(IAugmentRegistry registry) {
-        if (augmentRegistry == null && isMysticalAgriculture()) {
-            augmentRegistry = registry;
-        }
-    }
-
-    /**
      * The registry in which all mob soul types are stored
      * @return the mob soul type registry
      */
     public static IMobSoulTypeRegistry getMobSoulTypeRegistry() {
         return soulTypeRegistry;
-    }
-
-    /**
-     * Used internally to set the mob soul type registry, don't use this
-     */
-    public static void setMobSoulTypeRegistry(IMobSoulTypeRegistry registry) {
-        if (soulTypeRegistry == null && isMysticalAgriculture()) {
-            soulTypeRegistry = registry;
-        }
-    }
-
-    private static boolean isMysticalAgriculture() {
-        return ModLoadingContext.get().getActiveContainer().getModId().equals(MOD_ID);
     }
 }
