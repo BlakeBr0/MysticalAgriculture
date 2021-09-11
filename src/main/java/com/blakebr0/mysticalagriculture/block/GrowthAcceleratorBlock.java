@@ -18,7 +18,6 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.Material;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
-import net.minecraftforge.common.ToolType;
 
 import java.util.List;
 import java.util.Random;
@@ -28,7 +27,7 @@ public class GrowthAcceleratorBlock extends BaseBlock {
     private final ChatFormatting textColor;
 
     public GrowthAcceleratorBlock(int range, ChatFormatting textColor) {
-        super(Material.STONE, SoundType.STONE, 5.0F, 8.0F, ToolType.PICKAXE);
+        super(Material.STONE, SoundType.STONE, 5.0F, 8.0F, true);
         this.range = range;
         this.textColor = textColor;
     }

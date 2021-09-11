@@ -8,8 +8,11 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.block.model.ItemTransforms;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderer;
+import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
 
 public class TinkeringTableRenderer implements BlockEntityRenderer<TinkeringTableTileEntity> {
+    public TinkeringTableRenderer(BlockEntityRendererProvider.Context context) { }
+
     @Override
     public void render(TinkeringTableTileEntity tile, float v, PoseStack matrix, MultiBufferSource buffer, int i, int i1) {
         var level = tile.getLevel();
@@ -28,7 +31,7 @@ public class TinkeringTableRenderer implements BlockEntityRenderer<TinkeringTabl
             matrix.mulPose(Vector3f.YP.rotationDegrees(90));
             int index = state.getValue(TinkeringTableBlock.FACING).get2DDataValue();
             matrix.mulPose(Vector3f.XN.rotationDegrees(90 * index));
-            Minecraft.getInstance().getItemRenderer().renderStatic(stack, ItemTransforms.TransformType.FIXED, i, i1, matrix, buffer);
+            Minecraft.getInstance().getItemRenderer().renderStatic(stack, ItemTransforms.TransformType.FIXED, i, i1, matrix, buffer, 0);
             matrix.popPose();
         }
     }

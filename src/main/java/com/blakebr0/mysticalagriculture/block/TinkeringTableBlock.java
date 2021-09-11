@@ -26,7 +26,6 @@ import net.minecraft.world.level.material.Material;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import net.minecraftforge.common.ToolType;
 
 public class TinkeringTableBlock extends BaseTileEntityBlock {
     public static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
@@ -43,13 +42,13 @@ public class TinkeringTableBlock extends BaseTileEntityBlock {
             .build();
 
     public TinkeringTableBlock() {
-        super(Material.STONE, SoundType.STONE, 10.0F, 12.0F, ToolType.PICKAXE);
+        super(Material.STONE, SoundType.STONE, 10.0F, 12.0F, true);
         this.registerDefaultState(this.getStateDefinition().any().setValue(FACING, Direction.NORTH));
     }
 
     @Override
     public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
-        return new TinkeringTableTileEntity();
+        return new TinkeringTableTileEntity(pos, state);
     }
 
     @Override

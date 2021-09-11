@@ -4,7 +4,6 @@ import com.blakebr0.cucumber.inventory.BaseItemStackHandler;
 import com.blakebr0.cucumber.inventory.SidedItemStackHandlerWrapper;
 import com.blakebr0.cucumber.tileentity.BaseInventoryTileEntity;
 import com.blakebr0.cucumber.util.Localizable;
-import com.blakebr0.mysticalagriculture.api.crafting.ISoulExtractionRecipe;
 import com.blakebr0.mysticalagriculture.api.crafting.RecipeTypes;
 import com.blakebr0.mysticalagriculture.container.SoulExtractorContainer;
 import com.blakebr0.mysticalagriculture.crafting.recipe.SoulExtractionRecipe;
@@ -75,78 +74,6 @@ public class SoulExtractorTileEntity extends BaseInventoryTileEntity implements 
     }
 
     @Override
-    public void tick() {
-        Level world = this.getLevel();
-        if (world == null || world.isClientSide())
-            return;
-
-        boolean mark = false;
-
-        if (this.energy.getEnergyStored() < this.energy.getMaxEnergyStored()) {
-            var fuel = this.inventory.getStackInSlot(1);
-
-            if (this.fuelLeft <= 0 && !fuel.isEmpty()) {
-                this.fuelItemValue = ForgeHooks.getBurnTime(fuel);
-
-                if (this.fuelItemValue > 0) {
-                    this.fuelLeft = this.fuelItemValue *= FUEL_TICK_MULTIPLIER;
-                    this.inventory.extractItemSuper(1, 1, false);
-
-                    mark = true;
-                }
-            }
-
-            if (this.fuelLeft > 0) {
-                int fuelPerTick = Math.min(Math.min(this.fuelLeft, this.getFuelUsage() * 2), this.energy.getMaxEnergyStored() - this.energy.getEnergyStored());
-
-                this.fuelLeft -= this.energy.receiveEnergy(fuelPerTick, false);
-
-                if (this.fuelLeft <= 0)
-                    this.fuelItemValue = 0;
-
-                mark = true;
-            }
-        }
-
-        if (this.recipe == null || !this.recipe.matches(this.inventory)) {
-            ISoulExtractionRecipe recipe = world.getRecipeManager().getRecipeFor(RecipeTypes.SOUL_EXTRACTION, this.inventory.toIInventory(), world).orElse(null);
-            this.recipe = recipe instanceof SoulExtractionRecipe ? (SoulExtractionRecipe) recipe : null;
-        }
-
-        if (this.recipe != null) {
-            if (this.energy.getEnergyStored() >= this.getFuelUsage()) {
-                this.progress++;
-                this.energy.extractEnergy(this.getFuelUsage(), false);
-
-                if (this.progress >= this.getOperationTime()) {
-                    this.inventory.extractItemSuper(0, 1, false);
-                    this.inventory.setStackInSlot(2, this.recipe.assemble(this.inventory));
-
-                    this.progress = 0;
-                }
-
-                mark = true;
-            }
-        } else {
-            if (this.progress > 0) {
-                this.progress = 0;
-
-                mark = true;
-            }
-        }
-
-        if (this.oldEnergy != this.energy.getEnergyStored()) {
-            this.oldEnergy = this.energy.getEnergyStored();
-
-            mark = true;
-        }
-
-        if (mark) {
-            this.markDirtyAndDispatch();
-        }
-    }
-
-    @Override
     public Component getDisplayName() {
         return Localizable.of("container.mysticalagriculture.soul_extractor").build();
     }
@@ -175,6 +102,73 @@ public class SoulExtractorTileEntity extends BaseInventoryTileEntity implements 
         }
 
         return super.getCapability(cap, side);
+    }
+
+    public static void tick(Level level, BlockPos pos, BlockState state, SoulExtractorTileEntity tile) {
+        var mark = false;
+
+        if (tile.energy.getEnergyStored() < tile.energy.getMaxEnergyStored()) {
+            var fuel = tile.inventory.getStackInSlot(1);
+
+            if (tile.fuelLeft <= 0 && !fuel.isEmpty()) {
+                tile.fuelItemValue = ForgeHooks.getBurnTime(fuel, null);
+
+                if (tile.fuelItemValue > 0) {
+                    tile.fuelLeft = tile.fuelItemValue *= FUEL_TICK_MULTIPLIER;
+                    tile.inventory.extractItemSuper(1, 1, false);
+
+                    mark = true;
+                }
+            }
+
+            if (tile.fuelLeft > 0) {
+                var fuelPerTick = Math.min(Math.min(tile.fuelLeft, tile.getFuelUsage() * 2), tile.energy.getMaxEnergyStored() - tile.energy.getEnergyStored());
+
+                tile.fuelLeft -= tile.energy.receiveEnergy(fuelPerTick, false);
+
+                if (tile.fuelLeft <= 0)
+                    tile.fuelItemValue = 0;
+
+                mark = true;
+            }
+        }
+
+        if (tile.recipe == null || !tile.recipe.matches(tile.inventory)) {
+            var recipe = level.getRecipeManager().getRecipeFor(RecipeTypes.SOUL_EXTRACTION, tile.inventory.toIInventory(), level).orElse(null);
+            tile.recipe = recipe instanceof SoulExtractionRecipe ? (SoulExtractionRecipe) recipe : null;
+        }
+
+        if (tile.recipe != null) {
+            if (tile.energy.getEnergyStored() >= tile.getFuelUsage()) {
+                tile.progress++;
+                tile.energy.extractEnergy(tile.getFuelUsage(), false);
+
+                if (tile.progress >= tile.getOperationTime()) {
+                    tile.inventory.extractItemSuper(0, 1, false);
+                    tile.inventory.setStackInSlot(2, tile.recipe.assemble(tile.inventory));
+
+                    tile.progress = 0;
+                }
+
+                mark = true;
+            }
+        } else {
+            if (tile.progress > 0) {
+                tile.progress = 0;
+
+                mark = true;
+            }
+        }
+
+        if (tile.oldEnergy != tile.energy.getEnergyStored()) {
+            tile.oldEnergy = tile.energy.getEnergyStored();
+
+            mark = true;
+        }
+
+        if (mark) {
+            tile.markDirtyAndDispatch();
+        }
     }
 
     public EnergyStorage getEnergy() {

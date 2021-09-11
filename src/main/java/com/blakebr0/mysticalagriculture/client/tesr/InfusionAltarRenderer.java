@@ -8,15 +8,13 @@ import com.mojang.math.Vector3f;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.block.model.ItemTransforms;
-import net.minecraft.client.renderer.blockentity.BlockEntityRenderDispatcher;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderer;
+import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
 import net.minecraft.world.item.BlockItem;
 import net.minecraftforge.client.model.data.EmptyModelData;
 
 public class InfusionAltarRenderer implements BlockEntityRenderer<InfusionAltarTileEntity> {
-    public InfusionAltarRenderer(BlockEntityRenderDispatcher dispatcher) {
-        super(dispatcher);
-    }
+    public InfusionAltarRenderer(BlockEntityRendererProvider.Context context) { }
 
     @Override
     public void render(InfusionAltarTileEntity tile, float v, PoseStack matrix, MultiBufferSource buffer, int i, int i1) {
@@ -32,7 +30,7 @@ public class InfusionAltarRenderer implements BlockEntityRenderer<InfusionAltarT
             double tick = System.currentTimeMillis() / 800.0D;
             matrix.translate(0.0D, Math.sin(tick % (2 * Math.PI)) * 0.065D, 0.0D);
             matrix.mulPose(Vector3f.YP.rotationDegrees((float) ((tick * 40.0D) % 360)));
-            minecraft.getItemRenderer().renderStatic(stack, ItemTransforms.TransformType.GROUND, i, i1, matrix, buffer);
+            minecraft.getItemRenderer().renderStatic(stack, ItemTransforms.TransformType.GROUND, i, i1, matrix, buffer, 0);
             matrix.popPose();
         }
 

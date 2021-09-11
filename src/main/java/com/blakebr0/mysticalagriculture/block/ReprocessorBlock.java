@@ -27,6 +27,8 @@ import net.minecraft.world.level.block.Mirror;
 import net.minecraft.world.level.block.Rotation;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.entity.BlockEntityTicker;
+import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.DirectionProperty;
@@ -34,7 +36,6 @@ import net.minecraft.world.level.material.Material;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
-import net.minecraftforge.common.ToolType;
 import net.minecraftforge.fmllegacy.network.NetworkHooks;
 
 import java.text.NumberFormat;
@@ -45,14 +46,14 @@ public class ReprocessorBlock extends BaseTileEntityBlock {
     private final ReprocessorTier tier;
 
     public ReprocessorBlock(ReprocessorTier tier) {
-        super(Material.METAL, SoundType.METAL, 3.5F, 3.5F, ToolType.PICKAXE);
+        super(Material.METAL, SoundType.METAL, 3.5F, 3.5F, true);
         this.registerDefaultState(this.getStateDefinition().any().setValue(FACING, Direction.NORTH));
         this.tier = tier;
     }
 
     @Override
     public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
-        return this.tier.getNewTileEntity();
+        return this.tier.createTileEntity(pos, state);
     }
 
     @Override
@@ -111,6 +112,11 @@ public class ReprocessorBlock extends BaseTileEntityBlock {
         } else {
             tooltip.add(Tooltips.HOLD_SHIFT_FOR_INFO.build());
         }
+    }
+
+    @Override
+    protected <T extends BlockEntity> BlockEntityTicker<T> getServerTicker(Level level, BlockState state, BlockEntityType<T> type) {
+        return createTicker(type, this.tier.getTileEntityType(), ReprocessorTileEntity::tick);
     }
 
     private Component getStatText(Object stat) {

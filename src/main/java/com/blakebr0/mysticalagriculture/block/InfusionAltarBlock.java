@@ -3,6 +3,7 @@ package com.blakebr0.mysticalagriculture.block;
 import com.blakebr0.cucumber.block.BaseTileEntityBlock;
 import com.blakebr0.cucumber.helper.StackHelper;
 import com.blakebr0.cucumber.util.VoxelShapeBuilder;
+import com.blakebr0.mysticalagriculture.init.ModTileEntities;
 import com.blakebr0.mysticalagriculture.lib.ModTooltips;
 import com.blakebr0.mysticalagriculture.tileentity.InfusionAltarTileEntity;
 import net.minecraft.core.BlockPos;
@@ -20,6 +21,8 @@ import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.entity.BlockEntityTicker;
+import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.Material;
 import net.minecraft.world.phys.BlockHitResult;
@@ -27,7 +30,6 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
-import net.minecraftforge.common.ToolType;
 
 import java.util.List;
 
@@ -46,12 +48,12 @@ public class InfusionAltarBlock extends BaseTileEntityBlock {
             .cuboid(11, 10, 11, 5, 8, 5).build();
 
     public InfusionAltarBlock() {
-        super(Material.STONE, SoundType.STONE, 10.0F, 12.0F, ToolType.PICKAXE);
+        super(Material.STONE, SoundType.STONE, 10.0F, 12.0F, true);
     }
 
     @Override
     public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
-        return new InfusionAltarTileEntity();
+        return new InfusionAltarTileEntity(pos, state);
     }
 
     @Override
@@ -111,5 +113,10 @@ public class InfusionAltarBlock extends BaseTileEntityBlock {
     @Override
     public void appendHoverText(ItemStack stack, BlockGetter world, List<Component> tooltip, TooltipFlag flag) {
         tooltip.add(ModTooltips.ACTIVATE_WITH_REDSTONE.build());
+    }
+
+    @Override
+    protected <T extends BlockEntity> BlockEntityTicker<T> getServerTicker(Level level, BlockState state, BlockEntityType<T> type) {
+        return createTicker(type, ModTileEntities.INFUSION_ALTAR.get(), InfusionAltarTileEntity::tick);
     }
 }

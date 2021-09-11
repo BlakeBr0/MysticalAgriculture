@@ -22,7 +22,6 @@ import net.minecraft.world.level.material.Material;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import net.minecraftforge.common.ToolType;
 
 public class InfusionPedestalBlock extends BaseTileEntityBlock {
     public static final VoxelShape PEDESTAL_SHAPE = new VoxelShapeBuilder()
@@ -33,12 +32,12 @@ public class InfusionPedestalBlock extends BaseTileEntityBlock {
             .cuboid(3.0, 14.0, 5.0, 5.0, 16.0, 11.0).cuboid(11.0, 14.0, 5.0, 13.0, 16.0, 11.0).build();
 
     public InfusionPedestalBlock() {
-        super(Material.STONE, SoundType.STONE, 10.0F, 12.0F, ToolType.PICKAXE);
+        super(Material.STONE, SoundType.STONE, 10.0F, 12.0F, true);
     }
 
     @Override
     public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
-        return new InfusionPedestalTileEntity();
+        return new InfusionPedestalTileEntity(pos, state);
     }
 
     @Override

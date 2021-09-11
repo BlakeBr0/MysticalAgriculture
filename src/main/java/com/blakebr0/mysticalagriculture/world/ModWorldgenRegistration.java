@@ -13,8 +13,6 @@ import net.minecraft.world.level.levelgen.feature.configurations.OreConfiguratio
 import net.minecraftforge.event.world.BiomeLoadingEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 
-import java.util.List;
-
 public final class ModWorldgenRegistration {
     private static ConfiguredFeature<?, ?> configuredSoulstoneFeature;
     private static ConfiguredFeature<?, ?> configuredProsperityOreFeature;
@@ -30,21 +28,19 @@ public final class ModWorldgenRegistration {
             return;
 
         switch (category) {
-            case NETHER:
+            case NETHER -> {
                 if (ModConfigs.GENERATE_SOULSTONE.get()) {
-                    List<String> whitelist = ModConfigs.SOULSTONE_BIOME_WHITELIST.get();
+                    var whitelist = ModConfigs.SOULSTONE_BIOME_WHITELIST.get();
 
                     if (whitelist.isEmpty() || whitelist.contains(name.toString())) {
                         generation.addFeature(GenerationStep.Decoration.RAW_GENERATION, configuredSoulstoneFeature);
                     }
                 }
-
-                break;
-            case THEEND:
-                break;
-            default:
+            }
+            case THEEND -> { }
+            default -> {
                 if (ModConfigs.GENERATE_PROSPERITY.get()) {
-                    List<String> whitelist = ModConfigs.PROSPERITY_BIOME_WHITELIST.get();
+                    var whitelist = ModConfigs.PROSPERITY_BIOME_WHITELIST.get();
 
                     if (whitelist.isEmpty() || whitelist.contains(name.toString())) {
                         generation.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, configuredProsperityOreFeature);
@@ -52,14 +48,13 @@ public final class ModWorldgenRegistration {
                 }
 
                 if (ModConfigs.GENERATE_INFERIUM.get()) {
-                    List<String> whitelist = ModConfigs.INFERIUM_BIOME_WHITELIST.get();
+                    var whitelist = ModConfigs.INFERIUM_BIOME_WHITELIST.get();
 
                     if (whitelist.isEmpty() || whitelist.contains(name.toString())) {
                         generation.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, configuredInferiumOreFeature);
                     }
                 }
-
-                break;
+            }
         }
     }
 

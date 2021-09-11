@@ -57,7 +57,8 @@ public final class MysticalAgriculture {
 		bus.register(new ModTileEntities());
 		bus.register(new ModContainerTypes());
 		bus.register(new ModDataGenerators());
-		bus.register(new ModWorldFeatures());
+
+		ModWorldFeatures.REGISTRY.register(bus);
 
 		DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> () -> {
 			bus.register(new ColorHandler());

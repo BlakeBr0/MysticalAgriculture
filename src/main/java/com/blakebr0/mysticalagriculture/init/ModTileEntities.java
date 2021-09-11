@@ -10,25 +10,20 @@ import com.blakebr0.mysticalagriculture.tileentity.InfusionPedestalTileEntity;
 import com.blakebr0.mysticalagriculture.tileentity.ReprocessorTileEntity;
 import com.blakebr0.mysticalagriculture.tileentity.SoulExtractorTileEntity;
 import com.blakebr0.mysticalagriculture.tileentity.TinkeringTableTileEntity;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.client.renderer.blockentity.BlockEntityRenderers;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
-import net.minecraftforge.event.RegistryEvent;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fmlclient.registry.ClientRegistry;
 import net.minecraftforge.fmllegacy.RegistryObject;
+import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
-import net.minecraftforge.registries.IForgeRegistry;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.function.Supplier;
 
 public final class ModTileEntities {
-    private static final List<Supplier<BlockEntityType<?>>> ENTRIES = new ArrayList<>();
+    public static final DeferredRegister<BlockEntityType<?>> REGISTRY = DeferredRegister.create(ForgeRegistries.BLOCK_ENTITIES, MysticalAgriculture.MOD_ID);
 
     public static final RegistryObject<BlockEntityType<EssenceFurnaceTileEntity.Inferium>> INFERIUM_FURNACE = register("inferium_furnace", EssenceFurnaceTileEntity.Inferium::new, () -> new Block[] { ModBlocks.INFERIUM_FURNACE.get() });
     public static final RegistryObject<BlockEntityType<EssenceFurnaceTileEntity.Prudentium>> PRUDENTIUM_FURNACE = register("prudentium_furnace", EssenceFurnaceTileEntity.Prudentium::new, () -> new Block[] { ModBlocks.PRUDENTIUM_FURNACE.get() });
@@ -46,23 +41,14 @@ public final class ModTileEntities {
     public static final RegistryObject<BlockEntityType<ReprocessorTileEntity.Supremium>> SUPREMIUM_REPROCESSOR = register("supremium_reprocessor", ReprocessorTileEntity.Supremium::new, () -> new Block[] { ModBlocks.SUPREMIUM_REPROCESSOR.get() });
     public static final RegistryObject<BlockEntityType<SoulExtractorTileEntity>> SOUL_EXTRACTOR = register("soul_extractor", SoulExtractorTileEntity::new, () -> new Block[] { ModBlocks.SOUL_EXTRACTOR.get() });
 
-    @SubscribeEvent
-    public void onRegisterTypes(RegistryEvent.Register<BlockEntityType<?>> event) {
-        IForgeRegistry<BlockEntityType<?>> registry = event.getRegistry();
-
-        ENTRIES.stream().map(Supplier::get).forEach(registry::register);
-    }
-
     @OnlyIn(Dist.CLIENT)
     public static void onClientSetup() {
-        ClientRegistry.bindTileEntityRenderer(INFUSION_PEDESTAL.get(), InfusionPedestalRenderer::new);
-        ClientRegistry.bindTileEntityRenderer(INFUSION_ALTAR.get(), InfusionAltarRenderer::new);
-        ClientRegistry.bindTileEntityRenderer(TINKERING_TABLE.get(), TinkeringTableRenderer::new);
+        BlockEntityRenderers.register(INFUSION_PEDESTAL.get(), InfusionPedestalRenderer::new);
+        BlockEntityRenderers.register(INFUSION_ALTAR.get(), InfusionAltarRenderer::new);
+        BlockEntityRenderers.register(TINKERING_TABLE.get(), TinkeringTableRenderer::new);
     }
 
-    private static <T extends BlockEntityType<?>> RegistryObject<T> register(String name, Supplier<BlockEntity> tile, Supplier<Block[]> blocks) {
-        ResourceLocation loc = new ResourceLocation(MysticalAgriculture.MOD_ID, name);
-        ENTRIES.add(() -> BlockEntityType.Builder.of(tile, blocks.get()).build(null).setRegistryName(loc));
-        return RegistryObject.of(loc, ForgeRegistries.TILE_ENTITIES);
+    private static <T extends BlockEntity> RegistryObject<BlockEntityType<T>> register(String name, BlockEntityType.BlockEntitySupplier<T> tile, Supplier<Block[]> blocks) {
+        return REGISTRY.register(name, () -> BlockEntityType.Builder.of(tile, blocks.get()).build(null));
     }
 }

@@ -13,6 +13,7 @@ import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.AABB;
 
@@ -57,65 +58,64 @@ public class InfusionAltarTileEntity extends BaseInventoryTileEntity {
     }
 
     @Override
-    public void tick() {
-        var world = this.getLevel();
-        if (world != null && !world.isClientSide()) {
-            ItemStack input = this.inventory.getStackInSlot(0);
-            if (input.isEmpty()) {
-                this.reset();
-                return;
-            }
-
-            if (this.isActive()) {
-                List<InfusionPedestalTileEntity> pedestals = this.getPedestals();
-                this.updateRecipeInventory(pedestals);
-
-                if (this.recipe == null || !this.recipe.matches(this.recipeInventory)) {
-                    this.recipe = (InfusionRecipe) world.getRecipeManager().getRecipeFor(RecipeTypes.INFUSION, this.recipeInventory.toIInventory(), world).orElse(null);
-                }
-
-                if (this.recipe != null) {
-                    this.progress++;
-
-                    if (this.progress >= 100) {
-                        var remaining = this.recipe.getRemainingItems(this.recipeInventory);
-
-                        for (int i = 0; i < pedestals.size(); i++) {
-                            var pedestal = pedestals.get(i);
-                            pedestal.getInventory().setStackInSlot(0, remaining.get(i + 1));
-                            this.spawnParticles(ParticleTypes.SMOKE, pedestal.getBlockPos(), 1.2D, 20);
-                        }
-
-                        var result = this.recipe.assemble(this.recipeInventory);
-
-                        this.setOutput(result);
-                        this.reset();
-                        this.markDirtyAndDispatch();
-                        this.spawnParticles(ParticleTypes.HAPPY_VILLAGER, this.getBlockPos(), 1.0D, 10);
-                    } else {
-                        pedestals.forEach(pedestal -> {
-                            var pos = pedestal.getBlockPos();
-                            var stack = pedestal.getInventory().getStackInSlot(0);
-
-                            this.spawnItemParticles(pos, stack);
-                        });
-                    }
-                } else {
-                    this.reset();
-                }
-            } else {
-                this.progress = 0;
-            }
-        }
-    }
-
-    @Override
     public AABB getRenderBoundingBox() {
         return INFINITE_EXTENT_AABB;
     }
 
     public List<BlockPos> getPedestalPositions() {
         return this.pedestalLocations.get(this.getBlockPos());
+    }
+
+    public static void tick(Level level, BlockPos pos, BlockState state, InfusionAltarTileEntity tile) {
+        var input = tile.inventory.getStackInSlot(0);
+
+        if (input.isEmpty()) {
+            tile.reset();
+            return;
+        }
+
+        if (tile.isActive()) {
+            var pedestals = tile.getPedestals();
+
+            tile.updateRecipeInventory(pedestals);
+
+            if (tile.recipe == null || !tile.recipe.matches(tile.recipeInventory)) {
+                var recipe = level.getRecipeManager().getRecipeFor(RecipeTypes.INFUSION, tile.recipeInventory.toIInventory(), level).orElse(null);
+                tile.recipe = recipe instanceof InfusionRecipe ? (InfusionRecipe) recipe : null;
+            }
+
+            if (tile.recipe != null) {
+                tile.progress++;
+
+                if (tile.progress >= 100) {
+                    var remaining = tile.recipe.getRemainingItems(tile.recipeInventory);
+
+                    for (var i = 0; i < pedestals.size(); i++) {
+                        var pedestal = pedestals.get(i);
+                        pedestal.getInventory().setStackInSlot(0, remaining.get(i + 1));
+                        tile.spawnParticles(ParticleTypes.SMOKE, pedestal.getBlockPos(), 1.2D, 20);
+                    }
+
+                    var result = tile.recipe.assemble(tile.recipeInventory);
+
+                    tile.setOutput(result);
+                    tile.reset();
+                    tile.markDirtyAndDispatch();
+                    tile.spawnParticles(ParticleTypes.HAPPY_VILLAGER, pos, 1.0D, 10);
+                } else {
+                    pedestals.forEach(pedestal -> {
+                        var pedestalPos = pedestal.getBlockPos();
+                        var stack = pedestal.getInventory().getStackInSlot(0);
+
+                        tile.spawnItemParticles(pedestalPos, stack);
+                    });
+                }
+            } else {
+                tile.reset();
+            }
+        } else {
+            tile.progress = 0;
+        }
     }
 
     public boolean isActive() {

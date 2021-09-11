@@ -5,7 +5,6 @@ import com.blakebr0.cucumber.inventory.BaseItemStackHandler;
 import com.blakebr0.cucumber.inventory.SidedItemStackHandlerWrapper;
 import com.blakebr0.cucumber.tileentity.BaseInventoryTileEntity;
 import com.blakebr0.cucumber.util.Localizable;
-import com.blakebr0.mysticalagriculture.api.crafting.IReprocessorRecipe;
 import com.blakebr0.mysticalagriculture.api.crafting.RecipeTypes;
 import com.blakebr0.mysticalagriculture.container.ReprocessorContainer;
 import com.blakebr0.mysticalagriculture.crafting.recipe.ReprocessorRecipe;
@@ -81,87 +80,6 @@ public abstract class ReprocessorTileEntity extends BaseInventoryTileEntity impl
         return tag;
     }
 
-    public void tick() {
-        Level world = this.getLevel();
-        if (world == null || world.isClientSide())
-            return;
-
-        boolean mark = false;
-
-        if (this.energy.getEnergyStored() < this.energy.getMaxEnergyStored()) {
-            var fuel = this.inventory.getStackInSlot(1);
-
-            if (this.fuelLeft <= 0 && !fuel.isEmpty()) {
-                this.fuelItemValue = ForgeHooks.getBurnTime(fuel);
-
-                if (this.fuelItemValue > 0) {
-                    this.fuelLeft = this.fuelItemValue *= FUEL_TICK_MULTIPLIER;
-                    this.inventory.extractItemSuper(1, 1, false);
-
-                    mark = true;
-                }
-            }
-
-            if (this.fuelLeft > 0) {
-                int fuelPerTick = Math.min(Math.min(this.fuelLeft, this.tier.getFuelUsage() * 2), this.energy.getMaxEnergyStored() - this.energy.getEnergyStored());
-
-                this.fuelLeft -= this.energy.receiveEnergy(fuelPerTick, false);
-
-                if (this.fuelLeft <= 0)
-                    this.fuelItemValue = 0;
-
-                mark = true;
-            }
-        }
-
-        if (this.energy.getEnergyStored() >= this.tier.getFuelUsage()) {
-            ItemStack input = this.inventory.getStackInSlot(0);
-            ItemStack output = this.inventory.getStackInSlot(2);
-
-            if (!input.isEmpty()) {
-                if (this.recipe == null || !this.recipe.matches(this.inventory)) {
-                    IReprocessorRecipe recipe = world.getRecipeManager().getRecipeFor(RecipeTypes.REPROCESSOR, this.inventory.toIInventory(), world).orElse(null);
-                    this.recipe = recipe instanceof ReprocessorRecipe ? (ReprocessorRecipe) recipe : null;
-                }
-
-                if (this.recipe != null) {
-                    var recipeOutput = this.recipe.assemble(this.inventory);
-                    if (!recipeOutput.isEmpty() && (output.isEmpty() || StackHelper.canCombineStacks(output, recipeOutput))) {
-                        this.progress++;
-                        this.energy.extractEnergy(this.tier.getFuelUsage(), false);
-
-                        if (this.progress >= this.tier.getOperationTime()) {
-                            this.inventory.extractItemSuper(0, 1, false);
-
-                            var result = StackHelper.combineStacks(output, recipeOutput);
-                            this.inventory.setStackInSlot(2, result);
-
-                            this.progress = 0;
-                        }
-
-                        mark = true;
-                    }
-                }
-            } else {
-                if (this.progress > 0) {
-                    this.progress = 0;
-                    this.recipe = null;
-                    mark = true;
-                }
-            }
-        }
-
-        if (this.oldEnergy != this.energy.getEnergyStored()) {
-            this.oldEnergy = this.energy.getEnergyStored();
-
-            mark = true;
-        }
-
-        if (mark) {
-            this.markDirtyAndDispatch();
-        }
-    }
-
     @Override
     public Component getDisplayName() {
         return Localizable.of("container.mysticalagriculture.reprocessor").build();
@@ -191,6 +109,83 @@ public abstract class ReprocessorTileEntity extends BaseInventoryTileEntity impl
         }
 
         return super.getCapability(cap, side);
+    }
+
+    public static void tick(Level level, BlockPos pos, BlockState state, ReprocessorTileEntity tile) {
+        var mark = false;
+
+        if (tile.energy.getEnergyStored() < tile.energy.getMaxEnergyStored()) {
+            var fuel = tile.inventory.getStackInSlot(1);
+
+            if (tile.fuelLeft <= 0 && !fuel.isEmpty()) {
+                tile.fuelItemValue = ForgeHooks.getBurnTime(fuel, null);
+
+                if (tile.fuelItemValue > 0) {
+                    tile.fuelLeft = tile.fuelItemValue *= FUEL_TICK_MULTIPLIER;
+                    tile.inventory.extractItemSuper(1, 1, false);
+
+                    mark = true;
+                }
+            }
+
+            if (tile.fuelLeft > 0) {
+                var fuelPerTick = Math.min(Math.min(tile.fuelLeft, tile.tier.getFuelUsage() * 2), tile.energy.getMaxEnergyStored() - tile.energy.getEnergyStored());
+
+                tile.fuelLeft -= tile.energy.receiveEnergy(fuelPerTick, false);
+
+                if (tile.fuelLeft <= 0)
+                    tile.fuelItemValue = 0;
+
+                mark = true;
+            }
+        }
+
+        if (tile.energy.getEnergyStored() >= tile.tier.getFuelUsage()) {
+            var input = tile.inventory.getStackInSlot(0);
+            var output = tile.inventory.getStackInSlot(2);
+
+            if (!input.isEmpty()) {
+                if (tile.recipe == null || !tile.recipe.matches(tile.inventory)) {
+                    var recipe = level.getRecipeManager().getRecipeFor(RecipeTypes.REPROCESSOR, tile.inventory.toIInventory(), level).orElse(null);
+                    tile.recipe = recipe instanceof ReprocessorRecipe ? (ReprocessorRecipe) recipe : null;
+                }
+
+                if (tile.recipe != null) {
+                    var recipeOutput = tile.recipe.assemble(tile.inventory);
+                    if (!recipeOutput.isEmpty() && (output.isEmpty() || StackHelper.canCombineStacks(output, recipeOutput))) {
+                        tile.progress++;
+                        tile.energy.extractEnergy(tile.tier.getFuelUsage(), false);
+
+                        if (tile.progress >= tile.tier.getOperationTime()) {
+                            tile.inventory.extractItemSuper(0, 1, false);
+
+                            var result = StackHelper.combineStacks(output, recipeOutput);
+                            tile.inventory.setStackInSlot(2, result);
+
+                            tile.progress = 0;
+                        }
+
+                        mark = true;
+                    }
+                }
+            } else {
+                if (tile.progress > 0) {
+                    tile.progress = 0;
+                    tile.recipe = null;
+                    mark = true;
+                }
+            }
+        }
+
+        if (tile.oldEnergy != tile.energy.getEnergyStored()) {
+            tile.oldEnergy = tile.energy.getEnergyStored();
+
+            mark = true;
+        }
+
+        if (mark) {
+            tile.markDirtyAndDispatch();
+        }
     }
 
     public ReprocessorTier getTier() {
