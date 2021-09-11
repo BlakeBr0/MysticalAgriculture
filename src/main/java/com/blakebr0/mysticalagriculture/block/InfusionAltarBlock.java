@@ -35,17 +35,17 @@ import java.util.List;
 
 public class InfusionAltarBlock extends BaseTileEntityBlock {
     public static final VoxelShape ALTAR_SHAPE = new VoxelShapeBuilder()
-            .cuboid(16, 8, 16, 0, 0, 0).cuboid(13, 14, 13, 3, 13, 3)
-            .cuboid(10, 11, 10, 6, 10, 6).cuboid(11, 13, 11, 5, 11, 5)
-            .cuboid(3, 14.5, 12, 2, 13.5, 4).cuboid(14, 14.5, 12, 13, 13.5, 4)
-            .cuboid(12, 14.5, 3, 4, 13.5, 2).cuboid(12, 14.5, 14, 4, 13.5, 13)
-            .cuboid(4, 10, 12, 0.5, 8, 4).cuboid(14, 10, 4, 2, 8, 0.5)
-            .cuboid(15.5, 10, 12, 12, 8, 4).cuboid(14, 10, 15.5, 2, 8, 12)
-            .cuboid(15.5, 10, 4, 14, 8, 2).cuboid(15.5, 10, 14, 14, 8, 12)
-            .cuboid(2, 10, 14, 0.5, 8, 12).cuboid(2, 10, 4, 0.5, 8, 2)
-            .cuboid(2, 9, 15.75, 0.25, 8, 14).cuboid(15.75, 9, 15.75, 14, 8, 14)
-            .cuboid(15.75, 9, 2, 14, 8, 0.25).cuboid(2, 9, 2, 0.25, 8, 0.25)
-            .cuboid(11, 10, 11, 5, 8, 5).build();
+            .cuboid(0, 0, 0, 16, 8, 16).cuboid(3, 13, 3, 13, 14, 13)
+            .cuboid(6, 10, 6, 10, 11, 10).cuboid(5, 11, 5, 11, 13, 11)
+            .cuboid(2, 13.5, 4, 3, 14.5, 12).cuboid(13, 13.5, 4, 14, 14.5, 12)
+            .cuboid(4, 13.5, 2, 12, 14.5, 3).cuboid(4, 13.5, 13, 12, 14.5, 14)
+            .cuboid(0.5, 8, 4, 4, 10, 12).cuboid(2, 8, 0.5, 14, 10, 4)
+            .cuboid(12, 8, 4, 15.5, 10, 12).cuboid(2, 8, 12, 14, 10, 15.5)
+            .cuboid(14, 8, 2, 15.5, 10, 4).cuboid(14, 8, 12, 15.5, 10, 14)
+            .cuboid(0.5, 8, 12, 2, 10, 14).cuboid(0.5, 8, 2, 2, 10, 4)
+            .cuboid(0.25, 8, 14, 2, 9, 15.75).cuboid(14, 8, 14, 15.75, 9, 15.75)
+            .cuboid(14, 8, 0.25, 15.75, 9, 2).cuboid(0.25, 8, 0.25, 2, 9, 2)
+            .cuboid(5, 8, 5, 11, 10, 11).build();
 
     public InfusionAltarBlock() {
         super(Material.STONE, SoundType.STONE, 10.0F, 12.0F, true);
