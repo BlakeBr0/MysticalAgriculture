@@ -6,9 +6,4 @@ import net.minecraft.world.item.crafting.Recipe;
 /**
  * Used to represent an Infusion recipe for the recipe type
  */
-@SuppressWarnings("unchecked")
-public interface IInfusionRecipe extends Recipe<Container> {
-    default <T extends IInfusionRecipe> T cast() {
-        return (T) this;
-    }
-}
+public interface IInfusionRecipe extends Recipe<Container> { }
