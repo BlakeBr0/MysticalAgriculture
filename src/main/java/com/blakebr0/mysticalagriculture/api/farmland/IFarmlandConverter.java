@@ -12,17 +12,17 @@ import net.minecraft.world.level.block.FarmBlock;
 /**
  * Implement this on items that are used to convert vanilla farmland to essence farmland
  *
- * Make sure to invoke {@link IFarmlandConverter#convert} in your item's {@link Item#onItemUse(ItemUseContext)}
+ * Make sure to invoke {@link IFarmlandConverter#convert} in your item's {@link Item#useOn(UseOnContext)}
  */
 public interface IFarmlandConverter {
     /**
      * Gets the farmland block that this converter should convert farmland to
      * @return the converted farmland block
      */
-    FarmBlock getConvertedFarmland();
+    Block getConvertedFarmland();
 
     /**
-     * Call this using {@link Item#onItemUse(ItemUseContext)} to allow default farmland conversion mechanics
+     * Call this using {@link Item#useOn(UseOnContext)} to allow default farmland conversion mechanics
      */
     default InteractionResult convert(UseOnContext context) {
         var pos = context.getClickedPos();

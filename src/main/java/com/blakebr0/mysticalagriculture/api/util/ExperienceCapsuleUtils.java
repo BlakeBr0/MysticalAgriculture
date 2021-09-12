@@ -1,16 +1,11 @@
 package com.blakebr0.mysticalagriculture.api.util;
 
-import com.blakebr0.mysticalagriculture.api.MysticalAgricultureAPI;
 import net.minecraft.nbt.CompoundTag;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-import net.minecraftforge.fmllegacy.RegistryObject;
-import net.minecraftforge.registries.ForgeRegistries;
 
 public class ExperienceCapsuleUtils {
-    private static final RegistryObject<Item> EXPERIENCE_CAPSULE = RegistryObject.of(new ResourceLocation(MysticalAgricultureAPI.MOD_ID, "experience_capsule"), ForgeRegistries.ITEMS);
-    /**
+   /**
      * The maximum amount of xp points an experience capsule can hold
      */
     public static final int MAX_XP_POINTS = 1200;
@@ -33,10 +28,9 @@ public class ExperienceCapsuleUtils {
      * @param xp the amount of xp points
      * @return the experience capsule
      */
-    // TODO: take the stack in as parameter
-    public static ItemStack getExperienceCapsule(int xp) {
+    public static ItemStack getExperienceCapsule(int xp, Item item) {
         var nbt = makeTag(xp);
-        var stack = new ItemStack(EXPERIENCE_CAPSULE.get());
+        var stack = new ItemStack(item);
 
         stack.setTag(nbt);
         return stack;

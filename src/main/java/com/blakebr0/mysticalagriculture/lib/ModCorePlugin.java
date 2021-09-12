@@ -38,12 +38,12 @@ public final class ModCorePlugin implements IMysticalAgriculturePlugin {
 
     @Override
     public void onPostRegisterCrops(ICropRegistry registry) {
-        CropTier.ELEMENTAL.setFarmland(() -> (FarmBlock) ModBlocks.INFERIUM_FARMLAND.get()).setEssence(ModItems.INFERIUM_ESSENCE);
-        CropTier.ONE.setFarmland(() -> (FarmBlock) ModBlocks.INFERIUM_FARMLAND.get()).setEssence(ModItems.INFERIUM_ESSENCE);
-        CropTier.TWO.setFarmland(() -> (FarmBlock) ModBlocks.PRUDENTIUM_FARMLAND.get()).setEssence(ModItems.PRUDENTIUM_ESSENCE);
-        CropTier.THREE.setFarmland(() -> (FarmBlock) ModBlocks.TERTIUM_FARMLAND.get()).setEssence(ModItems.TERTIUM_ESSENCE);
-        CropTier.FOUR.setFarmland(() -> (FarmBlock) ModBlocks.IMPERIUM_FARMLAND.get()).setEssence(ModItems.IMPERIUM_ESSENCE);
-        CropTier.FIVE.setFarmland(() -> (FarmBlock) ModBlocks.SUPREMIUM_FARMLAND.get()).setEssence(ModItems.SUPREMIUM_ESSENCE);
+        CropTier.ELEMENTAL.setFarmland(ModBlocks.INFERIUM_FARMLAND).setEssence(ModItems.INFERIUM_ESSENCE);
+        CropTier.ONE.setFarmland(ModBlocks.INFERIUM_FARMLAND).setEssence(ModItems.INFERIUM_ESSENCE);
+        CropTier.TWO.setFarmland(ModBlocks.PRUDENTIUM_FARMLAND).setEssence(ModItems.PRUDENTIUM_ESSENCE);
+        CropTier.THREE.setFarmland(ModBlocks.TERTIUM_FARMLAND).setEssence(ModItems.TERTIUM_ESSENCE);
+        CropTier.FOUR.setFarmland(ModBlocks.IMPERIUM_FARMLAND).setEssence(ModItems.IMPERIUM_ESSENCE);
+        CropTier.FIVE.setFarmland(ModBlocks.SUPREMIUM_FARMLAND).setEssence(ModItems.SUPREMIUM_ESSENCE);
 
         CropType.RESOURCE.setCraftingSeed(ModItems.PROSPERITY_SEED_BASE);
         CropType.MOB.setCraftingSeed(ModItems.SOULIUM_SEED_BASE);

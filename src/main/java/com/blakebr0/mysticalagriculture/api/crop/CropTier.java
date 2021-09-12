@@ -6,7 +6,6 @@ import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.FarmBlock;
 
 import java.util.function.Supplier;
 
@@ -24,7 +23,7 @@ public class CropTier {
     private final int value;
     private final int color;
     private final ChatFormatting textColor;
-    private Supplier<? extends FarmBlock> farmland;
+    private Supplier<? extends Block> farmland;
     private Supplier<? extends Item> essence;
     private MutableComponent displayName;
     private boolean fertilizable;
@@ -92,7 +91,7 @@ public class CropTier {
      * Gets the block instance of the effective farmland for this tier
      * @return the farmland for this tier
      */
-    public FarmBlock getFarmland() {
+    public Block getFarmland() {
         return this.farmland == null ? null : this.farmland.get();
     }
 
@@ -101,8 +100,7 @@ public class CropTier {
      * @param farmland the farmland block
      * @return this tier
      */
-    // TODO: 1.17: change to ? extends Block
-    public CropTier setFarmland(Supplier<? extends FarmBlock> farmland) {
+    public CropTier setFarmland(Supplier<? extends Block> farmland) {
         this.farmland = farmland;
         return this;
     }

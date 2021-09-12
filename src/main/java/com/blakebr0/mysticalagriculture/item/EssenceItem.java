@@ -7,6 +7,7 @@ import com.blakebr0.mysticalagriculture.api.farmland.IFarmlandConverter;
 import com.blakebr0.mysticalagriculture.config.ModConfigs;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.item.context.UseOnContext;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.FarmBlock;
 
 import java.util.function.Function;
@@ -28,7 +29,7 @@ public class EssenceItem extends BaseItem implements IFarmlandConverter, ICropTi
     }
 
     @Override
-    public FarmBlock getConvertedFarmland() {
+    public Block getConvertedFarmland() {
         return this.tier.getFarmland();
     }
 
