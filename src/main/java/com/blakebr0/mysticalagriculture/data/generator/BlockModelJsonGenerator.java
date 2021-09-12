@@ -21,9 +21,9 @@ public class BlockModelJsonGenerator extends BlockStateProvider {
 
     @Override
     protected void registerStatesAndModels() {
-        Map<String, ModelFile[]> stemModels = new HashMap<>();
+        var stemModels = new HashMap<ResourceLocation, ModelFile[]>();
 
-        MysticalAgricultureAPI.CROP_TYPES.forEach(type -> {
+        CropRegistry.getInstance().getTypes().forEach(type -> {
             var models = new ModelFile[8];
             var stemModel = type.getStemModel();
 
@@ -31,12 +31,12 @@ public class BlockModelJsonGenerator extends BlockStateProvider {
                 models[i] = new ModelFile.UncheckedModelFile(new ResourceLocation(stemModel.getNamespace(), stemModel.getPath() + "_" + i));
             }
 
-            stemModels.put(type.getName(), models);
+            stemModels.put(type.getId(), models);
         });
 
         CropRegistry.getInstance().getCrops().forEach(crop -> {
             var block = crop.getCropBlock();
-            var models = stemModels.get(crop.getType().getName());
+            var models = stemModels.get(crop.getType().getId());
 
             if (crop.shouldRegisterCropBlock()) {
                 this.getVariantBuilder(block).forAllStates(state -> {

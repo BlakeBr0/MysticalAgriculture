@@ -1,6 +1,5 @@
 package com.blakebr0.mysticalagriculture.api.crop;
 
-import com.blakebr0.mysticalagriculture.api.MysticalAgricultureAPI;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.network.chat.TranslatableComponent;
@@ -45,8 +44,6 @@ public class CropTier {
         this.textColor = textColor;
         this.fertilizable = true;
         this.secondarySeedDrop = true;
-
-        MysticalAgricultureAPI.CROP_TIERS.add(this);
     }
 
     /**
@@ -61,6 +58,13 @@ public class CropTier {
      */
     public String getName() {
         return this.id.getPath();
+    }
+
+    /**
+     * @return the mod id of the mod that created this tier
+     */
+    public String getModId() {
+        return this.id.getNamespace();
     }
 
     /**
@@ -82,13 +86,6 @@ public class CropTier {
      */
     public ChatFormatting getTextColor() {
         return this.textColor;
-    }
-
-    /**
-     * @return the mod id of the mod that created this tier
-     */
-    public String getModId() {
-        return this.id.getNamespace();
     }
 
     /**

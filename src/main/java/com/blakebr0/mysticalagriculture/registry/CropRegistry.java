@@ -2,6 +2,8 @@ package com.blakebr0.mysticalagriculture.registry;
 
 import com.blakebr0.mysticalagriculture.MysticalAgriculture;
 import com.blakebr0.mysticalagriculture.api.crop.Crop;
+import com.blakebr0.mysticalagriculture.api.crop.CropTier;
+import com.blakebr0.mysticalagriculture.api.crop.CropType;
 import com.blakebr0.mysticalagriculture.api.lib.PluginConfig;
 import com.blakebr0.mysticalagriculture.api.registry.ICropRegistry;
 import com.blakebr0.mysticalagriculture.block.MysticalCropBlock;
@@ -25,6 +27,8 @@ public final class CropRegistry implements ICropRegistry {
     private static final CropRegistry INSTANCE = new CropRegistry();
 
     private Map<ResourceLocation, Crop> crops = new LinkedHashMap<>();
+    private Map<ResourceLocation, CropTier> tiers = new LinkedHashMap<>();
+    private Map<ResourceLocation, CropType> types = new LinkedHashMap<>();
     private boolean allowRegistration = false;
     private PluginConfig currentPluginConfig = null;
 
@@ -44,6 +48,24 @@ public final class CropRegistry implements ICropRegistry {
     }
 
     @Override
+    public void registerTier(CropTier tier) {
+        if (!this.tiers.containsKey(tier.getId())) {
+            this.tiers.put(tier.getId(), tier);
+        } else {
+            LOGGER.info("{} tried to register a duplicate crop tier with id {}, skipping", tier.getModId(), tier.getId());
+        }
+    }
+
+    @Override
+    public void registerType(CropType type) {
+        if (!this.types.containsKey(type.getId())) {
+            this.types.put(type.getId(), type);
+        } else {
+            LOGGER.info("{} tried to register a duplicate crop type with id {}, skipping", type.getModId(), type.getId());
+        }
+    }
+
+    @Override
     public List<Crop> getCrops() {
         return List.copyOf(this.crops.values());
     }
@@ -56,6 +78,26 @@ public final class CropRegistry implements ICropRegistry {
     @Override
     public Crop getCropByName(String name) {
         return this.crops.values().stream().filter(c -> name.equals(c.getName())).findFirst().orElse(null);
+    }
+
+    @Override
+    public List<CropTier> getTiers() {
+        return List.copyOf(this.tiers.values());
+    }
+
+    @Override
+    public CropTier getTierById(ResourceLocation id) {
+        return this.tiers.get(id);
+    }
+
+    @Override
+    public List<CropType> getTypes() {
+        return List.copyOf(this.types.values());
+    }
+
+    @Override
+    public CropType getTypeById(ResourceLocation id) {
+        return this.types.get(id);
     }
 
     public static CropRegistry getInstance() {
@@ -93,7 +135,7 @@ public final class CropRegistry implements ICropRegistry {
     }
 
     public void onRegisterItems(IForgeRegistry<Item> registry) {
-        Collection<Crop> crops = this.crops.values();
+        var crops = this.crops.values();
 
         crops.stream().filter(Crop::shouldRegisterEssenceItem).forEach(c -> {
             var essence = c.getEssenceItem();
@@ -138,7 +180,7 @@ public final class CropRegistry implements ICropRegistry {
     }
 
     private Map<ResourceLocation, Crop> getSortedCropsMap(Collection<Crop> crops) {
-        Map<ResourceLocation, Crop> sorted = new LinkedHashMap<>();
+        var sorted = new LinkedHashMap<ResourceLocation, Crop>();
 
         crops.stream().sorted(Comparator.comparingInt(c -> c.getTier().getValue())).forEach(c -> {
             sorted.put(c.getId(), c);

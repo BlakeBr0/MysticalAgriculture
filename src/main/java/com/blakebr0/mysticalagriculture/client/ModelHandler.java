@@ -3,7 +3,6 @@ package com.blakebr0.mysticalagriculture.client;
 import com.blakebr0.cucumber.client.model.RetextureableBlockModelWrapper;
 import com.blakebr0.cucumber.client.model.RetextureableItemModelWrapper;
 import com.blakebr0.mysticalagriculture.MysticalAgriculture;
-import com.blakebr0.mysticalagriculture.api.MysticalAgricultureAPI;
 import com.blakebr0.mysticalagriculture.config.ModConfigs;
 import com.blakebr0.mysticalagriculture.init.ModBlocks;
 import com.blakebr0.mysticalagriculture.init.ModItems;
@@ -34,7 +33,6 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.util.HashMap;
-import java.util.Map;
 import java.util.concurrent.TimeUnit;
 import java.util.function.Function;
 import java.util.stream.IntStream;
@@ -82,18 +80,18 @@ public final class ModelHandler {
             }
         }
 
-        Map<String, BakedModel[]> cropModels = new HashMap<>();
-        Map<String, RetextureableBlockModelWrapper> cropModelsGrown = new HashMap<>();
+        var cropModels = new HashMap<ResourceLocation, BakedModel[]>();
+        var cropModelsGrown = new HashMap<ResourceLocation, RetextureableBlockModelWrapper>();
 
-        MysticalAgricultureAPI.CROP_TYPES.forEach(type -> {
-            cropModels.put(type.getName(), IntStream.range(0, 7)
+        CropRegistry.getInstance().getTypes().forEach(type -> {
+            cropModels.put(type.getId(), IntStream.range(0, 7)
                     .mapToObj(i -> registry.get(new ResourceLocation(type.getStemModel() + "_" + i)))
                     .toArray(BakedModel[]::new));
 
             var model = bakery.getModel(new ResourceLocation(type.getStemModel() + "_7"));
             var modelWrapper = new RetextureableBlockModelWrapper((BlockModel) model);
 
-            cropModelsGrown.put(type.getName(), modelWrapper);
+            cropModelsGrown.put(type.getId(), modelWrapper);
         });
 
         Function<Material, TextureAtlasSprite> getSprite = bakery.getSpriteMap()::getSprite;
@@ -114,7 +112,7 @@ public final class ModelHandler {
                     var bakedModel = registry.get(location);
 
                     if (bakedModel == null || bakedModel.getParticleIcon(EmptyModelData.INSTANCE).getName().equals(MISSING_NO)) {
-                        String type = crop.getType().getName();
+                        var type = crop.getType().getId();
                         registry.replace(location, cropModels.get(type)[i]);
                     }
                 }
@@ -124,7 +122,7 @@ public final class ModelHandler {
 
                 if (bakedModel == null || bakedModel.getParticleIcon(EmptyModelData.INSTANCE).getName().equals(MISSING_NO)) {
                     var texture = crop.getTextures().getFlowerTexture();
-                    var cropRetexturedModel = cropModelsGrown.get(crop.getType().getName()).retexture(ImmutableMap.of("flower", texture.toString()));
+                    var cropRetexturedModel = cropModelsGrown.get(crop.getType().getId()).retexture(ImmutableMap.of("flower", texture.toString()));
                     var cropBakedModel = cropRetexturedModel.bake(bakery, getSprite, BlockModelRotation.X0_Y0, location);
 
                     registry.replace(location, cropBakedModel);

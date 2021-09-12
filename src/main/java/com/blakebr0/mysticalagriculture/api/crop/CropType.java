@@ -7,31 +7,42 @@ import net.minecraft.world.item.Item;
 import java.util.function.Supplier;
 
 public class CropType {
-    public static final CropType RESOURCE = new CropType("resource", new ResourceLocation(MysticalAgricultureAPI.MOD_ID, "block/mystical_resource_crop"));
-    public static final CropType MOB = new CropType("mob", new ResourceLocation(MysticalAgricultureAPI.MOD_ID, "block/mystical_mob_crop"));
+    public static final CropType RESOURCE = new CropType(new ResourceLocation(MysticalAgricultureAPI.MOD_ID, "resource"), new ResourceLocation(MysticalAgricultureAPI.MOD_ID, "block/mystical_resource_crop"));
+    public static final CropType MOB = new CropType(new ResourceLocation(MysticalAgricultureAPI.MOD_ID, "mob"), new ResourceLocation(MysticalAgricultureAPI.MOD_ID, "block/mystical_mob_crop"));
 
-    private final String name;
+    private final ResourceLocation id;
     private final ResourceLocation stemModel;
     private Supplier<? extends Item> craftingSeed;
 
     /**
      * Represents a type of crop, such as resource or mob
-     * @param name the name of this type
+     * @param id the name of this type
      * @param stemModel the stem model for all crops of this type
      */
-    public CropType(String name, ResourceLocation stemModel) {
-        this.name = name;
+    public CropType(ResourceLocation id, ResourceLocation stemModel) {
+        this.id = id;
         this.stemModel = stemModel;
-
-        MysticalAgricultureAPI.CROP_TYPES.add(this);
     }
 
     /**
-     * The name of this crop type, used internally for model differentiation
-     * @return the name of this type
+     * @return the id of this crop tier
+     */
+    public ResourceLocation getId() {
+        return this.id;
+    }
+
+    /**
+     * @return the name of this tier
      */
     public String getName() {
-        return this.name;
+        return this.id.getPath();
+    }
+
+    /**
+     * @return the mod id of the mod that created this tier
+     */
+    public String getModId() {
+        return this.id.getNamespace();
     }
 
     /**

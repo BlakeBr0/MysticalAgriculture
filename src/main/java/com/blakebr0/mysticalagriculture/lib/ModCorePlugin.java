@@ -23,6 +23,16 @@ public final class ModCorePlugin implements IMysticalAgriculturePlugin {
 
     @Override
     public void onRegisterCrops(ICropRegistry registry) {
+        registry.registerTier(CropTier.ELEMENTAL);
+        registry.registerTier(CropTier.ONE);
+        registry.registerTier(CropTier.TWO);
+        registry.registerTier(CropTier.THREE);
+        registry.registerTier(CropTier.FOUR);
+        registry.registerTier(CropTier.FIVE);
+
+        registry.registerType(CropType.RESOURCE);
+        registry.registerType(CropType.MOB);
+
         ModCrops.onRegisterCrops(registry);
     }
 
