@@ -1,6 +1,5 @@
 package com.blakebr0.mysticalagriculture.compat;
 
-import com.blakebr0.cucumber.lib.Colors;
 import com.blakebr0.mysticalagriculture.api.crop.ICropProvider;
 import com.blakebr0.mysticalagriculture.api.farmland.IEssenceFarmland;
 import com.blakebr0.mysticalagriculture.block.EssenceFurnaceBlock;
@@ -20,13 +19,6 @@ public class JadeCompat implements IWailaPlugin {
     @Override
     public void register(IRegistrar registrar) {
         registrar.registerComponentProvider((tooltip, accessor, config) -> {
-            var stack = accessor.getPickedResult();
-            var text = new TextComponent(Colors.WHITE + stack.getHoverName().getString());
-
-            tooltip.add(0, text);
-        }, TooltipPosition.HEAD, MysticalCropBlock.class);
-
-        registrar.registerComponentProvider((tooltip, accessor, config) -> {
             var block = accessor.getBlock();
             var crop = ((ICropProvider) block).getCrop();
 
@@ -37,7 +29,7 @@ public class JadeCompat implements IWailaPlugin {
             var level = accessor.getLevel();
             var belowBlock = level.getBlockState(downPos).getBlock();
 
-            double secondaryChance = crop.getSecondaryChance(belowBlock);
+            var secondaryChance = crop.getSecondaryChance(belowBlock);
             if (secondaryChance > 0) {
                 var chanceText = new TextComponent(String.valueOf((int) (secondaryChance * 100)))
                         .append("%")
