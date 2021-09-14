@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "mysticalagriculture:item/coal_seeds"
+    "layer0": "mysticalagriculture:item/seeds/coal_seeds"
   }
 }

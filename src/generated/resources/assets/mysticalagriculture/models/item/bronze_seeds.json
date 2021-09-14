@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "mysticalagriculture:item/bronze_seeds"
+    "layer0": "mysticalagriculture:item/seeds/bronze_seeds"
   }
 }

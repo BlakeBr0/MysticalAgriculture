@@ -1,6 +1,6 @@
 {
   "parent": "mysticalagriculture:block/mystical_resource_crop_7",
   "textures": {
-    "flower": "mysticalagriculture:block/hop_graphite_flower"
+    "flower": "mysticalagriculture:block/flower/hop_graphite_flower"
   }
 }

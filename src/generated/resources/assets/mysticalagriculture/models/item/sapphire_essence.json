@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "mysticalagriculture:item/sapphire_essence"
+    "layer0": "mysticalagriculture:item/essence/sapphire_essence"
   }
 }

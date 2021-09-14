@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "mysticalagriculture:item/blazing_crystal_seeds"
+    "layer0": "mysticalagriculture:item/seeds/blazing_crystal_seeds"
   }
 }

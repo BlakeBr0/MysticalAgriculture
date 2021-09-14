@@ -1,6 +1,6 @@
 {
   "parent": "mysticalagriculture:block/mystical_resource_crop_7",
   "textures": {
-    "flower": "mysticalagriculture:block/quartz_enriched_iron_flower"
+    "flower": "mysticalagriculture:block/flower/quartz_enriched_iron_flower"
   }
 }

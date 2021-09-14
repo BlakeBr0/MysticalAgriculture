@@ -100,11 +100,11 @@ public class CropTextures {
         var name = id.getPath();
 
         if (this.flowerTexture == null)
-            this.flowerTexture = new ResourceLocation(modid, "block/" + name + "_flower");
+            this.flowerTexture = new ResourceLocation(modid, "block/flower/" + name + "_flower");
         if (this.essenceTexture == null)
-            this.essenceTexture = new ResourceLocation(modid, "item/" + name + "_essence");
+            this.essenceTexture = new ResourceLocation(modid, "item/essence/" + name + "_essence");
         if (this.seedTexture == null)
-            this.seedTexture = new ResourceLocation(modid, "item/" + name + "_seeds");
+            this.seedTexture = new ResourceLocation(modid, "item/seeds/" + name + "_seeds");
 
         return this;
     }

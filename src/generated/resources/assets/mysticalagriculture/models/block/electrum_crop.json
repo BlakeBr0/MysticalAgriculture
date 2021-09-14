@@ -1,6 +1,6 @@
 {
   "parent": "mysticalagriculture:block/mystical_resource_crop_7",
   "textures": {
-    "flower": "mysticalagriculture:block/electrum_flower"
+    "flower": "mysticalagriculture:block/flower/electrum_flower"
   }
 }

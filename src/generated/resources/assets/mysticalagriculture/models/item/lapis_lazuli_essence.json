@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "mysticalagriculture:item/lapis_lazuli_essence"
+    "layer0": "mysticalagriculture:item/essence/lapis_lazuli_essence"
   }
 }

@@ -1,6 +1,0 @@
-{
-  "parent": "mysticalagriculture:block/mystical_resource_crop_7",
-  "textures": {
-    "flower": "mysticalagriculture:block/inferium_flower"
-  }
-}

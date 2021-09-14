@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "mysticalagriculture:item/rock_crystal_essence"
+    "layer0": "mysticalagriculture:item/essence/rock_crystal_essence"
   }
 }

@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "mysticalagriculture:item/blitz_essence"
+    "layer0": "mysticalagriculture:item/essence/blitz_essence"
   }
 }

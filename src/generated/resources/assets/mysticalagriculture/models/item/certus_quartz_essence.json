@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "mysticalagriculture:item/certus_quartz_essence"
+    "layer0": "mysticalagriculture:item/essence/certus_quartz_essence"
   }
 }

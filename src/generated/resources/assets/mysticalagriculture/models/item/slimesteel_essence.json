@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "mysticalagriculture:item/slimesteel_essence"
+    "layer0": "mysticalagriculture:item/essence/slimesteel_essence"
   }
 }

@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "mysticalagriculture:item/uraninite_essence"
+    "layer0": "mysticalagriculture:item/essence/uraninite_essence"
   }
 }

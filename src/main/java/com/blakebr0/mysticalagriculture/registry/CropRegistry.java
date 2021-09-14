@@ -122,7 +122,7 @@ public final class CropRegistry implements ICropRegistry {
             if (crop == null) {
                 var defaultCrop = new MysticalCropBlock(c);
                 crop = defaultCrop;
-                c.setCropBlock(() -> defaultCrop);
+                c.setCropBlock(() -> defaultCrop, true);
             }
 
             if (crop.getRegistryName() == null)
@@ -142,7 +142,7 @@ public final class CropRegistry implements ICropRegistry {
             if (essence == null) {
                 var defaultEssence = new MysticalEssenceItem(c, p -> p.tab(MysticalAgriculture.CREATIVE_TAB));
                 essence = defaultEssence;
-                c.setEssenceItem(() -> defaultEssence);
+                c.setEssenceItem(() -> defaultEssence, true);
             }
 
             if (essence.getRegistryName() == null)
@@ -156,7 +156,7 @@ public final class CropRegistry implements ICropRegistry {
             if (seeds == null) {
                 var defaultSeeds = new MysticalSeedsItem(c, p -> p.tab(MysticalAgriculture.CREATIVE_TAB));
                 seeds = defaultSeeds;
-                c.setSeedsItem(() -> defaultSeeds);
+                c.setSeedsItem(() -> defaultSeeds, true);
             }
 
             if (seeds.getRegistryName() == null)

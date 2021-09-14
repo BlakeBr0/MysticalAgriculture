@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "mysticalagriculture:item/electrum_seeds"
+    "layer0": "mysticalagriculture:item/seeds/electrum_seeds"
   }
 }

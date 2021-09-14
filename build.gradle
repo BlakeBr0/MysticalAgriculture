@@ -74,6 +74,27 @@ minecraft {
                 }
             }
         }
+
+        data {
+            workingDirectory project.file('run')
+
+            property 'forge.logging.markers', 'REGISTRIES'
+            property 'forge.logging.console.level', 'debug'
+
+            ideaModule "${rootProject.name}.${project.name}.main"
+
+            args '--mod', 'mysticalagriculture', '--all', '--output', file('src/generated/resources/'), '--existing', sourceSets.main.resources.srcDirs[0]
+
+            mods {
+                mysticalagriculture {
+                    source sourceSets.main
+                }
+
+                cucumber {
+                    source project(':Cucumber').sourceSets.main
+                }
+            }
+        }
     }
 }
 

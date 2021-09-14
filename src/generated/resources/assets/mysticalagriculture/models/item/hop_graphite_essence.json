@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "mysticalagriculture:item/hop_graphite_essence"
+    "layer0": "mysticalagriculture:item/essence/hop_graphite_essence"
   }
 }

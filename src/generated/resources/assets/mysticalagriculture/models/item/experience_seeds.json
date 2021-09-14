@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "mysticalagriculture:item/experience_seeds"
+    "layer0": "mysticalagriculture:item/seeds/experience_seeds"
   }
 }
