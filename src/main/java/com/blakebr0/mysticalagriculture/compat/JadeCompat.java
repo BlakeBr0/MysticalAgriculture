@@ -2,8 +2,8 @@ package com.blakebr0.mysticalagriculture.compat;
 
 import com.blakebr0.mysticalagriculture.api.crop.ICropProvider;
 import com.blakebr0.mysticalagriculture.api.farmland.IEssenceFarmland;
-import com.blakebr0.mysticalagriculture.block.EssenceFurnaceBlock;
 import com.blakebr0.mysticalagriculture.block.InferiumCropBlock;
+import com.blakebr0.mysticalagriculture.block.InfusedFarmlandBlock;
 import com.blakebr0.mysticalagriculture.block.MysticalCropBlock;
 import com.blakebr0.mysticalagriculture.lib.ModTooltips;
 import mcp.mobius.waila.api.IRegistrar;
@@ -75,6 +75,6 @@ public class JadeCompat implements IWailaPlugin {
             var farmland = (IEssenceFarmland) block;
 
             tooltip.add(ModTooltips.TIER.args(farmland.getTier().getDisplayName()).build());
-        }, TooltipPosition.BODY, EssenceFurnaceBlock.class);
+        }, TooltipPosition.BODY, InfusedFarmlandBlock.class);
     }
 }
