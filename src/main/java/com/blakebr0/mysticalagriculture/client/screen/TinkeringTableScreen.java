@@ -27,12 +27,12 @@ public class TinkeringTableScreen extends BaseContainerScreen<TinkeringTableCont
 
     @Override
     protected void renderBg(PoseStack stack, float partialTicks, int mouseX, int mouseY) {
-//        super.renderBg(stack, partialTicks, mouseX, mouseY);
+        super.renderDefaultBg(stack, partialTicks, mouseX, mouseY);
 
         int x = this.getGuiLeft();
         int y = this.getGuiTop();
 
-        for (Slot slot : this.menu.slots) {
+        for (var slot : this.menu.slots) {
             if (slot.isActive() && slot instanceof IToggleableSlot) {
                 this.blit(stack, x + slot.x, y + slot.y, 8, 115, 16, 16);
             }

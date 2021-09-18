@@ -35,7 +35,7 @@ public class SoulExtractorScreen extends BaseContainerScreen<SoulExtractorContai
 
     @Override
     protected void renderBg(PoseStack stack, float partialTicks, int mouseX, int mouseY) {
-//        super.renderBg(stack, partialTicks, mouseX, mouseY);
+        super.renderDefaultBg(stack, partialTicks, mouseX, mouseY);
 
         int x = this.getGuiLeft();
         int y = this.getGuiTop();
@@ -63,12 +63,12 @@ public class SoulExtractorScreen extends BaseContainerScreen<SoulExtractorContai
         super.renderTooltip(stack, mouseX, mouseY);
 
         if (mouseX > x + 7 && mouseX < x + 20 && mouseY > y + 17 && mouseY < y + 94) {
-            TextComponent text = new TextComponent(number(this.getEnergyStored()) + " / " + number(this.getMaxEnergyStored()) + " FE");
+            var text = new TextComponent(number(this.getEnergyStored()) + " / " + number(this.getMaxEnergyStored()) + " FE");
             this.renderTooltip(stack, text, mouseX, mouseY);
         }
 
         if (mouseX > x + 30 && mouseX < x + 45 && mouseY > y + 39 && mouseY < y + 53) {
-            TextComponent text = new TextComponent(number(this.getFuelLeft()) + " FE");
+            var text = new TextComponent(number(this.getFuelLeft()) + " FE");
             this.renderTooltip(stack, text, mouseX, mouseY);
         }
     }
