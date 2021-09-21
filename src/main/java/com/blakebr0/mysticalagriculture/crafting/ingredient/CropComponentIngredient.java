@@ -12,6 +12,7 @@ import net.minecraft.util.JSONUtils;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.crafting.IIngredientSerializer;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.stream.Stream;
@@ -30,6 +31,14 @@ public class CropComponentIngredient extends Ingredient {
         super(itemList);
         this.crop = crop;
         this.type = type;
+    }
+
+    @Override
+    public boolean test(ItemStack input) {
+        if (input == null)
+            return false;
+
+        return super.test(input) && Arrays.stream(this.getItems()).anyMatch(s -> s.getDamageValue() == input.getDamageValue() && s.areShareTagsEqual(input));
     }
 
     @Override

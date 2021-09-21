@@ -57,6 +57,13 @@ public class LazyIngredient {
         } else if (this.isItem()) {
             Item item = ForgeRegistries.ITEMS.getValue(new ResourceLocation(this.name));
             if (item != null) {
+                if (this.nbt != null && !this.nbt.isEmpty()) {
+                    ItemStack stack = new ItemStack(item);
+                    stack.setTag(this.nbt);
+
+                    return new Ingredient.SingleItemList(stack);
+                }
+
                 return new Ingredient.SingleItemList(new ItemStack(item));
             }
         }
