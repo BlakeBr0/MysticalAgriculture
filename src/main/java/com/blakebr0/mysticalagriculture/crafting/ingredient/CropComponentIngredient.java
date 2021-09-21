@@ -60,8 +60,8 @@ public class CropComponentIngredient extends Ingredient {
     public static class Serializer implements IIngredientSerializer<CropComponentIngredient> {
         @Override
         public CropComponentIngredient parse(FriendlyByteBuf buffer) {
-            Crop crop = CropRegistry.getInstance().getCropById(new ResourceLocation(buffer.readUtf()));
-            ComponentType type = ComponentType.fromName(buffer.readUtf());
+            var crop = CropRegistry.getInstance().getCropById(new ResourceLocation(buffer.readUtf()));
+            var type = ComponentType.fromName(buffer.readUtf());
 
             Stream<Value> itemList = Stream.generate(buffer::readItem)
                     .limit(buffer.readVarInt())
@@ -72,11 +72,11 @@ public class CropComponentIngredient extends Ingredient {
 
         @Override
         public CropComponentIngredient parse(JsonObject json) {
-            String cropId = GsonHelper.getAsString(json, "crop");
-            String typeName = GsonHelper.getAsString(json, "component");
-            Crop crop = CropRegistry.getInstance().getCropById(new ResourceLocation(cropId));
-            ComponentType type = ComponentType.fromName(typeName);
-            Value itemList = switch (type) {
+            var cropId = GsonHelper.getAsString(json, "crop");
+            var typeName = GsonHelper.getAsString(json, "component");
+            var crop = CropRegistry.getInstance().getCropById(new ResourceLocation(cropId));
+            var type = ComponentType.fromName(typeName);
+            var itemList = switch (type) {
                 case ESSENCE -> new ItemValue(new ItemStack(crop.getTier().getEssence()));
                 case SEED -> new ItemValue(new ItemStack(crop.getType().getCraftingSeed()));
                 case MATERIAL -> crop.getLazyIngredient().createValue();
