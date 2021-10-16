@@ -1,8 +1,8 @@
 package com.blakebr0.mysticalagriculture.tileentity;
 
 import com.blakebr0.cucumber.util.Localizable;
-import com.blakebr0.mysticalagriculture.block.EssenceFurnaceBlock;
 import com.blakebr0.mysticalagriculture.init.ModTileEntities;
+import com.blakebr0.mysticalagriculture.util.FurnaceTier;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.container.Container;
 import net.minecraft.inventory.container.FurnaceContainer;
@@ -37,7 +37,7 @@ public abstract class EssenceFurnaceTileEntity extends AbstractFurnaceTileEntity
         return (int) (super.getTotalCookTime() * this.getTier().getCookTimeMultiplier());
     }
 
-    public abstract EssenceFurnaceBlock.FurnaceTier getTier();
+    public abstract FurnaceTier getTier();
 
     public static class Inferium extends EssenceFurnaceTileEntity {
         public Inferium() {
@@ -45,8 +45,8 @@ public abstract class EssenceFurnaceTileEntity extends AbstractFurnaceTileEntity
         }
 
         @Override
-        public EssenceFurnaceBlock.FurnaceTier getTier() {
-            return EssenceFurnaceBlock.FurnaceTier.INFERIUM;
+        public FurnaceTier getTier() {
+            return FurnaceTier.INFERIUM;
         }
     }
 
@@ -56,8 +56,8 @@ public abstract class EssenceFurnaceTileEntity extends AbstractFurnaceTileEntity
         }
 
         @Override
-        public EssenceFurnaceBlock.FurnaceTier getTier() {
-            return EssenceFurnaceBlock.FurnaceTier.PRUDENTIUM;
+        public FurnaceTier getTier() {
+            return FurnaceTier.PRUDENTIUM;
         }
     }
 
@@ -67,8 +67,8 @@ public abstract class EssenceFurnaceTileEntity extends AbstractFurnaceTileEntity
         }
 
         @Override
-        public EssenceFurnaceBlock.FurnaceTier getTier() {
-            return EssenceFurnaceBlock.FurnaceTier.TERTIUM;
+        public FurnaceTier getTier() {
+            return FurnaceTier.TERTIUM;
         }
     }
 
@@ -78,8 +78,8 @@ public abstract class EssenceFurnaceTileEntity extends AbstractFurnaceTileEntity
         }
 
         @Override
-        public EssenceFurnaceBlock.FurnaceTier getTier() {
-            return EssenceFurnaceBlock.FurnaceTier.IMPERIUM;
+        public FurnaceTier getTier() {
+            return FurnaceTier.IMPERIUM;
         }
     }
 
@@ -89,8 +89,8 @@ public abstract class EssenceFurnaceTileEntity extends AbstractFurnaceTileEntity
         }
 
         @Override
-        public EssenceFurnaceBlock.FurnaceTier getTier() {
-            return EssenceFurnaceBlock.FurnaceTier.SUPREMIUM;
+        public FurnaceTier getTier() {
+            return FurnaceTier.SUPREMIUM;
         }
     }
 }
