@@ -38,7 +38,10 @@ public class CropComponentIngredient extends Ingredient {
         if (input == null)
             return false;
 
-        return super.test(input) && Arrays.stream(this.getItems()).anyMatch(s -> s.getDamageValue() == input.getDamageValue() && s.areShareTagsEqual(input));
+        if (!super.test(input))
+            return false;
+
+        return Arrays.stream(this.getItems()).anyMatch(s -> s.getDamageValue() == input.getDamageValue() && (!s.hasTag() || s.areShareTagsEqual(input)));
     }
 
     @Override

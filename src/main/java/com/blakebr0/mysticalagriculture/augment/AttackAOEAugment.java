@@ -30,7 +30,7 @@ public class AttackAOEAugment extends Augment {
                 for (var aoeEntity : entities) {
                     if (aoeEntity != player && aoeEntity != target && !player.isAlliedTo(target)) {
                         aoeEntity.knockback(0.4F, Mth.sin(player.getYRot() * 0.017453292F), -Mth.cos(player.getYRot() * 0.017453292F));
-                        aoeEntity.hurt(DamageSource.playerAttack(player), 13.0F); // TODO: 1.16: should this damage value be hardcoded?
+                        aoeEntity.hurt(DamageSource.playerAttack(player), 5.0F + (5.0F * this.amplifier));
                     }
                 }
 
