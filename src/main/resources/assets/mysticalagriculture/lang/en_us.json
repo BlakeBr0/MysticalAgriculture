@@ -491,7 +491,7 @@
   "book.mysticalagriculture.entry.essence_farmland.page.2": "$(li)Crops will have a 10 percent chance to drop a second seed when planted on any tier Essence Farmland. $$(li)Crops will have a 20 percent chance to drop a second seed when planted on the corresponding tier Essence Farmland. $(li)Inferium Seeds will drop more essences when planted on higher tier Essence Farmland.",
   "book.mysticalagriculture.entry.growth_accelerators": "Growth Accelerators",
   "book.mysticalagriculture.entry.growth_accelerators.page.1": "Growth Accelerators are used to increase plant growth speed. They apply random growth ticks to the first plant placed above them within the specified range. $(br2)You can stack multiple Growth Accelerators of any tier as long as the plant is within range.",
-  "book.mysticalagriculture.entry.growth_accelerators.page.2": "The range of the Growth Accelerator is based on it being placed underneath the farmland.",
+  "book.mysticalagriculture.entry.growth_accelerators.page.2": "The range of the Growth Accelerator is based on it being placed underneath the farmland. $(br2)$(l:https://blakesmods.com/guides/mysticalagriculture/gameplay/speeding-up-crop-growth)Click here for a detailed guide on using Growth Accelerators.$()",
   "book.mysticalagriculture.entry.watering_can": "Watering Can",
   "book.mysticalagriculture.entry.watering_can.page.1": "Watering Cans are used to accelerate crop growth using manual* labor. To fill one up, simply right click on a Water source block.",
   "book.mysticalagriculture.entry.infusion_altar": "Infusion Altar",
