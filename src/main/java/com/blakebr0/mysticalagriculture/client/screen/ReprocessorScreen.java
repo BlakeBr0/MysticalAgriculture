@@ -29,13 +29,13 @@ public class ReprocessorScreen extends BaseContainerScreen<ReprocessorContainer>
     protected void renderLabels(PoseStack stack, int mouseX, int mouseY) {
         var title = this.getTitle().getString();
 
-        this.font.draw(stack, title, (float) (this.bgWidth / 2 - this.font.width(title) / 2), 6.0F, 4210752);
-        this.font.draw(stack, this.playerInventoryTitle, 8.0F, (float) (this.bgHeight - 96 + 2), 4210752);
+        this.font.draw(stack, title, (float) (this.imageWidth / 2 - this.font.width(title) / 2), 6.0F, 4210752);
+        this.font.draw(stack, this.playerInventoryTitle, 8.0F, (float) (this.imageHeight - 96 + 2), 4210752);
     }
 
     @Override
     protected void renderBg(PoseStack stack, float partialTicks, int mouseX, int mouseY) {
-        super.renderDefaultBg(stack, partialTicks, mouseX, mouseY);
+        this.renderDefaultBg(stack, partialTicks, mouseX, mouseY);
 
         int x = this.getGuiLeft();
         int y = this.getGuiTop();

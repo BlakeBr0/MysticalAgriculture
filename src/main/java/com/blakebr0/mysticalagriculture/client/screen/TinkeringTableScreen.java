@@ -27,7 +27,7 @@ public class TinkeringTableScreen extends BaseContainerScreen<TinkeringTableCont
 
     @Override
     protected void renderBg(PoseStack stack, float partialTicks, int mouseX, int mouseY) {
-        super.renderDefaultBg(stack, partialTicks, mouseX, mouseY);
+        this.renderDefaultBg(stack, partialTicks, mouseX, mouseY);
 
         int x = this.getGuiLeft();
         int y = this.getGuiTop();
