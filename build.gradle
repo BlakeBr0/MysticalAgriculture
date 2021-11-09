@@ -10,10 +10,11 @@ buildscript {
 }
 apply plugin: 'net.minecraftforge.gradle'
 apply plugin: 'idea'
+apply plugin: 'maven-publish'
 
-version = '4.2.4'
+version = '1.16.5-4.2.4'
 group = 'com.blakebr0.mysticalagriculture'
-archivesBaseName = 'MysticalAgriculture-1.16.5'
+archivesBaseName = 'MysticalAgriculture'
 
 sourceCompatibility = targetCompatibility = compileJava.sourceCompatibility = compileJava.targetCompatibility = '1.8'
 
@@ -121,5 +122,29 @@ jar {
             'Implementation-Vendor' : 'BlakeBr0',
             'Implementation-Timestamp': new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
         ])
+    }
+}
+
+publishing {
+    publications {
+        maven(MavenPublication) {
+            artifact jar
+            artifact apiJar
+        }
+    }
+
+    repositories {
+        maven {
+            url = 'https://maven.blakesmods.com'
+
+            credentials {
+                username = System.getenv('BLAKESMODS_MAVEN_USERNAME')
+                password = System.getenv('BLAKESMODS_MAVEN_PASSWORD')
+            }
+
+            authentication {
+                basic(BasicAuthentication)
+            }
+        }
     }
 }
