@@ -118,12 +118,14 @@ jar {
             'Specification-Vendor': 'BlakeBr0',
             'Specification-Version': '1',
             'Implementation-Title': project.name,
-            'Implementation-Version': "${version}",
+            'Implementation-Version': "${version.split('-').last()}",
             'Implementation-Vendor' : 'BlakeBr0',
             'Implementation-Timestamp': new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
         ])
     }
 }
+
+jar.finalizedBy('reobfJar')
 
 publishing {
     publications {
