@@ -1,0 +1,16 @@
+{
+  "type": "mysticalagriculture:soul_extraction",
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "thermal"
+    }
+  ],
+  "input": {
+    "item": "thermal:blitz_rod"
+  },
+  "output": {
+    "type": "mysticalagriculture:blitz",
+    "souls": 0.5
+  }
+}
