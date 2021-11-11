@@ -11,9 +11,9 @@ apply plugin: 'net.minecraftforge.gradle'
 apply plugin: 'eclipse'
 apply plugin: 'maven-publish'
 
-version = '4.2.4'
+version = '1.16.5-4.2.4'
 group = 'com.blakebr0.mysticalagriculture'
-archivesBaseName = 'MysticalAgriculture-1.17.1'
+archivesBaseName = 'MysticalAgriculture'
 
 java.toolchain.languageVersion = JavaLanguageVersion.of(16)
 
@@ -143,13 +143,13 @@ artifacts {
 jar {
     manifest {
         attributes([
-                'Specification-Title': 'Mystical Agriculture',
-                'Specification-Vendor': 'BlakeBr0',
-                'Specification-Version': '1',
-                'Implementation-Title': project.name,
-                'Implementation-Version': "${archiveVersion}",
-                'Implementation-Vendor' : 'BlakeBr0',
-                'Implementation-Timestamp': new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
+            'Specification-Title': 'Mystical Agriculture',
+            'Specification-Vendor': 'BlakeBr0',
+            'Specification-Version': '1',
+            'Implementation-Title': project.name,
+            'Implementation-Version': "${version.split('-').last()}",
+            'Implementation-Vendor' : 'BlakeBr0',
+            'Implementation-Timestamp': new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
         ])
     }
 }
@@ -158,13 +158,24 @@ jar.finalizedBy('reobfJar')
 
 publishing {
     publications {
-        mavenJava(MavenPublication) {
+        maven(MavenPublication) {
             artifact jar
+            artifact apiJar
         }
     }
+
     repositories {
         maven {
-            url "file://${project.projectDir}/mcmodsrepo"
+            url = 'https://maven.blakesmods.com'
+
+            credentials {
+                username = System.getenv('BLAKESMODS_MAVEN_USERNAME')
+                password = System.getenv('BLAKESMODS_MAVEN_PASSWORD')
+            }
+
+            authentication {
+                basic(BasicAuthentication)
+            }
         }
     }
 }
