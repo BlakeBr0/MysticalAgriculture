@@ -16,6 +16,7 @@ public final class ModMobSoulTypes {
     private static final boolean DEBUG = false;
 
     private static final Set<ResourceLocation> FISH_IDS = Sets.newHashSet(new ResourceLocation("minecraft:cod"), new ResourceLocation("minecraft:salmon"), new ResourceLocation("minecraft:tropical_fish"), new ResourceLocation("minecraft:pufferfish"));
+    private static final Set<ResourceLocation> SLIME_IDS = Sets.newHashSet(new ResourceLocation("minecraft:slime"), new ResourceLocation("tconstruct:earth_slime"));
     private static final Set<ResourceLocation> ZOMBIE_IDS = Sets.newHashSet(new ResourceLocation("minecraft:zombie"), new ResourceLocation("minecraft:zombie_villager"));
     private static final Set<ResourceLocation> SPIDER_IDS = Sets.newHashSet(new ResourceLocation("minecraft:spider"), new ResourceLocation("minecraft:cave_spider"));
 
@@ -25,7 +26,7 @@ public final class ModMobSoulTypes {
     public static final MobSoulType SHEEP = new MobSoulType(new ResourceLocation(MOD_ID, "sheep"), new ResourceLocation("minecraft:sheep"), 8, 15198183);
     public static final MobSoulType SQUID = new MobSoulType(new ResourceLocation(MOD_ID, "squid"), new ResourceLocation("minecraft:squid"), 6, 2243405);
     public static final MobSoulType FISH = new MobSoulType(new ResourceLocation(MOD_ID, "fish"), FISH_IDS, "fish", 6, 12691306);
-    public static final MobSoulType SLIME = new MobSoulType(new ResourceLocation(MOD_ID, "slime"), new ResourceLocation("minecraft:slime"), 12, 5349438);
+    public static final MobSoulType SLIME = new MobSoulType(new ResourceLocation(MOD_ID, "slime"), SLIME_IDS, "slime", 12, 5349438);
     public static final MobSoulType TURTLE = new MobSoulType(new ResourceLocation(MOD_ID, "turtle"), new ResourceLocation("minecraft:turtle"), 6, 44975);
     public static final MobSoulType ZOMBIE = new MobSoulType(new ResourceLocation(MOD_ID, "zombie"), ZOMBIE_IDS, "zombie", 10, 7969893);
     public static final MobSoulType SKELETON = new MobSoulType(new ResourceLocation(MOD_ID, "skeleton"), new ResourceLocation("minecraft:skeleton"), 10, 12698049);
