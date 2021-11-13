@@ -48,6 +48,7 @@ public final class ModCrops {
     public static final Crop TURTLE = new Crop(new ResourceLocation(MOD_ID, "turtle"), CropTier.TWO, CropType.MOB, LazyIngredient.item("mysticalagriculture:soul_jar", MobSoulUtils.makeTag(ModMobSoulTypes.TURTLE)));
 
     public static final Crop IRON = new Crop(new ResourceLocation(MOD_ID, "iron"), CropTier.THREE, CropType.RESOURCE, LazyIngredient.tag("forge:ingots/iron"));
+    public static final Crop COPPER = new Crop(new ResourceLocation(MOD_ID, "copper"), CropTier.THREE, CropType.RESOURCE, LazyIngredient.item("minecraft:copper_ingot"));
     public static final Crop NETHER_QUARTZ = new Crop(new ResourceLocation(MOD_ID, "nether_quartz"), CropTier.THREE, CropType.RESOURCE, LazyIngredient.tag("forge:gems/quartz"));
     public static final Crop GLOWSTONE = new Crop(new ResourceLocation(MOD_ID, "glowstone"), CropTier.THREE, CropType.RESOURCE, LazyIngredient.tag("forge:dusts/glowstone"));
     public static final Crop REDSTONE = new Crop(new ResourceLocation(MOD_ID, "redstone"), CropTier.THREE, CropType.RESOURCE, LazyIngredient.tag("forge:dusts/redstone"));
@@ -77,7 +78,6 @@ public final class ModCrops {
     public static final Crop SILICON = new Crop(new ResourceLocation(MOD_ID, "silicon"), CropTier.TWO, CropType.RESOURCE, LazyIngredient.tag("forge:silicon"));
     public static final Crop SULFUR = new Crop(new ResourceLocation(MOD_ID, "sulfur"), CropTier.TWO, CropType.RESOURCE, LazyIngredient.tag("forge:dusts/sulfur"));
     public static final Crop ALUMINUM = new Crop(new ResourceLocation(MOD_ID, "aluminum"), CropTier.TWO, CropType.RESOURCE, CropTextures.INGOT_CROP_TEXTURES, 0xA4A6B1, LazyIngredient.tag("forge:ingots/aluminum"));
-    public static final Crop COPPER = new Crop(new ResourceLocation(MOD_ID, "copper"), CropTier.TWO, CropType.RESOURCE, LazyIngredient.tag("forge:ingots/copper"));
     public static final Crop SALTPETER = new Crop(new ResourceLocation(MOD_ID, "saltpeter"), CropTier.TWO, CropType.RESOURCE, LazyIngredient.tag("mysticalagriculture:material/saltpeter"));
     public static final Crop TIN = new Crop(new ResourceLocation(MOD_ID, "tin"), CropTier.THREE, CropType.RESOURCE, LazyIngredient.tag("forge:ingots/tin"));
     public static final Crop BRONZE = new Crop(new ResourceLocation(MOD_ID, "bronze"), CropTier.THREE, CropType.RESOURCE, LazyIngredient.tag("forge:ingots/bronze"));
@@ -213,6 +213,7 @@ public final class ModCrops {
         registry.register(TURTLE);
 
         registry.register(IRON);
+        registry.register(COPPER);
         registry.register(NETHER_QUARTZ);
         registry.register(GLOWSTONE);
         registry.register(REDSTONE);
@@ -242,7 +243,6 @@ public final class ModCrops {
         registry.register(SILICON);
         registry.register(SULFUR);
         registry.register(ALUMINUM);
-        registry.register(COPPER);
         registry.register(SALTPETER);
         registry.register(TIN);
         registry.register(BRONZE);

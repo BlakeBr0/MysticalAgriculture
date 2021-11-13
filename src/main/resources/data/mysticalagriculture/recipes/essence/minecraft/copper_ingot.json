@@ -1,5 +1,5 @@
 {
-  "type": "mysticalagriculture:tag",
+  "type": "cucumber:shaped_no_mirror",
   "conditions": [
     {
       "type": "mysticalagriculture:crop_enabled",
@@ -17,7 +17,7 @@
     }
   },
   "result": {
-    "tag": "forge:ingots/copper",
+    "item": "minecraft:copper_ingot",
     "count": 6
   }
 }
