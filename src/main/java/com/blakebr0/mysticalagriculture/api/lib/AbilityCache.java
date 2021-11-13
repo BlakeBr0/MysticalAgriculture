@@ -24,13 +24,24 @@ public class AbilityCache {
     }
 
     /**
-     * Remove a user from the cache for the specified augment id, meaning they no longer have it equipped
+     * Remove a user from the cache for the specified augment id, meaning they no longer have it equipped, and the
+     * onRemove callback will be invoked
      * @param augment the augment id
      * @param player the player
      */
     public void remove(String augment, Player player) {
         var key = getPlayerKey(player);
         this.cache.getOrDefault(augment, EMPTY_MAP).remove(key).run();
+    }
+
+    /**
+     * Remove a user from the cache for the specified augment id, without invoking the onRemove callback
+     * @param augment the augment id
+     * @param player the player
+     */
+    public void removeQuietly(String augment, Player player) {
+        String key = getPlayerKey(player);
+        this.cache.getOrDefault(augment, EMPTY_MAP).remove(key);
     }
 
     /**

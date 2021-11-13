@@ -5,6 +5,7 @@ import com.blakebr0.mysticalagriculture.api.util.AugmentUtils;
 import net.minecraft.world.entity.player.Player;
 import net.minecraftforge.event.entity.living.LivingEvent;
 import net.minecraftforge.event.entity.living.LivingFallEvent;
+import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 
 public final class AugmentHandler {
@@ -39,5 +40,14 @@ public final class AugmentHandler {
                 a.onPlayerFall(world, player, event);
             });
         }
+    }
+
+    @SubscribeEvent
+    public void onPlayerLoggedOut(PlayerEvent.PlayerLoggedOutEvent event) {
+        var player = event.getPlayer();
+
+        ABILITY_CACHE.getCachedAbilities(player).forEach(c -> {
+            ABILITY_CACHE.removeQuietly(c, player);
+        });
     }
 }

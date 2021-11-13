@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [],
+  "optional": [
+    "#forge:dusts/saltpeter",
+    "#forge:dusts/niter",
+    "thermal:niter_dust"
+  ]
+}

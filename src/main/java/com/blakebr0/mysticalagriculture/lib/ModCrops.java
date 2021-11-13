@@ -78,7 +78,7 @@ public final class ModCrops {
     public static final Crop SULFUR = new Crop(new ResourceLocation(MOD_ID, "sulfur"), CropTier.TWO, CropType.RESOURCE, LazyIngredient.tag("forge:dusts/sulfur"));
     public static final Crop ALUMINUM = new Crop(new ResourceLocation(MOD_ID, "aluminum"), CropTier.TWO, CropType.RESOURCE, CropTextures.INGOT_CROP_TEXTURES, 0xA4A6B1, LazyIngredient.tag("forge:ingots/aluminum"));
     public static final Crop COPPER = new Crop(new ResourceLocation(MOD_ID, "copper"), CropTier.TWO, CropType.RESOURCE, LazyIngredient.tag("forge:ingots/copper"));
-    public static final Crop SALTPETER = new Crop(new ResourceLocation(MOD_ID, "saltpeter"), CropTier.TWO, CropType.RESOURCE, LazyIngredient.tag("forge:dusts/saltpeter"));
+    public static final Crop SALTPETER = new Crop(new ResourceLocation(MOD_ID, "saltpeter"), CropTier.TWO, CropType.RESOURCE, LazyIngredient.tag("mysticalagriculture:material/saltpeter"));
     public static final Crop TIN = new Crop(new ResourceLocation(MOD_ID, "tin"), CropTier.THREE, CropType.RESOURCE, LazyIngredient.tag("forge:ingots/tin"));
     public static final Crop BRONZE = new Crop(new ResourceLocation(MOD_ID, "bronze"), CropTier.THREE, CropType.RESOURCE, LazyIngredient.tag("forge:ingots/bronze"));
     public static final Crop ZINC = new Crop(new ResourceLocation(MOD_ID, "zinc"), CropTier.THREE, CropType.RESOURCE, CropTextures.INGOT_CROP_TEXTURES, 0xE9EBE7, LazyIngredient.tag("forge:ingots/zinc"));
