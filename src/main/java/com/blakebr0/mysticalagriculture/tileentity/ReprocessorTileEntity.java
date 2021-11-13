@@ -47,12 +47,10 @@ public abstract class ReprocessorTileEntity extends BaseInventoryTileEntity impl
 
     public ReprocessorTileEntity(BlockEntityType<?> type, ReprocessorTier tier, BlockPos pos, BlockState state) {
         super(type, pos, state);
-        this.inventory = new BaseItemStackHandler(3);
+        this.inventory = createInventoryHandler(null);
         this.energy = new EnergyStorage(tier.getFuelCapacity());
         this.inventoryCapabilities = SidedItemStackHandlerWrapper.create(this.inventory, new Direction[] { Direction.UP, Direction.DOWN, Direction.NORTH }, this::canInsertStackSided, null);
         this.tier = tier;
-
-        this.inventory.setOutputSlots(2);
     }
 
     @Override
@@ -186,6 +184,14 @@ public abstract class ReprocessorTileEntity extends BaseInventoryTileEntity impl
         if (mark) {
             tile.markDirtyAndDispatch();
         }
+    }
+
+    public static BaseItemStackHandler createInventoryHandler(Runnable onContentsChanged) {
+        var inventory = new BaseItemStackHandler(3, onContentsChanged);
+
+        inventory.setOutputSlots(2);
+
+        return inventory;
     }
 
     public ReprocessorTier getTier() {

@@ -24,7 +24,7 @@ public class SoulExtractorContainer extends AbstractContainerMenu {
     private final BlockPos pos;
 
     private SoulExtractorContainer(MenuType<?> type, int id, Inventory playerInventory, FriendlyByteBuf buffer) {
-        this(type, id, playerInventory, p -> false, new BaseItemStackHandler(1), buffer.readBlockPos());
+        this(type, id, playerInventory, p -> false, SoulExtractorTileEntity.createInventoryHandler(null), buffer.readBlockPos());
     }
 
     private SoulExtractorContainer(MenuType<?> type, int id, Inventory playerInventory, Function<Player, Boolean> isUsableByPlayer, BaseItemStackHandler inventory, BlockPos pos) {

@@ -15,22 +15,20 @@ import net.minecraft.world.MenuProvider;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
-import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.util.LazyOptional;
 
 public class TinkeringTableTileEntity extends BaseInventoryTileEntity implements MenuProvider {
-    private final BaseItemStackHandler inventory = new BaseItemStackHandler(7, () -> {
-        if (this.getLevel() != null && !this.getLevel().isClientSide()) {
-            this.markDirtyAndDispatch();
-        }
-    });
+    private final BaseItemStackHandler inventory;
 
     public TinkeringTableTileEntity(BlockPos pos, BlockState state) {
         super(ModTileEntities.TINKERING_TABLE.get(), pos, state);
-        this.inventory.setDefaultSlotLimit(1);
-        this.inventory.setSlotValidator(this::canInsertStack);
+        this.inventory = createInventoryHandler(() -> {
+            if (this.getLevel() != null && !this.getLevel().isClientSide()) {
+                this.markDirtyAndDispatch();
+            }
+        });
     }
 
     @Override
@@ -53,16 +51,23 @@ public class TinkeringTableTileEntity extends BaseInventoryTileEntity implements
         return LazyOptional.empty();
     }
 
-    private boolean canInsertStack(int slot, ItemStack stack) {
-        var item = stack.getItem();
-        return switch (slot) {
-            case 0 -> item instanceof ITinkerable;
-            case 1, 2 -> item instanceof IAugmentProvider;
-            case 3 -> item == ModCrops.AIR.getEssenceItem();
-            case 4 -> item == ModCrops.EARTH.getEssenceItem();
-            case 5 -> item == ModCrops.WATER.getEssenceItem();
-            case 6 -> item == ModCrops.FIRE.getEssenceItem();
-            default -> true;
-        };
+    public static BaseItemStackHandler createInventoryHandler(Runnable onContentsChanged) {
+        var inventory = new BaseItemStackHandler(7, onContentsChanged);
+
+        inventory.setDefaultSlotLimit(1);
+        inventory.setSlotValidator((slot, stack) -> {
+            var item = stack.getItem();
+            return switch (slot) {
+                case 0 -> item instanceof ITinkerable;
+                case 1, 2 -> item instanceof IAugmentProvider;
+                case 3 -> item == ModCrops.AIR.getEssenceItem();
+                case 4 -> item == ModCrops.EARTH.getEssenceItem();
+                case 5 -> item == ModCrops.WATER.getEssenceItem();
+                case 6 -> item == ModCrops.FIRE.getEssenceItem();
+                default -> true;
+            };
+        });
+
+        return inventory;
     }
 }

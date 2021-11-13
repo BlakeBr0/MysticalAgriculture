@@ -24,7 +24,7 @@ public class TinkeringTableContainer extends AbstractContainerMenu {
     private final IItemHandlerModifiable inventory;
 
     private TinkeringTableContainer(MenuType<?> type, int id, Inventory playerInventory) {
-        this(type, id, playerInventory, p -> false, new BaseItemStackHandler(1));
+        this(type, id, playerInventory, p -> false, TinkeringTableTileEntity.createInventoryHandler(null));
     }
 
     private TinkeringTableContainer(MenuType<?> type, int id, Inventory playerInventory, Function<Player, Boolean> isUsableByPlayer, IItemHandlerModifiable inventory) {

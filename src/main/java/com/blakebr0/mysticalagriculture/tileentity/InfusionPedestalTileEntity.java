@@ -7,15 +7,23 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.block.state.BlockState;
 
 public class InfusionPedestalTileEntity extends BaseInventoryTileEntity {
-    private final BaseItemStackHandler inventory = new BaseItemStackHandler(1, this::markDirtyAndDispatch);
+    private final BaseItemStackHandler inventory;
 
     public InfusionPedestalTileEntity(BlockPos pos, BlockState state) {
         super(ModTileEntities.INFUSION_PEDESTAL.get(), pos, state);
-        this.inventory.setDefaultSlotLimit(1);
+        this.inventory = createInventoryHandler(this::markDirtyAndDispatch);
     }
 
     @Override
     public BaseItemStackHandler getInventory() {
         return this.inventory;
+    }
+
+    public static BaseItemStackHandler createInventoryHandler(Runnable onContentsChanged) {
+        var inventory = new BaseItemStackHandler(1, onContentsChanged);
+
+        inventory.setDefaultSlotLimit(1);
+
+        return inventory;
     }
 }

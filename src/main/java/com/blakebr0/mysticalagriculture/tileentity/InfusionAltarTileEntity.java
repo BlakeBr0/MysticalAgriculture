@@ -21,8 +21,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class InfusionAltarTileEntity extends BaseInventoryTileEntity {
-    private final BaseItemStackHandler inventory = new BaseItemStackHandler(2, this::markDirtyAndDispatch);
-    private final BaseItemStackHandler recipeInventory = new BaseItemStackHandler(9);
+    private final BaseItemStackHandler inventory;
+    private final BaseItemStackHandler recipeInventory;
     private final MultiblockPositions pedestalLocations = new MultiblockPositions.Builder()
             .pos(3, 0, 0).pos(0, 0, 3).pos(-3, 0, 0).pos(0, 0, -3)
             .pos(2, 0, 2).pos(2, 0, -2).pos(-2, 0, 2).pos(-2, 0, -2).build();
@@ -32,9 +32,8 @@ public class InfusionAltarTileEntity extends BaseInventoryTileEntity {
 
     public InfusionAltarTileEntity(BlockPos pos, BlockState state) {
         super(ModTileEntities.INFUSION_ALTAR.get(), pos, state);
-        this.inventory.setDefaultSlotLimit(1);
-        this.inventory.setSlotValidator(this::canInsertStack);
-        this.inventory.setOutputSlots(1);
+        this.inventory = createInventoryHandler(this::markDirtyAndDispatch);
+        this.recipeInventory = new BaseItemStackHandler(9);
     }
 
     @Override
@@ -60,10 +59,6 @@ public class InfusionAltarTileEntity extends BaseInventoryTileEntity {
     @Override
     public AABB getRenderBoundingBox() {
         return INFINITE_EXTENT_AABB;
-    }
-
-    public List<BlockPos> getPedestalPositions() {
-        return this.pedestalLocations.get(this.getBlockPos());
     }
 
     public static void tick(Level level, BlockPos pos, BlockState state, InfusionAltarTileEntity tile) {
@@ -116,6 +111,20 @@ public class InfusionAltarTileEntity extends BaseInventoryTileEntity {
         } else {
             tile.progress = 0;
         }
+    }
+
+    public static BaseItemStackHandler createInventoryHandler(Runnable onContentsChanged) {
+        var inventory = new BaseItemStackHandler(2, onContentsChanged);
+
+        inventory.setDefaultSlotLimit(1);
+        inventory.setSlotValidator((slot, stack) -> inventory.getStackInSlot(1).isEmpty());
+        inventory.setOutputSlots(1);
+
+        return inventory;
+    }
+
+    public List<BlockPos> getPedestalPositions() {
+        return this.pedestalLocations.get(this.getBlockPos());
     }
 
     public boolean isActive() {
@@ -191,10 +200,6 @@ public class InfusionAltarTileEntity extends BaseInventoryTileEntity {
         double velZ = pos.getZ() - pedestalPos.getZ();
 
         level.sendParticles(new ItemParticleOption(ParticleTypes.ITEM, stack), x, y, z, 0, velX, velY, velZ, 0.18D);
-    }
-
-    private boolean canInsertStack(int slot, ItemStack stack) {
-        return this.inventory.getStackInSlot(1).isEmpty();
     }
 
     private void setOutput(ItemStack stack) {

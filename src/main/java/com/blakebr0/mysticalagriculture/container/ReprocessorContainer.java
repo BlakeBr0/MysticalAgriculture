@@ -23,7 +23,7 @@ public class ReprocessorContainer extends AbstractContainerMenu {
     private final BlockPos pos;
 
     private ReprocessorContainer(MenuType<?> type, int id, Inventory playerInventory, BlockPos pos) {
-        this(type, id, playerInventory, p -> false, new BaseItemStackHandler(1), pos);
+        this(type, id, playerInventory, p -> false, ReprocessorTileEntity.createInventoryHandler(null), pos);
     }
 
     private ReprocessorContainer(MenuType<?> type, int id, Inventory playerInventory, Function<Player, Boolean> isUsableByPlayer, BaseItemStackHandler inventory, BlockPos pos) {

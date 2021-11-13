@@ -43,7 +43,7 @@ public class SoulExtractorTileEntity extends BaseInventoryTileEntity implements 
 
     public SoulExtractorTileEntity(BlockPos pos, BlockState state) {
         super(ModTileEntities.SOUL_EXTRACTOR.get(), pos, state);
-        this.inventory = new BaseItemStackHandler(3, this::markDirtyAndDispatch);
+        this.inventory = createInventoryHandler(this::markDirtyAndDispatch);
         this.energy = new EnergyStorage(80000);
         this.inventoryCapabilities = SidedItemStackHandlerWrapper.create(this.inventory, new Direction[] { Direction.UP, Direction.DOWN, Direction.NORTH }, this::canInsertStackSided, null);
     }
@@ -169,6 +169,10 @@ public class SoulExtractorTileEntity extends BaseInventoryTileEntity implements 
         if (mark) {
             tile.markDirtyAndDispatch();
         }
+    }
+
+    public static BaseItemStackHandler createInventoryHandler(Runnable onContentsChanged) {
+        return new BaseItemStackHandler(3, onContentsChanged);
     }
 
     public EnergyStorage getEnergy() {
