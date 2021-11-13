@@ -182,6 +182,7 @@ public final class ModCrops {
     public static final Crop URANINITE = new Crop(new ResourceLocation(MOD_ID, "uraninite"), CropTier.FIVE, CropType.RESOURCE, LazyIngredient.item("powah:uraninite"));
 
     public static void onRegisterCrops(ICropRegistry registry) {
+        INFERIUM.getTextures().setEssenceTexture(new ResourceLocation(MOD_ID, "item/inferium_essence"));
         INFERIUM.setCropBlock(() -> (CropBlock) ModBlocks.INFERIUM_CROP.get())
                 .setEssenceItem(ModItems.INFERIUM_ESSENCE);
 
