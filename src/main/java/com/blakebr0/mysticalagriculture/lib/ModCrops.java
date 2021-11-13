@@ -31,6 +31,7 @@ public final class ModCrops {
     public static final Crop DIRT = new Crop(new ResourceLocation(MOD_ID, "dirt"), CropTier.ONE, CropType.RESOURCE, LazyIngredient.item("minecraft:dirt"));
     public static final Crop WOOD = new Crop(new ResourceLocation(MOD_ID, "wood"), CropTier.ONE, CropType.RESOURCE, LazyIngredient.tag("minecraft:logs"));
     public static final Crop ICE = new Crop(new ResourceLocation(MOD_ID, "ice"), CropTier.ONE, CropType.RESOURCE, LazyIngredient.item("minecraft:ice"));
+    public static final Crop DEEPSLATE = new Crop(new ResourceLocation(MOD_ID, "deepslate"), CropTier.ONE, CropType.RESOURCE, LazyIngredient.item("minecraft:deepslate"));
 
     public static final Crop NATURE = new Crop(new ResourceLocation(MOD_ID, "nature"), CropTier.TWO, CropType.RESOURCE, LazyIngredient.item("mysticalagriculture:nature_agglomeratio"));
     public static final Crop DYE = new Crop(new ResourceLocation(MOD_ID, "dye"), CropTier.TWO, CropType.RESOURCE, LazyIngredient.item("mysticalagriculture:dye_agglomeratio"));
@@ -38,6 +39,7 @@ public final class ModCrops {
     public static final Crop COAL = new Crop(new ResourceLocation(MOD_ID, "coal"), CropTier.TWO, CropType.RESOURCE, LazyIngredient.item("minecraft:coal"));
     public static final Crop CORAL = new Crop(new ResourceLocation(MOD_ID, "coral"), CropTier.TWO, CropType.RESOURCE, LazyIngredient.item("mysticalagriculture:coral_agglomeratio"));
     public static final Crop HONEY = new Crop(new ResourceLocation(MOD_ID, "honey"), CropTier.TWO, CropType.RESOURCE, LazyIngredient.item("mysticalagriculture:honey_agglomeratio"));
+    public static final Crop AMETHYST = new Crop(new ResourceLocation(MOD_ID, "amethyst"), CropTier.TWO, CropType.RESOURCE, LazyIngredient.item("minecraft:amethyst_shard"));
     public static final Crop PIG = new Crop(new ResourceLocation(MOD_ID, "pig"), CropTier.TWO, CropType.MOB, LazyIngredient.item("mysticalagriculture:soul_jar", MobSoulUtils.makeTag(ModMobSoulTypes.PIG)));
     public static final Crop CHICKEN = new Crop(new ResourceLocation(MOD_ID, "chicken"), CropTier.TWO, CropType.MOB, LazyIngredient.item("mysticalagriculture:soul_jar", MobSoulUtils.makeTag(ModMobSoulTypes.CHICKEN)));
     public static final Crop COW = new Crop(new ResourceLocation(MOD_ID, "cow"), CropTier.TWO, CropType.MOB, LazyIngredient.item("mysticalagriculture:soul_jar", MobSoulUtils.makeTag(ModMobSoulTypes.COW)));
@@ -196,6 +198,7 @@ public final class ModCrops {
         registry.register(DIRT);
         registry.register(WOOD);
         registry.register(ICE);
+        registry.register(DEEPSLATE);
 
         registry.register(NATURE);
         registry.register(DYE);
@@ -203,6 +206,7 @@ public final class ModCrops {
         registry.register(COAL);
         registry.register(CORAL);
         registry.register(HONEY);
+        registry.register(AMETHYST);
         registry.register(PIG);
         registry.register(CHICKEN);
         registry.register(COW);
