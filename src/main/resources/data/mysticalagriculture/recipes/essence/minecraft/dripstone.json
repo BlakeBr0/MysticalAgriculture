@@ -1,0 +1,30 @@
+{
+  "type": "cucumber:shaped_no_mirror",
+  "conditions": [
+    {
+      "type": "mysticalagriculture:crop_enabled",
+      "crop": "mysticalagriculture:stone"
+    },
+    {
+      "type": "mysticalagriculture:crop_enabled",
+      "crop": "mysticalagriculture:water"
+    }
+  ],
+  "pattern": [
+    " E ",
+    "EAE",
+    " E "
+  ],
+  "key": {
+    "E": {
+      "item": "mysticalagriculture:stone_essence"
+    },
+    "A": {
+      "item": "mysticalagriculture:water_essence"
+    }
+  },
+  "result": {
+    "item": "minecraft:dripstone_block",
+    "count": 12
+  }
+}
