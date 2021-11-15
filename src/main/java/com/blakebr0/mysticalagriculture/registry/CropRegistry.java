@@ -13,8 +13,6 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.registries.IForgeRegistry;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 
 import java.util.Collection;
 import java.util.Comparator;
@@ -23,7 +21,6 @@ import java.util.List;
 import java.util.Map;
 
 public final class CropRegistry implements ICropRegistry {
-    private static final Logger LOGGER = LogManager.getLogger(MysticalAgriculture.NAME);
     private static final CropRegistry INSTANCE = new CropRegistry();
 
     private Map<ResourceLocation, Crop> crops = new LinkedHashMap<>();
@@ -40,10 +37,10 @@ public final class CropRegistry implements ICropRegistry {
 
                 this.loadRecipeConfig(crop);
             } else {
-                LOGGER.info("{} tried to register a duplicate crop with name {}, skipping", crop.getModId(), crop.getName());
+                MysticalAgriculture.LOGGER.info("{} tried to register a duplicate crop with name {}, skipping", crop.getModId(), crop.getName());
             }
         } else {
-            LOGGER.error("{} tried to register crop {} outside of onRegisterCrops, skipping", crop.getModId(), crop.getName());
+            MysticalAgriculture.LOGGER.error("{} tried to register crop {} outside of onRegisterCrops, skipping", crop.getModId(), crop.getName());
         }
     }
 
@@ -52,7 +49,7 @@ public final class CropRegistry implements ICropRegistry {
         if (!this.tiers.containsKey(tier.getId())) {
             this.tiers.put(tier.getId(), tier);
         } else {
-            LOGGER.info("{} tried to register a duplicate crop tier with id {}, skipping", tier.getModId(), tier.getId());
+            MysticalAgriculture.LOGGER.info("{} tried to register a duplicate crop tier with id {}, skipping", tier.getModId(), tier.getId());
         }
     }
 
@@ -61,7 +58,7 @@ public final class CropRegistry implements ICropRegistry {
         if (!this.types.containsKey(type.getId())) {
             this.types.put(type.getId(), type);
         } else {
-            LOGGER.info("{} tried to register a duplicate crop type with id {}, skipping", type.getModId(), type.getId());
+            MysticalAgriculture.LOGGER.info("{} tried to register a duplicate crop type with id {}, skipping", type.getModId(), type.getId());
         }
     }
 

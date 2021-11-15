@@ -1,11 +1,10 @@
 package com.blakebr0.mysticalagriculture.registry;
 
+import com.blakebr0.mysticalagriculture.MysticalAgriculture;
 import com.blakebr0.mysticalagriculture.api.registry.IMobSoulTypeRegistry;
 import com.blakebr0.mysticalagriculture.api.soul.MobSoulType;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.LivingEntity;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 
 import java.util.Collections;
 import java.util.HashSet;
@@ -16,7 +15,6 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 public final class MobSoulTypeRegistry implements IMobSoulTypeRegistry {
-    private static final Logger LOGGER = LogManager.getLogger();
     private static final MobSoulTypeRegistry INSTANCE = new MobSoulTypeRegistry();
 
     private final Map<ResourceLocation, MobSoulType> mobSoulTypes = new LinkedHashMap<>();
@@ -31,10 +29,10 @@ public final class MobSoulTypeRegistry implements IMobSoulTypeRegistry {
                 this.mobSoulTypes.put(mobSoulType.getId(), mobSoulType);
                 this.usedEntityIds.addAll(mobSoulType.getEntityIds());
             } else {
-                LOGGER.info("{} tried to register a mob soul type for entity ids {}, but they already have one registered, skipping", mobSoulType.getModId(), duplicates);
+                MysticalAgriculture.LOGGER.info("{} tried to register a mob soul type for entity ids {}, but they already have one registered, skipping", mobSoulType.getModId(), duplicates);
             }
         } else {
-            LOGGER.info("{} tried to register a duplicate mob soul type with id {}, skipping", mobSoulType.getModId(), mobSoulType.getId());
+            MysticalAgriculture.LOGGER.info("{} tried to register a duplicate mob soul type with id {}, skipping", mobSoulType.getModId(), mobSoulType.getId());
         }
     }
 

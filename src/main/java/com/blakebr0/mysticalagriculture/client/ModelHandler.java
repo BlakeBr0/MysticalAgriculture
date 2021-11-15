@@ -29,8 +29,6 @@ import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.client.model.data.EmptyModelData;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 
 import java.util.HashMap;
 import java.util.concurrent.TimeUnit;
@@ -38,8 +36,6 @@ import java.util.function.Function;
 import java.util.stream.IntStream;
 
 public final class ModelHandler {
-    private static final Logger LOGGER = LogManager.getLogger(MysticalAgriculture.NAME);
-
     private static final ResourceLocation MISSING_NO = new ResourceLocation("minecraft", "missingno");
     private static final ResourceLocation BLOCK_ATLAS = new ResourceLocation("minecraft", "textures/atlas/blocks.png");
 
@@ -164,7 +160,7 @@ public final class ModelHandler {
 
         stopwatch.stop();
 
-        LOGGER.info("Model replacement took {} ms", stopwatch.elapsed(TimeUnit.MILLISECONDS));
+        MysticalAgriculture.LOGGER.info("Model replacement took {} ms", stopwatch.elapsed(TimeUnit.MILLISECONDS));
     }
 
     @SubscribeEvent

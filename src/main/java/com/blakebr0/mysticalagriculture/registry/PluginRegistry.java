@@ -6,21 +6,18 @@ import com.blakebr0.mysticalagriculture.api.MysticalAgriculturePlugin;
 import com.blakebr0.mysticalagriculture.api.lib.PluginConfig;
 import com.blakebr0.mysticalagriculture.lib.ModCorePlugin;
 import net.minecraftforge.fml.ModList;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.function.BiConsumer;
 
 public final class PluginRegistry {
-    private static final Logger LOGGER = LogManager.getLogger(MysticalAgriculture.NAME);
     private static final PluginRegistry INSTANCE = new PluginRegistry();
     private final Map<IMysticalAgriculturePlugin, PluginConfig> plugins = new LinkedHashMap<>();
 
     public void loadPlugins() {
         this.plugins.put(new ModCorePlugin(), new PluginConfig());
-        LOGGER.info("Registered plugin: {}", ModCorePlugin.class.getName());
+        MysticalAgriculture.LOGGER.info("Registered plugin: {}", ModCorePlugin.class.getName());
 
         ModList.get().getAllScanData().forEach(data -> {
             data.getAnnotations().forEach(annotation -> {
@@ -30,10 +27,10 @@ public final class PluginRegistry {
                         if (IMysticalAgriculturePlugin.class.isAssignableFrom(clazz)) {
                             IMysticalAgriculturePlugin plugin = (IMysticalAgriculturePlugin) clazz.newInstance();
                             this.plugins.put(plugin, new PluginConfig());
-                            LOGGER.info("Registered plugin: {}", annotation.memberName());
+                            MysticalAgriculture.LOGGER.info("Registered plugin: {}", annotation.memberName());
                         }
                     } catch (Exception e) {
-                        LOGGER.error("Error loading plugin: {}", annotation.memberName(), e);
+                        MysticalAgriculture.LOGGER.error("Error loading plugin: {}", annotation.memberName(), e);
                     }
                 }
             });

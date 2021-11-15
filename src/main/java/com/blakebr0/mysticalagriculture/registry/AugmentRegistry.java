@@ -1,13 +1,12 @@
 package com.blakebr0.mysticalagriculture.registry;
 
+import com.blakebr0.mysticalagriculture.MysticalAgriculture;
 import com.blakebr0.mysticalagriculture.api.registry.IAugmentRegistry;
 import com.blakebr0.mysticalagriculture.api.tinkering.Augment;
 import com.blakebr0.mysticalagriculture.item.AugmentItem;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.registries.IForgeRegistry;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -16,7 +15,6 @@ import java.util.Map;
 import static com.blakebr0.mysticalagriculture.MysticalAgriculture.CREATIVE_TAB;
 
 public final class AugmentRegistry implements IAugmentRegistry {
-    private static final Logger LOGGER = LogManager.getLogger();
     private static final AugmentRegistry INSTANCE = new AugmentRegistry();
 
     private final Map<ResourceLocation, Augment> augments = new LinkedHashMap<>();
@@ -26,7 +24,7 @@ public final class AugmentRegistry implements IAugmentRegistry {
         if (this.augments.values().stream().noneMatch(c -> c.getId().equals(augment.getId()))) {
             this.augments.put(augment.getId(), augment);
         } else {
-            LOGGER.info("{} tried to register a duplicate augment with id {}, skipping", augment.getModId(), augment.getId());
+            MysticalAgriculture.LOGGER.info("{} tried to register a duplicate augment with id {}, skipping", augment.getModId(), augment.getId());
         }
     }
 
