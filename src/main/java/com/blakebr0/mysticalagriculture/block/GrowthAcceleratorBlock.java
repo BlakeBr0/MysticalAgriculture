@@ -34,7 +34,8 @@ public class GrowthAcceleratorBlock extends BaseBlock {
 
     @Override
     public void onPlace(BlockState state, Level world, BlockPos pos, BlockState oldState, boolean isMoving) {
-        world.getBlockTicks().scheduleTick(pos, this, getTickRate());
+        // TODO: fix
+//        world.getBlockTicks().scheduleTick(pos, this, getTickRate());
     }
 
     @Override
@@ -44,7 +45,8 @@ public class GrowthAcceleratorBlock extends BaseBlock {
                 .findFirst()
                 .ifPresent(aoePos -> world.getBlockState(aoePos).randomTick(world, aoePos, random));
 
-        world.getBlockTicks().scheduleTick(pos, this, getTickRate());
+        // TODO: fix
+//        world.getBlockTicks().scheduleTick(pos, this, getTickRate());
     }
 
     @OnlyIn(Dist.CLIENT)

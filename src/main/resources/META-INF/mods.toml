@@ -1,5 +1,5 @@
 modLoader="javafml"
-loaderVersion="[37,)"
+loaderVersion="[38,)"
 license="MIT"
 
 [[mods]]
@@ -19,13 +19,13 @@ license="MIT"
   [[dependencies.mysticalagriculture]]
       modId="forge"
       mandatory=true
-      versionRange="[37.0,)"
+      versionRange="[38.0,)"
       ordering="NONE"
       side="BOTH"
   [[dependencies.mysticalagriculture]]
       modId="minecraft"
       mandatory=true
-      versionRange="[1.17.1,1.18)"
+      versionRange="[1.18,1.19)"
       ordering="NONE"
       side="BOTH"
   [[dependencies.mysticalagriculture]]

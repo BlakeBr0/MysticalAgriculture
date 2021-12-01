@@ -25,7 +25,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.client.event.ModelBakeEvent;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.client.event.TextureStitchEvent;
-import net.minecraftforge.client.model.ModelLoader;
+import net.minecraftforge.client.model.ForgeModelBakery;
 import net.minecraftforge.client.model.data.EmptyModelData;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
@@ -44,18 +44,18 @@ public final class ModelHandler {
         if (!ModConfigs.ANIMATED_GROWTH_ACCELERATORS.get()) {
             for (var type : new String[] { "block", "item" }) {
                 for (var tier : new String[] { "inferium", "prudentium", "tertium", "imperium", "supremium" }) {
-                    ModelLoader.addSpecialModel(new ResourceLocation(MysticalAgriculture.MOD_ID, String.format("%s/%s_growth_accelerator_static", type, tier)));
+                    ForgeModelBakery.addSpecialModel(new ResourceLocation(MysticalAgriculture.MOD_ID, String.format("%s/%s_growth_accelerator_static", type, tier)));
                 }
             }
         }
 
         for (int i = 0; i < 8; i++) {
-            ModelLoader.addSpecialModel(new ResourceLocation(MysticalAgriculture.MOD_ID, "block/mystical_resource_crop_" + i));
-            ModelLoader.addSpecialModel(new ResourceLocation(MysticalAgriculture.MOD_ID, "block/mystical_mob_crop_" + i));
+            ForgeModelBakery.addSpecialModel(new ResourceLocation(MysticalAgriculture.MOD_ID, "block/mystical_resource_crop_" + i));
+            ForgeModelBakery.addSpecialModel(new ResourceLocation(MysticalAgriculture.MOD_ID, "block/mystical_mob_crop_" + i));
         }
 
-        ModelLoader.addSpecialModel(new ResourceLocation(MysticalAgriculture.MOD_ID, "item/mystical_essence"));
-        ModelLoader.addSpecialModel(new ResourceLocation(MysticalAgriculture.MOD_ID, "item/mystical_seeds"));
+        ForgeModelBakery.addSpecialModel(new ResourceLocation(MysticalAgriculture.MOD_ID, "item/mystical_essence"));
+        ForgeModelBakery.addSpecialModel(new ResourceLocation(MysticalAgriculture.MOD_ID, "item/mystical_seeds"));
     }
 
     @SubscribeEvent
@@ -165,7 +165,7 @@ public final class ModelHandler {
 
     @SubscribeEvent
     public void onTextureStitch(TextureStitchEvent.Pre event) {
-        if (event.getMap().location().equals(BLOCK_ATLAS)) {
+        if (event.getAtlas().location().equals(BLOCK_ATLAS)) {
             CropRegistry.getInstance().getCrops().forEach(crop -> {
                 var textures = crop.getTextures();
 

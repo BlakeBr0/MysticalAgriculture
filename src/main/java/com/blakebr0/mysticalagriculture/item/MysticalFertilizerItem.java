@@ -21,7 +21,6 @@ import net.minecraft.world.level.block.DispenserBlock;
 import net.minecraft.world.level.block.SaplingBlock;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
-import net.minecraftforge.common.util.Constants;
 import net.minecraftforge.event.ForgeEventFactory;
 
 import java.util.List;
@@ -45,7 +44,7 @@ public class MysticalFertilizerItem extends BaseItem {
         } else {
             if (applyFertilizer(stack, world, pos, player)) {
                 if (!world.isClientSide()) {
-                    world.levelEvent(Constants.WorldEvents.BONEMEAL_PARTICLES, pos, 0);
+                    world.levelEvent(1505, pos, 0);
                 }
 
                 return InteractionResult.SUCCESS;
