@@ -108,10 +108,10 @@ sourceSets {
 }
 
 dependencies {
-    minecraft 'net.minecraftforge:forge:1.18-38.0.4'
+    minecraft 'net.minecraftforge:forge:1.18-38.0.12'
 
     implementation project(':Cucumber')
-    implementation fg.deobf('curse.maven:jade-324717:3447700')
+    implementation fg.deobf('curse.maven:jade-324717:3544015')
 
     runtimeOnly fg.deobf('mezz.jei:jei-1.17.1:8.0.0.14')
 
