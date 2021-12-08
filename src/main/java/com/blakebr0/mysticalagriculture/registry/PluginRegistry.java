@@ -21,7 +21,7 @@ public final class PluginRegistry {
 
         ModList.get().getAllScanData().forEach(data -> {
             data.getAnnotations().forEach(annotation -> {
-                if (annotation.clazz().getClassName().equals(MysticalAgriculturePlugin.class.getName())) {
+                if (annotation.annotationType().getClassName().equals(MysticalAgriculturePlugin.class.getName())) {
                     try {
                         Class<?> clazz = Class.forName(annotation.memberName());
                         if (IMysticalAgriculturePlugin.class.isAssignableFrom(clazz)) {
