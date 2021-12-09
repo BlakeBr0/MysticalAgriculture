@@ -82,7 +82,9 @@ public final class ModBlocks {
     public static final RegistryObject<Block> IMPERIUM_FURNACE = register("imperium_furnace", () -> new EssenceFurnaceBlock(FurnaceTier.IMPERIUM));
     public static final RegistryObject<Block> SUPREMIUM_FURNACE = register("supremium_furnace", () -> new EssenceFurnaceBlock(FurnaceTier.SUPREMIUM));
     public static final RegistryObject<Block> PROSPERITY_ORE = register("prosperity_ore", () -> new BaseOreBlock(Material.STONE, SoundType.STONE, 3.0F, 3.0F, 2, 5));
+    public static final RegistryObject<Block> DEEPSLATE_PROSPERITY_ORE = register("deepslate_prosperity_ore", () -> new BaseOreBlock(Material.STONE, SoundType.STONE, 3.0F, 3.0F, 2, 5));
     public static final RegistryObject<Block> INFERIUM_ORE = register("inferium_ore", () -> new BaseOreBlock(Material.STONE, SoundType.STONE, 3.0F, 3.0F, 2, 5));
+    public static final RegistryObject<Block> DEEPSLATE_INFERIUM_ORE = register("deepslate_inferium_ore", () -> new BaseOreBlock(Material.STONE, SoundType.STONE, 3.0F, 3.0F, 2, 5));
     public static final RegistryObject<Block> SOULIUM_ORE = register("soulium_ore", () -> new BaseOreBlock(Material.STONE, SoundType.STONE, 3.0F, 3.0F, 3, 7));
     public static final RegistryObject<Block> SOULSTONE = register("soulstone", () -> new BaseBlock(Material.STONE, SoundType.STONE, 1.5F, 6.0F, true));
     public static final RegistryObject<Block> SOULSTONE_COBBLE = register("soulstone_cobble", () -> new BaseBlock(Material.STONE, SoundType.STONE, 2.0F, 6.0F, true));

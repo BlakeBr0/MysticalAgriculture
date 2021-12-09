@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
-    "mysticalagriculture:inferium_ore"
+    "mysticalagriculture:inferium_ore",
+    "mysticalagriculture:deepslate_inferium_ore"
   ]
 }

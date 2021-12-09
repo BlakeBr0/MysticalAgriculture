@@ -69,14 +69,14 @@ public final class ModWorldgenRegistration {
 
     public static void onCommonSetup() {
         int size, rate, height;
-        OreConfiguration.TargetBlockState target;
+        List<OreConfiguration.TargetBlockState> targets;
         ConfiguredFeature<OreConfiguration, ?> feature;
 
         size = ModConfigs.SOULSTONE_SPAWN_SIZE.get();
         height = ModConfigs.SOULSTONE_SPAWN_HEIGHT.get();
         rate = ModConfigs.SOULSTONE_SPAWN_RATE.get();
-        target = OreConfiguration.target(OreFeatures.NETHER_ORE_REPLACEABLES, ModBlocks.SOULSTONE.get().defaultBlockState());
-        feature = ModWorldFeatures.SOULSTONE.get().configured(new OreConfiguration(List.of(target), size));
+        targets = List.of(OreConfiguration.target(OreFeatures.NETHER_ORE_REPLACEABLES, ModBlocks.SOULSTONE.get().defaultBlockState()));
+        feature = ModWorldFeatures.SOULSTONE.get().configured(new OreConfiguration(targets, size));
 
         placedSoulstoneFeature = feature.placed(List.of(
                 CountPlacement.of(rate),
@@ -91,8 +91,11 @@ public final class ModWorldgenRegistration {
         size = ModConfigs.PROSPERITY_SPAWN_SIZE.get();
         height = ModConfigs.PROSPERITY_SPAWN_HEIGHT.get();
         rate = ModConfigs.PROSPERITY_SPAWN_RATE.get();
-        target = OreConfiguration.target(OreFeatures.NATURAL_STONE, ModBlocks.PROSPERITY_ORE.get().defaultBlockState());
-        feature = Feature.ORE.configured(new OreConfiguration(List.of(target), size));
+        targets = List.of(
+                OreConfiguration.target(OreFeatures.STONE_ORE_REPLACEABLES, ModBlocks.PROSPERITY_ORE.get().defaultBlockState()),
+                OreConfiguration.target(OreFeatures.DEEPSLATE_ORE_REPLACEABLES, ModBlocks.DEEPSLATE_PROSPERITY_ORE.get().defaultBlockState())
+        );
+        feature = Feature.ORE.configured(new OreConfiguration(targets, size));
 
         placedProsperityOreFeature = feature.placed(List.of(
                 CountPlacement.of(rate),
@@ -107,8 +110,11 @@ public final class ModWorldgenRegistration {
         size = ModConfigs.INFERIUM_SPAWN_SIZE.get();
         height = ModConfigs.INFERIUM_SPAWN_HEIGHT.get();
         rate = ModConfigs.INFERIUM_SPAWN_RATE.get();
-        target = OreConfiguration.target(OreFeatures.NATURAL_STONE, ModBlocks.INFERIUM_ORE.get().defaultBlockState());
-        feature = Feature.ORE.configured(new OreConfiguration(List.of(target), size));
+        targets = List.of(
+                OreConfiguration.target(OreFeatures.STONE_ORE_REPLACEABLES, ModBlocks.INFERIUM_ORE.get().defaultBlockState()),
+                OreConfiguration.target(OreFeatures.DEEPSLATE_ORE_REPLACEABLES, ModBlocks.DEEPSLATE_INFERIUM_ORE.get().defaultBlockState())
+        );
+        feature = Feature.ORE.configured(new OreConfiguration(targets, size));
 
         placedInferiumOreFeature = feature.placed(List.of(
                 CountPlacement.of(rate),
