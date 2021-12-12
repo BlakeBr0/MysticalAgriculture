@@ -114,9 +114,9 @@ dependencies {
     implementation fg.deobf('curse.maven:jade-324717:3544015')
     implementation fg.deobf('curse.maven:top-245211:3550084')
 
-    runtimeOnly fg.deobf('mezz.jei:jei-1.18:9.0.0.40')
+    runtimeOnly fg.deobf('mezz.jei:jei-1.18.1:9.1.0.41')
 
-    compileOnly 'mezz.jei:jei-1.18:9.0.0.40:api'
+    compileOnly 'mezz.jei:jei-1.18.1:9.1.0.41:api'
 }
 
 //dependencies {
