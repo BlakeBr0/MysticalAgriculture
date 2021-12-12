@@ -1,10 +1,15 @@
 package com.blakebr0.mysticalagriculture.lib;
 
+import com.blakebr0.mysticalagriculture.MysticalAgriculture;
 import com.blakebr0.mysticalagriculture.init.ModItems;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.LazyLoadedValue;
 import net.minecraft.world.item.Tier;
+import net.minecraft.world.item.Tiers;
 import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraftforge.common.TierSortingRegistry;
 
+import java.util.List;
 import java.util.function.Supplier;
 
 public enum ModItemTier implements Tier {
@@ -71,5 +76,14 @@ public enum ModItemTier implements Tier {
     @Override
     public Ingredient getRepairIngredient() {
         return this.repairMaterial.get();
+    }
+
+    public static void onCommonSetup() {
+        TierSortingRegistry.registerTier(INFERIUM, new ResourceLocation(MysticalAgriculture.MOD_ID, "inferium"), List.of(Tiers.DIAMOND), List.of());
+        TierSortingRegistry.registerTier(PRUDENTIUM, new ResourceLocation(MysticalAgriculture.MOD_ID, "prudentium"), List.of(INFERIUM), List.of());
+        TierSortingRegistry.registerTier(TERTIUM, new ResourceLocation(MysticalAgriculture.MOD_ID, "tertium"), List.of(PRUDENTIUM), List.of());
+        TierSortingRegistry.registerTier(IMPERIUM, new ResourceLocation(MysticalAgriculture.MOD_ID, "imperium"), List.of(TERTIUM), List.of());
+        TierSortingRegistry.registerTier(SUPREMIUM, new ResourceLocation(MysticalAgriculture.MOD_ID, "supremium"), List.of(IMPERIUM), List.of());
+        TierSortingRegistry.registerTier(SOULIUM, new ResourceLocation(MysticalAgriculture.MOD_ID, "soulium"), List.of(Tiers.WOOD), List.of());
     }
 }

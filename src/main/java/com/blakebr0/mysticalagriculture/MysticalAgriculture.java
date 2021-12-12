@@ -19,6 +19,7 @@ import com.blakebr0.mysticalagriculture.init.ModRecipeSerializers;
 import com.blakebr0.mysticalagriculture.init.ModTileEntities;
 import com.blakebr0.mysticalagriculture.item.FertilizedEssenceItem;
 import com.blakebr0.mysticalagriculture.item.MysticalFertilizerItem;
+import com.blakebr0.mysticalagriculture.lib.ModItemTier;
 import com.blakebr0.mysticalagriculture.network.NetworkHandler;
 import com.blakebr0.mysticalagriculture.registry.AugmentRegistry;
 import com.blakebr0.mysticalagriculture.registry.CropRegistry;
@@ -91,6 +92,7 @@ public final class MysticalAgriculture {
 		MinecraftForge.EVENT_BUS.register(new AugmentHandler());
 
 		ModRecipeSerializers.onCommonSetup();
+		ModItemTier.onCommonSetup();
 
 		event.enqueueWork(() -> {
 			ModWorldgenRegistration.onCommonSetup();
