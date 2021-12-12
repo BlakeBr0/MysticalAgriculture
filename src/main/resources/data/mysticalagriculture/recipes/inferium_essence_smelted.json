@@ -1,7 +1,7 @@
 {
   "type": "smelting",
   "ingredient": {
-    "item": "mysticalagriculture:inferium_ore"
+    "tag": "forge:ores/inferium"
   },
   "result": "mysticalagriculture:inferium_essence",
   "experience": 0.1,

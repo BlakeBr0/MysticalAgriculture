@@ -1,7 +1,7 @@
 {
   "type": "smelting",
   "ingredient": {
-    "item": "mysticalagriculture:prosperity_ore"
+    "tag": "forge:ores/prosperity"
   },
   "result": "mysticalagriculture:prosperity_shard",
   "experience": 0.1,
