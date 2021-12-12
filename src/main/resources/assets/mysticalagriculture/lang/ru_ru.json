@@ -70,6 +70,8 @@
   "block.mysticalagriculture.imperium_reprocessor": "Империевый переработчик семян",
   "block.mysticalagriculture.supremium_reprocessor": "Супремиевый переработчик семян",
   "block.mysticalagriculture.soul_extractor": "Извлекатель душ",
+  
+    "block.mysticalagriculture.mystical_crop": "Посев %s",
 
   "item.mysticalagriculture.prosperity_shard": "Осколок процветания",
   "item.mysticalagriculture.inferium_essence": "Инфериевая эссенция",
@@ -206,15 +208,15 @@
   "tooltip.mysticalagriculture.added_by": "Добавлено: %s",
   "tooltip.mysticalagriculture.required_biomes": "Необходимые биомы:",
   "tooltip.mysticalagriculture.secondary_chance": "Вторичный шанс: %s",
-  "tooltip.mysticalagriculture.inferium_output": "Выход инферия: %s",
+  "tooltip.mysticalagriculture.inferium_output": "Производство инферия: %s",
   "tooltip.mysticalagriculture.cooking_speed": "Скорость готовки: %s",
   "tooltip.mysticalagriculture.fuel_efficiency": "Эффективность топлива: %s",
-  "tooltip.mysticalagriculture.requires_crux": "Requires %s Below",
+  "tooltip.mysticalagriculture.requires_crux": "Требуется %s снизу",
   "tooltip.mysticalagriculture.invalid_biome": "Неизвестный биом",
   "tooltip.mysticalagriculture.growth_accelerator": "Ускоряет рост растений над собой.",
   "tooltip.mysticalagriculture.growth_accelerator_range": "Радиус: %s блоков",
   "tooltip.mysticalagriculture.machine_speed": "Скорость работы: %st",
-  "tooltip.mysticalagriculture.machine_fuel_rate": "Затраты топлива: %s/t",
+  "tooltip.mysticalagriculture.machine_fuel_rate": "Потребление топлива: %s/t",
   "tooltip.mysticalagriculture.machine_fuel_capacity": "Вместимость топлива: %s",
   "tooltip.mysticalagriculture.watering_can_area": "Область: %s",
   "tooltip.mysticalagriculture.experience_capsule": "%s / %s очков опыта",
@@ -243,6 +245,7 @@
   "cropTier.mysticalagriculture.5": "5",
 
   "mobSoulType.mysticalagriculture.fish": "Рыба",
+  "mobSoulType.mysticalagriculture.slime": "Слизень",
   "mobSoulType.mysticalagriculture.zombie": "Зомби",
   "mobSoulType.mysticalagriculture.spider": "Паук",
 
@@ -269,7 +272,7 @@
   "crop.mysticalagriculture.sheep": "овцы",
   "crop.mysticalagriculture.squid": "спрута",
   "crop.mysticalagriculture.fish": "рыбы",
-  "crop.mysticalagriculture.slime": "слизи",
+  "crop.mysticalagriculture.slime": "слизня",
   "crop.mysticalagriculture.turtle": "черепахи",
 
   "crop.mysticalagriculture.iron": "железа",
@@ -336,9 +339,9 @@
 
   "crop.mysticalagriculture.hop_graphite": "HOP графита",
 
-  "crop.mysticalagriculture.tinkers_bronze": "бронзы",
+  "crop.mysticalagriculture.tinkers_bronze": "литейной бронзы",
   "crop.mysticalagriculture.slimesteel": "слизестали",
-  "crop.mysticalagriculture.pig_iron": "свиностали",
+  "crop.mysticalagriculture.pig_iron": "свиного железа",
   "crop.mysticalagriculture.cobalt": "кобальта",
   "crop.mysticalagriculture.rose_gold": "розового золота",
   "crop.mysticalagriculture.manyullyn": "маньюлина",
@@ -372,7 +375,7 @@
 
   "crop.mysticalagriculture.compressed_iron": "сжатого железа",
 
-  "crop.mysticalagriculture.yellorium": "йеллориума",
+  "crop.mysticalagriculture.yellorium": "йеллория",
   "crop.mysticalagriculture.cyanite": "цианита",
 
   "crop.mysticalagriculture.draconium": "дракония",
@@ -381,13 +384,13 @@
   "crop.mysticalagriculture.certus_quartz": "истинного кварца",
   "crop.mysticalagriculture.fluix": "изменчивого кристалла",
 
-  "crop.mysticalagriculture.quartz_enriched_iron": "обогащённого железом кварца",
+  "crop.mysticalagriculture.quartz_enriched_iron": "обогащённого кварцем железа",
 
-  "crop.mysticalagriculture.energized_steel": "Energized Steel",
-  "crop.mysticalagriculture.blazing_crystal": "Blazing Crystal",
-  "crop.mysticalagriculture.niotic_crystal": "Niotic Crystal",
-  "crop.mysticalagriculture.spirited_crystal": "Spirited Crystal",
-  "crop.mysticalagriculture.uraninite": "Uraninite",
+  "crop.mysticalagriculture.energized_steel": "электростали",
+  "crop.mysticalagriculture.blazing_crystal": "пламенного кристалла",
+  "crop.mysticalagriculture.niotic_crystal": "ниотиевого кристалла",
+  "crop.mysticalagriculture.spirited_crystal": "резонансного кристалла",
+  "crop.mysticalagriculture.uraninite": "уранинита",
 
   "augmentType.mysticalagriculture.tool": "Инструмент",
   "augmentType.mysticalagriculture.weapon": "Оружие",
@@ -578,3 +581,4 @@
   "book.mysticalagriculture.entry.flight_augment": "Полёт (Расширение)",
   "book.mysticalagriculture.entry.flight_augment.page.1": "Полёт (Расширение) - это расширение для нагрудника, которое даёт владельцу творческий полёт, пока у него есть броня."
 }
+
