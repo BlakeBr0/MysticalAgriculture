@@ -68,14 +68,11 @@ public abstract class ReprocessorTileEntity extends BaseInventoryTileEntity impl
     }
 
     @Override
-    public CompoundTag save(CompoundTag tag) {
-        tag = super.save(tag);
+    public void saveAdditional(CompoundTag tag) {
         tag.putInt("Progress", this.progress);
         tag.putInt("FuelLeft", this.fuelLeft);
         tag.putInt("FuelItemValue", this.fuelItemValue);
         tag.put("Energy", this.energy.serializeNBT());
-
-        return tag;
     }
 
     @Override
