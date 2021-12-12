@@ -31,6 +31,10 @@ import net.minecraftforge.items.IItemHandlerModifiable;
 
 public class SoulExtractorTileEntity extends BaseInventoryTileEntity implements MenuProvider {
     private static final int FUEL_TICK_MULTIPLIER = 20;
+    public static final int OPERATION_TIME = 100;
+    public static final int FUEL_USAGE = 40;
+    public static final int FUEL_CAPACITY = 80000;
+
     private final BaseItemStackHandler inventory;
     private final EnergyStorage energy;
     private final LazyOptional<IItemHandlerModifiable>[] inventoryCapabilities;
@@ -44,7 +48,7 @@ public class SoulExtractorTileEntity extends BaseInventoryTileEntity implements 
     public SoulExtractorTileEntity(BlockPos pos, BlockState state) {
         super(ModTileEntities.SOUL_EXTRACTOR.get(), pos, state);
         this.inventory = createInventoryHandler(this::markDirtyAndDispatch);
-        this.energy = new EnergyStorage(80000);
+        this.energy = new EnergyStorage(FUEL_CAPACITY);
         this.inventoryCapabilities = SidedItemStackHandlerWrapper.create(this.inventory, new Direction[] { Direction.UP, Direction.DOWN, Direction.NORTH }, this::canInsertStackSided, null);
     }
 
@@ -184,7 +188,7 @@ public class SoulExtractorTileEntity extends BaseInventoryTileEntity implements 
     }
 
     public int getOperationTime() {
-        return 100;
+        return OPERATION_TIME;
     }
 
     public int getFuelLeft() {
@@ -196,7 +200,7 @@ public class SoulExtractorTileEntity extends BaseInventoryTileEntity implements 
     }
 
     public int getFuelUsage() {
-        return 40;
+        return FUEL_USAGE;
     }
 
     private boolean canInsertStackSided(int slot, ItemStack stack, Direction direction) {
