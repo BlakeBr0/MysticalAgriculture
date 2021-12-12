@@ -104,9 +104,9 @@ public class ReprocessorBlock extends BaseTileEntityBlock {
     @Override
     public void appendHoverText(ItemStack stack, IBlockReader world, List<ITextComponent> tooltip, ITooltipFlag flag) {
         if (Screen.hasShiftDown()) {
-            tooltip.add(ModTooltips.REPROCESSOR_SPEED.args(this.getStatText(this.tier.getOperationTime())).build());
-            tooltip.add(ModTooltips.REPROCESSOR_FUEL_RATE.args(this.getStatText(this.tier.getFuelUsage())).build());
-            tooltip.add(ModTooltips.REPROCESSOR_FUEL_CAPACITY.args(this.getStatText(this.tier.getFuelCapacity())).build());
+            tooltip.add(ModTooltips.MACHINE_SPEED.args(this.getStatText(this.tier.getOperationTime())).build());
+            tooltip.add(ModTooltips.MACHINE_FUEL_RATE.args(this.getStatText(this.tier.getFuelUsage())).build());
+            tooltip.add(ModTooltips.MACHINE_FUEL_CAPACITY.args(this.getStatText(this.tier.getFuelCapacity())).build());
         } else {
             tooltip.add(Tooltips.HOLD_SHIFT_FOR_INFO.build());
         }
