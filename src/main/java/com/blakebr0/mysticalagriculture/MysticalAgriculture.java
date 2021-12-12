@@ -3,6 +3,7 @@ package com.blakebr0.mysticalagriculture;
 import com.blakebr0.cucumber.helper.ConfigHelper;
 import com.blakebr0.mysticalagriculture.api.MysticalAgricultureAPI;
 import com.blakebr0.mysticalagriculture.client.ModelHandler;
+import com.blakebr0.mysticalagriculture.compat.TOPCompat;
 import com.blakebr0.mysticalagriculture.config.ModConfigs;
 import com.blakebr0.mysticalagriculture.crafting.DynamicRecipeManager;
 import com.blakebr0.mysticalagriculture.data.ModDataGenerators;
@@ -110,8 +111,8 @@ public final class MysticalAgriculture {
 
 	@SubscribeEvent
 	public void onInterModEnqueue(InterModEnqueueEvent event) {
-		if (ModList.get().isLoaded("theoneprobe"));
-//			TOPCompat.onInterModEnqueue();
+		if (ModList.get().isLoaded("theoneprobe"))
+			TOPCompat.onInterModEnqueue();
 	}
 
 	private static void initAPI() throws NoSuchFieldException, IllegalAccessException {
