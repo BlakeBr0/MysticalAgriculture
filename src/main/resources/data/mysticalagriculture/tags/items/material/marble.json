@@ -3,7 +3,6 @@
   "values": [],
   "optional": [
     "#chisel:marble",
-    "astralsorcery:marble_raw",
-    "quark:marble"
+    "astralsorcery:marble_raw"
   ]
 }
