@@ -11,13 +11,11 @@ import mcjty.theoneprobe.api.IProbeInfoProvider;
 import mcjty.theoneprobe.api.ITheOneProbe;
 import mcjty.theoneprobe.api.ProbeMode;
 import net.minecraft.ChatFormatting;
-import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.TextComponent;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.fml.InterModComms;
 
@@ -34,8 +32,8 @@ public class TOPCompat implements Function<ITheOneProbe, Void> {
 
             @Override
             public void addProbeInfo(ProbeMode mode, IProbeInfo info, Player player, Level world, BlockState state, IProbeHitData data) {
-                Block block = state.getBlock();
-                BlockPos pos = data.getPos();
+                var block = state.getBlock();
+                var pos = data.getPos();
 
                 if (block instanceof ICropProvider provider) {
                     var crop = provider.getCrop();
