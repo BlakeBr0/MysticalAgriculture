@@ -304,7 +304,7 @@ public final class ModCrops {
         registry.register(withRequiredMods(REFINED_OBSIDIAN, "mekanism"));
 
         // CHISEL
-        registry.register(withRequiredMods(MARBLE, "chisel", "quark", "astralsorcery"));
+        registry.register(withRequiredMods(MARBLE, "chisel", "astralsorcery"));
         registry.register(withRequiredMods(LIMESTONE, "chisel"));
         registry.register(withRequiredMods(BASALT, "chisel"));
 
