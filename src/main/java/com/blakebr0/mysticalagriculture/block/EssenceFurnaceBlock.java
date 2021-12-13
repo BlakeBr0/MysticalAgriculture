@@ -1,5 +1,6 @@
 package com.blakebr0.mysticalagriculture.block;
 
+import com.blakebr0.mysticalagriculture.init.ModTileEntities;
 import com.blakebr0.mysticalagriculture.lib.ModTooltips;
 import com.blakebr0.mysticalagriculture.tileentity.EssenceFurnaceTileEntity;
 import com.blakebr0.mysticalagriculture.util.FurnaceTier;
@@ -17,13 +18,15 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.AbstractFurnaceBlock;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.entity.BlockEntityTicker;
+import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 
 import java.util.List;
 
-public class EssenceFurnaceBlock extends AbstractFurnaceBlock {
+public abstract class EssenceFurnaceBlock extends AbstractFurnaceBlock {
     private final FurnaceTier tier;
 
     public EssenceFurnaceBlock(FurnaceTier tier) {
@@ -74,5 +77,80 @@ public class EssenceFurnaceBlock extends AbstractFurnaceBlock {
 
         tooltip.add(ModTooltips.COOKING_SPEED.args(cookingSpeed).build());
         tooltip.add(ModTooltips.FUEL_EFFICIENCY.args(fuelEfficiency).build());
+    }
+
+    public static class Inferium extends EssenceFurnaceBlock {
+        public Inferium() {
+            super(FurnaceTier.INFERIUM);
+        }
+
+        @Override
+        public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, BlockState state, BlockEntityType<T> type) {
+            return createTicker(level, type);
+        }
+
+        protected <T extends BlockEntity> BlockEntityTicker<T> createTicker(Level level, BlockEntityType<T> type) {
+            return level.isClientSide ? null : createTickerHelper(type, ModTileEntities.INFERIUM_FURNACE.get(), EssenceFurnaceTileEntity.Inferium::tick);
+        }
+    }
+
+    public static class Prudentium extends EssenceFurnaceBlock {
+        public Prudentium() {
+            super(FurnaceTier.PRUDENTIUM);
+        }
+
+        @Override
+        public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, BlockState state, BlockEntityType<T> type) {
+            return createTicker(level, type);
+        }
+
+        protected <T extends BlockEntity> BlockEntityTicker<T> createTicker(Level level, BlockEntityType<T> type) {
+            return level.isClientSide ? null : createTickerHelper(type, ModTileEntities.PRUDENTIUM_FURNACE.get(), EssenceFurnaceTileEntity.Prudentium::tick);
+        }
+    }
+
+    public static class Tertium extends EssenceFurnaceBlock {
+        public Tertium() {
+            super(FurnaceTier.TERTIUM);
+        }
+
+        @Override
+        public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, BlockState state, BlockEntityType<T> type) {
+            return createTicker(level, type);
+        }
+
+        protected <T extends BlockEntity> BlockEntityTicker<T> createTicker(Level level, BlockEntityType<T> type) {
+            return level.isClientSide ? null : createTickerHelper(type, ModTileEntities.TERTIUM_FURNACE.get(), EssenceFurnaceTileEntity.Tertium::tick);
+        }
+    }
+
+    public static class Imperium extends EssenceFurnaceBlock {
+        public Imperium() {
+            super(FurnaceTier.IMPERIUM);
+        }
+
+        @Override
+        public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, BlockState state, BlockEntityType<T> type) {
+            return createTicker(level, type);
+        }
+
+        protected <T extends BlockEntity> BlockEntityTicker<T> createTicker(Level level, BlockEntityType<T> type) {
+            return level.isClientSide ? null : createTickerHelper(type, ModTileEntities.IMPERIUM_FURNACE.get(), EssenceFurnaceTileEntity.Imperium::tick);
+        }
+    }
+
+    public static class Supremium extends EssenceFurnaceBlock {
+        public Supremium() {
+            super(FurnaceTier.SUPREMIUM);
+        }
+
+        @Override
+        public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, BlockState state, BlockEntityType<T> type) {
+            return createTicker(level, type);
+        }
+
+        protected <T extends BlockEntity> BlockEntityTicker<T> createTicker(Level level, BlockEntityType<T> type) {
+            return level.isClientSide ? null : createTickerHelper(type, ModTileEntities.SUPREMIUM_FURNACE.get(), EssenceFurnaceTileEntity.Supremium::tick);
+        }
     }
 }
