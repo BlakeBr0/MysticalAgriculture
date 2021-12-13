@@ -1,0 +1,14 @@
+{
+  "replace": false,
+  "values": [
+    "mysticalagriculture:prosperity_ore",
+    "mysticalagriculture:deepslate_prosperity_ore",
+    "mysticalagriculture:prosperity_gemstone_block",
+    "mysticalagriculture:inferium_gemstone_block",
+    "mysticalagriculture:prudentium_gemstone_block",
+    "mysticalagriculture:tertium_gemstone_block",
+    "mysticalagriculture:imperium_gemstone_block",
+    "mysticalagriculture:supremium_gemstone_block",
+    "mysticalagriculture:soulium_gemstone_block"
+  ]
+}

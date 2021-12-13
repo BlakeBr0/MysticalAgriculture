@@ -1,0 +1,22 @@
+{
+  "replace": false,
+  "values": [
+    "mysticalagriculture:inferium_ore",
+    "mysticalagriculture:deepslate_inferium_ore",
+    "mysticalagriculture:prosperity_ingot_block",
+    "mysticalagriculture:inferium_ingot_block",
+    "mysticalagriculture:prudentium_ingot_block",
+    "mysticalagriculture:tertium_ingot_block",
+    "mysticalagriculture:imperium_ingot_block",
+    "mysticalagriculture:supremium_ingot_block",
+    "mysticalagriculture:soulium_ingot_block",
+    "mysticalagriculture:machine_frame",
+    "mysticalagriculture:basic_reprocessor",
+    "mysticalagriculture:inferium_reprocessor",
+    "mysticalagriculture:prudentium_reprocessor",
+    "mysticalagriculture:tertium_reprocessor",
+    "mysticalagriculture:imperium_reprocessor",
+    "mysticalagriculture:supremium_reprocessor",
+    "mysticalagriculture:soul_extractor"
+  ]
+}
