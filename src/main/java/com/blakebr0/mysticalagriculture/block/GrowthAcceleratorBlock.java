@@ -33,20 +33,18 @@ public class GrowthAcceleratorBlock extends BaseBlock {
     }
 
     @Override
-    public void onPlace(BlockState state, Level world, BlockPos pos, BlockState oldState, boolean isMoving) {
-        // TODO: fix
-//        world.getBlockTicks().scheduleTick(pos, this, getTickRate());
+    public void onPlace(BlockState state, Level level, BlockPos pos, BlockState oldState, boolean isMoving) {
+        level.scheduleTick(pos, this, getTickRate());
     }
 
     @Override
-    public void tick(BlockState state, ServerLevel world, BlockPos pos, Random random) {
+    public void tick(BlockState state, ServerLevel level, BlockPos pos, Random random) {
         BlockPos.betweenClosedStream(pos.above(2), pos.offset(0, this.range + 2, 0))
-                .filter(aoePos -> world.getBlockState(aoePos).getBlock() instanceof BonemealableBlock)
+                .filter(aoePos -> level.getBlockState(aoePos).getBlock() instanceof BonemealableBlock)
                 .findFirst()
-                .ifPresent(aoePos -> world.getBlockState(aoePos).randomTick(world, aoePos, random));
+                .ifPresent(aoePos -> level.getBlockState(aoePos).randomTick(level, aoePos, random));
 
-        // TODO: fix
-//        world.getBlockTicks().scheduleTick(pos, this, getTickRate());
+        level.scheduleTick(pos, this, getTickRate());
     }
 
     @OnlyIn(Dist.CLIENT)
