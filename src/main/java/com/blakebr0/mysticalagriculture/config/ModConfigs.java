@@ -41,17 +41,20 @@ public final class ModConfigs {
     public static final ForgeConfigSpec.BooleanValue GENERATE_PROSPERITY;
     public static final ForgeConfigSpec.IntValue PROSPERITY_SPAWN_RATE;
     public static final ForgeConfigSpec.IntValue PROSPERITY_SPAWN_SIZE;
-    public static final ForgeConfigSpec.IntValue PROSPERITY_SPAWN_HEIGHT;
+    public static final ForgeConfigSpec.IntValue PROSPERITY_SPAWN_MIN_Y;
+    public static final ForgeConfigSpec.IntValue PROSPERITY_SPAWN_MAX_Y;
     public static final ForgeConfigSpec.ConfigValue<List<String>> PROSPERITY_BIOME_WHITELIST;
     public static final ForgeConfigSpec.BooleanValue GENERATE_INFERIUM;
     public static final ForgeConfigSpec.IntValue INFERIUM_SPAWN_RATE;
     public static final ForgeConfigSpec.IntValue INFERIUM_SPAWN_SIZE;
-    public static final ForgeConfigSpec.IntValue INFERIUM_SPAWN_HEIGHT;
+    public static final ForgeConfigSpec.IntValue INFERIUM_SPAWN_MIN_Y;
+    public static final ForgeConfigSpec.IntValue INFERIUM_SPAWN_MAX_Y;
     public static final ForgeConfigSpec.ConfigValue<List<String>> INFERIUM_BIOME_WHITELIST;
     public static final ForgeConfigSpec.BooleanValue GENERATE_SOULSTONE;
     public static final ForgeConfigSpec.IntValue SOULSTONE_SPAWN_RATE;
     public static final ForgeConfigSpec.IntValue SOULSTONE_SPAWN_SIZE;
-    public static final ForgeConfigSpec.IntValue SOULSTONE_SPAWN_HEIGHT;
+    public static final ForgeConfigSpec.IntValue SOULSTONE_SPAWN_MIN_Y;
+    public static final ForgeConfigSpec.IntValue SOULSTONE_SPAWN_MAX_Y;
     public static final ForgeConfigSpec.ConfigValue<List<String>> SOULSTONE_BIOME_WHITELIST;
 
     // Common
@@ -122,10 +125,14 @@ public final class ModConfigs {
                 .comment("The maximum amount of Prosperity Ore blocks that can spawn in a vein.")
                 .translation("configGui.mysticalagriculture.prosperity_spawn_size")
                 .defineInRange("prosperitySpawnSize", 8, 0, 64);
-        PROSPERITY_SPAWN_HEIGHT = common
+        PROSPERITY_SPAWN_MIN_Y = common
+                .comment("The minimum Y level that Prosperity Ore veins can spawn.")
+                .translation("configGui.mysticalagriculture.prosperity_spawn_min_y")
+                .defineInRange("prosperitySpawnMinY", -60, -64, 319);
+        PROSPERITY_SPAWN_MAX_Y = common
                 .comment("The maximum Y level that Prosperity Ore veins can spawn.")
-                .translation("configGui.mysticalagriculture.prosperity_spawn_height")
-                .defineInRange("prosperitySpawnHeight", 50, 0, 256);
+                .translation("configGui.mysticalagriculture.prosperity_spawn_max_y")
+                .defineInRange("prosperitySpawnMaxY", 24, -64, 319);
         PROSPERITY_BIOME_WHITELIST = common
                 .comment("The list of biome IDs that Prosperity Ore veins can spawn in.")
                 .translation("configGui.mysticalagriculture.prosperity_biome_whitelist")
@@ -142,10 +149,14 @@ public final class ModConfigs {
                 .comment("The maximum amount of Inferium Ore blocks that can spawn in a vein.")
                 .translation("configGui.mysticalagriculture.inferium_spawn_size")
                 .defineInRange("inferiumSpawnSize", 8, 0, 64);
-        INFERIUM_SPAWN_HEIGHT = common
+        INFERIUM_SPAWN_MIN_Y = common
                 .comment("The maximum Y level that Inferium Ore veins can spawn.")
-                .translation("configGui.mysticalagriculture.inferium_spawn_height")
-                .defineInRange("inferiumSpawnHeight", 50, 0, 256);
+                .translation("configGui.mysticalagriculture.inferium_spawn_min_y")
+                .defineInRange("inferiumSpawnMinY", -32, -64, 319);
+        INFERIUM_SPAWN_MAX_Y = common
+                .comment("The maximum Y level that Inferium Ore veins can spawn.")
+                .translation("configGui.mysticalagriculture.inferium_spawn_max_y")
+                .defineInRange("inferiumSpawnMaxY", 64, -64, 319);
         INFERIUM_BIOME_WHITELIST = common
                 .comment("The list of biome IDs that Inferium Ore veins can spawn in.")
                 .translation("configGui.mysticalagriculture.inferium_biome_whitelist")
@@ -162,10 +173,14 @@ public final class ModConfigs {
                 .comment("The maximum amount of Soulstone blocks that can spawn in a vein.")
                 .translation("configGui.mysticalagriculture.soulstone_spawn_size")
                 .defineInRange("soulstoneSpawnSize", 64, 0, 64);
-        SOULSTONE_SPAWN_HEIGHT = common
+        SOULSTONE_SPAWN_MIN_Y = common
+                .comment("The minimum Y level that Soulstone veins can spawn.")
+                .translation("configGui.mysticalagriculture.inferium_spawn_min_y")
+                .defineInRange("soulstoneSpawnMinY", 0, 0, 128);
+        SOULSTONE_SPAWN_MAX_Y = common
                 .comment("The maximum Y level that Soulstone veins can spawn.")
-                .translation("configGui.mysticalagriculture.inferium_spawn_height")
-                .defineInRange("inferiumSpawnHeight", 128, 0, 128);
+                .translation("configGui.mysticalagriculture.inferium_spawn_max_y")
+                .defineInRange("soulstoneSpawnMaxY", 128, 0, 128);
         SOULSTONE_BIOME_WHITELIST = common
                 .comment("The list of biome IDs that Soulstone veins can spawn in.")
                 .translation("configGui.mysticalagriculture.soulstone_biome_whitelist")

@@ -68,12 +68,13 @@ public final class ModWorldgenRegistration {
     }
 
     public static void onCommonSetup() {
-        int size, rate, height;
+        int size, rate, minY, maxY;
         List<OreConfiguration.TargetBlockState> targets;
         ConfiguredFeature<OreConfiguration, ?> feature;
 
         size = ModConfigs.SOULSTONE_SPAWN_SIZE.get();
-        height = ModConfigs.SOULSTONE_SPAWN_HEIGHT.get();
+        minY = ModConfigs.SOULSTONE_SPAWN_MIN_Y.get();
+        maxY = ModConfigs.SOULSTONE_SPAWN_MAX_Y.get();
         rate = ModConfigs.SOULSTONE_SPAWN_RATE.get();
         targets = List.of(OreConfiguration.target(OreFeatures.NETHER_ORE_REPLACEABLES, ModBlocks.SOULSTONE.get().defaultBlockState()));
         feature = ModWorldFeatures.SOULSTONE.get().configured(new OreConfiguration(targets, size));
@@ -81,7 +82,7 @@ public final class ModWorldgenRegistration {
         placedSoulstoneFeature = feature.placed(List.of(
                 CountPlacement.of(rate),
                 InSquarePlacement.spread(),
-                HeightRangePlacement.uniform(VerticalAnchor.bottom(), VerticalAnchor.aboveBottom(height)),
+                HeightRangePlacement.uniform(VerticalAnchor.absolute(minY), VerticalAnchor.absolute(maxY)),
                 BiomeFilter.biome()
         ));
 
@@ -89,7 +90,8 @@ public final class ModWorldgenRegistration {
         Registry.register(BuiltinRegistries.PLACED_FEATURE, new ResourceLocation(MysticalAgriculture.MOD_ID, "soulstone"), placedSoulstoneFeature);
 
         size = ModConfigs.PROSPERITY_SPAWN_SIZE.get();
-        height = ModConfigs.PROSPERITY_SPAWN_HEIGHT.get();
+        minY = ModConfigs.PROSPERITY_SPAWN_MIN_Y.get();
+        maxY = ModConfigs.PROSPERITY_SPAWN_MAX_Y.get();
         rate = ModConfigs.PROSPERITY_SPAWN_RATE.get();
         targets = List.of(
                 OreConfiguration.target(OreFeatures.STONE_ORE_REPLACEABLES, ModBlocks.PROSPERITY_ORE.get().defaultBlockState()),
@@ -100,7 +102,7 @@ public final class ModWorldgenRegistration {
         placedProsperityOreFeature = feature.placed(List.of(
                 CountPlacement.of(rate),
                 InSquarePlacement.spread(),
-                HeightRangePlacement.uniform(VerticalAnchor.bottom(), VerticalAnchor.aboveBottom(height)),
+                HeightRangePlacement.uniform(VerticalAnchor.absolute(minY), VerticalAnchor.absolute(maxY)),
                 BiomeFilter.biome()
         ));
 
@@ -108,7 +110,8 @@ public final class ModWorldgenRegistration {
         Registry.register(BuiltinRegistries.PLACED_FEATURE, new ResourceLocation(MysticalAgriculture.MOD_ID, "prosperity_ore"), placedProsperityOreFeature);
 
         size = ModConfigs.INFERIUM_SPAWN_SIZE.get();
-        height = ModConfigs.INFERIUM_SPAWN_HEIGHT.get();
+        minY = ModConfigs.INFERIUM_SPAWN_MIN_Y.get();
+        maxY = ModConfigs.INFERIUM_SPAWN_MAX_Y.get();
         rate = ModConfigs.INFERIUM_SPAWN_RATE.get();
         targets = List.of(
                 OreConfiguration.target(OreFeatures.STONE_ORE_REPLACEABLES, ModBlocks.INFERIUM_ORE.get().defaultBlockState()),
@@ -119,7 +122,7 @@ public final class ModWorldgenRegistration {
         placedInferiumOreFeature = feature.placed(List.of(
                 CountPlacement.of(rate),
                 InSquarePlacement.spread(),
-                HeightRangePlacement.uniform(VerticalAnchor.bottom(), VerticalAnchor.aboveBottom(height)),
+                HeightRangePlacement.uniform(VerticalAnchor.absolute(minY), VerticalAnchor.absolute(maxY)),
                 BiomeFilter.biome()
         ));
 
