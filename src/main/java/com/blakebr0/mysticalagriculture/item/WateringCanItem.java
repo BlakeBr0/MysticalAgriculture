@@ -12,6 +12,7 @@ import net.minecraft.block.IGrowable;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUseContext;
@@ -19,6 +20,7 @@ import net.minecraft.item.UseAction;
 import net.minecraft.particles.ParticleTypes;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.ActionResultType;
+import net.minecraft.util.CooldownTracker;
 import net.minecraft.util.Direction;
 import net.minecraft.util.Hand;
 import net.minecraft.util.NonNullList;
@@ -35,17 +37,12 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.common.IPlantable;
 import net.minecraftforge.common.util.FakePlayer;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.UUID;
 import java.util.function.Function;
 import java.util.stream.Stream;
 
-import net.minecraft.item.Item.Properties;
-
 public class WateringCanItem extends BaseItem {
-    private static final Map<String, Long> THROTTLES = new HashMap<>();
     protected final int range;
     protected final double chance;
 
@@ -145,12 +142,12 @@ public class WateringCanItem extends BaseItem {
             return ActionResultType.PASS;
 
         if (!world.isClientSide()) {
-            String id = getID(stack);
-            long throttle = THROTTLES.getOrDefault(id, 0L);
-            if (world.getGameTime() - throttle < getThrottleTicks(player))
+            final Item wateringCan = stack.getItem();
+            final CooldownTracker cooldownTracker = player.getCooldowns();
+            if (!cooldownTracker.isOnCooldown(wateringCan)) {
+                cooldownTracker.addCooldown(wateringCan, getThrottleTicks(player));
                 return ActionResultType.PASS;
-
-            THROTTLES.put(id, world.getGameTime());
+            }
         }
 
         int range = (this.range - 1) / 2;
@@ -197,15 +194,7 @@ public class WateringCanItem extends BaseItem {
         return ActionResultType.PASS;
     }
 
-    private static String getID(ItemStack stack) {
-        if (!NBTHelper.hasKey(stack, "ID")) {
-            NBTHelper.setString(stack, "ID", UUID.randomUUID().toString());
-        }
-
-        return NBTHelper.getString(stack, "ID");
-    }
-
-    private static long getThrottleTicks(PlayerEntity player) {
-        return player instanceof FakePlayer ? 10L : 5L;
+    private static int getThrottleTicks(PlayerEntity player) {
+        return player instanceof FakePlayer ? 10 : 5;
     }
 }
