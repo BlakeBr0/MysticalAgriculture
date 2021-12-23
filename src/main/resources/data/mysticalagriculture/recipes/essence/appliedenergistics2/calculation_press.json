@@ -16,11 +16,11 @@
       "item": "mysticalagriculture:certus_quartz_essence"
     },
     "M": {
-      "item": "appliedenergistics2:purified_certus_quartz_crystal"
+      "item": "ae2:purified_certus_quartz_crystal"
     }
   },
   "result": {
-    "item": "appliedenergistics2:calculation_processor_press",
+    "item": "ae2:calculation_processor_press",
     "count": 1
   }
 }
