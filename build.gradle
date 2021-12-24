@@ -42,6 +42,8 @@ minecraft {
 
             property 'forge.logging.markers', 'REGISTRIES'
             property 'forge.logging.console.level', 'debug'
+            property 'mixin.env.remapRefMap', 'true'
+            property 'mixin.env.refMapRemappingFile', "${buildDir}/createSrgToMcp/output.srg"
 
             ideaModule "${rootProject.name}.${project.name}.main"
 
@@ -61,6 +63,8 @@ minecraft {
 
             property 'forge.logging.markers', 'REGISTRIES'
             property 'forge.logging.console.level', 'debug'
+            property 'mixin.env.remapRefMap', 'true'
+            property 'mixin.env.refMapRemappingFile', "${buildDir}/createSrgToMcp/output.srg"
 
             ideaModule "${rootProject.name}.${project.name}.main"
 
@@ -80,6 +84,8 @@ minecraft {
 
             property 'forge.logging.markers', 'REGISTRIES'
             property 'forge.logging.console.level', 'debug'
+            property 'mixin.env.remapRefMap', 'true'
+            property 'mixin.env.refMapRemappingFile', "${buildDir}/createSrgToMcp/output.srg"
 
             ideaModule "${rootProject.name}.${project.name}.main"
 
@@ -114,6 +120,7 @@ dependencies {
     implementation fg.deobf('curse.maven:jade-324717:3544015')
     implementation fg.deobf('curse.maven:top-245211:3550084')
 
+    runtimeOnly fg.deobf('vazkii.patchouli:Patchouli:1.18.1-61')
     runtimeOnly fg.deobf('mezz.jei:jei-1.18.1:9.1.0.41')
 
     compileOnly 'mezz.jei:jei-1.18.1:9.1.0.41:api'
@@ -121,7 +128,6 @@ dependencies {
 
 //dependencies {
 //    compileOnly fg.deobf('com.blamejared.crafttweaker:CraftTweaker-1.16.5:7.1.0.326')
-//    compileOnly fg.deobf('vazkii.patchouli:Patchouli:1.16.2-47')
 //}
 
 task apiJar(type: Jar) {
