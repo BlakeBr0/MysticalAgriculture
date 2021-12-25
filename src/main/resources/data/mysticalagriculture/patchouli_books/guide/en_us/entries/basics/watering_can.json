@@ -1,6 +1,6 @@
 {
   "name": "book.mysticalagriculture.entry.watering_can",
-  "category": "basics",
+  "category": "mysticalagriculture:basics",
   "icon": "mysticalagriculture:watering_can",
   "sortnum": 8,
   "pages": [

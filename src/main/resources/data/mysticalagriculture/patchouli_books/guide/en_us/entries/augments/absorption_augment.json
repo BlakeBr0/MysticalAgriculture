@@ -1,6 +1,6 @@
 {
   "name": "book.mysticalagriculture.entry.absorption_augment",
-  "category": "augments",
+  "category": "mysticalagriculture:augments",
   "icon": "mysticalagriculture:absorption_v_augment",
   "sortnum": 300,
   "pages": [

@@ -1,6 +1,6 @@
 {
   "name": "book.mysticalagriculture.entry.attack_aoe_augment",
-  "category": "augments",
+  "category": "mysticalagriculture:augments",
   "icon": "mysticalagriculture:attack_aoe_iii_augment",
   "sortnum": 312,
   "pages": [

@@ -1,6 +1,6 @@
 {
   "name": "book.mysticalagriculture.entry.resource_crops",
-  "category": "basics",
+  "category": "mysticalagriculture:basics",
   "icon": "mysticalagriculture:prosperity_seed_base",
   "sortnum": 5,
   "pages": [

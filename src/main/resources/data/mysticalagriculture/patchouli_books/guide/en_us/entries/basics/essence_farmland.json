@@ -1,6 +1,6 @@
 {
   "name": "book.mysticalagriculture.entry.essence_farmland",
-  "category": "basics",
+  "category": "mysticalagriculture:basics",
   "icon": "mysticalagriculture:inferium_farmland",
   "sortnum": 6,
   "pages": [

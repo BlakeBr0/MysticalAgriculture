@@ -1,6 +1,6 @@
 {
   "name": "book.mysticalagriculture.entry.experience_capsule",
-  "category": "souls",
+  "category": "mysticalagriculture:souls",
   "icon": "mysticalagriculture:experience_capsule",
   "sortnum": 106,
   "pages": [

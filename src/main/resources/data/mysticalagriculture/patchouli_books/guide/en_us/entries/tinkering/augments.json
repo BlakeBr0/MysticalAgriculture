@@ -1,6 +1,6 @@
 {
   "name": "book.mysticalagriculture.entry.augments",
-  "category": "tinkering",
+  "category": "mysticalagriculture:tinkering",
   "icon": "mysticalagriculture:unattuned_augment",
   "sortnum": 253,
   "pages": [

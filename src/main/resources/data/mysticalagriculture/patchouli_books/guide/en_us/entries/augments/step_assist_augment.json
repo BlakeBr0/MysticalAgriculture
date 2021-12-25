@@ -1,6 +1,6 @@
 {
   "name": "book.mysticalagriculture.entry.step_assist_augment",
-  "category": "augments",
+  "category": "mysticalagriculture:augments",
   "icon": "mysticalagriculture:step_assist_augment",
   "sortnum": 310,
   "pages": [

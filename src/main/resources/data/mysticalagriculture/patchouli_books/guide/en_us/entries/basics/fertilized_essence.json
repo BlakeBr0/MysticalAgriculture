@@ -1,6 +1,6 @@
 {
   "name": "book.mysticalagriculture.entry.fertilized_essence",
-  "category": "basics",
+  "category": "mysticalagriculture:basics",
   "icon": "mysticalagriculture:fertilized_essence",
   "sortnum": 10,
   "pages": [

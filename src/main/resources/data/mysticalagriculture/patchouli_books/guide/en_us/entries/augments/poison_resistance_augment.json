@@ -1,6 +1,6 @@
 {
   "name": "book.mysticalagriculture.entry.poison_resistance_augment",
-  "category": "augments",
+  "category": "mysticalagriculture:augments",
   "icon": "mysticalagriculture:poison_resistance_augment",
   "sortnum": 313,
   "pages": [

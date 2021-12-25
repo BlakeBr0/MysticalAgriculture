@@ -1,6 +1,6 @@
 {
   "name": "book.mysticalagriculture.entry.infusion_crystal",
-  "category": "basics",
+  "category": "mysticalagriculture:basics",
   "icon": "mysticalagriculture:infusion_crystal",
   "sortnum": 2,
   "pages": [

@@ -1,6 +1,6 @@
 {
   "name": "book.mysticalagriculture.entry.tilling_aoe_augment",
-  "category": "augments",
+  "category": "mysticalagriculture:augments",
   "icon": "mysticalagriculture:tilling_aoe_iv_augment",
   "sortnum": 308,
   "pages": [

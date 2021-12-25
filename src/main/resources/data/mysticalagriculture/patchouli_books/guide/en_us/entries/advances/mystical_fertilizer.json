@@ -1,6 +1,6 @@
 {
   "name": "book.mysticalagriculture.entry.mystical_fertilizer",
-  "category": "advances",
+  "category": "mysticalagriculture:advances",
   "icon": "mysticalagriculture:mystical_fertilizer",
   "sortnum": 50,
   "pages": [

@@ -1,6 +1,6 @@
 {
   "name": "book.mysticalagriculture.entry.infusion_altar",
-  "category": "basics",
+  "category": "mysticalagriculture:basics",
   "icon": "mysticalagriculture:infusion_altar",
   "sortnum": 9,
   "pages": [

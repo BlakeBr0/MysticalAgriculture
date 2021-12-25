@@ -1,6 +1,6 @@
 {
   "name": "book.mysticalagriculture.entry.soulstone",
-  "category": "souls",
+  "category": "mysticalagriculture:souls",
   "icon": "mysticalagriculture:soulstone",
   "sortnum": 100,
   "pages": [

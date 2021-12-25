@@ -1,6 +1,6 @@
 {
   "name": "book.mysticalagriculture.entry.essence_tools",
-  "category": "tinkering",
+  "category": "mysticalagriculture:tinkering",
   "icon": "mysticalagriculture:inferium_pickaxe",
   "sortnum": 250,
   "pages": [

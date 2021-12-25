@@ -1,6 +1,6 @@
 {
   "name": "book.mysticalagriculture.entry.tinkering_table",
-  "category": "tinkering",
+  "category": "mysticalagriculture:tinkering",
   "icon": "mysticalagriculture:tinkering_table",
   "sortnum": 252,
   "pages": [

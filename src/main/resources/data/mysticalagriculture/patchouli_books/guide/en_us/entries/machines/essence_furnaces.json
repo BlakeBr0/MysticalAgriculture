@@ -1,6 +1,6 @@
 {
   "name": "book.mysticalagriculture.entry.essence_furnaces",
-  "category": "machines",
+  "category": "mysticalagriculture:machines",
   "icon": "mysticalagriculture:inferium_furnace",
   "sortnum": 200,
   "pages": [

@@ -1,6 +1,6 @@
 {
   "name": "book.mysticalagriculture.entry.growth_accelerators",
-  "category": "basics",
+  "category": "mysticalagriculture:basics",
   "icon": "mysticalagriculture:inferium_growth_accelerator",
   "sortnum": 7,
   "pages": [

@@ -1,6 +1,6 @@
 {
   "name": "book.mysticalagriculture.entry.inferium_seeds",
-  "category": "basics",
+  "category": "mysticalagriculture:basics",
   "icon": "mysticalagriculture:inferium_seeds",
   "sortnum": 3,
   "pages": [

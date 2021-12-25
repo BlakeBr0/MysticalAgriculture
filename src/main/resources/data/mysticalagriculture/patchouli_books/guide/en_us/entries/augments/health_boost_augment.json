@@ -1,6 +1,6 @@
 {
   "name": "book.mysticalagriculture.entry.health_boost_augment",
-  "category": "augments",
+  "category": "mysticalagriculture:augments",
   "icon": "mysticalagriculture:health_boost_v_augment",
   "sortnum": 301,
   "pages": [

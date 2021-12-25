@@ -1,6 +1,6 @@
 {
   "name": "book.mysticalagriculture.entry.seed_reprocessors",
-  "category": "machines",
+  "category": "mysticalagriculture:machines",
   "icon": "mysticalagriculture:basic_reprocessor",
   "sortnum": 201,
   "pages": [

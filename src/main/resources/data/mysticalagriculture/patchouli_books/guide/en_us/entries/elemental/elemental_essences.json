@@ -1,6 +1,6 @@
 {
   "name": "book.mysticalagriculture.entry.elemental_essences",
-  "category": "elemental",
+  "category": "mysticalagriculture:elemental",
   "icon": "mysticalagriculture:air_essence",
   "sortnum": 150,
   "pages": [
