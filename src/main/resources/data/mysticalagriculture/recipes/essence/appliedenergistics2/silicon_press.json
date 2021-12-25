@@ -16,11 +16,11 @@
       "item": "mysticalagriculture:certus_quartz_essence"
     },
     "M": {
-      "item": "appliedenergistics2:silicon"
+      "item": "ae2:silicon"
     }
   },
   "result": {
-    "item": "appliedenergistics2:silicon_press",
+    "item": "ae2:silicon_press",
     "count": 1
   }
 }

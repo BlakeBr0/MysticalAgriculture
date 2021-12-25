@@ -166,9 +166,9 @@ public final class ModCrops {
     public static final Crop CYANITE = new Crop(new ResourceLocation(MOD_ID, "cyanite"), CropTier.FIVE, CropType.RESOURCE, LazyIngredient.tag("forge:ingots/cyanite"));
 
     // APPLIED ENERGISTICS 2
-    public static final Crop SKY_STONE = new Crop(new ResourceLocation(MOD_ID, "sky_stone"), CropTier.THREE, CropType.RESOURCE, LazyIngredient.item("appliedenergistics2:sky_stone_block"));
-    public static final Crop CERTUS_QUARTZ = new Crop(new ResourceLocation(MOD_ID, "certus_quartz"), CropTier.THREE, CropType.RESOURCE, LazyIngredient.tag("appliedenergistics2:crystals/certus_quartz"));
-    public static final Crop FLUIX = new Crop(new ResourceLocation(MOD_ID, "fluix"), CropTier.FOUR, CropType.RESOURCE, LazyIngredient.tag("appliedenergistics2:crystals/fluix"));
+    public static final Crop SKY_STONE = new Crop(new ResourceLocation(MOD_ID, "sky_stone"), CropTier.THREE, CropType.RESOURCE, LazyIngredient.item("ae2:sky_stone_block"));
+    public static final Crop CERTUS_QUARTZ = new Crop(new ResourceLocation(MOD_ID, "certus_quartz"), CropTier.THREE, CropType.RESOURCE, LazyIngredient.tag("forge:gems/certus_quartz"));
+    public static final Crop FLUIX = new Crop(new ResourceLocation(MOD_ID, "fluix"), CropTier.FOUR, CropType.RESOURCE, LazyIngredient.tag("forge:gems/fluix"));
 
     // REFINED STORAGE
     public static final Crop QUARTZ_ENRICHED_IRON = new Crop(new ResourceLocation(MOD_ID, "quartz_enriched_iron"), CropTier.THREE, CropType.RESOURCE, LazyIngredient.item("refinedstorage:quartz_enriched_iron"));
@@ -330,9 +330,9 @@ public final class ModCrops {
         registry.register(withRequiredMods(CYANITE, "bigreactors"));
 
         // APPLIED ENERGISTICS 2
-        registry.register(withRequiredMods(SKY_STONE, "appliedenergistics2"));
-        registry.register(withRequiredMods(CERTUS_QUARTZ, "appliedenergistics2"));
-        registry.register(withRequiredMods(FLUIX, "appliedenergistics2"));
+        registry.register(withRequiredMods(SKY_STONE, "ae2"));
+        registry.register(withRequiredMods(CERTUS_QUARTZ, "ae2"));
+        registry.register(withRequiredMods(FLUIX, "ae2"));
 
         // REFINED STORAGE
         registry.register(withRequiredMods(QUARTZ_ENRICHED_IRON, "refinedstorage"));
