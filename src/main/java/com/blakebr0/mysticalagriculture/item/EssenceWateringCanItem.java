@@ -49,7 +49,7 @@ public class EssenceWateringCanItem extends WateringCanItem {
 
     @Override
     public void inventoryTick(ItemStack stack, Level world, Entity entity, int slot, boolean selected) {
-        if (NBTHelper.getBoolean(stack, "Active") && entity instanceof Player player) {
+        if (selected && NBTHelper.getBoolean(stack, "Active") && entity instanceof Player player) {
             var result = getPlayerPOVHitResult(world, player, ClipContext.Fluid.SOURCE_ONLY);
 
             if (result.getType() != HitResult.Type.MISS) {
