@@ -26,7 +26,6 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.BonemealableBlock;
 import net.minecraft.world.level.block.FarmBlock;
-import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.Material;
 import net.minecraft.world.phys.HitResult;
 import net.minecraftforge.api.distmarker.Dist;
@@ -34,14 +33,11 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.common.IPlantable;
 import net.minecraftforge.common.util.FakePlayer;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.UUID;
 import java.util.function.Function;
 
 public class WateringCanItem extends BaseItem {
-    private static final Map<String, Long> THROTTLES = new HashMap<>();
     protected final int range;
     protected final double chance;
 
@@ -145,18 +141,19 @@ public class WateringCanItem extends BaseItem {
             return InteractionResult.PASS;
 
         if (!world.isClientSide()) {
-            var id = getID(stack);
-            long throttle = THROTTLES.getOrDefault(id, 0L);
+            var cooldowns = player.getCooldowns();
+            var item = stack.getItem();
 
-            if (world.getGameTime() - throttle < getThrottleTicks(player))
+            if (!cooldowns.isOnCooldown(item)) {
+                cooldowns.addCooldown(item, getThrottleTicks(player));
+            } else {
                 return InteractionResult.PASS;
-
-            THROTTLES.put(id, world.getGameTime());
+            }
         }
 
         int range = (this.range - 1) / 2;
         BlockPos.betweenClosedStream(pos.offset(-range, -range, -range), pos.offset(range, range, range)).forEach(aoePos -> {
-            BlockState aoeState = world.getBlockState(aoePos);
+            var aoeState = world.getBlockState(aoePos);
             if (aoeState.getBlock() instanceof FarmBlock) {
                 int moisture = aoeState.getValue(FarmBlock.MOISTURE);
                 if (moisture < 7) {
@@ -197,15 +194,7 @@ public class WateringCanItem extends BaseItem {
         return InteractionResult.PASS;
     }
 
-    private static String getID(ItemStack stack) {
-        if (!NBTHelper.hasKey(stack, "ID")) {
-            NBTHelper.setString(stack, "ID", UUID.randomUUID().toString());
-        }
-
-        return NBTHelper.getString(stack, "ID");
-    }
-
-    private static long getThrottleTicks(Player player) {
-        return player instanceof FakePlayer ? 10L : 5L;
+    private static int getThrottleTicks(Player player) {
+        return player instanceof FakePlayer ? 10 : 5;
     }
 }
