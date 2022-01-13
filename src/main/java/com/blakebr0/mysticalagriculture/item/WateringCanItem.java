@@ -146,7 +146,7 @@ public class WateringCanItem extends BaseItem {
 
             if (!cooldowns.isOnCooldown(item)) {
                 cooldowns.addCooldown(item, getThrottleTicks(player));
-            } else {
+            } else if (!(player instanceof FakePlayer)){
                 return InteractionResult.PASS;
             }
         }
