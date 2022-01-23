@@ -3,6 +3,9 @@ package com.blakebr0.mysticalagriculture.api.tinkering;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.TranslatableComponent;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public enum AugmentType {
     TOOL("tool"),
     WEAPON("weapon"),
@@ -13,12 +16,21 @@ public enum AugmentType {
     SHOVEL("shovel"),
     AXE("axe"),
     HOE("hoe"),
+    BOW("bow"),
+    CROSSBOW("crossbow"),
     HELMET("helmet"),
     CHESTPLATE("chestplate"),
     LEGGINGS("leggings"),
     BOOTS("boots");
 
+    private static final Map<String, AugmentType> LOOKUP = new HashMap<>();
     private final String name;
+
+    static {
+        for (var value : values()) {
+            LOOKUP.put(value.name, value);
+        }
+    }
 
     AugmentType(String name) {
         this.name = name;
@@ -30,5 +42,9 @@ public enum AugmentType {
 
     public Component getDisplayName() {
         return new TranslatableComponent("augmentType.mysticalagriculture." + this.name);
+    }
+
+    public static AugmentType fromName(String name) {
+        return LOOKUP.get(name);
     }
 }
