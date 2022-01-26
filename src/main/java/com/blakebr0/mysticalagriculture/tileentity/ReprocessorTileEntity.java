@@ -47,7 +47,7 @@ public abstract class ReprocessorTileEntity extends BaseInventoryTileEntity impl
 
     public ReprocessorTileEntity(BlockEntityType<?> type, ReprocessorTier tier, BlockPos pos, BlockState state) {
         super(type, pos, state);
-        this.inventory = createInventoryHandler(null);
+        this.inventory = createInventoryHandler(this::markDirtyAndDispatch);
         this.energy = new EnergyStorage(tier.getFuelCapacity());
         this.inventoryCapabilities = SidedItemStackHandlerWrapper.create(this.inventory, new Direction[] { Direction.UP, Direction.DOWN, Direction.NORTH }, this::canInsertStackSided, null);
         this.tier = tier;
@@ -61,6 +61,7 @@ public abstract class ReprocessorTileEntity extends BaseInventoryTileEntity impl
     @Override
     public void load(CompoundTag tag) {
         super.load(tag);
+
         this.progress = tag.getInt("Progress");
         this.fuelLeft = tag.getInt("FuelLeft");
         this.fuelItemValue = tag.getInt("FuelItemValue");
@@ -69,6 +70,8 @@ public abstract class ReprocessorTileEntity extends BaseInventoryTileEntity impl
 
     @Override
     public void saveAdditional(CompoundTag tag) {
+        super.saveAdditional(tag);
+
         tag.putInt("Progress", this.progress);
         tag.putInt("FuelLeft", this.fuelLeft);
         tag.putInt("FuelItemValue", this.fuelItemValue);

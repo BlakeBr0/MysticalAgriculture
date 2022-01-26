@@ -60,6 +60,7 @@ public class SoulExtractorTileEntity extends BaseInventoryTileEntity implements 
     @Override
     public void load(CompoundTag tag) {
         super.load(tag);
+
         this.progress = tag.getInt("Progress");
         this.fuelLeft = tag.getInt("FuelLeft");
         this.fuelItemValue = tag.getInt("FuelItemValue");
@@ -68,6 +69,8 @@ public class SoulExtractorTileEntity extends BaseInventoryTileEntity implements 
 
     @Override
     public void saveAdditional(CompoundTag tag) {
+        super.saveAdditional(tag);
+
         tag.putInt("Progress", this.progress);
         tag.putInt("FuelLeft", this.fuelLeft);
         tag.putInt("FuelItemValue", this.fuelItemValue);
