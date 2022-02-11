@@ -2,10 +2,14 @@ package com.blakebr0.mysticalagriculture.handler;
 
 import com.blakebr0.mysticalagriculture.api.util.ExperienceCapsuleUtils;
 import com.blakebr0.mysticalagriculture.item.ExperienceCapsuleItem;
+import com.blakebr0.mysticalagriculture.network.NetworkHandler;
+import com.blakebr0.mysticalagriculture.network.message.ExperienceCapsulePickupMessage;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.event.entity.player.PlayerXpEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.network.PacketDistributor;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -17,25 +21,30 @@ public final class ExperienceCapsuleHandler {
         var player = event.getPlayer();
 
         if (player != null) {
-            var capsules = this.getExperienceCapsules(player);
+            var capsules = getExperienceCapsules(player);
 
             if (!capsules.isEmpty()) {
                 for (var stack : capsules) {
                     int remaining = ExperienceCapsuleUtils.addExperienceToCapsule(stack, orb.getValue());
 
+                    orb.value = remaining;
+
                     if (remaining == 0) {
-                        orb.value = 0;
+                        orb.discard();
+
+                        NetworkHandler.INSTANCE.send(PacketDistributor.PLAYER.with(() -> (ServerPlayer) player), new ExperienceCapsulePickupMessage());
+
+                        event.setCanceled(true);
                         return;
                     }
-
-                    orb.value = remaining;
                 }
             }
         }
     }
 
-    private List<ItemStack> getExperienceCapsules(Player player) {
-        return player.getInventory().items.stream()
+    private static List<ItemStack> getExperienceCapsules(Player player) {
+        return player.getInventory().items
+                .stream()
                 .filter(s -> s.getItem() instanceof ExperienceCapsuleItem)
                 .collect(Collectors.toList());
     }
