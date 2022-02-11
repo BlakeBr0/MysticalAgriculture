@@ -28,6 +28,7 @@ public class CropTier {
     private MutableComponent displayName;
     private boolean fertilizable;
     private boolean secondarySeedDrop;
+    private double baseSecondaryChance;
 
     /**
      * Represents a tier/group of crops
@@ -43,6 +44,7 @@ public class CropTier {
         this.textColor = textColor;
         this.fertilizable = true;
         this.secondarySeedDrop = true;
+        this.baseSecondaryChance = 0.1;
     }
 
     /**
@@ -98,7 +100,7 @@ public class CropTier {
     /**
      * Used to set the farmland block instance for this tier
      * @param farmland the farmland block
-     * @return this tier
+     * @return this crop tier
      */
     public CropTier setFarmland(Supplier<? extends Block> farmland) {
         this.farmland = farmland;
@@ -116,7 +118,7 @@ public class CropTier {
     /**
      * Used to se the essence item instance for this tier
      * @param essence the essence item
-     * @return this tier
+     * @return this crop tier
      */
     public CropTier setEssence(Supplier<? extends Item> essence) {
         this.essence = essence;
@@ -124,7 +126,7 @@ public class CropTier {
     }
 
     /**
-     * Checks whether or not the supplied block is this tier's effective farmland
+     * Checks whether the supplied block is this tier's effective farmland
      * @param block the block to check
      * @return is the correct farmland
      */
@@ -147,7 +149,7 @@ public class CropTier {
     /**
      * Sets the display name of this tier
      * @param name the new display name
-     * @return this tier
+     * @return this crop tier
      */
     public CropTier setDisplayName(MutableComponent name) {
         this.displayName = name;
@@ -155,7 +157,7 @@ public class CropTier {
     }
 
     /**
-     * Whether or not this tier's crops can be grown with Mystical Fertilizer or Fertilized Essence
+     * Whether this tier's crops can be grown with Mystical Fertilizer or Fertilized Essence
      * @return is fertilizable
      */
     public boolean isFertilizable() {
@@ -163,9 +165,9 @@ public class CropTier {
     }
 
     /**
-     * Set whether or not this tier's crops can be grown using Mystical Fertilizer or Fertilized Essence
+     * Set whether this tier's crops can be grown using Mystical Fertilizer or Fertilized Essence
      * @param fertilizable the fertilizable state
-     * @return this tier
+     * @return this crop tier
      */
     public CropTier setFertilizable(boolean fertilizable) {
         this.fertilizable = fertilizable;
@@ -173,7 +175,7 @@ public class CropTier {
     }
 
     /**
-     * Whether or not this tier's crops can drop a second seed
+     * Whether this tier's crops can drop a second seed
      * @return has secondary seed drop
      */
     public boolean hasSecondarySeedDrop() {
@@ -181,12 +183,30 @@ public class CropTier {
     }
 
     /**
-     * Set whether or not this tier's crops can drop a second seed
+     * Set whether this tier's crops can drop a second seed
      * @param secondarySeedDrop the secondary seed drop state
-     * @return this tier
+     * @return this crop tier
      */
     public CropTier setSecondarySeedDrop(boolean secondarySeedDrop) {
         this.secondarySeedDrop = secondarySeedDrop;
+        return this;
+    }
+
+    /**
+     * Gets the base chance of this tier's crops dropping a second seed/essence
+     * @return the base secondary drop chance
+     */
+    public double getBaseSecondaryChance() {
+        return this.baseSecondaryChance;
+    }
+
+    /**
+     * Sets the base chance of this tier's crops dropping a second seed/essence
+     * @param chance the base secondary drop chance
+     * @return this crop tier
+     */
+    public CropTier setBaseSecondaryChance(double chance) {
+        this.baseSecondaryChance = chance;
         return this;
     }
 }

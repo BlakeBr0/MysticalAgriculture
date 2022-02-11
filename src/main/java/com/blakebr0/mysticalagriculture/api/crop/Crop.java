@@ -35,6 +35,7 @@ public class Crop {
     private Supplier<? extends ItemNameBlockItem> seeds;
     private Supplier<? extends Block> crux;
     private LazyIngredient craftingMaterial;
+    private double baseSecondaryChance;
     private boolean enabled;
     private boolean registerCropBlock;
     private boolean registerEssenceItem;
@@ -93,6 +94,7 @@ public class Crop {
         this.textures = textures.init(id);
         this.setColor(color);
         this.craftingMaterial = craftingMaterial;
+        this.baseSecondaryChance = -1;
         this.enabled = true;
         this.registerCropBlock = true;
         this.registerEssenceItem = true;
@@ -402,11 +404,31 @@ public class Crop {
         if (!this.getTier().hasSecondarySeedDrop())
             return chance;
         if (block instanceof IEssenceFarmland)
-            chance += 0.1;
+            chance += this.baseSecondaryChance > -1 ? this.baseSecondaryChance : this.tier.getBaseSecondaryChance();
         if (this.getTier().isEffectiveFarmland(block))
             chance += 0.1;
 
-        return chance;
+        return Math.min(chance, 1.0);
+    }
+
+    /**
+     * Gets the base chance of a second seed/essence dropping when placed on an {@link IEssenceFarmland}, a value of -1
+     * means to fall back to the crop tier's base secondary chance
+     * @return the base secondary drop chance
+     */
+    public double getBaseSecondaryChance() {
+        return this.baseSecondaryChance;
+    }
+
+    /**
+     * Sets the base chance of a second seed/essence dropping when placed on an {@link IEssenceFarmland}, a value of -1
+     * means to fall back to the crop tier's base secondary chance
+     * @param chance the base secondary drop chance
+     * @return this crop
+     */
+    public Crop setBaseSecondaryChance(double chance) {
+        this.baseSecondaryChance = chance;
+        return this;
     }
 
     /**
