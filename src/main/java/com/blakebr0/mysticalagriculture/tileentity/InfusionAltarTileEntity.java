@@ -44,12 +44,15 @@ public class InfusionAltarTileEntity extends BaseInventoryTileEntity {
     @Override
     public void load(CompoundTag tag) {
         super.load(tag);
+
         this.progress = tag.getInt("Progress");
         this.active = tag.getBoolean("Active");
     }
 
     @Override
     public void saveAdditional(CompoundTag tag) {
+        super.saveAdditional(tag);
+
         tag.putInt("Progress", this.progress);
         tag.putBoolean("Active", this.active);
     }
