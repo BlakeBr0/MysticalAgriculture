@@ -3,7 +3,7 @@
   "conditions": [
     {
       "type": "mysticalagriculture:crop_enabled",
-      "crop": "mysticalagriculture:aquamarine"
+      "crop": "mysticalagriculture:marble"
     },
     {
       "type": "mysticalagriculture:crop_enabled",
