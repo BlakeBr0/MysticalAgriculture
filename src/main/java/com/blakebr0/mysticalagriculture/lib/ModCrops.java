@@ -141,7 +141,7 @@ public final class ModCrops {
 
     // CHISEL
     public static final Crop MARBLE = new Crop(new ResourceLocation(MOD_ID, "marble"), CropTier.TWO, CropType.RESOURCE, LazyIngredient.tag("mysticalagriculture:material/marble"));
-    public static final Crop LIMESTONE = new Crop(new ResourceLocation(MOD_ID, "limestone"), CropTier.TWO, CropType.RESOURCE, LazyIngredient.tag("chisel:limestone"));
+    public static final Crop LIMESTONE = new Crop(new ResourceLocation(MOD_ID, "limestone"), CropTier.TWO, CropType.RESOURCE, LazyIngredient.tag("mysticalagriculture:material/limestone"));
     public static final Crop BASALT = new Crop(new ResourceLocation(MOD_ID, "basalt"), CropTier.TWO, CropType.RESOURCE, LazyIngredient.tag("chisel:basalt"));
 
     // TWILIGHT FOREST
@@ -308,7 +308,7 @@ public final class ModCrops {
 
         // CHISEL
         registry.register(withRequiredMods(MARBLE, "chisel", "astralsorcery"));
-        registry.register(withRequiredMods(LIMESTONE, "chisel"));
+        registry.register(withRequiredMods(LIMESTONE, "chisel", "create"));
         registry.register(withRequiredMods(BASALT, "chisel"));
 
         // TWILIGHT FOREST

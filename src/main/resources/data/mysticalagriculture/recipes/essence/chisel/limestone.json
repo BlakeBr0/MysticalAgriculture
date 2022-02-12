@@ -8,8 +8,8 @@
   ],
   "pattern": [
     "EEE",
-    "E E",
-    "EEE"
+    "   ",
+    "   "
   ],
   "key": {
     "E": {
@@ -18,6 +18,6 @@
   },
   "result": {
     "item": "chisel:limestone/raw",
-    "count": 16
+    "count": 8
   }
 }

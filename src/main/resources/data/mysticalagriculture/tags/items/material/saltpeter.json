@@ -1,9 +1,17 @@
 {
   "replace": false,
-  "values": [],
-  "optional": [
-    "#forge:dusts/saltpeter",
-    "#forge:dusts/niter",
-    "thermal:niter_dust"
+  "values": [
+    {
+      "id": "#forge:dusts/saltpeter",
+      "required": false
+    },
+    {
+      "id": "#forge:dusts/niter",
+      "required": false
+    },
+    {
+      "id": "thermal:niter_dust",
+      "required": false
+    }
   ]
 }

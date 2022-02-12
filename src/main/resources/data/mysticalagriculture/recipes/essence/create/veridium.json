@@ -3,11 +3,11 @@
   "conditions": [
     {
       "type": "mysticalagriculture:crop_enabled",
-      "crop": "mysticalagriculture:marble"
+      "crop": "mysticalagriculture:stone"
     },
     {
       "type": "mysticalagriculture:crop_enabled",
-      "crop": "mysticalagriculture:stone"
+      "crop": "mysticalagriculture:copper"
     }
   ],
   "pattern": [
@@ -17,14 +17,14 @@
   ],
   "key": {
     "E": {
-      "item": "mysticalagriculture:marble_essence"
+      "item": "mysticalagriculture:stone_essence"
     },
     "F": {
-      "item": "mysticalagriculture:stone_essence"
+      "item": "mysticalagriculture:copper_essence"
     }
   },
   "result": {
-    "item": "quark:marble",
+    "item": "create:veridium",
     "count": 16
   }
 }

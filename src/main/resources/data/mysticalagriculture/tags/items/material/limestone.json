@@ -2,11 +2,11 @@
   "replace": false,
   "values": [
     {
-      "id": "#chisel:marble",
+      "id": "#chisel:limestone",
       "required": false
     },
     {
-      "id": "astralsorcery:marble_raw",
+      "id": "create:limestone",
       "required": false
     }
   ]
