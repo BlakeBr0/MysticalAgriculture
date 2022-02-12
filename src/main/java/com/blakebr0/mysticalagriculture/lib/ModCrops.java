@@ -150,6 +150,9 @@ public final class ModCrops {
     public static final Crop KNIGHTMETAL = new Crop(new ResourceLocation(MOD_ID, "knightmetal"), CropTier.FOUR, CropType.RESOURCE, LazyIngredient.item("twilightforest:knightmetal_ingot"));
     public static final Crop FIERY_INGOT = new Crop(new ResourceLocation(MOD_ID, "fiery_ingot"), CropTier.FOUR, CropType.RESOURCE, LazyIngredient.item("twilightforest:fiery_ingot"));
 
+    // INTEGRATED DYNAMICS
+    public static final Crop MENRIL = new Crop(new ResourceLocation(MOD_ID, "menril"), CropTier.TWO, CropType.RESOURCE, LazyIngredient.item("integrateddynamics:menril_berries"));
+
     // ASTRAL SORCERY
     public static final Crop AQUAMARINE = new Crop(new ResourceLocation(MOD_ID, "aquamarine"), CropTier.THREE, CropType.RESOURCE, LazyIngredient.item("astralsorcery:aquamarine"));
     public static final Crop STARMETAL = new Crop(new ResourceLocation(MOD_ID, "starmetal"), CropTier.FOUR, CropType.RESOURCE, LazyIngredient.item("astralsorcery:starmetal_ingot"));
@@ -313,6 +316,9 @@ public final class ModCrops {
         registry.register(withRequiredMods(IRONWOOD, "twilightforest"));
         registry.register(withRequiredMods(KNIGHTMETAL, "twilightforest"));
         registry.register(withRequiredMods(FIERY_INGOT, "twilightforest"));
+
+        // INTEGRATED DYNAMICS
+        registry.register(withRequiredMods(MENRIL, "integrateddynamics"));
 
         // ASTRAL SORCERY
         registry.register(withRequiredMods(AQUAMARINE, "astralsorcery"));
