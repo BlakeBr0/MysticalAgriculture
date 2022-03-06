@@ -3,34 +3,34 @@ loaderVersion="[40,)"
 license="MIT"
 
 [[mods]]
-  issueTrackerURL="https://github.com/BlakeBr0/MysticalAgriculture/issues"
-  modId="mysticalagriculture"
-  version="${file.jarVersion}"
-  displayName="Mystical Agriculture"
-  # updateJSONURL="http://myurl.me/"
-  displayURL="https://www.curseforge.com/minecraft/mc-mods/mystical-agriculture"
-  # logoFile="examplemod.png"
-  authors="BlakeBr0"
-  credits="Mark719, xun468, Cavemanrockx"
-  description='''
-  Grow all your resources!
-  '''
+    issueTrackerURL="https://github.com/BlakeBr0/MysticalAgriculture/issues"
+    modId="mysticalagriculture"
+    version="${file.jarVersion}"
+    displayName="Mystical Agriculture"
+    # updateJSONURL="http://myurl.me/"
+    displayURL="https://blakesmods.com/mystical-agriculture"
+    # logoFile="examplemod.png"
+    authors="BlakeBr0"
+    credits="Mark719, xun468, Cavemanrockx"
+    description='''
+    Grow all your resources!
+    '''
 
-  [[dependencies.mysticalagriculture]]
-      modId="forge"
-      mandatory=true
-      versionRange="[40.0,)"
-      ordering="NONE"
-      side="BOTH"
-  [[dependencies.mysticalagriculture]]
-      modId="minecraft"
-      mandatory=true
-      versionRange="[1.18.2,1.19)"
-      ordering="NONE"
-      side="BOTH"
-  [[dependencies.mysticalagriculture]]
-      modId="cucumber"
-      mandatory=true
-      versionRange="[5.0.3,)"
-      ordering="NONE"
-      side="BOTH"
+    [[dependencies.mysticalagriculture]]
+        modId="forge"
+        mandatory=true
+        versionRange="[40.0.12,)"
+        ordering="NONE"
+        side="BOTH"
+    [[dependencies.mysticalagriculture]]
+        modId="minecraft"
+        mandatory=true
+        versionRange="[1.18.2,1.19)"
+        ordering="NONE"
+        side="BOTH"
+    [[dependencies.mysticalagriculture]]
+        modId="cucumber"
+        mandatory=true
+        versionRange="[5.0.3,)"
+        ordering="NONE"
+        side="BOTH"
