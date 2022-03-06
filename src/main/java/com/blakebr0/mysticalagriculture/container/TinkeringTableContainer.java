@@ -1,6 +1,5 @@
 package com.blakebr0.mysticalagriculture.container;
 
-import com.blakebr0.cucumber.inventory.BaseItemStackHandler;
 import com.blakebr0.mysticalagriculture.api.tinkering.IAugmentProvider;
 import com.blakebr0.mysticalagriculture.api.util.AugmentUtils;
 import com.blakebr0.mysticalagriculture.container.slot.AugmentSlot;

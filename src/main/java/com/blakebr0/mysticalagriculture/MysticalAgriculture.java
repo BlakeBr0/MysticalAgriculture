@@ -40,18 +40,15 @@ import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.InterModEnqueueEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-
-import java.lang.reflect.Field;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 @Mod(MysticalAgriculture.MOD_ID)
 public final class MysticalAgriculture {
 	public static final String MOD_ID = "mysticalagriculture";
 	public static final String NAME = "Mystical Agriculture";
-	
+	public static final Logger LOGGER = LoggerFactory.getLogger(NAME);
 	public static final CreativeModeTab CREATIVE_TAB = new MACreativeTab();
-	public static final Logger LOGGER = LogManager.getLogger(MysticalAgriculture.NAME);
 
 	public MysticalAgriculture() throws NoSuchFieldException, IllegalAccessException {
 		var bus = FMLJavaModLoadingContext.get().getModEventBus();
@@ -90,6 +87,7 @@ public final class MysticalAgriculture {
 		MinecraftForge.EVENT_BUS.register(new MobSoulHandler());
 		MinecraftForge.EVENT_BUS.register(new ExperienceCapsuleHandler());
 		MinecraftForge.EVENT_BUS.register(new AugmentHandler());
+		MinecraftForge.EVENT_BUS.register(DynamicRecipeManager.getInstance());
 
 		ModRecipeSerializers.onCommonSetup();
 		ModItemTier.onCommonSetup();

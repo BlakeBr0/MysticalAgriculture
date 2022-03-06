@@ -10,7 +10,6 @@ import com.blakebr0.mysticalagriculture.api.registry.ICropRegistry;
 import com.blakebr0.mysticalagriculture.api.registry.IMobSoulTypeRegistry;
 import com.blakebr0.mysticalagriculture.init.ModBlocks;
 import com.blakebr0.mysticalagriculture.init.ModItems;
-import net.minecraft.world.level.block.FarmBlock;
 
 public final class ModCorePlugin implements IMysticalAgriculturePlugin {
     @Override

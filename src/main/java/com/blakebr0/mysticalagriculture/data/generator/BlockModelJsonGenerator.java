@@ -1,7 +1,6 @@
 package com.blakebr0.mysticalagriculture.data.generator;
 
 import com.blakebr0.mysticalagriculture.MysticalAgriculture;
-import com.blakebr0.mysticalagriculture.api.MysticalAgricultureAPI;
 import com.blakebr0.mysticalagriculture.registry.CropRegistry;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.resources.ResourceLocation;
@@ -12,7 +11,6 @@ import net.minecraftforge.client.model.generators.ModelFile;
 import net.minecraftforge.common.data.ExistingFileHelper;
 
 import java.util.HashMap;
-import java.util.Map;
 
 public class BlockModelJsonGenerator extends BlockStateProvider {
     public BlockModelJsonGenerator(DataGenerator generator, String modid, ExistingFileHelper existingFileHelper) {

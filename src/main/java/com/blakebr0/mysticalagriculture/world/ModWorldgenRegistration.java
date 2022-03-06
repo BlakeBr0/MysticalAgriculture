@@ -3,6 +3,7 @@ package com.blakebr0.mysticalagriculture.world;
 import com.blakebr0.mysticalagriculture.MysticalAgriculture;
 import com.blakebr0.mysticalagriculture.config.ModConfigs;
 import com.blakebr0.mysticalagriculture.init.ModBlocks;
+import net.minecraft.core.Holder;
 import net.minecraft.core.Registry;
 import net.minecraft.data.BuiltinRegistries;
 import net.minecraft.data.worldgen.features.OreFeatures;
@@ -42,7 +43,7 @@ public final class ModWorldgenRegistration {
                     var whitelist = ModConfigs.SOULSTONE_BIOME_WHITELIST.get();
 
                     if (whitelist.isEmpty() || whitelist.contains(name.toString())) {
-                        generation.addFeature(GenerationStep.Decoration.RAW_GENERATION, placedSoulstoneFeature);
+                        generation.addFeature(GenerationStep.Decoration.RAW_GENERATION, Holder.direct(placedSoulstoneFeature));
                     }
                 }
             }
@@ -52,7 +53,7 @@ public final class ModWorldgenRegistration {
                     var whitelist = ModConfigs.PROSPERITY_BIOME_WHITELIST.get();
 
                     if (whitelist.isEmpty() || whitelist.contains(name.toString())) {
-                        generation.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, placedProsperityOreFeature);
+                        generation.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, Holder.direct(placedProsperityOreFeature));
                     }
                 }
 
@@ -60,7 +61,7 @@ public final class ModWorldgenRegistration {
                     var whitelist = ModConfigs.INFERIUM_BIOME_WHITELIST.get();
 
                     if (whitelist.isEmpty() || whitelist.contains(name.toString())) {
-                        generation.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, placedInferiumOreFeature);
+                        generation.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, Holder.direct(placedInferiumOreFeature));
                     }
                 }
             }
@@ -77,9 +78,9 @@ public final class ModWorldgenRegistration {
         maxY = ModConfigs.SOULSTONE_SPAWN_MAX_Y.get();
         rate = ModConfigs.SOULSTONE_SPAWN_RATE.get();
         targets = List.of(OreConfiguration.target(OreFeatures.NETHER_ORE_REPLACEABLES, ModBlocks.SOULSTONE.get().defaultBlockState()));
-        feature = ModWorldFeatures.SOULSTONE.get().configured(new OreConfiguration(targets, size));
+        feature = new ConfiguredFeature<>(ModWorldFeatures.SOULSTONE.get(), new OreConfiguration(targets, size));
 
-        placedSoulstoneFeature = feature.placed(List.of(
+        placedSoulstoneFeature = new PlacedFeature(Holder.direct(feature), List.of(
                 CountPlacement.of(rate),
                 InSquarePlacement.spread(),
                 HeightRangePlacement.uniform(VerticalAnchor.absolute(minY), VerticalAnchor.absolute(maxY)),
@@ -97,9 +98,9 @@ public final class ModWorldgenRegistration {
                 OreConfiguration.target(OreFeatures.STONE_ORE_REPLACEABLES, ModBlocks.PROSPERITY_ORE.get().defaultBlockState()),
                 OreConfiguration.target(OreFeatures.DEEPSLATE_ORE_REPLACEABLES, ModBlocks.DEEPSLATE_PROSPERITY_ORE.get().defaultBlockState())
         );
-        feature = Feature.ORE.configured(new OreConfiguration(targets, size));
+        feature = new ConfiguredFeature<>(Feature.ORE, new OreConfiguration(targets, size));
 
-        placedProsperityOreFeature = feature.placed(List.of(
+        placedProsperityOreFeature = new PlacedFeature(Holder.direct(feature), List.of(
                 CountPlacement.of(rate),
                 InSquarePlacement.spread(),
                 HeightRangePlacement.uniform(VerticalAnchor.absolute(minY), VerticalAnchor.absolute(maxY)),
@@ -117,9 +118,9 @@ public final class ModWorldgenRegistration {
                 OreConfiguration.target(OreFeatures.STONE_ORE_REPLACEABLES, ModBlocks.INFERIUM_ORE.get().defaultBlockState()),
                 OreConfiguration.target(OreFeatures.DEEPSLATE_ORE_REPLACEABLES, ModBlocks.DEEPSLATE_INFERIUM_ORE.get().defaultBlockState())
         );
-        feature = Feature.ORE.configured(new OreConfiguration(targets, size));
+        feature = new ConfiguredFeature<>(Feature.ORE, new OreConfiguration(targets, size));
 
-        placedInferiumOreFeature = feature.placed(List.of(
+        placedInferiumOreFeature = new PlacedFeature(Holder.direct(feature), List.of(
                 CountPlacement.of(rate),
                 InSquarePlacement.spread(),
                 HeightRangePlacement.uniform(VerticalAnchor.absolute(minY), VerticalAnchor.absolute(maxY)),

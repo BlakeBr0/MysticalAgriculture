@@ -47,7 +47,7 @@ public class JadeCompat implements IWailaPlugin {
             var biomes = crop.getRequiredBiomes();
             if (!biomes.isEmpty()) {
                 var biome = level.getBiome(pos);
-                if (!biomes.contains(biome.getRegistryName())) {
+                if (!biomes.contains(biome.value().getRegistryName())) {
                     tooltip.add(ModTooltips.INVALID_BIOME.color(ChatFormatting.RED).build());
                 }
             }

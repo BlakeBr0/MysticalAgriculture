@@ -1,9 +1,8 @@
 package com.blakebr0.mysticalagriculture.api.lib;
 
-import net.minecraft.core.Registry;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.tags.SerializationTags;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
@@ -50,10 +49,8 @@ public class LazyIngredient {
 
     public Ingredient.Value createValue() {
         if (this.isTag()) {
-            var tag = SerializationTags.getInstance().getOrEmpty(Registry.ITEM_REGISTRY).getTag(new ResourceLocation(this.name));
-            if (tag != null) {
-                return new Ingredient.TagValue(tag);
-            }
+            var tag = ItemTags.create(new ResourceLocation(this.name));
+            return new Ingredient.TagValue(tag);
         } else if (this.isItem()) {
             Item item = ForgeRegistries.ITEMS.getValue(new ResourceLocation(this.name));
             if (item != null) {
@@ -73,9 +70,8 @@ public class LazyIngredient {
     public Ingredient getIngredient() {
         if (this.ingredient == null) {
             if (this.isTag()) {
-                var tag = SerializationTags.getInstance().getOrEmpty(Registry.ITEM_REGISTRY).getTag(new ResourceLocation(this.name));
-                if (tag != null && !tag.getValues().isEmpty())
-                    this.ingredient = Ingredient.of(tag);
+                var tag = ItemTags.create(new ResourceLocation(this.name));
+                this.ingredient = Ingredient.of(tag);
             } else if (this.isItem()) {
                 var item = ForgeRegistries.ITEMS.getValue(new ResourceLocation(this.name));
 

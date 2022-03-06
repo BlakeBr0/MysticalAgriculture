@@ -1,6 +1,7 @@
 package com.blakebr0.mysticalagriculture.crafting;
 
 import com.blakebr0.cucumber.crafting.ISpecialRecipe;
+import com.blakebr0.cucumber.event.RegisterRecipesEvent;
 import com.blakebr0.cucumber.helper.RecipeHelper;
 import com.blakebr0.mysticalagriculture.MysticalAgriculture;
 import com.blakebr0.mysticalagriculture.api.crop.Crop;
@@ -20,34 +21,32 @@ import net.minecraftforge.event.AddReloadListenerEvent;
 import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 
-public class DynamicRecipeManager implements ResourceManagerReloadListener {
-    @Override
-    public void onResourceManagerReload(ResourceManager resourceManager) {
-        CropRegistry.getInstance().getCrops().forEach(crop -> {
-            var seed = this.makeSeedRecipe(crop);
-            var seedRegular = this.makeRegularSeedRecipe(crop);
-            var reprocessor = this.makeReprocessorRecipe(crop);
+public class DynamicRecipeManager {
+    private static final DynamicRecipeManager INSTANCE = new DynamicRecipeManager();
 
-            if (seed != null) {
-                RecipeHelper.addRecipe(seed);
-            }
+    @SubscribeEvent
+    public void onRegisterRecipes(RegisterRecipesEvent event) {
+        for (var crop : CropRegistry.getInstance().getCrops()) {
+            var seed = makeSeedRecipe(crop);
+            var seedRegular = makeRegularSeedRecipe(crop);
+            var reprocessor = makeReprocessorRecipe(crop);
 
-            if (seedRegular != null) {
-                RecipeHelper.addRecipe(seedRegular);
-            }
+            if (seed != null)
+                event.register(seed);
 
-            if (reprocessor != null) {
-                RecipeHelper.addRecipe(reprocessor);
-            }
-        });
+            if (seedRegular != null)
+                event.register(seedRegular);
+
+            if (reprocessor != null)
+                event.register(reprocessor);
+        }
     }
 
-    @SubscribeEvent(priority = EventPriority.HIGH)
-    public void onAddReloadListeners(AddReloadListenerEvent event) {
-        event.addListener(this);
+    public static DynamicRecipeManager getInstance() {
+        return INSTANCE;
     }
 
-    private ISpecialRecipe makeSeedRecipe(Crop crop) {
+    private static ISpecialRecipe makeSeedRecipe(Crop crop) {
         if (!crop.isEnabled() || !crop.getRecipeConfig().isSeedInfusionRecipeEnabled())
             return null;
 
@@ -77,7 +76,7 @@ public class DynamicRecipeManager implements ResourceManagerReloadListener {
         return new InfusionRecipe(name, inputs, output);
     }
 
-    private Recipe<?> makeRegularSeedRecipe(Crop crop) {
+    private static Recipe<?> makeRegularSeedRecipe(Crop crop) {
         if (!crop.isEnabled() || !crop.getRecipeConfig().isSeedCraftingRecipeEnabled())
             return null;
 
@@ -110,7 +109,7 @@ public class DynamicRecipeManager implements ResourceManagerReloadListener {
         return new ShapedRecipe(name, "", 3, 3, inputs, output);
     }
 
-    private ISpecialRecipe makeReprocessorRecipe(Crop crop) {
+    private static ISpecialRecipe makeReprocessorRecipe(Crop crop) {
         if (!crop.isEnabled() || !crop.getRecipeConfig().isSeedReprocessorRecipeEnabled())
             return null;
 

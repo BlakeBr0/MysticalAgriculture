@@ -61,7 +61,7 @@ public class TOPCompat implements Function<ITheOneProbe, Void> {
                     if (!biomes.isEmpty()) {
                         var biome = world.getBiome(pos);
 
-                        if (!biomes.contains(biome.getRegistryName())) {
+                        if (!biomes.contains(biome.value().getRegistryName())) {
                             info.text(ModTooltips.INVALID_BIOME.color(ChatFormatting.RED).build());
                         }
                     }
