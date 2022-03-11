@@ -118,10 +118,11 @@ dependencies {
 
     implementation project(':Cucumber')
     implementation fg.deobf('curse.maven:jade-324717:3671210')
-    implementation fg.deobf('curse.maven:top-245211:3550084')
-    implementation fg.deobf('com.blamejared.crafttweaker:CraftTweaker-forge-1.18.1:9.0.0+24')
+    implementation fg.deobf('curse.maven:top-245211:3671753')
+    // TODO: update to 1.18.2 and mark as implementation
+    compileOnly fg.deobf('com.blamejared.crafttweaker:CraftTweaker-forge-1.18.1:9.0.0+24')
 
-    runtimeOnly fg.deobf('vazkii.patchouli:Patchouli:1.18.1-61')
+    runtimeOnly fg.deobf('vazkii.patchouli:Patchouli:1.18.2-66')
     runtimeOnly fg.deobf('mezz.jei:jei-1.18.2:9.4.1.117')
 
     compileOnly 'mezz.jei:jei-1.18.2:9.4.1.117:api'
