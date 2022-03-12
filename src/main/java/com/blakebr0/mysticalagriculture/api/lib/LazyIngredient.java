@@ -6,6 +6,7 @@ import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraftforge.common.crafting.NBTIngredient;
 import net.minecraftforge.registries.ForgeRegistries;
 
 public class LazyIngredient {
@@ -83,7 +84,7 @@ public class LazyIngredient {
 
                         stack.setTag(this.nbt);
 
-                        this.ingredient = new NBTIngredient(stack);
+                        this.ingredient = new NBTIngredient(stack) { };
                     }
                 }
             }
@@ -94,11 +95,5 @@ public class LazyIngredient {
 
     private enum Type {
         ITEM, TAG
-    }
-
-    private static class NBTIngredient extends net.minecraftforge.common.crafting.NBTIngredient {
-        private NBTIngredient(ItemStack stack) {
-            super(stack);
-        }
     }
 }
