@@ -1,5 +1,5 @@
 {
-  "type": "mysticalagriculture:tag",
+  "type": "cucumber:shaped_tag",
   "conditions": [
     {
       "type": "mysticalagriculture:crop_enabled",
