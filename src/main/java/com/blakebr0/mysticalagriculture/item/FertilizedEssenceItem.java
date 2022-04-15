@@ -3,7 +3,6 @@ package com.blakebr0.mysticalagriculture.item;
 import com.blakebr0.cucumber.item.BaseItem;
 import com.blakebr0.mysticalagriculture.api.crop.ICropProvider;
 import com.blakebr0.mysticalagriculture.config.ModConfigs;
-import com.blakebr0.mysticalagriculture.init.ModItems;
 import com.blakebr0.mysticalagriculture.lib.ModTooltips;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.BlockSource;
@@ -28,6 +27,8 @@ import java.util.function.Function;
 public class FertilizedEssenceItem extends BaseItem {
     public FertilizedEssenceItem(Function<Properties, Properties> properties) {
         super(properties);
+
+        DispenserBlock.registerBehavior(this, new DispenserBehavior());
     }
 
     @Override
@@ -35,15 +36,15 @@ public class FertilizedEssenceItem extends BaseItem {
         var stack = context.getItemInHand();
         var pos = context.getClickedPos();
         var player = context.getPlayer();
-        var world = context.getLevel();
+        var level = context.getLevel();
         var direction = context.getClickedFace();
 
         if (player == null || !player.mayUseItemAt(pos.relative(direction), direction, stack)) {
             return InteractionResult.FAIL;
         } else {
-            if (applyFertilizer(stack, world, pos, player)) {
-                if (!world.isClientSide()){
-                    world.levelEvent(1505, pos, 0);
+            if (applyFertilizer(stack, level, pos, player)) {
+                if (!level.isClientSide()){
+                    level.levelEvent(1505, pos, 0);
                 }
 
                 return InteractionResult.SUCCESS;
@@ -55,27 +56,27 @@ public class FertilizedEssenceItem extends BaseItem {
 
     @OnlyIn(Dist.CLIENT)
     @Override
-    public void appendHoverText(ItemStack stack, Level world, List<Component> tooltip, TooltipFlag flag) {
+    public void appendHoverText(ItemStack stack, Level level, List<Component> tooltip, TooltipFlag flag) {
         int chance = (int) (ModConfigs.FERTILIZED_ESSENCE_DROP_CHANCE.get() * 100);
         tooltip.add(ModTooltips.FERTILIZED_ESSENCE_CHANCE.args(chance + "%").build());
     }
 
-    public static boolean applyFertilizer(ItemStack stack, Level world, BlockPos pos, Player player){
-        var state = world.getBlockState(pos);
+    public static boolean applyFertilizer(ItemStack stack, Level level, BlockPos pos, Player player){
+        var state = level.getBlockState(pos);
 
         if (player != null) {
-            int hook = ForgeEventFactory.onApplyBonemeal(player, world, pos, state, stack);
+            int hook = ForgeEventFactory.onApplyBonemeal(player, level, pos, state, stack);
             if (hook != 0) return hook > 0;
         }
 
         var block = state.getBlock();
 
-        if (block instanceof BonemealableBlock growable && growable.isValidBonemealTarget(world, pos, state, world.isClientSide())) {
-            if (!world.isClientSide()) {
-                var random = world.getRandom();
+        if (block instanceof BonemealableBlock growable && growable.isValidBonemealTarget(level, pos, state, level.isClientSide())) {
+            if (!level.isClientSide()) {
+                var random = level.getRandom();
 
-                if (growable.isBonemealSuccess(world, random, pos, state) || canGrowResourceCrops(growable)) {
-                    growable.performBonemeal((ServerLevel) world, random, pos, state);
+                if (growable.isBonemealSuccess(level, random, pos, state) || canGrowResourceCrops(growable)) {
+                    growable.performBonemeal((ServerLevel) level, random, pos, state);
                 }
 
                 stack.shrink(1);
@@ -96,22 +97,18 @@ public class FertilizedEssenceItem extends BaseItem {
         protected ItemStack execute(BlockSource source, ItemStack stack) {
             this.setSuccess(true);
 
-            var world = source.getLevel();
+            var level = source.getLevel();
             var pos = source.getPos().relative(source.getBlockState().getValue(DispenserBlock.FACING));
 
-            if (FertilizedEssenceItem.applyFertilizer(stack, world, pos, null)) {
-                if (!world.isClientSide()) {
-                    world.levelEvent(2005, pos, 0);
+            if (FertilizedEssenceItem.applyFertilizer(stack, level, pos, null)) {
+                if (!level.isClientSide()) {
+                    level.levelEvent(2005, pos, 0);
                 }
             } else {
                 this.setSuccess(false);
             }
 
             return stack;
-        }
-
-        public static void register() {
-            DispenserBlock.registerBehavior(ModItems.FERTILIZED_ESSENCE.get(), new DispenserBehavior());
         }
     }
 }

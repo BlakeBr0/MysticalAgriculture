@@ -17,8 +17,6 @@ import com.blakebr0.mysticalagriculture.init.ModContainerTypes;
 import com.blakebr0.mysticalagriculture.init.ModItems;
 import com.blakebr0.mysticalagriculture.init.ModRecipeSerializers;
 import com.blakebr0.mysticalagriculture.init.ModTileEntities;
-import com.blakebr0.mysticalagriculture.item.FertilizedEssenceItem;
-import com.blakebr0.mysticalagriculture.item.MysticalFertilizerItem;
 import com.blakebr0.mysticalagriculture.lib.ModItemTier;
 import com.blakebr0.mysticalagriculture.network.NetworkHandler;
 import com.blakebr0.mysticalagriculture.registry.AugmentRegistry;
@@ -82,7 +80,6 @@ public final class MysticalAgriculture {
 
 	@SubscribeEvent
 	public void onCommonSetup(FMLCommonSetupEvent event) {
-		MinecraftForge.EVENT_BUS.register(new DynamicRecipeManager());
 		MinecraftForge.EVENT_BUS.register(new MobDropHandler());
 		MinecraftForge.EVENT_BUS.register(new MobSoulHandler());
 		MinecraftForge.EVENT_BUS.register(new ExperienceCapsuleHandler());
@@ -95,9 +92,6 @@ public final class MysticalAgriculture {
 		event.enqueueWork(() -> {
 			ModWorldgenRegistration.onCommonSetup();
 			NetworkHandler.onCommonSetup();
-
-			FertilizedEssenceItem.DispenserBehavior.register();
-			MysticalFertilizerItem.DispenserBehavior.register();
 		});
 	}
 
