@@ -6,7 +6,9 @@ import com.blakebr0.mysticalagriculture.api.tinkering.AugmentType;
 import com.blakebr0.mysticalagriculture.api.tinkering.IElementalItem;
 import com.blakebr0.mysticalagriculture.api.tinkering.ITinkerable;
 import com.blakebr0.mysticalagriculture.lib.ModTooltips;
+import net.minecraft.core.NonNullList;
 import net.minecraft.network.chat.Component;
+import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
@@ -26,6 +28,11 @@ public class EssenceStaffItem extends BaseItem implements ITinkerable, IElementa
         super(properties);
         this.tinkerableTier = tinkerableTier;
         this.slots = slots;
+    }
+
+    @Override
+    public void fillItemCategory(CreativeModeTab group, NonNullList<ItemStack> items) {
+        // hidden
     }
 
     @OnlyIn(Dist.CLIENT)
