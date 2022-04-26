@@ -175,6 +175,8 @@ public final class ModelHandler {
                 event.addSprite(textures.getEssenceTexture());
                 event.addSprite(textures.getSeedTexture());
             }
+
+            event.addSprite(new ResourceLocation(MysticalAgriculture.MOD_ID, "block/essence_vessel_contents"));
         }
     }
 
@@ -186,6 +188,7 @@ public final class ModelHandler {
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.SOULIUM_ORE.get(), RenderType.cutoutMipped());
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.SOUL_GLASS.get(), RenderType.translucent());
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.WITHERPROOF_GLASS.get(), RenderType.translucent());
+        ItemBlockRenderTypes.setRenderLayer(ModBlocks.ESSENCE_VESSEL.get(), RenderType.translucent());
 
         for (var crop : CropRegistry.getInstance().getCrops()) {
             ItemBlockRenderTypes.setRenderLayer(crop.getCropBlock(), RenderType.cutoutMipped());

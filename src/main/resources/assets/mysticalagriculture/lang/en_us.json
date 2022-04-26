@@ -63,6 +63,9 @@
   "block.mysticalagriculture.witherproof_glass": "Witherproof Glass",
   "block.mysticalagriculture.infusion_pedestal": "Infusion Pedestal",
   "block.mysticalagriculture.infusion_altar": "Infusion Altar",
+  "block.mysticalagriculture.awakening_pedestal": "Awakening Pedestal",
+  "block.mysticalagriculture.awakening_altar": "Awakening Altar",
+  "block.mysticalagriculture.essence_vessel": "Essence Vessel",
   "block.mysticalagriculture.tinkering_table": "Tinkering Table",
   "block.mysticalagriculture.machine_frame": "Machine Frame",
   "block.mysticalagriculture.basic_reprocessor": "Seed Reprocessor",
@@ -245,6 +248,7 @@
   "tooltip.mysticalagriculture.mystical_fertilizer": "Instantly grows a crop or sapling.",
 
   "jei.category.mysticalagriculture.infusion": "Infusion Crafting",
+  "jei.category.mysticalagriculture.awakening": "Awakening",
   "jei.category.mysticalagriculture.reprocessor": "Seed Reprocessing",
   "jei.category.mysticalagriculture.soul_extractor": "Soul Extraction",
   "jei.category.mysticalagriculture.crux": "Cruxes",

@@ -1,7 +1,6 @@
 package com.blakebr0.mysticalagriculture.init;
 
 import com.blakebr0.mysticalagriculture.MysticalAgriculture;
-import com.blakebr0.mysticalagriculture.api.MysticalAgricultureAPI;
 import com.blakebr0.mysticalagriculture.api.crafting.RecipeTypes;
 import com.blakebr0.mysticalagriculture.crafting.condition.AugmentEnabledCondition;
 import com.blakebr0.mysticalagriculture.crafting.condition.CropEnabledCondition;
@@ -10,6 +9,7 @@ import com.blakebr0.mysticalagriculture.crafting.condition.SeedCraftingRecipesEn
 import com.blakebr0.mysticalagriculture.crafting.ingredient.CropComponentIngredient;
 import com.blakebr0.mysticalagriculture.crafting.ingredient.FilledSoulJarIngredient;
 import com.blakebr0.mysticalagriculture.crafting.ingredient.HoeIngredient;
+import com.blakebr0.mysticalagriculture.crafting.recipe.AwakeningRecipe;
 import com.blakebr0.mysticalagriculture.crafting.recipe.FarmlandTillRecipe;
 import com.blakebr0.mysticalagriculture.crafting.recipe.InfusionRecipe;
 import com.blakebr0.mysticalagriculture.crafting.recipe.ReprocessorRecipe;
@@ -29,6 +29,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 public final class ModRecipeSerializers {
     public static final RecipeSerializer<FarmlandTillRecipe> CRAFTING_FARMLAND_TILL = new FarmlandTillRecipe.Serializer();
     public static final RecipeSerializer<InfusionRecipe> INFUSION = new InfusionRecipe.Serializer();
+    public static final RecipeSerializer<AwakeningRecipe> AWAKENING = new AwakeningRecipe.Serializer();
     public static final RecipeSerializer<ReprocessorRecipe> REPROCESSOR = new ReprocessorRecipe.Serializer();
     public static final RecipeSerializer<SoulExtractionRecipe> SOUL_EXTRACTION = new SoulExtractionRecipe.Serializer();
     public static final RecipeSerializer<TagRecipe> CRAFTING_TAG = new TagRecipe.Serializer();
@@ -44,6 +45,7 @@ public final class ModRecipeSerializers {
 
         registry.register(CRAFTING_FARMLAND_TILL.setRegistryName(new ResourceLocation(MysticalAgriculture.MOD_ID, "farmland_till")));
         registry.register(INFUSION.setRegistryName(new ResourceLocation(MysticalAgriculture.MOD_ID, "infusion")));
+        registry.register(AWAKENING.setRegistryName(new ResourceLocation(MysticalAgriculture.MOD_ID, "awakening")));
         registry.register(REPROCESSOR.setRegistryName(new ResourceLocation(MysticalAgriculture.MOD_ID, "reprocessor")));
         registry.register(SOUL_EXTRACTION.setRegistryName(new ResourceLocation(MysticalAgriculture.MOD_ID, "soul_extraction")));
         registry.register(CRAFTING_TAG.setRegistryName(new ResourceLocation(MysticalAgriculture.MOD_ID, "tag")));
@@ -58,9 +60,10 @@ public final class ModRecipeSerializers {
         CraftingHelper.register(new ResourceLocation(MysticalAgriculture.MOD_ID, "filled_soul_jars"), FILLED_SOUL_JAR_INGREDIENT);
         CraftingHelper.register(new ResourceLocation(MysticalAgriculture.MOD_ID, "crop_component"), CROP_COMPONENT_INGREDIENT);
 
-        Registry.register(Registry.RECIPE_TYPE, new ResourceLocation(MysticalAgricultureAPI.MOD_ID, "infusion"), RecipeTypes.INFUSION);
-        Registry.register(Registry.RECIPE_TYPE, new ResourceLocation(MysticalAgricultureAPI.MOD_ID, "reprocessor"), RecipeTypes.REPROCESSOR);
-        Registry.register(Registry.RECIPE_TYPE, new ResourceLocation(MysticalAgricultureAPI.MOD_ID, "soul_extraction"), RecipeTypes.SOUL_EXTRACTION);
+        Registry.register(Registry.RECIPE_TYPE, new ResourceLocation(MysticalAgriculture.MOD_ID, "infusion"), RecipeTypes.INFUSION);
+        Registry.register(Registry.RECIPE_TYPE, new ResourceLocation(MysticalAgriculture.MOD_ID, "awakening"), RecipeTypes.AWAKENING);
+        Registry.register(Registry.RECIPE_TYPE, new ResourceLocation(MysticalAgriculture.MOD_ID, "reprocessor"), RecipeTypes.REPROCESSOR);
+        Registry.register(Registry.RECIPE_TYPE, new ResourceLocation(MysticalAgriculture.MOD_ID, "soul_extraction"), RecipeTypes.SOUL_EXTRACTION);
     }
 
     public static void onCommonSetup() {

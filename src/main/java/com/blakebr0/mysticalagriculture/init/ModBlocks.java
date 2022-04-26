@@ -9,7 +9,10 @@ import com.blakebr0.cucumber.block.BaseWallBlock;
 import com.blakebr0.cucumber.item.BaseBlockItem;
 import com.blakebr0.mysticalagriculture.MysticalAgriculture;
 import com.blakebr0.mysticalagriculture.api.crop.CropTier;
+import com.blakebr0.mysticalagriculture.block.AwakeningAltarBlock;
+import com.blakebr0.mysticalagriculture.block.AwakeningPedestalBlock;
 import com.blakebr0.mysticalagriculture.block.EssenceFurnaceBlock;
+import com.blakebr0.mysticalagriculture.block.EssenceVesselBlock;
 import com.blakebr0.mysticalagriculture.block.GrowthAcceleratorBlock;
 import com.blakebr0.mysticalagriculture.block.InferiumCropBlock;
 import com.blakebr0.mysticalagriculture.block.InfusedFarmlandBlock;
@@ -31,7 +34,6 @@ import net.minecraft.world.level.material.Material;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.registries.ForgeRegistries;
-import net.minecraftforge.registries.IForgeRegistry;
 import net.minecraftforge.registries.RegistryObject;
 
 import java.util.LinkedHashMap;
@@ -106,6 +108,9 @@ public final class ModBlocks {
     public static final RegistryObject<Block> WITHERPROOF_GLASS = register("witherproof_glass", WitherproofGlassBlock::new);
     public static final RegistryObject<Block> INFUSION_PEDESTAL = register("infusion_pedestal", InfusionPedestalBlock::new);
     public static final RegistryObject<Block> INFUSION_ALTAR = register("infusion_altar", InfusionAltarBlock::new);
+    public static final RegistryObject<Block> AWAKENING_PEDESTAL = register("awakening_pedestal", AwakeningPedestalBlock::new);
+    public static final RegistryObject<Block> AWAKENING_ALTAR = register("awakening_altar", AwakeningAltarBlock::new);
+    public static final RegistryObject<Block> ESSENCE_VESSEL = register("essence_vessel", EssenceVesselBlock::new);
     public static final RegistryObject<Block> TINKERING_TABLE = register("tinkering_table", TinkeringTableBlock::new);
     public static final RegistryObject<Block> MACHINE_FRAME = register("machine_frame", () -> new BaseBlock(Material.STONE, SoundType.STONE, 1.5F, 6.0F, true));
     public static final RegistryObject<Block> BASIC_REPROCESSOR = register("basic_reprocessor", () -> new ReprocessorBlock(ReprocessorTier.BASIC));
@@ -120,7 +125,7 @@ public final class ModBlocks {
 
     @SubscribeEvent
     public void onRegisterBlocks(RegistryEvent.Register<Block> event) {
-        IForgeRegistry<Block> registry = event.getRegistry();
+        var registry = event.getRegistry();
 
         ENTRIES.forEach((reg, block) -> {
             registry.register(block.get());
@@ -137,16 +142,16 @@ public final class ModBlocks {
     }
 
     private static RegistryObject<Block> register(String name, Supplier<Block> block, Function<RegistryObject<Block>, Supplier<? extends BlockItem>> item) {
-        ResourceLocation loc = new ResourceLocation(MysticalAgriculture.MOD_ID, name);
-        RegistryObject<Block> reg = RegistryObject.of(loc, ForgeRegistries.BLOCKS);
+        var loc = new ResourceLocation(MysticalAgriculture.MOD_ID, name);
+        var reg = RegistryObject.of(loc, ForgeRegistries.BLOCKS);
         ENTRIES.put(reg, () -> block.get().setRegistryName(loc));
         ModItems.BLOCK_ENTRIES.add(() -> item.apply(reg).get().setRegistryName(loc));
         return reg;
     }
 
     public static RegistryObject<Block> registerNoItem(String name, Supplier<Block> block) {
-        ResourceLocation loc = new ResourceLocation(MysticalAgriculture.MOD_ID, name);
-        RegistryObject<Block> reg = RegistryObject.of(loc, ForgeRegistries.BLOCKS);
+        var loc = new ResourceLocation(MysticalAgriculture.MOD_ID, name);
+        var reg = RegistryObject.of(loc, ForgeRegistries.BLOCKS);
         ENTRIES.put(reg, () -> block.get().setRegistryName(loc));
         return reg;
     }

@@ -2,6 +2,7 @@ package com.blakebr0.mysticalagriculture;
 
 import com.blakebr0.cucumber.helper.ConfigHelper;
 import com.blakebr0.mysticalagriculture.api.MysticalAgricultureAPI;
+import com.blakebr0.mysticalagriculture.client.ModTESRs;
 import com.blakebr0.mysticalagriculture.client.ModelHandler;
 import com.blakebr0.mysticalagriculture.compat.TOPCompat;
 import com.blakebr0.mysticalagriculture.config.ModConfigs;
@@ -64,6 +65,7 @@ public final class MysticalAgriculture {
 		DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> () -> {
 			bus.register(new ColorHandler());
 			bus.register(new ModelHandler());
+			bus.register(new ModTESRs());
 		});
 
 		MinecraftForge.EVENT_BUS.register(new ModWorldgenRegistration());
@@ -98,8 +100,6 @@ public final class MysticalAgriculture {
 	@SubscribeEvent
 	public void onClientSetup(FMLClientSetupEvent event) {
 		ModelHandler.onClientSetup(event);
-
-		ModTileEntities.onClientSetup();
 		ModContainerTypes.onClientSetup();
 	}
 
