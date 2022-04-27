@@ -1,0 +1,16 @@
+{
+  "type": "crafting_shaped",
+  "pattern": [
+    "###",
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "mysticalagriculture:awakened_supremium_nugget"
+    }
+  },
+  "result": {
+    "item": "mysticalagriculture:awakened_supremium_ingot"
+  }
+}

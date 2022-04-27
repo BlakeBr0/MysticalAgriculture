@@ -1,0 +1,16 @@
+{
+  "type": "crafting_shaped",
+  "pattern": [
+    "###",
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "mysticalagriculture:awakened_supremium_gemstone"
+    }
+  },
+  "result": {
+    "item": "mysticalagriculture:awakened_supremium_gemstone_block"
+  }
+}

@@ -52,6 +52,7 @@ public final class ModBlocks {
     public static final RegistryObject<Block> TERTIUM_BLOCK = register("tertium_block", () -> new BaseBlock(Material.STONE, SoundType.STONE, 4.0F, 6.0F, true));
     public static final RegistryObject<Block> IMPERIUM_BLOCK = register("imperium_block", () -> new BaseBlock(Material.STONE, SoundType.STONE, 4.0F, 5.0F, true));
     public static final RegistryObject<Block> SUPREMIUM_BLOCK = register("supremium_block", () -> new BaseBlock(Material.STONE, SoundType.STONE, 4.0F, 6.0F, true));
+    public static final RegistryObject<Block> AWAKENED_SUPREMIUM_BLOCK = register("awakened_supremium_block", () -> new BaseBlock(Material.STONE, SoundType.STONE, 4.0F, 6.0F, true));
     public static final RegistryObject<Block> SOULIUM_BLOCK = register("soulium_block", () -> new BaseBlock(Material.STONE, SoundType.STONE, 4.0F, 6.0F, true));
     public static final RegistryObject<Block> PROSPERITY_INGOT_BLOCK = register("prosperity_ingot_block", () -> new BaseBlock(Material.METAL, SoundType.METAL, 5.0F, 6.0F, true));
     public static final RegistryObject<Block> INFERIUM_INGOT_BLOCK = register("inferium_ingot_block", () -> new BaseBlock(Material.METAL, SoundType.METAL, 5.0F, 6.0F, true));
@@ -59,6 +60,7 @@ public final class ModBlocks {
     public static final RegistryObject<Block> TERTIUM_INGOT_BLOCK = register("tertium_ingot_block", () -> new BaseBlock(Material.METAL, SoundType.METAL, 5.0F, 6.0F, true));
     public static final RegistryObject<Block> IMPERIUM_INGOT_BLOCK = register("imperium_ingot_block", () -> new BaseBlock(Material.METAL, SoundType.METAL, 5.0F, 6.0F, true));
     public static final RegistryObject<Block> SUPREMIUM_INGOT_BLOCK = register("supremium_ingot_block", () -> new BaseBlock(Material.METAL, SoundType.METAL, 5.0F, 6.0F, true));
+    public static final RegistryObject<Block> AWAKENED_SUPREMIUM_INGOT_BLOCK = register("awakened_supremium_ingot_block", () -> new BaseBlock(Material.METAL, SoundType.METAL, 5.0F, 6.0F, true));
     public static final RegistryObject<Block> SOULIUM_INGOT_BLOCK = register("soulium_ingot_block", () -> new BaseBlock(Material.METAL, SoundType.METAL, 5.0F, 6.0F, true));
     public static final RegistryObject<Block> PROSPERITY_GEMSTONE_BLOCK = register("prosperity_gemstone_block", () -> new BaseBlock(Material.METAL, SoundType.METAL, 5.0F, 6.0F, true));
     public static final RegistryObject<Block> INFERIUM_GEMSTONE_BLOCK = register("inferium_gemstone_block", () -> new BaseBlock(Material.METAL, SoundType.METAL, 5.0F, 6.0F, true));
@@ -66,6 +68,7 @@ public final class ModBlocks {
     public static final RegistryObject<Block> TERTIUM_GEMSTONE_BLOCK = register("tertium_gemstone_block", () -> new BaseBlock(Material.METAL, SoundType.METAL, 5.0F, 6.0F, true));
     public static final RegistryObject<Block> IMPERIUM_GEMSTONE_BLOCK = register("imperium_gemstone_block", () -> new BaseBlock(Material.METAL, SoundType.METAL, 5.0F, 6.0F, true));
     public static final RegistryObject<Block> SUPREMIUM_GEMSTONE_BLOCK = register("supremium_gemstone_block", () -> new BaseBlock(Material.METAL, SoundType.METAL, 5.0F, 6.0F, true));
+    public static final RegistryObject<Block> AWAKENED_SUPREMIUM_GEMSTONE_BLOCK = register("awakened_supremium_gemstone_block", () -> new BaseBlock(Material.METAL, SoundType.METAL, 5.0F, 6.0F, true));
     public static final RegistryObject<Block> SOULIUM_GEMSTONE_BLOCK = register("soulium_gemstone_block", () -> new BaseBlock(Material.METAL, SoundType.METAL, 5.0F, 6.0F, true));
     public static final RegistryObject<Block> INFERIUM_FARMLAND = register("inferium_farmland", () -> new InfusedFarmlandBlock(CropTier.ONE));
     public static final RegistryObject<Block> PRUDENTIUM_FARMLAND = register("prudentium_farmland", () -> new InfusedFarmlandBlock(CropTier.TWO));

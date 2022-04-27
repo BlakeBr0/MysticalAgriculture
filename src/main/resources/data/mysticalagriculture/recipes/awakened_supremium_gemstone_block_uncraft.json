@@ -1,0 +1,12 @@
+{
+  "type": "crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "mysticalagriculture:awakened_supremium_gemstone_block"
+    }
+  ],
+  "result": {
+    "item": "mysticalagriculture:awakened_supremium_gemstone",
+    "count": 9
+  }
+}

@@ -57,6 +57,7 @@ public final class ModItems {
     public static final RegistryObject<Item> TERTIUM_ESSENCE = register("tertium_essence", () -> new EssenceItem(CropTier.THREE, p -> p.tab(CREATIVE_TAB)));
     public static final RegistryObject<Item> IMPERIUM_ESSENCE = register("imperium_essence", () -> new EssenceItem(CropTier.FOUR, p -> p.tab(CREATIVE_TAB)));
     public static final RegistryObject<Item> SUPREMIUM_ESSENCE = register("supremium_essence", () -> new EssenceItem(CropTier.FIVE, p -> p.tab(CREATIVE_TAB)));
+    public static final RegistryObject<Item> AWAKENED_SUPREMIUM_ESSENCE = register("awakened_supremium_essence");
     public static final RegistryObject<Item> SOULIUM_DUST = register("soulium_dust");
     public static final RegistryObject<Item> PROSPERITY_INGOT = register("prosperity_ingot");
     public static final RegistryObject<Item> INFERIUM_INGOT = register("inferium_ingot");
@@ -64,6 +65,7 @@ public final class ModItems {
     public static final RegistryObject<Item> TERTIUM_INGOT = register("tertium_ingot");
     public static final RegistryObject<Item> IMPERIUM_INGOT = register("imperium_ingot");
     public static final RegistryObject<Item> SUPREMIUM_INGOT = register("supremium_ingot");
+    public static final RegistryObject<Item> AWAKENED_SUPREMIUM_INGOT = register("awakened_supremium_ingot");
     public static final RegistryObject<Item> SOULIUM_INGOT = register("soulium_ingot");
     public static final RegistryObject<Item> PROSPERITY_NUGGET = register("prosperity_nugget");
     public static final RegistryObject<Item> INFERIUM_NUGGET = register("inferium_nugget");
@@ -71,6 +73,7 @@ public final class ModItems {
     public static final RegistryObject<Item> TERTIUM_NUGGET = register("tertium_nugget");
     public static final RegistryObject<Item> IMPERIUM_NUGGET = register("imperium_nugget");
     public static final RegistryObject<Item> SUPREMIUM_NUGGET = register("supremium_nugget");
+    public static final RegistryObject<Item> AWAKENED_SUPREMIUM_NUGGET = register("awakened_supremium_nugget");
     public static final RegistryObject<Item> SOULIUM_NUGGET = register("soulium_nugget");
     public static final RegistryObject<Item> PROSPERITY_GEMSTONE = register("prosperity_gemstone");
     public static final RegistryObject<Item> INFERIUM_GEMSTONE = register("inferium_gemstone");
@@ -78,6 +81,7 @@ public final class ModItems {
     public static final RegistryObject<Item> TERTIUM_GEMSTONE = register("tertium_gemstone");
     public static final RegistryObject<Item> IMPERIUM_GEMSTONE = register("imperium_gemstone");
     public static final RegistryObject<Item> SUPREMIUM_GEMSTONE = register("supremium_gemstone");
+    public static final RegistryObject<Item> AWAKENED_SUPREMIUM_GEMSTONE = register("awakened_supremium_gemstone");
     public static final RegistryObject<Item> SOULIUM_GEMSTONE = register("soulium_gemstone");
     public static final RegistryObject<Item> PROSPERITY_SEED_BASE = register("prosperity_seed_base");
     public static final RegistryObject<Item> SOULIUM_SEED_BASE = register("soulium_seed_base");
