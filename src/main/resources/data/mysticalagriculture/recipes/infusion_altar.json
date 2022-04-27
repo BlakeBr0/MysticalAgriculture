@@ -1,22 +1,22 @@
 {
-	"type": "minecraft:crafting_shaped",
-	"pattern": [
-		"GCG",
-		"CSC",
-		"SSS"
-	],
-	"key": {
-		"S": {
-			"item": "minecraft:stone"
-		},
-		"C": {
-			"item": "minecraft:red_carpet"
-		},
-		"G": {
-			"tag": "forge:ingots/gold"
-		}
-	},
-	"result": {
-		"item": "mysticalagriculture:infusion_altar"
-	}
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "GCG",
+    " S ",
+    "SSS"
+  ],
+  "key": {
+    "S": {
+      "item": "minecraft:stone"
+    },
+    "C": {
+      "item": "minecraft:red_wool"
+    },
+    "G": {
+      "tag": "forge:ingots/gold"
+    }
+  },
+  "result": {
+    "item": "mysticalagriculture:infusion_altar"
+  }
 }
