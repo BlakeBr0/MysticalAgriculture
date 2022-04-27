@@ -1,8 +1,6 @@
 {
-	"credit": "Made with Blockbench",
 	"textures": {
-		"3": "mysticalagriculture:block/infusion_pedestal_side",
-		"4": "mysticalagriculture:block/infusion_pedestal_top",
+		"1": "mysticalagriculture:block/infusion_pedestal_top",
 		"particle": "block/stone"
 	},
 	"elements": [
@@ -11,12 +9,12 @@
 			"from": [2, 0, 2],
 			"to": [5, 2, 5],
 			"faces": {
-				"north": {"uv": [13, 14, 16, 16], "texture": "#3"},
-				"east": {"uv": [13, 12, 16, 14], "texture": "#3"},
-				"south": {"uv": [0, 12, 3, 14], "texture": "#3"},
-				"west": {"uv": [0, 14, 3, 16], "texture": "#3"},
-				"up": {"uv": [13, 0, 16, 3], "texture": "#4"},
-				"down": {"uv": [13, 0, 16, 3], "texture": "#4"}
+				"north": {"uv": [13, 14, 16, 16], "texture": "#particle"},
+				"east": {"uv": [13, 12, 16, 14], "texture": "#particle"},
+				"south": {"uv": [0, 12, 3, 14], "texture": "#particle"},
+				"west": {"uv": [0, 14, 3, 16], "texture": "#particle"},
+				"up": {"uv": [13, 0, 16, 3], "texture": "#particle"},
+				"down": {"uv": [13, 0, 16, 3], "texture": "#particle"}
 			}
 		},
 		{
@@ -24,12 +22,12 @@
 			"from": [11, 0, 2],
 			"to": [14, 2, 5],
 			"faces": {
-				"north": {"uv": [0, 14, 3, 16], "texture": "#3"},
-				"east": {"uv": [13, 14, 16, 16], "texture": "#3"},
-				"south": {"uv": [0, 12, 3, 14], "texture": "#3"},
-				"west": {"uv": [13, 12, 16, 14], "texture": "#3"},
-				"up": {"uv": [0, 0, 3, 3], "texture": "#4"},
-				"down": {"uv": [0, 0, 3, 3], "texture": "#4"}
+				"north": {"uv": [0, 14, 3, 16], "texture": "#particle"},
+				"east": {"uv": [13, 14, 16, 16], "texture": "#particle"},
+				"south": {"uv": [0, 12, 3, 14], "texture": "#particle"},
+				"west": {"uv": [13, 12, 16, 14], "texture": "#particle"},
+				"up": {"uv": [0, 0, 3, 3], "texture": "#particle"},
+				"down": {"uv": [0, 0, 3, 3], "texture": "#particle"}
 			}
 		},
 		{
@@ -37,12 +35,12 @@
 			"from": [2, 0, 11],
 			"to": [5, 2, 14],
 			"faces": {
-				"north": {"uv": [13, 12, 16, 14], "texture": "#3"},
-				"east": {"uv": [0, 12, 3, 14], "texture": "#3"},
-				"south": {"uv": [0, 14, 3, 16], "texture": "#3"},
-				"west": {"uv": [13, 14, 16, 16], "texture": "#3"},
-				"up": {"uv": [13, 13, 16, 16], "texture": "#4"},
-				"down": {"uv": [13, 13, 16, 16], "texture": "#4"}
+				"north": {"uv": [13, 12, 16, 14], "texture": "#particle"},
+				"east": {"uv": [0, 12, 3, 14], "texture": "#particle"},
+				"south": {"uv": [0, 14, 3, 16], "texture": "#particle"},
+				"west": {"uv": [13, 14, 16, 16], "texture": "#particle"},
+				"up": {"uv": [13, 13, 16, 16], "texture": "#particle"},
+				"down": {"uv": [13, 13, 16, 16], "texture": "#particle"}
 			}
 		},
 		{
@@ -50,12 +48,12 @@
 			"from": [11, 0, 11],
 			"to": [14, 2, 14],
 			"faces": {
-				"north": {"uv": [0, 0, 3, 2], "texture": "#3"},
-				"east": {"uv": [0, 14, 3, 16], "texture": "#3"},
-				"south": {"uv": [13, 14, 16, 16], "texture": "#3"},
-				"west": {"uv": [13, 12, 16, 14], "texture": "#3"},
-				"up": {"uv": [13, 13, 16, 16], "texture": "#4"},
-				"down": {"uv": [0, 13, 3, 16], "texture": "#4"}
+				"north": {"uv": [0, 0, 3, 2], "texture": "#particle"},
+				"east": {"uv": [0, 14, 3, 16], "texture": "#particle"},
+				"south": {"uv": [13, 14, 16, 16], "texture": "#particle"},
+				"west": {"uv": [13, 12, 16, 14], "texture": "#particle"},
+				"up": {"uv": [13, 13, 16, 16], "texture": "#particle"},
+				"down": {"uv": [0, 13, 3, 16], "texture": "#particle"}
 			}
 		},
 		{
@@ -63,12 +61,12 @@
 			"from": [3, 2, 3],
 			"to": [13, 4, 13],
 			"faces": {
-				"north": {"uv": [3, 12, 13, 14], "texture": "#3"},
-				"east": {"uv": [3, 12, 13, 14], "texture": "#3"},
-				"south": {"uv": [3, 12, 13, 14], "texture": "#3"},
-				"west": {"uv": [3, 12, 13, 14], "texture": "#3"},
-				"up": {"uv": [3, 3, 13, 13], "texture": "#4"},
-				"down": {"uv": [3, 3, 13, 13], "texture": "#4"}
+				"north": {"uv": [3, 12, 13, 14], "texture": "#particle"},
+				"east": {"uv": [3, 12, 13, 14], "texture": "#particle"},
+				"south": {"uv": [3, 12, 13, 14], "texture": "#particle"},
+				"west": {"uv": [3, 12, 13, 14], "texture": "#particle"},
+				"up": {"uv": [3, 3, 13, 13], "texture": "#particle"},
+				"down": {"uv": [3, 3, 13, 13], "texture": "#particle"}
 			}
 		},
 		{
@@ -76,12 +74,12 @@
 			"from": [4, 4, 4],
 			"to": [12, 14, 12],
 			"faces": {
-				"north": {"uv": [4, 2, 12, 12], "texture": "#3"},
-				"east": {"uv": [4, 2, 12, 12], "texture": "#3"},
-				"south": {"uv": [4, 2, 12, 12], "texture": "#3"},
-				"west": {"uv": [4, 2, 12, 12], "texture": "#3"},
-				"up": {"uv": [4, 4, 12, 12], "texture": "#4"},
-				"down": {"uv": [0, 0, 8, 8], "texture": "#4"}
+				"north": {"uv": [4, 2, 12, 12], "texture": "#particle"},
+				"east": {"uv": [4, 2, 12, 12], "texture": "#particle"},
+				"south": {"uv": [4, 2, 12, 12], "texture": "#particle"},
+				"west": {"uv": [4, 2, 12, 12], "texture": "#particle"},
+				"up": {"uv": [4, 4, 12, 12], "texture": "#1"},
+				"down": {"uv": [0, 0, 8, 8], "texture": "#particle"}
 			}
 		},
 		{
@@ -89,12 +87,12 @@
 			"from": [3, 14, 3],
 			"to": [13, 16, 5],
 			"faces": {
-				"north": {"uv": [3, 0, 13, 2], "texture": "#3"},
-				"east": {"uv": [11, 0, 13, 2], "texture": "#3"},
-				"south": {"uv": [3, 3, 13, 5], "texture": "#4"},
-				"west": {"uv": [3, 0, 5, 2], "texture": "#3"},
-				"up": {"uv": [3, 0, 13, 2], "texture": "#4"},
-				"down": {"uv": [3, 3, 13, 5], "texture": "#4"}
+				"north": {"uv": [3, 3, 13, 5], "texture": "#1"},
+				"east": {"uv": [11, 11, 13, 13], "texture": "#1"},
+				"south": {"uv": [3, 3, 13, 5], "texture": "#1"},
+				"west": {"uv": [3, 11, 5, 13], "texture": "#1"},
+				"up": {"uv": [3, 3, 13, 5], "texture": "#1"},
+				"down": {"uv": [3, 3, 13, 5], "texture": "#particle"}
 			}
 		},
 		{
@@ -102,12 +100,12 @@
 			"from": [3, 14, 11],
 			"to": [13, 16, 13],
 			"faces": {
-				"north": {"uv": [3, 11, 13, 13], "texture": "#4"},
-				"east": {"uv": [3, 0, 5, 2], "texture": "#3"},
-				"south": {"uv": [3, 0, 13, 2], "texture": "#3"},
-				"west": {"uv": [11, 0, 13, 2], "texture": "#3"},
-				"up": {"uv": [3, 11, 13, 13], "texture": "#4"},
-				"down": {"uv": [3, 11, 13, 13], "texture": "#4"}
+				"north": {"uv": [3, 11, 13, 13], "texture": "#1"},
+				"east": {"uv": [3, 11, 5, 13], "texture": "#1"},
+				"south": {"uv": [3, 3, 13, 5], "texture": "#1"},
+				"west": {"uv": [11, 11, 13, 13], "texture": "#1"},
+				"up": {"uv": [3, 11, 13, 13], "texture": "#1"},
+				"down": {"uv": [3, 11, 13, 13], "texture": "#particle"}
 			}
 		},
 		{
@@ -115,12 +113,12 @@
 			"from": [3, 14, 5],
 			"to": [5, 16, 11],
 			"faces": {
-				"north": {"uv": [0, 0, 2, 2], "texture": "#3"},
-				"east": {"uv": [5, 2, 11, 4], "texture": "#4"},
-				"south": {"uv": [0, 0, 2, 2], "texture": "#3"},
-				"west": {"uv": [5, 0, 11, 2], "texture": "#3"},
-				"up": {"uv": [11, 5, 13, 11], "texture": "#4"},
-				"down": {"uv": [11, 5, 13, 11], "texture": "#4"}
+				"north": {"uv": [0, 0, 2, 2], "texture": "#particle"},
+				"east": {"uv": [5, 2, 11, 4], "texture": "#1"},
+				"south": {"uv": [0, 0, 2, 2], "texture": "#particle"},
+				"west": {"uv": [5, 3, 11, 5], "texture": "#1"},
+				"up": {"uv": [11, 5, 13, 11], "texture": "#1"},
+				"down": {"uv": [11, 5, 13, 11], "texture": "#particle"}
 			}
 		},
 		{
@@ -128,12 +126,64 @@
 			"from": [11, 14, 5],
 			"to": [13, 16, 11],
 			"faces": {
-				"north": {"uv": [0, 0, 2, 2], "texture": "#3"},
-				"east": {"uv": [5, 0, 11, 2], "texture": "#3"},
-				"south": {"uv": [0, 0, 2, 2], "texture": "#3"},
-				"west": {"uv": [5, 2, 11, 4], "texture": "#4"},
-				"up": {"uv": [0, 5, 2, 11], "texture": "#4"},
-				"down": {"uv": [3, 5, 5, 11], "texture": "#4"}
+				"north": {"uv": [0, 0, 2, 2], "texture": "#particle"},
+				"east": {"uv": [5, 3, 11, 5], "texture": "#1"},
+				"south": {"uv": [0, 0, 2, 2], "texture": "#particle"},
+				"west": {"uv": [5, 2, 11, 4], "texture": "#1"},
+				"up": {"uv": [3, 5, 5, 11], "texture": "#1"},
+				"down": {"uv": [3, 5, 5, 11], "texture": "#particle"}
+			}
+		},
+		{
+			"name": "Pedestal Overhang 1",
+			"from": [13, 11, 5],
+			"to": [13, 14, 11],
+			"faces": {
+				"north": {"uv": [0, 0, 0, 2], "texture": "#particle"},
+				"east": {"uv": [3, 5, 0, 11], "rotation": 90, "texture": "#1"},
+				"south": {"uv": [0, 0, 0, 2], "texture": "#particle"},
+				"west": {"uv": [3, 5, 0, 11], "rotation": 90, "texture": "#1"},
+				"up": {"uv": [0, 0, 0, 6], "texture": "#particle"},
+				"down": {"uv": [0, 0, 0, 6], "texture": "#particle"}
+			}
+		},
+		{
+			"name": "Pedestal Overhang 2",
+			"from": [3, 11, 5],
+			"to": [3, 14, 11],
+			"faces": {
+				"north": {"uv": [0, 0, 0, 3], "texture": "#particle"},
+				"east": {"uv": [16, 5, 13, 11], "rotation": 270, "texture": "#1"},
+				"south": {"uv": [0, 0, 0, 3], "texture": "#particle"},
+				"west": {"uv": [16, 5, 13, 11], "rotation": 270, "texture": "#1"},
+				"up": {"uv": [0, 0, 0, 6], "texture": "#particle"},
+				"down": {"uv": [0, 0, 0, 6], "texture": "#particle"}
+			}
+		},
+		{
+			"name": "Pedestal Overhang 3",
+			"from": [5, 11, 3],
+			"to": [11, 14, 3],
+			"faces": {
+				"north": {"uv": [11, 3, 5, 0], "texture": "#1"},
+				"east": {"uv": [0, 0, 0, 3], "texture": "#particle"},
+				"south": {"uv": [11, 3, 5, 0], "texture": "#1"},
+				"west": {"uv": [0, 0, 0, 3], "texture": "#particle"},
+				"up": {"uv": [0, 0, 0, 6], "rotation": 270, "texture": "#particle"},
+				"down": {"uv": [0, 0, 0, 6], "rotation": 90, "texture": "#particle"}
+			}
+		},
+		{
+			"name": "Pedestal Overhang 4",
+			"from": [5, 11, 13],
+			"to": [11, 14, 13],
+			"faces": {
+				"north": {"uv": [5, 13, 11, 16], "texture": "#1"},
+				"east": {"uv": [0, 0, 0, 3], "texture": "#particle"},
+				"south": {"uv": [5, 13, 11, 16], "texture": "#1"},
+				"west": {"uv": [0, 0, 0, 3], "texture": "#particle"},
+				"up": {"uv": [0, 0, 0, 6], "rotation": 270, "texture": "#particle"},
+				"down": {"uv": [0, 0, 0, 6], "rotation": 90, "texture": "#particle"}
 			}
 		}
 	]
