@@ -159,6 +159,15 @@ public final class ModItems {
     public static final RegistryObject<Item> SUPREMIUM_WATERING_CAN = registerGear("supremium_watering_can", () -> new EssenceWateringCanItem(11, 0.45, CropTier.FIVE.getTextColor(), p -> p.tab(CREATIVE_TAB)));
     public static final RegistryObject<Item> SUPREMIUM_BOW = registerGear("supremium_bow", () -> new EssenceBowItem(ModItemTier.SUPREMIUM, 5, 1, 1.80F, p -> p.tab(CREATIVE_TAB)));
     public static final RegistryObject<Item> SUPREMIUM_CROSSBOW = registerGear("supremium_crossbow", () -> new EssenceCrossbowItem(ModItemTier.SUPREMIUM, 5, 1, 1.80F, p -> p.tab(CREATIVE_TAB)));
+    public static final RegistryObject<Item> AWAKENED_SUPREMIUM_SWORD = registerGear("awakened_supremium_sword", () -> new EssenceSwordItem(ModItemTier.AWAKENED_SUPREMIUM, 5, 2, p -> p.tab(CREATIVE_TAB)));
+    public static final RegistryObject<Item> AWAKENED_SUPREMIUM_PICKAXE = registerGear("awakened_supremium_pickaxe", () -> new EssencePickaxeItem(ModItemTier.AWAKENED_SUPREMIUM, 5, 2, p -> p.tab(CREATIVE_TAB)));
+    public static final RegistryObject<Item> AWAKENED_SUPREMIUM_SHOVEL = registerGear("awakened_supremium_shovel", () -> new EssenceShovelItem(ModItemTier.AWAKENED_SUPREMIUM, 5, 2, p -> p.tab(CREATIVE_TAB)));
+    public static final RegistryObject<Item> AWAKENED_SUPREMIUM_AXE = registerGear("awakened_supremium_axe", () -> new EssenceAxeItem(ModItemTier.AWAKENED_SUPREMIUM, 5, 2, p -> p.tab(CREATIVE_TAB)));
+    public static final RegistryObject<Item> AWAKENED_SUPREMIUM_HOE = registerGear("awakened_supremium_hoe", () -> new EssenceHoeItem(ModItemTier.AWAKENED_SUPREMIUM, 5, 2, p -> p.tab(CREATIVE_TAB)));
+    public static final RegistryObject<Item> AWAKENED_SUPREMIUM_STAFF = registerGear("awakened_supremium_staff", () -> new EssenceStaffItem(5, 1, p -> p.tab(CREATIVE_TAB)));
+    public static final RegistryObject<Item> AWAKENED_SUPREMIUM_WATERING_CAN = registerGear("awakened_supremium_watering_can", () -> new EssenceWateringCanItem(13, 0.50, CropTier.FIVE.getTextColor(), p -> p.tab(CREATIVE_TAB)));
+    public static final RegistryObject<Item> AWAKENED_SUPREMIUM_BOW = registerGear("awakened_supremium_bow", () -> new EssenceBowItem(ModItemTier.AWAKENED_SUPREMIUM, 5, 2, 2.10F, p -> p.tab(CREATIVE_TAB)));
+    public static final RegistryObject<Item> AWAKENED_SUPREMIUM_CROSSBOW = registerGear("awakened_supremium_crossbow", () -> new EssenceCrossbowItem(ModItemTier.AWAKENED_SUPREMIUM, 5, 2, 2.10F, p -> p.tab(CREATIVE_TAB)));
     public static final RegistryObject<Item> INFERIUM_HELMET = registerGear("inferium_helmet", () -> new EssenceHelmetItem(ModArmorMaterial.INFERIUM, 1, 1, p -> p.tab(CREATIVE_TAB)));
     public static final RegistryObject<Item> INFERIUM_CHESTPLATE = registerGear("inferium_chestplate", () -> new EssenceChestplateItem(ModArmorMaterial.INFERIUM, 1, 1, p -> p.tab(CREATIVE_TAB)));
     public static final RegistryObject<Item> INFERIUM_LEGGINGS = registerGear("inferium_leggings", () -> new EssenceLeggingsItem(ModArmorMaterial.INFERIUM, 1, 1, p -> p.tab(CREATIVE_TAB)));
@@ -179,10 +188,14 @@ public final class ModItems {
     public static final RegistryObject<Item> SUPREMIUM_CHESTPLATE = registerGear("supremium_chestplate", () -> new EssenceChestplateItem(ModArmorMaterial.SUPREMIUM, 5, 1, p -> p.tab(CREATIVE_TAB)));
     public static final RegistryObject<Item> SUPREMIUM_LEGGINGS = registerGear("supremium_leggings", () -> new EssenceLeggingsItem(ModArmorMaterial.SUPREMIUM, 5, 1, p -> p.tab(CREATIVE_TAB)));
     public static final RegistryObject<Item> SUPREMIUM_BOOTS = registerGear("supremium_boots", () -> new EssenceBootsItem(ModArmorMaterial.SUPREMIUM, 5, 1, p -> p.tab(CREATIVE_TAB)));
+    public static final RegistryObject<Item> AWAKENED_SUPREMIUM_HELMET = registerGear("awakened_supremium_helmet", () -> new EssenceHelmetItem(ModArmorMaterial.AWAKENED_SUPREMIUM, 5, 2, p -> p.tab(CREATIVE_TAB)));
+    public static final RegistryObject<Item> AWAKENED_SUPREMIUM_CHESTPLATE = registerGear("awakened_supremium_chestplate", () -> new EssenceChestplateItem(ModArmorMaterial.AWAKENED_SUPREMIUM, 5, 2, p -> p.tab(CREATIVE_TAB)));
+    public static final RegistryObject<Item> AWAKENED_SUPREMIUM_LEGGINGS = registerGear("awakened_supremium_leggings", () -> new EssenceLeggingsItem(ModArmorMaterial.AWAKENED_SUPREMIUM, 5, 2, p -> p.tab(CREATIVE_TAB)));
+    public static final RegistryObject<Item> AWAKENED_SUPREMIUM_BOOTS = registerGear("awakened_supremium_boots", () -> new EssenceBootsItem(ModArmorMaterial.AWAKENED_SUPREMIUM, 5, 2, p -> p.tab(CREATIVE_TAB)));
 
     @SubscribeEvent
     public void onRegisterItems(RegistryEvent.Register<Item> event) {
-        IForgeRegistry<Item> registry = event.getRegistry();
+        var registry = event.getRegistry();
 
         BLOCK_ENTRIES.stream().map(Supplier::get).forEach(registry::register);
         ENTRIES.forEach((reg, item) -> {
@@ -205,15 +218,15 @@ public final class ModItems {
     }
 
     private static RegistryObject<Item> register(String name, Supplier<Item> item) {
-        ResourceLocation loc = new ResourceLocation(MysticalAgriculture.MOD_ID, name);
-        RegistryObject<Item> reg = RegistryObject.of(loc, ForgeRegistries.ITEMS);
+        var loc = new ResourceLocation(MysticalAgriculture.MOD_ID, name);
+        var reg = RegistryObject.of(loc, ForgeRegistries.ITEMS);
         ENTRIES.put(reg, () -> item.get().setRegistryName(loc));
         return reg;
     }
 
     private static RegistryObject<Item> registerGear(String name, Supplier<? extends Item> item) {
-        ResourceLocation loc = new ResourceLocation(MysticalAgriculture.MOD_ID, name);
-        RegistryObject<Item> reg = RegistryObject.of(loc, ForgeRegistries.ITEMS);
+        var loc = new ResourceLocation(MysticalAgriculture.MOD_ID, name);
+        var reg = RegistryObject.of(loc, ForgeRegistries.ITEMS);
         GEAR_ENTRIES.put(reg, () -> item.get().setRegistryName(loc));
         return reg;
     }

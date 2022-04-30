@@ -3,7 +3,9 @@ package com.blakebr0.mysticalagriculture.crafting.recipe;
 import com.blakebr0.cucumber.crafting.ISpecialRecipe;
 import com.blakebr0.mysticalagriculture.api.crafting.IAwakeningRecipe;
 import com.blakebr0.mysticalagriculture.api.crafting.RecipeTypes;
+import com.blakebr0.mysticalagriculture.api.crop.Crop;
 import com.blakebr0.mysticalagriculture.init.ModRecipeSerializers;
+import com.blakebr0.mysticalagriculture.lib.ModCrops;
 import com.google.gson.JsonObject;
 import net.minecraft.core.NonNullList;
 import net.minecraft.network.FriendlyByteBuf;
@@ -29,9 +31,19 @@ public class AwakeningRecipe implements ISpecialRecipe, IAwakeningRecipe {
 
     public AwakeningRecipe(ResourceLocation recipeId, NonNullList<Ingredient> inputs, IAwakeningRecipe.EssenceVesselRequirements essences, ItemStack output) {
         this.recipeId = recipeId;
-        this.inputs = inputs;
+        this.inputs = NonNullList.withSize(9, Ingredient.EMPTY);
         this.essences = essences;
         this.output = output;
+
+        this.inputs.set(0, inputs.get(0));
+        this.inputs.set(1, createEssenceIngredient(ModCrops.AIR));
+        this.inputs.set(2, inputs.get(1));
+        this.inputs.set(3, createEssenceIngredient(ModCrops.EARTH));
+        this.inputs.set(4, inputs.get(2));
+        this.inputs.set(5, createEssenceIngredient(ModCrops.WATER));
+        this.inputs.set(6, inputs.get(3));
+        this.inputs.set(7, createEssenceIngredient(ModCrops.FIRE));
+        this.inputs.set(8, inputs.get(4));
     }
 
     @Override
@@ -88,6 +100,11 @@ public class AwakeningRecipe implements ISpecialRecipe, IAwakeningRecipe {
     @Override
     public IAwakeningRecipe.EssenceVesselRequirements getEssenceRequirements() {
         return this.essences;
+    }
+
+    private static Ingredient createEssenceIngredient(Crop crop) {
+        var item = crop.getEssenceItem();
+        return item == null ? Ingredient.EMPTY : Ingredient.of(item);
     }
 
     public static class Serializer extends ForgeRegistryEntry<RecipeSerializer<?>> implements RecipeSerializer<AwakeningRecipe> {

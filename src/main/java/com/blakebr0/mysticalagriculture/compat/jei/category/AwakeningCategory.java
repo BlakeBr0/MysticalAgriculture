@@ -1,5 +1,6 @@
 package com.blakebr0.mysticalagriculture.compat.jei.category;
 
+import com.blakebr0.cucumber.helper.StackHelper;
 import com.blakebr0.cucumber.util.Localizable;
 import com.blakebr0.mysticalagriculture.MysticalAgriculture;
 import com.blakebr0.mysticalagriculture.crafting.recipe.AwakeningRecipe;
@@ -14,6 +15,8 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
 
+import java.util.List;
+
 public class AwakeningCategory implements IRecipeCategory<AwakeningRecipe> {
     public static final ResourceLocation UID = new ResourceLocation(MysticalAgriculture.MOD_ID, "awakening");
     private static final ResourceLocation TEXTURE = new ResourceLocation(MysticalAgriculture.MOD_ID, "textures/gui/jei/infusion.png");
@@ -22,7 +25,7 @@ public class AwakeningCategory implements IRecipeCategory<AwakeningRecipe> {
 
     public AwakeningCategory(IGuiHelper helper) {
         this.background = helper.createDrawable(TEXTURE, 0, 0, 144, 81);
-        this.icon = helper.createDrawableIngredient(new ItemStack(ModBlocks.INFUSION_ALTAR.get()));
+        this.icon = helper.createDrawableIngredient(VanillaTypes.ITEM, new ItemStack(ModBlocks.AWAKENING_ALTAR.get()));
     }
 
     @Override
@@ -53,7 +56,7 @@ public class AwakeningCategory implements IRecipeCategory<AwakeningRecipe> {
     @Override
     public void setIngredients(AwakeningRecipe recipe, IIngredients ingredients) {
         ingredients.setOutput(VanillaTypes.ITEM, recipe.getResultItem());
-        ingredients.setInputIngredients(recipe.getIngredients());
+        ingredients.setInputLists(VanillaTypes.ITEM, toItemStackLists(recipe));
     }
 
     @Override
@@ -79,5 +82,22 @@ public class AwakeningCategory implements IRecipeCategory<AwakeningRecipe> {
         }
 
         stacks.set(9, outputs.get(0));
+    }
+
+    private static List<List<ItemStack>> toItemStackLists(AwakeningRecipe recipe) {
+        var requirements = recipe.getEssenceRequirements();
+        var ingredients = recipe.getIngredients();
+
+        return List.of(
+                List.of(ingredients.get(0).getItems()),
+                List.of(StackHelper.withSize(ingredients.get(1).getItems()[0], requirements.air(), false)),
+                List.of(ingredients.get(2).getItems()),
+                List.of(StackHelper.withSize(ingredients.get(3).getItems()[0], requirements.earth(), false)),
+                List.of(ingredients.get(4).getItems()),
+                List.of(StackHelper.withSize(ingredients.get(5).getItems()[0], requirements.water(), false)),
+                List.of(ingredients.get(6).getItems()),
+                List.of(StackHelper.withSize(ingredients.get(7).getItems()[0], requirements.fire(), false)),
+                List.of(ingredients.get(8).getItems())
+        );
     }
 }

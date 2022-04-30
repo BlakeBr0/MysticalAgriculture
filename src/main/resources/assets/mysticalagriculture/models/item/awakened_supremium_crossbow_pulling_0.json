@@ -1,0 +1,6 @@
+{
+  "parent": "mysticalagriculture:item/awakened_supremium_crossbow",
+  "textures": {
+    "layer0": "mysticalagriculture:item/awakened_supremium_crossbow_pulling_0"
+  }
+}
