@@ -15,7 +15,7 @@
   "block.mysticalagriculture.tertium_ingot_block": "Tertium Ingot Block",
   "block.mysticalagriculture.imperium_ingot_block": "Imperium Ingot Block",
   "block.mysticalagriculture.supremium_ingot_block": "Supremium Ingot Block",
-  "block.mysticalagriculture.awakened_supremium_ingot_block": "Awakened Supremium Block",
+  "block.mysticalagriculture.awakened_supremium_ingot_block": "Awakened Supremium Ingot Block",
   "block.mysticalagriculture.soulium_ingot_block": "Soulium Ingot Block",
   "block.mysticalagriculture.prosperity_gemstone_block": "Prosperity Gemstone Block",
   "block.mysticalagriculture.inferium_gemstone_block": "Inferium Gemstone Block",
@@ -88,7 +88,6 @@
   "item.mysticalagriculture.imperium_essence": "Imperium Essence",
   "item.mysticalagriculture.supremium_essence": "Supremium Essence",
   "item.mysticalagriculture.awakened_supremium_essence": "Awakened Supremium Essence",
-  "item.mysticalagriculture.soulium_dust": "Soulium Dust",
   "item.mysticalagriculture.prosperity_ingot": "Prosperity Ingot",
   "item.mysticalagriculture.inferium_ingot": "Inferium Ingot",
   "item.mysticalagriculture.prudentium_ingot": "Prudentium Ingot",
@@ -116,6 +115,8 @@
   "item.mysticalagriculture.prosperity_seed_base": "Prosperity Seed Base",
   "item.mysticalagriculture.soulium_seed_base": "Soulium Seed Base",
   "item.mysticalagriculture.soul_dust": "Soul Dust",
+  "item.mysticalagriculture.soulium_dust": "Soulium Dust",
+  "item.mysticalagriculture.cognizant_dust": "Cognizant Dust",
   "item.mysticalagriculture.soulium_dagger": "Soulium Dagger",
   "item.mysticalagriculture.infusion_crystal": "Infusion Crystal",
   "item.mysticalagriculture.master_infusion_crystal": "Master Infusion Crystal",
@@ -234,6 +235,9 @@
   "container.mysticalagriculture.reprocessor": "Seed Reprocessor",
   "container.mysticalagriculture.soul_extractor": "Soul Extractor",
 
+  "enchantment.mysticalagriculture.mystical_enlightenment": "Mystical Enlightenment",
+  "enchantment.mysticalagriculture.mystical_enlightenment.desc": "Ender Dragons and Withers will drop Cognizant Dust when killed with an Essence Weapon.",
+
   "tooltip.mysticalagriculture.empty": "Empty",
   "tooltip.mysticalagriculture.filled": "Filled",
   "tooltip.mysticalagriculture.tier": "Tier: %s",
@@ -272,6 +276,8 @@
   "jei.category.mysticalagriculture.reprocessor": "Seed Reprocessing",
   "jei.category.mysticalagriculture.soul_extractor": "Soul Extraction",
   "jei.category.mysticalagriculture.crux": "Cruxes",
+
+  "jei.desc.mysticalagriculture.cognizant_dust": "Dropped by the Wither and the Ender Dragon when killed with an Essence Weapon enchanted with Mystical Enlightenment.",
 
   "cropTier.mysticalagriculture.elemental": "Elemental",
   "cropTier.mysticalagriculture.1": "1",

@@ -58,7 +58,6 @@ public final class ModItems {
     public static final RegistryObject<Item> IMPERIUM_ESSENCE = register("imperium_essence", () -> new EssenceItem(CropTier.FOUR, p -> p.tab(CREATIVE_TAB)));
     public static final RegistryObject<Item> SUPREMIUM_ESSENCE = register("supremium_essence", () -> new EssenceItem(CropTier.FIVE, p -> p.tab(CREATIVE_TAB)));
     public static final RegistryObject<Item> AWAKENED_SUPREMIUM_ESSENCE = register("awakened_supremium_essence");
-    public static final RegistryObject<Item> SOULIUM_DUST = register("soulium_dust");
     public static final RegistryObject<Item> PROSPERITY_INGOT = register("prosperity_ingot");
     public static final RegistryObject<Item> INFERIUM_INGOT = register("inferium_ingot");
     public static final RegistryObject<Item> PRUDENTIUM_INGOT = register("prudentium_ingot");
@@ -86,6 +85,8 @@ public final class ModItems {
     public static final RegistryObject<Item> PROSPERITY_SEED_BASE = register("prosperity_seed_base");
     public static final RegistryObject<Item> SOULIUM_SEED_BASE = register("soulium_seed_base");
     public static final RegistryObject<Item> SOUL_DUST = register("soul_dust");
+    public static final RegistryObject<Item> SOULIUM_DUST = register("soulium_dust");
+    public static final RegistryObject<Item> COGNIZANT_DUST = register("cognizant_dust");
     public static final RegistryObject<Item> SOULIUM_DAGGER = register("soulium_dagger", () -> new SouliumDaggerItem(ModItemTier.SOULIUM, SouliumDaggerItem.DaggerType.BASIC, p -> p.tab(CREATIVE_TAB)));
     public static final RegistryObject<Item> PASSIVE_SOULIUM_DAGGER = register("passive_soulium_dagger", () -> new SouliumDaggerItem(ModItemTier.SOULIUM, SouliumDaggerItem.DaggerType.PASSIVE, p -> p.tab(CREATIVE_TAB)));
     public static final RegistryObject<Item> HOSTILE_SOULIUM_DAGGER = register("hostile_soulium_dagger", () -> new SouliumDaggerItem(ModItemTier.SOULIUM, SouliumDaggerItem.DaggerType.HOSTILE, p -> p.tab(CREATIVE_TAB)));
@@ -219,14 +220,14 @@ public final class ModItems {
 
     private static RegistryObject<Item> register(String name, Supplier<Item> item) {
         var loc = new ResourceLocation(MysticalAgriculture.MOD_ID, name);
-        var reg = RegistryObject.of(loc, ForgeRegistries.ITEMS);
+        var reg = RegistryObject.create(loc, ForgeRegistries.ITEMS);
         ENTRIES.put(reg, () -> item.get().setRegistryName(loc));
         return reg;
     }
 
     private static RegistryObject<Item> registerGear(String name, Supplier<? extends Item> item) {
         var loc = new ResourceLocation(MysticalAgriculture.MOD_ID, name);
-        var reg = RegistryObject.of(loc, ForgeRegistries.ITEMS);
+        var reg = RegistryObject.create(loc, ForgeRegistries.ITEMS);
         GEAR_ENTRIES.put(reg, () -> item.get().setRegistryName(loc));
         return reg;
     }

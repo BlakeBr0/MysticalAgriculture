@@ -1,0 +1,17 @@
+{
+  "type": "crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "mysticalagriculture:prosperity_ingot"
+    },
+    {
+      "item": "mysticalagriculture:awakened_supremium_essence"
+    },
+    {
+      "item": "mysticalagriculture:awakened_supremium_essence"
+    }
+  ],
+  "result": {
+    "item": "mysticalagriculture:awakened_supremium_ingot"
+  }
+}

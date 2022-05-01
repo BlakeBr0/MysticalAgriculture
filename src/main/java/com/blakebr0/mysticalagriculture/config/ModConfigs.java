@@ -30,7 +30,9 @@ public final class ModConfigs {
     public static final ForgeConfigSpec.DoubleValue FERTILIZED_ESSENCE_DROP_CHANCE;
     public static final ForgeConfigSpec.BooleanValue SECONDARY_SEED_DROPS;
     public static final ForgeConfigSpec.BooleanValue WITHER_DROPS_ESSENCE;
+    public static final ForgeConfigSpec.BooleanValue WITHER_DROPS_COGNIZANT;
     public static final ForgeConfigSpec.BooleanValue DRAGON_DROPS_ESSENCE;
+    public static final ForgeConfigSpec.BooleanValue DRAGON_DROPS_COGNIZANT;
     public static final ForgeConfigSpec.BooleanValue ESSENCE_FARMLAND_CONVERSION;
     public static final ForgeConfigSpec.BooleanValue SEED_CRAFTING_RECIPES;
     public static final ForgeConfigSpec.BooleanValue ENCHANTABLE_SUPREMIUM_TOOLS;
@@ -79,9 +81,15 @@ public final class ModConfigs {
         WITHER_DROPS_ESSENCE = common
                 .comment("Should the Wither drop essence when killed with an essence weapon?")
                 .define("witherDropsEssence", true);
+        WITHER_DROPS_COGNIZANT = common
+                .comment("Should the Wither drop Cognizant Dust when killed with a Mystical Enlightenment enchanted essence weapon?")
+                .define("witherDropsCognizant", true);
         DRAGON_DROPS_ESSENCE = common
                 .comment("Should the Ender Dragon drop essence when killed with an essence weapon?")
                 .define("dragonDropsEssence", true);
+        DRAGON_DROPS_COGNIZANT = common
+                .comment("Should the Ender Dragon drop Cognizant Dust when killed with a Mystical Enlightenment enchanted essence weapon?")
+                .define("dragonDropsCognizant", true);
         ESSENCE_FARMLAND_CONVERSION = common
                 .comment("Should right clicking on Farmland with an Essence create Essence Farmland?")
                 .define("essenceFarmlandConversion", true);

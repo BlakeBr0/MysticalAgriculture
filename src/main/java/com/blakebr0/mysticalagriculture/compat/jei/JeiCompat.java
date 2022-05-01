@@ -14,12 +14,14 @@ import com.blakebr0.mysticalagriculture.init.ModBlocks;
 import com.blakebr0.mysticalagriculture.init.ModItems;
 import mezz.jei.api.IModPlugin;
 import mezz.jei.api.JeiPlugin;
+import mezz.jei.api.constants.VanillaTypes;
 import mezz.jei.api.registration.IGuiHandlerRegistration;
 import mezz.jei.api.registration.IRecipeCatalystRegistration;
 import mezz.jei.api.registration.IRecipeCategoryRegistration;
 import mezz.jei.api.registration.IRecipeRegistration;
 import mezz.jei.api.registration.ISubtypeRegistration;
 import net.minecraft.client.Minecraft;
+import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
 
@@ -63,9 +65,9 @@ public final class JeiCompat implements IModPlugin {
 
     @Override
     public void registerRecipes(IRecipeRegistration registration) {
-        var world = Minecraft.getInstance().level;
-        if (world != null) {
-            var manager = world.getRecipeManager();
+        var level = Minecraft.getInstance().level;
+        if (level != null) {
+            var manager = level.getRecipeManager();
 
             registration.addRecipes(manager.byType(RecipeTypes.INFUSION).values(), InfusionCategory.UID);
             registration.addRecipes(manager.byType(RecipeTypes.AWAKENING).values(), AwakeningCategory.UID);
@@ -73,6 +75,12 @@ public final class JeiCompat implements IModPlugin {
             registration.addRecipes(manager.byType(RecipeTypes.SOUL_EXTRACTION).values(), SoulExtractorCategory.UID);
             registration.addRecipes(CruxRecipe.getGeneratedRecipes(), CruxCategory.UID);
         }
+
+        registration.addIngredientInfo(
+                new ItemStack(ModItems.COGNIZANT_DUST.get()),
+                VanillaTypes.ITEM,
+                new TranslatableComponent("jei.desc.mysticalagriculture.cognizant_dust")
+        );
     }
 
     @Override
