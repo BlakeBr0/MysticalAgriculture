@@ -4,6 +4,7 @@ import com.blakebr0.cucumber.item.tool.BaseBowItem;
 import com.blakebr0.mysticalagriculture.api.tinkering.AugmentType;
 import com.blakebr0.mysticalagriculture.api.tinkering.ITinkerable;
 import com.blakebr0.mysticalagriculture.api.util.AugmentUtils;
+import com.blakebr0.mysticalagriculture.config.ModConfigs;
 import com.blakebr0.mysticalagriculture.lib.ModTooltips;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
@@ -145,6 +146,11 @@ public class EssenceBowItem extends BaseBowItem implements ITinkerable {
         AugmentUtils.getAugments(stack).forEach(a -> {
             tooltip.add(a.getDisplayName().withStyle(ChatFormatting.GRAY));
         });
+    }
+
+    @Override
+    public boolean isEnchantable(ItemStack stack) {
+        return ModConfigs.ENCHANTABLE_SUPREMIUM_TOOLS.get() || super.isEnchantable(stack);
     }
 
     @Override
