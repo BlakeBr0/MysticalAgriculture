@@ -1,0 +1,12 @@
+{
+  "name": "book.mysticalagriculture.entry.awakened_supremium",
+  "category": "mysticalagriculture:elemental",
+  "icon": "mysticalagriculture:awakened_supremium_essence",
+  "sortnum": 154,
+  "pages": [
+    {
+      "type": "text",
+      "text": "book.mysticalagriculture.entry.awakened_supremium.page.1"
+    }
+  ]
+}

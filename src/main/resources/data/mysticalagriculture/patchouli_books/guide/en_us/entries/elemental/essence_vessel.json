@@ -1,0 +1,17 @@
+{
+  "name": "book.mysticalagriculture.entry.essence_vessel",
+  "category": "mysticalagriculture:elemental",
+  "icon": "mysticalagriculture:essence_vessel",
+  "sortnum": 152,
+  "pages": [
+    {
+      "type": "text",
+      "text": "book.mysticalagriculture.entry.essence_vessel.page.1"
+    },
+    {
+      "type": "crafting",
+      "title": "book.mysticalagriculture.crafting",
+      "recipe": "mysticalagriculture:essence_vessel"
+    }
+  ]
+}

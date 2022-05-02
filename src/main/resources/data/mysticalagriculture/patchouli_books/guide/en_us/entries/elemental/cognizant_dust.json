@@ -1,0 +1,12 @@
+{
+  "name": "book.mysticalagriculture.entry.cognizant_dust",
+  "category": "mysticalagriculture:elemental",
+  "icon": "mysticalagriculture:cognizant_dust",
+  "sortnum": 151,
+  "pages": [
+    {
+      "type": "text",
+      "text": "book.mysticalagriculture.entry.cognizant_dust.page.1"
+    }
+  ]
+}

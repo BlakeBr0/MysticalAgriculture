@@ -1,0 +1,24 @@
+{
+  "name": "book.mysticalagriculture.entry.awakening_altar",
+  "category": "mysticalagriculture:elemental",
+  "icon": "mysticalagriculture:awakening_altar",
+  "sortnum": 153,
+  "pages": [
+    {
+      "type": "text",
+      "text": "book.mysticalagriculture.entry.awakening_altar.page.1"
+    },
+    {
+      "type": "crafting",
+      "title": "book.mysticalagriculture.crafting",
+      "recipe": "mysticalagriculture:awakening_altar",
+      "recipe2": "mysticalagriculture:awakening_pedestal"
+    },
+    {
+      "type": "crafting",
+      "title": "book.mysticalagriculture.crafting",
+      "recipe": "mysticalagriculture:essence_vessel",
+      "text": "book.mysticalagriculture.entry.awakening_altar.page.3"
+    }
+  ]
+}
