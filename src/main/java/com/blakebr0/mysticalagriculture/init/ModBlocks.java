@@ -85,6 +85,7 @@ public final class ModBlocks {
     public static final RegistryObject<Block> TERTIUM_FURNACE = register("tertium_furnace", EssenceFurnaceBlock.Tertium::new);
     public static final RegistryObject<Block> IMPERIUM_FURNACE = register("imperium_furnace", EssenceFurnaceBlock.Imperium::new);
     public static final RegistryObject<Block> SUPREMIUM_FURNACE = register("supremium_furnace", EssenceFurnaceBlock.Supremium::new);
+    public static final RegistryObject<Block> AWAKENED_SUPREMIUM_FURNACE = register("awakened_supremium_furnace", EssenceFurnaceBlock.AwakenedSupremium::new);
     public static final RegistryObject<Block> PROSPERITY_ORE = register("prosperity_ore", () -> new BaseOreBlock(Material.STONE, SoundType.STONE, 3.0F, 3.0F, 2, 5));
     public static final RegistryObject<Block> DEEPSLATE_PROSPERITY_ORE = register("deepslate_prosperity_ore", () -> new BaseOreBlock(Material.STONE, SoundType.DEEPSLATE, 4.5F, 3.0F, 2, 5));
     public static final RegistryObject<Block> INFERIUM_ORE = register("inferium_ore", () -> new BaseOreBlock(Material.STONE, SoundType.STONE, 3.0F, 3.0F, 2, 5));
@@ -122,6 +123,7 @@ public final class ModBlocks {
     public static final RegistryObject<Block> TERTIUM_REPROCESSOR = register("tertium_reprocessor", () -> new ReprocessorBlock(ReprocessorTier.TERTIUM));
     public static final RegistryObject<Block> IMPERIUM_REPROCESSOR = register("imperium_reprocessor", () -> new ReprocessorBlock(ReprocessorTier.IMPERIUM));
     public static final RegistryObject<Block> SUPREMIUM_REPROCESSOR = register("supremium_reprocessor", () -> new ReprocessorBlock(ReprocessorTier.SUPREMIUM));
+    public static final RegistryObject<Block> AWAKENED_SUPREMIUM_REPROCESSOR = register("awakened_supremium_reprocessor", () -> new ReprocessorBlock(ReprocessorTier.AWAKENED_SUPREMIUM));
     public static final RegistryObject<Block> SOUL_EXTRACTOR = register("soul_extractor", SoulExtractorBlock::new);
 
     public static final RegistryObject<Block> INFERIUM_CROP = registerNoItem("inferium_crop", () -> new InferiumCropBlock(ModCrops.INFERIUM));
@@ -146,7 +148,7 @@ public final class ModBlocks {
 
     private static RegistryObject<Block> register(String name, Supplier<Block> block, Function<RegistryObject<Block>, Supplier<? extends BlockItem>> item) {
         var loc = new ResourceLocation(MysticalAgriculture.MOD_ID, name);
-        var reg = RegistryObject.of(loc, ForgeRegistries.BLOCKS);
+        var reg = RegistryObject.create(loc, ForgeRegistries.BLOCKS);
         ENTRIES.put(reg, () -> block.get().setRegistryName(loc));
         ModItems.BLOCK_ENTRIES.add(() -> item.apply(reg).get().setRegistryName(loc));
         return reg;
@@ -154,7 +156,7 @@ public final class ModBlocks {
 
     public static RegistryObject<Block> registerNoItem(String name, Supplier<Block> block) {
         var loc = new ResourceLocation(MysticalAgriculture.MOD_ID, name);
-        var reg = RegistryObject.of(loc, ForgeRegistries.BLOCKS);
+        var reg = RegistryObject.create(loc, ForgeRegistries.BLOCKS);
         ENTRIES.put(reg, () -> block.get().setRegistryName(loc));
         return reg;
     }

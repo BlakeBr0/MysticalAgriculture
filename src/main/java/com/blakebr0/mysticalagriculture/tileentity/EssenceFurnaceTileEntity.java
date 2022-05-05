@@ -217,4 +217,15 @@ public abstract class EssenceFurnaceTileEntity extends AbstractFurnaceBlockEntit
             return FurnaceTier.SUPREMIUM;
         }
     }
+
+    public static class AwakenedSupremium extends EssenceFurnaceTileEntity {
+        public AwakenedSupremium(BlockPos pos, BlockState state) {
+            super(ModTileEntities.AWAKENED_SUPREMIUM_FURNACE.get(), pos, state);
+        }
+
+        @Override
+        public FurnaceTier getTier() {
+            return FurnaceTier.AWAKENED_SUPREMIUM;
+        }
+    }
 }

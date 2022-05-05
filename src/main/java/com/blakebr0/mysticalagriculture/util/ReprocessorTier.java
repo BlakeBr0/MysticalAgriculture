@@ -16,7 +16,8 @@ public enum ReprocessorTier {
     PRUDENTIUM("prudentium", 80, 60, 180000, ReprocessorTileEntity.Prudentium::new, () -> ModTileEntities.PRUDENTIUM_REPROCESSOR, ChatFormatting.GREEN),
     TERTIUM("tertium", 55, 100, 300000, ReprocessorTileEntity.Tertium::new, () -> ModTileEntities.TERTIUM_REPROCESSOR, ChatFormatting.GOLD),
     IMPERIUM("imperium", 20, 320, 420000, ReprocessorTileEntity.Imperium::new, () -> ModTileEntities.IMPERIUM_REPROCESSOR, ChatFormatting.AQUA),
-    SUPREMIUM("supremium", 5, 1440, 640000, ReprocessorTileEntity.Supremium::new, () -> ModTileEntities.SUPREMIUM_REPROCESSOR, ChatFormatting.RED);
+    SUPREMIUM("supremium", 5, 1440, 640000, ReprocessorTileEntity.Supremium::new, () -> ModTileEntities.SUPREMIUM_REPROCESSOR, ChatFormatting.RED),
+    AWAKENED_SUPREMIUM("awakened_supremium", 1, 2880, 1280000, ReprocessorTileEntity.AwakenedSupremium::new, () -> ModTileEntities.AWAKENED_SUPREMIUM_REPROCESSOR, ChatFormatting.RED);
 
     private final String name;
     private final int operationTime;

@@ -11,7 +11,8 @@ public enum FurnaceTier {
     PRUDENTIUM("prudentium", 0.625D, 0.84D, EssenceFurnaceTileEntity.Prudentium::new),
     TERTIUM("tertium", 0.4D, 0.68D, EssenceFurnaceTileEntity.Tertium::new),
     IMPERIUM("imperium", 0.145D, 0.5D, EssenceFurnaceTileEntity.Imperium::new),
-    SUPREMIUM("supremium", 0.025D, 0.2D, EssenceFurnaceTileEntity.Supremium::new);
+    SUPREMIUM("supremium", 0.025D, 0.2D, EssenceFurnaceTileEntity.Supremium::new),
+    AWAKENED_SUPREMIUM("awakened_supremium", 0.005D, 0.1D, EssenceFurnaceTileEntity.AwakenedSupremium::new);
 
     private final String name;
     private final double cookTimeMultiplier;

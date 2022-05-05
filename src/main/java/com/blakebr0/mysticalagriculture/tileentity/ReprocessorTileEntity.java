@@ -260,4 +260,10 @@ public abstract class ReprocessorTileEntity extends BaseInventoryTileEntity impl
             super(ModTileEntities.SUPREMIUM_REPROCESSOR.get(), ReprocessorTier.SUPREMIUM, pos, state);
         }
     }
+
+    public static class AwakenedSupremium extends ReprocessorTileEntity {
+        public AwakenedSupremium(BlockPos pos, BlockState state) {
+            super(ModTileEntities.AWAKENED_SUPREMIUM_REPROCESSOR.get(), ReprocessorTier.AWAKENED_SUPREMIUM, pos, state);
+        }
+    }
 }

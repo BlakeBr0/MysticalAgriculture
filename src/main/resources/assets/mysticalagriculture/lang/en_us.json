@@ -40,6 +40,7 @@
   "block.mysticalagriculture.tertium_furnace": "Tertium Furnace",
   "block.mysticalagriculture.imperium_furnace": "Imperium Furnace",
   "block.mysticalagriculture.supremium_furnace": "Supremium Furnace",
+  "block.mysticalagriculture.awakened_supremium_furnace": "Awakened Supremium Furnace",
   "block.mysticalagriculture.prosperity_ore": "Prosperity Ore",
   "block.mysticalagriculture.deepslate_prosperity_ore": "Deepslate Prosperity Ore",
   "block.mysticalagriculture.inferium_ore": "Inferium Ore",
@@ -77,6 +78,7 @@
   "block.mysticalagriculture.tertium_reprocessor": "Tertium Seed Reprocessor",
   "block.mysticalagriculture.imperium_reprocessor": "Imperium Seed Reprocessor",
   "block.mysticalagriculture.supremium_reprocessor": "Supremium Seed Reprocessor",
+  "block.mysticalagriculture.awakened_supremium_reprocessor": "Awakened Supremium Seed Reprocessor",
   "block.mysticalagriculture.soul_extractor": "Soul Extractor",
 
   "block.mysticalagriculture.mystical_crop": "%s Crop",
@@ -232,6 +234,7 @@
   "container.mysticalagriculture.tertium_furnace": "Tertium Furnace",
   "container.mysticalagriculture.imperium_furnace": "Imperium Furnace",
   "container.mysticalagriculture.supremium_furnace": "Supremium Furnace",
+  "container.mysticalagriculture.awakened_supremium_furnace": "Awakened Supremium Furnace",
   "container.mysticalagriculture.reprocessor": "Seed Reprocessor",
   "container.mysticalagriculture.soul_extractor": "Soul Extractor",
 
