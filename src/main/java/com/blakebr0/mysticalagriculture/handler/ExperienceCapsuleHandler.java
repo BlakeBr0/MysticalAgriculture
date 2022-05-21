@@ -11,8 +11,8 @@ import net.minecraftforge.event.entity.player.PlayerXpEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.network.PacketDistributor;
 
+import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public final class ExperienceCapsuleHandler {
     @SubscribeEvent
@@ -43,9 +43,17 @@ public final class ExperienceCapsuleHandler {
     }
 
     private static List<ItemStack> getExperienceCapsules(Player player) {
-        return player.getInventory().items
+        var items = new ArrayList<ItemStack>();
+
+        var stack = player.getOffhandItem();
+        if (stack.getItem() instanceof ExperienceCapsuleItem)
+            items.add(stack);
+
+        player.getInventory().items
                 .stream()
                 .filter(s -> s.getItem() instanceof ExperienceCapsuleItem)
-                .collect(Collectors.toList());
+                .forEach(items::add);
+
+        return items;
     }
 }
