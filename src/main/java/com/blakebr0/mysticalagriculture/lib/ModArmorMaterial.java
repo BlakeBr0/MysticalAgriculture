@@ -28,7 +28,7 @@ public enum ModArmorMaterial implements ArmorMaterial {
     SUPREMIUM("mysticalagriculture:supremium", 280, new int[] { 5, 8, 10, 6 }, 20, SoundEvents.ARMOR_EQUIP_GOLD, 3.0F, 0.0F, () -> {
         return Ingredient.of(ModItems.SUPREMIUM_INGOT.get());
     }),
-    AWAKENED_SUPREMIUM("mysticalagriculture:awakened_supremium", 320, new int[] { 6, 10, 12, 8 }, 22, SoundEvents.ARMOR_EQUIP_GOLD, 3.5F, 0.5F, () -> {
+    AWAKENED_SUPREMIUM("mysticalagriculture:awakened_supremium", 320, new int[] { 6, 10, 12, 8 }, 22, SoundEvents.ARMOR_EQUIP_GOLD, 3.5F, 0.1F, () -> {
         return Ingredient.of(ModItems.AWAKENED_SUPREMIUM_INGOT.get());
     });
 

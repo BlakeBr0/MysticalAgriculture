@@ -42,11 +42,6 @@ public class EssenceCrossbowItem extends BaseCrossbowItem implements ITinkerable
     }
 
     @Override
-    public int getUseDuration(ItemStack stack) {
-        return (int) (super.getUseDuration(stack) * this.drawSpeedMulti);
-    }
-
-    @Override
     public InteractionResult useOn(UseOnContext context) {
         var augments = AugmentUtils.getAugments(context.getItemInHand());
         var success = false;
