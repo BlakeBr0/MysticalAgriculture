@@ -131,6 +131,9 @@ public class CropTier {
      * @return is the correct farmland
      */
     public boolean isEffectiveFarmland(Block block) {
+        if (this.farmland == null)
+            return false;
+
         return this.farmland.get() == block;
     }
 
