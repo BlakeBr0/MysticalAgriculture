@@ -22,7 +22,7 @@ public class CropHasMaterialCondition implements ICondition {
     }
 
     @Override
-    public boolean test() {
+    public boolean test(IContext context) {
         var crop = CropRegistry.getInstance().getCropById(this.crop);
         if (crop == null)
             return false;

@@ -28,7 +28,7 @@ public class SoulJarItem extends BaseItem {
 
     @Override
     public void fillItemCategory(CreativeModeTab group, NonNullList<ItemStack> items) {
-        if (this.allowdedIn(group)) {
+        if (this.allowedIn(group)) {
             items.add(new ItemStack(this));
 
             MobSoulTypeRegistry.getInstance().getMobSoulTypes().forEach(type -> {

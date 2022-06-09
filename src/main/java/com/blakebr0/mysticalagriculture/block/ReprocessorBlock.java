@@ -9,7 +9,6 @@ import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TextComponent;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.Containers;
 import net.minecraft.world.InteractionHand;
@@ -121,6 +120,6 @@ public class ReprocessorBlock extends BaseTileEntityBlock {
 
     private Component getStatText(Object stat) {
         var number = NumberFormat.getInstance().format(stat);
-        return new TextComponent(number).withStyle(this.tier.getTextColor());
+        return Component.literal(number).withStyle(this.tier.getTextColor());
     }
 }

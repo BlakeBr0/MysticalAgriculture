@@ -48,9 +48,7 @@ public final class AugmentRegistry implements IAugmentRegistry {
         this.augments.forEach((id, a) -> {
             var item = new AugmentItem(a, p -> p.tab(CREATIVE_TAB));
 
-            item.setRegistryName(a.getNameWithSuffix("augment"));
-
-            registry.register(item);
+            registry.register(new ResourceLocation(MysticalAgriculture.MOD_ID, a.getNameWithSuffix("augment")), item);
         });
 
         PluginRegistry.getInstance().forEach((plugin, config) -> plugin.onPostRegisterAugments(this));

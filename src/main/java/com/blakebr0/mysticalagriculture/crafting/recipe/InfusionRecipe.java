@@ -18,7 +18,6 @@ import net.minecraft.world.item.crafting.ShapedRecipe;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.wrapper.InvWrapper;
-import net.minecraftforge.registries.ForgeRegistryEntry;
 
 public class InfusionRecipe implements ISpecialRecipe, IInfusionRecipe {
     public static final int RECIPE_SIZE = 9;
@@ -83,7 +82,7 @@ public class InfusionRecipe implements ISpecialRecipe, IInfusionRecipe {
         return this.matches(new InvWrapper(inv));
     }
 
-    public static class Serializer extends ForgeRegistryEntry<RecipeSerializer<?>> implements RecipeSerializer<InfusionRecipe> {
+    public static class Serializer implements RecipeSerializer<InfusionRecipe> {
         @Override
         public InfusionRecipe fromJson(ResourceLocation recipeId, JsonObject json) {
             var inputs = NonNullList.withSize(RECIPE_SIZE, Ingredient.EMPTY);

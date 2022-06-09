@@ -15,7 +15,6 @@ import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.item.crafting.ShapelessRecipe;
 import net.minecraft.world.level.Level;
-import net.minecraftforge.registries.ForgeRegistryEntry;
 
 public class SoulJarEmptyRecipe extends ShapelessRecipe {
     public SoulJarEmptyRecipe(ResourceLocation id, String group, ItemStack output, NonNullList<Ingredient> inputs) {
@@ -52,7 +51,7 @@ public class SoulJarEmptyRecipe extends ShapelessRecipe {
         return ModRecipeSerializers.CRAFTING_SOUL_JAR_EMPTY;
     }
 
-    public static class Serializer extends ForgeRegistryEntry<RecipeSerializer<?>> implements RecipeSerializer<SoulJarEmptyRecipe> {
+    public static class Serializer implements RecipeSerializer<SoulJarEmptyRecipe> {
         @Override
         public SoulJarEmptyRecipe fromJson(ResourceLocation recipeId, JsonObject json) {
             NonNullList<Ingredient> ingredients = NonNullList.withSize(1, new FilledSoulJarIngredient());

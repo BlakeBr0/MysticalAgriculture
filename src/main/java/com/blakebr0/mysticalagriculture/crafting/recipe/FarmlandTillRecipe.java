@@ -16,7 +16,6 @@ import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.item.crafting.ShapedRecipe;
 import net.minecraft.world.item.crafting.ShapelessRecipe;
-import net.minecraftforge.registries.ForgeRegistryEntry;
 
 public class FarmlandTillRecipe extends ShapelessRecipe {
     public FarmlandTillRecipe(ResourceLocation id, String group, ItemStack output, NonNullList<Ingredient> inputs) {
@@ -47,7 +46,7 @@ public class FarmlandTillRecipe extends ShapelessRecipe {
         return ModRecipeSerializers.CRAFTING_FARMLAND_TILL;
     }
 
-    public static class Serializer extends ForgeRegistryEntry<RecipeSerializer<?>> implements RecipeSerializer<FarmlandTillRecipe> {
+    public static class Serializer implements RecipeSerializer<FarmlandTillRecipe> {
         @Override
         public FarmlandTillRecipe fromJson(ResourceLocation recipeId, JsonObject json) {
             var group = GsonHelper.getAsString(json, "group", "");

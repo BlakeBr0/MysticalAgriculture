@@ -12,6 +12,7 @@ import com.blakebr0.mysticalagriculture.item.MysticalSeedsItem;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
+import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.IForgeRegistry;
 
 import java.util.Collection;
@@ -122,10 +123,11 @@ public final class CropRegistry implements ICropRegistry {
                 c.setCropBlock(() -> defaultCrop, true);
             }
 
-            if (crop.getRegistryName() == null)
-                crop.setRegistryName(c.getNameWithSuffix("crop"));
+            var id = ForgeRegistries.BLOCKS.getKey(crop);
+            if (id == null)
+                id = new ResourceLocation(MysticalAgriculture.MOD_ID, c.getNameWithSuffix("crop"));
 
-            registry.register(crop);
+            registry.register(id, crop);
         });
 
         this.crops = getSortedCropsMap(crops);
@@ -142,10 +144,11 @@ public final class CropRegistry implements ICropRegistry {
                 c.setEssenceItem(() -> defaultEssence, true);
             }
 
-            if (essence.getRegistryName() == null)
-                essence.setRegistryName(c.getNameWithSuffix("essence"));
+            var id = ForgeRegistries.ITEMS.getKey(essence);
+            if (id == null)
+                id = new ResourceLocation(MysticalAgriculture.MOD_ID, c.getNameWithSuffix("essence"));
 
-            registry.register(essence);
+            registry.register(id, essence);
         });
 
         crops.stream().filter(Crop::shouldRegisterSeedsItem).forEach(c -> {
@@ -156,10 +159,11 @@ public final class CropRegistry implements ICropRegistry {
                 c.setSeedsItem(() -> defaultSeeds, true);
             }
 
-            if (seeds.getRegistryName() == null)
-                seeds.setRegistryName(c.getNameWithSuffix("seeds"));
+            var id = ForgeRegistries.ITEMS.getKey(seeds);
+            if (id == null)
+                id = new ResourceLocation(MysticalAgriculture.MOD_ID, c.getNameWithSuffix("seeds"));
 
-            registry.register(seeds);
+            registry.register(id, seeds);
         });
 
         PluginRegistry.getInstance().forEach((plugin, config) -> plugin.onPostRegisterCrops(this));

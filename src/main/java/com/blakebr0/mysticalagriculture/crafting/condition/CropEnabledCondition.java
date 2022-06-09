@@ -22,7 +22,7 @@ public class CropEnabledCondition implements ICondition {
     }
 
     @Override
-    public boolean test() {
+    public boolean test(IContext context) {
         var crop = CropRegistry.getInstance().getCropById(this.crop);
         return crop != null && crop.isEnabled();
     }

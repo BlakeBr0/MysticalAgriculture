@@ -13,6 +13,7 @@ import net.minecraft.world.item.HoeItem;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraftforge.common.crafting.IIngredientSerializer;
+import net.minecraftforge.registries.ForgeRegistries;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -82,11 +83,11 @@ public class HoeIngredient extends Ingredient {
     public JsonElement toJson() {
         var json = new JsonArray();
 
-        ALL_HOES.stream().filter(h -> h.getRegistryName() != null).forEach(h -> {
+        for (var item : ALL_HOES) {
             var obj = new JsonObject();
-            obj.addProperty("item", h.getRegistryName().toString());
+            obj.addProperty("item", ForgeRegistries.ITEMS.getKey(item).toString());
             json.add(obj);
-        });
+        }
 
         return json;
     }

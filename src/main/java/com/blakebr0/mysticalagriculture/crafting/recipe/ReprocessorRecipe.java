@@ -17,7 +17,6 @@ import net.minecraft.world.item.crafting.ShapedRecipe;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.wrapper.InvWrapper;
-import net.minecraftforge.registries.ForgeRegistryEntry;
 
 public class ReprocessorRecipe implements ISpecialRecipe, IReprocessorRecipe {
     private final ResourceLocation recipeId;
@@ -81,7 +80,7 @@ public class ReprocessorRecipe implements ISpecialRecipe, IReprocessorRecipe {
         return this.matches(new InvWrapper(inv));
     }
 
-    public static class Serializer extends ForgeRegistryEntry<RecipeSerializer<?>> implements RecipeSerializer<ReprocessorRecipe> {
+    public static class Serializer implements RecipeSerializer<ReprocessorRecipe> {
         @Override
         public ReprocessorRecipe fromJson(ResourceLocation recipeId, JsonObject json) {
             var ingredient = json.getAsJsonObject("input");

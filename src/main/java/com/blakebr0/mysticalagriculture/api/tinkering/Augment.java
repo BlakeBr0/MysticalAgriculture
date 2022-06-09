@@ -4,8 +4,8 @@ import com.blakebr0.mysticalagriculture.api.MysticalAgricultureAPI;
 import com.blakebr0.mysticalagriculture.api.lib.AbilityCache;
 import com.google.common.collect.Multimap;
 import net.minecraft.core.BlockPos;
+import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
-import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.Entity;
@@ -42,7 +42,7 @@ public class Augment {
 
     public Augment(ResourceLocation id, int tier, EnumSet<AugmentType> types, int primaryColor, int secondaryColor) {
         this.id = id;
-        this.item = RegistryObject.of(new ResourceLocation(MysticalAgricultureAPI.MOD_ID, id.getPath() + "_augment"), ForgeRegistries.ITEMS);
+        this.item = RegistryObject.create(new ResourceLocation(MysticalAgricultureAPI.MOD_ID, id.getPath() + "_augment"), ForgeRegistries.ITEMS);
         this.tier = tier;
         this.types = types;
         this.primaryColor = primaryColor;
@@ -90,7 +90,7 @@ public class Augment {
      * @return the localized name of this augment
      */
     public MutableComponent getDisplayName() {
-        return new TranslatableComponent(String.format("augment.%s.%s", this.getModId(), this.getName()));
+        return Component.translatable(String.format("augment.%s.%s", this.getModId(), this.getName()));
     }
 
     /**

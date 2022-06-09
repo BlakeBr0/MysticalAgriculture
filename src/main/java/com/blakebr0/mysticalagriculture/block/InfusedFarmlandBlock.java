@@ -8,6 +8,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.item.ItemStack;
@@ -28,7 +29,6 @@ import net.minecraftforge.common.PlantType;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
 public class InfusedFarmlandBlock extends FarmBlock implements IColored, IEssenceFarmland {
     public static final List<InfusedFarmlandBlock> FARMLANDS = new ArrayList<>();
@@ -53,7 +53,7 @@ public class InfusedFarmlandBlock extends FarmBlock implements IColored, IEssenc
     }
 
     @Override
-    public void randomTick(BlockState state, ServerLevel world, BlockPos pos, Random random) {
+    public void randomTick(BlockState state, ServerLevel world, BlockPos pos, RandomSource random) {
         int moisture = state.getValue(MOISTURE);
 
         if (!isNearWater(world, pos) && !world.isRainingAt(pos.above())) {

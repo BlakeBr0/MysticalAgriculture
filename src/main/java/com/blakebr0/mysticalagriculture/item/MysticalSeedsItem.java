@@ -9,7 +9,6 @@ import com.blakebr0.mysticalagriculture.lib.ModTooltips;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.NonNullList;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TextComponent;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemNameBlockItem;
@@ -21,7 +20,6 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 
 import java.util.List;
 import java.util.function.Function;
-import java.util.stream.Collectors;
 
 public class MysticalSeedsItem extends ItemNameBlockItem implements ICropProvider, IEnableable {
     private final Crop crop;
@@ -77,8 +75,8 @@ public class MysticalSeedsItem extends ItemNameBlockItem implements ICropProvide
             var ids = biomes.stream()
                     .map(ResourceLocation::toString)
                     .map(s -> " - " + s)
-                    .map(TextComponent::new)
-                    .collect(Collectors.toList());
+                    .map(Component::literal)
+                    .toList();
 
             tooltip.addAll(ids);
         }

@@ -1,8 +1,8 @@
 package com.blakebr0.mysticalagriculture.api.crop;
 
 import net.minecraft.ChatFormatting;
+import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
-import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
@@ -143,7 +143,7 @@ public class CropTier {
         if (this.displayName != null)
             return this.displayName.withStyle(this.getTextColor());
 
-        return new TranslatableComponent(String.format("cropTier.%s.%s", this.getModId(), this.getName())).withStyle(this.getTextColor());
+        return Component.translatable(String.format("cropTier.%s.%s", this.getModId(), this.getName())).withStyle(this.getTextColor());
     }
 
     /**

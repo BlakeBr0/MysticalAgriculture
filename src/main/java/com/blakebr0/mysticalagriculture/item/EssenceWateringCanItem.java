@@ -5,7 +5,6 @@ import com.blakebr0.mysticalagriculture.lib.ModTooltips;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.NonNullList;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TextComponent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
@@ -37,7 +36,7 @@ public class EssenceWateringCanItem extends WateringCanItem {
 
     @Override
     public void fillItemCategory(CreativeModeTab group, NonNullList<ItemStack> items) {
-        if (this.allowdedIn(group)) {
+        if (this.allowedIn(group)) {
             var stack = new ItemStack(this);
 
             NBTHelper.setBoolean(stack, "Water", false);
@@ -118,7 +117,7 @@ public class EssenceWateringCanItem extends WateringCanItem {
         super.appendHoverText(stack, world, tooltip, advanced);
 
         var rangeString = String.valueOf(this.range);
-        var rangeNumber = new TextComponent(rangeString + "x" + rangeString).withStyle(this.textColor);
+        var rangeNumber = Component.literal(rangeString + "x" + rangeString).withStyle(this.textColor);
 
         tooltip.add(ModTooltips.WATERING_CAN_AREA.args(rangeNumber).build());
     }

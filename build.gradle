@@ -32,7 +32,7 @@ repositories {
 }
 
 minecraft {
-    mappings channel: 'official', version: '1.18.2'
+    mappings channel: 'official', version: '1.19'
 
     accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg')
 
@@ -114,11 +114,11 @@ sourceSets {
 }
 
 dependencies {
-    minecraft 'net.minecraftforge:forge:1.18.2-40.1.0'
+    minecraft 'net.minecraftforge:forge:1.19-41.0.1'
 
     implementation project(':Cucumber')
-    implementation fg.deobf('curse.maven:jade-324717:3761542')
-    implementation fg.deobf('curse.maven:top-245211:3671753')
+    implementation fg.deobf('curse.maven:jade-324717:3822958')
+    implementation fg.deobf('curse.maven:top-245211:3822185')
     implementation fg.deobf('com.blamejared.crafttweaker:CraftTweaker-forge-1.18.2:9.1.116')
 
     runtimeOnly fg.deobf('vazkii.patchouli:Patchouli:1.18.2-67')

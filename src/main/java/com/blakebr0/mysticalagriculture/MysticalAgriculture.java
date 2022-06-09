@@ -57,11 +57,11 @@ public final class MysticalAgriculture {
 		bus.register(new ModBlocks());
 		bus.register(new ModItems());
 		bus.register(new ModRecipeSerializers());
-		bus.register(new ModContainerTypes());
 		bus.register(new ModDataGenerators());
 
 		ModEnchantments.REGISTRY.register(bus);
 		ModTileEntities.REGISTRY.register(bus);
+		ModContainerTypes.REGISTRY.register(bus);
 		ModWorldFeatures.REGISTRY.register(bus);
 
 		DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> () -> {
@@ -107,8 +107,9 @@ public final class MysticalAgriculture {
 
 	@SubscribeEvent
 	public void onInterModEnqueue(InterModEnqueueEvent event) {
-		if (ModList.get().isLoaded("theoneprobe"))
+		if (ModList.get().isLoaded("theoneprobe")) {
 			TOPCompat.onInterModEnqueue();
+		}
 	}
 
 	private static void initAPI() throws NoSuchFieldException, IllegalAccessException {

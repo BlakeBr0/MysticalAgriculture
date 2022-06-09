@@ -13,8 +13,11 @@ import net.minecraftforge.common.data.ExistingFileHelper;
 import java.nio.file.Path;
 
 public class ItemTagsJsonGenerator extends TagsProvider<Item> {
+    private final DataGenerator generator;
+
     public ItemTagsJsonGenerator(DataGenerator generator, String modId, ExistingFileHelper existingFileHelper) {
         super(generator, Registry.ITEM, modId, existingFileHelper);
+        this.generator = generator;
     }
 
     @Override

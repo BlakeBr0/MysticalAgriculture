@@ -23,7 +23,6 @@ import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.wrapper.InvWrapper;
-import net.minecraftforge.registries.ForgeRegistryEntry;
 
 public class SoulExtractionRecipe implements ISpecialRecipe, ISoulExtractionRecipe {
     private final ResourceLocation recipeId;
@@ -115,7 +114,7 @@ public class SoulExtractionRecipe implements ISpecialRecipe, ISoulExtractionReci
         return this.souls;
     }
 
-    public static class Serializer extends ForgeRegistryEntry<RecipeSerializer<?>> implements RecipeSerializer<SoulExtractionRecipe> {
+    public static class Serializer implements RecipeSerializer<SoulExtractionRecipe> {
         @Override
         public SoulExtractionRecipe fromJson(ResourceLocation recipeId, JsonObject json) {
             var ingredient = json.getAsJsonObject("input");

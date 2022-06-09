@@ -18,7 +18,7 @@ public class SeedCraftingRecipesEnabledCondition implements ICondition {
     }
 
     @Override
-    public boolean test() {
+    public boolean test(IContext context) {
         return ModConfigs.SEED_CRAFTING_RECIPES.get();
     }
 

@@ -1,7 +1,6 @@
 package com.blakebr0.mysticalagriculture.api.tinkering;
 
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TranslatableComponent;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -41,7 +40,7 @@ public enum AugmentType {
     }
 
     public Component getDisplayName() {
-        return new TranslatableComponent("augmentType.mysticalagriculture." + this.name);
+        return Component.translatable("augmentType.mysticalagriculture." + this.name);
     }
 
     public static AugmentType fromName(String name) {

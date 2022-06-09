@@ -21,7 +21,7 @@ import mezz.jei.api.registration.IRecipeCategoryRegistration;
 import mezz.jei.api.registration.IRecipeRegistration;
 import mezz.jei.api.registration.ISubtypeRegistration;
 import net.minecraft.client.Minecraft;
-import net.minecraft.network.chat.TranslatableComponent;
+import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
 
@@ -78,8 +78,8 @@ public final class JeiCompat implements IModPlugin {
 
         registration.addIngredientInfo(
                 new ItemStack(ModItems.COGNIZANT_DUST.get()),
-                VanillaTypes.ITEM,
-                new TranslatableComponent("jei.desc.mysticalagriculture.cognizant_dust")
+                VanillaTypes.ITEM_STACK,
+                Component.translatable("jei.desc.mysticalagriculture.cognizant_dust")
         );
     }
 

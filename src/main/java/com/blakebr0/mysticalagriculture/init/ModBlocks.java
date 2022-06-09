@@ -31,9 +31,9 @@ import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.material.Material;
-import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraftforge.registries.RegisterEvent;
 import net.minecraftforge.registries.RegistryObject;
 
 import java.util.LinkedHashMap;
@@ -129,17 +129,16 @@ public final class ModBlocks {
     public static final RegistryObject<Block> INFERIUM_CROP = registerNoItem("inferium_crop", () -> new InferiumCropBlock(ModCrops.INFERIUM));
 
     @SubscribeEvent
-    public void onRegisterBlocks(RegistryEvent.Register<Block> event) {
-        var registry = event.getRegistry();
+    public void onRegisterBlocks(RegisterEvent event) {
+        event.register(ForgeRegistries.Keys.BLOCKS, registry -> {
+            ENTRIES.forEach((reg, block) -> {
+                registry.register(reg.getId(), block.get());
+            });
 
-        ENTRIES.forEach((reg, block) -> {
-            registry.register(block.get());
-            reg.updateReference(registry);
+            CropRegistry.getInstance().setAllowRegistration(true);
+            CropRegistry.getInstance().onRegisterBlocks(event.getForgeRegistry());
+            CropRegistry.getInstance().setAllowRegistration(false);
         });
-
-        CropRegistry.getInstance().setAllowRegistration(true);
-        CropRegistry.getInstance().onRegisterBlocks(registry);
-        CropRegistry.getInstance().setAllowRegistration(false);
     }
 
     private static RegistryObject<Block> register(String name, Supplier<Block> block) {
@@ -149,15 +148,15 @@ public final class ModBlocks {
     private static RegistryObject<Block> register(String name, Supplier<Block> block, Function<RegistryObject<Block>, Supplier<? extends BlockItem>> item) {
         var loc = new ResourceLocation(MysticalAgriculture.MOD_ID, name);
         var reg = RegistryObject.create(loc, ForgeRegistries.BLOCKS);
-        ENTRIES.put(reg, () -> block.get().setRegistryName(loc));
-        ModItems.BLOCK_ENTRIES.add(() -> item.apply(reg).get().setRegistryName(loc));
+        ENTRIES.put(reg, block);
+        ModItems.BLOCK_ENTRIES.add(() -> item.apply(reg).get());
         return reg;
     }
 
     public static RegistryObject<Block> registerNoItem(String name, Supplier<Block> block) {
         var loc = new ResourceLocation(MysticalAgriculture.MOD_ID, name);
         var reg = RegistryObject.create(loc, ForgeRegistries.BLOCKS);
-        ENTRIES.put(reg, () -> block.get().setRegistryName(loc));
+        ENTRIES.put(reg, block);
         return reg;
     }
 }

@@ -11,13 +11,14 @@ import mcjty.theoneprobe.api.IProbeInfoProvider;
 import mcjty.theoneprobe.api.ITheOneProbe;
 import mcjty.theoneprobe.api.ProbeMode;
 import net.minecraft.ChatFormatting;
-import net.minecraft.network.chat.TextComponent;
+import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.fml.InterModComms;
+import net.minecraftforge.registries.ForgeRegistries;
 
 import java.util.function.Function;
 
@@ -43,7 +44,7 @@ public class TOPCompat implements Function<ITheOneProbe, Void> {
 
                     double secondaryChance = crop.getSecondaryChance(belowBlock);
                     if (secondaryChance > 0) {
-                        var chanceText = new TextComponent(String.valueOf((int) (secondaryChance * 100)))
+                        var chanceText = Component.literal(String.valueOf((int) (secondaryChance * 100)))
                                 .append("%")
                                 .withStyle(crop.getTier().getTextColor());
 
@@ -60,8 +61,9 @@ public class TOPCompat implements Function<ITheOneProbe, Void> {
                     var biomes = crop.getRequiredBiomes();
                     if (!biomes.isEmpty()) {
                         var biome = world.getBiome(pos);
+                        var id = ForgeRegistries.BIOMES.getKey(biome.value());
 
-                        if (!biomes.contains(biome.value().getRegistryName())) {
+                        if (!biomes.contains(id)) {
                             info.text(ModTooltips.INVALID_BIOME.color(ChatFormatting.RED).build());
                         }
                     }
@@ -73,7 +75,7 @@ public class TOPCompat implements Function<ITheOneProbe, Void> {
                             output = (tier * 50) + 50;
                         }
 
-                        var inferiumOutputText = new TextComponent(String.valueOf(output))
+                        var inferiumOutputText = Component.literal(String.valueOf(output))
                                 .append("%")
                                 .withStyle(crop.getTier().getTextColor());
 

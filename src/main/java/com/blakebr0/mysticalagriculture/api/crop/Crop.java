@@ -3,7 +3,6 @@ package com.blakebr0.mysticalagriculture.api.crop;
 import com.blakebr0.mysticalagriculture.api.farmland.IEssenceFarmland;
 import com.blakebr0.mysticalagriculture.api.lib.LazyIngredient;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemNameBlockItem;
@@ -148,7 +147,7 @@ public class Crop {
     public Component getDisplayName() {
         return this.displayName != null
                 ? this.displayName
-                : new TranslatableComponent(String.format("crop.%s.%s", this.getModId(), this.getName()));
+                : Component.translatable(String.format("crop.%s.%s", this.getModId(), this.getName()));
     }
 
     /**

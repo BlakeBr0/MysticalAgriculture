@@ -7,6 +7,7 @@ import com.blakebr0.mysticalagriculture.config.ModConfigs;
 import com.blakebr0.mysticalagriculture.init.ModItems;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.ItemLike;
@@ -20,10 +21,10 @@ import net.minecraft.world.level.storage.loot.LootContext;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParams;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import net.minecraftforge.registries.ForgeRegistries;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
 public class MysticalCropBlock extends CropBlock implements ICropProvider {
     private static final VoxelShape SHAPE = Block.box(0.0D, 0.0D, 0.0D, 16.0D, 4.0D, 16.0D);
@@ -35,12 +36,12 @@ public class MysticalCropBlock extends CropBlock implements ICropProvider {
     }
 
     @Override
-    public boolean isBonemealSuccess(Level world, Random rand, BlockPos pos, BlockState state) {
+    public boolean isBonemealSuccess(Level world, RandomSource random, BlockPos pos, BlockState state) {
         return false;
     }
 
     @Override
-    public void randomTick(BlockState state, ServerLevel world, BlockPos pos, Random random) {
+    public void randomTick(BlockState state, ServerLevel world, BlockPos pos, RandomSource random) {
         if (!this.canGrow(world, pos))
             return;
 
@@ -102,11 +103,11 @@ public class MysticalCropBlock extends CropBlock implements ICropProvider {
     }
 
     @Override
-    public void performBonemeal(ServerLevel world, Random rand, BlockPos pos, BlockState state) {
+    public void performBonemeal(ServerLevel world, RandomSource random, BlockPos pos, BlockState state) {
         if (!this.canGrow(world, pos))
             return;
 
-        super.performBonemeal(world, rand, pos, state);
+        super.performBonemeal(world, random, pos, state);
     }
 
     @Override
@@ -150,7 +151,8 @@ public class MysticalCropBlock extends CropBlock implements ICropProvider {
 
         if (!biomes.isEmpty()) {
             var biome = world.getBiome(pos);
-            return biomes.contains(biome.value().getRegistryName());
+            var biomeId = ForgeRegistries.BIOMES.getKey(biome.value());
+            return biomes.contains(biomeId);
         }
 
         return true;

@@ -52,7 +52,7 @@ public abstract class EssenceFurnaceTileEntity extends AbstractFurnaceBlockEntit
         }
 
         if (slot == 0 && !flag) {
-            this.cookingTotalTime = (int) (getTotalCookTime(level, this.recipeType, this) * this.getTier().getCookTimeMultiplier());
+            this.cookingTotalTime = (int) (getTotalCookTime(level, this) * this.getTier().getCookTimeMultiplier());
             this.cookingProgress = 0;
             this.setChanged();
         }
@@ -113,7 +113,7 @@ public abstract class EssenceFurnaceTileEntity extends AbstractFurnaceBlockEntit
 
         var stack = tile.items.get(1);
         if (tile.isLit() || !stack.isEmpty() && !tile.items.get(0).isEmpty()) {
-            Recipe<?> recipe = level.getRecipeManager().getRecipeFor((RecipeType<AbstractCookingRecipe>)tile.recipeType, tile, level).orElse(null);
+            Recipe<?> recipe = level.getRecipeManager().getRecipeFor(RecipeType.SMELTING, tile, level).orElse(null);
             int i = tile.getMaxStackSize();
             if (!tile.isLit() && tile.canBurn(recipe, tile.items, i)) {
                 tile.litTime = tile.getBurnDuration(stack);
@@ -137,7 +137,7 @@ public abstract class EssenceFurnaceTileEntity extends AbstractFurnaceBlockEntit
                 ++tile.cookingProgress;
                 if (tile.cookingProgress == tile.cookingTotalTime) {
                     tile.cookingProgress = 0;
-                    tile.cookingTotalTime = (int) (getTotalCookTime(level, tile.recipeType, tile) * tile.getTier().getCookTimeMultiplier());
+                    tile.cookingTotalTime = (int) (getTotalCookTime(level, tile) * tile.getTier().getCookTimeMultiplier());
                     if (tile.burn(recipe, tile.items, i)) {
                         tile.setRecipeUsed(recipe);
                     }
@@ -159,6 +159,10 @@ public abstract class EssenceFurnaceTileEntity extends AbstractFurnaceBlockEntit
         if (flag1) {
             setChanged(level, pos, state);
         }
+    }
+
+    private static int getTotalCookTime(Level p_222693_, AbstractFurnaceBlockEntity p_222694_) {
+        return p_222694_.quickCheck.getRecipeFor(p_222694_, p_222693_).map(AbstractCookingRecipe::getCookingTime).orElse(200);
     }
 
     public abstract FurnaceTier getTier();

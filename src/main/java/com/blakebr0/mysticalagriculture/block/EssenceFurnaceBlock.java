@@ -7,7 +7,6 @@ import com.blakebr0.mysticalagriculture.tileentity.EssenceFurnaceTileEntity;
 import com.blakebr0.mysticalagriculture.util.FurnaceTier;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TextComponent;
 import net.minecraft.stats.Stats;
 import net.minecraft.world.Containers;
 import net.minecraft.world.entity.LivingEntity;
@@ -71,10 +70,10 @@ public abstract class EssenceFurnaceBlock extends AbstractFurnaceBlock {
     public void appendHoverText(ItemStack stack, BlockGetter level, List<Component> tooltip, TooltipFlag flag) {
         double cookingSpeedDifference = 200D * this.tier.getCookTimeMultiplier();
         double cookingSpeedValue = Math.ceil(((200D - cookingSpeedDifference) / cookingSpeedDifference) * 100D) + 100D;
-        var cookingSpeed = new TextComponent(Utils.format(cookingSpeedValue)).append("%");
+        var cookingSpeed = Component.literal(Utils.format(cookingSpeedValue)).append("%");
         double burnTimeDifference = (1600D * this.tier.getBurnTimeMultiplier()) / cookingSpeedDifference;
         double burnTimeValue = Math.ceil(((burnTimeDifference - 8D) / 8D) * 100D) + 100D;
-        var fuelEfficiency = new TextComponent(Utils.format(burnTimeValue)).append("%");
+        var fuelEfficiency = Component.literal(Utils.format(burnTimeValue)).append("%");
 
         tooltip.add(ModTooltips.COOKING_SPEED.args(cookingSpeed).build());
         tooltip.add(ModTooltips.FUEL_EFFICIENCY.args(fuelEfficiency).build());

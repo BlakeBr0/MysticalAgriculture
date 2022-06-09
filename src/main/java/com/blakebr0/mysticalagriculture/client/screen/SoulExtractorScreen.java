@@ -6,7 +6,6 @@ import com.blakebr0.mysticalagriculture.container.SoulExtractorContainer;
 import com.blakebr0.mysticalagriculture.tileentity.SoulExtractorTileEntity;
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TextComponent;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
 
@@ -63,12 +62,12 @@ public class SoulExtractorScreen extends BaseContainerScreen<SoulExtractorContai
         super.renderTooltip(stack, mouseX, mouseY);
 
         if (mouseX > x + 7 && mouseX < x + 20 && mouseY > y + 17 && mouseY < y + 94) {
-            var text = new TextComponent(number(this.getEnergyStored()) + " / " + number(this.getMaxEnergyStored()) + " FE");
+            var text = Component.literal(number(this.getEnergyStored()) + " / " + number(this.getMaxEnergyStored()) + " FE");
             this.renderTooltip(stack, text, mouseX, mouseY);
         }
 
         if (mouseX > x + 30 && mouseX < x + 45 && mouseY > y + 39 && mouseY < y + 53) {
-            var text = new TextComponent(number(this.getFuelLeft()) + " FE");
+            var text = Component.literal(number(this.getFuelLeft()) + " FE");
             this.renderTooltip(stack, text, mouseX, mouseY);
         }
     }

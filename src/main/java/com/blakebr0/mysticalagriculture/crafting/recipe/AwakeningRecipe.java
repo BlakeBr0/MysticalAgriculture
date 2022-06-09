@@ -20,7 +20,6 @@ import net.minecraft.world.item.crafting.ShapedRecipe;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.wrapper.InvWrapper;
-import net.minecraftforge.registries.ForgeRegistryEntry;
 
 public class AwakeningRecipe implements ISpecialRecipe, IAwakeningRecipe {
     public static final int RECIPE_SIZE = 9;
@@ -107,7 +106,7 @@ public class AwakeningRecipe implements ISpecialRecipe, IAwakeningRecipe {
         return item == null ? Ingredient.EMPTY : Ingredient.of(item);
     }
 
-    public static class Serializer extends ForgeRegistryEntry<RecipeSerializer<?>> implements RecipeSerializer<AwakeningRecipe> {
+    public static class Serializer implements RecipeSerializer<AwakeningRecipe> {
         @Override
         public AwakeningRecipe fromJson(ResourceLocation recipeId, JsonObject json) {
             var inputs = NonNullList.withSize(RECIPE_SIZE, Ingredient.EMPTY);

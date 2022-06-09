@@ -10,7 +10,6 @@ import com.blakebr0.mysticalagriculture.api.tinkering.IAugmentProvider;
 import com.blakebr0.mysticalagriculture.lib.ModTooltips;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TextComponent;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
@@ -48,7 +47,7 @@ public class AugmentItem extends BaseItem implements IAugmentProvider, IEnableab
     @Override
     public void appendHoverText(ItemStack stack, Level world, List<Component> tooltip, TooltipFlag flag) {
         tooltip.add(ModTooltips.getTooltipForTier(this.augment.getTier()));
-        tooltip.add(new TextComponent(Colors.GRAY + this.augment.getAugmentTypes()
+        tooltip.add(Component.literal(Colors.GRAY + this.augment.getAugmentTypes()
                 .stream()
                 .map(AugmentType::getDisplayName)
                 .map(Component::getString)

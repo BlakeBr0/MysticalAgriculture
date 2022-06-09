@@ -5,6 +5,7 @@ import com.blakebr0.mysticalagriculture.init.ModBlocks;
 import com.mojang.serialization.Codec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.util.Mth;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.level.levelgen.feature.Feature;
@@ -12,7 +13,6 @@ import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.feature.configurations.OreConfiguration;
 
 import java.util.BitSet;
-import java.util.Random;
 
 public class SoulstoneFeature extends Feature<OreConfiguration> {
     public SoulstoneFeature(Codec<OreConfiguration> config) {
@@ -52,7 +52,7 @@ public class SoulstoneFeature extends Feature<OreConfiguration> {
         return false;
     }
 
-    protected boolean doPlace(LevelAccessor world, Random random, OreConfiguration config, double p_207803_4_, double p_207803_6_, double p_207803_8_, double p_207803_10_, double p_207803_12_, double p_207803_14_, int p_207803_16_, int p_207803_17_, int p_207803_18_, int p_207803_19_, int p_207803_20_) {
+    protected boolean doPlace(LevelAccessor world, RandomSource random, OreConfiguration config, double p_207803_4_, double p_207803_6_, double p_207803_8_, double p_207803_10_, double p_207803_12_, double p_207803_14_, int p_207803_16_, int p_207803_17_, int p_207803_18_, int p_207803_19_, int p_207803_20_) {
         int i = 0;
         BitSet bitset = new BitSet(p_207803_19_ * p_207803_20_ * p_207803_19_);
         BlockPos.MutableBlockPos blockpos$mutableblockpos = new BlockPos.MutableBlockPos();

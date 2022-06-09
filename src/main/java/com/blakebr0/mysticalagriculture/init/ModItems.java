@@ -31,11 +31,11 @@ import com.blakebr0.mysticalagriculture.lib.ModItemTier;
 import com.blakebr0.mysticalagriculture.registry.AugmentRegistry;
 import com.blakebr0.mysticalagriculture.registry.CropRegistry;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
-import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.registries.ForgeRegistries;
-import net.minecraftforge.registries.IForgeRegistry;
+import net.minecraftforge.registries.RegisterEvent;
 import net.minecraftforge.registries.RegistryObject;
 
 import java.util.ArrayList;
@@ -47,7 +47,7 @@ import java.util.function.Supplier;
 import static com.blakebr0.mysticalagriculture.MysticalAgriculture.CREATIVE_TAB;
 
 public final class ModItems {
-    public static final List<Supplier<Item>> BLOCK_ENTRIES = new ArrayList<>();
+    public static final List<Supplier<BlockItem>> BLOCK_ENTRIES = new ArrayList<>();
     public static final Map<RegistryObject<Item>, Supplier<Item>> ENTRIES = new LinkedHashMap<>();
     public static final Map<RegistryObject<Item>, Supplier<Item>> GEAR_ENTRIES = new LinkedHashMap<>();
 
@@ -195,23 +195,25 @@ public final class ModItems {
     public static final RegistryObject<Item> AWAKENED_SUPREMIUM_BOOTS = registerGear("awakened_supremium_boots", () -> new EssenceBootsItem(ModArmorMaterial.AWAKENED_SUPREMIUM, 5, 2, p -> p.tab(CREATIVE_TAB)));
 
     @SubscribeEvent
-    public void onRegisterItems(RegistryEvent.Register<Item> event) {
-        var registry = event.getRegistry();
+    public void onRegisterItems(RegisterEvent event) {
+        event.register(ForgeRegistries.Keys.ITEMS, registry -> {
+            BLOCK_ENTRIES.stream().map(Supplier::get).forEach(item -> {
+                var id = ForgeRegistries.BLOCKS.getKey(item.getBlock());
+                registry.register(id, item);
+            });
 
-        BLOCK_ENTRIES.stream().map(Supplier::get).forEach(registry::register);
-        ENTRIES.forEach((reg, item) -> {
-            registry.register(item.get());
-            reg.updateReference(registry);
+            ENTRIES.forEach((reg, item) -> {
+                registry.register(reg.getId(), item.get());
+            });
+
+            CropRegistry.getInstance().onRegisterItems(event.getForgeRegistry());
+
+            GEAR_ENTRIES.forEach((reg, item) -> {
+                registry.register(reg.getId(), item.get());
+            });
+
+            AugmentRegistry.getInstance().onRegisterItems(event.getForgeRegistry());
         });
-
-        CropRegistry.getInstance().onRegisterItems(registry);
-
-        GEAR_ENTRIES.forEach((reg, item) -> {
-            registry.register(item.get());
-            reg.updateReference(registry);
-        });
-
-        AugmentRegistry.getInstance().onRegisterItems(registry);
     }
 
     private static RegistryObject<Item> register(String name) {
@@ -221,14 +223,14 @@ public final class ModItems {
     private static RegistryObject<Item> register(String name, Supplier<Item> item) {
         var loc = new ResourceLocation(MysticalAgriculture.MOD_ID, name);
         var reg = RegistryObject.create(loc, ForgeRegistries.ITEMS);
-        ENTRIES.put(reg, () -> item.get().setRegistryName(loc));
+        ENTRIES.put(reg, item);
         return reg;
     }
 
     private static RegistryObject<Item> registerGear(String name, Supplier<? extends Item> item) {
         var loc = new ResourceLocation(MysticalAgriculture.MOD_ID, name);
         var reg = RegistryObject.create(loc, ForgeRegistries.ITEMS);
-        GEAR_ENTRIES.put(reg, () -> item.get().setRegistryName(loc));
+        GEAR_ENTRIES.put(reg, item::get);
         return reg;
     }
 }

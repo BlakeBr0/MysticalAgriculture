@@ -8,7 +8,6 @@ import net.minecraft.core.Registry;
 import net.minecraft.data.BuiltinRegistries;
 import net.minecraft.data.worldgen.features.OreFeatures;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.level.levelgen.GenerationStep;
 import net.minecraft.world.level.levelgen.VerticalAnchor;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
@@ -18,55 +17,54 @@ import net.minecraft.world.level.levelgen.placement.CountPlacement;
 import net.minecraft.world.level.levelgen.placement.HeightRangePlacement;
 import net.minecraft.world.level.levelgen.placement.InSquarePlacement;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
-import net.minecraftforge.event.world.BiomeLoadingEvent;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
 
 import java.util.List;
 
+// TODO: 1.19
 public final class ModWorldgenRegistration {
     private static PlacedFeature placedSoulstoneFeature;
     private static PlacedFeature placedProsperityOreFeature;
     private static PlacedFeature placedInferiumOreFeature;
 
-    @SubscribeEvent
-    public void onBiomesLoading(BiomeLoadingEvent event) {
-        var category = event.getCategory();
-        var generation = event.getGeneration();
-        var name = event.getName();
-
-        if (name == null)
-            return;
-
-        switch (category) {
-            case NETHER -> {
-                if (ModConfigs.GENERATE_SOULSTONE.get()) {
-                    var whitelist = ModConfigs.SOULSTONE_BIOME_WHITELIST.get();
-
-                    if (whitelist.isEmpty() || whitelist.contains(name.toString())) {
-                        generation.addFeature(GenerationStep.Decoration.RAW_GENERATION, Holder.direct(placedSoulstoneFeature));
-                    }
-                }
-            }
-            case THEEND -> { }
-            default -> {
-                if (ModConfigs.GENERATE_PROSPERITY.get()) {
-                    var whitelist = ModConfigs.PROSPERITY_BIOME_WHITELIST.get();
-
-                    if (whitelist.isEmpty() || whitelist.contains(name.toString())) {
-                        generation.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, Holder.direct(placedProsperityOreFeature));
-                    }
-                }
-
-                if (ModConfigs.GENERATE_INFERIUM.get()) {
-                    var whitelist = ModConfigs.INFERIUM_BIOME_WHITELIST.get();
-
-                    if (whitelist.isEmpty() || whitelist.contains(name.toString())) {
-                        generation.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, Holder.direct(placedInferiumOreFeature));
-                    }
-                }
-            }
-        }
-    }
+//    @SubscribeEvent
+//    public void onBiomesLoading(BiomeLoadingEvent event) {
+//        var category = event.getCategory();
+//        var generation = event.getGeneration();
+//        var name = event.getName();
+//
+//        if (name == null)
+//            return;
+//
+//        switch (category) {
+//            case NETHER -> {
+//                if (ModConfigs.GENERATE_SOULSTONE.get()) {
+//                    var whitelist = ModConfigs.SOULSTONE_BIOME_WHITELIST.get();
+//
+//                    if (whitelist.isEmpty() || whitelist.contains(name.toString())) {
+//                        generation.addFeature(GenerationStep.Decoration.RAW_GENERATION, Holder.direct(placedSoulstoneFeature));
+//                    }
+//                }
+//            }
+//            case THEEND -> { }
+//            default -> {
+//                if (ModConfigs.GENERATE_PROSPERITY.get()) {
+//                    var whitelist = ModConfigs.PROSPERITY_BIOME_WHITELIST.get();
+//
+//                    if (whitelist.isEmpty() || whitelist.contains(name.toString())) {
+//                        generation.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, Holder.direct(placedProsperityOreFeature));
+//                    }
+//                }
+//
+//                if (ModConfigs.GENERATE_INFERIUM.get()) {
+//                    var whitelist = ModConfigs.INFERIUM_BIOME_WHITELIST.get();
+//
+//                    if (whitelist.isEmpty() || whitelist.contains(name.toString())) {
+//                        generation.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, Holder.direct(placedInferiumOreFeature));
+//                    }
+//                }
+//            }
+//        }
+//    }
 
     public static void onCommonSetup() {
         int size, rate, minY, maxY;

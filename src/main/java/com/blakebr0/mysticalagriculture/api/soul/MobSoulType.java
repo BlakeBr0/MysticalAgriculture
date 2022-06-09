@@ -3,7 +3,6 @@ package com.blakebr0.mysticalagriculture.api.soul;
 import com.blakebr0.mysticalagriculture.api.registry.IMobSoulTypeRegistry;
 import com.google.common.collect.Sets;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -149,7 +148,8 @@ public class MobSoulType {
      * @return is the entity valid
      */
     public boolean isEntityApplicable(LivingEntity entity) {
-        return this.entityIds.contains(entity.getType().getRegistryName());
+        var id = ForgeRegistries.ENTITIES.getKey(entity.getType());
+        return this.entityIds.contains(id);
     }
 
     /**
@@ -159,7 +159,7 @@ public class MobSoulType {
     public Component getEntityDisplayName() {
         if (this.entityDisplayName == null) {
             if (this.entityDisplayNameKey != null) {
-                this.entityDisplayName = new TranslatableComponent(String.format("mobSoulType.%s.%s", this.getModId(), this.entityDisplayNameKey));
+                this.entityDisplayName = Component.translatable(String.format("mobSoulType.%s.%s", this.getModId(), this.entityDisplayNameKey));
             } else {
                 var entityId = this.entityIds.stream().findFirst().orElse(null);
 
@@ -172,7 +172,7 @@ public class MobSoulType {
                     }
                 }
 
-                this.entityDisplayName = new TranslatableComponent("tooltip.mysticalagriculture.invalid_entity");
+                this.entityDisplayName = Component.translatable("tooltip.mysticalagriculture.invalid_entity");
             }
         }
 

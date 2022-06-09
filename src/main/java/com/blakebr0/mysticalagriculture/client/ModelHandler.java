@@ -31,6 +31,7 @@ import net.minecraftforge.client.model.ForgeModelBakery;
 import net.minecraftforge.client.model.data.EmptyModelData;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
+import net.minecraftforge.registries.ForgeRegistries;
 
 import java.util.HashMap;
 import java.util.concurrent.TimeUnit;
@@ -103,10 +104,11 @@ public final class ModelHandler {
         for (var crop : CropRegistry.getInstance().getCrops()) {
             var textures = crop.getTextures();
             var crops = crop.getCropBlock();
+            var cropId = ForgeRegistries.BLOCKS.getKey(crops);
 
-            if (crops.getRegistryName() != null) {
+            if (cropId != null) {
                 for (int i = 0; i < 7; i++) {
-                    var location = new ModelResourceLocation(crops.getRegistryName(), "age=" + i);
+                    var location = new ModelResourceLocation(cropId, "age=" + i);
                     var bakedModel = registry.get(location);
 
                     if (bakedModel == null || bakedModel.getParticleIcon(EmptyModelData.INSTANCE).getName().equals(MISSING_NO)) {
@@ -115,7 +117,7 @@ public final class ModelHandler {
                     }
                 }
 
-                var location = new ModelResourceLocation(crops.getRegistryName(), "age=7");
+                var location = new ModelResourceLocation(cropId, "age=7");
                 var bakedModel = registry.get(location);
 
                 if (bakedModel == null || bakedModel.getParticleIcon(EmptyModelData.INSTANCE).getName().equals(MISSING_NO)) {
@@ -128,9 +130,10 @@ public final class ModelHandler {
             }
 
             var essence = crop.getEssenceItem();
+            var essenceId = ForgeRegistries.ITEMS.getKey(essence);
 
-            if (essence.getRegistryName() != null) {
-                var location = new ModelResourceLocation(essence.getRegistryName(), "inventory");
+            if (essenceId != null) {
+                var location = new ModelResourceLocation(essenceId, "inventory");
                 var bakedModel = registry.get(location);
 
                 if (bakedModel == null || bakedModel.getParticleIcon(EmptyModelData.INSTANCE).getName().equals(MISSING_NO)) {
@@ -144,9 +147,10 @@ public final class ModelHandler {
             }
 
             var seeds = crop.getSeedsItem();
+            var seedsId = ForgeRegistries.ITEMS.getKey(seeds);
 
-            if (seeds.getRegistryName() != null) {
-                var location = new ModelResourceLocation(seeds.getRegistryName(), "inventory");
+            if (seedsId != null) {
+                var location = new ModelResourceLocation(seedsId, "inventory");
                 var bakedModel = registry.get(location);
 
                 if (bakedModel == null || bakedModel.getParticleIcon(EmptyModelData.INSTANCE).getName().equals(MISSING_NO)) {

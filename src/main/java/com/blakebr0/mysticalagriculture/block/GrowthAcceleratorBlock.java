@@ -6,8 +6,8 @@ import com.blakebr0.mysticalagriculture.lib.ModTooltips;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TextComponent;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.BlockGetter;
@@ -20,7 +20,6 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 
 import java.util.List;
-import java.util.Random;
 
 public class GrowthAcceleratorBlock extends BaseBlock {
     private final int range;
@@ -38,7 +37,7 @@ public class GrowthAcceleratorBlock extends BaseBlock {
     }
 
     @Override
-    public void tick(BlockState state, ServerLevel level, BlockPos pos, Random random) {
+    public void tick(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) {
         BlockPos.betweenClosedStream(pos.above(2), pos.offset(0, this.range + 2, 0))
                 .filter(aoePos -> level.getBlockState(aoePos).getBlock() instanceof BonemealableBlock)
                 .findFirst()
@@ -52,7 +51,7 @@ public class GrowthAcceleratorBlock extends BaseBlock {
     public void appendHoverText(ItemStack stack, BlockGetter world, List<Component> tooltip, TooltipFlag flag) {
         tooltip.add(ModTooltips.GROWTH_ACCELERATOR.build());
 
-        var rangeNumber = new TextComponent(String.valueOf(this.range)).withStyle(this.textColor);
+        var rangeNumber = Component.literal(String.valueOf(this.range)).withStyle(this.textColor);
 
         tooltip.add(ModTooltips.GROWTH_ACCELERATOR_RANGE.args(rangeNumber).build());
     }
