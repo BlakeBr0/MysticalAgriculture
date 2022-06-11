@@ -3,6 +3,7 @@ package com.blakebr0.mysticalagriculture.world;
 import com.blakebr0.mysticalagriculture.MysticalAgriculture;
 import com.blakebr0.mysticalagriculture.config.ModConfigs;
 import com.blakebr0.mysticalagriculture.init.ModBlocks;
+import com.blakebr0.mysticalagriculture.init.ModWorldFeatures;
 import net.minecraft.core.Holder;
 import net.minecraft.core.Registry;
 import net.minecraft.data.BuiltinRegistries;
@@ -20,52 +21,7 @@ import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 
 import java.util.List;
 
-// TODO: 1.19
 public final class ModWorldgenRegistration {
-    private static PlacedFeature placedSoulstoneFeature;
-    private static PlacedFeature placedProsperityOreFeature;
-    private static PlacedFeature placedInferiumOreFeature;
-
-//    @SubscribeEvent
-//    public void onBiomesLoading(BiomeLoadingEvent event) {
-//        var category = event.getCategory();
-//        var generation = event.getGeneration();
-//        var name = event.getName();
-//
-//        if (name == null)
-//            return;
-//
-//        switch (category) {
-//            case NETHER -> {
-//                if (ModConfigs.GENERATE_SOULSTONE.get()) {
-//                    var whitelist = ModConfigs.SOULSTONE_BIOME_WHITELIST.get();
-//
-//                    if (whitelist.isEmpty() || whitelist.contains(name.toString())) {
-//                        generation.addFeature(GenerationStep.Decoration.RAW_GENERATION, Holder.direct(placedSoulstoneFeature));
-//                    }
-//                }
-//            }
-//            case THEEND -> { }
-//            default -> {
-//                if (ModConfigs.GENERATE_PROSPERITY.get()) {
-//                    var whitelist = ModConfigs.PROSPERITY_BIOME_WHITELIST.get();
-//
-//                    if (whitelist.isEmpty() || whitelist.contains(name.toString())) {
-//                        generation.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, Holder.direct(placedProsperityOreFeature));
-//                    }
-//                }
-//
-//                if (ModConfigs.GENERATE_INFERIUM.get()) {
-//                    var whitelist = ModConfigs.INFERIUM_BIOME_WHITELIST.get();
-//
-//                    if (whitelist.isEmpty() || whitelist.contains(name.toString())) {
-//                        generation.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, Holder.direct(placedInferiumOreFeature));
-//                    }
-//                }
-//            }
-//        }
-//    }
-
     public static void onCommonSetup() {
         int size, rate, minY, maxY;
         List<OreConfiguration.TargetBlockState> targets;
@@ -78,7 +34,7 @@ public final class ModWorldgenRegistration {
         targets = List.of(OreConfiguration.target(OreFeatures.NETHER_ORE_REPLACEABLES, ModBlocks.SOULSTONE.get().defaultBlockState()));
         feature = new ConfiguredFeature<>(ModWorldFeatures.SOULSTONE.get(), new OreConfiguration(targets, size));
 
-        placedSoulstoneFeature = new PlacedFeature(Holder.direct(feature), List.of(
+        var placedSoulstoneFeature = new PlacedFeature(Holder.direct(feature), List.of(
                 CountPlacement.of(rate),
                 InSquarePlacement.spread(),
                 HeightRangePlacement.uniform(VerticalAnchor.absolute(minY), VerticalAnchor.absolute(maxY)),
@@ -98,7 +54,7 @@ public final class ModWorldgenRegistration {
         );
         feature = new ConfiguredFeature<>(Feature.ORE, new OreConfiguration(targets, size));
 
-        placedProsperityOreFeature = new PlacedFeature(Holder.direct(feature), List.of(
+        var placedProsperityOreFeature = new PlacedFeature(Holder.direct(feature), List.of(
                 CountPlacement.of(rate),
                 InSquarePlacement.spread(),
                 HeightRangePlacement.uniform(VerticalAnchor.absolute(minY), VerticalAnchor.absolute(maxY)),
@@ -118,7 +74,7 @@ public final class ModWorldgenRegistration {
         );
         feature = new ConfiguredFeature<>(Feature.ORE, new OreConfiguration(targets, size));
 
-        placedInferiumOreFeature = new PlacedFeature(Holder.direct(feature), List.of(
+        var placedInferiumOreFeature = new PlacedFeature(Holder.direct(feature), List.of(
                 CountPlacement.of(rate),
                 InSquarePlacement.spread(),
                 HeightRangePlacement.uniform(VerticalAnchor.absolute(minY), VerticalAnchor.absolute(maxY)),

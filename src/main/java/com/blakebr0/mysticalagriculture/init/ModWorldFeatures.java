@@ -1,4 +1,4 @@
-package com.blakebr0.mysticalagriculture.world;
+package com.blakebr0.mysticalagriculture.init;
 
 import com.blakebr0.mysticalagriculture.MysticalAgriculture;
 import com.blakebr0.mysticalagriculture.world.feature.SoulstoneFeature;

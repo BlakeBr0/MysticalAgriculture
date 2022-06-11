@@ -13,6 +13,7 @@ import com.blakebr0.mysticalagriculture.handler.ColorHandler;
 import com.blakebr0.mysticalagriculture.handler.ExperienceCapsuleHandler;
 import com.blakebr0.mysticalagriculture.handler.MobDropHandler;
 import com.blakebr0.mysticalagriculture.handler.MobSoulHandler;
+import com.blakebr0.mysticalagriculture.init.ModBiomeModifiers;
 import com.blakebr0.mysticalagriculture.init.ModBlocks;
 import com.blakebr0.mysticalagriculture.init.ModContainerTypes;
 import com.blakebr0.mysticalagriculture.init.ModEnchantments;
@@ -25,7 +26,7 @@ import com.blakebr0.mysticalagriculture.registry.AugmentRegistry;
 import com.blakebr0.mysticalagriculture.registry.CropRegistry;
 import com.blakebr0.mysticalagriculture.registry.MobSoulTypeRegistry;
 import com.blakebr0.mysticalagriculture.registry.PluginRegistry;
-import com.blakebr0.mysticalagriculture.world.ModWorldFeatures;
+import com.blakebr0.mysticalagriculture.init.ModWorldFeatures;
 import com.blakebr0.mysticalagriculture.world.ModWorldgenRegistration;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraftforge.api.distmarker.Dist;
@@ -63,14 +64,13 @@ public final class MysticalAgriculture {
 		ModTileEntities.REGISTRY.register(bus);
 		ModContainerTypes.REGISTRY.register(bus);
 		ModWorldFeatures.REGISTRY.register(bus);
+		ModBiomeModifiers.REGISTRY.register(bus);
 
 		DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> () -> {
 			bus.register(new ColorHandler());
 			bus.register(new ModelHandler());
 			bus.register(new ModTESRs());
 		});
-
-		MinecraftForge.EVENT_BUS.register(new ModWorldgenRegistration());
 
 		ModLoadingContext.get().registerConfig(ModConfig.Type.CLIENT, ModConfigs.CLIENT);
 		ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, ModConfigs.COMMON);
