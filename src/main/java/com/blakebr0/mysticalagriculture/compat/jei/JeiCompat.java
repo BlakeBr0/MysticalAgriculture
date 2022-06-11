@@ -25,6 +25,8 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
 
+import java.util.List;
+
 @JeiPlugin
 public final class JeiCompat implements IModPlugin {
     public static final ResourceLocation UID = new ResourceLocation(MysticalAgriculture.MOD_ID, "jei_plugin");
@@ -49,18 +51,18 @@ public final class JeiCompat implements IModPlugin {
 
     @Override
     public void registerRecipeCatalysts(IRecipeCatalystRegistration registration) {
-        registration.addRecipeCatalyst(new ItemStack(ModBlocks.INFUSION_ALTAR.get()), InfusionCategory.UID);
-        registration.addRecipeCatalyst(new ItemStack(ModBlocks.INFUSION_PEDESTAL.get()), InfusionCategory.UID);
-        registration.addRecipeCatalyst(new ItemStack(ModBlocks.AWAKENING_ALTAR.get()), AwakeningCategory.UID);
-        registration.addRecipeCatalyst(new ItemStack(ModBlocks.AWAKENING_PEDESTAL.get()), AwakeningCategory.UID);
-        registration.addRecipeCatalyst(new ItemStack(ModBlocks.ESSENCE_VESSEL.get()), AwakeningCategory.UID);
-        registration.addRecipeCatalyst(new ItemStack(ModBlocks.BASIC_REPROCESSOR.get()), ReprocessorCategory.UID);
-        registration.addRecipeCatalyst(new ItemStack(ModBlocks.INFERIUM_REPROCESSOR.get()), ReprocessorCategory.UID);
-        registration.addRecipeCatalyst(new ItemStack(ModBlocks.PRUDENTIUM_REPROCESSOR.get()), ReprocessorCategory.UID);
-        registration.addRecipeCatalyst(new ItemStack(ModBlocks.TERTIUM_REPROCESSOR.get()), ReprocessorCategory.UID);
-        registration.addRecipeCatalyst(new ItemStack(ModBlocks.IMPERIUM_REPROCESSOR.get()), ReprocessorCategory.UID);
-        registration.addRecipeCatalyst(new ItemStack(ModBlocks.SUPREMIUM_REPROCESSOR.get()), ReprocessorCategory.UID);
-        registration.addRecipeCatalyst(new ItemStack(ModBlocks.SOUL_EXTRACTOR.get()), SoulExtractorCategory.UID);
+        registration.addRecipeCatalyst(new ItemStack(ModBlocks.INFUSION_ALTAR.get()), InfusionCategory.RECIPE_TYPE);
+        registration.addRecipeCatalyst(new ItemStack(ModBlocks.INFUSION_PEDESTAL.get()), InfusionCategory.RECIPE_TYPE);
+        registration.addRecipeCatalyst(new ItemStack(ModBlocks.AWAKENING_ALTAR.get()), AwakeningCategory.RECIPE_TYPE);
+        registration.addRecipeCatalyst(new ItemStack(ModBlocks.AWAKENING_PEDESTAL.get()), AwakeningCategory.RECIPE_TYPE);
+        registration.addRecipeCatalyst(new ItemStack(ModBlocks.ESSENCE_VESSEL.get()), AwakeningCategory.RECIPE_TYPE);
+        registration.addRecipeCatalyst(new ItemStack(ModBlocks.BASIC_REPROCESSOR.get()), ReprocessorCategory.RECIPE_TYPE);
+        registration.addRecipeCatalyst(new ItemStack(ModBlocks.INFERIUM_REPROCESSOR.get()), ReprocessorCategory.RECIPE_TYPE);
+        registration.addRecipeCatalyst(new ItemStack(ModBlocks.PRUDENTIUM_REPROCESSOR.get()), ReprocessorCategory.RECIPE_TYPE);
+        registration.addRecipeCatalyst(new ItemStack(ModBlocks.TERTIUM_REPROCESSOR.get()), ReprocessorCategory.RECIPE_TYPE);
+        registration.addRecipeCatalyst(new ItemStack(ModBlocks.IMPERIUM_REPROCESSOR.get()), ReprocessorCategory.RECIPE_TYPE);
+        registration.addRecipeCatalyst(new ItemStack(ModBlocks.SUPREMIUM_REPROCESSOR.get()), ReprocessorCategory.RECIPE_TYPE);
+        registration.addRecipeCatalyst(new ItemStack(ModBlocks.SOUL_EXTRACTOR.get()), SoulExtractorCategory.RECIPE_TYPE);
     }
 
     @Override
@@ -69,11 +71,11 @@ public final class JeiCompat implements IModPlugin {
         if (level != null) {
             var manager = level.getRecipeManager();
 
-            registration.addRecipes(manager.byType(RecipeTypes.INFUSION).values(), InfusionCategory.UID);
-            registration.addRecipes(manager.byType(RecipeTypes.AWAKENING).values(), AwakeningCategory.UID);
-            registration.addRecipes(manager.byType(RecipeTypes.REPROCESSOR).values(), ReprocessorCategory.UID);
-            registration.addRecipes(manager.byType(RecipeTypes.SOUL_EXTRACTION).values(), SoulExtractorCategory.UID);
-            registration.addRecipes(CruxRecipe.getGeneratedRecipes(), CruxCategory.UID);
+            registration.addRecipes(InfusionCategory.RECIPE_TYPE, manager.getAllRecipesFor(RecipeTypes.INFUSION));
+            registration.addRecipes(AwakeningCategory.RECIPE_TYPE, manager.getAllRecipesFor(RecipeTypes.AWAKENING));
+            registration.addRecipes(ReprocessorCategory.RECIPE_TYPE, manager.getAllRecipesFor(RecipeTypes.REPROCESSOR));
+            registration.addRecipes(SoulExtractorCategory.RECIPE_TYPE, manager.getAllRecipesFor(RecipeTypes.SOUL_EXTRACTION));
+            registration.addRecipes(CruxCategory.RECIPE_TYPE, CruxRecipe.getGeneratedRecipes());
         }
 
         registration.addIngredientInfo(
@@ -85,14 +87,14 @@ public final class JeiCompat implements IModPlugin {
 
     @Override
     public void registerGuiHandlers(IGuiHandlerRegistration registration) {
-        registration.addRecipeClickArea(ReprocessorScreen.class, 99, 52, 22, 15, ReprocessorCategory.UID);
-        registration.addRecipeClickArea(SoulExtractorScreen.class, 99, 52, 22, 15, SoulExtractorCategory.UID);
+        registration.addRecipeClickArea(ReprocessorScreen.class, 99, 52, 22, 15, ReprocessorCategory.RECIPE_TYPE);
+        registration.addRecipeClickArea(SoulExtractorScreen.class, 99, 52, 22, 15, SoulExtractorCategory.RECIPE_TYPE);
     }
 
     @Override
     public void registerItemSubtypes(ISubtypeRegistration registration) {
         ModItems.SOUL_JAR.ifPresent(jar ->
-            registration.registerSubtypeInterpreter(jar, (stack, context) -> {
+            registration.registerSubtypeInterpreter(VanillaTypes.ITEM_STACK, jar, (stack, context) -> {
                 var type = MobSoulUtils.getType(stack);
                 return type != null ? type.getEntityIds().toString() : "";
             })

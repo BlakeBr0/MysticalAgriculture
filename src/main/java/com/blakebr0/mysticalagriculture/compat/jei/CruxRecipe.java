@@ -21,7 +21,7 @@ public class CruxRecipe {
         this.essence = essence;
     }
 
-    public List<Ingredient> getInputIngredients() {
+    public List<Ingredient> getIngredients() {
         return Lists.newArrayList(
                 Ingredient.of(this.seed),
                 Ingredient.of(farmlands.toArray(new Block[0])),

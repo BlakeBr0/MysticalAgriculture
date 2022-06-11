@@ -2,37 +2,45 @@ package com.blakebr0.mysticalagriculture.compat.jei.category;
 
 import com.blakebr0.cucumber.util.Localizable;
 import com.blakebr0.mysticalagriculture.MysticalAgriculture;
-import com.blakebr0.mysticalagriculture.crafting.recipe.InfusionRecipe;
+import com.blakebr0.mysticalagriculture.api.crafting.IInfusionRecipe;
 import com.blakebr0.mysticalagriculture.init.ModBlocks;
 import mezz.jei.api.constants.VanillaTypes;
-import mezz.jei.api.gui.IRecipeLayout;
+import mezz.jei.api.gui.builder.IRecipeLayoutBuilder;
 import mezz.jei.api.gui.drawable.IDrawable;
 import mezz.jei.api.helpers.IGuiHelper;
-import mezz.jei.api.ingredients.IIngredients;
+import mezz.jei.api.recipe.IFocusGroup;
+import mezz.jei.api.recipe.RecipeIngredientRole;
+import mezz.jei.api.recipe.RecipeType;
 import mezz.jei.api.recipe.category.IRecipeCategory;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
 
-public class InfusionCategory implements IRecipeCategory<InfusionRecipe> {
-    public static final ResourceLocation UID = new ResourceLocation(MysticalAgriculture.MOD_ID, "infusion");
+public class InfusionCategory implements IRecipeCategory<IInfusionRecipe> {
     private static final ResourceLocation TEXTURE = new ResourceLocation(MysticalAgriculture.MOD_ID, "textures/gui/jei/infusion.png");
+    public static final RecipeType<IInfusionRecipe> RECIPE_TYPE = RecipeType.create(MysticalAgriculture.MOD_ID, "infusion", IInfusionRecipe.class);
+
     private final IDrawable background;
     private final IDrawable icon;
 
     public InfusionCategory(IGuiHelper helper) {
         this.background = helper.createDrawable(TEXTURE, 0, 0, 144, 81);
-        this.icon = helper.createDrawableIngredient(new ItemStack(ModBlocks.INFUSION_ALTAR.get()));
+        this.icon = helper.createDrawableIngredient(VanillaTypes.ITEM_STACK, new ItemStack(ModBlocks.INFUSION_ALTAR.get()));
     }
 
     @Override
     public ResourceLocation getUid() {
-        return UID;
+        return RECIPE_TYPE.getUid();
     }
 
     @Override
-    public Class<? extends InfusionRecipe> getRecipeClass() {
-        return InfusionRecipe.class;
+    public Class<? extends IInfusionRecipe> getRecipeClass() {
+        return RECIPE_TYPE.getRecipeClass();
+    }
+
+    @Override
+    public RecipeType<IInfusionRecipe> getRecipeType() {
+        return RECIPE_TYPE;
     }
 
     @Override
@@ -51,33 +59,20 @@ public class InfusionCategory implements IRecipeCategory<InfusionRecipe> {
     }
 
     @Override
-    public void setIngredients(InfusionRecipe recipe, IIngredients ingredients) {
-        ingredients.setOutput(VanillaTypes.ITEM, recipe.getResultItem());
-        ingredients.setInputIngredients(recipe.getIngredients());
-    }
+    public void setRecipe(IRecipeLayoutBuilder builder, IInfusionRecipe recipe, IFocusGroup focuses) {
+        var inputs = recipe.getIngredients();
+        var output = recipe.getResultItem();
 
-    @Override
-    public void setRecipe(IRecipeLayout layout, InfusionRecipe recipe, IIngredients ingredients) {
-        var stacks = layout.getItemStacks();
-        var inputs = ingredients.getInputs(VanillaTypes.ITEM);
-        var outputs = ingredients.getOutputs(VanillaTypes.ITEM);
+        builder.addSlot(RecipeIngredientRole.INPUT, 33, 33).addIngredients(inputs.get(0));
+        builder.addSlot(RecipeIngredientRole.INPUT, 7, 7).addIngredients(inputs.get(1));
+        builder.addSlot(RecipeIngredientRole.INPUT, 33, 1).addIngredients(inputs.get(2));
+        builder.addSlot(RecipeIngredientRole.INPUT, 59, 7).addIngredients(inputs.get(3));
+        builder.addSlot(RecipeIngredientRole.INPUT, 65, 33).addIngredients(inputs.get(4));
+        builder.addSlot(RecipeIngredientRole.INPUT, 59, 59).addIngredients(inputs.get(5));
+        builder.addSlot(RecipeIngredientRole.INPUT, 33, 65).addIngredients(inputs.get(6));
+        builder.addSlot(RecipeIngredientRole.INPUT, 7, 59).addIngredients(inputs.get(7));
+        builder.addSlot(RecipeIngredientRole.INPUT, 1, 33).addIngredients(inputs.get(8));
 
-        stacks.init(0, true, 32, 32);
-        stacks.init(1, true, 6, 6);
-        stacks.init(2, true, 32, 0);
-        stacks.init(3, true, 58, 6);
-        stacks.init(4, true, 64, 32);
-        stacks.init(5, true, 58, 58);
-        stacks.init(6, true, 32, 63);
-        stacks.init(7, true, 6, 58);
-        stacks.init(8, true, 0, 32);
-
-        stacks.init(9, false, 122, 32);
-
-        for (int i = 0; i < inputs.size(); i++) {
-            stacks.set(i, inputs.get(i));
-        }
-
-        stacks.set(9, outputs.get(0));
+        builder.addSlot(RecipeIngredientRole.OUTPUT, 123, 33).addItemStack(output);
     }
 }

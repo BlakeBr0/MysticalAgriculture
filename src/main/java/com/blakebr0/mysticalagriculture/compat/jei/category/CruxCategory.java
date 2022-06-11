@@ -5,34 +5,42 @@ import com.blakebr0.mysticalagriculture.MysticalAgriculture;
 import com.blakebr0.mysticalagriculture.compat.jei.CruxRecipe;
 import com.blakebr0.mysticalagriculture.init.ModItems;
 import mezz.jei.api.constants.VanillaTypes;
-import mezz.jei.api.gui.IRecipeLayout;
+import mezz.jei.api.gui.builder.IRecipeLayoutBuilder;
 import mezz.jei.api.gui.drawable.IDrawable;
 import mezz.jei.api.helpers.IGuiHelper;
-import mezz.jei.api.ingredients.IIngredients;
+import mezz.jei.api.recipe.IFocusGroup;
+import mezz.jei.api.recipe.RecipeIngredientRole;
+import mezz.jei.api.recipe.RecipeType;
 import mezz.jei.api.recipe.category.IRecipeCategory;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
 
 public class CruxCategory implements IRecipeCategory<CruxRecipe> {
-    public static final ResourceLocation UID = new ResourceLocation(MysticalAgriculture.MOD_ID, "crux");
     private static final ResourceLocation TEXTURE = new ResourceLocation(MysticalAgriculture.MOD_ID, "textures/gui/jei/crux.png");
+    public static final RecipeType<CruxRecipe> RECIPE_TYPE = RecipeType.create(MysticalAgriculture.MOD_ID, "crux", CruxRecipe.class);
+
     private final IDrawable background;
     private final IDrawable icon;
 
     public CruxCategory(IGuiHelper helper) {
         this.background = helper.createDrawable(TEXTURE, 0, 0, 80, 54);
-        this.icon = helper.createDrawableIngredient(new ItemStack(ModItems.PROSPERITY_SEED_BASE.get()));
+        this.icon = helper.createDrawableIngredient(VanillaTypes.ITEM_STACK, new ItemStack(ModItems.PROSPERITY_SEED_BASE.get()));
     }
 
     @Override
     public ResourceLocation getUid() {
-        return UID;
+        return RECIPE_TYPE.getUid();
     }
 
     @Override
     public Class<? extends CruxRecipe> getRecipeClass() {
         return CruxRecipe.class;
+    }
+
+    @Override
+    public RecipeType<CruxRecipe> getRecipeType() {
+        return RECIPE_TYPE;
     }
 
     @Override
@@ -51,25 +59,14 @@ public class CruxCategory implements IRecipeCategory<CruxRecipe> {
     }
 
     @Override
-    public void setIngredients(CruxRecipe recipe, IIngredients ingredients) {
-        ingredients.setOutput(VanillaTypes.ITEM, recipe.essence);
-        ingredients.setInputIngredients(recipe.getInputIngredients());
-    }
+    public void setRecipe(IRecipeLayoutBuilder builder, CruxRecipe recipe, IFocusGroup focuses) {
+        var inputs = recipe.getIngredients();
+        var output = recipe.essence;
 
-    @Override
-    public void setRecipe(IRecipeLayout layout, CruxRecipe recipe, IIngredients ingredients) {
-        var stacks = layout.getItemStacks();
-        var inputs = ingredients.getInputs(VanillaTypes.ITEM);
-        var outputs = ingredients.getOutputs(VanillaTypes.ITEM);
+        builder.addSlot(RecipeIngredientRole.INPUT, 1, 1).addIngredients(inputs.get(0));
+        builder.addSlot(RecipeIngredientRole.INPUT, 1, 19).addIngredients(inputs.get(1));
+        builder.addSlot(RecipeIngredientRole.INPUT, 1, 27).addIngredients(inputs.get(2));
 
-        stacks.init(0, true, 0, 0);
-        stacks.init(1, true, 0, 18);
-        stacks.init(2, true, 0, 36);
-        stacks.init(3, false, 58, 19);
-
-        stacks.set(0, inputs.get(0));
-        stacks.set(1, inputs.get(1));
-        stacks.set(2, inputs.get(2));
-        stacks.set(3, outputs.get(0));
+        builder.addSlot(RecipeIngredientRole.INPUT, 59, 19).addItemStack(output);
     }
 }
