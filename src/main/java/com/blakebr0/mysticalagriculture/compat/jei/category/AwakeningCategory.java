@@ -32,16 +32,6 @@ public class AwakeningCategory implements IRecipeCategory<IAwakeningRecipe> {
     }
 
     @Override
-    public ResourceLocation getUid() {
-        return RECIPE_TYPE.getUid();
-    }
-
-    @Override
-    public Class<? extends IAwakeningRecipe> getRecipeClass() {
-        return IAwakeningRecipe.class;
-    }
-
-    @Override
     public RecipeType<IAwakeningRecipe> getRecipeType() {
         return RECIPE_TYPE;
     }

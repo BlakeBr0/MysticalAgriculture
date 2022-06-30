@@ -27,8 +27,8 @@ public class JadeCompat implements IWailaPlugin {
     private static final ResourceLocation INFUSED_FARMLAND_PROVIDER = new ResourceLocation(MysticalAgriculture.MOD_ID, "infused_farmland");
 
     @Override
-    public void registerClient(IWailaClientRegistration registrar) {
-        registrar.registerBlockComponent(new IBlockComponentProvider() {
+    public void registerClient(IWailaClientRegistration registration) {
+        registration.registerBlockComponent(new IBlockComponentProvider() {
             @Override
             public void appendTooltip(ITooltip tooltip, BlockAccessor accessor, IPluginConfig config) {
                 var block = accessor.getBlock();
@@ -72,7 +72,7 @@ public class JadeCompat implements IWailaPlugin {
             }
         }, MysticalCropBlock.class);
 
-        registrar.registerBlockComponent(new IBlockComponentProvider() {
+        registration.registerBlockComponent(new IBlockComponentProvider() {
             @Override
             public void appendTooltip(ITooltip tooltip, BlockAccessor accessor, IPluginConfig config) {
                 var block = accessor.getBlock();
@@ -97,7 +97,7 @@ public class JadeCompat implements IWailaPlugin {
             }
         }, InferiumCropBlock.class);
 
-        registrar.registerBlockComponent(new IBlockComponentProvider() {
+        registration.registerBlockComponent(new IBlockComponentProvider() {
             @Override
             public void appendTooltip(ITooltip tooltip, BlockAccessor accessor, IPluginConfig config) {
                 var block = accessor.getBlock();

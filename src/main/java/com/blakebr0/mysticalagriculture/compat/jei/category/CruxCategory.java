@@ -29,16 +29,6 @@ public class CruxCategory implements IRecipeCategory<CruxRecipe> {
     }
 
     @Override
-    public ResourceLocation getUid() {
-        return RECIPE_TYPE.getUid();
-    }
-
-    @Override
-    public Class<? extends CruxRecipe> getRecipeClass() {
-        return CruxRecipe.class;
-    }
-
-    @Override
     public RecipeType<CruxRecipe> getRecipeType() {
         return RECIPE_TYPE;
     }

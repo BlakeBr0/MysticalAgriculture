@@ -29,16 +29,6 @@ public class InfusionCategory implements IRecipeCategory<IInfusionRecipe> {
     }
 
     @Override
-    public ResourceLocation getUid() {
-        return RECIPE_TYPE.getUid();
-    }
-
-    @Override
-    public Class<? extends IInfusionRecipe> getRecipeClass() {
-        return RECIPE_TYPE.getRecipeClass();
-    }
-
-    @Override
     public RecipeType<IInfusionRecipe> getRecipeType() {
         return RECIPE_TYPE;
     }

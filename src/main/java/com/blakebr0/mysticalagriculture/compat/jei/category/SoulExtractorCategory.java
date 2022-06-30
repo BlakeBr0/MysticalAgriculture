@@ -32,17 +32,8 @@ public class SoulExtractorCategory implements IRecipeCategory<ISoulExtractionRec
         this.icon = helper.createDrawableIngredient(VanillaTypes.ITEM_STACK, new ItemStack(ModBlocks.SOUL_EXTRACTOR.get()));
 
         var arrow = helper.createDrawable(TEXTURE, 85, 0, 24, 17);
+
         this.arrow = helper.createAnimatedDrawable(arrow, 100, IDrawableAnimated.StartDirection.LEFT, false);
-    }
-
-    @Override
-    public ResourceLocation getUid() {
-        return RECIPE_TYPE.getUid();
-    }
-
-    @Override
-    public Class<? extends ISoulExtractionRecipe> getRecipeClass() {
-        return ISoulExtractionRecipe.class;
     }
 
     @Override
