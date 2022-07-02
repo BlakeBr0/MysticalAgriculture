@@ -117,11 +117,11 @@ dependencies {
     minecraft "net.minecraftforge:forge:${forge_version}"
 
     implementation project(':Cucumber')
-    implementation fg.deobf('curse.maven:jade-324717:3822958')
-    implementation fg.deobf('curse.maven:top-245211:3822185')
-    implementation fg.deobf('com.blamejared.crafttweaker:CraftTweaker-forge-1.18.2:9.1.116')
+    implementation fg.deobf("curse.maven:jade-324717:${jade_version}")
+    implementation fg.deobf("curse.maven:top-245211:${top_version}")
+    implementation fg.deobf("com.blamejared.crafttweaker:CraftTweaker-forge-${crafttweaker_version}")
 
-    runtimeOnly fg.deobf('vazkii.patchouli:Patchouli:1.18.2-67')
+    runtimeOnly fg.deobf("vazkii.patchouli:Patchouli:${patchouli_version}")
     runtimeOnly fg.deobf("mezz.jei:jei-${mc_version}-forge:${jei_version}")
 
     compileOnly "mezz.jei:jei-${mc_version}-common-api:${jei_version}"
