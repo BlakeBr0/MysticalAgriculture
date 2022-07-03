@@ -123,9 +123,7 @@ public final class CropRegistry implements ICropRegistry {
                 c.setCropBlock(() -> defaultCrop, true);
             }
 
-            var id = ForgeRegistries.BLOCKS.getKey(crop);
-            if (id == null)
-                id = new ResourceLocation(MysticalAgriculture.MOD_ID, c.getNameWithSuffix("crop"));
+            var id = new ResourceLocation(MysticalAgriculture.MOD_ID, c.getNameWithSuffix("crop"));
 
             registry.register(id, crop);
         });
@@ -144,9 +142,7 @@ public final class CropRegistry implements ICropRegistry {
                 c.setEssenceItem(() -> defaultEssence, true);
             }
 
-            var id = ForgeRegistries.ITEMS.getKey(essence);
-            if (id == null)
-                id = new ResourceLocation(MysticalAgriculture.MOD_ID, c.getNameWithSuffix("essence"));
+            var id = new ResourceLocation(MysticalAgriculture.MOD_ID, c.getNameWithSuffix("essence"));
 
             registry.register(id, essence);
         });
@@ -159,9 +155,7 @@ public final class CropRegistry implements ICropRegistry {
                 c.setSeedsItem(() -> defaultSeeds, true);
             }
 
-            var id = ForgeRegistries.ITEMS.getKey(seeds);
-            if (id == null)
-                id = new ResourceLocation(MysticalAgriculture.MOD_ID, c.getNameWithSuffix("seeds"));
+            var id = new ResourceLocation(MysticalAgriculture.MOD_ID, c.getNameWithSuffix("seeds"));
 
             registry.register(id, seeds);
         });

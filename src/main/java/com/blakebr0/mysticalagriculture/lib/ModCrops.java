@@ -13,13 +13,14 @@ import com.blakebr0.mysticalagriculture.init.ModItems;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.CropBlock;
 import net.minecraftforge.fml.ModList;
+import net.minecraftforge.fml.loading.FMLEnvironment;
 
 import java.util.Arrays;
 
 import static com.blakebr0.mysticalagriculture.MysticalAgriculture.MOD_ID;
 
 public final class ModCrops {
-    private static final boolean DEBUG = false;
+    private static final boolean DEBUG = !FMLEnvironment.production;
 
     public static final Crop AIR = new Crop(new ResourceLocation(MOD_ID, "air"), CropTier.ELEMENTAL, CropType.RESOURCE, CropTextures.ELEMENTAL_CROP_TEXTURES, 0xDAD64D, LazyIngredient.item("mysticalagriculture:air_agglomeratio"));
     public static final Crop EARTH = new Crop(new ResourceLocation(MOD_ID, "earth"), CropTier.ELEMENTAL, CropType.RESOURCE, CropTextures.ELEMENTAL_CROP_TEXTURES, 0x54DA4D, LazyIngredient.item("mysticalagriculture:earth_agglomeratio"));
