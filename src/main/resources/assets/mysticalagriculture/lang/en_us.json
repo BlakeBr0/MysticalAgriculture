@@ -282,6 +282,10 @@
 
   "jei.desc.mysticalagriculture.cognizant_dust": "Dropped by the Wither and the Ender Dragon when killed with an Essence Weapon enchanted with Mystical Enlightenment.",
 
+  "config.jade.plugin_mysticalagriculture.crop": "Resource Crop additional info",
+  "config.jade.plugin_mysticalagriculture.inferium_crop": "Inferium Crop secondary output",
+  "config.jade.plugin_mysticalagriculture.infused_farmland": "Essence Farmland tier",
+
   "cropTier.mysticalagriculture.elemental": "Elemental",
   "cropTier.mysticalagriculture.1": "1",
   "cropTier.mysticalagriculture.2": "2",
