@@ -61,7 +61,7 @@ public class SoulExtractorContainer extends AbstractContainerMenu {
             var itemstack1 = slot.getItem();
             itemstack = itemstack1.copy();
 
-            if (index != 1 && index != 0) {
+            if (index > 2) {
                 if (itemstack1.getItem() == ModItems.SOUL_JAR.get()) {
                     if (!this.moveItemStackTo(itemstack1, 2, 3, false)) {
                         return ItemStack.EMPTY;
