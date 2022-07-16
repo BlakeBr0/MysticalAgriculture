@@ -5,9 +5,11 @@ import com.blakebr0.cucumber.inventory.SidedItemStackHandlerWrapper;
 import com.blakebr0.cucumber.tileentity.BaseInventoryTileEntity;
 import com.blakebr0.cucumber.util.Localizable;
 import com.blakebr0.mysticalagriculture.api.crafting.RecipeTypes;
+import com.blakebr0.mysticalagriculture.api.util.MobSoulUtils;
 import com.blakebr0.mysticalagriculture.container.SoulExtractorContainer;
 import com.blakebr0.mysticalagriculture.crafting.recipe.SoulExtractionRecipe;
 import com.blakebr0.mysticalagriculture.init.ModTileEntities;
+import com.blakebr0.mysticalagriculture.item.SoulJarItem;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
@@ -49,7 +51,7 @@ public class SoulExtractorTileEntity extends BaseInventoryTileEntity implements 
         super(ModTileEntities.SOUL_EXTRACTOR.get(), pos, state);
         this.inventory = createInventoryHandler(this::markDirtyAndDispatch);
         this.energy = new EnergyStorage(FUEL_CAPACITY);
-        this.inventoryCapabilities = SidedItemStackHandlerWrapper.create(this.inventory, new Direction[] { Direction.UP, Direction.DOWN, Direction.NORTH }, this::canInsertStackSided, null);
+        this.inventoryCapabilities = SidedItemStackHandlerWrapper.create(this.inventory, new Direction[] { Direction.UP, Direction.DOWN, Direction.NORTH }, this::canInsertStackSided, this::canExtractStackSided);
     }
 
     @Override
@@ -210,6 +212,17 @@ public class SoulExtractorTileEntity extends BaseInventoryTileEntity implements 
             return true;
         if (slot == 1 && direction == Direction.NORTH)
             return FurnaceBlockEntity.isFuel(stack);
+        if (slot == 2 && direction == Direction.NORTH)
+            return stack.getItem() instanceof SoulJarItem;
+
+        return false;
+    }
+
+    private boolean canExtractStackSided(int slot, Direction direction) {
+        if (slot == 2 && direction == Direction.DOWN) {
+            var stack = this.inventory.getStackInSlot(2);
+            return stack.getItem() instanceof SoulJarItem && MobSoulUtils.isJarFull(stack);
+        }
 
         return false;
     }
