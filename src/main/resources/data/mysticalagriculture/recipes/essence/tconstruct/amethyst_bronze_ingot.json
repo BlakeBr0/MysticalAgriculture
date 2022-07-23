@@ -2,12 +2,8 @@
   "type": "cucumber:shaped_no_mirror",
   "conditions": [
     {
-      "type": "forge:mod_loaded",
-      "modid": "create"
-    },
-    {
       "type": "mysticalagriculture:crop_enabled",
-      "crop": "mysticalagriculture:limestone"
+      "crop": "mysticalagriculture:amethyst_bronze"
     }
   ],
   "pattern": [
@@ -17,11 +13,11 @@
   ],
   "key": {
     "E": {
-      "item": "mysticalagriculture:limestone_essence"
+      "item": "mysticalagriculture:amethyst_bronze_essence"
     }
   },
   "result": {
-    "item": "create:limestone",
-    "count": 16
+    "item": "tconstruct:amethyst_bronze_ingot",
+    "count": 4
   }
 }

@@ -169,9 +169,15 @@ public final class CropRegistry implements ICropRegistry {
         var recipes = crop.getRecipeConfig();
         var config = this.currentPluginConfig;
 
-        recipes.setSeedCraftingRecipeEnabled(config.isDynamicSeedCraftingRecipesEnabled());
-        recipes.setSeedInfusionRecipeEnabled(config.isDynamicSeedInfusionRecipesEnabled());
-        recipes.setSeedReprocessorRecipeEnabled(config.isDynamicSeedReprocessorRecipesEnabled());
+        recipes.setSeedCraftingRecipeEnabled(
+                recipes.isSeedCraftingRecipeEnabled() && config.isDynamicSeedCraftingRecipesEnabled()
+        );
+        recipes.setSeedInfusionRecipeEnabled(
+                recipes.isSeedInfusionRecipeEnabled() && config.isDynamicSeedInfusionRecipesEnabled()
+        );
+        recipes.setSeedReprocessorRecipeEnabled(
+                recipes.isSeedReprocessorRecipeEnabled() && config.isDynamicSeedReprocessorRecipesEnabled()
+        );
     }
 
     private Map<ResourceLocation, Crop> getSortedCropsMap(Collection<Crop> crops) {

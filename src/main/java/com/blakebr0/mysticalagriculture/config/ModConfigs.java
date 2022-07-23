@@ -124,7 +124,7 @@ public final class ModConfigs {
                 .comment("The maximum Y level that Prosperity Ore veins can spawn.")
                 .defineInRange("prosperitySpawnMaxY", 24, -64, 319);
         PROSPERITY_BIOME_WHITELIST = common
-                .comment("The list of biome IDs that Prosperity Ore veins can spawn in.")
+                .comment("The list of biome IDs that Prosperity Ore veins can spawn in.", "Leaving this value empty will result in the default spawn behavior.")
                 .define("prosperityBiomeWhitelist", new ArrayList<>());
         GENERATE_INFERIUM = common
                 .comment("Should Inferium Ore generate in the world?")
@@ -142,7 +142,7 @@ public final class ModConfigs {
                 .comment("The maximum Y level that Inferium Ore veins can spawn.")
                 .defineInRange("inferiumSpawnMaxY", 64, -64, 319);
         INFERIUM_BIOME_WHITELIST = common
-                .comment("The list of biome IDs that Inferium Ore veins can spawn in.")
+                .comment("The list of biome IDs that Inferium Ore veins can spawn in.", "Leaving this value empty will result in the default spawn behavior.")
                 .define("inferiumBiomeWhitelist", new ArrayList<>());
         GENERATE_SOULSTONE = common
                 .comment("How many Soulstone veins should spawn in a chunk.")
@@ -160,7 +160,7 @@ public final class ModConfigs {
                 .comment("The maximum Y level that Soulstone veins can spawn.")
                 .defineInRange("soulstoneSpawnMaxY", 128, 0, 128);
         SOULSTONE_BIOME_WHITELIST = common
-                .comment("The list of biome IDs that Soulstone veins can spawn in.")
+                .comment("The list of biome IDs that Soulstone veins can spawn in.", "Leaving this value empty will result in the default spawn behavior.")
                 .define("soulstoneBiomeWhitelist", new ArrayList<>());
         common.pop();
 
