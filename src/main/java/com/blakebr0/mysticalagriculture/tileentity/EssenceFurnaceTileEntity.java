@@ -120,14 +120,14 @@ public abstract class EssenceFurnaceTileEntity extends AbstractFurnaceBlockEntit
                 tile.litDuration = tile.litTime;
                 if (tile.isLit()) {
                     flag1 = true;
-                    if (stack.hasContainerItem())
-                        tile.items.set(1, stack.getContainerItem());
+                    if (stack.hasCraftingRemainingItem())
+                        tile.items.set(1, stack.getCraftingRemainingItem());
                     else
                     if (!stack.isEmpty()) {
                         stack.shrink(1);
 
                         if (stack.isEmpty()) {
-                            tile.items.set(1, stack.getContainerItem());
+                            tile.items.set(1, stack.getCraftingRemainingItem());
                         }
                     }
                 }

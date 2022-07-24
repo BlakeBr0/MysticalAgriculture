@@ -6,8 +6,8 @@ import com.blakebr0.mysticalagriculture.data.generator.BlockTagsJsonGenerator;
 import com.blakebr0.mysticalagriculture.data.generator.ItemModelJsonGenerator;
 import com.blakebr0.mysticalagriculture.data.generator.ItemTagsJsonGenerator;
 import com.blakebr0.mysticalagriculture.data.generator.RecipeJsonGenerator;
+import net.minecraftforge.data.event.GatherDataEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.forge.event.lifecycle.GatherDataEvent;
 
 public final class ModDataGenerators {
     @SubscribeEvent

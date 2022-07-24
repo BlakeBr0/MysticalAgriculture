@@ -24,11 +24,9 @@ import net.minecraft.client.resources.model.BlockModelRotation;
 import net.minecraft.client.resources.model.Material;
 import net.minecraft.client.resources.model.ModelResourceLocation;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraftforge.client.event.ModelBakeEvent;
-import net.minecraftforge.client.event.ModelRegistryEvent;
+import net.minecraftforge.client.event.ModelEvent;
 import net.minecraftforge.client.event.TextureStitchEvent;
-import net.minecraftforge.client.model.ForgeModelBakery;
-import net.minecraftforge.client.model.data.EmptyModelData;
+import net.minecraftforge.client.model.data.ModelData;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -43,30 +41,30 @@ public final class ModelHandler {
     private static final ResourceLocation BLOCK_ATLAS = new ResourceLocation("minecraft", "textures/atlas/blocks.png");
 
     @SubscribeEvent
-    public void onRegisterModels(ModelRegistryEvent event) {
+    public void onRegisterAdditionalModels(ModelEvent.RegisterAdditional event) {
         if (!ModConfigs.ANIMATED_GROWTH_ACCELERATORS.get()) {
             for (var type : new String[] { "block", "item" }) {
                 for (var tier : new String[] { "inferium", "prudentium", "tertium", "imperium", "supremium" }) {
-                    ForgeModelBakery.addSpecialModel(new ResourceLocation(MysticalAgriculture.MOD_ID, String.format("%s/%s_growth_accelerator_static", type, tier)));
+                    event.register(new ResourceLocation(MysticalAgriculture.MOD_ID, String.format("%s/%s_growth_accelerator_static", type, tier)));
                 }
             }
         }
 
         for (int i = 0; i < 8; i++) {
-            ForgeModelBakery.addSpecialModel(new ResourceLocation(MysticalAgriculture.MOD_ID, "block/mystical_resource_crop_" + i));
-            ForgeModelBakery.addSpecialModel(new ResourceLocation(MysticalAgriculture.MOD_ID, "block/mystical_mob_crop_" + i));
+            event.register(new ResourceLocation(MysticalAgriculture.MOD_ID, "block/mystical_resource_crop_" + i));
+            event.register(new ResourceLocation(MysticalAgriculture.MOD_ID, "block/mystical_mob_crop_" + i));
         }
 
-        ForgeModelBakery.addSpecialModel(new ResourceLocation(MysticalAgriculture.MOD_ID, "item/mystical_essence"));
-        ForgeModelBakery.addSpecialModel(new ResourceLocation(MysticalAgriculture.MOD_ID, "item/mystical_seeds"));
+        event.register(new ResourceLocation(MysticalAgriculture.MOD_ID, "item/mystical_essence"));
+        event.register(new ResourceLocation(MysticalAgriculture.MOD_ID, "item/mystical_seeds"));
     }
 
     @SubscribeEvent
-    public void onModelBake(ModelBakeEvent event) {
+    public void onModelBakingCompleted(ModelEvent.BakingCompleted event) {
         var stopwatch = Stopwatch.createStarted();
 
-        var registry = event.getModelRegistry();
-        var bakery = event.getModelLoader();
+        var registry = event.getModels();
+        var bakery = event.getModelBakery();
 
         if (!ModConfigs.ANIMATED_GROWTH_ACCELERATORS.get()) {
             for (var tier : new String[] { "inferium", "prudentium", "tertium", "imperium", "supremium" }) {
@@ -93,7 +91,7 @@ public final class ModelHandler {
             cropModelsGrown.put(cropType.getId(), modelWrapper);
         }
 
-        Function<Material, TextureAtlasSprite> getSprite = bakery.getSpriteMap()::getSprite;
+        Function<Material, TextureAtlasSprite> getSprite = bakery.getAtlasSet()::getSprite;
         var generator = new ItemModelGenerator();
 
         var essenceModel = bakery.getModel(new ResourceLocation(MysticalAgriculture.MOD_ID, "item/mystical_essence"));
@@ -111,7 +109,7 @@ public final class ModelHandler {
                     var location = new ModelResourceLocation(cropId, "age=" + i);
                     var bakedModel = registry.get(location);
 
-                    if (bakedModel == null || bakedModel.getParticleIcon(EmptyModelData.INSTANCE).getName().equals(MISSING_NO)) {
+                    if (bakedModel == null || bakedModel.getParticleIcon(ModelData.EMPTY).getName().equals(MISSING_NO)) {
                         var type = crop.getType().getId();
                         registry.replace(location, cropModels.get(type)[i]);
                     }
@@ -120,7 +118,7 @@ public final class ModelHandler {
                 var location = new ModelResourceLocation(cropId, "age=7");
                 var bakedModel = registry.get(location);
 
-                if (bakedModel == null || bakedModel.getParticleIcon(EmptyModelData.INSTANCE).getName().equals(MISSING_NO)) {
+                if (bakedModel == null || bakedModel.getParticleIcon(ModelData.EMPTY).getName().equals(MISSING_NO)) {
                     var texture = crop.getTextures().getFlowerTexture();
                     var cropRetexturedModel = cropModelsGrown.get(crop.getType().getId()).retexture(ImmutableMap.of("flower", texture.toString()));
                     var cropBakedModel = cropRetexturedModel.bake(bakery, getSprite, BlockModelRotation.X0_Y0, location);
@@ -136,7 +134,7 @@ public final class ModelHandler {
                 var location = new ModelResourceLocation(essenceId, "inventory");
                 var bakedModel = registry.get(location);
 
-                if (bakedModel == null || bakedModel.getParticleIcon(EmptyModelData.INSTANCE).getName().equals(MISSING_NO)) {
+                if (bakedModel == null || bakedModel.getParticleIcon(ModelData.EMPTY).getName().equals(MISSING_NO)) {
                     var texture = textures.getEssenceTexture();
                     var retexture = essenceModelWrapper.retexture(ImmutableMap.of("layer0", texture.toString()));
                     var generated = generator.generateBlockModel(getSprite, retexture);
@@ -153,7 +151,7 @@ public final class ModelHandler {
                 var location = new ModelResourceLocation(seedsId, "inventory");
                 var bakedModel = registry.get(location);
 
-                if (bakedModel == null || bakedModel.getParticleIcon(EmptyModelData.INSTANCE).getName().equals(MISSING_NO)) {
+                if (bakedModel == null || bakedModel.getParticleIcon(ModelData.EMPTY).getName().equals(MISSING_NO)) {
                     var texture = textures.getSeedTexture();
                     var retexture = seedsModelWrapper.retexture(ImmutableMap.of("layer0", texture.toString()));
                     var generated = generator.generateBlockModel(getSprite, retexture);

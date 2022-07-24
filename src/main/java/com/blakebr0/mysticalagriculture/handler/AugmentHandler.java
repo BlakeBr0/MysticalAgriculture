@@ -12,8 +12,8 @@ public final class AugmentHandler {
     private static final AbilityCache ABILITY_CACHE = new AbilityCache();
 
     @SubscribeEvent
-    public void onPlayerUpdate(LivingEvent.LivingUpdateEvent event) {
-        var entity = event.getEntityLiving();
+    public void onPlayerUpdate(LivingEvent.LivingTickEvent event) {
+        var entity = event.getEntity();
 
         if (entity instanceof Player player) {
             var world = player.getCommandSenderWorld();
@@ -31,7 +31,7 @@ public final class AugmentHandler {
 
     @SubscribeEvent
     public void onLivingFall(LivingFallEvent event) {
-        var entity = event.getEntityLiving();
+        var entity = event.getEntity();
 
         if (entity instanceof Player player) {
             var world = player.getCommandSenderWorld();
@@ -44,7 +44,7 @@ public final class AugmentHandler {
 
     @SubscribeEvent
     public void onPlayerLoggedOut(PlayerEvent.PlayerLoggedOutEvent event) {
-        var player = event.getPlayer();
+        var player = event.getEntity();
 
         ABILITY_CACHE.getCachedAbilities(player).forEach(c -> {
             ABILITY_CACHE.removeQuietly(c, player);

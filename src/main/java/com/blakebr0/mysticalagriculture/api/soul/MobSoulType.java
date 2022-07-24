@@ -148,7 +148,7 @@ public class MobSoulType {
      * @return is the entity valid
      */
     public boolean isEntityApplicable(LivingEntity entity) {
-        var id = ForgeRegistries.ENTITIES.getKey(entity.getType());
+        var id = ForgeRegistries.ENTITY_TYPES.getKey(entity.getType());
         return this.entityIds.contains(id);
     }
 
@@ -164,7 +164,7 @@ public class MobSoulType {
                 var entityId = this.entityIds.stream().findFirst().orElse(null);
 
                 if (entityId != null) {
-                    var entity = ForgeRegistries.ENTITIES.getValue(entityId);
+                    var entity = ForgeRegistries.ENTITY_TYPES.getValue(entityId);
 
                     if (entity != null) {
                         this.entityDisplayName = entity.getDescription();

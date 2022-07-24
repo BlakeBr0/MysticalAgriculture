@@ -18,7 +18,7 @@ public final class ExperienceCapsuleHandler {
     @SubscribeEvent
     public void onPlayerPickupXp(PlayerXpEvent.PickupXp event) {
         var orb = event.getOrb();
-        var player = event.getPlayer();
+        var player = event.getEntity();
 
         if (player != null) {
             var capsules = getExperienceCapsules(player);

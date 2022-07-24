@@ -61,7 +61,7 @@ public class ReprocessorBlock extends BaseTileEntityBlock {
             var tile = world.getBlockEntity(pos);
 
             if (tile instanceof ReprocessorTileEntity) {
-                NetworkHooks.openGui((ServerPlayer) player, (MenuProvider) tile, pos);
+                NetworkHooks.openScreen((ServerPlayer) player, (MenuProvider) tile, pos);
             }
         }
 

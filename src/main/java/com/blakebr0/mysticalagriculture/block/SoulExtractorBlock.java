@@ -58,7 +58,7 @@ public class SoulExtractorBlock extends BaseTileEntityBlock {
             var tile = world.getBlockEntity(pos);
 
             if (tile instanceof SoulExtractorTileEntity extractor) {
-                NetworkHooks.openGui((ServerPlayer) player, extractor, pos);
+                NetworkHooks.openScreen((ServerPlayer) player, extractor, pos);
             }
         }
 

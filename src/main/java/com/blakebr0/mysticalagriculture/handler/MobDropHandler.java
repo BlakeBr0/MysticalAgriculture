@@ -19,7 +19,7 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 public final class MobDropHandler {
     @SubscribeEvent
     public void onLivingDrops(LivingDropsEvent event) {
-        var entity = event.getEntityLiving();
+        var entity = event.getEntity();
         var level = entity.getCommandSenderWorld();
 
         if (!level.getGameRules().getBoolean(GameRules.RULE_DOMOBLOOT))

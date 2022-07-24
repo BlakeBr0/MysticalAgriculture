@@ -11,7 +11,7 @@ import net.minecraft.client.renderer.block.model.ItemTransforms;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderer;
 import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
 import net.minecraft.world.item.BlockItem;
-import net.minecraftforge.client.model.data.EmptyModelData;
+import net.minecraftforge.client.model.data.ModelData;
 
 public class InfusionAltarRenderer implements BlockEntityRenderer<InfusionAltarTileEntity> {
     public InfusionAltarRenderer(BlockEntityRendererProvider.Context context) { }
@@ -45,7 +45,7 @@ public class InfusionAltarRenderer implements BlockEntityRenderer<InfusionAltarT
             if (level != null && level.isEmptyBlock(aoePos)) {
                 matrix.pushPose();
                 matrix.translate(aoePos.getX(), aoePos.getY(), aoePos.getZ());
-                minecraft.getBlockRenderer().renderBatched(ModBlocks.INFUSION_PEDESTAL.get().defaultBlockState(), aoePos, level, matrix, builder, false, level.getRandom(), EmptyModelData.INSTANCE);
+                minecraft.getBlockRenderer().renderBatched(ModBlocks.INFUSION_PEDESTAL.get().defaultBlockState(), aoePos, level, matrix, builder, false, level.getRandom(), ModelData.EMPTY, null);
                 matrix.popPose();
             }
         });

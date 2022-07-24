@@ -20,7 +20,7 @@ import net.minecraftforge.registries.RegistryObject;
 import java.util.function.Supplier;
 
 public final class ModContainerTypes {
-    public static final DeferredRegister<MenuType<?>> REGISTRY = DeferredRegister.create(ForgeRegistries.CONTAINERS, MysticalAgriculture.MOD_ID);
+    public static final DeferredRegister<MenuType<?>> REGISTRY = DeferredRegister.create(ForgeRegistries.MENU_TYPES, MysticalAgriculture.MOD_ID);
 
     public static final RegistryObject<MenuType<TinkeringTableContainer>> TINKERING_TABLE = register("tinkering_table", () -> new MenuType<>(TinkeringTableContainer::create));
     public static final RegistryObject<MenuType<ReprocessorContainer>> REPROCESSOR = register("reprocessor", () -> new MenuType<>((IContainerFactory<ReprocessorContainer>) ReprocessorContainer::create));

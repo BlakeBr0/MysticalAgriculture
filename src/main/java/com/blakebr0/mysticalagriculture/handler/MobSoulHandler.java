@@ -23,7 +23,7 @@ public final class MobSoulHandler {
             var held = player.getItemInHand(InteractionHand.MAIN_HAND);
 
             if (held.getItem() instanceof ISoulSiphoningItem siphoner) {
-                var entity = event.getEntityLiving();
+                var entity = event.getEntity();
                 var type = MobSoulTypeRegistry.getInstance().getMobSoulTypeByEntity(entity);
 
                 if (type == null || !type.isEnabled())
