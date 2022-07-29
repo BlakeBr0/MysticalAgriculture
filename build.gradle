@@ -32,7 +32,7 @@ repositories {
 }
 
 minecraft {
-    mappings channel: 'official', version: '1.19'
+    mappings channel: 'official', version: '1.19.1'
 
     accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg')
 
