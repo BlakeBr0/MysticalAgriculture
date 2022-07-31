@@ -65,6 +65,7 @@ public final class MysticalAgriculture {
 		ModTileEntities.REGISTRY.register(bus);
 		ModContainerTypes.REGISTRY.register(bus);
 		ModRecipeTypes.REGISTRY.register(bus);
+		ModRecipeSerializers.REGISTRY.register(bus);
 		ModWorldFeatures.REGISTRY.register(bus);
 		ModBiomeModifiers.REGISTRY.register(bus);
 

@@ -62,8 +62,8 @@ public class InfusionRecipe implements ISpecialRecipe, IInfusionRecipe {
     }
 
     @Override
-    public RecipeSerializer<InfusionRecipe> getSerializer() {
-        return ModRecipeSerializers.INFUSION;
+    public RecipeSerializer<?> getSerializer() {
+        return ModRecipeSerializers.INFUSION.get();
     }
 
     @Override

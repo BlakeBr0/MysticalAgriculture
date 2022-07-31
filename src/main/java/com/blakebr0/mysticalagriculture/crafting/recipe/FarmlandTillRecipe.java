@@ -43,7 +43,7 @@ public class FarmlandTillRecipe extends ShapelessRecipe {
 
     @Override
     public RecipeSerializer<?> getSerializer() {
-        return ModRecipeSerializers.CRAFTING_FARMLAND_TILL;
+        return ModRecipeSerializers.CRAFTING_FARMLAND_TILL.get();
     }
 
     public static class Serializer implements RecipeSerializer<FarmlandTillRecipe> {

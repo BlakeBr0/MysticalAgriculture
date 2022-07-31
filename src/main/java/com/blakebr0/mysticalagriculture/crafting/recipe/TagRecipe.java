@@ -44,7 +44,7 @@ public class TagRecipe extends ShapedNoMirrorRecipe {
 
     @Override
     public RecipeSerializer<?> getSerializer() {
-        return ModRecipeSerializers.CRAFTING_TAG;
+        return ModRecipeSerializers.CRAFTING_TAG.get();
     }
 
     public static class Serializer implements RecipeSerializer<TagRecipe> {

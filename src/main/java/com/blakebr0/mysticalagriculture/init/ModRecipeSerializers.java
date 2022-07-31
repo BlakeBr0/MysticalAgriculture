@@ -21,17 +21,23 @@ import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraftforge.common.crafting.CraftingHelper;
 import net.minecraftforge.common.crafting.IIngredientSerializer;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegisterEvent;
+import net.minecraftforge.registries.RegistryObject;
+
+import java.util.function.Supplier;
 
 public final class ModRecipeSerializers {
-    public static final RecipeSerializer<FarmlandTillRecipe> CRAFTING_FARMLAND_TILL = new FarmlandTillRecipe.Serializer();
-    public static final RecipeSerializer<InfusionRecipe> INFUSION = new InfusionRecipe.Serializer();
-    public static final RecipeSerializer<AwakeningRecipe> AWAKENING = new AwakeningRecipe.Serializer();
-    public static final RecipeSerializer<ReprocessorRecipe> REPROCESSOR = new ReprocessorRecipe.Serializer();
-    public static final RecipeSerializer<SoulExtractionRecipe> SOUL_EXTRACTION = new SoulExtractionRecipe.Serializer();
-    public static final RecipeSerializer<TagRecipe> CRAFTING_TAG = new TagRecipe.Serializer();
-    public static final RecipeSerializer<SoulJarEmptyRecipe> CRAFTING_SOUL_JAR_EMPTY = new SoulJarEmptyRecipe.Serializer();
+    public static final DeferredRegister<RecipeSerializer<?>> REGISTRY = DeferredRegister.create(ForgeRegistries.RECIPE_SERIALIZERS, MysticalAgriculture.MOD_ID);
+
+    public static final RegistryObject<RecipeSerializer<?>> CRAFTING_FARMLAND_TILL = register("farmland_till", FarmlandTillRecipe.Serializer::new);
+    public static final RegistryObject<RecipeSerializer<?>> INFUSION = register("infusion", InfusionRecipe.Serializer::new);
+    public static final RegistryObject<RecipeSerializer<?>> AWAKENING = register("awakening", AwakeningRecipe.Serializer::new);
+    public static final RegistryObject<RecipeSerializer<?>> REPROCESSOR = register("reprocessor", ReprocessorRecipe.Serializer::new);
+    public static final RegistryObject<RecipeSerializer<?>> SOUL_EXTRACTION = register("soul_extraction", SoulExtractionRecipe.Serializer::new);
+    public static final RegistryObject<RecipeSerializer<?>> CRAFTING_TAG = register("tag", TagRecipe.Serializer::new);
+    public static final RegistryObject<RecipeSerializer<?>> CRAFTING_SOUL_JAR_EMPTY = register("soul_jar_empty", SoulJarEmptyRecipe.Serializer::new);
 
     public static final IIngredientSerializer<HoeIngredient> HOE_INGREDIENT = new HoeIngredient.Serializer();
     public static final IIngredientSerializer<FilledSoulJarIngredient> FILLED_SOUL_JAR_INGREDIENT = new FilledSoulJarIngredient.Serializer();
@@ -40,14 +46,6 @@ public final class ModRecipeSerializers {
     @SubscribeEvent
     public void onRegisterSerializers(RegisterEvent event) {
         event.register(ForgeRegistries.Keys.RECIPE_SERIALIZERS, registry -> {
-            registry.register(new ResourceLocation(MysticalAgriculture.MOD_ID, "farmland_till"), CRAFTING_FARMLAND_TILL);
-            registry.register(new ResourceLocation(MysticalAgriculture.MOD_ID, "infusion"), INFUSION);
-            registry.register(new ResourceLocation(MysticalAgriculture.MOD_ID, "awakening"), AWAKENING);
-            registry.register(new ResourceLocation(MysticalAgriculture.MOD_ID, "reprocessor"), REPROCESSOR);
-            registry.register(new ResourceLocation(MysticalAgriculture.MOD_ID, "soul_extraction"), SOUL_EXTRACTION);
-            registry.register(new ResourceLocation(MysticalAgriculture.MOD_ID, "tag"), CRAFTING_TAG);
-            registry.register(new ResourceLocation(MysticalAgriculture.MOD_ID, "soul_jar_empty"), CRAFTING_SOUL_JAR_EMPTY);
-
             CraftingHelper.register(CropEnabledCondition.Serializer.INSTANCE);
             CraftingHelper.register(AugmentEnabledCondition.Serializer.INSTANCE);
             CraftingHelper.register(CropHasMaterialCondition.Serializer.INSTANCE);
@@ -63,5 +61,9 @@ public final class ModRecipeSerializers {
         ForgeRegistries.ITEMS.getValues().stream()
                 .filter(i -> i instanceof HoeItem)
                 .forEach(i -> HoeIngredient.ALL_HOES.add((HoeItem) i));
+    }
+
+    private static RegistryObject<RecipeSerializer<?>> register(String name, Supplier<RecipeSerializer<?>> serializer) {
+        return REGISTRY.register(name, serializer);
     }
 }

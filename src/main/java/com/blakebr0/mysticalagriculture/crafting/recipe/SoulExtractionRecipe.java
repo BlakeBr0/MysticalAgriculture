@@ -75,8 +75,8 @@ public class SoulExtractionRecipe implements ISpecialRecipe, ISoulExtractionReci
     }
 
     @Override
-    public RecipeSerializer<SoulExtractionRecipe> getSerializer() {
-        return ModRecipeSerializers.SOUL_EXTRACTION;
+    public RecipeSerializer<?> getSerializer() {
+        return ModRecipeSerializers.SOUL_EXTRACTION.get();
     }
 
     @Override

@@ -76,8 +76,8 @@ public class AwakeningRecipe implements ISpecialRecipe, IAwakeningRecipe {
     }
 
     @Override
-    public RecipeSerializer<AwakeningRecipe> getSerializer() {
-        return ModRecipeSerializers.AWAKENING;
+    public RecipeSerializer<?> getSerializer() {
+        return ModRecipeSerializers.AWAKENING.get();
     }
 
     @Override

@@ -87,7 +87,7 @@ public class ReprocessorRecipeBuilder {
 
         @Override
         public RecipeSerializer<?> getType() {
-            return ModRecipeSerializers.REPROCESSOR;
+            return ModRecipeSerializers.REPROCESSOR.get();
         }
 
         @Override

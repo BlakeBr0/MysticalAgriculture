@@ -48,7 +48,7 @@ public class SoulJarEmptyRecipe extends ShapelessRecipe {
 
     @Override
     public RecipeSerializer<?> getSerializer() {
-        return ModRecipeSerializers.CRAFTING_SOUL_JAR_EMPTY;
+        return ModRecipeSerializers.CRAFTING_SOUL_JAR_EMPTY.get();
     }
 
     public static class Serializer implements RecipeSerializer<SoulJarEmptyRecipe> {

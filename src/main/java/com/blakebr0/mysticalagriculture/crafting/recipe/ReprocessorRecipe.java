@@ -60,8 +60,8 @@ public class ReprocessorRecipe implements ISpecialRecipe, IReprocessorRecipe {
     }
 
     @Override
-    public RecipeSerializer<ReprocessorRecipe> getSerializer() {
-        return ModRecipeSerializers.REPROCESSOR;
+    public RecipeSerializer<?> getSerializer() {
+        return ModRecipeSerializers.REPROCESSOR.get();
     }
 
     @Override

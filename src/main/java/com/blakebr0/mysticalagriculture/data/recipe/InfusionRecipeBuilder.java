@@ -128,7 +128,7 @@ public class InfusionRecipeBuilder {
 
         @Override
         public RecipeSerializer<?> getType() {
-            return ModRecipeSerializers.INFUSION;
+            return ModRecipeSerializers.INFUSION.get();
         }
 
         @Override
