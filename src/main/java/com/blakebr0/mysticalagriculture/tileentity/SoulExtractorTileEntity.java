@@ -4,10 +4,10 @@ import com.blakebr0.cucumber.inventory.BaseItemStackHandler;
 import com.blakebr0.cucumber.inventory.SidedItemStackHandlerWrapper;
 import com.blakebr0.cucumber.tileentity.BaseInventoryTileEntity;
 import com.blakebr0.cucumber.util.Localizable;
-import com.blakebr0.mysticalagriculture.api.crafting.RecipeTypes;
 import com.blakebr0.mysticalagriculture.api.util.MobSoulUtils;
 import com.blakebr0.mysticalagriculture.container.SoulExtractorContainer;
 import com.blakebr0.mysticalagriculture.crafting.recipe.SoulExtractionRecipe;
+import com.blakebr0.mysticalagriculture.init.ModRecipeTypes;
 import com.blakebr0.mysticalagriculture.init.ModTileEntities;
 import com.blakebr0.mysticalagriculture.item.SoulJarItem;
 import net.minecraft.core.BlockPos;
@@ -140,7 +140,7 @@ public class SoulExtractorTileEntity extends BaseInventoryTileEntity implements 
         }
 
         if (tile.recipe == null || !tile.recipe.matches(tile.inventory)) {
-            var recipe = level.getRecipeManager().getRecipeFor(RecipeTypes.SOUL_EXTRACTION, tile.inventory.toIInventory(), level).orElse(null);
+            var recipe = level.getRecipeManager().getRecipeFor(ModRecipeTypes.SOUL_EXTRACTION.get(), tile.inventory.toIInventory(), level).orElse(null);
             tile.recipe = recipe instanceof SoulExtractionRecipe ? (SoulExtractionRecipe) recipe : null;
         }
 

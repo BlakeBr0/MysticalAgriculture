@@ -2,8 +2,8 @@ package com.blakebr0.mysticalagriculture.crafting.recipe;
 
 import com.blakebr0.cucumber.crafting.ISpecialRecipe;
 import com.blakebr0.mysticalagriculture.api.crafting.IInfusionRecipe;
-import com.blakebr0.mysticalagriculture.api.crafting.RecipeTypes;
 import com.blakebr0.mysticalagriculture.init.ModRecipeSerializers;
+import com.blakebr0.mysticalagriculture.init.ModRecipeTypes;
 import com.google.gson.JsonObject;
 import net.minecraft.core.NonNullList;
 import net.minecraft.network.FriendlyByteBuf;
@@ -68,7 +68,7 @@ public class InfusionRecipe implements ISpecialRecipe, IInfusionRecipe {
 
     @Override
     public RecipeType<? extends IInfusionRecipe> getType() {
-        return RecipeTypes.INFUSION;
+        return ModRecipeTypes.INFUSION.get();
     }
 
     @Override

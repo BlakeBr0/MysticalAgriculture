@@ -19,6 +19,7 @@ import com.blakebr0.mysticalagriculture.init.ModContainerTypes;
 import com.blakebr0.mysticalagriculture.init.ModEnchantments;
 import com.blakebr0.mysticalagriculture.init.ModItems;
 import com.blakebr0.mysticalagriculture.init.ModRecipeSerializers;
+import com.blakebr0.mysticalagriculture.init.ModRecipeTypes;
 import com.blakebr0.mysticalagriculture.init.ModTileEntities;
 import com.blakebr0.mysticalagriculture.lib.ModItemTier;
 import com.blakebr0.mysticalagriculture.network.NetworkHandler;
@@ -63,6 +64,7 @@ public final class MysticalAgriculture {
 		ModEnchantments.REGISTRY.register(bus);
 		ModTileEntities.REGISTRY.register(bus);
 		ModContainerTypes.REGISTRY.register(bus);
+		ModRecipeTypes.REGISTRY.register(bus);
 		ModWorldFeatures.REGISTRY.register(bus);
 		ModBiomeModifiers.REGISTRY.register(bus);
 

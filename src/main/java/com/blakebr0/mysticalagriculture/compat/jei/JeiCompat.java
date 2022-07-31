@@ -1,7 +1,6 @@
 package com.blakebr0.mysticalagriculture.compat.jei;
 
 import com.blakebr0.mysticalagriculture.MysticalAgriculture;
-import com.blakebr0.mysticalagriculture.api.crafting.RecipeTypes;
 import com.blakebr0.mysticalagriculture.api.util.MobSoulUtils;
 import com.blakebr0.mysticalagriculture.client.screen.ReprocessorScreen;
 import com.blakebr0.mysticalagriculture.client.screen.SoulExtractorScreen;
@@ -12,6 +11,7 @@ import com.blakebr0.mysticalagriculture.compat.jei.category.ReprocessorCategory;
 import com.blakebr0.mysticalagriculture.compat.jei.category.SoulExtractorCategory;
 import com.blakebr0.mysticalagriculture.init.ModBlocks;
 import com.blakebr0.mysticalagriculture.init.ModItems;
+import com.blakebr0.mysticalagriculture.init.ModRecipeTypes;
 import mezz.jei.api.IModPlugin;
 import mezz.jei.api.JeiPlugin;
 import mezz.jei.api.constants.VanillaTypes;
@@ -24,8 +24,6 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
-
-import java.util.List;
 
 @JeiPlugin
 public final class JeiCompat implements IModPlugin {
@@ -71,10 +69,10 @@ public final class JeiCompat implements IModPlugin {
         if (level != null) {
             var manager = level.getRecipeManager();
 
-            registration.addRecipes(InfusionCategory.RECIPE_TYPE, manager.getAllRecipesFor(RecipeTypes.INFUSION));
-            registration.addRecipes(AwakeningCategory.RECIPE_TYPE, manager.getAllRecipesFor(RecipeTypes.AWAKENING));
-            registration.addRecipes(ReprocessorCategory.RECIPE_TYPE, manager.getAllRecipesFor(RecipeTypes.REPROCESSOR));
-            registration.addRecipes(SoulExtractorCategory.RECIPE_TYPE, manager.getAllRecipesFor(RecipeTypes.SOUL_EXTRACTION));
+            registration.addRecipes(InfusionCategory.RECIPE_TYPE, manager.getAllRecipesFor(ModRecipeTypes.INFUSION.get()));
+            registration.addRecipes(AwakeningCategory.RECIPE_TYPE, manager.getAllRecipesFor(ModRecipeTypes.AWAKENING.get()));
+            registration.addRecipes(ReprocessorCategory.RECIPE_TYPE, manager.getAllRecipesFor(ModRecipeTypes.REPROCESSOR.get()));
+            registration.addRecipes(SoulExtractorCategory.RECIPE_TYPE, manager.getAllRecipesFor(ModRecipeTypes.SOUL_EXTRACTION.get()));
             registration.addRecipes(CruxCategory.RECIPE_TYPE, CruxRecipe.getGeneratedRecipes());
         }
 

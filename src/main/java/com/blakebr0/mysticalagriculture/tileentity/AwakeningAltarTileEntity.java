@@ -3,9 +3,9 @@ package com.blakebr0.mysticalagriculture.tileentity;
 import com.blakebr0.cucumber.inventory.BaseItemStackHandler;
 import com.blakebr0.cucumber.tileentity.BaseInventoryTileEntity;
 import com.blakebr0.cucumber.util.MultiblockPositions;
-import com.blakebr0.mysticalagriculture.api.crafting.RecipeTypes;
 import com.blakebr0.mysticalagriculture.api.crop.ICropProvider;
 import com.blakebr0.mysticalagriculture.crafting.recipe.AwakeningRecipe;
+import com.blakebr0.mysticalagriculture.init.ModRecipeTypes;
 import com.blakebr0.mysticalagriculture.init.ModTileEntities;
 import com.blakebr0.mysticalagriculture.lib.ModCrops;
 import net.minecraft.core.BlockPos;
@@ -83,7 +83,7 @@ public class AwakeningAltarTileEntity extends BaseInventoryTileEntity {
             tile.updateRecipeInventory(pedestals);
 
             if (tile.recipe == null || !tile.recipe.matches(tile.recipeInventory)) {
-                var recipe = level.getRecipeManager().getRecipeFor(RecipeTypes.AWAKENING, tile.recipeInventory.toIInventory(), level).orElse(null);
+                var recipe = level.getRecipeManager().getRecipeFor(ModRecipeTypes.AWAKENING.get(), tile.recipeInventory.toIInventory(), level).orElse(null);
                 tile.recipe = recipe instanceof AwakeningRecipe ? (AwakeningRecipe) recipe : null;
             }
 

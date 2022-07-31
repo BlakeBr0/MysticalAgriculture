@@ -2,8 +2,8 @@ package com.blakebr0.mysticalagriculture.crafting.recipe;
 
 import com.blakebr0.cucumber.crafting.ISpecialRecipe;
 import com.blakebr0.mysticalagriculture.api.crafting.IReprocessorRecipe;
-import com.blakebr0.mysticalagriculture.api.crafting.RecipeTypes;
 import com.blakebr0.mysticalagriculture.init.ModRecipeSerializers;
+import com.blakebr0.mysticalagriculture.init.ModRecipeTypes;
 import com.google.gson.JsonObject;
 import net.minecraft.core.NonNullList;
 import net.minecraft.network.FriendlyByteBuf;
@@ -66,7 +66,7 @@ public class ReprocessorRecipe implements ISpecialRecipe, IReprocessorRecipe {
 
     @Override
     public RecipeType<? extends IReprocessorRecipe> getType() {
-        return RecipeTypes.REPROCESSOR;
+        return ModRecipeTypes.REPROCESSOR.get();
     }
 
     @Override

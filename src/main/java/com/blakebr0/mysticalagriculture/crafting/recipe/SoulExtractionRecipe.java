@@ -3,11 +3,11 @@ package com.blakebr0.mysticalagriculture.crafting.recipe;
 import com.blakebr0.cucumber.crafting.ISpecialRecipe;
 import com.blakebr0.cucumber.helper.StackHelper;
 import com.blakebr0.mysticalagriculture.api.crafting.ISoulExtractionRecipe;
-import com.blakebr0.mysticalagriculture.api.crafting.RecipeTypes;
 import com.blakebr0.mysticalagriculture.api.soul.MobSoulType;
 import com.blakebr0.mysticalagriculture.api.util.MobSoulUtils;
 import com.blakebr0.mysticalagriculture.init.ModItems;
 import com.blakebr0.mysticalagriculture.init.ModRecipeSerializers;
+import com.blakebr0.mysticalagriculture.init.ModRecipeTypes;
 import com.blakebr0.mysticalagriculture.registry.MobSoulTypeRegistry;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
@@ -81,7 +81,7 @@ public class SoulExtractionRecipe implements ISpecialRecipe, ISoulExtractionReci
 
     @Override
     public RecipeType<? extends ISoulExtractionRecipe> getType() {
-        return RecipeTypes.SOUL_EXTRACTION;
+        return ModRecipeTypes.SOUL_EXTRACTION.get();
     }
 
     @Override

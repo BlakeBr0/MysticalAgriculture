@@ -1,7 +1,6 @@
 package com.blakebr0.mysticalagriculture.init;
 
 import com.blakebr0.mysticalagriculture.MysticalAgriculture;
-import com.blakebr0.mysticalagriculture.api.crafting.RecipeTypes;
 import com.blakebr0.mysticalagriculture.crafting.condition.AugmentEnabledCondition;
 import com.blakebr0.mysticalagriculture.crafting.condition.CropEnabledCondition;
 import com.blakebr0.mysticalagriculture.crafting.condition.CropHasMaterialCondition;
@@ -57,13 +56,6 @@ public final class ModRecipeSerializers {
             CraftingHelper.register(new ResourceLocation(MysticalAgriculture.MOD_ID, "all_hoes"), HOE_INGREDIENT);
             CraftingHelper.register(new ResourceLocation(MysticalAgriculture.MOD_ID, "filled_soul_jars"), FILLED_SOUL_JAR_INGREDIENT);
             CraftingHelper.register(new ResourceLocation(MysticalAgriculture.MOD_ID, "crop_component"), CROP_COMPONENT_INGREDIENT);
-        });
-
-        event.register(ForgeRegistries.Keys.RECIPE_TYPES, registry -> {
-            registry.register(new ResourceLocation(MysticalAgriculture.MOD_ID, "infusion"), RecipeTypes.INFUSION);
-            registry.register(new ResourceLocation(MysticalAgriculture.MOD_ID, "awakening"), RecipeTypes.AWAKENING);
-            registry.register(new ResourceLocation(MysticalAgriculture.MOD_ID, "reprocessor"), RecipeTypes.REPROCESSOR);
-            registry.register(new ResourceLocation(MysticalAgriculture.MOD_ID, "soul_extraction"), RecipeTypes.SOUL_EXTRACTION);
         });
     }
 

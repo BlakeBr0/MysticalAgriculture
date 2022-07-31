@@ -2,9 +2,9 @@ package com.blakebr0.mysticalagriculture.crafting.recipe;
 
 import com.blakebr0.cucumber.crafting.ISpecialRecipe;
 import com.blakebr0.mysticalagriculture.api.crafting.IAwakeningRecipe;
-import com.blakebr0.mysticalagriculture.api.crafting.RecipeTypes;
 import com.blakebr0.mysticalagriculture.api.crop.Crop;
 import com.blakebr0.mysticalagriculture.init.ModRecipeSerializers;
+import com.blakebr0.mysticalagriculture.init.ModRecipeTypes;
 import com.blakebr0.mysticalagriculture.lib.ModCrops;
 import com.google.gson.JsonObject;
 import net.minecraft.core.NonNullList;
@@ -82,7 +82,7 @@ public class AwakeningRecipe implements ISpecialRecipe, IAwakeningRecipe {
 
     @Override
     public RecipeType<? extends IAwakeningRecipe> getType() {
-        return RecipeTypes.AWAKENING;
+        return ModRecipeTypes.AWAKENING.get();
     }
 
     @Override

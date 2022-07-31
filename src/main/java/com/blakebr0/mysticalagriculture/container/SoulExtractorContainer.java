@@ -3,9 +3,9 @@ package com.blakebr0.mysticalagriculture.container;
 import com.blakebr0.cucumber.helper.RecipeHelper;
 import com.blakebr0.cucumber.inventory.BaseItemStackHandler;
 import com.blakebr0.cucumber.inventory.slot.BaseItemStackHandlerSlot;
-import com.blakebr0.mysticalagriculture.api.crafting.RecipeTypes;
 import com.blakebr0.mysticalagriculture.init.ModContainerTypes;
 import com.blakebr0.mysticalagriculture.init.ModItems;
+import com.blakebr0.mysticalagriculture.init.ModRecipeTypes;
 import com.blakebr0.mysticalagriculture.tileentity.SoulExtractorTileEntity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.FriendlyByteBuf;
@@ -66,7 +66,7 @@ public class SoulExtractorContainer extends AbstractContainerMenu {
                     if (!this.moveItemStackTo(itemstack1, 2, 3, false)) {
                         return ItemStack.EMPTY;
                     }
-                } else if (RecipeHelper.getRecipes(RecipeTypes.SOUL_EXTRACTION).values().stream().anyMatch(r -> r.getIngredients().get(0).test(itemstack1))) {
+                } else if (RecipeHelper.getRecipes(ModRecipeTypes.SOUL_EXTRACTION.get()).values().stream().anyMatch(r -> r.getIngredients().get(0).test(itemstack1))) {
                     if (!this.moveItemStackTo(itemstack1, 0, 1, false)) {
                         return ItemStack.EMPTY;
                     }
