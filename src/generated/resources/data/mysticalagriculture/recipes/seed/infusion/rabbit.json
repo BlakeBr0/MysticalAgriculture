@@ -10,11 +10,6 @@
       "crop": "mysticalagriculture:rabbit"
     }
   ],
-  "input": {
-    "type": "mysticalagriculture:crop_component",
-    "component": "seed",
-    "crop": "mysticalagriculture:rabbit"
-  },
   "ingredients": [
     {
       "type": "mysticalagriculture:crop_component",
@@ -57,6 +52,11 @@
       "crop": "mysticalagriculture:rabbit"
     }
   ],
+  "input": {
+    "type": "mysticalagriculture:crop_component",
+    "component": "seed",
+    "crop": "mysticalagriculture:rabbit"
+  },
   "result": {
     "item": "mysticalagriculture:rabbit_seeds"
   }

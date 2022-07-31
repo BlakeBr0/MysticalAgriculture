@@ -10,11 +10,6 @@
       "crop": "mysticalagriculture:sulfur"
     }
   ],
-  "input": {
-    "type": "mysticalagriculture:crop_component",
-    "component": "seed",
-    "crop": "mysticalagriculture:sulfur"
-  },
   "ingredients": [
     {
       "type": "mysticalagriculture:crop_component",
@@ -57,6 +52,11 @@
       "crop": "mysticalagriculture:sulfur"
     }
   ],
+  "input": {
+    "type": "mysticalagriculture:crop_component",
+    "component": "seed",
+    "crop": "mysticalagriculture:sulfur"
+  },
   "result": {
     "item": "mysticalagriculture:sulfur_seeds"
   }

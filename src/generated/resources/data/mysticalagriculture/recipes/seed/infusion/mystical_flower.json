@@ -10,11 +10,6 @@
       "crop": "mysticalagriculture:mystical_flower"
     }
   ],
-  "input": {
-    "type": "mysticalagriculture:crop_component",
-    "component": "seed",
-    "crop": "mysticalagriculture:mystical_flower"
-  },
   "ingredients": [
     {
       "type": "mysticalagriculture:crop_component",
@@ -57,6 +52,11 @@
       "crop": "mysticalagriculture:mystical_flower"
     }
   ],
+  "input": {
+    "type": "mysticalagriculture:crop_component",
+    "component": "seed",
+    "crop": "mysticalagriculture:mystical_flower"
+  },
   "result": {
     "item": "mysticalagriculture:mystical_flower_seeds"
   }

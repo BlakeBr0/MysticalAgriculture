@@ -119,7 +119,6 @@ public final class ModCrops {
     public static final Crop HOP_GRAPHITE = new Crop(new ResourceLocation(MOD_ID, "hop_graphite"), CropTier.FOUR, CropType.RESOURCE, LazyIngredient.tag("forge:ingots/hop_graphite"));
 
     // TINKERS' CONSTRUCT
-    public static final Crop TINKERS_BRONZE = new Crop(new ResourceLocation(MOD_ID, "tinkers_bronze"), CropTier.THREE, CropType.RESOURCE, LazyIngredient.tag("forge:ingots/tinkers_bronze"));
     public static final Crop AMETHYST_BRONZE = new Crop(new ResourceLocation(MOD_ID, "amethyst_bronze"), CropTier.THREE, CropType.RESOURCE, LazyIngredient.tag("forge:ingots/amethyst_bronze"));
     public static final Crop SLIMESTEEL = new Crop(new ResourceLocation(MOD_ID, "slimesteel"), CropTier.THREE, CropType.RESOURCE, LazyIngredient.tag("forge:ingots/slimesteel"));
     public static final Crop PIG_IRON = new Crop(new ResourceLocation(MOD_ID, "pig_iron"), CropTier.THREE, CropType.RESOURCE, LazyIngredient.tag("forge:ingots/pig_iron"));
@@ -287,7 +286,6 @@ public final class ModCrops {
         registry.register(withRequiredMods(HOP_GRAPHITE, "immersiveengineering"));
 
         // TINKERS' CONSTRUCT
-        registry.register(withRequiredMods(TINKERS_BRONZE, "tconstruct").setEnabled(false));
         registry.register(withRequiredMods(AMETHYST_BRONZE, "tconstruct"));
         registry.register(withRequiredMods(SLIMESTEEL, "tconstruct"));
         registry.register(withRequiredMods(PIG_IRON, "tconstruct"));

@@ -10,11 +10,6 @@
       "crop": "mysticalagriculture:iridium"
     }
   ],
-  "input": {
-    "type": "mysticalagriculture:crop_component",
-    "component": "seed",
-    "crop": "mysticalagriculture:iridium"
-  },
   "ingredients": [
     {
       "type": "mysticalagriculture:crop_component",
@@ -57,6 +52,11 @@
       "crop": "mysticalagriculture:iridium"
     }
   ],
+  "input": {
+    "type": "mysticalagriculture:crop_component",
+    "component": "seed",
+    "crop": "mysticalagriculture:iridium"
+  },
   "result": {
     "item": "mysticalagriculture:iridium_seeds"
   }

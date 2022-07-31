@@ -10,11 +10,6 @@
       "crop": "mysticalagriculture:rose_gold"
     }
   ],
-  "input": {
-    "type": "mysticalagriculture:crop_component",
-    "component": "seed",
-    "crop": "mysticalagriculture:rose_gold"
-  },
   "ingredients": [
     {
       "type": "mysticalagriculture:crop_component",
@@ -57,6 +52,11 @@
       "crop": "mysticalagriculture:rose_gold"
     }
   ],
+  "input": {
+    "type": "mysticalagriculture:crop_component",
+    "component": "seed",
+    "crop": "mysticalagriculture:rose_gold"
+  },
   "result": {
     "item": "mysticalagriculture:rose_gold_seeds"
   }

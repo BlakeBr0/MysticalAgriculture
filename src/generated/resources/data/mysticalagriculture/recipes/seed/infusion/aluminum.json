@@ -10,11 +10,6 @@
       "crop": "mysticalagriculture:aluminum"
     }
   ],
-  "input": {
-    "type": "mysticalagriculture:crop_component",
-    "component": "seed",
-    "crop": "mysticalagriculture:aluminum"
-  },
   "ingredients": [
     {
       "type": "mysticalagriculture:crop_component",
@@ -57,6 +52,11 @@
       "crop": "mysticalagriculture:aluminum"
     }
   ],
+  "input": {
+    "type": "mysticalagriculture:crop_component",
+    "component": "seed",
+    "crop": "mysticalagriculture:aluminum"
+  },
   "result": {
     "item": "mysticalagriculture:aluminum_seeds"
   }

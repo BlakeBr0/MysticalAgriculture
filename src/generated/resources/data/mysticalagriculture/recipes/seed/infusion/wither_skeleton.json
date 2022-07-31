@@ -10,11 +10,6 @@
       "crop": "mysticalagriculture:wither_skeleton"
     }
   ],
-  "input": {
-    "type": "mysticalagriculture:crop_component",
-    "component": "seed",
-    "crop": "mysticalagriculture:wither_skeleton"
-  },
   "ingredients": [
     {
       "type": "mysticalagriculture:crop_component",
@@ -57,6 +52,11 @@
       "crop": "mysticalagriculture:wither_skeleton"
     }
   ],
+  "input": {
+    "type": "mysticalagriculture:crop_component",
+    "component": "seed",
+    "crop": "mysticalagriculture:wither_skeleton"
+  },
   "result": {
     "item": "mysticalagriculture:wither_skeleton_seeds"
   }

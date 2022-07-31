@@ -10,11 +10,6 @@
       "crop": "mysticalagriculture:cobalt"
     }
   ],
-  "input": {
-    "type": "mysticalagriculture:crop_component",
-    "component": "seed",
-    "crop": "mysticalagriculture:cobalt"
-  },
   "ingredients": [
     {
       "type": "mysticalagriculture:crop_component",
@@ -57,6 +52,11 @@
       "crop": "mysticalagriculture:cobalt"
     }
   ],
+  "input": {
+    "type": "mysticalagriculture:crop_component",
+    "component": "seed",
+    "crop": "mysticalagriculture:cobalt"
+  },
   "result": {
     "item": "mysticalagriculture:cobalt_seeds"
   }

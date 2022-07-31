@@ -10,7 +10,7 @@
     "item": "mysticalagriculture:enderium_seeds"
   },
   "result": {
-    "item": "mysticalagriculture:enderium_essence",
-    "count": 2
+    "count": 2,
+    "item": "mysticalagriculture:enderium_essence"
   }
 }

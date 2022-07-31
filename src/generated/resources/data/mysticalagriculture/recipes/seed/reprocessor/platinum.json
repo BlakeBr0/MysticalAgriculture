@@ -10,7 +10,7 @@
     "item": "mysticalagriculture:platinum_seeds"
   },
   "result": {
-    "item": "mysticalagriculture:platinum_essence",
-    "count": 2
+    "count": 2,
+    "item": "mysticalagriculture:platinum_essence"
   }
 }

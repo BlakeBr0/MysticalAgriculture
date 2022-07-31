@@ -10,7 +10,7 @@
     "item": "mysticalagriculture:manyullyn_seeds"
   },
   "result": {
-    "item": "mysticalagriculture:manyullyn_essence",
-    "count": 2
+    "count": 2,
+    "item": "mysticalagriculture:manyullyn_essence"
   }
 }

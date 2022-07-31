@@ -10,7 +10,7 @@
     "item": "mysticalagriculture:refined_glowstone_seeds"
   },
   "result": {
-    "item": "mysticalagriculture:refined_glowstone_essence",
-    "count": 2
+    "count": 2,
+    "item": "mysticalagriculture:refined_glowstone_essence"
   }
 }

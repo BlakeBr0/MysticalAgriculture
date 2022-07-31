@@ -10,11 +10,6 @@
       "crop": "mysticalagriculture:queens_slime"
     }
   ],
-  "input": {
-    "type": "mysticalagriculture:crop_component",
-    "component": "seed",
-    "crop": "mysticalagriculture:queens_slime"
-  },
   "ingredients": [
     {
       "type": "mysticalagriculture:crop_component",
@@ -57,6 +52,11 @@
       "crop": "mysticalagriculture:queens_slime"
     }
   ],
+  "input": {
+    "type": "mysticalagriculture:crop_component",
+    "component": "seed",
+    "crop": "mysticalagriculture:queens_slime"
+  },
   "result": {
     "item": "mysticalagriculture:queens_slime_seeds"
   }

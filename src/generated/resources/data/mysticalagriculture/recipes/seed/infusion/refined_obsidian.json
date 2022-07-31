@@ -10,11 +10,6 @@
       "crop": "mysticalagriculture:refined_obsidian"
     }
   ],
-  "input": {
-    "type": "mysticalagriculture:crop_component",
-    "component": "seed",
-    "crop": "mysticalagriculture:refined_obsidian"
-  },
   "ingredients": [
     {
       "type": "mysticalagriculture:crop_component",
@@ -57,6 +52,11 @@
       "crop": "mysticalagriculture:refined_obsidian"
     }
   ],
+  "input": {
+    "type": "mysticalagriculture:crop_component",
+    "component": "seed",
+    "crop": "mysticalagriculture:refined_obsidian"
+  },
   "result": {
     "item": "mysticalagriculture:refined_obsidian_seeds"
   }

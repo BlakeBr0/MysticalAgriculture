@@ -10,7 +10,7 @@
     "item": "mysticalagriculture:inferium_seeds"
   },
   "result": {
-    "item": "mysticalagriculture:inferium_essence",
-    "count": 2
+    "count": 2,
+    "item": "mysticalagriculture:inferium_essence"
   }
 }

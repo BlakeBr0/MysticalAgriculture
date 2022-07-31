@@ -10,11 +10,6 @@
       "crop": "mysticalagriculture:pig_iron"
     }
   ],
-  "input": {
-    "type": "mysticalagriculture:crop_component",
-    "component": "seed",
-    "crop": "mysticalagriculture:pig_iron"
-  },
   "ingredients": [
     {
       "type": "mysticalagriculture:crop_component",
@@ -57,6 +52,11 @@
       "crop": "mysticalagriculture:pig_iron"
     }
   ],
+  "input": {
+    "type": "mysticalagriculture:crop_component",
+    "component": "seed",
+    "crop": "mysticalagriculture:pig_iron"
+  },
   "result": {
     "item": "mysticalagriculture:pig_iron_seeds"
   }

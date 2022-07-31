@@ -1,6 +1,5 @@
 {
   "type": "minecraft:crafting_shaped",
-  "group": "mysticalagriculture:seeds",
   "conditions": [
     {
       "type": "mysticalagriculture:seed_crafting_recipes_enabled"
@@ -14,28 +13,29 @@
       "crop": "mysticalagriculture:nether_quartz"
     }
   ],
-  "pattern": [
-    "MEM",
-    "ESE",
-    "MEM"
-  ],
+  "group": "mysticalagriculture:seeds",
   "key": {
     "E": {
       "type": "mysticalagriculture:crop_component",
       "component": "essence",
       "crop": "mysticalagriculture:nether_quartz"
     },
-    "S": {
-      "type": "mysticalagriculture:crop_component",
-      "component": "seed",
-      "crop": "mysticalagriculture:nether_quartz"
-    },
     "M": {
       "type": "mysticalagriculture:crop_component",
       "component": "material",
       "crop": "mysticalagriculture:nether_quartz"
+    },
+    "S": {
+      "type": "mysticalagriculture:crop_component",
+      "component": "seed",
+      "crop": "mysticalagriculture:nether_quartz"
     }
   },
+  "pattern": [
+    "MEM",
+    "ESE",
+    "MEM"
+  ],
   "result": {
     "item": "mysticalagriculture:nether_quartz_seeds"
   }

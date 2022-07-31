@@ -1,5 +1,4 @@
 {
-  "replace": false,
   "values": [
     "mysticalagriculture:air_seeds",
     "mysticalagriculture:earth_seeds",
@@ -59,7 +58,6 @@
     "mysticalagriculture:blizz_seeds",
     "mysticalagriculture:blitz_seeds",
     "mysticalagriculture:basalz_seeds",
-    "mysticalagriculture:tinkers_bronze_seeds",
     "mysticalagriculture:amethyst_bronze_seeds",
     "mysticalagriculture:slimesteel_seeds",
     "mysticalagriculture:pig_iron_seeds",

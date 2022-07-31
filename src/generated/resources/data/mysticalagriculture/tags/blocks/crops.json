@@ -1,5 +1,4 @@
 {
-  "replace": false,
   "values": [
     "mysticalagriculture:air_crop",
     "mysticalagriculture:earth_crop",
@@ -59,7 +58,6 @@
     "mysticalagriculture:blizz_crop",
     "mysticalagriculture:blitz_crop",
     "mysticalagriculture:basalz_crop",
-    "mysticalagriculture:tinkers_bronze_crop",
     "mysticalagriculture:amethyst_bronze_crop",
     "mysticalagriculture:slimesteel_crop",
     "mysticalagriculture:pig_iron_crop",

@@ -10,11 +10,6 @@
       "crop": "mysticalagriculture:rock_crystal"
     }
   ],
-  "input": {
-    "type": "mysticalagriculture:crop_component",
-    "component": "seed",
-    "crop": "mysticalagriculture:rock_crystal"
-  },
   "ingredients": [
     {
       "type": "mysticalagriculture:crop_component",
@@ -57,6 +52,11 @@
       "crop": "mysticalagriculture:rock_crystal"
     }
   ],
+  "input": {
+    "type": "mysticalagriculture:crop_component",
+    "component": "seed",
+    "crop": "mysticalagriculture:rock_crystal"
+  },
   "result": {
     "item": "mysticalagriculture:rock_crystal_seeds"
   }

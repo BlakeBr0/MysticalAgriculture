@@ -10,11 +10,6 @@
       "crop": "mysticalagriculture:ironwood"
     }
   ],
-  "input": {
-    "type": "mysticalagriculture:crop_component",
-    "component": "seed",
-    "crop": "mysticalagriculture:ironwood"
-  },
   "ingredients": [
     {
       "type": "mysticalagriculture:crop_component",
@@ -57,6 +52,11 @@
       "crop": "mysticalagriculture:ironwood"
     }
   ],
+  "input": {
+    "type": "mysticalagriculture:crop_component",
+    "component": "seed",
+    "crop": "mysticalagriculture:ironwood"
+  },
   "result": {
     "item": "mysticalagriculture:ironwood_seeds"
   }

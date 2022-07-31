@@ -10,11 +10,6 @@
       "crop": "mysticalagriculture:lapis_lazuli"
     }
   ],
-  "input": {
-    "type": "mysticalagriculture:crop_component",
-    "component": "seed",
-    "crop": "mysticalagriculture:lapis_lazuli"
-  },
   "ingredients": [
     {
       "type": "mysticalagriculture:crop_component",
@@ -57,6 +52,11 @@
       "crop": "mysticalagriculture:lapis_lazuli"
     }
   ],
+  "input": {
+    "type": "mysticalagriculture:crop_component",
+    "component": "seed",
+    "crop": "mysticalagriculture:lapis_lazuli"
+  },
   "result": {
     "item": "mysticalagriculture:lapis_lazuli_seeds"
   }

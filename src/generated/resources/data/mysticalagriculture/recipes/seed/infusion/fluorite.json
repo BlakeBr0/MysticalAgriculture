@@ -10,11 +10,6 @@
       "crop": "mysticalagriculture:fluorite"
     }
   ],
-  "input": {
-    "type": "mysticalagriculture:crop_component",
-    "component": "seed",
-    "crop": "mysticalagriculture:fluorite"
-  },
   "ingredients": [
     {
       "type": "mysticalagriculture:crop_component",
@@ -57,6 +52,11 @@
       "crop": "mysticalagriculture:fluorite"
     }
   ],
+  "input": {
+    "type": "mysticalagriculture:crop_component",
+    "component": "seed",
+    "crop": "mysticalagriculture:fluorite"
+  },
   "result": {
     "item": "mysticalagriculture:fluorite_seeds"
   }

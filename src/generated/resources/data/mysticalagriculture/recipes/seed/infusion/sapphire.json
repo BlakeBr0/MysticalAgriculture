@@ -10,11 +10,6 @@
       "crop": "mysticalagriculture:sapphire"
     }
   ],
-  "input": {
-    "type": "mysticalagriculture:crop_component",
-    "component": "seed",
-    "crop": "mysticalagriculture:sapphire"
-  },
   "ingredients": [
     {
       "type": "mysticalagriculture:crop_component",
@@ -57,6 +52,11 @@
       "crop": "mysticalagriculture:sapphire"
     }
   ],
+  "input": {
+    "type": "mysticalagriculture:crop_component",
+    "component": "seed",
+    "crop": "mysticalagriculture:sapphire"
+  },
   "result": {
     "item": "mysticalagriculture:sapphire_seeds"
   }

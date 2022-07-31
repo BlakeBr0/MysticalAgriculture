@@ -10,11 +10,6 @@
       "crop": "mysticalagriculture:certus_quartz"
     }
   ],
-  "input": {
-    "type": "mysticalagriculture:crop_component",
-    "component": "seed",
-    "crop": "mysticalagriculture:certus_quartz"
-  },
   "ingredients": [
     {
       "type": "mysticalagriculture:crop_component",
@@ -57,6 +52,11 @@
       "crop": "mysticalagriculture:certus_quartz"
     }
   ],
+  "input": {
+    "type": "mysticalagriculture:crop_component",
+    "component": "seed",
+    "crop": "mysticalagriculture:certus_quartz"
+  },
   "result": {
     "item": "mysticalagriculture:certus_quartz_seeds"
   }

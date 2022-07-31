@@ -10,11 +10,6 @@
       "crop": "mysticalagriculture:quartz_enriched_iron"
     }
   ],
-  "input": {
-    "type": "mysticalagriculture:crop_component",
-    "component": "seed",
-    "crop": "mysticalagriculture:quartz_enriched_iron"
-  },
   "ingredients": [
     {
       "type": "mysticalagriculture:crop_component",
@@ -57,6 +52,11 @@
       "crop": "mysticalagriculture:quartz_enriched_iron"
     }
   ],
+  "input": {
+    "type": "mysticalagriculture:crop_component",
+    "component": "seed",
+    "crop": "mysticalagriculture:quartz_enriched_iron"
+  },
   "result": {
     "item": "mysticalagriculture:quartz_enriched_iron_seeds"
   }

@@ -10,7 +10,7 @@
     "item": "mysticalagriculture:chrome_seeds"
   },
   "result": {
-    "item": "mysticalagriculture:chrome_essence",
-    "count": 2
+    "count": 2,
+    "item": "mysticalagriculture:chrome_essence"
   }
 }

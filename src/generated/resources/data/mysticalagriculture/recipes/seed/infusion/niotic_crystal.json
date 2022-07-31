@@ -10,11 +10,6 @@
       "crop": "mysticalagriculture:niotic_crystal"
     }
   ],
-  "input": {
-    "type": "mysticalagriculture:crop_component",
-    "component": "seed",
-    "crop": "mysticalagriculture:niotic_crystal"
-  },
   "ingredients": [
     {
       "type": "mysticalagriculture:crop_component",
@@ -57,6 +52,11 @@
       "crop": "mysticalagriculture:niotic_crystal"
     }
   ],
+  "input": {
+    "type": "mysticalagriculture:crop_component",
+    "component": "seed",
+    "crop": "mysticalagriculture:niotic_crystal"
+  },
   "result": {
     "item": "mysticalagriculture:niotic_crystal_seeds"
   }

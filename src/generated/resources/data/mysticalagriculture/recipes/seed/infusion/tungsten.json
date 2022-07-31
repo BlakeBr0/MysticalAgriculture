@@ -10,11 +10,6 @@
       "crop": "mysticalagriculture:tungsten"
     }
   ],
-  "input": {
-    "type": "mysticalagriculture:crop_component",
-    "component": "seed",
-    "crop": "mysticalagriculture:tungsten"
-  },
   "ingredients": [
     {
       "type": "mysticalagriculture:crop_component",
@@ -57,6 +52,11 @@
       "crop": "mysticalagriculture:tungsten"
     }
   ],
+  "input": {
+    "type": "mysticalagriculture:crop_component",
+    "component": "seed",
+    "crop": "mysticalagriculture:tungsten"
+  },
   "result": {
     "item": "mysticalagriculture:tungsten_seeds"
   }

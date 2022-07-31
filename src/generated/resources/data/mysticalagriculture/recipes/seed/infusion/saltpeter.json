@@ -10,11 +10,6 @@
       "crop": "mysticalagriculture:saltpeter"
     }
   ],
-  "input": {
-    "type": "mysticalagriculture:crop_component",
-    "component": "seed",
-    "crop": "mysticalagriculture:saltpeter"
-  },
   "ingredients": [
     {
       "type": "mysticalagriculture:crop_component",
@@ -57,6 +52,11 @@
       "crop": "mysticalagriculture:saltpeter"
     }
   ],
+  "input": {
+    "type": "mysticalagriculture:crop_component",
+    "component": "seed",
+    "crop": "mysticalagriculture:saltpeter"
+  },
   "result": {
     "item": "mysticalagriculture:saltpeter_seeds"
   }

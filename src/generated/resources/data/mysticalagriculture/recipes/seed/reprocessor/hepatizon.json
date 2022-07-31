@@ -10,7 +10,7 @@
     "item": "mysticalagriculture:hepatizon_seeds"
   },
   "result": {
-    "item": "mysticalagriculture:hepatizon_essence",
-    "count": 2
+    "count": 2,
+    "item": "mysticalagriculture:hepatizon_essence"
   }
 }

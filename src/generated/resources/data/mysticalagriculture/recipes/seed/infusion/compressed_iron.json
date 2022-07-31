@@ -10,11 +10,6 @@
       "crop": "mysticalagriculture:compressed_iron"
     }
   ],
-  "input": {
-    "type": "mysticalagriculture:crop_component",
-    "component": "seed",
-    "crop": "mysticalagriculture:compressed_iron"
-  },
   "ingredients": [
     {
       "type": "mysticalagriculture:crop_component",
@@ -57,6 +52,11 @@
       "crop": "mysticalagriculture:compressed_iron"
     }
   ],
+  "input": {
+    "type": "mysticalagriculture:crop_component",
+    "component": "seed",
+    "crop": "mysticalagriculture:compressed_iron"
+  },
   "result": {
     "item": "mysticalagriculture:compressed_iron_seeds"
   }

@@ -10,11 +10,6 @@
       "crop": "mysticalagriculture:spirited_crystal"
     }
   ],
-  "input": {
-    "type": "mysticalagriculture:crop_component",
-    "component": "seed",
-    "crop": "mysticalagriculture:spirited_crystal"
-  },
   "ingredients": [
     {
       "type": "mysticalagriculture:crop_component",
@@ -57,6 +52,11 @@
       "crop": "mysticalagriculture:spirited_crystal"
     }
   ],
+  "input": {
+    "type": "mysticalagriculture:crop_component",
+    "component": "seed",
+    "crop": "mysticalagriculture:spirited_crystal"
+  },
   "result": {
     "item": "mysticalagriculture:spirited_crystal_seeds"
   }

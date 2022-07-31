@@ -15,8 +15,8 @@ public final class ModDataGenerators {
         var generator = event.getGenerator();
         var existingFileHelper = event.getExistingFileHelper();
 
-        generator.addProvider(false, new BlockModelJsonGenerator(generator, MysticalAgriculture.MOD_ID, existingFileHelper));
-        generator.addProvider(false, new ItemModelJsonGenerator(generator, MysticalAgriculture.MOD_ID, existingFileHelper));
+        generator.addProvider(true, new BlockModelJsonGenerator(generator, MysticalAgriculture.MOD_ID, existingFileHelper));
+        generator.addProvider(true, new ItemModelJsonGenerator(generator, MysticalAgriculture.MOD_ID, existingFileHelper));
         generator.addProvider(true, new RecipeJsonGenerator(generator));
         generator.addProvider(true, new BlockTagsJsonGenerator(generator, MysticalAgriculture.MOD_ID, existingFileHelper));
         generator.addProvider(true, new ItemTagsJsonGenerator(generator, MysticalAgriculture.MOD_ID, existingFileHelper));

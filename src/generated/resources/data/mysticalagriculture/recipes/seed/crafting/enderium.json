@@ -1,6 +1,5 @@
 {
   "type": "minecraft:crafting_shaped",
-  "group": "mysticalagriculture:seeds",
   "conditions": [
     {
       "type": "mysticalagriculture:seed_crafting_recipes_enabled"
@@ -14,28 +13,29 @@
       "crop": "mysticalagriculture:enderium"
     }
   ],
-  "pattern": [
-    "MEM",
-    "ESE",
-    "MEM"
-  ],
+  "group": "mysticalagriculture:seeds",
   "key": {
     "E": {
       "type": "mysticalagriculture:crop_component",
       "component": "essence",
       "crop": "mysticalagriculture:enderium"
     },
-    "S": {
-      "type": "mysticalagriculture:crop_component",
-      "component": "seed",
-      "crop": "mysticalagriculture:enderium"
-    },
     "M": {
       "type": "mysticalagriculture:crop_component",
       "component": "material",
       "crop": "mysticalagriculture:enderium"
+    },
+    "S": {
+      "type": "mysticalagriculture:crop_component",
+      "component": "seed",
+      "crop": "mysticalagriculture:enderium"
     }
   },
+  "pattern": [
+    "MEM",
+    "ESE",
+    "MEM"
+  ],
   "result": {
     "item": "mysticalagriculture:enderium_seeds"
   }

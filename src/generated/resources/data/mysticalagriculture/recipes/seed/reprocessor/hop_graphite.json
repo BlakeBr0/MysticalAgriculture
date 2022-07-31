@@ -10,7 +10,7 @@
     "item": "mysticalagriculture:hop_graphite_seeds"
   },
   "result": {
-    "item": "mysticalagriculture:hop_graphite_essence",
-    "count": 2
+    "count": 2,
+    "item": "mysticalagriculture:hop_graphite_essence"
   }
 }

@@ -10,11 +10,6 @@
       "crop": "mysticalagriculture:knightmetal"
     }
   ],
-  "input": {
-    "type": "mysticalagriculture:crop_component",
-    "component": "seed",
-    "crop": "mysticalagriculture:knightmetal"
-  },
   "ingredients": [
     {
       "type": "mysticalagriculture:crop_component",
@@ -57,6 +52,11 @@
       "crop": "mysticalagriculture:knightmetal"
     }
   ],
+  "input": {
+    "type": "mysticalagriculture:crop_component",
+    "component": "seed",
+    "crop": "mysticalagriculture:knightmetal"
+  },
   "result": {
     "item": "mysticalagriculture:knightmetal_seeds"
   }

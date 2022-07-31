@@ -10,11 +10,6 @@
       "crop": "mysticalagriculture:starmetal"
     }
   ],
-  "input": {
-    "type": "mysticalagriculture:crop_component",
-    "component": "seed",
-    "crop": "mysticalagriculture:starmetal"
-  },
   "ingredients": [
     {
       "type": "mysticalagriculture:crop_component",
@@ -57,6 +52,11 @@
       "crop": "mysticalagriculture:starmetal"
     }
   ],
+  "input": {
+    "type": "mysticalagriculture:crop_component",
+    "component": "seed",
+    "crop": "mysticalagriculture:starmetal"
+  },
   "result": {
     "item": "mysticalagriculture:starmetal_seeds"
   }

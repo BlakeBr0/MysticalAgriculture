@@ -10,11 +10,6 @@
       "crop": "mysticalagriculture:prismarine"
     }
   ],
-  "input": {
-    "type": "mysticalagriculture:crop_component",
-    "component": "seed",
-    "crop": "mysticalagriculture:prismarine"
-  },
   "ingredients": [
     {
       "type": "mysticalagriculture:crop_component",
@@ -57,6 +52,11 @@
       "crop": "mysticalagriculture:prismarine"
     }
   ],
+  "input": {
+    "type": "mysticalagriculture:crop_component",
+    "component": "seed",
+    "crop": "mysticalagriculture:prismarine"
+  },
   "result": {
     "item": "mysticalagriculture:prismarine_seeds"
   }

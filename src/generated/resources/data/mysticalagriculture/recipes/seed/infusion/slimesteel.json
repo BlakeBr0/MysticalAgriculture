@@ -10,11 +10,6 @@
       "crop": "mysticalagriculture:slimesteel"
     }
   ],
-  "input": {
-    "type": "mysticalagriculture:crop_component",
-    "component": "seed",
-    "crop": "mysticalagriculture:slimesteel"
-  },
   "ingredients": [
     {
       "type": "mysticalagriculture:crop_component",
@@ -57,6 +52,11 @@
       "crop": "mysticalagriculture:slimesteel"
     }
   ],
+  "input": {
+    "type": "mysticalagriculture:crop_component",
+    "component": "seed",
+    "crop": "mysticalagriculture:slimesteel"
+  },
   "result": {
     "item": "mysticalagriculture:slimesteel_seeds"
   }

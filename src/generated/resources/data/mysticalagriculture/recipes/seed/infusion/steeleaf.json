@@ -10,11 +10,6 @@
       "crop": "mysticalagriculture:steeleaf"
     }
   ],
-  "input": {
-    "type": "mysticalagriculture:crop_component",
-    "component": "seed",
-    "crop": "mysticalagriculture:steeleaf"
-  },
   "ingredients": [
     {
       "type": "mysticalagriculture:crop_component",
@@ -57,6 +52,11 @@
       "crop": "mysticalagriculture:steeleaf"
     }
   ],
+  "input": {
+    "type": "mysticalagriculture:crop_component",
+    "component": "seed",
+    "crop": "mysticalagriculture:steeleaf"
+  },
   "result": {
     "item": "mysticalagriculture:steeleaf_seeds"
   }

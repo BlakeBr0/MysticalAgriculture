@@ -10,11 +10,6 @@
       "crop": "mysticalagriculture:uraninite"
     }
   ],
-  "input": {
-    "type": "mysticalagriculture:crop_component",
-    "component": "seed",
-    "crop": "mysticalagriculture:uraninite"
-  },
   "ingredients": [
     {
       "type": "mysticalagriculture:crop_component",
@@ -57,6 +52,11 @@
       "crop": "mysticalagriculture:uraninite"
     }
   ],
+  "input": {
+    "type": "mysticalagriculture:crop_component",
+    "component": "seed",
+    "crop": "mysticalagriculture:uraninite"
+  },
   "result": {
     "item": "mysticalagriculture:uraninite_seeds"
   }

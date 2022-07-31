@@ -1,6 +1,5 @@
 {
   "type": "minecraft:crafting_shaped",
-  "group": "mysticalagriculture:seeds",
   "conditions": [
     {
       "type": "mysticalagriculture:seed_crafting_recipes_enabled"
@@ -14,28 +13,29 @@
       "crop": "mysticalagriculture:creeper"
     }
   ],
-  "pattern": [
-    "MEM",
-    "ESE",
-    "MEM"
-  ],
+  "group": "mysticalagriculture:seeds",
   "key": {
     "E": {
       "type": "mysticalagriculture:crop_component",
       "component": "essence",
       "crop": "mysticalagriculture:creeper"
     },
-    "S": {
-      "type": "mysticalagriculture:crop_component",
-      "component": "seed",
-      "crop": "mysticalagriculture:creeper"
-    },
     "M": {
       "type": "mysticalagriculture:crop_component",
       "component": "material",
       "crop": "mysticalagriculture:creeper"
+    },
+    "S": {
+      "type": "mysticalagriculture:crop_component",
+      "component": "seed",
+      "crop": "mysticalagriculture:creeper"
     }
   },
+  "pattern": [
+    "MEM",
+    "ESE",
+    "MEM"
+  ],
   "result": {
     "item": "mysticalagriculture:creeper_seeds"
   }

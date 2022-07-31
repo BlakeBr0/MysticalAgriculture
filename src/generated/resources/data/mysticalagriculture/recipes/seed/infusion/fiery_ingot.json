@@ -10,11 +10,6 @@
       "crop": "mysticalagriculture:fiery_ingot"
     }
   ],
-  "input": {
-    "type": "mysticalagriculture:crop_component",
-    "component": "seed",
-    "crop": "mysticalagriculture:fiery_ingot"
-  },
   "ingredients": [
     {
       "type": "mysticalagriculture:crop_component",
@@ -57,6 +52,11 @@
       "crop": "mysticalagriculture:fiery_ingot"
     }
   ],
+  "input": {
+    "type": "mysticalagriculture:crop_component",
+    "component": "seed",
+    "crop": "mysticalagriculture:fiery_ingot"
+  },
   "result": {
     "item": "mysticalagriculture:fiery_ingot_seeds"
   }

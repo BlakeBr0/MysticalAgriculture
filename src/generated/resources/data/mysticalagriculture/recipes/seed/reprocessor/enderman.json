@@ -10,7 +10,7 @@
     "item": "mysticalagriculture:enderman_seeds"
   },
   "result": {
-    "item": "mysticalagriculture:enderman_essence",
-    "count": 2
+    "count": 2,
+    "item": "mysticalagriculture:enderman_essence"
   }
 }

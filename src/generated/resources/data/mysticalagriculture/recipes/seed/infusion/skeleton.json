@@ -10,11 +10,6 @@
       "crop": "mysticalagriculture:skeleton"
     }
   ],
-  "input": {
-    "type": "mysticalagriculture:crop_component",
-    "component": "seed",
-    "crop": "mysticalagriculture:skeleton"
-  },
   "ingredients": [
     {
       "type": "mysticalagriculture:crop_component",
@@ -57,6 +52,11 @@
       "crop": "mysticalagriculture:skeleton"
     }
   ],
+  "input": {
+    "type": "mysticalagriculture:crop_component",
+    "component": "seed",
+    "crop": "mysticalagriculture:skeleton"
+  },
   "result": {
     "item": "mysticalagriculture:skeleton_seeds"
   }

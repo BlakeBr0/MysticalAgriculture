@@ -10,7 +10,7 @@
     "item": "mysticalagriculture:energized_steel_seeds"
   },
   "result": {
-    "item": "mysticalagriculture:energized_steel_essence",
-    "count": 2
+    "count": 2,
+    "item": "mysticalagriculture:energized_steel_essence"
   }
 }

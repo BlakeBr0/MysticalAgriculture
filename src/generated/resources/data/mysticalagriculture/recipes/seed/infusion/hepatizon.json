@@ -10,11 +10,6 @@
       "crop": "mysticalagriculture:hepatizon"
     }
   ],
-  "input": {
-    "type": "mysticalagriculture:crop_component",
-    "component": "seed",
-    "crop": "mysticalagriculture:hepatizon"
-  },
   "ingredients": [
     {
       "type": "mysticalagriculture:crop_component",
@@ -57,6 +52,11 @@
       "crop": "mysticalagriculture:hepatizon"
     }
   ],
+  "input": {
+    "type": "mysticalagriculture:crop_component",
+    "component": "seed",
+    "crop": "mysticalagriculture:hepatizon"
+  },
   "result": {
     "item": "mysticalagriculture:hepatizon_seeds"
   }

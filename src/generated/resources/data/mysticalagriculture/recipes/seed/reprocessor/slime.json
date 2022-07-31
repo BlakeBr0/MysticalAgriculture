@@ -10,7 +10,7 @@
     "item": "mysticalagriculture:slime_seeds"
   },
   "result": {
-    "item": "mysticalagriculture:slime_essence",
-    "count": 2
+    "count": 2,
+    "item": "mysticalagriculture:slime_essence"
   }
 }
