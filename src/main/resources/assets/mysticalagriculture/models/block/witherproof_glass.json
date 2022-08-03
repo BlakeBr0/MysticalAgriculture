@@ -1,5 +1,6 @@
 {
   "parent": "block/cube_all",
+  "render_type": "minecraft:translucent",
   "textures": {
     "all": "mysticalagriculture:block/witherproof_glass"
   }

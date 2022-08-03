@@ -1,5 +1,6 @@
 {
   "parent": "block/block",
+  "render_type": "minecraft:cutout_mipped",
   "textures": {
     "all": "block/stone",
     "overlay": "mysticalagriculture:block/inferium_ore",

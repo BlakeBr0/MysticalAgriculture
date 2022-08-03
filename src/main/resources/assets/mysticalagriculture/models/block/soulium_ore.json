@@ -1,5 +1,6 @@
 {
   "parent": "block/block",
+  "render_type": "minecraft:cutout_mipped",
   "textures": {
     "all": "mysticalagriculture:block/soulstone",
     "overlay": "mysticalagriculture:block/soulium_ore",
