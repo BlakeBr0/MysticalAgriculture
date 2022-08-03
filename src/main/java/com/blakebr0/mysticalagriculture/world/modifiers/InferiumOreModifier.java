@@ -10,18 +10,11 @@ import net.minecraft.world.level.levelgen.GenerationStep;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import net.minecraftforge.common.world.BiomeModifier;
 import net.minecraftforge.common.world.ModifiableBiomeInfo;
-import net.minecraftforge.registries.ForgeRegistries;
 
 public record InferiumOreModifier(HolderSet<Biome> biomes, Holder<PlacedFeature> feature) implements BiomeModifier {
     @Override
     public void modify(Holder<Biome> biome, Phase phase, ModifiableBiomeInfo.BiomeInfo.Builder builder) {
         if (phase == Phase.ADD && ModConfigs.GENERATE_INFERIUM.get() && this.biomes.contains(biome)) {
-            var id = ForgeRegistries.BIOMES.getKey(biome.value());
-            var whitelist = ModConfigs.INFERIUM_BIOME_WHITELIST.get();
-
-            if (id == null || whitelist.isEmpty() || !whitelist.contains(id.toString()))
-                return;
-
             builder.getGenerationSettings().addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, this.feature);
         }
     }

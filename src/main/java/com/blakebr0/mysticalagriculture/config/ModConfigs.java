@@ -2,9 +2,6 @@ package com.blakebr0.mysticalagriculture.config;
 
 import net.minecraftforge.common.ForgeConfigSpec;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public final class ModConfigs {
     public static final ForgeConfigSpec CLIENT;
     public static final ForgeConfigSpec COMMON;
@@ -44,19 +41,16 @@ public final class ModConfigs {
     public static final ForgeConfigSpec.IntValue PROSPERITY_SPAWN_SIZE;
     public static final ForgeConfigSpec.IntValue PROSPERITY_SPAWN_MIN_Y;
     public static final ForgeConfigSpec.IntValue PROSPERITY_SPAWN_MAX_Y;
-    public static final ForgeConfigSpec.ConfigValue<List<String>> PROSPERITY_BIOME_WHITELIST;
     public static final ForgeConfigSpec.BooleanValue GENERATE_INFERIUM;
     public static final ForgeConfigSpec.IntValue INFERIUM_SPAWN_RATE;
     public static final ForgeConfigSpec.IntValue INFERIUM_SPAWN_SIZE;
     public static final ForgeConfigSpec.IntValue INFERIUM_SPAWN_MIN_Y;
     public static final ForgeConfigSpec.IntValue INFERIUM_SPAWN_MAX_Y;
-    public static final ForgeConfigSpec.ConfigValue<List<String>> INFERIUM_BIOME_WHITELIST;
     public static final ForgeConfigSpec.BooleanValue GENERATE_SOULSTONE;
     public static final ForgeConfigSpec.IntValue SOULSTONE_SPAWN_RATE;
     public static final ForgeConfigSpec.IntValue SOULSTONE_SPAWN_SIZE;
     public static final ForgeConfigSpec.IntValue SOULSTONE_SPAWN_MIN_Y;
     public static final ForgeConfigSpec.IntValue SOULSTONE_SPAWN_MAX_Y;
-    public static final ForgeConfigSpec.ConfigValue<List<String>> SOULSTONE_BIOME_WHITELIST;
 
     // Common
     static {
@@ -123,9 +117,6 @@ public final class ModConfigs {
         PROSPERITY_SPAWN_MAX_Y = common
                 .comment("The maximum Y level that Prosperity Ore veins can spawn.")
                 .defineInRange("prosperitySpawnMaxY", 24, -64, 319);
-        PROSPERITY_BIOME_WHITELIST = common
-                .comment("The list of biome IDs that Prosperity Ore veins can spawn in.", "Leaving this value empty will result in the default spawn behavior.")
-                .define("prosperityBiomeWhitelist", new ArrayList<>());
         GENERATE_INFERIUM = common
                 .comment("Should Inferium Ore generate in the world?")
                 .define("generateInferiumOre", true);
@@ -141,9 +132,6 @@ public final class ModConfigs {
         INFERIUM_SPAWN_MAX_Y = common
                 .comment("The maximum Y level that Inferium Ore veins can spawn.")
                 .defineInRange("inferiumSpawnMaxY", 64, -64, 319);
-        INFERIUM_BIOME_WHITELIST = common
-                .comment("The list of biome IDs that Inferium Ore veins can spawn in.", "Leaving this value empty will result in the default spawn behavior.")
-                .define("inferiumBiomeWhitelist", new ArrayList<>());
         GENERATE_SOULSTONE = common
                 .comment("How many Soulstone veins should spawn in a chunk.")
                 .define("generateSoulstone", true);
@@ -159,9 +147,6 @@ public final class ModConfigs {
         SOULSTONE_SPAWN_MAX_Y = common
                 .comment("The maximum Y level that Soulstone veins can spawn.")
                 .defineInRange("soulstoneSpawnMaxY", 128, 0, 128);
-        SOULSTONE_BIOME_WHITELIST = common
-                .comment("The list of biome IDs that Soulstone veins can spawn in.", "Leaving this value empty will result in the default spawn behavior.")
-                .define("soulstoneBiomeWhitelist", new ArrayList<>());
         common.pop();
 
         COMMON = common.build();
