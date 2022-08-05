@@ -213,10 +213,10 @@ public class AwakeningAltarTileEntity extends BaseInventoryTileEntity {
                 var crop = provider.getCrop();
                 var count = stack.getCount();
 
-                if (!hasAir && crop == ModCrops.AIR) hasAir = count == requirements.air();
-                if (!hasEarth && crop == ModCrops.EARTH) hasEarth = count == requirements.earth();
-                if (!hasWater && crop == ModCrops.WATER) hasWater = count == requirements.water();
-                if (!hasFire && crop == ModCrops.FIRE) hasFire = count == requirements.fire();
+                if (!hasAir && crop == ModCrops.AIR) hasAir = count >= requirements.air();
+                if (!hasEarth && crop == ModCrops.EARTH) hasEarth = count >= requirements.earth();
+                if (!hasWater && crop == ModCrops.WATER) hasWater = count >= requirements.water();
+                if (!hasFire && crop == ModCrops.FIRE) hasFire = count >= requirements.fire();
             }
         }
 
