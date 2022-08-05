@@ -5,6 +5,7 @@ import com.blakebr0.mysticalagriculture.api.crop.ICropProvider;
 import com.blakebr0.mysticalagriculture.api.farmland.IEssenceFarmland;
 import com.blakebr0.mysticalagriculture.block.InferiumCropBlock;
 import com.blakebr0.mysticalagriculture.lib.ModTooltips;
+import com.blakebr0.mysticalagriculture.tileentity.EssenceVesselTileEntity;
 import mcjty.theoneprobe.api.IProbeHitData;
 import mcjty.theoneprobe.api.IProbeInfo;
 import mcjty.theoneprobe.api.IProbeInfoProvider;
@@ -32,13 +33,13 @@ public class TOPCompat implements Function<ITheOneProbe, Void> {
             }
 
             @Override
-            public void addProbeInfo(ProbeMode mode, IProbeInfo info, Player player, Level world, BlockState state, IProbeHitData data) {
+            public void addProbeInfo(ProbeMode mode, IProbeInfo info, Player player, Level level, BlockState state, IProbeHitData data) {
                 var block = state.getBlock();
                 var pos = data.getPos();
 
                 if (block instanceof ICropProvider provider) {
                     var crop = provider.getCrop();
-                    var belowBlock = world.getBlockState(pos.below()).getBlock();
+                    var belowBlock = level.getBlockState(pos.below()).getBlock();
 
                     info.text(ModTooltips.TIER.args(crop.getTier().getDisplayName()).build());
 
@@ -60,7 +61,7 @@ public class TOPCompat implements Function<ITheOneProbe, Void> {
 
                     var biomes = crop.getRequiredBiomes();
                     if (!biomes.isEmpty()) {
-                        var biome = world.getBiome(pos);
+                        var biome = level.getBiome(pos);
                         var id = ForgeRegistries.BIOMES.getKey(biome.value());
 
                         if (!biomes.contains(id)) {
@@ -85,6 +86,16 @@ public class TOPCompat implements Function<ITheOneProbe, Void> {
 
                 if (block instanceof IEssenceFarmland farmland) {
                     info.text(ModTooltips.TIER.args(farmland.getTier().getDisplayName()).build());
+                }
+
+                var tile = level.getBlockEntity(pos);
+
+                if (tile instanceof EssenceVesselTileEntity vessel) {
+                    var stack = vessel.getInventory().getStackInSlot(0);
+
+                    if (!stack.isEmpty()) {
+                        info.text(String.format("%sx %s", stack.getCount(), stack.getDisplayName().getString()));
+                    }
                 }
             }
         });

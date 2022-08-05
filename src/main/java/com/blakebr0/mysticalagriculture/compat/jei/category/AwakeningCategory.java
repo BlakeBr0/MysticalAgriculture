@@ -58,7 +58,7 @@ public class AwakeningCategory implements IRecipeCategory<IAwakeningRecipe> {
 
         builder.addSlot(RecipeIngredientRole.INPUT, 33, 33).addItemStacks(inputs.get(0));
         builder.addSlot(RecipeIngredientRole.INPUT, 7, 7).addItemStacks(inputs.get(1));
-        builder.addSlot(RecipeIngredientRole.INPUT, 33, 0).addItemStacks(inputs.get(2));
+        builder.addSlot(RecipeIngredientRole.INPUT, 33, 1).addItemStacks(inputs.get(2));
         builder.addSlot(RecipeIngredientRole.INPUT, 59, 7).addItemStacks(inputs.get(3));
         builder.addSlot(RecipeIngredientRole.INPUT, 65, 33).addItemStacks(inputs.get(4));
         builder.addSlot(RecipeIngredientRole.INPUT, 59, 59).addItemStacks(inputs.get(5));

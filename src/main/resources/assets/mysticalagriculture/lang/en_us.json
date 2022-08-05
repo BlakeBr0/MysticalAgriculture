@@ -285,6 +285,7 @@
   "config.jade.plugin_mysticalagriculture.crop": "Resource Crop additional info",
   "config.jade.plugin_mysticalagriculture.inferium_crop": "Inferium Crop secondary output",
   "config.jade.plugin_mysticalagriculture.infused_farmland": "Essence Farmland tier",
+  "config.jade.plugin_mysticalagriculture.essence_vessel": "Essence Vessel info",
 
   "cropTier.mysticalagriculture.elemental": "Elemental",
   "cropTier.mysticalagriculture.1": "1",
