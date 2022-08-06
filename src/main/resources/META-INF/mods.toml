@@ -19,7 +19,7 @@ license="MIT"
     [[dependencies.mysticalagriculture]]
         modId="forge"
         mandatory=true
-        versionRange="[41.0.110,)"
+        versionRange="[42.0.0,)"
         ordering="NONE"
         side="BOTH"
     [[dependencies.mysticalagriculture]]
