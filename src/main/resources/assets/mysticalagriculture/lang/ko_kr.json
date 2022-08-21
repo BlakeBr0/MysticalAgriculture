@@ -209,7 +209,7 @@
   "tooltip.mysticalagriculture.machine_speed": "운영속도: %st",
   "tooltip.mysticalagriculture.machine_fuel_rate": "연료 사용량: %s/t",
   "tooltip.mysticalagriculture.machine_fuel_capacity": "연료 용량: %s",
-  "tooltip.mysticalagriculture.watering_can_area": "영역: %s",
+  "tooltip.mysticalagriculture.tool_area": "영역: %s",
   "tooltip.mysticalagriculture.experience_capsule": "%s / %s 경험치",
   "tooltip.mysticalagriculture.soul_jar": "%s (%s/%s)",
   "tooltip.mysticalagriculture.invalid_entity": "잘못된 엔티티",

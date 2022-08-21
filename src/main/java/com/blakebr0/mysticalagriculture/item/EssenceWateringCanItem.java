@@ -119,6 +119,6 @@ public class EssenceWateringCanItem extends WateringCanItem {
         var rangeString = String.valueOf(this.range);
         var rangeNumber = Component.literal(rangeString + "x" + rangeString).withStyle(this.textColor);
 
-        tooltip.add(ModTooltips.WATERING_CAN_AREA.args(rangeNumber).build());
+        tooltip.add(ModTooltips.TOOL_AREA.args(rangeNumber).build());
     }
 }

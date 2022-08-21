@@ -216,7 +216,7 @@
   "tooltip.mysticalagriculture.machine_speed": "Швидкість роботи: %st",
   "tooltip.mysticalagriculture.machine_fuel_rate": "Витрати палива: %s/t",
   "tooltip.mysticalagriculture.machine_fuel_capacity": "Місткість палива: %s",
-  "tooltip.mysticalagriculture.watering_can_area": "Область: %s",
+  "tooltip.mysticalagriculture.tool_area": "Область: %s",
   "tooltip.mysticalagriculture.experience_capsule": "%s / %s очків досвіду",
   "tooltip.mysticalagriculture.soul_jar": "%s (%s/%s)",
   "tooltip.mysticalagriculture.invalid_entity": "Невідома істота",

@@ -209,7 +209,7 @@
   "tooltip.mysticalagriculture.machine_speed": "处理速度: %st",
   "tooltip.mysticalagriculture.machine_fuel_rate": "燃料使用: %s/t",
   "tooltip.mysticalagriculture.machine_fuel_capacity": "燃料容量: %s",
-  "tooltip.mysticalagriculture.watering_can_area": "范围: %s",
+  "tooltip.mysticalagriculture.tool_area": "范围: %s",
   "tooltip.mysticalagriculture.experience_capsule": "%s / %s 经验值",
   "tooltip.mysticalagriculture.soul_jar": "%s (%s/%s)",
   "tooltip.mysticalagriculture.invalid_entity": "无效实体",

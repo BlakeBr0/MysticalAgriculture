@@ -220,7 +220,7 @@
   "tooltip.mysticalagriculture.machine_speed": "Prędkość operacji: %s",
   "tooltip.mysticalagriculture.machine_fuel_rate": "Zużycie paliwa: %s/t",
   "tooltip.mysticalagriculture.machine_fuel_capacity": "Pojemność paliwa: %s",
-  "tooltip.mysticalagriculture.watering_can_area": "Zasięg: %s",
+  "tooltip.mysticalagriculture.tool_area": "Zasięg: %s",
   "tooltip.mysticalagriculture.experience_capsule": "%s/%s punktów doświadczenia",
   "tooltip.mysticalagriculture.soul_jar": "%s (%s/%s)",
   "tooltip.mysticalagriculture.invalid_entity": "Niewłaściwy byt",
