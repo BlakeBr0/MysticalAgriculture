@@ -69,6 +69,7 @@ public class TinkeringTableBlock extends BaseTileEntityBlock {
             TileEntity tile = world.getBlockEntity(pos);
             if (tile instanceof TinkeringTableTileEntity) {
                 TinkeringTableTileEntity table = (TinkeringTableTileEntity) tile;
+                table.getInventory().getStacks().set(1, table.getInventory().getStacks().get(3));
                 InventoryHelper.dropContents(world, pos, table.getInventory().getStacks());
             }
         }
