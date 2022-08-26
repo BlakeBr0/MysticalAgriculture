@@ -1,0 +1,22 @@
+{
+  "type": "crafting_shaped",
+  "pattern": [
+    "SIS",
+    "IDI",
+    "SIS"
+  ],
+  "key": {
+    "S": {
+      "item": "mysticalagriculture:prosperity_shard"
+    },
+    "I": {
+      "item": "mysticalagriculture:prosperity_ingot"
+    },
+    "D": {
+      "tag": "forge:gems/diamond"
+    }
+  },
+  "result": {
+    "item": "mysticalagriculture:upgrade_base"
+  }
+}

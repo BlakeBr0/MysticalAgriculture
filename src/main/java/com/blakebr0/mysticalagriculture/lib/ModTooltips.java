@@ -26,7 +26,8 @@ public final class ModTooltips {
     public static final Tooltip MACHINE_SPEED = new Tooltip("tooltip.mysticalagriculture.machine_speed");
     public static final Tooltip MACHINE_FUEL_RATE = new Tooltip("tooltip.mysticalagriculture.machine_fuel_rate");
     public static final Tooltip MACHINE_FUEL_CAPACITY = new Tooltip("tooltip.mysticalagriculture.machine_fuel_capacity");
-    public static final Tooltip TOOL_AREA = new Tooltip("tooltip.mysticalagriculture.watering_can_area");
+    public static final Tooltip MACHINE_AREA = new Tooltip("tooltip.mysticalagriculture.machine_area");
+    public static final Tooltip TOOL_AREA = new Tooltip("tooltip.mysticalagriculture.tool_area");
     public static final Tooltip EXPERIENCE_CAPSULE = new Tooltip("tooltip.mysticalagriculture.experience_capsule");
     public static final Tooltip SOUL_JAR = new Tooltip("tooltip.mysticalagriculture.soul_jar");
     public static final Tooltip PASSIVE_SOULIUM_DAGGER = new Tooltip("tooltip.mysticalagriculture.passive_soulium_dagger");
@@ -38,6 +39,10 @@ public final class ModTooltips {
     public static final Tooltip ACTIVATE_WITH_REDSTONE = new Tooltip("tooltip.mysticalagriculture.activate_with_redstone");
     public static final Tooltip FERTILIZED_ESSENCE_CHANCE = new Tooltip("tooltip.mysticalagriculture.fertilized_essence_chance");
     public static final Tooltip MYSTICAL_FERTILIZER = new Tooltip("tooltip.mysticalagriculture.mystical_fertilizer");
+    public static final Tooltip UPGRADE_SPEED = new Tooltip("tooltip.mysticalagriculture.upgrade_speed");
+    public static final Tooltip UPGRADE_FUEL_RATE = new Tooltip("tooltip.mysticalagriculture.upgrade_fuel_rate");
+    public static final Tooltip UPGRADE_FUEL_CAPACITY = new Tooltip("tooltip.mysticalagriculture.upgrade_fuel_capacity");
+    public static final Tooltip UPGRADE_AREA = new Tooltip("tooltip.mysticalagriculture.upgrade_area");
 
     public static Component getTooltipForTier(int tier) {
         return TIER.args(AugmentUtils.getTooltipForTier(tier)).color(ChatFormatting.GRAY).build();

@@ -1,0 +1,29 @@
+{
+  "type": "mysticalagriculture:awakening",
+  "essences": {
+    "air": 20,
+    "earth": 20,
+    "water": 20,
+    "fire": 20
+  },
+  "input": {
+    "item": "mysticalagriculture:supremium_upgrade"
+  },
+  "ingredients": [
+    {
+      "item": "mysticalagriculture:awakened_supremium_ingot"
+    },
+    {
+      "item": "mysticalagriculture:awakened_supremium_ingot"
+    },
+    {
+      "item": "mysticalagriculture:awakened_supremium_ingot"
+    },
+    {
+      "item": "mysticalagriculture:awakened_supremium_ingot"
+    }
+  ],
+  "result": {
+    "item": "mysticalagriculture:awakened_supremium_upgrade"
+  }
+}
