@@ -2,7 +2,7 @@
   "name": "book.mysticalagriculture.entry.soul_extractor",
   "category": "mysticalagriculture:machines",
   "icon": "mysticalagriculture:soul_extractor",
-  "sortnum": 202,
+  "sortnum": 203,
   "pages": [
     {
       "type": "text",

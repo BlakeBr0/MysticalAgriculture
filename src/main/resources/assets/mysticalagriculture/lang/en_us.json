@@ -80,6 +80,7 @@
   "block.mysticalagriculture.supremium_reprocessor": "Supremium Seed Reprocessor",
   "block.mysticalagriculture.awakened_supremium_reprocessor": "Awakened Supremium Seed Reprocessor",
   "block.mysticalagriculture.soul_extractor": "Soul Extractor",
+  "block.mysticalagriculture.harvester": "Harvester",
 
   "block.mysticalagriculture.mystical_crop": "%s Crop",
 
@@ -251,6 +252,7 @@
   "container.mysticalagriculture.awakened_supremium_furnace": "Awakened Supremium Furnace",
   "container.mysticalagriculture.reprocessor": "Seed Reprocessor",
   "container.mysticalagriculture.soul_extractor": "Soul Extractor",
+  "container.mysticalagriculture.harvester": "Harvester",
 
   "enchantment.mysticalagriculture.mystical_enlightenment": "Mystical Enlightenment",
   "enchantment.mysticalagriculture.mystical_enlightenment.desc": "Ender Dragons and Withers will drop Cognizant Dust when killed with an Essence Weapon.",
@@ -291,7 +293,7 @@
   "tooltip.mysticalagriculture.upgrade_speed": "Operation Speed: %sx",
   "tooltip.mysticalagriculture.upgrade_fuel_rate": "Fuel Usage: %sx",
   "tooltip.mysticalagriculture.upgrade_fuel_capacity": "Fuel Capacity: %sx",
-  "tooltip.mysticalagriculture.upgrade_area": "Area: +%S",
+  "tooltip.mysticalagriculture.upgrade_area": "Area: +%s",
 
   "jei.category.mysticalagriculture.infusion": "Infusion Crafting",
   "jei.category.mysticalagriculture.awakening": "Awakening",
@@ -607,12 +609,17 @@
   "book.mysticalagriculture.entry.awakened_supremium": "Awakened Supremium",
   "book.mysticalagriculture.entry.awakened_supremium.page.1": "Awakened Supremium is a high level crafting material used to create upgraded versions of many of your Supremium items. $(br2)Awakened Supremium is $(bold)usually$() created by infusing $(l:elemental/cognizant_dust)Cognizant Dust$() with a Supremium Block using an $(l:elemental/awakening_altar)Awakening Altar$().",
 
+  "book.mysticalagriculture.entry.machine_upgrades": "Machine Upgrades",
+  "book.mysticalagriculture.entry.machine_upgrades.page.1": "Machine Upgrades can be placed in applicable machines to increase their effectiveness. $(br2)Higher tier machines will both use and generate power faster.",
   "book.mysticalagriculture.entry.essence_furnaces": "Essence Furnaces",
   "book.mysticalagriculture.entry.essence_furnaces.page.1": "Upgrading a regular Furnace with essences will increase its cooking speed and fuel efficiency.",
   "book.mysticalagriculture.entry.seed_reprocessors": "Seed Reprocessors",
   "book.mysticalagriculture.entry.seed_reprocessors.page.1": "Seed Reprocessors are used to convert your excess seeds into their respective essences. They run off of solid fuels and have an internal power storage buffer.",
   "book.mysticalagriculture.entry.soul_extractor": "Soul Extractor",
-  "book.mysticalagriculture.entry.soul_extractor.page.1": "Soul Extractors are used to convert mob drops into mob souls. They run off of solid fuelds and have an internal power storage buffer. $(br2)The soul extractor provides a use for extra mob drops you may have, but generally won't be as efficient as using a $(l:souls/soulium_dagger)Soulium Dagger$().",
+  "book.mysticalagriculture.entry.soul_extractor.page.1": "Soul Extractors are used to convert mob drops into mob souls. They run off of solid fuels and have an internal power storage buffer. $(br2)The Soul Extractor provides a use for extra mob drops you may have, but generally won't be as efficient as using a $(l:souls/soulium_dagger)Soulium Dagger$().",
+  "book.mysticalagriculture.entry.harvester": "Harvester",
+  "book.mysticalagriculture.entry.harvester.page.1": "Harvesters are used to automatically harvest fully grown crops. They run off of solid fuels and have an internal power storage buffer. $(br2)The harvester will automatically re-plant the crops it harvests. $(br2)The harvester will place all resources into it's internal inventory. If there's no space, the items will be placed on the crop.",
+  "book.mysticalagriculture.entry.harvester.page.2": "The Harvester will use a bit of power every time it checks a crop for growth. Harvesting fully grown crops uses an increased amount of power. $(br2)These machines can upgraded with $(l:machines/machine_upgrades)Machine Upgrades$().",
 
   "book.mysticalagriculture.entry.essence_tools": "Essence Tools",
   "book.mysticalagriculture.entry.essence_tools.page.1": "Upgrading your Diamond* tools with essence improves their durability and mining speed. This also allows them to be equipped with $(l:tinkering/augments)Augments$(). $(br2)Essence Tools can be repaired in an Anvil with their corresponding Essence Ingot. These tools each have 1 augment slot.",

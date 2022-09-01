@@ -1,0 +1,25 @@
+{
+  "type": "crafting_shaped",
+  "pattern": [
+    "ISI",
+    "HBH",
+    "ISI"
+  ],
+  "key": {
+    "I": {
+      "tag": "forge:ingots/iron"
+    },
+    "S": {
+      "item": "mysticalagriculture:prosperity_ingot"
+    },
+    "H": {
+      "item": "mysticalagriculture:diamond_scythe"
+    },
+    "B": {
+      "item": "mysticalagriculture:machine_frame"
+    }
+  },
+  "result": {
+    "item": "mysticalagriculture:harvester"
+  }
+}

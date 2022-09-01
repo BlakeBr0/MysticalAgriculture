@@ -1,0 +1,18 @@
+{
+  "name": "book.mysticalagriculture.entry.harvester",
+  "category": "mysticalagriculture:machines",
+  "icon": "mysticalagriculture:harvester",
+  "sortnum": 204,
+  "pages": [
+    {
+      "type": "text",
+      "text": "book.mysticalagriculture.entry.harvester.page.1"
+    },
+    {
+      "type": "crafting",
+      "title": "book.mysticalagriculture.crafting",
+      "text": "book.mysticalagriculture.entry.harvester.page.2",
+      "recipe": "mysticalagriculture:harvester"
+    }
+  ]
+}

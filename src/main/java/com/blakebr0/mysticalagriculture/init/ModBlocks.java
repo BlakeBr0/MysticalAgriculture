@@ -14,6 +14,7 @@ import com.blakebr0.mysticalagriculture.block.AwakeningPedestalBlock;
 import com.blakebr0.mysticalagriculture.block.EssenceFurnaceBlock;
 import com.blakebr0.mysticalagriculture.block.EssenceVesselBlock;
 import com.blakebr0.mysticalagriculture.block.GrowthAcceleratorBlock;
+import com.blakebr0.mysticalagriculture.block.HarvesterBlock;
 import com.blakebr0.mysticalagriculture.block.InferiumCropBlock;
 import com.blakebr0.mysticalagriculture.block.InfusedFarmlandBlock;
 import com.blakebr0.mysticalagriculture.block.InfusionAltarBlock;
@@ -125,6 +126,7 @@ public final class ModBlocks {
     public static final RegistryObject<Block> SUPREMIUM_REPROCESSOR = register("supremium_reprocessor", () -> new ReprocessorBlock(ReprocessorTier.SUPREMIUM));
     public static final RegistryObject<Block> AWAKENED_SUPREMIUM_REPROCESSOR = register("awakened_supremium_reprocessor", () -> new ReprocessorBlock(ReprocessorTier.AWAKENED_SUPREMIUM));
     public static final RegistryObject<Block> SOUL_EXTRACTOR = register("soul_extractor", SoulExtractorBlock::new);
+    public static final RegistryObject<Block> HARVESTER = register("harvester", HarvesterBlock::new);
 
     public static final RegistryObject<Block> INFERIUM_CROP = registerNoItem("inferium_crop", () -> new InferiumCropBlock(ModCrops.INFERIUM));
 

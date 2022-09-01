@@ -36,25 +36,20 @@ public class MachineUpgradeItem extends BaseItem {
 
         if (tile instanceof IUpgradeableMachine machine && machine.canApplyUpgrade(this.tier)) {
             var stack = context.getItemInHand();
-            var result = machine.apply(this);
+            var remaining = machine.applyUpgrade(this);
 
-            if (result.applied()) {
-                stack.shrink(1);
+            stack.shrink(1);
 
-                var remaining = result.remaining();
-                if (!remaining.isEmpty()) {
-                    var item = new ItemEntity(level, pos.getX(), pos.getY() + 1, pos.getZ(), remaining.copy());
+            if (!remaining.isEmpty()) {
+                var item = new ItemEntity(level, pos.getX(), pos.getY() + 1, pos.getZ(), remaining.copy());
 
-                    level.addFreshEntity(item);
-                }
-
-                return InteractionResult.SUCCESS;
+                level.addFreshEntity(item);
             }
 
-            return InteractionResult.PASS;
+            return InteractionResult.SUCCESS;
         }
 
-        return InteractionResult.PASS;
+        return InteractionResult.FAIL;
     }
 
     @OnlyIn(Dist.CLIENT)

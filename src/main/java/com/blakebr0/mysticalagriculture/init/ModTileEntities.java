@@ -5,6 +5,7 @@ import com.blakebr0.mysticalagriculture.tileentity.AwakeningAltarTileEntity;
 import com.blakebr0.mysticalagriculture.tileentity.AwakeningPedestalTileEntity;
 import com.blakebr0.mysticalagriculture.tileentity.EssenceFurnaceTileEntity;
 import com.blakebr0.mysticalagriculture.tileentity.EssenceVesselTileEntity;
+import com.blakebr0.mysticalagriculture.tileentity.HarvesterTileEntity;
 import com.blakebr0.mysticalagriculture.tileentity.InfusionAltarTileEntity;
 import com.blakebr0.mysticalagriculture.tileentity.InfusionPedestalTileEntity;
 import com.blakebr0.mysticalagriculture.tileentity.ReprocessorTileEntity;
@@ -42,6 +43,7 @@ public final class ModTileEntities {
     public static final RegistryObject<BlockEntityType<ReprocessorTileEntity.Supremium>> SUPREMIUM_REPROCESSOR = register("supremium_reprocessor", ReprocessorTileEntity.Supremium::new, () -> new Block[] { ModBlocks.SUPREMIUM_REPROCESSOR.get() });
     public static final RegistryObject<BlockEntityType<ReprocessorTileEntity.AwakenedSupremium>> AWAKENED_SUPREMIUM_REPROCESSOR = register("awakened_supremium_processor", ReprocessorTileEntity.AwakenedSupremium::new, () -> new Block[] { ModBlocks.AWAKENED_SUPREMIUM_REPROCESSOR.get() });
     public static final RegistryObject<BlockEntityType<SoulExtractorTileEntity>> SOUL_EXTRACTOR = register("soul_extractor", SoulExtractorTileEntity::new, () -> new Block[] { ModBlocks.SOUL_EXTRACTOR.get() });
+    public static final RegistryObject<BlockEntityType<HarvesterTileEntity>> HARVESTER = register("harvester", HarvesterTileEntity::new, () -> new Block[] { ModBlocks.HARVESTER.get() });
 
     private static <T extends BlockEntity> RegistryObject<BlockEntityType<T>> register(String name, BlockEntityType.BlockEntitySupplier<T> tile, Supplier<Block[]> blocks) {
         return REGISTRY.register(name, () -> BlockEntityType.Builder.of(tile, blocks.get()).build(null));
