@@ -171,6 +171,8 @@ public class HarvesterTileEntity extends BaseInventoryTileEntity implements Menu
             } else {
                 tile.energy.setMaxEnergyStorage((int) (FUEL_CAPACITY * tier.getFuelCapacityMultiplier()));
             }
+
+            mark = true;
         }
 
         var operationTime = tile.getOperationTime();

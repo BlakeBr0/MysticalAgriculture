@@ -3,9 +3,11 @@ package com.blakebr0.mysticalagriculture.container;
 import com.blakebr0.cucumber.helper.RecipeHelper;
 import com.blakebr0.cucumber.inventory.BaseItemStackHandler;
 import com.blakebr0.cucumber.inventory.slot.BaseItemStackHandlerSlot;
+import com.blakebr0.mysticalagriculture.container.inventory.UpgradeItemStackHandler;
 import com.blakebr0.mysticalagriculture.init.ModContainerTypes;
 import com.blakebr0.mysticalagriculture.init.ModItems;
 import com.blakebr0.mysticalagriculture.init.ModRecipeTypes;
+import com.blakebr0.mysticalagriculture.item.MachineUpgradeItem;
 import com.blakebr0.mysticalagriculture.tileentity.SoulExtractorTileEntity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.FriendlyByteBuf;
@@ -24,14 +26,15 @@ public class SoulExtractorContainer extends AbstractContainerMenu {
     private final BlockPos pos;
 
     private SoulExtractorContainer(MenuType<?> type, int id, Inventory playerInventory, FriendlyByteBuf buffer) {
-        this(type, id, playerInventory, p -> false, SoulExtractorTileEntity.createInventoryHandler(null), buffer.readBlockPos());
+        this(type, id, playerInventory, p -> false, SoulExtractorTileEntity.createInventoryHandler(null), new UpgradeItemStackHandler(), buffer.readBlockPos());
     }
 
-    private SoulExtractorContainer(MenuType<?> type, int id, Inventory playerInventory, Function<Player, Boolean> isUsableByPlayer, BaseItemStackHandler inventory, BlockPos pos) {
+    private SoulExtractorContainer(MenuType<?> type, int id, Inventory playerInventory, Function<Player, Boolean> isUsableByPlayer, BaseItemStackHandler inventory, UpgradeItemStackHandler upgradeInventory, BlockPos pos) {
         super(type, id);
         this.isUsableByPlayer = isUsableByPlayer;
         this.pos = pos;
 
+        this.addSlot(new BaseItemStackHandlerSlot(upgradeInventory, 0, 152, 9));
         this.addSlot(new BaseItemStackHandlerSlot(inventory, 0, 74, 52));
         this.addSlot(new BaseItemStackHandlerSlot(inventory, 1, 30, 56));
         this.addSlot(new BaseItemStackHandlerSlot(inventory, 2, 134, 52));
@@ -61,27 +64,31 @@ public class SoulExtractorContainer extends AbstractContainerMenu {
             var itemstack1 = slot.getItem();
             itemstack = itemstack1.copy();
 
-            if (index > 2) {
-                if (itemstack1.getItem() == ModItems.SOUL_JAR.get()) {
+            if (index > 3) {
+                if (itemstack1.getItem() instanceof MachineUpgradeItem) {
+                    if (!this.moveItemStackTo(itemstack1, 0, 1, false)) {
+                        return ItemStack.EMPTY;
+                    }
+                } else if (itemstack1.getItem() == ModItems.SOUL_JAR.get()) {
+                    if (!this.moveItemStackTo(itemstack1, 3, 4, false)) {
+                        return ItemStack.EMPTY;
+                    }
+                } else if (ForgeHooks.getBurnTime(itemstack1, null) > 0) {
                     if (!this.moveItemStackTo(itemstack1, 2, 3, false)) {
                         return ItemStack.EMPTY;
                     }
                 } else if (RecipeHelper.getRecipes(ModRecipeTypes.SOUL_EXTRACTION.get()).values().stream().anyMatch(r -> r.getIngredients().get(0).test(itemstack1))) {
-                    if (!this.moveItemStackTo(itemstack1, 0, 1, false)) {
-                        return ItemStack.EMPTY;
-                    }
-                } else if (ForgeHooks.getBurnTime(itemstack1, null) > 0) {
                     if (!this.moveItemStackTo(itemstack1, 1, 2, false)) {
                         return ItemStack.EMPTY;
                     }
-                } else if (index < 30) {
-                    if (!this.moveItemStackTo(itemstack1, 30, 39, false)) {
+                } else if (index < 31) {
+                    if (!this.moveItemStackTo(itemstack1, 31, 40, false)) {
                         return ItemStack.EMPTY;
                     }
-                } else if (index < 39 && !this.moveItemStackTo(itemstack1, 3, 30, false)) {
+                } else if (index < 39 && !this.moveItemStackTo(itemstack1, 4, 31, false)) {
                     return ItemStack.EMPTY;
                 }
-            } else if (!this.moveItemStackTo(itemstack1, 3, 39, false)) {
+            } else if (!this.moveItemStackTo(itemstack1, 4, 40, false)) {
                 return ItemStack.EMPTY;
             }
 
@@ -109,7 +116,7 @@ public class SoulExtractorContainer extends AbstractContainerMenu {
         return new SoulExtractorContainer(ModContainerTypes.SOUL_EXTRACTOR.get(), windowId, playerInventory, buffer);
     }
 
-    public static SoulExtractorContainer create(int windowId, Inventory playerInventory, Function<Player, Boolean> isUsableByPlayer, BaseItemStackHandler inventory, BlockPos pos) {
-        return new SoulExtractorContainer(ModContainerTypes.SOUL_EXTRACTOR.get(), windowId, playerInventory, isUsableByPlayer, inventory, pos);
+    public static SoulExtractorContainer create(int windowId, Inventory playerInventory, Function<Player, Boolean> isUsableByPlayer, BaseItemStackHandler inventory, UpgradeItemStackHandler upgradeInventory, BlockPos pos) {
+        return new SoulExtractorContainer(ModContainerTypes.SOUL_EXTRACTOR.get(), windowId, playerInventory, isUsableByPlayer, inventory, upgradeInventory, pos);
     }
 }

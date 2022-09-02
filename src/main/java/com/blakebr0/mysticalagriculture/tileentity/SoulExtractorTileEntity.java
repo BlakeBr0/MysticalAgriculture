@@ -6,10 +6,14 @@ import com.blakebr0.cucumber.tileentity.BaseInventoryTileEntity;
 import com.blakebr0.cucumber.util.Localizable;
 import com.blakebr0.mysticalagriculture.api.util.MobSoulUtils;
 import com.blakebr0.mysticalagriculture.container.SoulExtractorContainer;
+import com.blakebr0.mysticalagriculture.container.inventory.UpgradeItemStackHandler;
 import com.blakebr0.mysticalagriculture.crafting.recipe.SoulExtractionRecipe;
 import com.blakebr0.mysticalagriculture.init.ModRecipeTypes;
 import com.blakebr0.mysticalagriculture.init.ModTileEntities;
 import com.blakebr0.mysticalagriculture.item.SoulJarItem;
+import com.blakebr0.mysticalagriculture.util.DynamicEnergyStorage;
+import com.blakebr0.mysticalagriculture.util.IUpgradeableMachine;
+import com.blakebr0.mysticalagriculture.util.MachineUpgradeTier;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
@@ -31,14 +35,15 @@ import net.minecraftforge.energy.IEnergyStorage;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.IItemHandlerModifiable;
 
-public class SoulExtractorTileEntity extends BaseInventoryTileEntity implements MenuProvider {
+public class SoulExtractorTileEntity extends BaseInventoryTileEntity implements MenuProvider, IUpgradeableMachine {
     private static final int FUEL_TICK_MULTIPLIER = 20;
     public static final int OPERATION_TIME = 100;
     public static final int FUEL_USAGE = 40;
     public static final int FUEL_CAPACITY = 80000;
 
     private final BaseItemStackHandler inventory;
-    private final EnergyStorage energy;
+    private final UpgradeItemStackHandler upgradeInventory;
+    private final DynamicEnergyStorage energy;
     private final LazyOptional<IItemHandlerModifiable>[] inventoryCapabilities;
     private final LazyOptional<IEnergyStorage> energyCapability = LazyOptional.of(this::getEnergy);
     private int progress;
@@ -46,11 +51,13 @@ public class SoulExtractorTileEntity extends BaseInventoryTileEntity implements 
     private int fuelItemValue;
     private int oldEnergy;
     private SoulExtractionRecipe recipe;
+    private MachineUpgradeTier tier;
 
     public SoulExtractorTileEntity(BlockPos pos, BlockState state) {
         super(ModTileEntities.SOUL_EXTRACTOR.get(), pos, state);
         this.inventory = createInventoryHandler(this::markDirtyAndDispatch);
-        this.energy = new EnergyStorage(FUEL_CAPACITY);
+        this.upgradeInventory = new UpgradeItemStackHandler();
+        this.energy = new DynamicEnergyStorage(FUEL_CAPACITY);
         this.inventoryCapabilities = SidedItemStackHandlerWrapper.create(this.inventory, new Direction[] { Direction.UP, Direction.DOWN, Direction.NORTH }, this::canInsertStackSided, this::canExtractStackSided);
     }
 
@@ -67,6 +74,7 @@ public class SoulExtractorTileEntity extends BaseInventoryTileEntity implements 
         this.fuelLeft = tag.getInt("FuelLeft");
         this.fuelItemValue = tag.getInt("FuelItemValue");
         this.energy.deserializeNBT(tag.get("Energy"));
+        this.upgradeInventory.deserializeNBT(tag.getCompound("UpgradeInventory"));
     }
 
     @Override
@@ -77,6 +85,7 @@ public class SoulExtractorTileEntity extends BaseInventoryTileEntity implements 
         tag.putInt("FuelLeft", this.fuelLeft);
         tag.putInt("FuelItemValue", this.fuelItemValue);
         tag.putInt("Energy", this.energy.getEnergyStored());
+        tag.put("UpgradeInventory", this.upgradeInventory.serializeNBT());
     }
 
     @Override
@@ -86,7 +95,12 @@ public class SoulExtractorTileEntity extends BaseInventoryTileEntity implements 
 
     @Override
     public AbstractContainerMenu createMenu(int id, Inventory playerInventory, Player player) {
-        return SoulExtractorContainer.create(id, playerInventory, this::isUsableByPlayer, this.inventory, this.getBlockPos());
+        return SoulExtractorContainer.create(id, playerInventory, this::isUsableByPlayer, this.inventory, this.upgradeInventory, this.getBlockPos());
+    }
+
+    @Override
+    public UpgradeItemStackHandler getUpgradeInventory() {
+        return this.upgradeInventory;
     }
 
     @Override
@@ -144,6 +158,20 @@ public class SoulExtractorTileEntity extends BaseInventoryTileEntity implements 
             tile.recipe = recipe instanceof SoulExtractionRecipe ? (SoulExtractionRecipe) recipe : null;
         }
 
+        var tier = tile.getMachineTier();
+
+        if (tier != tile.tier) {
+            tile.tier = tier;
+
+            if (tier == null) {
+                tile.energy.resetMaxEnergyStorage();
+            } else {
+                tile.energy.setMaxEnergyStorage((int) (FUEL_CAPACITY * tier.getFuelCapacityMultiplier()));
+            }
+
+            mark = true;
+        }
+
         if (tile.recipe != null) {
             if (tile.energy.getEnergyStored() >= tile.getFuelUsage()) {
                 tile.progress++;
@@ -190,7 +218,10 @@ public class SoulExtractorTileEntity extends BaseInventoryTileEntity implements 
     }
 
     public int getOperationTime() {
-        return OPERATION_TIME;
+        if (this.tier == null)
+            return OPERATION_TIME;
+
+        return (int) (OPERATION_TIME * this.tier.getOperationTimeMultiplier());
     }
 
     public int getFuelLeft() {
@@ -202,7 +233,10 @@ public class SoulExtractorTileEntity extends BaseInventoryTileEntity implements 
     }
 
     public int getFuelUsage() {
-        return FUEL_USAGE;
+        if (this.tier == null)
+            return FUEL_USAGE;
+
+        return (int) (FUEL_USAGE * this.tier.getFuelUsageMultiplier());
     }
 
     private boolean canInsertStackSided(int slot, ItemStack stack, Direction direction) {

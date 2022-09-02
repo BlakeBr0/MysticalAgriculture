@@ -97,7 +97,11 @@ public class SoulExtractorScreen extends BaseContainerScreen<SoulExtractorContai
         if (this.tile == null)
             return 0;
 
-        return this.tile.getOperationTime();
+        var tier = this.tile.getMachineTier();
+        if (tier == null)
+            return this.tile.getOperationTime();
+
+        return (int) (this.tile.getOperationTime() * tier.getOperationTimeMultiplier());
     }
 
     public int getFuelLeft() {
@@ -125,6 +129,11 @@ public class SoulExtractorScreen extends BaseContainerScreen<SoulExtractorContai
         if (this.tile == null)
             return 0;
 
+        var tier = this.tile.getMachineTier();
+        if (tier != null) {
+            return (int) (this.tile.getEnergy().getMaxEnergyStored() * tier.getFuelCapacityMultiplier());
+        }
+
         return this.tile.getEnergy().getMaxEnergyStored();
     }
 
@@ -135,7 +144,7 @@ public class SoulExtractorScreen extends BaseContainerScreen<SoulExtractorContai
     }
 
     public int getEnergyBarScaled(int pixels) {
-        int i = this.getEnergyStored();
+        int i = Math.min(this.getEnergyStored(), this.getMaxEnergyStored());
         int j = this.getMaxEnergyStored();
         return (int) (j != 0 && i != 0 ? (long) i * pixels / j : 0);
     }
