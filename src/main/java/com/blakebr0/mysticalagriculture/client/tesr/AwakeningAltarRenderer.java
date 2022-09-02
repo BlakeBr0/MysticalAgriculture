@@ -50,8 +50,8 @@ public class AwakeningAltarRenderer implements BlockEntityRenderer<AwakeningAlta
                 matrix.translate(aoePos.getX(), aoePos.getY(), aoePos.getZ());
 
                 var state = i % 2 == 0
-                        ? ModBlocks.ESSENCE_VESSEL.get().defaultBlockState()
-                        : ModBlocks.AWAKENING_PEDESTAL.get().defaultBlockState();
+                        ? ModBlocks.AWAKENING_PEDESTAL.get().defaultBlockState()
+                        : ModBlocks.ESSENCE_VESSEL.get().defaultBlockState();
 
                 minecraft.getBlockRenderer().renderBatched(state, aoePos, level, matrix, builder, false, level.getRandom(), ModelData.EMPTY, null);
 
