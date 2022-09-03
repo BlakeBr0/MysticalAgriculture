@@ -23,7 +23,7 @@ public class TinkeringTableRenderer implements BlockEntityRenderer<TinkeringTabl
         var state = level.getBlockState(pos);
         var stack = tile.getInventory().getStackInSlot(0);
 
-        if (!stack.isEmpty()) {
+        if (!stack.isEmpty() && state.hasProperty(TinkeringTableBlock.FACING)) {
             matrix.pushPose();
             matrix.translate(0.5D, 0.9D, 0.5D);
             float scale = 0.7F;
