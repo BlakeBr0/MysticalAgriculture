@@ -9,6 +9,7 @@
     "mysticalagriculture:tertium_ingot_block",
     "mysticalagriculture:imperium_ingot_block",
     "mysticalagriculture:supremium_ingot_block",
+    "mysticalagriculture:awakened_supremium_ingot_block",
     "mysticalagriculture:soulium_ingot_block",
     "mysticalagriculture:machine_frame",
     "mysticalagriculture:basic_reprocessor",
@@ -17,6 +18,8 @@
     "mysticalagriculture:tertium_reprocessor",
     "mysticalagriculture:imperium_reprocessor",
     "mysticalagriculture:supremium_reprocessor",
-    "mysticalagriculture:soul_extractor"
+    "mysticalagriculture:awakened_supremium_reprocessor",
+    "mysticalagriculture:soul_extractor",
+    "mysticalagriculture:harvester"
   ]
 }
