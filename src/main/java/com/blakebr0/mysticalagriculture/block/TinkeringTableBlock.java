@@ -52,9 +52,9 @@ public class TinkeringTableBlock extends BaseTileEntityBlock {
     }
 
     @Override
-    public InteractionResult use(BlockState state, Level world, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {
-        if (!world.isClientSide()) {
-            var tile = world.getBlockEntity(pos);
+    public InteractionResult use(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {
+        if (!level.isClientSide()) {
+            var tile = level.getBlockEntity(pos);
 
             if (tile instanceof TinkeringTableTileEntity table)
                 player.openMenu(table);
@@ -64,20 +64,23 @@ public class TinkeringTableBlock extends BaseTileEntityBlock {
     }
 
     @Override
-    public void onRemove(BlockState state, Level world, BlockPos pos, BlockState newState, boolean isMoving) {
+    public void onRemove(BlockState state, Level level, BlockPos pos, BlockState newState, boolean isMoving) {
         if (state.getBlock() != newState.getBlock()) {
-            var tile = world.getBlockEntity(pos);
+            var tile = level.getBlockEntity(pos);
 
             if (tile instanceof TinkeringTableTileEntity table) {
-                Containers.dropContents(world, pos, table.getInventory().getStacks());
+                // only the ITinkerable is ever *actually* an item that can drop
+                var stack = table.getInventory().getStackInSlot(0);
+
+                Containers.dropItemStack(level, pos.getX(), pos.getY(), pos.getZ(), stack);
             }
         }
 
-        super.onRemove(state, world, pos, newState, isMoving);
+        super.onRemove(state, level, pos, newState, isMoving);
     }
 
     @Override
-    public VoxelShape getShape(BlockState state, BlockGetter world, BlockPos pos, CollisionContext context) {
+    public VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
         return TABLE_SHAPE;
     }
 
@@ -87,7 +90,7 @@ public class TinkeringTableBlock extends BaseTileEntityBlock {
     }
 
     @Override
-    public BlockState rotate(BlockState state, LevelAccessor world, BlockPos pos, Rotation rotation) {
+    public BlockState rotate(BlockState state, LevelAccessor level, BlockPos pos, Rotation rotation) {
         return state.setValue(FACING, rotation.rotate(state.getValue(FACING)));
     }
 
