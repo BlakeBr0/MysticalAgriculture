@@ -17,6 +17,7 @@ public enum AugmentType {
     HOE("hoe"),
     BOW("bow"),
     CROSSBOW("crossbow"),
+    SICKLE("sickle"),
     SCYTHE("scythe"),
     HELMET("helmet"),
     CHESTPLATE("chestplate"),
