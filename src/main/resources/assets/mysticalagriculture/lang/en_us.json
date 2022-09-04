@@ -587,6 +587,10 @@
   "book.mysticalagriculture.entry.master_infusion_crystal.page.1": "The Master Infusion Crystal has infinite durability. You want this, I know you do.",
   "book.mysticalagriculture.entry.essence_watering_cans": "Essence Watering Cans",
   "book.mysticalagriculture.entry.essence_watering_cans.page.1": "Upgrading the regular $(l:basics/watering_can)Watering Can$() with essences and $(l:advances/mystical_fertilizer)Mystical Fertilizer$() improves your farming experience a ton. $(br2)Upgraded Watering Cans have improved range and growth acceleration speed. You can also toggle automatic watering by Shift + Right Clicking with the Watering Can while not targeting a block.",
+  "book.mysticalagriculture.entry.sickles": "Sickles",
+  "book.mysticalagriculture.entry.sickles.page.1": "Sickles are used for harvesting/destroying large areas of plant material. $(br2)Higher tier Sickles will have a greater area of effect.",
+  "book.mysticalagriculture.entry.scythes": "Scythes",
+  "book.mysticalagriculture.entry.scythes.page.1": "Scythes are used for harvesting large areas of crops by right clicking. Any fully grown crops within the area of effect will be harvested without being uprooted. $(br2)Scythes are also an effective weapon with an increased attack AOE. $(br2)Higher tier Scythes have a greater area of effect.",
 
   "book.mysticalagriculture.entry.soulstone": "Soulstone",
   "book.mysticalagriculture.entry.soulstone.page.1": "Soulstone is a special kind of stone that spawns in the Nether. It generates in large veins at all Y levels. $(br2)Soulstone is a decorative block with many variants. It is also required to create $(l:souls/witherproof_blocks)Witherproof Blocks$().",
