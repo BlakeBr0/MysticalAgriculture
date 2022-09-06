@@ -1,9 +1,11 @@
 package com.blakebr0.mysticalagriculture.config;
 
 import com.blakebr0.cucumber.util.FeatureFlag;
+import com.blakebr0.cucumber.util.FeatureFlags;
 import com.blakebr0.mysticalagriculture.MysticalAgriculture;
 import net.minecraft.resources.ResourceLocation;
 
+@FeatureFlags
 public final class ModFeatureFlags {
     public static final FeatureFlag ANIMATED_GROWTH_ACCELERATORS = FeatureFlag.create(new ResourceLocation(MysticalAgriculture.MOD_ID, "animated_growth_accelerators"), ModConfigs.ANIMATED_GROWTH_ACCELERATORS);
     public static final FeatureFlag DRAGON_DROPS_COGNIZANT = FeatureFlag.create(new ResourceLocation(MysticalAgriculture.MOD_ID, "dragon_crops_cognizant"), ModConfigs.DRAGON_DROPS_COGNIZANT);
