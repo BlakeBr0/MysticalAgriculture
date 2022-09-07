@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "mysticalagriculture:diamond_sickle",
+    {
+      "id": "pickletweaks:diamond_sickle",
+      "required": false
+    }
+  ]
+}

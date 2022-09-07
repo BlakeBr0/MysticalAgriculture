@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "mysticalagriculture:watering_can",
+    {
+      "id": "pickletweaks:watering_can",
+      "required": false
+    }
+  ]
+}

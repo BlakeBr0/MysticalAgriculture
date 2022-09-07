@@ -13,7 +13,7 @@
       "item": "mysticalagriculture:inferium_ingot"
     },
     "S": {
-      "item": "mysticalagriculture:watering_can"
+      "tag": "mysticalagriculture:watering_cans"
     },
     "F": {
       "item": "mysticalagriculture:mystical_fertilizer"
