@@ -3,6 +3,7 @@ package com.blakebr0.mysticalagriculture.tileentity;
 import com.blakebr0.cucumber.inventory.BaseItemStackHandler;
 import com.blakebr0.cucumber.tileentity.BaseInventoryTileEntity;
 import com.blakebr0.cucumber.util.MultiblockPositions;
+import com.blakebr0.mysticalagriculture.api.crafting.IAwakeningRecipe;
 import com.blakebr0.mysticalagriculture.api.crop.ICropProvider;
 import com.blakebr0.mysticalagriculture.crafting.recipe.AwakeningRecipe;
 import com.blakebr0.mysticalagriculture.init.ModRecipeTypes;
@@ -90,7 +91,14 @@ public class AwakeningAltarTileEntity extends BaseInventoryTileEntity {
 
                     for (var i = 0; i < pedestals.size(); i++) {
                         var pedestal = pedestals.get(i);
-                        pedestal.getInventory().setStackInSlot(0, remaining.get(i + 1));
+                        var inventory = pedestal.getInventory();
+
+                        if (pedestal instanceof EssenceVesselTileEntity) {
+                            decrementVesselInventory(inventory, recipe.getEssenceRequirements());
+                        } else {
+                            inventory.setStackInSlot(0, remaining.get(i + 1));
+                        }
+
                         tile.spawnParticles(ParticleTypes.SMOKE, pedestal.getBlockPos(), 1.2D, 20);
                     }
 
@@ -237,5 +245,18 @@ public class AwakeningAltarTileEntity extends BaseInventoryTileEntity {
         }
 
         return hasAir && hasEarth && hasWater && hasFire;
+    }
+
+    private static void decrementVesselInventory(BaseItemStackHandler inventory, IAwakeningRecipe.EssenceVesselRequirements requirements) {
+        var item = inventory.getStackInSlot(0).getItem();
+
+        if (item instanceof ICropProvider provider) {
+            var crop = provider.getCrop();
+
+            if (crop == ModCrops.AIR) inventory.extractItemSuper(0, requirements.air(), false);
+            else if (crop == ModCrops.EARTH) inventory.extractItemSuper(0, requirements.earth(), false);
+            else if (crop == ModCrops.WATER) inventory.extractItemSuper(0, requirements.water(), false);
+            else if (crop == ModCrops.FIRE) inventory.extractItemSuper(0, requirements.fire(), false);
+        }
     }
 }
