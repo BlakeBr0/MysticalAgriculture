@@ -94,7 +94,7 @@ public class TOPCompat implements Function<ITheOneProbe, Void> {
                     var stack = vessel.getInventory().getStackInSlot(0);
 
                     if (!stack.isEmpty()) {
-                        info.text(String.format("%sx %s", stack.getCount(), stack.getDisplayName().getString()));
+                        info.text(String.format("%sx %s", stack.getCount(), stack.getHoverName().getString()));
                     }
                 }
             }
