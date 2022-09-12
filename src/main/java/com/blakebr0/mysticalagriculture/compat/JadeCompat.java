@@ -3,12 +3,10 @@ package com.blakebr0.mysticalagriculture.compat;
 import com.blakebr0.mysticalagriculture.MysticalAgriculture;
 import com.blakebr0.mysticalagriculture.api.crop.ICropProvider;
 import com.blakebr0.mysticalagriculture.api.farmland.IEssenceFarmland;
-import com.blakebr0.mysticalagriculture.block.EssenceVesselBlock;
 import com.blakebr0.mysticalagriculture.block.InferiumCropBlock;
 import com.blakebr0.mysticalagriculture.block.InfusedFarmlandBlock;
 import com.blakebr0.mysticalagriculture.block.MysticalCropBlock;
 import com.blakebr0.mysticalagriculture.lib.ModTooltips;
-import com.blakebr0.mysticalagriculture.tileentity.EssenceVesselTileEntity;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
@@ -27,7 +25,6 @@ public class JadeCompat implements IWailaPlugin {
     private static final ResourceLocation CROP_PROVIDER = new ResourceLocation(MysticalAgriculture.MOD_ID, "crop");
     private static final ResourceLocation INFERIUM_CROP_PROVIDER = new ResourceLocation(MysticalAgriculture.MOD_ID, "inferium_crop");
     private static final ResourceLocation INFUSED_FARMLAND_PROVIDER = new ResourceLocation(MysticalAgriculture.MOD_ID, "infused_farmland");
-    private static final ResourceLocation ESSENCE_VESSEL_PROVIDER = new ResourceLocation(MysticalAgriculture.MOD_ID, "essence_vessel");
 
     @Override
     public void registerClient(IWailaClientRegistration registration) {
@@ -114,22 +111,5 @@ public class JadeCompat implements IWailaPlugin {
                 return INFUSED_FARMLAND_PROVIDER;
             }
         }, InfusedFarmlandBlock.class);
-
-        registration.registerBlockComponent(new IBlockComponentProvider() {
-            @Override
-            public void appendTooltip(ITooltip tooltip, BlockAccessor accessor, IPluginConfig config) {
-                var tile = (EssenceVesselTileEntity) accessor.getBlockEntity();
-                var stack = tile.getInventory().getStackInSlot(0);
-
-                if (!stack.isEmpty()) {
-                    tooltip.add(Component.literal(String.format("%sx %s", stack.getCount(), stack.getDisplayName().getString())));
-                }
-            }
-
-            @Override
-            public ResourceLocation getUid() {
-                return ESSENCE_VESSEL_PROVIDER;
-            }
-        }, EssenceVesselBlock.class);
     }
 }
