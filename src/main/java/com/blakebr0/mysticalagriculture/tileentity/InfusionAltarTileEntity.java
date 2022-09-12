@@ -71,20 +71,15 @@ public class InfusionAltarTileEntity extends BaseInventoryTileEntity {
         }
 
         if (tile.isActive()) {
-            var pedestals = tile.getPedestals();
+            var recipe = tile.getActiveRecipe();
 
-            tile.updateRecipeInventory(pedestals);
-
-            if (tile.recipe == null || !tile.recipe.matches(tile.recipeInventory)) {
-                var recipe = level.getRecipeManager().getRecipeFor(ModRecipeTypes.INFUSION.get(), tile.recipeInventory.toIInventory(), level).orElse(null);
-                tile.recipe = recipe instanceof InfusionRecipe ? (InfusionRecipe) recipe : null;
-            }
-
-            if (tile.recipe != null) {
+            if (recipe != null) {
                 tile.progress++;
 
+                var pedestals = tile.getPedestals();
+
                 if (tile.progress >= 100) {
-                    var remaining = tile.recipe.getRemainingItems(tile.recipeInventory);
+                    var remaining = recipe.getRemainingItems(tile.recipeInventory);
 
                     for (var i = 0; i < pedestals.size(); i++) {
                         var pedestal = pedestals.get(i);
@@ -92,19 +87,19 @@ public class InfusionAltarTileEntity extends BaseInventoryTileEntity {
                         tile.spawnParticles(ParticleTypes.SMOKE, pedestal.getBlockPos(), 1.2D, 20);
                     }
 
-                    var result = tile.recipe.assemble(tile.recipeInventory);
+                    var result = recipe.assemble(tile.recipeInventory);
 
                     tile.setOutput(result);
                     tile.reset();
                     tile.markDirtyAndDispatch();
                     tile.spawnParticles(ParticleTypes.HAPPY_VILLAGER, pos, 1.0D, 10);
                 } else {
-                    pedestals.forEach(pedestal -> {
+                    for (var pedestal : pedestals) {
                         var pedestalPos = pedestal.getBlockPos();
                         var stack = pedestal.getInventory().getStackInSlot(0);
 
                         tile.spawnItemParticles(pedestalPos, stack);
-                    });
+                    }
                 }
             } else {
                 tile.reset();
@@ -144,6 +139,23 @@ public class InfusionAltarTileEntity extends BaseInventoryTileEntity {
     private void reset() {
         this.progress = 0;
         this.active = false;
+    }
+
+    public InfusionRecipe getActiveRecipe() {
+        if (this.level == null)
+            return null;
+
+        this.updateRecipeInventory(this.getPedestals());
+
+        if (this.recipe == null || !this.recipe.matches(this.recipeInventory)) {
+            var recipe = this.level.getRecipeManager()
+                    .getRecipeFor(ModRecipeTypes.INFUSION.get(), this.recipeInventory.toIInventory(), this.level)
+                    .orElse(null);
+
+            this.recipe = recipe instanceof InfusionRecipe ? (InfusionRecipe) recipe : null;
+        }
+
+        return this.recipe;
     }
 
     private void updateRecipeInventory(List<InfusionPedestalTileEntity> pedestals) {
