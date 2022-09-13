@@ -10,10 +10,10 @@
       "tag": "forge:ingots/iron"
     },
     "S": {
-      "item": "mysticalagriculture:prosperity_ingot"
+      "item": "mysticalagriculture:soulium_ingot"
     },
     "H": {
-      "item": "mysticalagriculture:diamond_scythe"
+      "tag": "mysticalagriculture:diamond_scythes"
     },
     "B": {
       "item": "mysticalagriculture:machine_frame"
