@@ -53,9 +53,9 @@ public class HarvesterBlock extends BaseTileEntityBlock {
     }
 
     @Override
-    public InteractionResult use(BlockState state, Level world, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {
-        if (!world.isClientSide()) {
-            var tile = world.getBlockEntity(pos);
+    public InteractionResult use(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {
+        if (!level.isClientSide()) {
+            var tile = level.getBlockEntity(pos);
 
             if (tile instanceof HarvesterTileEntity harvester) {
                 NetworkHooks.openScreen((ServerPlayer) player, harvester, pos);
@@ -66,16 +66,17 @@ public class HarvesterBlock extends BaseTileEntityBlock {
     }
 
     @Override
-    public void onRemove(BlockState state, Level world, BlockPos pos, BlockState newState, boolean isMoving) {
+    public void onRemove(BlockState state, Level level, BlockPos pos, BlockState newState, boolean isMoving) {
         if (state.getBlock() != newState.getBlock()) {
-            var tile = world.getBlockEntity(pos);
+            var tile = level.getBlockEntity(pos);
 
             if (tile instanceof HarvesterTileEntity harvester) {
-                Containers.dropContents(world, pos, harvester.getInventory().getStacks());
+                Containers.dropContents(level, pos, harvester.getInventory().getStacks());
+                Containers.dropContents(level, pos, harvester.getUpgradeInventory().getStacks());
             }
         }
 
-        super.onRemove(state, world, pos, newState, isMoving);
+        super.onRemove(state, level, pos, newState, isMoving);
     }
 
     @Override
