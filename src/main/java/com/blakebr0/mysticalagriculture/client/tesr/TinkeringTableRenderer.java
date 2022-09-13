@@ -28,9 +28,9 @@ public class TinkeringTableRenderer implements BlockEntityRenderer<TinkeringTabl
             matrix.translate(0.5D, 0.9D, 0.5D);
             float scale = 0.7F;
             matrix.scale(scale, scale, scale);
-            matrix.mulPose(Vector3f.YP.rotationDegrees(90));
             int index = state.getValue(TinkeringTableBlock.FACING).get2DDataValue();
-            matrix.mulPose(Vector3f.XN.rotationDegrees(90 * index));
+            matrix.mulPose(Vector3f.YP.rotationDegrees(-90 * index));
+            matrix.mulPose(Vector3f.XP.rotationDegrees(90));
             Minecraft.getInstance().getItemRenderer().renderStatic(stack, ItemTransforms.TransformType.FIXED, i, i1, matrix, buffer, 0);
             matrix.popPose();
         }
