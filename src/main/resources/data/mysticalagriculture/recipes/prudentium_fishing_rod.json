@@ -1,0 +1,22 @@
+{
+  "type": "cucumber:shaped_transfer_damage",
+  "pattern": [
+    " G ",
+    "ISI",
+    " G "
+  ],
+  "key": {
+    "G": {
+      "item": "mysticalagriculture:prudentium_gemstone"
+    },
+    "I": {
+      "item": "mysticalagriculture:prudentium_ingot"
+    },
+    "S": {
+      "item": "mysticalagriculture:inferium_fishing_rod"
+    }
+  },
+  "result": {
+    "item": "mysticalagriculture:prudentium_fishing_rod"
+  }
+}

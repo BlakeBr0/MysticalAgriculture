@@ -24,6 +24,7 @@ import com.blakebr0.mysticalagriculture.item.armor.EssenceLeggingsItem;
 import com.blakebr0.mysticalagriculture.item.tool.EssenceAxeItem;
 import com.blakebr0.mysticalagriculture.item.tool.EssenceBowItem;
 import com.blakebr0.mysticalagriculture.item.tool.EssenceCrossbowItem;
+import com.blakebr0.mysticalagriculture.item.tool.EssenceFishingRodItem;
 import com.blakebr0.mysticalagriculture.item.tool.EssenceHoeItem;
 import com.blakebr0.mysticalagriculture.item.tool.EssencePickaxeItem;
 import com.blakebr0.mysticalagriculture.item.tool.EssenceScytheItem;
@@ -142,6 +143,7 @@ public final class ModItems {
     public static final RegistryObject<Item> INFERIUM_BOW = registerGear("inferium_bow", () -> new EssenceBowItem(ModItemTier.INFERIUM, 1, 1, 1.1F, p -> p.tab(CREATIVE_TAB)));
     public static final RegistryObject<Item> INFERIUM_CROSSBOW = registerGear("inferium_crossbow", () -> new EssenceCrossbowItem(ModItemTier.INFERIUM, 1, 1, 1.1F, p -> p.tab(CREATIVE_TAB)));
     public static final RegistryObject<Item> INFERIUM_SHEARS = registerGear("inferium_shears", () -> new EssenceShearsItem(ModItemTier.INFERIUM, 1, 1, p -> p.tab(CREATIVE_TAB)));
+    public static final RegistryObject<Item> INFERIUM_FISHING_ROD = registerGear("inferium_fishing_rod", () -> new EssenceFishingRodItem(ModItemTier.INFERIUM, 1, 1, p -> p.tab(CREATIVE_TAB)));
     public static final RegistryObject<Item> INFERIUM_SICKLE = registerGear("inferium_sickle", () -> new EssenceSickleItem(ModItemTier.INFERIUM, 3, CropTier.ONE.getTextColor(), 1, 1, p -> p.tab(CREATIVE_TAB)));
     public static final RegistryObject<Item> INFERIUM_SCYTHE = registerGear("inferium_scythe", () -> new EssenceScytheItem(ModItemTier.INFERIUM, 3, CropTier.ONE.getTextColor(), 1, 1, p -> p.tab(CREATIVE_TAB)));
     public static final RegistryObject<Item> PRUDENTIUM_SWORD = registerGear("prudentium_sword", () -> new EssenceSwordItem(ModItemTier.PRUDENTIUM, 2, 1, p -> p.tab(CREATIVE_TAB)));
@@ -154,6 +156,7 @@ public final class ModItems {
     public static final RegistryObject<Item> PRUDENTIUM_BOW = registerGear("prudentium_bow", () ->  new EssenceBowItem(ModItemTier.PRUDENTIUM, 2, 1, 1.2F, p -> p.tab(CREATIVE_TAB)));
     public static final RegistryObject<Item> PRUDENTIUM_CROSSBOW = registerGear("prudentium_crossbow", () -> new EssenceCrossbowItem(ModItemTier.PRUDENTIUM, 2, 1, 1.2F, p -> p.tab(CREATIVE_TAB)));
     public static final RegistryObject<Item> PRUDENTIUM_SHEARS = registerGear("prudentium_shears", () -> new EssenceShearsItem(ModItemTier.PRUDENTIUM, 2, 1, p -> p.tab(CREATIVE_TAB)));
+    public static final RegistryObject<Item> PRUDENTIUM_FISHING_ROD = registerGear("prudentium_fishing_rod", () -> new EssenceFishingRodItem(ModItemTier.PRUDENTIUM, 2, 1, p -> p.tab(CREATIVE_TAB)));
     public static final RegistryObject<Item> PRUDENTIUM_SICKLE = registerGear("prudentium_sickle", () -> new EssenceSickleItem(ModItemTier.PRUDENTIUM, 4, CropTier.TWO.getTextColor(), 2, 1, p -> p.tab(CREATIVE_TAB)));
     public static final RegistryObject<Item> PRUDENTIUM_SCYTHE = registerGear("prudentium_scythe", () -> new EssenceScytheItem(ModItemTier.PRUDENTIUM, 4, CropTier.TWO.getTextColor(), 2, 1, p -> p.tab(CREATIVE_TAB)));
     public static final RegistryObject<Item> TERTIUM_SWORD = registerGear("tertium_sword", () -> new EssenceSwordItem(ModItemTier.TERTIUM, 3, 1, p -> p.tab(CREATIVE_TAB)));
@@ -166,6 +169,7 @@ public final class ModItems {
     public static final RegistryObject<Item> TERTIUM_BOW = registerGear("tertium_bow", () -> new EssenceBowItem(ModItemTier.TERTIUM, 3, 1, 1.35F, p -> p.tab(CREATIVE_TAB)));
     public static final RegistryObject<Item> TERTIUM_CROSSBOW = registerGear("tertium_crossbow", () -> new EssenceCrossbowItem(ModItemTier.TERTIUM, 3, 1, 1.35F, p -> p.tab(CREATIVE_TAB)));
     public static final RegistryObject<Item> TERTIUM_SHEARS = registerGear("tertium_shears", () -> new EssenceShearsItem(ModItemTier.TERTIUM, 3, 1, p -> p.tab(CREATIVE_TAB)));
+    public static final RegistryObject<Item> TERTIUM_FISHING_ROD = registerGear("tertium_fishing_rod", () -> new EssenceFishingRodItem(ModItemTier.TERTIUM, 3, 1, p -> p.tab(CREATIVE_TAB)));
     public static final RegistryObject<Item> TERTIUM_SICKLE = registerGear("tertium_sickle", () -> new EssenceSickleItem(ModItemTier.TERTIUM, 5, CropTier.THREE.getTextColor(), 3, 1, p -> p.tab(CREATIVE_TAB)));
     public static final RegistryObject<Item> TERTIUM_SCYTHE = registerGear("tertium_scythe", () -> new EssenceScytheItem(ModItemTier.TERTIUM, 5, CropTier.THREE.getTextColor(), 3, 1, p -> p.tab(CREATIVE_TAB)));
     public static final RegistryObject<Item> IMPERIUM_SWORD = registerGear("imperium_sword", () -> new EssenceSwordItem(ModItemTier.IMPERIUM, 4, 1, p -> p.tab(CREATIVE_TAB)));
@@ -178,6 +182,7 @@ public final class ModItems {
     public static final RegistryObject<Item> IMPERIUM_BOW = registerGear("imperium_bow", () -> new EssenceBowItem(ModItemTier.IMPERIUM, 4, 1, 1.55F, p -> p.tab(CREATIVE_TAB)));
     public static final RegistryObject<Item> IMPERIUM_CROSSBOW = registerGear("imperium_crossbow", () -> new EssenceCrossbowItem(ModItemTier.IMPERIUM, 4, 1, 1.55F, p -> p.tab(CREATIVE_TAB)));
     public static final RegistryObject<Item> IMPERIUM_SHEARS = registerGear("imperium_shears", () -> new EssenceShearsItem(ModItemTier.IMPERIUM, 4, 1, p -> p.tab(CREATIVE_TAB)));
+    public static final RegistryObject<Item> IMPERIUM_FISHING_ROD = registerGear("imperium_fishing_rod", () -> new EssenceFishingRodItem(ModItemTier.IMPERIUM, 4, 1, p -> p.tab(CREATIVE_TAB)));
     public static final RegistryObject<Item> IMPERIUM_SICKLE = registerGear("imperium_sickle", () -> new EssenceSickleItem(ModItemTier.IMPERIUM, 6, CropTier.FOUR.getTextColor(), 4, 1, p -> p.tab(CREATIVE_TAB)));
     public static final RegistryObject<Item> IMPERIUM_SCYTHE = registerGear("imperium_scythe", () -> new EssenceScytheItem(ModItemTier.IMPERIUM, 6, CropTier.FOUR.getTextColor(), 4, 1, p -> p.tab(CREATIVE_TAB)));
     public static final RegistryObject<Item> SUPREMIUM_SWORD = registerGear("supremium_sword", () -> new EssenceSwordItem(ModItemTier.SUPREMIUM, 5, 1, p -> p.tab(CREATIVE_TAB)));
@@ -190,6 +195,7 @@ public final class ModItems {
     public static final RegistryObject<Item> SUPREMIUM_BOW = registerGear("supremium_bow", () -> new EssenceBowItem(ModItemTier.SUPREMIUM, 5, 1, 1.80F, p -> p.tab(CREATIVE_TAB)));
     public static final RegistryObject<Item> SUPREMIUM_CROSSBOW = registerGear("supremium_crossbow", () -> new EssenceCrossbowItem(ModItemTier.SUPREMIUM, 5, 1, 1.80F, p -> p.tab(CREATIVE_TAB)));
     public static final RegistryObject<Item> SUPREMIUM_SHEARS = registerGear("supremium_shears", () -> new EssenceShearsItem(ModItemTier.SUPREMIUM, 5, 1, p -> p.tab(CREATIVE_TAB)));
+    public static final RegistryObject<Item> SUPREMIUM_FISHING_ROD = registerGear("supremium_fishing_rod", () -> new EssenceFishingRodItem(ModItemTier.SUPREMIUM, 5, 1, p -> p.tab(CREATIVE_TAB)));
     public static final RegistryObject<Item> SUPREMIUM_SICKLE = registerGear("supremium_sickle", () -> new EssenceSickleItem(ModItemTier.SUPREMIUM, 7, CropTier.FIVE.getTextColor(), 5, 1, p -> p.tab(CREATIVE_TAB)));
     public static final RegistryObject<Item> SUPREMIUM_SCYTHE = registerGear("supremium_scythe", () -> new EssenceScytheItem(ModItemTier.SUPREMIUM, 7, CropTier.FIVE.getTextColor(), 5, 1, p -> p.tab(CREATIVE_TAB)));
     public static final RegistryObject<Item> AWAKENED_SUPREMIUM_SWORD = registerGear("awakened_supremium_sword", () -> new EssenceSwordItem(ModItemTier.AWAKENED_SUPREMIUM, 5, 2, p -> p.tab(CREATIVE_TAB)));
@@ -202,6 +208,7 @@ public final class ModItems {
     public static final RegistryObject<Item> AWAKENED_SUPREMIUM_BOW = registerGear("awakened_supremium_bow", () -> new EssenceBowItem(ModItemTier.AWAKENED_SUPREMIUM, 5, 2, 2.10F, p -> p.tab(CREATIVE_TAB)));
     public static final RegistryObject<Item> AWAKENED_SUPREMIUM_CROSSBOW = registerGear("awakened_supremium_crossbow", () -> new EssenceCrossbowItem(ModItemTier.AWAKENED_SUPREMIUM, 5, 2, 2.10F, p -> p.tab(CREATIVE_TAB)));
     public static final RegistryObject<Item> AWAKENED_SUPREMIUM_SHEARS = registerGear("awakened_supremium_shears", () -> new EssenceShearsItem(ModItemTier.AWAKENED_SUPREMIUM, 5, 2, p -> p.tab(CREATIVE_TAB)));
+    public static final RegistryObject<Item> AWAKENED_SUPREMIUM_FISHING_ROD = registerGear("awakened_supremium_fishing_rod", () -> new EssenceFishingRodItem(ModItemTier.AWAKENED_SUPREMIUM, 5, 2, p -> p.tab(CREATIVE_TAB)));
     public static final RegistryObject<Item> AWAKENED_SUPREMIUM_SICKLE = registerGear("awakened_supremium_sickle", () -> new EssenceSickleItem(ModItemTier.AWAKENED_SUPREMIUM, 8, CropTier.FIVE.getTextColor(), 5, 2, p -> p.tab(CREATIVE_TAB)));
     public static final RegistryObject<Item> AWAKENED_SUPREMIUM_SCYTHE = registerGear("awakened_supremium_scythe", () -> new EssenceScytheItem(ModItemTier.AWAKENED_SUPREMIUM, 8, CropTier.FIVE.getTextColor(), 5, 2, p -> p.tab(CREATIVE_TAB)));
     public static final RegistryObject<Item> INFERIUM_HELMET = registerGear("inferium_helmet", () -> new EssenceHelmetItem(ModArmorMaterial.INFERIUM, 1, 1, p -> p.tab(CREATIVE_TAB)));

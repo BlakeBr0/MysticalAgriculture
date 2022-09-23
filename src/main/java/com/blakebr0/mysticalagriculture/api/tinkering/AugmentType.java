@@ -18,6 +18,7 @@ public enum AugmentType {
     BOW("bow"),
     CROSSBOW("crossbow"),
     SHEARS("shears"),
+    FISHING_ROD("fishing_rod"),
     SICKLE("sickle"),
     SCYTHE("scythe"),
     HELMET("helmet"),

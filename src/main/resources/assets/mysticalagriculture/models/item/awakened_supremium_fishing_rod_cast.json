@@ -1,0 +1,6 @@
+{
+  "parent": "mysticalagriculture:item/awakened_supremium_fishing_rod",
+  "textures": {
+    "layer0": "mysticalagriculture:item/awakened_supremium_fishing_rod_cast"
+  }
+}

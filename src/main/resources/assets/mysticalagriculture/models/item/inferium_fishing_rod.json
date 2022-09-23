@@ -1,0 +1,14 @@
+{
+  "parent": "item/handheld_rod",
+  "textures": {
+    "layer0": "mysticalagriculture:item/inferium_fishing_rod"
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "cast": 1
+      },
+      "model": "mysticalagriculture:item/inferium_fishing_rod_cast"
+    }
+  ]
+}
