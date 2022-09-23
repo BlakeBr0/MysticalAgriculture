@@ -1,5 +1,6 @@
 package com.blakebr0.mysticalagriculture.init;
 
+import com.blakebr0.cucumber.item.BaseEnableableItem;
 import com.blakebr0.cucumber.item.BaseItem;
 import com.blakebr0.cucumber.item.tool.BaseScytheItem;
 import com.blakebr0.cucumber.item.tool.BaseSickleItem;
@@ -34,6 +35,7 @@ import com.blakebr0.mysticalagriculture.item.tool.EssenceSickleItem;
 import com.blakebr0.mysticalagriculture.item.tool.EssenceStaffItem;
 import com.blakebr0.mysticalagriculture.item.tool.EssenceSwordItem;
 import com.blakebr0.mysticalagriculture.lib.ModArmorMaterial;
+import com.blakebr0.mysticalagriculture.lib.ModCrops;
 import com.blakebr0.mysticalagriculture.lib.ModItemTier;
 import com.blakebr0.mysticalagriculture.registry.AugmentRegistry;
 import com.blakebr0.mysticalagriculture.registry.CropRegistry;
@@ -115,7 +117,7 @@ public final class ModItems {
     public static final RegistryObject<Item> HONEY_AGGLOMERATIO = register("honey_agglomeratio");
     public static final RegistryObject<Item> PRISMARINE_AGGLOMERATIO = register("prismarine_agglomeratio");
     public static final RegistryObject<Item> END_AGGLOMERATIO = register("end_agglomeratio");
-    public static final RegistryObject<Item> MYSTICAL_FLOWER_AGGLOMERATIO = register("mystical_flower_agglomeratio");
+    public static final RegistryObject<Item> MYSTICAL_FLOWER_AGGLOMERATIO = register("mystical_flower_agglomeratio", () -> new BaseEnableableItem(ModCrops.MYSTICAL_FLOWER::isEnabled, p -> p.tab(CREATIVE_TAB)));
     public static final RegistryObject<Item> EXPERIENCE_DROPLET = register("experience_droplet", () -> new ExperienceDropletItem(p -> p.tab(CREATIVE_TAB)));
     public static final RegistryObject<Item> BLANK_SKULL = register("blank_skull");
     public static final RegistryObject<Item> BLANK_RECORD = register("blank_record");
