@@ -157,10 +157,11 @@ public class AwakeningRecipe implements ISpecialRecipe, IAwakeningRecipe {
 
         @Override
         public void toNetwork(FriendlyByteBuf buffer, AwakeningRecipe recipe) {
-            buffer.writeVarInt(recipe.inputs.size());
+            buffer.writeVarInt(5);
 
-            for (var ingredient : recipe.inputs) {
-                ingredient.toNetwork(buffer);
+            // only send the non-vessel ingredients
+            for (int i = 0; i <= 8; i += 2) {
+                recipe.inputs.get(i).toNetwork(buffer);
             }
 
             buffer.writeVarInt(recipe.essences.air());
