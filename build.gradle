@@ -20,6 +20,7 @@ java.toolchain.languageVersion = JavaLanguageVersion.of(17)
 println('Java: ' + System.getProperty('java.version') + ' JVM: ' + System.getProperty('java.vm.version') + '(' + System.getProperty('java.vendor') + ') Arch: ' + System.getProperty('os.arch'))
 
 repositories {
+    maven { url 'https://maven.blakesmods.com' }
     maven { url 'https://dvs1.progwml6.com/files/maven/' }
     maven { url 'https://maven.blamejared.com' }
     maven { url 'https://maven.tterrag.com' }
@@ -52,8 +53,10 @@ minecraft {
                     source sourceSets.main
                 }
 
-                cucumber {
-                    source project(':Cucumber').sourceSets.main
+                if (findProject(':Cucumber') != null) {
+                    cucumber {
+                        source project(':Cucumber').sourceSets.main
+                    }
                 }
             }
         }
@@ -73,8 +76,10 @@ minecraft {
                     source sourceSets.main
                 }
 
-                cucumber {
-                    source project(':Cucumber').sourceSets.main
+                if (findProject(':Cucumber') != null) {
+                    cucumber {
+                        source project(':Cucumber').sourceSets.main
+                    }
                 }
             }
         }
@@ -96,8 +101,10 @@ minecraft {
                     source sourceSets.main
                 }
 
-                cucumber {
-                    source project(':Cucumber').sourceSets.main
+                if (findProject(':Cucumber') != null) {
+                    cucumber {
+                        source project(':Cucumber').sourceSets.main
+                    }
                 }
             }
         }
@@ -116,7 +123,7 @@ sourceSets {
 dependencies {
     minecraft "net.minecraftforge:forge:${forge_version}"
 
-    implementation project(':Cucumber')
+    implementation findProject(':Cucumber') ?: fg.deobf("com.blakebr0.cucumber:Cucumber:${cucumber_version}")
     implementation fg.deobf("curse.maven:jade-324717:${jade_version}")
     implementation fg.deobf("curse.maven:top-245211:${top_version}")
     compileOnly fg.deobf("com.blamejared.crafttweaker:CraftTweaker-forge-${crafttweaker_version}") // TODO: implementation
