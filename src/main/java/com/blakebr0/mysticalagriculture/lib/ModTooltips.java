@@ -14,6 +14,7 @@ public final class ModTooltips {
     public static final Tooltip MST_ID = new Tooltip("tooltip.mysticalagriculture.mst_id");
     public static final Tooltip AUGMENT_ID = new Tooltip("tooltip.mysticalagriculture.augment_id");
     public static final Tooltip ADDED_BY = new Tooltip("tooltip.mysticalagriculture.added_by");
+    public static final Tooltip SET_BONUS = new Tooltip("tooltip.mysticalagriculture.set_bonus");
     public static final Tooltip REQUIRED_BIOMES = new Tooltip("tooltip.mysticalagriculture.required_biomes");
     public static final Tooltip SECONDARY_CHANCE = new Tooltip("tooltip.mysticalagriculture.secondary_chance");
     public static final Tooltip INFERIUM_OUTPUT = new Tooltip("tooltip.mysticalagriculture.inferium_output");
@@ -39,6 +40,7 @@ public final class ModTooltips {
     public static final Tooltip ACTIVATE_WITH_REDSTONE = new Tooltip("tooltip.mysticalagriculture.activate_with_redstone");
     public static final Tooltip FERTILIZED_ESSENCE_CHANCE = new Tooltip("tooltip.mysticalagriculture.fertilized_essence_chance");
     public static final Tooltip MYSTICAL_FERTILIZER = new Tooltip("tooltip.mysticalagriculture.mystical_fertilizer");
+    public static final Tooltip AWAKENED_SUPREMIUM_SET_BONUS = new Tooltip("tooltip.mysticalagriculture.awakened_supremium_set_bonus");
     public static final Tooltip UPGRADE_SPEED = new Tooltip("tooltip.mysticalagriculture.upgrade_speed");
     public static final Tooltip UPGRADE_FUEL_RATE = new Tooltip("tooltip.mysticalagriculture.upgrade_fuel_rate");
     public static final Tooltip UPGRADE_FUEL_CAPACITY = new Tooltip("tooltip.mysticalagriculture.upgrade_fuel_capacity");

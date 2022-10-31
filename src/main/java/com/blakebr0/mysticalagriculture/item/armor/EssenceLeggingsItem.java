@@ -4,6 +4,7 @@ import com.blakebr0.cucumber.item.BaseArmorItem;
 import com.blakebr0.mysticalagriculture.api.tinkering.AugmentType;
 import com.blakebr0.mysticalagriculture.api.tinkering.ITinkerable;
 import com.blakebr0.mysticalagriculture.api.util.AugmentUtils;
+import com.blakebr0.mysticalagriculture.init.ModItems;
 import com.blakebr0.mysticalagriculture.lib.ModTooltips;
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
@@ -39,14 +40,18 @@ public class EssenceLeggingsItem extends BaseArmorItem implements ITinkerable {
     }
 
     @Override
-    public void onArmorTick(ItemStack stack, Level world, Player player) {
-        AugmentUtils.getAugments(stack).forEach(a -> a.onArmorTick(stack, world, player));
+    public void onArmorTick(ItemStack stack, Level level, Player player) {
+        AugmentUtils.getAugments(stack).forEach(a -> a.onArmorTick(stack, level, player));
     }
 
     @OnlyIn(Dist.CLIENT)
     @Override
-    public void appendHoverText(ItemStack stack, Level world, List<Component> tooltip, TooltipFlag flag) {
+    public void appendHoverText(ItemStack stack, Level level, List<Component> tooltip, TooltipFlag flag) {
         tooltip.add(ModTooltips.getTooltipForTier(this.tinkerableTier));
+
+        if (stack.is(ModItems.AWAKENED_SUPREMIUM_LEGGINGS.get())) {
+            tooltip.add(ModTooltips.SET_BONUS.args(ModTooltips.AWAKENED_SUPREMIUM_SET_BONUS.build()).build());
+        }
 
         AugmentUtils.getAugments(stack).forEach(a -> {
             tooltip.add(a.getDisplayName().withStyle(ChatFormatting.GRAY));
