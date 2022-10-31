@@ -65,18 +65,18 @@ public class InfusedFarmlandBlock extends FarmBlock implements IColored, IEssenc
         }
     }
 
-    // TODO: Convert to proper loot table json
     @Override
     public List<ItemStack> getDrops(BlockState state, LootContext.Builder builder) {
         List<ItemStack> drops = new ArrayList<>();
         var stack = builder.getOptionalParameter(LootContextParams.TOOL);
 
-        if (stack != null && EnchantmentHelper.getItemEnchantmentLevel(Enchantments.SILK_TOUCH, stack) > 0) {
+        if (stack != null && EnchantmentHelper.getTagEnchantmentLevel(Enchantments.SILK_TOUCH, stack) > 0) {
             drops.add(new ItemStack(this));
         } else {
             drops.add(new ItemStack(Blocks.DIRT));
 
-            if (builder.getLevel().getRandom().nextInt(100) < 25)
+            var random = builder.getLevel().getRandom();
+            if (random.nextInt(100) < 25)
                 drops.add(new ItemStack(this.tier.getEssence(), 1));
         }
 
