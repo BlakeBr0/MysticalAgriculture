@@ -177,7 +177,7 @@ public class HarvesterTileEntity extends BaseInventoryTileEntity implements Menu
 
         var operationTime = tile.getOperationTime();
 
-        if (tile.progress > operationTime) {
+        if (tile.progress > operationTime && !level.hasNeighborSignal(tile.getBlockPos())) {
             var nextPos = tile.findNextPosition();
             var cropState = level.getBlockState(nextPos);
             var block = cropState.getBlock();
