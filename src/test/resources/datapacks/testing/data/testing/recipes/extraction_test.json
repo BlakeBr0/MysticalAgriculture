@@ -1,0 +1,10 @@
+{
+  "type": "mysticalagriculture:soul_extraction",
+  "input": {
+    "item": "minecraft:blaze_powder"
+  },
+  "output": {
+    "type": "mysticalagriculture:blaze",
+    "souls": 0.25
+  }
+}

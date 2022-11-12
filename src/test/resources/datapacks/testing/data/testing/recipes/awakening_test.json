@@ -1,0 +1,29 @@
+{
+  "type": "mysticalagriculture:awakening",
+  "input": {
+    "item": "minecraft:apple"
+  },
+  "essences": {
+    "air": 40,
+    "earth": 40,
+    "water": 40,
+    "fire": 40
+  },
+  "ingredients": [
+    {
+      "item": "minecraft:carrot"
+    },
+    {
+      "item": "minecraft:carrot"
+    },
+    {
+      "item": "minecraft:carrot"
+    },
+    {
+      "item": "minecraft:carrot"
+    }
+  ],
+  "result": {
+    "item": "minecraft:potato"
+  }
+}

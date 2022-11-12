@@ -188,3 +188,24 @@ publishing {
         }
     }
 }
+
+task addTestDatapacks(type: Copy) {
+    file('run/saves').eachDir { dir ->
+        project.copy {
+            from 'src/test/resources/datapacks'
+            into file(dir.path + '/datapacks')
+        }
+    }
+
+    project.copy {
+        from 'src/test/resources/datapacks'
+        into file('run/world/datapacks')
+    }
+}
+
+task addTestScripts(type: Copy) {
+    from 'src/test/resources/scripts'
+    into file('run/scripts')
+}
+
+tasks.processResources.finalizedBy('addTestDatapacks', 'addTestScripts')

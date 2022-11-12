@@ -1,0 +1,9 @@
+{
+  "type": "mysticalagriculture:reprocessor",
+  "input": {
+    "item": "minecraft:apple"
+  },
+  "result": {
+    "item": "minecraft:potato"
+  }
+}
