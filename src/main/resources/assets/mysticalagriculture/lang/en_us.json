@@ -315,6 +315,7 @@
   "tooltip.mysticalagriculture.upgrade_fuel_rate": "Fuel Usage: %sx",
   "tooltip.mysticalagriculture.upgrade_fuel_capacity": "Fuel Capacity: %sx",
   "tooltip.mysticalagriculture.upgrade_area": "Area: +%s",
+  "tooltip.mysticalagriculture.missing_essences": "Missing Essences",
 
   "jei.category.mysticalagriculture.infusion": "Infusion Crafting",
   "jei.category.mysticalagriculture.awakening": "Awakening",

@@ -163,6 +163,14 @@ public class AwakeningAltarTileEntity extends BaseInventoryTileEntity {
         return this.recipe;
     }
 
+    public List<EssenceVesselTileEntity> getEssenceVessels() {
+        return this.getPedestals()
+                .stream()
+                .filter(p -> p instanceof EssenceVesselTileEntity)
+                .map(p -> (EssenceVesselTileEntity) p)
+                .toList();
+    }
+
     private void updateRecipeInventory(List<BaseInventoryTileEntity> pedestals) {
         this.recipeInventory.setSize(AwakeningRecipe.RECIPE_SIZE);
         this.recipeInventory.setStackInSlot(0, this.inventory.getStackInSlot(0));

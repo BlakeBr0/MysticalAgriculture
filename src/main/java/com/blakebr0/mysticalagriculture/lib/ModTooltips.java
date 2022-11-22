@@ -45,6 +45,7 @@ public final class ModTooltips {
     public static final Tooltip UPGRADE_FUEL_RATE = new Tooltip("tooltip.mysticalagriculture.upgrade_fuel_rate");
     public static final Tooltip UPGRADE_FUEL_CAPACITY = new Tooltip("tooltip.mysticalagriculture.upgrade_fuel_capacity");
     public static final Tooltip UPGRADE_AREA = new Tooltip("tooltip.mysticalagriculture.upgrade_area");
+    public static final Tooltip MISSING_ESSENCES = new Tooltip("tooltip.mysticalagriculture.missing_essences", ChatFormatting.WHITE);
 
     public static Component getTooltipForTier(int tier) {
         return TIER.args(AugmentUtils.getTooltipForTier(tier)).color(ChatFormatting.GRAY).build();
