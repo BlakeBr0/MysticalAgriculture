@@ -1,0 +1,13 @@
+{
+  "replace": false,
+  "values": [
+    "#forge:ingots/prosperity",
+    "#forge:ingots/inferium",
+    "#forge:ingots/prudentium",
+    "#forge:ingots/tertium",
+    "#forge:ingots/imperium",
+    "#forge:ingots/supremium",
+    "#forge:ingots/awakened_supremium",
+    "#forge:ingots/soulium"
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "replace": false,
+  "values": [
+    "#forge:gems/prosperity",
+    "#forge:gems/inferium",
+    "#forge:gems/prudentium",
+    "#forge:gems/tertium",
+    "#forge:gems/imperium",
+    "#forge:gems/supremium",
+    "#forge:gems/awakened_supremium",
+    "#forge:gems/soulium"
+  ]
+}
