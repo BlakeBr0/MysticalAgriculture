@@ -1,0 +1,11 @@
+{
+  "replace": false,
+  "values": [
+    "mysticalagriculture:inferium_bow",
+    "mysticalagriculture:prudentium_bow",
+    "mysticalagriculture:tertium_bow",
+    "mysticalagriculture:imperium_bow",
+    "mysticalagriculture:supremium_bow",
+    "mysticalagriculture:awakened_supremium_bow"
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "replace": false,
+  "values": [
+    "mysticalagriculture:inferium_helmet",
+    "mysticalagriculture:prudentium_helmet",
+    "mysticalagriculture:tertium_helmet",
+    "mysticalagriculture:imperium_helmet",
+    "mysticalagriculture:supremium_helmet",
+    "mysticalagriculture:awakened_supremium_helmet"
+  ]
+}

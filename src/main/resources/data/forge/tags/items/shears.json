@@ -1,0 +1,11 @@
+{
+  "replace": false,
+  "values": [
+    "mysticalagriculture:inferium_shears",
+    "mysticalagriculture:prudentium_shears",
+    "mysticalagriculture:tertium_shears",
+    "mysticalagriculture:imperium_shears",
+    "mysticalagriculture:supremium_shears",
+    "mysticalagriculture:awakened_supremium_shears"
+  ]
+}

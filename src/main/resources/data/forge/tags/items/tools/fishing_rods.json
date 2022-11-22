@@ -1,0 +1,11 @@
+{
+  "replace": false,
+  "values": [
+    "mysticalagriculture:inferium_fishing_rod",
+    "mysticalagriculture:prudentium_fishing_rod",
+    "mysticalagriculture:tertium_fishing_rod",
+    "mysticalagriculture:imperium_fishing_rod",
+    "mysticalagriculture:supremium_fishing_rod",
+    "mysticalagriculture:awakened_supremium_fishing_rod"
+  ]
+}

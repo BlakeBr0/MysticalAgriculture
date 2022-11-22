@@ -1,0 +1,11 @@
+{
+  "replace": false,
+  "values": [
+    "mysticalagriculture:inferium_chestplate",
+    "mysticalagriculture:prudentium_chestplate",
+    "mysticalagriculture:tertium_chestplate",
+    "mysticalagriculture:imperium_chestplate",
+    "mysticalagriculture:supremium_chestplate",
+    "mysticalagriculture:awakened_supremium_chestplate"
+  ]
+}

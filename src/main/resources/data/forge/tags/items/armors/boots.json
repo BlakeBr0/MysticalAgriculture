@@ -1,0 +1,11 @@
+{
+  "replace": false,
+  "values": [
+    "mysticalagriculture:inferium_boots",
+    "mysticalagriculture:prudentium_boots",
+    "mysticalagriculture:tertium_boots",
+    "mysticalagriculture:imperium_boots",
+    "mysticalagriculture:supremium_boots",
+    "mysticalagriculture:awakened_supremium_boots"
+  ]
+}

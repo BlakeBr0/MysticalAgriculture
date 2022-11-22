@@ -1,0 +1,11 @@
+{
+  "replace": false,
+  "values": [
+    "mysticalagriculture:inferium_pickaxe",
+    "mysticalagriculture:prudentium_pickaxe",
+    "mysticalagriculture:tertium_pickaxe",
+    "mysticalagriculture:imperium_pickaxe",
+    "mysticalagriculture:supremium_pickaxe",
+    "mysticalagriculture:awakened_supremium_pickaxe"
+  ]
+}
