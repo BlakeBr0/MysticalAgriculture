@@ -18,13 +18,12 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 
 import java.text.NumberFormat;
 import java.util.List;
-import java.util.function.Function;
 
 public class MachineUpgradeItem extends BaseItem {
     private final MachineUpgradeTier tier;
 
-    public MachineUpgradeItem(MachineUpgradeTier tier, Function<Properties, Properties> properties) {
-        super(properties);
+    public MachineUpgradeItem(MachineUpgradeTier tier) {
+        super();
         this.tier = tier;
     }
 

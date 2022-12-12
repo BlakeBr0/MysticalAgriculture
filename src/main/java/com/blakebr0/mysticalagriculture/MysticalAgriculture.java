@@ -22,15 +22,14 @@ import com.blakebr0.mysticalagriculture.init.ModItems;
 import com.blakebr0.mysticalagriculture.init.ModRecipeSerializers;
 import com.blakebr0.mysticalagriculture.init.ModRecipeTypes;
 import com.blakebr0.mysticalagriculture.init.ModTileEntities;
+import com.blakebr0.mysticalagriculture.init.ModWorldFeatures;
 import com.blakebr0.mysticalagriculture.lib.ModItemTier;
 import com.blakebr0.mysticalagriculture.network.NetworkHandler;
 import com.blakebr0.mysticalagriculture.registry.AugmentRegistry;
 import com.blakebr0.mysticalagriculture.registry.CropRegistry;
 import com.blakebr0.mysticalagriculture.registry.MobSoulTypeRegistry;
 import com.blakebr0.mysticalagriculture.registry.PluginRegistry;
-import com.blakebr0.mysticalagriculture.init.ModWorldFeatures;
 import com.blakebr0.mysticalagriculture.world.ModWorldgenRegistration;
-import net.minecraft.world.item.CreativeModeTab;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -51,7 +50,6 @@ public final class MysticalAgriculture {
 	public static final String MOD_ID = "mysticalagriculture";
 	public static final String NAME = "Mystical Agriculture";
 	public static final Logger LOGGER = LoggerFactory.getLogger(NAME);
-	public static final CreativeModeTab CREATIVE_TAB = new MACreativeTab();
 
 	public MysticalAgriculture() throws NoSuchFieldException, IllegalAccessException {
 		var bus = FMLJavaModLoadingContext.get().getModEventBus();

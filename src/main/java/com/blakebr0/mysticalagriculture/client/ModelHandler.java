@@ -4,7 +4,6 @@ import com.blakebr0.cucumber.client.model.RetextureableBlockModelWrapper;
 import com.blakebr0.cucumber.client.model.RetextureableItemModelWrapper;
 import com.blakebr0.mysticalagriculture.MysticalAgriculture;
 import com.blakebr0.mysticalagriculture.config.ModConfigs;
-import com.blakebr0.mysticalagriculture.init.ModBlocks;
 import com.blakebr0.mysticalagriculture.init.ModItems;
 import com.blakebr0.mysticalagriculture.item.ExperienceCapsuleItem;
 import com.blakebr0.mysticalagriculture.item.SoulJarItem;

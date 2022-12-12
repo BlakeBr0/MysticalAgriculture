@@ -1,6 +1,5 @@
 package com.blakebr0.mysticalagriculture.item;
 
-import com.blakebr0.cucumber.iface.IEnableable;
 import com.blakebr0.cucumber.item.BaseItem;
 import com.blakebr0.cucumber.lib.Colors;
 import com.blakebr0.cucumber.util.Localizable;
@@ -17,14 +16,13 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 
 import java.util.List;
-import java.util.function.Function;
 import java.util.stream.Collectors;
 
-public class AugmentItem extends BaseItem implements IAugmentProvider, IEnableable {
+public class AugmentItem extends BaseItem implements IAugmentProvider {
     private final Augment augment;
 
-    public AugmentItem(Augment augment, Function<Properties, Properties> properties) {
-        super(properties);
+    public AugmentItem(Augment augment) {
+        super();
         this.augment = augment;
     }
 
@@ -62,10 +60,5 @@ public class AugmentItem extends BaseItem implements IAugmentProvider, IEnableab
     @Override
     public Augment getAugment() {
         return this.augment;
-    }
-
-    @Override
-    public boolean isEnabled() {
-        return this.augment.isEnabled();
     }
 }

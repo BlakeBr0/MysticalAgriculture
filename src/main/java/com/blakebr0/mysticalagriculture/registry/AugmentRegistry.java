@@ -12,8 +12,6 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-import static com.blakebr0.mysticalagriculture.MysticalAgriculture.CREATIVE_TAB;
-
 public final class AugmentRegistry implements IAugmentRegistry {
     private static final AugmentRegistry INSTANCE = new AugmentRegistry();
 
@@ -46,7 +44,7 @@ public final class AugmentRegistry implements IAugmentRegistry {
         PluginRegistry.getInstance().forEach((plugin, config) -> plugin.onRegisterAugments(this));
 
         this.augments.forEach((id, a) -> {
-            var item = new AugmentItem(a, p -> p.tab(CREATIVE_TAB));
+            var item = new AugmentItem(a);
 
             registry.register(new ResourceLocation(MysticalAgriculture.MOD_ID, a.getNameWithSuffix("augment")), item);
         });

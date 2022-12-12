@@ -3,7 +3,6 @@ package com.blakebr0.mysticalagriculture.item;
 import com.blakebr0.cucumber.helper.NBTHelper;
 import com.blakebr0.mysticalagriculture.lib.ModTooltips;
 import net.minecraft.ChatFormatting;
-import net.minecraft.core.NonNullList;
 import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.InteractionHand;
@@ -11,7 +10,6 @@ import net.minecraft.world.InteractionResult;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.context.UseOnContext;
@@ -24,26 +22,13 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 
 import java.util.List;
 import java.util.UUID;
-import java.util.function.Function;
 
 public class EssenceWateringCanItem extends WateringCanItem {
     private final ChatFormatting textColor;
 
-    public EssenceWateringCanItem(int range, double chance, ChatFormatting textColor, Function<Properties, Properties> properties) {
-        super(range, chance, properties.compose(p -> p.stacksTo(1)));
+    public EssenceWateringCanItem(int range, double chance, ChatFormatting textColor) {
+        super(range, chance);
         this.textColor = textColor;
-    }
-
-    @Override
-    public void fillItemCategory(CreativeModeTab group, NonNullList<ItemStack> items) {
-        if (this.allowedIn(group)) {
-            var stack = new ItemStack(this);
-
-            NBTHelper.setBoolean(stack, "Water", false);
-            NBTHelper.setBoolean(stack, "Active", false);
-
-            items.add(stack);
-        }
     }
 
     @Override

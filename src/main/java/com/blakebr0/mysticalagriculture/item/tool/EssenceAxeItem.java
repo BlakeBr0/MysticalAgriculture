@@ -32,15 +32,14 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 
 import java.util.EnumSet;
 import java.util.List;
-import java.util.function.Function;
 
 public class EssenceAxeItem extends BaseAxeItem implements ITinkerable {
     private static final EnumSet<AugmentType> TYPES = EnumSet.of(AugmentType.TOOL, AugmentType.AXE);
     private final int tinkerableTier;
     private final int slots;
 
-    public EssenceAxeItem(Tier tier, int tinkerableTier, int slots, Function<Properties, Properties> properties) {
-        super(tier, properties);
+    public EssenceAxeItem(Tier tier, int tinkerableTier, int slots) {
+        super(tier);
         this.tinkerableTier = tinkerableTier;
         this.slots = slots;
     }

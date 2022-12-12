@@ -32,15 +32,14 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 
 import java.util.EnumSet;
 import java.util.List;
-import java.util.function.Function;
 
 public class EssenceSwordItem extends BaseSwordItem implements ITinkerable {
     private static final EnumSet<AugmentType> TYPES = EnumSet.of(AugmentType.WEAPON, AugmentType.SWORD);
     private final int tinkerableTier;
     private final int slots;
 
-    public EssenceSwordItem(Tier tier, int tinkerableTier, int slots, Function<Properties, Properties> properties) {
-        super(tier, properties);
+    public EssenceSwordItem(Tier tier, int tinkerableTier, int slots) {
+        super(tier);
         this.tinkerableTier = tinkerableTier;
         this.slots = slots;
     }

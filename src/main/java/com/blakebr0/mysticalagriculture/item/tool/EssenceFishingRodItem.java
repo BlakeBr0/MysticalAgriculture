@@ -31,15 +31,14 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 
 import java.util.EnumSet;
 import java.util.List;
-import java.util.function.Function;
 
 public class EssenceFishingRodItem extends BaseFishingRodItem implements ITinkerable {
     private static final EnumSet<AugmentType> TYPES = EnumSet.of(AugmentType.TOOL, AugmentType.FISHING_ROD);
     private final int tinkerableTier;
     private final int slots;
 
-    public EssenceFishingRodItem(Tier tier, int tinkerableTier, int slots, Function<Properties, Properties> properties) {
-        super(properties.compose(p -> p.durability(tier.getUses())));
+    public EssenceFishingRodItem(Tier tier, int tinkerableTier, int slots) {
+        super(p -> p.durability(tier.getUses()));
         this.tinkerableTier = tinkerableTier;
         this.slots = slots;
     }

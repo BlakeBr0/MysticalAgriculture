@@ -31,15 +31,14 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 
 import java.util.EnumSet;
 import java.util.List;
-import java.util.function.Function;
 
 public class EssenceShearsItem extends BaseShearsItem implements ITinkerable {
     private static final EnumSet<AugmentType> TYPES = EnumSet.of(AugmentType.TOOL, AugmentType.SHEARS);
     private final int tinkerableTier;
     private final int slots;
 
-    public EssenceShearsItem(Tier tier, int tinkerableTier, int slots, Function<Properties, Properties> properties) {
-        super(properties.compose(p -> p.durability(tier.getUses())));
+    public EssenceShearsItem(Tier tier, int tinkerableTier, int slots) {
+        super(p -> p.durability(tier.getUses()));
         this.tinkerableTier = tinkerableTier;
         this.slots = slots;
     }

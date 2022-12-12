@@ -32,7 +32,6 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 
 import java.util.EnumSet;
 import java.util.List;
-import java.util.function.Function;
 
 public class EssenceSickleItem extends BaseSickleItem implements ITinkerable {
     private static final EnumSet<AugmentType> TYPES = EnumSet.of(AugmentType.TOOL, AugmentType.WEAPON, AugmentType.SICKLE);
@@ -41,8 +40,8 @@ public class EssenceSickleItem extends BaseSickleItem implements ITinkerable {
     private final int tinkerableTier;
     private final int slots;
 
-    public EssenceSickleItem(Tier tier, int range, ChatFormatting textColor, int tinkerableTier, int slots, Function<Properties, Properties> properties) {
-        super(tier, 4.0F, -3.0F, range, properties);
+    public EssenceSickleItem(Tier tier, int range, ChatFormatting textColor, int tinkerableTier, int slots) {
+        super(tier, range);
         this.range = range;
         this.textColor = textColor;
         this.tinkerableTier = tinkerableTier;

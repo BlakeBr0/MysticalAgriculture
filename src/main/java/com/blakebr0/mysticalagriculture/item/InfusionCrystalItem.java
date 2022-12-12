@@ -4,11 +4,9 @@ import com.blakebr0.cucumber.item.BaseReusableItem;
 import com.blakebr0.mysticalagriculture.config.ModConfigs;
 import net.minecraft.world.item.ItemStack;
 
-import java.util.function.Function;
-
 public class InfusionCrystalItem extends BaseReusableItem {
-    public InfusionCrystalItem(Function<Properties, Properties> properties) {
-        super(1000, properties);
+    public InfusionCrystalItem() {
+        super(1000);
     }
 
     @Override

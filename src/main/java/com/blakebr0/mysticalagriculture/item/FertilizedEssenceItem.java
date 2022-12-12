@@ -22,11 +22,10 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.event.ForgeEventFactory;
 
 import java.util.List;
-import java.util.function.Function;
 
 public class FertilizedEssenceItem extends BaseItem {
-    public FertilizedEssenceItem(Function<Properties, Properties> properties) {
-        super(properties);
+    public FertilizedEssenceItem() {
+        super();
 
         DispenserBlock.registerBehavior(this, new DispenserBehavior());
     }

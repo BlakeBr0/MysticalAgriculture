@@ -12,11 +12,10 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 
 import java.util.List;
-import java.util.function.Function;
 
 public class ExperienceCapsuleItem extends BaseItem {
-    public ExperienceCapsuleItem(Function<Properties, Properties> properties) {
-        super(properties.compose(p -> p.stacksTo(1)));
+    public ExperienceCapsuleItem() {
+        super(p -> p.stacksTo(1));
     }
 
     @OnlyIn(Dist.CLIENT)

@@ -32,15 +32,14 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 
 import java.util.EnumSet;
 import java.util.List;
-import java.util.function.Function;
 
 public class EssenceHoeItem extends BaseHoeItem implements ITinkerable {
     private static final EnumSet<AugmentType> TYPES = EnumSet.of(AugmentType.TOOL, AugmentType.HOE);
     private final int tinkerableTier;
     private final int slots;
 
-    public EssenceHoeItem(Tier tier, int tinkerableTier, int slots, Function<Properties, Properties> properties) {
-        super(tier, 0, tinkerableTier - 1.0F, properties);
+    public EssenceHoeItem(Tier tier, int tinkerableTier, int slots) {
+        super(tier, 0, tinkerableTier - 1.0F, p -> p);
         this.tinkerableTier = tinkerableTier;
         this.slots = slots;
     }

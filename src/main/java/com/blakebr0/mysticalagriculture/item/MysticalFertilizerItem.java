@@ -23,11 +23,10 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.event.ForgeEventFactory;
 
 import java.util.List;
-import java.util.function.Function;
 
 public class MysticalFertilizerItem extends BaseItem {
-    public MysticalFertilizerItem(Function<Properties, Properties> properties) {
-        super(properties);
+    public MysticalFertilizerItem() {
+        super();
 
         DispenserBlock.registerBehavior(this, new DispenserBehavior());
     }

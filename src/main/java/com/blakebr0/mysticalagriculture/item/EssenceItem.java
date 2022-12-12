@@ -10,13 +10,11 @@ import net.minecraft.world.InteractionResult;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.block.Block;
 
-import java.util.function.Function;
-
 public class EssenceItem extends BaseItem implements IFarmlandConverter, ICropTierProvider {
     private final CropTier tier;
 
-    public EssenceItem(CropTier tier, Function<Properties, Properties> properties) {
-        super(properties);
+    public EssenceItem(CropTier tier) {
+        super();
         this.tier = tier;
     }
 

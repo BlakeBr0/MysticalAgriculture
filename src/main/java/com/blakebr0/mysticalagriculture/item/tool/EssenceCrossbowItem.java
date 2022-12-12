@@ -26,7 +26,6 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 
 import java.util.EnumSet;
 import java.util.List;
-import java.util.function.Function;
 
 public class EssenceCrossbowItem extends BaseCrossbowItem implements ITinkerable {
     private static final EnumSet<AugmentType> TYPES = EnumSet.of(AugmentType.WEAPON, AugmentType.CROSSBOW);
@@ -34,8 +33,8 @@ public class EssenceCrossbowItem extends BaseCrossbowItem implements ITinkerable
     private final int slots;
     private final float drawSpeedMulti;
 
-    public EssenceCrossbowItem(Tier tier, int tinkerableTier, int slots, float drawSpeedMulti, Function<Properties, Properties> properties) {
-        super(properties.compose(p -> p.durability(tier.getUses())));
+    public EssenceCrossbowItem(Tier tier, int tinkerableTier, int slots, float drawSpeedMulti) {
+        super(p -> p.durability(tier.getUses()));
         this.tinkerableTier = tinkerableTier;
         this.slots = slots;
         this.drawSpeedMulti = drawSpeedMulti;

@@ -16,13 +16,12 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 
 import java.util.List;
 import java.util.function.BiFunction;
-import java.util.function.Function;
 
 public class SouliumDaggerItem extends BaseSwordItem implements ISoulSiphoningItem {
     private final DaggerType type;
 
-    public SouliumDaggerItem(Tier tier, DaggerType type, Function<Properties, Properties> properties) {
-        super(tier, type.getDamage(), -2.4F, properties.compose(p -> p.defaultDurability(type.getDurability())));
+    public SouliumDaggerItem(Tier tier, DaggerType type) {
+        super(tier, type.getDamage(), -2.4F, p -> p.defaultDurability(type.getDurability()));
         this.type = type;
     }
 

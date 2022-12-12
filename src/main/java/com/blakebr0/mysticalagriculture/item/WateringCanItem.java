@@ -7,7 +7,6 @@ import com.blakebr0.mysticalagriculture.config.ModConfigs;
 import com.blakebr0.mysticalagriculture.lib.ModTooltips;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.core.NonNullList;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
@@ -16,7 +15,6 @@ import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.UseAnim;
@@ -35,29 +33,15 @@ import net.minecraftforge.common.util.FakePlayer;
 
 import java.util.List;
 import java.util.UUID;
-import java.util.function.Function;
 
 public class WateringCanItem extends BaseItem {
     protected final int range;
     protected final double chance;
 
-    public WateringCanItem(Function<Properties, Properties> properties) {
-        this(3, 0.25, properties);
-    }
-
-    public WateringCanItem(int range, double chance, Function<Properties, Properties> properties) {
-        super(properties.compose(p -> p.stacksTo(1)));
+    public WateringCanItem(int range, double chance) {
+        super(p -> p.stacksTo(1));
         this.range = range;
         this.chance = chance;
-    }
-
-    @Override
-    public void fillItemCategory(CreativeModeTab group, NonNullList<ItemStack> items) {
-        if (this.allowedIn(group)) {
-            var stack = new ItemStack(this);
-            NBTHelper.setBoolean(stack, "Water", false);
-            items.add(stack);
-        }
     }
 
     @Override

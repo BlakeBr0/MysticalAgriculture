@@ -12,7 +12,6 @@ import com.blakebr0.mysticalagriculture.item.MysticalSeedsItem;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
-import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.IForgeRegistry;
 
 import java.util.Collection;
@@ -137,7 +136,7 @@ public final class CropRegistry implements ICropRegistry {
         crops.stream().filter(Crop::shouldRegisterEssenceItem).forEach(c -> {
             var essence = c.getEssenceItem();
             if (essence == null) {
-                var defaultEssence = new MysticalEssenceItem(c, p -> p.tab(MysticalAgriculture.CREATIVE_TAB));
+                var defaultEssence = new MysticalEssenceItem(c);
                 essence = defaultEssence;
                 c.setEssenceItem(() -> defaultEssence, true);
             }
@@ -150,7 +149,7 @@ public final class CropRegistry implements ICropRegistry {
         crops.stream().filter(Crop::shouldRegisterSeedsItem).forEach(c -> {
             var seeds = c.getSeedsItem();
             if (seeds == null) {
-                var defaultSeeds = new MysticalSeedsItem(c, p -> p.tab(MysticalAgriculture.CREATIVE_TAB));
+                var defaultSeeds = new MysticalSeedsItem(c);
                 seeds = defaultSeeds;
                 c.setSeedsItem(() -> defaultSeeds, true);
             }
