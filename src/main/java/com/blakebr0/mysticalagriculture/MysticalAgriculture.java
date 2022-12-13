@@ -4,6 +4,7 @@ import com.blakebr0.cucumber.helper.ConfigHelper;
 import com.blakebr0.mysticalagriculture.api.MysticalAgricultureAPI;
 import com.blakebr0.mysticalagriculture.client.ModTESRs;
 import com.blakebr0.mysticalagriculture.client.ModelHandler;
+import com.blakebr0.mysticalagriculture.client.handler.ColorHandler;
 import com.blakebr0.mysticalagriculture.client.handler.GuiOverlayHandler;
 import com.blakebr0.mysticalagriculture.compat.TOPCompat;
 import com.blakebr0.mysticalagriculture.config.ModConfigs;
@@ -29,7 +30,6 @@ import com.blakebr0.mysticalagriculture.registry.AugmentRegistry;
 import com.blakebr0.mysticalagriculture.registry.CropRegistry;
 import com.blakebr0.mysticalagriculture.registry.MobSoulTypeRegistry;
 import com.blakebr0.mysticalagriculture.registry.PluginRegistry;
-import com.blakebr0.mysticalagriculture.world.ModWorldgenRegistration;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -70,7 +70,7 @@ public final class MysticalAgriculture {
 		ModBiomeModifiers.REGISTRY.register(bus);
 
 		DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> () -> {
-			bus.register(new GuiOverlayHandler.ColorHandler());
+			bus.register(new ColorHandler());
 			bus.register(new ModelHandler());
 			bus.register(new ModTESRs());
 			bus.register(new GuiOverlayHandler());
@@ -98,7 +98,6 @@ public final class MysticalAgriculture {
 		ModItemTier.onCommonSetup();
 
 		event.enqueueWork(() -> {
-			ModWorldgenRegistration.onCommonSetup();
 			NetworkHandler.onCommonSetup();
 		});
 	}
