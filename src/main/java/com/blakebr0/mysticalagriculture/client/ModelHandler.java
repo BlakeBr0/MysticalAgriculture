@@ -183,10 +183,6 @@ public final class ModelHandler {
     }
 
     public static void onClientSetup(FMLClientSetupEvent event) {
-        for (var crop : CropRegistry.getInstance().getCrops()) {
-            ItemBlockRenderTypes.setRenderLayer(crop.getCropBlock(), RenderType.cutoutMipped());
-        }
-
         event.enqueueWork(() -> {
             ItemProperties.register(ModItems.EXPERIENCE_CAPSULE.get(), new ResourceLocation("fill"), ExperienceCapsuleItem.getFillPropertyGetter());
             ItemProperties.register(ModItems.SOUL_JAR.get(), new ResourceLocation("fill"), SoulJarItem.getFillPropertyGetter());

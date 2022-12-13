@@ -1,5 +1,6 @@
 {
   "parent": "block/cross",
+  "render_type": "minecraft:cutout_mipped",
   "textures": {
     "cross": "mysticalagriculture:block/mystical_resource_crop_3"
   }

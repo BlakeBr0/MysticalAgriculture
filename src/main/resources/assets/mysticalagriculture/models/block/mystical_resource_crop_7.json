@@ -1,5 +1,6 @@
 {
   "ambientocclusion": false,
+  "render_type": "minecraft:cutout_mipped",
   "textures": {
     "stem": "mysticalagriculture:block/mystical_resource_crop_7",
     "flower": "mysticalagriculture:block/mystical_resource_crop_7",
