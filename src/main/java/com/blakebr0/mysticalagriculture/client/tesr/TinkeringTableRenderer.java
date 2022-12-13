@@ -3,7 +3,7 @@ package com.blakebr0.mysticalagriculture.client.tesr;
 import com.blakebr0.mysticalagriculture.block.TinkeringTableBlock;
 import com.blakebr0.mysticalagriculture.tileentity.TinkeringTableTileEntity;
 import com.mojang.blaze3d.vertex.PoseStack;
-import com.mojang.math.Vector3f;
+import com.mojang.math.Axis;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.block.model.ItemTransforms;
@@ -29,8 +29,8 @@ public class TinkeringTableRenderer implements BlockEntityRenderer<TinkeringTabl
             float scale = 0.7F;
             matrix.scale(scale, scale, scale);
             int index = state.getValue(TinkeringTableBlock.FACING).get2DDataValue();
-            matrix.mulPose(Vector3f.YP.rotationDegrees(-90 * index));
-            matrix.mulPose(Vector3f.XP.rotationDegrees(90));
+            matrix.mulPose(Axis.YP.rotationDegrees(-90 * index));
+            matrix.mulPose(Axis.XP.rotationDegrees(90));
             Minecraft.getInstance().getItemRenderer().renderStatic(stack, ItemTransforms.TransformType.FIXED, i, i1, matrix, buffer, 0);
             matrix.popPose();
         }

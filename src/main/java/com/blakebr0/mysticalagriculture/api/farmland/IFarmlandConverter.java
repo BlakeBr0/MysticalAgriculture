@@ -6,7 +6,6 @@ import net.minecraft.world.level.block.Block;
 
 /**
  * Implement this on items that are used to convert vanilla farmland to essence farmland
- *
  * Make sure to call {@link FarmlandConverter#convert} in your item's {@link Item#useOn(UseOnContext)}
  */
 public interface IFarmlandConverter {

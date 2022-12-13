@@ -168,7 +168,7 @@ public final class ModelHandler {
     }
 
     @SubscribeEvent
-    public void onTextureStitch(TextureStitchEvent.Pre event) {
+    public void onTextureStitch(TextureStitchEvent event) {
         if (event.getAtlas().location().equals(BLOCK_ATLAS)) {
             for (var crop : CropRegistry.getInstance().getCrops()) {
                 var textures = crop.getTextures();

@@ -2,7 +2,7 @@ package com.blakebr0.mysticalagriculture.block;
 
 import com.blakebr0.cucumber.block.BaseTileEntityBlock;
 import com.blakebr0.cucumber.lib.Tooltips;
-import com.blakebr0.cucumber.util.Utils;
+import com.blakebr0.cucumber.util.Formatting;
 import com.blakebr0.mysticalagriculture.init.ModTileEntities;
 import com.blakebr0.mysticalagriculture.lib.ModTooltips;
 import com.blakebr0.mysticalagriculture.tileentity.HarvesterTileEntity;
@@ -102,9 +102,9 @@ public class HarvesterBlock extends BaseTileEntityBlock {
             var rangeNumber = Component.literal(rangeString + "x" + rangeString);
 
             tooltip.add(ModTooltips.MACHINE_AREA.args(rangeNumber).build());
-            tooltip.add(ModTooltips.MACHINE_SPEED.args(Utils.format(HarvesterTileEntity.OPERATION_TIME)).build());
-            tooltip.add(ModTooltips.MACHINE_FUEL_RATE.args(Utils.format(HarvesterTileEntity.SCAN_FUEL_USAGE)).build());
-            tooltip.add(ModTooltips.MACHINE_FUEL_CAPACITY.args(Utils.format(HarvesterTileEntity.FUEL_CAPACITY)).build());
+            tooltip.add(ModTooltips.MACHINE_SPEED.args(Formatting.number(HarvesterTileEntity.OPERATION_TIME)).build());
+            tooltip.add(ModTooltips.MACHINE_FUEL_RATE.args(Formatting.number(HarvesterTileEntity.SCAN_FUEL_USAGE)).build());
+            tooltip.add(ModTooltips.MACHINE_FUEL_CAPACITY.args(Formatting.number(HarvesterTileEntity.FUEL_CAPACITY)).build());
         } else {
             tooltip.add(Tooltips.HOLD_SHIFT_FOR_INFO.build());
         }

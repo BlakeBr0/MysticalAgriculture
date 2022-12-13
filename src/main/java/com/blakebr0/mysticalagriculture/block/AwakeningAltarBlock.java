@@ -34,7 +34,7 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 import java.util.List;
 
 public class AwakeningAltarBlock extends BaseTileEntityBlock {
-    public static final VoxelShape ALTAR_SHAPE = new VoxelShapeBuilder()
+    public static final VoxelShape ALTAR_SHAPE = VoxelShapeBuilder.builder()
             .cuboid(0, 0, 0, 16, 8, 16).cuboid(3, 13, 3, 13, 14, 13)
             .cuboid(6, 10, 6, 10, 11, 10).cuboid(5, 11, 5, 11, 13, 11)
             .cuboid(2, 13.5, 4, 3, 14.5, 12).cuboid(13, 13.5, 4, 14, 14.5, 12)

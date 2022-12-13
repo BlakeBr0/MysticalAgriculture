@@ -2,7 +2,7 @@ package com.blakebr0.mysticalagriculture.block;
 
 import com.blakebr0.cucumber.block.BaseTileEntityBlock;
 import com.blakebr0.cucumber.lib.Tooltips;
-import com.blakebr0.cucumber.util.Utils;
+import com.blakebr0.cucumber.util.Formatting;
 import com.blakebr0.mysticalagriculture.init.ModTileEntities;
 import com.blakebr0.mysticalagriculture.lib.ModTooltips;
 import com.blakebr0.mysticalagriculture.tileentity.SoulExtractorTileEntity;
@@ -98,9 +98,9 @@ public class SoulExtractorBlock extends BaseTileEntityBlock {
     @Override
     public void appendHoverText(ItemStack stack, BlockGetter level, List<Component> tooltip, TooltipFlag flag) {
         if (Screen.hasShiftDown()) {
-            tooltip.add(ModTooltips.MACHINE_SPEED.args(Utils.format(SoulExtractorTileEntity.OPERATION_TIME)).build());
-            tooltip.add(ModTooltips.MACHINE_FUEL_RATE.args(Utils.format(SoulExtractorTileEntity.FUEL_USAGE)).build());
-            tooltip.add(ModTooltips.MACHINE_FUEL_CAPACITY.args(Utils.format(SoulExtractorTileEntity.FUEL_CAPACITY)).build());
+            tooltip.add(ModTooltips.MACHINE_SPEED.args(Formatting.number(SoulExtractorTileEntity.OPERATION_TIME)).build());
+            tooltip.add(ModTooltips.MACHINE_FUEL_RATE.args(Formatting.number(SoulExtractorTileEntity.FUEL_USAGE)).build());
+            tooltip.add(ModTooltips.MACHINE_FUEL_CAPACITY.args(Formatting.number(SoulExtractorTileEntity.FUEL_CAPACITY)).build());
         } else {
             tooltip.add(Tooltips.HOLD_SHIFT_FOR_INFO.build());
         }

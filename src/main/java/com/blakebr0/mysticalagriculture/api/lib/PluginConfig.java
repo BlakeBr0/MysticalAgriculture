@@ -30,7 +30,7 @@ public class PluginConfig {
     }
 
     /**
-     * Disables the built in recipe generator for seed regular crafting recipes
+     * Disables the built-in recipe generator for seed regular crafting recipes
      */
     public void disableDynamicSeedCraftingRecipes() {
         this.dynamicSeedCraftingRecipes = false;
@@ -41,7 +41,7 @@ public class PluginConfig {
     }
 
     /**
-     * Disables the built in recipe generator for seed infusion recipes
+     * Disables the built-in recipe generator for seed infusion recipes
      */
     public void disableDynamicSeedInfusionRecipes() {
         this.dynamicSeedInfusionRecipes = false;
@@ -52,7 +52,7 @@ public class PluginConfig {
     }
 
     /**
-     * Disables the built in recipe generator for seed infusion recipes
+     * Disables the built-in recipe generator for seed infusion recipes
      */
     public void disableDynamicSeedReprocessingRecipes() {
         this.dynamicSeedReprocessorRecipes = false;

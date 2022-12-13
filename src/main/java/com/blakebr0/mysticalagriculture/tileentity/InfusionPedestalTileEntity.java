@@ -20,10 +20,8 @@ public class InfusionPedestalTileEntity extends BaseInventoryTileEntity {
     }
 
     public static BaseItemStackHandler createInventoryHandler(Runnable onContentsChanged) {
-        var inventory = new BaseItemStackHandler(1, onContentsChanged);
-
-        inventory.setDefaultSlotLimit(1);
-
-        return inventory;
+        return BaseItemStackHandler.create(1, onContentsChanged, builder -> {
+            builder.setDefaultSlotLimit(1);
+        });
     }
 }

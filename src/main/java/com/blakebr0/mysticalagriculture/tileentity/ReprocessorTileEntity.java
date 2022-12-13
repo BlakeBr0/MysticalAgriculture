@@ -25,11 +25,10 @@ import net.minecraft.world.level.block.entity.FurnaceBlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.common.ForgeHooks;
 import net.minecraftforge.common.capabilities.Capability;
+import net.minecraftforge.common.capabilities.ForgeCapabilities;
 import net.minecraftforge.common.util.LazyOptional;
-import net.minecraftforge.energy.CapabilityEnergy;
 import net.minecraftforge.energy.EnergyStorage;
 import net.minecraftforge.energy.IEnergyStorage;
-import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.IItemHandlerModifiable;
 
 public abstract class ReprocessorTileEntity extends BaseInventoryTileEntity implements MenuProvider {
@@ -85,17 +84,17 @@ public abstract class ReprocessorTileEntity extends BaseInventoryTileEntity impl
 
     @Override
     public AbstractContainerMenu createMenu(int id, Inventory playerInventory, Player player) {
-        return ReprocessorContainer.create(id, playerInventory, this::isUsableByPlayer, this.inventory, this.getBlockPos());
+        return ReprocessorContainer.create(id, playerInventory, this.inventory, this.getBlockPos());
     }
 
     @Override
     public <T> LazyOptional<T> getCapability(Capability<T> cap, Direction side) {
         if (!this.isRemoved()) {
-            if (cap == CapabilityEnergy.ENERGY) {
-                return CapabilityEnergy.ENERGY.orEmpty(cap, this.energyCapability);
+            if (cap == ForgeCapabilities.ENERGY) {
+                return ForgeCapabilities.ENERGY.orEmpty(cap, this.energyCapability);
             }
 
-            if (side != null && cap == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY) {
+            if (side != null && cap == ForgeCapabilities.ITEM_HANDLER) {
                 if (side == Direction.UP) {
                     return this.inventoryCapabilities[0].cast();
                 } else if (side == Direction.DOWN) {
@@ -120,7 +119,7 @@ public abstract class ReprocessorTileEntity extends BaseInventoryTileEntity impl
 
                 if (tile.fuelItemValue > 0) {
                     tile.fuelLeft = tile.fuelItemValue *= FUEL_TICK_MULTIPLIER;
-                    tile.inventory.extractItemSuper(1, 1, false);
+                    tile.inventory.setStackInSlot(1, StackHelper.shrink(tile.inventory.getStackInSlot(1), 1, false));
 
                     mark = true;
                 }
@@ -155,7 +154,7 @@ public abstract class ReprocessorTileEntity extends BaseInventoryTileEntity impl
                         tile.energy.extractEnergy(tile.tier.getFuelUsage(), false);
 
                         if (tile.progress >= tile.tier.getOperationTime()) {
-                            tile.inventory.extractItemSuper(0, 1, false);
+                            tile.inventory.setStackInSlot(0, StackHelper.shrink(tile.inventory.getStackInSlot(0), 1, false));
 
                             var result = StackHelper.combineStacks(output, recipeOutput);
                             tile.inventory.setStackInSlot(2, result);
@@ -186,12 +185,14 @@ public abstract class ReprocessorTileEntity extends BaseInventoryTileEntity impl
         }
     }
 
+    public static BaseItemStackHandler createInventoryHandler() {
+        return createInventoryHandler(null);
+    }
+
     public static BaseItemStackHandler createInventoryHandler(Runnable onContentsChanged) {
-        var inventory = new BaseItemStackHandler(3, onContentsChanged);
-
-        inventory.setOutputSlots(2);
-
-        return inventory;
+        return BaseItemStackHandler.create(3, onContentsChanged, builder -> {
+            builder.setOutputSlots(2);
+        });
     }
 
     public ReprocessorTier getTier() {

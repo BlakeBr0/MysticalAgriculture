@@ -1,5 +1,6 @@
 package com.blakebr0.mysticalagriculture.tileentity;
 
+import com.blakebr0.cucumber.helper.StackHelper;
 import com.blakebr0.cucumber.inventory.BaseItemStackHandler;
 import com.blakebr0.cucumber.tileentity.BaseInventoryTileEntity;
 import com.blakebr0.cucumber.util.MultiblockPositions;
@@ -38,7 +39,7 @@ public class AwakeningAltarTileEntity extends BaseInventoryTileEntity {
         super(ModTileEntities.AWAKENING_ALTAR.get(), pos, state);
         this.inventory = BaseItemStackHandler.create(2, this::markDirtyAndDispatch, handler -> {
             handler.setDefaultSlotLimit(1);
-            handler.setSlotValidator((slot, stack) -> handler.getStackInSlot(1).isEmpty());
+            handler.setCanInsert((slot, stack) -> handler.getStackInSlot(1).isEmpty());
             handler.setOutputSlots(1);
         });
         this.recipeInventory = BaseItemStackHandler.create(9);
@@ -261,10 +262,10 @@ public class AwakeningAltarTileEntity extends BaseInventoryTileEntity {
         if (item instanceof ICropProvider provider) {
             var crop = provider.getCrop();
 
-            if (crop == ModCrops.AIR) inventory.extractItemSuper(0, requirements.air(), false);
-            else if (crop == ModCrops.EARTH) inventory.extractItemSuper(0, requirements.earth(), false);
-            else if (crop == ModCrops.WATER) inventory.extractItemSuper(0, requirements.water(), false);
-            else if (crop == ModCrops.FIRE) inventory.extractItemSuper(0, requirements.fire(), false);
+            if (crop == ModCrops.AIR) inventory.setStackInSlot(0, StackHelper.shrink(inventory.getStackInSlot(0), requirements.air(), false));
+            else if (crop == ModCrops.EARTH) inventory.setStackInSlot(0, StackHelper.shrink(inventory.getStackInSlot(0), requirements.earth(), false));
+            else if (crop == ModCrops.WATER) inventory.setStackInSlot(0, StackHelper.shrink(inventory.getStackInSlot(0), requirements.water(), false));
+            else if (crop == ModCrops.FIRE) inventory.setStackInSlot(0, StackHelper.shrink(inventory.getStackInSlot(0), requirements.fire(), false));
         }
     }
 }

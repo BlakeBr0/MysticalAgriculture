@@ -13,12 +13,14 @@ public final class ModDataGenerators {
     @SubscribeEvent
     public void onGatherData(GatherDataEvent event) {
         var generator = event.getGenerator();
+        var packOutput = generator.getPackOutput();
         var existingFileHelper = event.getExistingFileHelper();
+        var lookupProvider = event.getLookupProvider();
 
         generator.addProvider(true, new BlockModelJsonGenerator(generator, MysticalAgriculture.MOD_ID, existingFileHelper));
         generator.addProvider(true, new ItemModelJsonGenerator(generator, MysticalAgriculture.MOD_ID, existingFileHelper));
-        generator.addProvider(true, new RecipeJsonGenerator(generator));
-        generator.addProvider(true, new BlockTagsJsonGenerator(generator, MysticalAgriculture.MOD_ID, existingFileHelper));
-        generator.addProvider(true, new ItemTagsJsonGenerator(generator, MysticalAgriculture.MOD_ID, existingFileHelper));
+        generator.addProvider(true, new RecipeJsonGenerator(packOutput));
+        generator.addProvider(true, new BlockTagsJsonGenerator(packOutput, lookupProvider, MysticalAgriculture.MOD_ID, existingFileHelper));
+        generator.addProvider(true, new ItemTagsJsonGenerator(packOutput, lookupProvider, MysticalAgriculture.MOD_ID, existingFileHelper));
     }
 }

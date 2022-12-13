@@ -12,6 +12,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.CropBlock;
@@ -36,7 +37,7 @@ public class MysticalCropBlock extends CropBlock implements ICropProvider {
     }
 
     @Override
-    public boolean isBonemealSuccess(Level world, RandomSource random, BlockPos pos, BlockState state) {
+    public boolean isBonemealSuccess(Level level, RandomSource random, BlockPos pos, BlockState state) {
         return false;
     }
 
@@ -49,7 +50,7 @@ public class MysticalCropBlock extends CropBlock implements ICropProvider {
     }
 
     @Override
-    public VoxelShape getShape(BlockState state, BlockGetter world, BlockPos pos, CollisionContext context) {
+    public VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
         return SHAPE;
     }
 
@@ -103,24 +104,24 @@ public class MysticalCropBlock extends CropBlock implements ICropProvider {
     }
 
     @Override
-    public void performBonemeal(ServerLevel world, RandomSource random, BlockPos pos, BlockState state) {
-        if (!this.canGrow(world, pos))
+    public void performBonemeal(ServerLevel level, RandomSource random, BlockPos pos, BlockState state) {
+        if (!this.canGrow(level, pos))
             return;
 
-        super.performBonemeal(world, random, pos, state);
+        super.performBonemeal(level, random, pos, state);
     }
 
     @Override
-    public boolean isValidBonemealTarget(BlockGetter world, BlockPos pos, BlockState state, boolean isClient) {
-        if (world instanceof Level) {
-            return this.canGrow((Level) world, pos) && super.isValidBonemealTarget(world, pos, state, isClient);
+    public boolean isValidBonemealTarget(LevelReader level, BlockPos pos, BlockState state, boolean isClient) {
+        if (level instanceof Level) {
+            return this.canGrow((Level) level, pos) && super.isValidBonemealTarget(level, pos, state, isClient);
         }
 
-        return super.isValidBonemealTarget(world, pos, state, isClient);
+        return super.isValidBonemealTarget(level, pos, state, isClient);
     }
 
     @Override
-    protected boolean mayPlaceOn(BlockState state, BlockGetter world, BlockPos pos) {
+    protected boolean mayPlaceOn(BlockState state, BlockGetter level, BlockPos pos) {
         return state.getBlock() instanceof FarmBlock;
     }
 
@@ -138,11 +139,11 @@ public class MysticalCropBlock extends CropBlock implements ICropProvider {
         return this.crop.getEssenceItem();
     }
 
-    private boolean canGrow(Level world, BlockPos pos) {
+    private boolean canGrow(Level level, BlockPos pos) {
         var crux = this.crop.getCruxBlock();
 
         if (crux != null) {
-            var block = world.getBlockState(pos.below(2)).getBlock();
+            var block = level.getBlockState(pos.below(2)).getBlock();
             if (block != crux)
                 return false;
         }
@@ -150,7 +151,7 @@ public class MysticalCropBlock extends CropBlock implements ICropProvider {
         var biomes = this.crop.getRequiredBiomes();
 
         if (!biomes.isEmpty()) {
-            var biome = world.getBiome(pos);
+            var biome = level.getBiome(pos);
             var biomeId = ForgeRegistries.BIOMES.getKey(biome.value());
             return biomes.contains(biomeId);
         }

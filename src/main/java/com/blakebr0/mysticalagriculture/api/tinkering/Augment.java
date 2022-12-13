@@ -265,7 +265,7 @@ public class Augment {
     public void onArmorTick(ItemStack stack, Level world, Player player) { }
 
     /**
-     * Called every tick for equipped armor, meant for player ability changes, {@link LivingEvent.LivingUpdateEvent}
+     * Called every tick for equipped armor, meant for player ability changes, {@link LivingEvent.LivingTickEvent}
      * @param world the world
      * @param player the player
      * @param cache the ability cache

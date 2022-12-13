@@ -29,7 +29,7 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 
 public class TinkeringTableBlock extends BaseTileEntityBlock {
     public static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
-    public static final VoxelShape TABLE_SHAPE = new VoxelShapeBuilder()
+    public static final VoxelShape TABLE_SHAPE = VoxelShapeBuilder.builder()
             .cuboid(1, 0, 1, 15, 4, 15).cuboid(3.5, 5, 3.5, 12.5, 9, 12.5)
             .cuboid(0, 10, 0, 16, 13, 16).cuboid(3, 12.8, 14.8, 13, 13.8, 15.8)
             .cuboid(14.8, 12.8, 3, 15.8, 13.8, 13).cuboid(3, 12.8, 0.2, 13, 13.8, 1.2)

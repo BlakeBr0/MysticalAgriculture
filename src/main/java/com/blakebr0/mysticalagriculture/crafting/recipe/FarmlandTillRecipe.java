@@ -12,6 +12,7 @@ import net.minecraft.util.GsonHelper;
 import net.minecraft.world.inventory.CraftingContainer;
 import net.minecraft.world.item.HoeItem;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.crafting.CraftingBookCategory;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.item.crafting.ShapedRecipe;
@@ -19,7 +20,7 @@ import net.minecraft.world.item.crafting.ShapelessRecipe;
 
 public class FarmlandTillRecipe extends ShapelessRecipe {
     public FarmlandTillRecipe(ResourceLocation id, String group, ItemStack output, NonNullList<Ingredient> inputs) {
-        super(id, group, output, inputs);
+        super(id, group, CraftingBookCategory.MISC, output, inputs);
     }
 
     @Override

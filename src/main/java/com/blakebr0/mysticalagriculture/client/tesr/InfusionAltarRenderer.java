@@ -4,7 +4,7 @@ import com.blakebr0.cucumber.client.ModRenderTypes;
 import com.blakebr0.mysticalagriculture.init.ModBlocks;
 import com.blakebr0.mysticalagriculture.tileentity.InfusionAltarTileEntity;
 import com.mojang.blaze3d.vertex.PoseStack;
-import com.mojang.math.Vector3f;
+import com.mojang.math.Axis;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.block.model.ItemTransforms;
@@ -29,7 +29,7 @@ public class InfusionAltarRenderer implements BlockEntityRenderer<InfusionAltarT
             matrix.scale(scale, scale, scale);
             double tick = System.currentTimeMillis() / 800.0D;
             matrix.translate(0.0D, Math.sin(tick % (2 * Math.PI)) * 0.065D, 0.0D);
-            matrix.mulPose(Vector3f.YP.rotationDegrees((float) ((tick * 40.0D) % 360)));
+            matrix.mulPose(Axis.YP.rotationDegrees((float) ((tick * 40.0D) % 360)));
             minecraft.getItemRenderer().renderStatic(stack, ItemTransforms.TransformType.GROUND, i, i1, matrix, buffer, 0);
             matrix.popPose();
         }

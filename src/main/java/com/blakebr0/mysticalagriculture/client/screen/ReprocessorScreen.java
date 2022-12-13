@@ -76,7 +76,7 @@ public class ReprocessorScreen extends BaseContainerScreen<ReprocessorContainer>
         var level = this.getMinecraft().level;
 
         if (level != null) {
-            var tile = level.getBlockEntity(this.getMenu().getPos());
+            var tile = level.getBlockEntity(this.getMenu().getBlockPos());
 
             if (tile instanceof ReprocessorTileEntity reprocessor) {
                 return reprocessor;

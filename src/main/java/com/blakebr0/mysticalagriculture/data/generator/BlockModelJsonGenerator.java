@@ -21,7 +21,7 @@ public class BlockModelJsonGenerator extends BlockStateProvider {
     protected void registerStatesAndModels() {
         var stemModels = new HashMap<ResourceLocation, ModelFile[]>();
 
-        CropRegistry.getInstance().getTypes().forEach(type -> {
+        for (var type : CropRegistry.getInstance().getTypes()) {
             var models = new ModelFile[8];
             var stemModel = type.getStemModel();
 
@@ -30,9 +30,9 @@ public class BlockModelJsonGenerator extends BlockStateProvider {
             }
 
             stemModels.put(type.getId(), models);
-        });
+        }
 
-        CropRegistry.getInstance().getCrops().forEach(crop -> {
+        for (var crop : CropRegistry.getInstance().getCrops()) {
             var block = crop.getCropBlock();
             var models = stemModels.get(crop.getType().getId());
 
@@ -50,7 +50,7 @@ public class BlockModelJsonGenerator extends BlockStateProvider {
                     return ConfiguredModel.builder().modelFile(models[age]).build();
                 });
             }
-        });
+        }
     }
 
     @Override

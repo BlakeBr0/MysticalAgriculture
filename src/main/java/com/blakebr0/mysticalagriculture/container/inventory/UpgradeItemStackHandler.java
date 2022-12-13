@@ -7,7 +7,7 @@ import net.minecraft.world.item.ItemStack;
 
 public class UpgradeItemStackHandler extends BaseItemStackHandler {
     public UpgradeItemStackHandler() {
-        super(1);
+        super(1, null);
     }
 
     @Override

@@ -3,33 +3,36 @@ package com.blakebr0.mysticalagriculture.data.generator;
 import com.blakebr0.mysticalagriculture.MysticalAgriculture;
 import com.blakebr0.mysticalagriculture.api.MysticalAgricultureAPI;
 import com.blakebr0.mysticalagriculture.registry.CropRegistry;
-import net.minecraft.core.Registry;
-import net.minecraft.data.DataGenerator;
+import net.minecraft.core.HolderLookup;
+import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.TagsProvider;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.common.data.ExistingFileHelper;
+import net.minecraftforge.registries.ForgeRegistries;
 
 import java.nio.file.Path;
+import java.util.concurrent.CompletableFuture;
 
 public class BlockTagsJsonGenerator extends TagsProvider<Block> {
-    private final DataGenerator generator;
+    private final PackOutput output;
 
-    public BlockTagsJsonGenerator(DataGenerator generator, String modId, ExistingFileHelper existingFileHelper) {
-        super(generator, Registry.BLOCK, modId, existingFileHelper);
-        this.generator = generator;
+    public BlockTagsJsonGenerator(PackOutput output, CompletableFuture<HolderLookup.Provider> lookup, String modId, ExistingFileHelper existingFileHelper) {
+        super(output, ForgeRegistries.Keys.BLOCKS, lookup, modId, existingFileHelper);
+        this.output = output;
     }
 
     @Override
-    protected void addTags() {
-        CropRegistry.getInstance().getCrops().forEach(crop -> {
-            this.tag(MysticalAgricultureAPI.CROPS_TAG).add(crop.getCropBlock());
-        });
+    protected void addTags(HolderLookup.Provider provider) {
+        for (var crop : CropRegistry.getInstance().getCrops()) {
+            var id = ForgeRegistries.BLOCKS.getResourceKey(crop.getCropBlock());
+            this.tag(MysticalAgricultureAPI.CROPS_TAG).add(id.get());
+        }
     }
 
     @Override
     protected Path getPath(ResourceLocation id) {
-        return this.generator.getOutputFolder().resolve("data/" + id.getNamespace() + "/tags/blocks/" + id.getPath() + ".json");
+        return this.output.getOutputFolder().resolve("data/" + id.getNamespace() + "/tags/blocks/" + id.getPath() + ".json");
     }
 
     @Override

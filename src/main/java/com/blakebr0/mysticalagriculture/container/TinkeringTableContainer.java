@@ -1,5 +1,6 @@
 package com.blakebr0.mysticalagriculture.container;
 
+import com.blakebr0.cucumber.container.BaseContainerMenu;
 import com.blakebr0.mysticalagriculture.api.tinkering.IAugmentProvider;
 import com.blakebr0.mysticalagriculture.api.util.AugmentUtils;
 import com.blakebr0.mysticalagriculture.container.slot.AugmentSlot;
@@ -7,28 +8,25 @@ import com.blakebr0.mysticalagriculture.container.slot.ElementSlot;
 import com.blakebr0.mysticalagriculture.container.slot.TinkerableSlot;
 import com.blakebr0.mysticalagriculture.init.ModContainerTypes;
 import com.blakebr0.mysticalagriculture.tileentity.TinkeringTableTileEntity;
+import net.minecraft.core.BlockPos;
+import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.world.Container;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.MenuType;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.items.IItemHandlerModifiable;
 
-import java.util.function.Function;
-
-public class TinkeringTableContainer extends AbstractContainerMenu {
-    private final Function<Player, Boolean> isUsableByPlayer;
+public class TinkeringTableContainer extends BaseContainerMenu {
     private final IItemHandlerModifiable inventory;
 
-    private TinkeringTableContainer(MenuType<?> type, int id, Inventory playerInventory) {
-        this(type, id, playerInventory, p -> false, TinkeringTableTileEntity.createInventoryHandler(null));
+    private TinkeringTableContainer(MenuType<?> type, int id, Inventory playerInventory, FriendlyByteBuf buffer) {
+        this(type, id, playerInventory, TinkeringTableTileEntity.createInventoryHandler().forContainer(), buffer.readBlockPos());
     }
 
-    private TinkeringTableContainer(MenuType<?> type, int id, Inventory playerInventory, Function<Player, Boolean> isUsableByPlayer, IItemHandlerModifiable inventory) {
-        super(type, id);
-        this.isUsableByPlayer = isUsableByPlayer;
+    private TinkeringTableContainer(MenuType<?> type, int id, Inventory playerInventory, IItemHandlerModifiable inventory, BlockPos pos) {
+        super(type, id, pos);
         this.inventory = inventory;
 
         this.addSlot(new TinkerableSlot(this, inventory, 0, 80, 49));
@@ -75,11 +73,6 @@ public class TinkeringTableContainer extends AbstractContainerMenu {
     }
 
     @Override
-    public boolean stillValid(Player player) {
-        return this.isUsableByPlayer.apply(player);
-    }
-
-    @Override
     public ItemStack quickMoveStack(Player player, int slotNumber) {
         var itemstack = ItemStack.EMPTY;
         var slot = this.slots.get(slotNumber);
@@ -118,11 +111,11 @@ public class TinkeringTableContainer extends AbstractContainerMenu {
         return itemstack;
     }
 
-    public static TinkeringTableContainer create(int windowId, Inventory playerInventory) {
-        return new TinkeringTableContainer(ModContainerTypes.TINKERING_TABLE.get(), windowId, playerInventory);
+    public static TinkeringTableContainer create(int windowId, Inventory playerInventory, FriendlyByteBuf buffer) {
+        return new TinkeringTableContainer(ModContainerTypes.TINKERING_TABLE.get(), windowId, playerInventory, buffer);
     }
 
-    public static TinkeringTableContainer create(int windowId, Inventory playerInventory, Function<Player, Boolean> isUsableByPlayer, IItemHandlerModifiable inventory) {
-        return new TinkeringTableContainer(ModContainerTypes.TINKERING_TABLE.get(), windowId, playerInventory, isUsableByPlayer, inventory);
+    public static TinkeringTableContainer create(int windowId, Inventory playerInventory, IItemHandlerModifiable inventory, BlockPos pos) {
+        return new TinkeringTableContainer(ModContainerTypes.TINKERING_TABLE.get(), windowId, playerInventory, inventory, pos);
     }
 }

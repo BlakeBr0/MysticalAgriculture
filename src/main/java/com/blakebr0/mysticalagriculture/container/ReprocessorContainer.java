@@ -1,8 +1,8 @@
 package com.blakebr0.mysticalagriculture.container;
 
+import com.blakebr0.cucumber.container.BaseContainerMenu;
 import com.blakebr0.cucumber.helper.RecipeHelper;
 import com.blakebr0.cucumber.inventory.BaseItemStackHandler;
-import com.blakebr0.cucumber.inventory.slot.BaseItemStackHandlerSlot;
 import com.blakebr0.mysticalagriculture.init.ModContainerTypes;
 import com.blakebr0.mysticalagriculture.init.ModRecipeTypes;
 import com.blakebr0.mysticalagriculture.tileentity.ReprocessorTileEntity;
@@ -10,30 +10,23 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.MenuType;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.common.ForgeHooks;
+import net.minecraftforge.items.SlotItemHandler;
 
-import java.util.function.Function;
-
-public class ReprocessorContainer extends AbstractContainerMenu {
-    private final Function<Player, Boolean> isUsableByPlayer;
-    private final BlockPos pos;
-
+public class ReprocessorContainer extends BaseContainerMenu {
     private ReprocessorContainer(MenuType<?> type, int id, Inventory playerInventory, BlockPos pos) {
-        this(type, id, playerInventory, p -> false, ReprocessorTileEntity.createInventoryHandler(null), pos);
+        this(type, id, playerInventory, ReprocessorTileEntity.createInventoryHandler().forContainer(), pos);
     }
 
-    private ReprocessorContainer(MenuType<?> type, int id, Inventory playerInventory, Function<Player, Boolean> isUsableByPlayer, BaseItemStackHandler inventory, BlockPos pos) {
-        super(type, id);
-        this.isUsableByPlayer = isUsableByPlayer;
-        this.pos = pos;
+    private ReprocessorContainer(MenuType<?> type, int id, Inventory playerInventory, BaseItemStackHandler inventory, BlockPos pos) {
+        super(type, id, pos);
 
-        this.addSlot(new BaseItemStackHandlerSlot(inventory, 0, 74, 52));
-        this.addSlot(new BaseItemStackHandlerSlot(inventory, 1, 30, 56));
-        this.addSlot(new BaseItemStackHandlerSlot(inventory, 2, 134, 52));
+        this.addSlot(new SlotItemHandler(inventory, 0, 74, 52));
+        this.addSlot(new SlotItemHandler(inventory, 1, 30, 56));
+        this.addSlot(new SlotItemHandler(inventory, 2, 134, 52));
 
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 9; j++) {
@@ -44,11 +37,6 @@ public class ReprocessorContainer extends AbstractContainerMenu {
         for (int i = 0; i < 9; i++) {
             this.addSlot(new Slot(playerInventory, i, 8 + i * 18, 170));
         }
-    }
-
-    @Override
-    public boolean stillValid(Player player) {
-        return this.isUsableByPlayer.apply(player);
     }
 
     @Override
@@ -102,15 +90,11 @@ public class ReprocessorContainer extends AbstractContainerMenu {
         return itemstack;
     }
 
-    public BlockPos getPos() {
-        return this.pos;
-    }
-
     public static ReprocessorContainer create(int windowId, Inventory playerInventory, FriendlyByteBuf buffer) {
         return new ReprocessorContainer(ModContainerTypes.REPROCESSOR.get(), windowId, playerInventory, buffer.readBlockPos());
     }
 
-    public static ReprocessorContainer create(int windowId, Inventory playerInventory, Function<Player, Boolean> isUsableByPlayer, BaseItemStackHandler inventory, BlockPos pos) {
-        return new ReprocessorContainer(ModContainerTypes.REPROCESSOR.get(), windowId, playerInventory, isUsableByPlayer, inventory, pos);
+    public static ReprocessorContainer create(int windowId, Inventory playerInventory, BaseItemStackHandler inventory, BlockPos pos) {
+        return new ReprocessorContainer(ModContainerTypes.REPROCESSOR.get(), windowId, playerInventory, inventory, pos);
     }
 }

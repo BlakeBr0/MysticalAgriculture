@@ -1,5 +1,6 @@
 package com.blakebr0.mysticalagriculture.tileentity;
 
+import com.blakebr0.cucumber.helper.StackHelper;
 import com.blakebr0.cucumber.inventory.BaseItemStackHandler;
 import com.blakebr0.cucumber.tileentity.BaseInventoryTileEntity;
 import com.blakebr0.cucumber.util.Localizable;
@@ -28,8 +29,8 @@ import net.minecraft.world.level.block.CropBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.common.ForgeHooks;
 import net.minecraftforge.common.capabilities.Capability;
+import net.minecraftforge.common.capabilities.ForgeCapabilities;
 import net.minecraftforge.common.util.LazyOptional;
-import net.minecraftforge.energy.CapabilityEnergy;
 import net.minecraftforge.energy.EnergyStorage;
 import net.minecraftforge.energy.IEnergyStorage;
 import net.minecraftforge.fml.util.ObfuscationReflectionHelper;
@@ -83,7 +84,7 @@ public class HarvesterTileEntity extends BaseInventoryTileEntity implements Menu
 
     @Override
     public AbstractContainerMenu createMenu(int i, Inventory inventory, Player player) {
-        return HarvesterContainer.create(i, inventory, this::isUsableByPlayer, this.inventory, this.upgradeInventory, this.getBlockPos());
+        return HarvesterContainer.create(i, inventory, this.inventory, this.upgradeInventory, this.getBlockPos());
     }
 
     @Override
@@ -118,8 +119,8 @@ public class HarvesterTileEntity extends BaseInventoryTileEntity implements Menu
     @Override
     public <T> LazyOptional<T> getCapability(Capability<T> cap, Direction side) {
         if (!this.isRemoved()) {
-            if (cap == CapabilityEnergy.ENERGY) {
-                return CapabilityEnergy.ENERGY.orEmpty(cap, this.energyCapability);
+            if (cap == ForgeCapabilities.ENERGY) {
+                return ForgeCapabilities.ENERGY.orEmpty(cap, this.energyCapability);
             }
         }
 
@@ -137,7 +138,7 @@ public class HarvesterTileEntity extends BaseInventoryTileEntity implements Menu
 
                 if (tile.fuelItemValue > 0) {
                     tile.fuelLeft = tile.fuelItemValue *= FUEL_TICK_MULTIPLIER;
-                    tile.inventory.extractItemSuper(0, 1, false);
+                    tile.inventory.setStackInSlot(0, StackHelper.shrink(tile.inventory.getStackInSlot(0), 1, false));
 
                     mark = true;
                 }
@@ -232,11 +233,15 @@ public class HarvesterTileEntity extends BaseInventoryTileEntity implements Menu
         }
     }
 
+    public static BaseItemStackHandler createInventoryHandler() {
+        return createInventoryHandler(null);
+    }
+
     public static BaseItemStackHandler createInventoryHandler(Runnable onContentsChanged) {
-        var inventory = new BaseItemStackHandler(16, onContentsChanged);
-        inventory.setCanExtract(slot -> slot > 0);
-        inventory.setSlotValidator((slot, stack) -> slot > 0 || slot == 0 && ForgeHooks.getBurnTime(stack, null) > 0);
-        return inventory;
+        return BaseItemStackHandler.create(16, onContentsChanged, builder -> {
+            builder.setCanInsert((slot, stack) -> slot > 0 || slot == 0 && ForgeHooks.getBurnTime(stack, null) > 0);
+            builder.setCanExtract(slot -> slot > 0);
+        });
     }
 
     public EnergyStorage getEnergy() {
@@ -301,7 +306,7 @@ public class HarvesterTileEntity extends BaseInventoryTileEntity implements Menu
     private void addItemToInventory(ItemStack stack, Level level, BlockPos pos) {
         var remaining = stack;
         for (int i = 1; i < this.inventory.getSlots(); i++) {
-            remaining = this.inventory.insertItemSuper(i, remaining, false);
+            remaining = this.inventory.insertItem(i, remaining, false);
             if (remaining.isEmpty())
                 return;
         }

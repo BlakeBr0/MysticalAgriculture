@@ -1,6 +1,6 @@
 package com.blakebr0.mysticalagriculture.block;
 
-import com.blakebr0.cucumber.util.Utils;
+import com.blakebr0.cucumber.util.Formatting;
 import com.blakebr0.mysticalagriculture.init.ModTileEntities;
 import com.blakebr0.mysticalagriculture.lib.ModTooltips;
 import com.blakebr0.mysticalagriculture.tileentity.EssenceFurnaceTileEntity;
@@ -70,10 +70,10 @@ public abstract class EssenceFurnaceBlock extends AbstractFurnaceBlock {
     public void appendHoverText(ItemStack stack, BlockGetter level, List<Component> tooltip, TooltipFlag flag) {
         double cookingSpeedDifference = 200D * this.tier.getCookTimeMultiplier();
         double cookingSpeedValue = Math.ceil(((200D - cookingSpeedDifference) / cookingSpeedDifference) * 100D) + 100D;
-        var cookingSpeed = Component.literal(Utils.format(cookingSpeedValue)).append("%");
+        var cookingSpeed = Formatting.percent(cookingSpeedValue);
         double burnTimeDifference = (1600D * this.tier.getBurnTimeMultiplier()) / cookingSpeedDifference;
         double burnTimeValue = Math.ceil(((burnTimeDifference - 8D) / 8D) * 100D) + 100D;
-        var fuelEfficiency = Component.literal(Utils.format(burnTimeValue)).append("%");
+        var fuelEfficiency = Formatting.percent(burnTimeValue);
 
         tooltip.add(ModTooltips.COOKING_SPEED.args(cookingSpeed).build());
         tooltip.add(ModTooltips.FUEL_EFFICIENCY.args(fuelEfficiency).build());

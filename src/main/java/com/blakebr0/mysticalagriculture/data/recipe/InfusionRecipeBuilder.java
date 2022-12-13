@@ -6,13 +6,13 @@ import com.blakebr0.mysticalagriculture.init.ModRecipeSerializers;
 import com.google.common.collect.Lists;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
-import net.minecraft.core.Registry;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.level.ItemLike;
+import net.minecraftforge.registries.ForgeRegistries;
 
 import java.util.List;
 import java.util.function.Consumer;
@@ -112,7 +112,7 @@ public class InfusionRecipeBuilder {
 
             var result = new JsonObject();
 
-            result.addProperty("item", Registry.ITEM.getKey(this.result).toString());
+            result.addProperty("item", ForgeRegistries.ITEMS.getKey(this.result).toString());
 
             if (this.count > 1) {
                 result.addProperty("count", this.count);

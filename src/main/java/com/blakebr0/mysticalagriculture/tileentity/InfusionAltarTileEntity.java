@@ -33,7 +33,7 @@ public class InfusionAltarTileEntity extends BaseInventoryTileEntity {
     public InfusionAltarTileEntity(BlockPos pos, BlockState state) {
         super(ModTileEntities.INFUSION_ALTAR.get(), pos, state);
         this.inventory = createInventoryHandler(this::markDirtyAndDispatch);
-        this.recipeInventory = new BaseItemStackHandler(9);
+        this.recipeInventory = BaseItemStackHandler.create(9);
     }
 
     @Override
@@ -110,13 +110,11 @@ public class InfusionAltarTileEntity extends BaseInventoryTileEntity {
     }
 
     public static BaseItemStackHandler createInventoryHandler(Runnable onContentsChanged) {
-        var inventory = new BaseItemStackHandler(2, onContentsChanged);
-
-        inventory.setDefaultSlotLimit(1);
-        inventory.setSlotValidator((slot, stack) -> inventory.getStackInSlot(1).isEmpty());
-        inventory.setOutputSlots(1);
-
-        return inventory;
+        return BaseItemStackHandler.create(2, onContentsChanged, builder -> {
+            builder.setDefaultSlotLimit(1);
+            builder.setCanInsert((slot, stack) -> builder.getStackInSlot(1).isEmpty());
+            builder.setOutputSlots(1);
+        });
     }
 
     public List<BlockPos> getPedestalPositions() {

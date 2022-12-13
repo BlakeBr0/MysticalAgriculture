@@ -5,7 +5,7 @@ import com.blakebr0.mysticalagriculture.api.crop.ICropProvider;
 import com.blakebr0.mysticalagriculture.tileentity.EssenceVesselTileEntity;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
-import com.mojang.math.Vector3f;
+import com.mojang.math.Axis;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.RenderType;
@@ -47,7 +47,7 @@ public class EssenceVesselRenderer implements BlockEntityRenderer<EssenceVesselT
 
             matrix.pushPose();
             matrix.translate(0, 1, 1);
-            matrix.mulPose(Vector3f.XP.rotationDegrees(180));
+            matrix.mulPose(Axis.XP.rotationDegrees(180));
 
             // bottom
             addVertex(builder, matrix, 0.2f, 0.25f, 0.8f, sprite.getU0(), sprite.getV1(), color, combinedLight);
@@ -60,7 +60,7 @@ public class EssenceVesselRenderer implements BlockEntityRenderer<EssenceVesselT
             matrix.pushPose();
 
             matrix.translate(1.2, 0.55, 0);
-            matrix.mulPose(Vector3f.ZP.rotationDegrees(90));
+            matrix.mulPose(Axis.ZP.rotationDegrees(90));
 
             // west
             addVertex(builder, matrix, 0.2f, 1, 0.8f, sprite.getU0(), sprite.getV1(), color, combinedLight);
@@ -72,8 +72,8 @@ public class EssenceVesselRenderer implements BlockEntityRenderer<EssenceVesselT
             matrix.pushPose();
 
             matrix.translate(-0.2, 0.55, 1);
-            matrix.mulPose(Vector3f.ZP.rotationDegrees(270));
-            matrix.mulPose(Vector3f.YP.rotationDegrees(180));
+            matrix.mulPose(Axis.ZP.rotationDegrees(270));
+            matrix.mulPose(Axis.YP.rotationDegrees(180));
 
             // east
             addVertex(builder, matrix, 0.2f, 1, 0.8f, sprite.getU0(), sprite.getV1(), color, combinedLight);
@@ -85,8 +85,8 @@ public class EssenceVesselRenderer implements BlockEntityRenderer<EssenceVesselT
             matrix.pushPose();
 
             matrix.translate(1, 0.55, -0.2);
-            matrix.mulPose(Vector3f.XP.rotationDegrees(90));
-            matrix.mulPose(Vector3f.YP.rotationDegrees(180));
+            matrix.mulPose(Axis.XP.rotationDegrees(90));
+            matrix.mulPose(Axis.YP.rotationDegrees(180));
 
             // south
             addVertex(builder, matrix, 0.2f, 1, 0.2f + filledAmount, sprite.getU0(), sprite.getV1(), color, combinedLight);
@@ -98,7 +98,7 @@ public class EssenceVesselRenderer implements BlockEntityRenderer<EssenceVesselT
             matrix.pushPose();
 
             matrix.translate(0, 0.55, 1.2);
-            matrix.mulPose(Vector3f.XP.rotationDegrees(270));
+            matrix.mulPose(Axis.XP.rotationDegrees(270));
 
             // north
             addVertex(builder, matrix, 0.2f, 1, 0.2f + filledAmount, sprite.getU0(), sprite.getV1(), color, combinedLight);
@@ -110,7 +110,7 @@ public class EssenceVesselRenderer implements BlockEntityRenderer<EssenceVesselT
 
             matrix.popPose();
 
-            sprite.close();
+            sprite.uploadFirstFrame();
         }
     }
 

@@ -10,13 +10,13 @@ import com.blakebr0.mysticalagriculture.config.ModConfigs;
 import com.blakebr0.mysticalagriculture.crafting.DynamicRecipeManager;
 import com.blakebr0.mysticalagriculture.data.ModDataGenerators;
 import com.blakebr0.mysticalagriculture.handler.AugmentHandler;
-import com.blakebr0.mysticalagriculture.handler.ColorHandler;
 import com.blakebr0.mysticalagriculture.handler.ExperienceCapsuleHandler;
 import com.blakebr0.mysticalagriculture.handler.MobDropHandler;
 import com.blakebr0.mysticalagriculture.handler.MobSoulHandler;
 import com.blakebr0.mysticalagriculture.init.ModBiomeModifiers;
 import com.blakebr0.mysticalagriculture.init.ModBlocks;
 import com.blakebr0.mysticalagriculture.init.ModContainerTypes;
+import com.blakebr0.mysticalagriculture.init.ModCreativeModeTabs;
 import com.blakebr0.mysticalagriculture.init.ModEnchantments;
 import com.blakebr0.mysticalagriculture.init.ModItems;
 import com.blakebr0.mysticalagriculture.init.ModRecipeSerializers;
@@ -57,6 +57,7 @@ public final class MysticalAgriculture {
 		bus.register(this);
 		bus.register(new ModBlocks());
 		bus.register(new ModItems());
+		bus.register(new ModCreativeModeTabs());
 		bus.register(new ModRecipeSerializers());
 		bus.register(new ModDataGenerators());
 
@@ -69,7 +70,7 @@ public final class MysticalAgriculture {
 		ModBiomeModifiers.REGISTRY.register(bus);
 
 		DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> () -> {
-			bus.register(new ColorHandler());
+			bus.register(new GuiOverlayHandler.ColorHandler());
 			bus.register(new ModelHandler());
 			bus.register(new ModTESRs());
 			bus.register(new GuiOverlayHandler());

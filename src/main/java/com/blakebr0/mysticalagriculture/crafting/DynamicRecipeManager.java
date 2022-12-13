@@ -11,6 +11,7 @@ import com.blakebr0.mysticalagriculture.registry.CropRegistry;
 import net.minecraft.core.NonNullList;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.crafting.CraftingBookCategory;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.Recipe;
 import net.minecraft.world.item.crafting.ShapedRecipe;
@@ -101,7 +102,7 @@ public class DynamicRecipeManager {
         var name = new ResourceLocation(MysticalAgriculture.MOD_ID, crop.getNameWithSuffix("seeds_vanilla"));
         var output = new ItemStack(crop.getSeedsItem());
 
-        return new ShapedRecipe(name, "", 3, 3, inputs, output);
+        return new ShapedRecipe(name, "", CraftingBookCategory.MISC, 3, 3, inputs, output);
     }
 
     private static ISpecialRecipe makeReprocessorRecipe(Crop crop) {
