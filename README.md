@@ -10,6 +10,7 @@ The official release builds can be downloaded from the following websites.
 
 - [Blake's Mods](https://blakesmods.com/mystical-agriculture/download)
 - [CurseForge](https://www.curseforge.com/minecraft/mc-mods/mystical-agriculture)
+- [Modrinth](https://modrinth.com/mod/mystical-agriculture)
 
 ## Development
 
