@@ -58,6 +58,7 @@ public final class MysticalAgriculture {
 		bus.register(new ModBlocks());
 		bus.register(new ModItems());
 		bus.register(new ModCreativeModeTabs());
+		bus.register(new ModRecipeTypes());
 		bus.register(new ModRecipeSerializers());
 		bus.register(new ModDataGenerators());
 
