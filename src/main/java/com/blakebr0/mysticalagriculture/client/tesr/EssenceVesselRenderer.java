@@ -110,7 +110,7 @@ public class EssenceVesselRenderer implements BlockEntityRenderer<EssenceVesselT
 
             matrix.popPose();
 
-            sprite.uploadFirstFrame();
+            sprite.contents().close();
         }
     }
 
