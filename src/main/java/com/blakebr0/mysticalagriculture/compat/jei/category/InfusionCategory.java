@@ -17,7 +17,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
 
 public class InfusionCategory implements IRecipeCategory<IInfusionRecipe> {
-    private static final ResourceLocation TEXTURE = new ResourceLocation(MysticalAgriculture.MOD_ID, "textures/gui/jei/infusion.png");
+    private static final ResourceLocation TEXTURE = new ResourceLocation(MysticalAgriculture.MOD_ID, "textures/jei/infusion.png");
     public static final RecipeType<IInfusionRecipe> RECIPE_TYPE = RecipeType.create(MysticalAgriculture.MOD_ID, "infusion", IInfusionRecipe.class);
 
     private final IDrawable background;

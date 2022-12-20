@@ -20,7 +20,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
 
 public class ReprocessorCategory implements IRecipeCategory<IReprocessorRecipe> {
-    private static final ResourceLocation TEXTURE = new ResourceLocation(MysticalAgriculture.MOD_ID, "textures/gui/jei/reprocessor.png");
+    private static final ResourceLocation TEXTURE = new ResourceLocation(MysticalAgriculture.MOD_ID, "textures/jei/reprocessor.png");
     public static final RecipeType<IReprocessorRecipe> RECIPE_TYPE = RecipeType.create(MysticalAgriculture.MOD_ID, "reprocessor", IReprocessorRecipe.class);
 
     private final IDrawable background;

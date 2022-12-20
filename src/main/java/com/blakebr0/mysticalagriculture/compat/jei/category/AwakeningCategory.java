@@ -20,7 +20,7 @@ import net.minecraft.world.item.ItemStack;
 import java.util.List;
 
 public class AwakeningCategory implements IRecipeCategory<IAwakeningRecipe> {
-    private static final ResourceLocation TEXTURE = new ResourceLocation(MysticalAgriculture.MOD_ID, "textures/gui/jei/infusion.png");
+    private static final ResourceLocation TEXTURE = new ResourceLocation(MysticalAgriculture.MOD_ID, "textures/jei/infusion.png");
     public static final RecipeType<IAwakeningRecipe> RECIPE_TYPE = RecipeType.create(MysticalAgriculture.MOD_ID, "awakening", IAwakeningRecipe.class);
 
     private final IDrawable background;

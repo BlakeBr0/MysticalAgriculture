@@ -20,7 +20,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
 
 public class SoulExtractorCategory implements IRecipeCategory<ISoulExtractionRecipe> {
-    private static final ResourceLocation TEXTURE = new ResourceLocation(MysticalAgriculture.MOD_ID, "textures/gui/jei/reprocessor.png");
+    private static final ResourceLocation TEXTURE = new ResourceLocation(MysticalAgriculture.MOD_ID, "textures/jei/reprocessor.png");
     public static final RecipeType<ISoulExtractionRecipe> RECIPE_TYPE = RecipeType.create(MysticalAgriculture.MOD_ID, "soul_extractor", ISoulExtractionRecipe.class);
 
     private final IDrawable background;

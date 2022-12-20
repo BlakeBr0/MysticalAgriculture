@@ -17,7 +17,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
 
 public class CruxCategory implements IRecipeCategory<CruxRecipe> {
-    private static final ResourceLocation TEXTURE = new ResourceLocation(MysticalAgriculture.MOD_ID, "textures/gui/jei/crux.png");
+    private static final ResourceLocation TEXTURE = new ResourceLocation(MysticalAgriculture.MOD_ID, "textures/jei/crux.png");
     public static final RecipeType<CruxRecipe> RECIPE_TYPE = RecipeType.create(MysticalAgriculture.MOD_ID, "crux", CruxRecipe.class);
 
     private final IDrawable background;
