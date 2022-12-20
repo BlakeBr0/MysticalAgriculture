@@ -1,5 +1,6 @@
 package com.blakebr0.mysticalagriculture.tileentity;
 
+import com.blakebr0.cucumber.energy.BaseEnergyStorage;
 import com.blakebr0.cucumber.helper.StackHelper;
 import com.blakebr0.cucumber.inventory.BaseItemStackHandler;
 import com.blakebr0.cucumber.inventory.SidedItemStackHandlerWrapper;
@@ -27,14 +28,13 @@ import net.minecraftforge.common.ForgeHooks;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.capabilities.ForgeCapabilities;
 import net.minecraftforge.common.util.LazyOptional;
-import net.minecraftforge.energy.EnergyStorage;
 import net.minecraftforge.energy.IEnergyStorage;
 import net.minecraftforge.items.IItemHandlerModifiable;
 
 public abstract class ReprocessorTileEntity extends BaseInventoryTileEntity implements MenuProvider {
     private static final int FUEL_TICK_MULTIPLIER = 20;
     private final BaseItemStackHandler inventory;
-    private final EnergyStorage energy;
+    private final BaseEnergyStorage energy;
     private final LazyOptional<IItemHandlerModifiable>[] inventoryCapabilities;
     private final LazyOptional<IEnergyStorage> energyCapability = LazyOptional.of(this::getEnergy);
     private final ReprocessorTier tier;
@@ -42,12 +42,11 @@ public abstract class ReprocessorTileEntity extends BaseInventoryTileEntity impl
     private int progress;
     private int fuelLeft;
     private int fuelItemValue;
-    private int oldEnergy;
 
     public ReprocessorTileEntity(BlockEntityType<?> type, ReprocessorTier tier, BlockPos pos, BlockState state) {
         super(type, pos, state);
         this.inventory = createInventoryHandler(this::markDirtyAndDispatch);
-        this.energy = new EnergyStorage(tier.getFuelCapacity());
+        this.energy = new BaseEnergyStorage(tier.getFuelCapacity(), this::markDirtyAndDispatch);
         this.inventoryCapabilities = SidedItemStackHandlerWrapper.create(this.inventory, new Direction[] { Direction.UP, Direction.DOWN, Direction.NORTH }, this::canInsertStackSided, null);
         this.tier = tier;
     }
@@ -174,12 +173,6 @@ public abstract class ReprocessorTileEntity extends BaseInventoryTileEntity impl
             }
         }
 
-        if (tile.oldEnergy != tile.energy.getEnergyStored()) {
-            tile.oldEnergy = tile.energy.getEnergyStored();
-
-            mark = true;
-        }
-
         if (mark) {
             tile.markDirtyAndDispatch();
         }
@@ -199,7 +192,7 @@ public abstract class ReprocessorTileEntity extends BaseInventoryTileEntity impl
         return this.tier;
     }
 
-    public EnergyStorage getEnergy() {
+    public BaseEnergyStorage getEnergy() {
         return this.energy;
     }
 

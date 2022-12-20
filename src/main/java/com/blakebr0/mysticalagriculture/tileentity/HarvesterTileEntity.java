@@ -31,7 +31,6 @@ import net.minecraftforge.common.ForgeHooks;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.capabilities.ForgeCapabilities;
 import net.minecraftforge.common.util.LazyOptional;
-import net.minecraftforge.energy.EnergyStorage;
 import net.minecraftforge.energy.IEnergyStorage;
 import net.minecraftforge.fml.util.ObfuscationReflectionHelper;
 
@@ -244,7 +243,7 @@ public class HarvesterTileEntity extends BaseInventoryTileEntity implements Menu
         });
     }
 
-    public EnergyStorage getEnergy() {
+    public DynamicEnergyStorage getEnergy() {
         return this.energy;
     }
 

@@ -31,7 +31,6 @@ import net.minecraftforge.common.ForgeHooks;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.capabilities.ForgeCapabilities;
 import net.minecraftforge.common.util.LazyOptional;
-import net.minecraftforge.energy.EnergyStorage;
 import net.minecraftforge.energy.IEnergyStorage;
 import net.minecraftforge.items.IItemHandlerModifiable;
 
@@ -49,7 +48,6 @@ public class SoulExtractorTileEntity extends BaseInventoryTileEntity implements 
     private int progress;
     private int fuelLeft;
     private int fuelItemValue;
-    private int oldEnergy;
     private SoulExtractionRecipe recipe;
     private MachineUpgradeTier tier;
 
@@ -194,12 +192,6 @@ public class SoulExtractorTileEntity extends BaseInventoryTileEntity implements 
             }
         }
 
-        if (tile.oldEnergy != tile.energy.getEnergyStored()) {
-            tile.oldEnergy = tile.energy.getEnergyStored();
-
-            mark = true;
-        }
-
         if (mark) {
             tile.markDirtyAndDispatch();
         }
@@ -213,7 +205,7 @@ public class SoulExtractorTileEntity extends BaseInventoryTileEntity implements 
         return BaseItemStackHandler.create(3, onContentsChanged);
     }
 
-    public EnergyStorage getEnergy() {
+    public DynamicEnergyStorage getEnergy() {
         return this.energy;
     }
 
