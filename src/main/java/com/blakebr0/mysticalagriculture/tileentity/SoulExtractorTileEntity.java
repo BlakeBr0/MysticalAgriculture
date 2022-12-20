@@ -1,5 +1,6 @@
 package com.blakebr0.mysticalagriculture.tileentity;
 
+import com.blakebr0.cucumber.energy.DynamicEnergyStorage;
 import com.blakebr0.cucumber.helper.StackHelper;
 import com.blakebr0.cucumber.inventory.BaseItemStackHandler;
 import com.blakebr0.cucumber.inventory.SidedItemStackHandlerWrapper;
@@ -12,7 +13,6 @@ import com.blakebr0.mysticalagriculture.crafting.recipe.SoulExtractionRecipe;
 import com.blakebr0.mysticalagriculture.init.ModRecipeTypes;
 import com.blakebr0.mysticalagriculture.init.ModTileEntities;
 import com.blakebr0.mysticalagriculture.item.SoulJarItem;
-import com.blakebr0.mysticalagriculture.util.DynamicEnergyStorage;
 import com.blakebr0.mysticalagriculture.util.IUpgradeableMachine;
 import com.blakebr0.mysticalagriculture.util.MachineUpgradeTier;
 import net.minecraft.core.BlockPos;
@@ -57,7 +57,7 @@ public class SoulExtractorTileEntity extends BaseInventoryTileEntity implements 
         super(ModTileEntities.SOUL_EXTRACTOR.get(), pos, state);
         this.inventory = createInventoryHandler(this::markDirtyAndDispatch);
         this.upgradeInventory = new UpgradeItemStackHandler();
-        this.energy = new DynamicEnergyStorage(FUEL_CAPACITY);
+        this.energy = new DynamicEnergyStorage(FUEL_CAPACITY, this::markDirtyAndDispatch);
         this.inventoryCapabilities = SidedItemStackHandlerWrapper.create(this.inventory, new Direction[] { Direction.UP, Direction.DOWN, Direction.NORTH }, this::canInsertStackSided, this::canExtractStackSided);
     }
 

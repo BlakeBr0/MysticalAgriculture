@@ -1,5 +1,6 @@
 package com.blakebr0.mysticalagriculture.tileentity;
 
+import com.blakebr0.cucumber.energy.DynamicEnergyStorage;
 import com.blakebr0.cucumber.helper.StackHelper;
 import com.blakebr0.cucumber.inventory.BaseItemStackHandler;
 import com.blakebr0.cucumber.tileentity.BaseInventoryTileEntity;
@@ -9,7 +10,6 @@ import com.blakebr0.mysticalagriculture.block.HarvesterBlock;
 import com.blakebr0.mysticalagriculture.container.HarvesterContainer;
 import com.blakebr0.mysticalagriculture.container.inventory.UpgradeItemStackHandler;
 import com.blakebr0.mysticalagriculture.init.ModTileEntities;
-import com.blakebr0.mysticalagriculture.util.DynamicEnergyStorage;
 import com.blakebr0.mysticalagriculture.util.IUpgradeableMachine;
 import com.blakebr0.mysticalagriculture.util.MachineUpgradeTier;
 import net.minecraft.core.BlockPos;
@@ -69,7 +69,7 @@ public class HarvesterTileEntity extends BaseInventoryTileEntity implements Menu
         super(ModTileEntities.HARVESTER.get(), pos, state);
         this.inventory = createInventoryHandler(this::markDirtyAndDispatch);
         this.upgradeInventory = new UpgradeItemStackHandler();
-        this.energy = new DynamicEnergyStorage(FUEL_CAPACITY);
+        this.energy = new DynamicEnergyStorage(FUEL_CAPACITY, this::markDirtyAndDispatch);
     }
 
     @Override
