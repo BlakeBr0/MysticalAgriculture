@@ -22,7 +22,7 @@ public class TinkeringTableContainer extends BaseContainerMenu {
     private final IItemHandlerModifiable inventory;
 
     private TinkeringTableContainer(MenuType<?> type, int id, Inventory playerInventory, FriendlyByteBuf buffer) {
-        this(type, id, playerInventory, TinkeringTableTileEntity.createInventoryHandler().forContainer(), buffer.readBlockPos());
+        this(type, id, playerInventory, TinkeringTableTileEntity.createInventoryHandler(), buffer.readBlockPos());
     }
 
     private TinkeringTableContainer(MenuType<?> type, int id, Inventory playerInventory, IItemHandlerModifiable inventory, BlockPos pos) {

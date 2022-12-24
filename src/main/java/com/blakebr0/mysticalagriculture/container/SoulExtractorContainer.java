@@ -3,6 +3,7 @@ package com.blakebr0.mysticalagriculture.container;
 import com.blakebr0.cucumber.container.BaseContainerMenu;
 import com.blakebr0.cucumber.helper.RecipeHelper;
 import com.blakebr0.cucumber.inventory.BaseItemStackHandler;
+import com.blakebr0.cucumber.inventory.slot.BaseItemStackHandlerSlot;
 import com.blakebr0.mysticalagriculture.container.inventory.UpgradeItemStackHandler;
 import com.blakebr0.mysticalagriculture.init.ModContainerTypes;
 import com.blakebr0.mysticalagriculture.init.ModItems;
@@ -17,20 +18,19 @@ import net.minecraft.world.inventory.MenuType;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.common.ForgeHooks;
-import net.minecraftforge.items.SlotItemHandler;
 
 public class SoulExtractorContainer extends BaseContainerMenu {
     private SoulExtractorContainer(MenuType<?> type, int id, Inventory playerInventory, FriendlyByteBuf buffer) {
-        this(type, id, playerInventory, SoulExtractorTileEntity.createInventoryHandler().forContainer(), new UpgradeItemStackHandler(), buffer.readBlockPos());
+        this(type, id, playerInventory, SoulExtractorTileEntity.createInventoryHandler(), new UpgradeItemStackHandler(), buffer.readBlockPos());
     }
 
     private SoulExtractorContainer(MenuType<?> type, int id, Inventory playerInventory, BaseItemStackHandler inventory, UpgradeItemStackHandler upgradeInventory, BlockPos pos) {
         super(type, id, pos);
 
-        this.addSlot(new SlotItemHandler(upgradeInventory, 0, 152, 9));
-        this.addSlot(new SlotItemHandler(inventory, 0, 74, 52));
-        this.addSlot(new SlotItemHandler(inventory, 1, 30, 56));
-        this.addSlot(new SlotItemHandler(inventory, 2, 134, 52));
+        this.addSlot(new BaseItemStackHandlerSlot(upgradeInventory, 0, 152, 9));
+        this.addSlot(new BaseItemStackHandlerSlot(inventory, 0, 74, 52));
+        this.addSlot(new BaseItemStackHandlerSlot(inventory, 1, 30, 56));
+        this.addSlot(new BaseItemStackHandlerSlot(inventory, 2, 134, 52));
 
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 9; j++) {

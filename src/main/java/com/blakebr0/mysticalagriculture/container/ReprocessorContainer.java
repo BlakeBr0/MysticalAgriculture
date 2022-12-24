@@ -3,6 +3,7 @@ package com.blakebr0.mysticalagriculture.container;
 import com.blakebr0.cucumber.container.BaseContainerMenu;
 import com.blakebr0.cucumber.helper.RecipeHelper;
 import com.blakebr0.cucumber.inventory.BaseItemStackHandler;
+import com.blakebr0.cucumber.inventory.slot.BaseItemStackHandlerSlot;
 import com.blakebr0.mysticalagriculture.init.ModContainerTypes;
 import com.blakebr0.mysticalagriculture.init.ModRecipeTypes;
 import com.blakebr0.mysticalagriculture.tileentity.ReprocessorTileEntity;
@@ -14,19 +15,18 @@ import net.minecraft.world.inventory.MenuType;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.common.ForgeHooks;
-import net.minecraftforge.items.SlotItemHandler;
 
 public class ReprocessorContainer extends BaseContainerMenu {
     private ReprocessorContainer(MenuType<?> type, int id, Inventory playerInventory, BlockPos pos) {
-        this(type, id, playerInventory, ReprocessorTileEntity.createInventoryHandler().forContainer(), pos);
+        this(type, id, playerInventory, ReprocessorTileEntity.createInventoryHandler(), pos);
     }
 
     private ReprocessorContainer(MenuType<?> type, int id, Inventory playerInventory, BaseItemStackHandler inventory, BlockPos pos) {
         super(type, id, pos);
 
-        this.addSlot(new SlotItemHandler(inventory, 0, 74, 52));
-        this.addSlot(new SlotItemHandler(inventory, 1, 30, 56));
-        this.addSlot(new SlotItemHandler(inventory, 2, 134, 52));
+        this.addSlot(new BaseItemStackHandlerSlot(inventory, 0, 74, 52));
+        this.addSlot(new BaseItemStackHandlerSlot(inventory, 1, 30, 56));
+        this.addSlot(new BaseItemStackHandlerSlot(inventory, 2, 134, 52));
 
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 9; j++) {
