@@ -6,6 +6,7 @@ import com.blakebr0.mysticalagriculture.data.generator.BlockTagsJsonGenerator;
 import com.blakebr0.mysticalagriculture.data.generator.ItemModelJsonGenerator;
 import com.blakebr0.mysticalagriculture.data.generator.ItemTagsJsonGenerator;
 import com.blakebr0.mysticalagriculture.data.generator.RecipeJsonGenerator;
+import com.blakebr0.mysticalagriculture.data.generator.SpriteSourceGenerator;
 import net.minecraftforge.data.event.GatherDataEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 
@@ -17,10 +18,12 @@ public final class ModDataGenerators {
         var existingFileHelper = event.getExistingFileHelper();
         var lookupProvider = event.getLookupProvider();
 
-        generator.addProvider(true, new BlockModelJsonGenerator(generator, MysticalAgriculture.MOD_ID, existingFileHelper));
-        generator.addProvider(true, new ItemModelJsonGenerator(generator, MysticalAgriculture.MOD_ID, existingFileHelper));
-        generator.addProvider(true, new RecipeJsonGenerator(packOutput));
-        generator.addProvider(true, new BlockTagsJsonGenerator(packOutput, lookupProvider, MysticalAgriculture.MOD_ID, existingFileHelper));
-        generator.addProvider(true, new ItemTagsJsonGenerator(packOutput, lookupProvider, MysticalAgriculture.MOD_ID, existingFileHelper));
+        generator.addProvider(event.includeClient(), new BlockModelJsonGenerator(packOutput, MysticalAgriculture.MOD_ID, existingFileHelper));
+        generator.addProvider(event.includeClient(), new ItemModelJsonGenerator(packOutput, MysticalAgriculture.MOD_ID, existingFileHelper));
+        generator.addProvider(event.includeClient(), new SpriteSourceGenerator(packOutput, MysticalAgriculture.MOD_ID, existingFileHelper));
+
+        generator.addProvider(event.includeServer(), new RecipeJsonGenerator(packOutput));
+        generator.addProvider(event.includeServer(), new BlockTagsJsonGenerator(packOutput, lookupProvider, MysticalAgriculture.MOD_ID, existingFileHelper));
+        generator.addProvider(event.includeServer(), new ItemTagsJsonGenerator(packOutput, lookupProvider, MysticalAgriculture.MOD_ID, existingFileHelper));
     }
 }

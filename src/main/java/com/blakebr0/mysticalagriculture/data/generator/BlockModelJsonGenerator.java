@@ -2,7 +2,7 @@ package com.blakebr0.mysticalagriculture.data.generator;
 
 import com.blakebr0.mysticalagriculture.MysticalAgriculture;
 import com.blakebr0.mysticalagriculture.registry.CropRegistry;
-import net.minecraft.data.DataGenerator;
+import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.CropBlock;
 import net.minecraftforge.client.model.generators.BlockStateProvider;
@@ -13,8 +13,8 @@ import net.minecraftforge.common.data.ExistingFileHelper;
 import java.util.HashMap;
 
 public class BlockModelJsonGenerator extends BlockStateProvider {
-    public BlockModelJsonGenerator(DataGenerator generator, String modid, ExistingFileHelper existingFileHelper) {
-        super(generator, modid, existingFileHelper);
+    public BlockModelJsonGenerator(PackOutput output, String modid, ExistingFileHelper existingFileHelper) {
+        super(output, modid, existingFileHelper);
     }
 
     @Override
