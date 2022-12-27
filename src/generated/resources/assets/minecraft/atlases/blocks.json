@@ -1,0 +1,56 @@
+{
+  "sources": [
+    {
+      "type": "minecraft:single",
+      "resource": "mysticalagriculture:block/flower_dust"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "mysticalagriculture:block/flower_face"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "mysticalagriculture:block/flower_ingot"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "mysticalagriculture:block/flower_rock"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "mysticalagriculture:item/essence_flame"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "mysticalagriculture:item/essence_gem"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "mysticalagriculture:item/essence_dust"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "mysticalagriculture:item/essence_diamond"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "mysticalagriculture:item/essence_ingot"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "mysticalagriculture:item/essence_rod"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "mysticalagriculture:item/essence_tall_gem"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "mysticalagriculture:item/essence_quartz"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "mysticalagriculture:item/mystical_seeds"
+    }
+  ]
+}
