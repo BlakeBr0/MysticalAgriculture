@@ -1,6 +1,7 @@
 package com.blakebr0.mysticalagriculture.client.screen;
 
 import com.blakebr0.cucumber.client.screen.BaseContainerScreen;
+import com.blakebr0.cucumber.client.screen.widget.EnergyBarWidget;
 import com.blakebr0.mysticalagriculture.MysticalAgriculture;
 import com.blakebr0.mysticalagriculture.container.ReprocessorContainer;
 import com.blakebr0.mysticalagriculture.tileentity.ReprocessorTileEntity;
@@ -21,7 +22,14 @@ public class ReprocessorScreen extends BaseContainerScreen<ReprocessorContainer>
     protected void init() {
         super.init();
 
+        int x = this.getGuiLeft();
+        int y = this.getGuiTop();
+
         this.tile = this.getTileEntity();
+
+        if (this.tile != null) {
+            this.addRenderableWidget(new EnergyBarWidget(x + 7, y + 17, this.tile.getEnergy(), this));
+        }
     }
 
     @Override
@@ -38,10 +46,6 @@ public class ReprocessorScreen extends BaseContainerScreen<ReprocessorContainer>
 
         int x = this.getGuiLeft();
         int y = this.getGuiTop();
-
-        int i1 = this.getEnergyBarScaled(78);
-
-        this.blit(stack, x + 7, y + 95 - i1, 176, 109 - i1, 15, i1);
 
         if (this.getFuelItemValue() > 0) {
             int lol = this.getBurnLeftScaled(13);
@@ -60,11 +64,6 @@ public class ReprocessorScreen extends BaseContainerScreen<ReprocessorContainer>
         int y = this.getGuiTop();
 
         super.renderTooltip(stack, mouseX, mouseY);
-
-        if (mouseX > x + 7 && mouseX < x + 20 && mouseY > y + 17 && mouseY < y + 94) {
-            var text = Component.literal(number(this.getEnergyStored()) + " / " + number(this.getMaxEnergyStored()) + " FE");
-            this.renderTooltip(stack, text, mouseX, mouseY);
-        }
 
         if (this.getFuelLeft() > 0 && mouseX > x + 30 && mouseX < x + 45 && mouseY > y + 39 && mouseY < y + 53) {
             var text = Component.literal(number(this.getFuelLeft()) + " FE");
@@ -114,30 +113,10 @@ public class ReprocessorScreen extends BaseContainerScreen<ReprocessorContainer>
         return this.tile.getFuelItemValue();
     }
 
-    public int getEnergyStored() {
-        if (this.tile == null)
-            return 0;
-
-        return this.tile.getEnergy().getEnergyStored();
-    }
-
-    public int getMaxEnergyStored() {
-        if (this.tile == null)
-            return 0;
-
-        return this.tile.getEnergy().getMaxEnergyStored();
-    }
-
     public int getProgressScaled(int pixels) {
         int i = this.getProgress();
         int j = this.getOperationTime();
         return j != 0 && i != 0 ? i * pixels / j : 0;
-    }
-
-    public int getEnergyBarScaled(int pixels) {
-        int i = this.getEnergyStored();
-        int j = this.getMaxEnergyStored();
-        return (int) (j != 0 && i != 0 ? (long) i * pixels / j : 0);
     }
 
     public int getBurnLeftScaled(int pixels) {
