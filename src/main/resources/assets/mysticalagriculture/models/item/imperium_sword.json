@@ -1,6 +1,6 @@
 {
   "parent": "item/handheld",
   "textures": {
-    "layer0": "mysticalagriculture:item/imperium_sword"
+    "layer0": "mysticalagriculture:item/gear/imperium_sword"
   }
 }

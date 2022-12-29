@@ -1,8 +1,8 @@
 {
 	"credit": "Made with Blockbench",
 	"textures": {
-		"0": "mysticalagriculture:item/awakened_supremium_staff",
-		"particle": "mysticalagriculture:item/awakened_supremium_staff"
+		"0": "mysticalagriculture:item/gear/awakened_supremium_staff",
+		"particle": "mysticalagriculture:item/gear/awakened_supremium_staff"
 	},
 	"elements": [
 		{

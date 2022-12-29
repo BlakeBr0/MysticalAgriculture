@@ -1,8 +1,8 @@
 {
 	"credit": "Made with Blockbench",
 	"textures": {
-		"0": "mysticalagriculture:item/prudentium_staff",
-		"particle": "mysticalagriculture:item/prudentium_staff"
+		"0": "mysticalagriculture:item/gear/prudentium_staff",
+		"particle": "mysticalagriculture:item/gear/prudentium_staff"
 	},
 	"elements": [
 		{

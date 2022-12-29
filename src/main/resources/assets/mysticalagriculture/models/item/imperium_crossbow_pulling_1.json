@@ -1,6 +1,6 @@
 {
   "parent": "mysticalagriculture:item/imperium_crossbow",
   "textures": {
-    "layer0": "mysticalagriculture:item/imperium_crossbow_pulling_1"
+    "layer0": "mysticalagriculture:item/gear/imperium_crossbow_pulling_1"
   }
 }

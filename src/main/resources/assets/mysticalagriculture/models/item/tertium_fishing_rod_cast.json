@@ -1,6 +1,6 @@
 {
   "parent": "mysticalagriculture:item/tertium_fishing_rod",
   "textures": {
-    "layer0": "mysticalagriculture:item/tertium_fishing_rod_cast"
+    "layer0": "mysticalagriculture:item/gear/tertium_fishing_rod_cast"
   }
 }

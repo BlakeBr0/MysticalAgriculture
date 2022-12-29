@@ -1,6 +1,6 @@
 {
   "parent": "mysticalagriculture:item/supremium_bow",
   "textures": {
-    "layer0": "mysticalagriculture:item/supremium_bow_pulling_2"
+    "layer0": "mysticalagriculture:item/gear/supremium_bow_pulling_2"
   }
 }

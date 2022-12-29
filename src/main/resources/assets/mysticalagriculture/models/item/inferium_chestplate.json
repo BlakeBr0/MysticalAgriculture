@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "mysticalagriculture:item/inferium_chestplate"
+    "layer0": "mysticalagriculture:item/gear/inferium_chestplate"
   }
 }

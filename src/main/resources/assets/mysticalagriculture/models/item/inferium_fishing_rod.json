@@ -1,7 +1,7 @@
 {
   "parent": "item/handheld_rod",
   "textures": {
-    "layer0": "mysticalagriculture:item/inferium_fishing_rod"
+    "layer0": "mysticalagriculture:item/gear/inferium_fishing_rod"
   },
   "overrides": [
     {

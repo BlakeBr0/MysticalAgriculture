@@ -1,7 +1,7 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "mysticalagriculture:item/inferium_bow"
+    "layer0": "mysticalagriculture:item/gear/inferium_bow"
   },
   "display": {
     "thirdperson_righthand": {

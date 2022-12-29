@@ -1,7 +1,7 @@
 {
   "parent": "item/handheld",
   "textures": {
-    "layer0": "mysticalagriculture:item/tertium_watering_can"
+    "layer0": "mysticalagriculture:item/gear/tertium_watering_can"
   },
   "display": {
     "thirdperson_righthand": {

@@ -1,8 +1,8 @@
 {
 	"credit": "Made with Blockbench",
 	"textures": {
-		"0": "mysticalagriculture:item/tertium_staff",
-		"particle": "mysticalagriculture:item/tertium_staff"
+		"0": "mysticalagriculture:item/gear/tertium_staff",
+		"particle": "mysticalagriculture:item/gear/tertium_staff"
 	},
 	"elements": [
 		{

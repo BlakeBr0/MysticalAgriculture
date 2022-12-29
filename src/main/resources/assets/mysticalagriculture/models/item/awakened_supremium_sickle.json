@@ -1,6 +1,6 @@
 {
   "parent": "item/handheld",
   "textures": {
-    "layer0": "mysticalagriculture:item/awakened_supremium_sickle"
+    "layer0": "mysticalagriculture:item/gear/awakened_supremium_sickle"
   }
 }

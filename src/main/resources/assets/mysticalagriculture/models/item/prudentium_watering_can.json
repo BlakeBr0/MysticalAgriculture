@@ -1,7 +1,7 @@
 {
   "parent": "item/handheld",
   "textures": {
-    "layer0": "mysticalagriculture:item/prudentium_watering_can"
+    "layer0": "mysticalagriculture:item/gear/prudentium_watering_can"
   },
   "display": {
     "thirdperson_righthand": {

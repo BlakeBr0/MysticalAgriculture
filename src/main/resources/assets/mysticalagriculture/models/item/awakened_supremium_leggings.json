@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "mysticalagriculture:item/awakened_supremium_leggings"
+    "layer0": "mysticalagriculture:item/gear/awakened_supremium_leggings"
   }
 }

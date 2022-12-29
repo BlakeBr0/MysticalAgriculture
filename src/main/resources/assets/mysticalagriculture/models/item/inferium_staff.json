@@ -1,8 +1,8 @@
 {
 	"credit": "Made with Blockbench",
 	"textures": {
-		"0": "mysticalagriculture:item/inferium_staff",
-		"particle": "mysticalagriculture:item/inferium_staff"
+		"0": "mysticalagriculture:item/gear/inferium_staff",
+		"particle": "mysticalagriculture:item/gear/inferium_staff"
 	},
 	"elements": [
 		{

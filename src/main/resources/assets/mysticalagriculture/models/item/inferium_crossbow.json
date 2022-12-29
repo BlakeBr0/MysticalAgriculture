@@ -1,7 +1,7 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "mysticalagriculture:item/inferium_crossbow_standby"
+    "layer0": "mysticalagriculture:item/gear/inferium_crossbow_standby"
   },
   "display": {
     "thirdperson_righthand": {

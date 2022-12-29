@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "mysticalagriculture:item/imperium_shears"
+    "layer0": "mysticalagriculture:item/gear/imperium_shears"
   }
 }

@@ -1,6 +1,6 @@
 {
   "parent": "item/handheld",
   "textures": {
-    "layer0": "mysticalagriculture:item/tertium_sickle"
+    "layer0": "mysticalagriculture:item/gear/tertium_sickle"
   }
 }
