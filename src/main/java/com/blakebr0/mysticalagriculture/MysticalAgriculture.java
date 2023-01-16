@@ -2,6 +2,7 @@ package com.blakebr0.mysticalagriculture;
 
 import com.blakebr0.cucumber.helper.ConfigHelper;
 import com.blakebr0.mysticalagriculture.api.MysticalAgricultureAPI;
+import com.blakebr0.mysticalagriculture.client.ModRecipeBookCategories;
 import com.blakebr0.mysticalagriculture.client.ModTESRs;
 import com.blakebr0.mysticalagriculture.client.ModelHandler;
 import com.blakebr0.mysticalagriculture.client.handler.ColorHandler;
@@ -58,7 +59,6 @@ public final class MysticalAgriculture {
 		bus.register(new ModBlocks());
 		bus.register(new ModItems());
 		bus.register(new ModCreativeModeTabs());
-		bus.register(new ModRecipeTypes());
 		bus.register(new ModRecipeSerializers());
 		bus.register(new ModDataGenerators());
 
@@ -74,6 +74,7 @@ public final class MysticalAgriculture {
 			bus.register(new ColorHandler());
 			bus.register(new ModelHandler());
 			bus.register(new ModTESRs());
+			bus.register(new ModRecipeBookCategories());
 			bus.register(new GuiOverlayHandler());
 		});
 
