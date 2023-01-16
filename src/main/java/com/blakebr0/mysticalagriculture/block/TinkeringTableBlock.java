@@ -5,6 +5,7 @@ import com.blakebr0.cucumber.util.VoxelShapeBuilder;
 import com.blakebr0.mysticalagriculture.tileentity.TinkeringTableTileEntity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.Containers;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
@@ -26,6 +27,7 @@ import net.minecraft.world.level.material.Material;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import net.minecraftforge.network.NetworkHooks;
 
 public class TinkeringTableBlock extends BaseTileEntityBlock {
     public static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
@@ -57,7 +59,7 @@ public class TinkeringTableBlock extends BaseTileEntityBlock {
             var tile = level.getBlockEntity(pos);
 
             if (tile instanceof TinkeringTableTileEntity table)
-                player.openMenu(table);
+                NetworkHooks.openScreen((ServerPlayer) player, table, pos);
         }
 
         return InteractionResult.SUCCESS;
