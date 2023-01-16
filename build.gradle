@@ -11,7 +11,7 @@ apply plugin: 'net.minecraftforge.gradle'
 apply plugin: 'eclipse'
 apply plugin: 'maven-publish'
 
-version = '1.19.3-6.1.0'
+version = '1.19.3-6.1.1'
 group = 'com.blakebr0.mysticalagriculture'
 archivesBaseName = 'MysticalAgriculture'
 
