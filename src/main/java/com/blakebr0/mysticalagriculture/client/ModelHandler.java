@@ -2,6 +2,7 @@ package com.blakebr0.mysticalagriculture.client;
 
 import com.blakebr0.mysticalagriculture.MysticalAgriculture;
 import com.blakebr0.mysticalagriculture.api.crop.CropTextures;
+import com.blakebr0.mysticalagriculture.client.model.EssenceArmorModel;
 import com.blakebr0.mysticalagriculture.config.ModConfigs;
 import com.blakebr0.mysticalagriculture.init.ModItems;
 import com.blakebr0.mysticalagriculture.item.ExperienceCapsuleItem;
@@ -11,10 +12,12 @@ import com.blakebr0.mysticalagriculture.item.tool.EssenceCrossbowItem;
 import com.blakebr0.mysticalagriculture.item.tool.EssenceFishingRodItem;
 import com.blakebr0.mysticalagriculture.registry.CropRegistry;
 import com.google.common.base.Stopwatch;
+import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.renderer.item.ItemProperties;
 import net.minecraft.client.resources.model.BakedModel;
 import net.minecraft.client.resources.model.ModelResourceLocation;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.client.event.ModelEvent;
 import net.minecraftforge.client.model.data.ModelData;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -28,6 +31,8 @@ import java.util.stream.IntStream;
 
 public final class ModelHandler {
     private static final ResourceLocation MISSING_NO = new ResourceLocation("minecraft", "missingno");
+    public static final ModelLayerLocation ESSENCE_ARMOR_INNER_LAYER = new ModelLayerLocation(new ResourceLocation("minecraft:player"), "mysticalagriculture:essence_armor_inner");
+    public static final ModelLayerLocation ESSENCE_ARMOR_OUTER_LAYER = new ModelLayerLocation(new ResourceLocation("minecraft:player"), "mysticalagriculture:essence_armor_outer");
 
     @SubscribeEvent
     public void onRegisterAdditionalModels(ModelEvent.RegisterAdditional event) {
@@ -152,6 +157,12 @@ public final class ModelHandler {
         stopwatch.stop();
 
         MysticalAgriculture.LOGGER.info("Model replacement took {} ms", stopwatch.elapsed(TimeUnit.MILLISECONDS));
+    }
+
+    @SubscribeEvent
+    public void onRegisterLayerDefinitions(EntityRenderersEvent.RegisterLayerDefinitions event) {
+        event.registerLayerDefinition(ESSENCE_ARMOR_INNER_LAYER, EssenceArmorModel::createInnerLayer);
+        event.registerLayerDefinition(ESSENCE_ARMOR_OUTER_LAYER, EssenceArmorModel::createOuterLayer);
     }
 
     public static void onClientSetup(FMLClientSetupEvent event) {

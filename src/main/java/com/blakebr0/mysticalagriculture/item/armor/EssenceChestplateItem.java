@@ -5,16 +5,21 @@ import com.blakebr0.cucumber.util.Utils;
 import com.blakebr0.mysticalagriculture.api.tinkering.AugmentType;
 import com.blakebr0.mysticalagriculture.api.tinkering.ITinkerable;
 import com.blakebr0.mysticalagriculture.api.util.AugmentUtils;
+import com.blakebr0.mysticalagriculture.client.ModelHandler;
+import com.blakebr0.mysticalagriculture.client.model.EssenceArmorModel;
 import com.blakebr0.mysticalagriculture.init.ModItems;
 import com.blakebr0.mysticalagriculture.lib.ModTooltips;
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
 import net.minecraft.ChatFormatting;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.model.HumanoidModel;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
@@ -27,11 +32,13 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.BonemealableBlock;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
+import net.minecraftforge.client.extensions.common.IClientItemExtensions;
 import net.minecraftforge.common.IPlantable;
 
 import java.util.EnumSet;
 import java.util.List;
 import java.util.UUID;
+import java.util.function.Consumer;
 
 public class EssenceChestplateItem extends BaseArmorItem implements ITinkerable {
     private static final UUID[] ARMOR_MODIFIERS = new UUID[] { UUID.fromString("845DB27C-C624-495F-8C9F-6020A9A58B6B"), UUID.fromString("D8499B04-0E66-4726-AB29-64469D734E0D"), UUID.fromString("9F3D476D-C118-4544-8365-64846904B48E"), UUID.fromString("2AD3F246-FEE1-4E67-B886-69FD380BB150") };
@@ -91,6 +98,11 @@ public class EssenceChestplateItem extends BaseArmorItem implements ITinkerable 
     }
 
     @Override
+    public void initializeClient(Consumer<IClientItemExtensions> consumer) {
+        consumer.accept(ItemRenderProperties.INSTANCE);
+    }
+
+    @Override
     public int getAugmentSlots() {
         return this.slots;
     }
@@ -132,5 +144,22 @@ public class EssenceChestplateItem extends BaseArmorItem implements ITinkerable 
                 ((ServerLevel) level).sendParticles(ParticleTypes.HAPPY_VILLAGER, d0, d1, d2, 3, 0, 0, 0, 0.1D);
             }
         });
+    }
+
+    static class ItemRenderProperties implements IClientItemExtensions {
+        public static final ItemRenderProperties INSTANCE = new ItemRenderProperties();
+
+        private EssenceArmorModel model;
+
+        @Override
+        public HumanoidModel<?> getHumanoidArmorModel(LivingEntity entity, ItemStack stack, EquipmentSlot slot, HumanoidModel<?> _default) {
+            if (this.model == null) {
+                var layer = Minecraft.getInstance().getEntityModels().bakeLayer(ModelHandler.ESSENCE_ARMOR_OUTER_LAYER);
+
+                this.model = new EssenceArmorModel(layer, slot);
+            }
+
+            return this.model;
+        }
     }
 }
