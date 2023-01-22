@@ -21,7 +21,6 @@ println('Java: ' + System.getProperty('java.version') + ' JVM: ' + System.getPro
 
 repositories {
     maven { url 'https://maven.blakesmods.com' }
-    maven { url 'https://dvs1.progwml6.com/files/maven/' }
     maven { url 'https://maven.blamejared.com' }
     maven { url 'https://maven.tterrag.com' }
     maven {
@@ -129,7 +128,7 @@ dependencies {
     compileOnly fg.deobf("com.blamejared.crafttweaker:CraftTweaker-forge-${crafttweaker_version}")
 
 //    runtimeOnly fg.deobf("vazkii.patchouli:Patchouli:${patchouli_version}")
-//    runtimeOnly fg.deobf("mezz.jei:jei-${mc_version}-forge:${jei_version}")
+    runtimeOnly fg.deobf("mezz.jei:jei-${mc_version}-forge:${jei_version}")
 
     compileOnly "mezz.jei:jei-${mc_version}-common-api:${jei_version}"
     compileOnly "mezz.jei:jei-${mc_version}-forge-api:${jei_version}"
