@@ -1,5 +1,6 @@
 package com.blakebr0.mysticalagriculture.tileentity;
 
+import com.blakebr0.cucumber.helper.StackHelper;
 import com.blakebr0.cucumber.inventory.BaseItemStackHandler;
 import com.blakebr0.cucumber.tileentity.BaseInventoryTileEntity;
 import com.blakebr0.cucumber.util.Localizable;
@@ -235,7 +236,7 @@ public class HarvesterTileEntity extends BaseInventoryTileEntity implements Menu
     public static BaseItemStackHandler createInventoryHandler(Runnable onContentsChanged) {
         var inventory = new BaseItemStackHandler(16, onContentsChanged);
         inventory.setCanExtract(slot -> slot > 0);
-        inventory.setSlotValidator((slot, stack) -> slot > 0 || slot == 0 && ForgeHooks.getBurnTime(stack, null) > 0);
+        inventory.setSlotValidator((slot, stack) -> slot == 0 && ForgeHooks.getBurnTime(stack, null) > 0);
         return inventory;
     }
 
@@ -299,16 +300,28 @@ public class HarvesterTileEntity extends BaseInventoryTileEntity implements Menu
     }
 
     private void addItemToInventory(ItemStack stack, Level level, BlockPos pos) {
-        var remaining = stack;
+        var remaining = stack.getCount();
         for (int i = 1; i < this.inventory.getSlots(); i++) {
-            remaining = this.inventory.insertItemSuper(i, remaining, false);
-            if (remaining.isEmpty())
+            var stackInSlot = this.inventory.getStackInSlot(i);
+
+            if (stackInSlot.isEmpty()) {
+                this.inventory.setStackInSlot(i, stack.copy());
+                return;
+            }
+
+            var insertSize = Math.min(remaining, stackInSlot.getMaxStackSize() - stackInSlot.getCount());
+
+            remaining -= insertSize;
+
+            if (StackHelper.areStacksEqual(stackInSlot, stack)) {
+                this.inventory.setStackInSlot(i, StackHelper.grow(stackInSlot, insertSize));
+            }
+
+            if (remaining == 0)
                 return;
         }
 
-        if (!remaining.isEmpty()) {
-            Block.popResource(level, pos, remaining);
-        }
+        Block.popResource(level, pos, StackHelper.withSize(stack, remaining, false));
     }
 
     private static Item getSeed(Block block) {
