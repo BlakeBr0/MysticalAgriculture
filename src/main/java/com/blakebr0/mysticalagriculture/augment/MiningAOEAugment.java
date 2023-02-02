@@ -32,7 +32,7 @@ public class MiningAOEAugment extends Augment {
     }
 
     private static boolean harvest(ItemStack stack, int radius, Level level, BlockPos pos, int side, Player player) {
-        if (player.isCrouching())
+        if (player.isShiftKeyDown())
             radius = 0;
 
         int xRange = radius;
