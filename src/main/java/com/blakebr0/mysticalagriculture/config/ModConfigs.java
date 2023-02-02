@@ -93,7 +93,7 @@ public final class ModConfigs {
                 .define("seedCraftingRecipes", false);
         ENCHANTABLE_SUPREMIUM_TOOLS = common
                 .comment("Should Supremium Tools be enchantable in an Enchanting Table?")
-                .define("enchantableSupremiumTools", false);
+                .define("enchantableSupremiumTools", true);
         FAKE_PLAYER_WATERING = common
                 .comment("Should fake players be able to use watering cans?")
                 .define("fakePlayerWatering", true);
