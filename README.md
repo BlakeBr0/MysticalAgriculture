@@ -1,8 +1,24 @@
-# Mystical Agriculture  [![](http://cf.way2muchnoise.eu/full_246640_downloads.svg)](https://minecraft.curseforge.com/projects/mystical-agriculture) 
+# Mystical Agriculture
+
+<p align="left">
+    <a href="https://blakesmods.com/mystical-agriculture" alt="Downloads">
+        <img src="https://img.shields.io/endpoint?url=https://api.blakesmods.com/v2/badges/mysticalagriculture/downloads&style=for-the-badge" />
+    </a>
+    <a href="https://blakesmods.com/mystical-agriculture" alt="Latest Version">
+        <img src="https://img.shields.io/endpoint?url=https://api.blakesmods.com/v2/badges/mysticalagriculture/version&style=for-the-badge" />
+    </a>
+    <a href="https://blakesmods.com/mystical-agriculture" alt="Minecraft Version">
+        <img src="https://img.shields.io/endpoint?url=https://api.blakesmods.com/v2/badges/mysticalagriculture/mc_version&style=for-the-badge" />
+    </a>
+    <a href="https://blakesmods.com/docs/mysticalagriculture" alt="Docs">
+        <img src="https://img.shields.io/static/v1?label=docs&message=view&color=brightgreen&style=for-the-badge" />
+    </a>
+    <a href="https://blakesmods.com/wiki/mysticalagriculture" alt="Docs">
+        <img src="https://img.shields.io/static/v1?label=wiki&message=view&color=brightgreen&style=for-the-badge" />
+    </a>
+</p>
 
 Adds Resource Crops, Armor, Tools, and other cool things!
-
-[Documentation](https://blakesmods.com/docs/mysticalagriculture)
 
 ## Download
 
