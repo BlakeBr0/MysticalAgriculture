@@ -13,7 +13,7 @@
     <a href="https://blakesmods.com/docs/mysticalagriculture" alt="Docs">
         <img src="https://img.shields.io/static/v1?label=docs&message=view&color=brightgreen&style=for-the-badge" />
     </a>
-    <a href="https://blakesmods.com/wiki/mysticalagriculture" alt="Docs">
+    <a href="https://blakesmods.com/wiki/mysticalagriculture" alt="Wiki">
         <img src="https://img.shields.io/static/v1?label=wiki&message=view&color=brightgreen&style=for-the-badge" />
     </a>
 </p>
