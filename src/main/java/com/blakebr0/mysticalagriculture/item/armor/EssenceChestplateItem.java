@@ -24,11 +24,10 @@ import net.minecraft.world.item.ArmorMaterial;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.BonemealableBlock;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.common.IPlantable;
+import net.minecraftforge.common.PlantType;
 
 import java.util.EnumSet;
 import java.util.List;
@@ -121,17 +120,25 @@ public class EssenceChestplateItem extends BaseArmorItem implements ITinkerable 
         int range = 5;
 
         BlockPos.betweenClosedStream(pos.offset(-range, -range, -range), pos.offset(range, range, range)).forEach(aoePos -> {
+            if (Math.random() < 0.5)
+                return;
+
             var state = level.getBlockState(aoePos);
             var plantBlock = state.getBlock();
 
-            if (plantBlock instanceof BonemealableBlock || plantBlock instanceof IPlantable || plantBlock == Blocks.MYCELIUM || plantBlock == Blocks.CHORUS_FLOWER) {
+            if (plantBlock instanceof IPlantable plantable) {
+                var type = plantable.getPlantType(level, aoePos);
+
+                if (type != PlantType.CROP && type != PlantType.BEACH)
+                    return;
+
                 state.randomTick((ServerLevel) level, aoePos, Utils.RANDOM);
 
                 double d0 = aoePos.getX() + level.getRandom().nextFloat();
                 double d1 = aoePos.getY();
                 double d2 = aoePos.getZ() + level.getRandom().nextFloat();
 
-                ((ServerLevel) level).sendParticles(ParticleTypes.HAPPY_VILLAGER, d0, d1, d2, 3, 0, 0, 0, 0.1D);
+                ((ServerLevel) level).sendParticles(ParticleTypes.HAPPY_VILLAGER, d0, d1, d2, 1, 0, 0, 0, 0.1D);
             }
         });
     }
