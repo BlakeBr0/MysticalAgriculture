@@ -6,11 +6,11 @@ import com.blakebr0.mysticalagriculture.api.tinkering.Augment;
 import com.blakebr0.mysticalagriculture.api.tinkering.AugmentType;
 import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraftforge.common.ForgeHooks;
 
 import java.util.EnumSet;
 
@@ -24,15 +24,18 @@ public class MiningAOEAugment extends Augment {
 
     @Override
     public boolean onBlockStartBreak(ItemStack stack, BlockPos pos, Player player) {
-        var world = player.getCommandSenderWorld();
-        var trace = BlockHelper.rayTraceBlocks(world, player);
+        var level = player.getCommandSenderWorld();
+        var trace = BlockHelper.rayTraceBlocks(level, player);
         int side = trace.getDirection().ordinal();
 
-        return !harvest(stack, this.range, world, pos, side, player);
+        return harvest(stack, this.range, level, pos, side, player);
     }
 
     private static boolean harvest(ItemStack stack, int radius, Level level, BlockPos pos, int side, Player player) {
-        if (player.isCrouching())
+        if (level.isClientSide())
+            return true;
+
+        if (player.isShiftKeyDown())
             radius = 0;
 
         int xRange = radius;
@@ -50,37 +53,23 @@ public class MiningAOEAugment extends Augment {
         }
 
         var state = level.getBlockState(pos);
-        float hardness = state.getDestroySpeed(level, pos);
+        var hardness = state.getDestroySpeed(level, pos);
 
-        if (!tryHarvestBlock(level, pos, false, stack, player))
-            return false;
+        BlockHelper.harvestBlock(stack, level, (ServerPlayer) player, pos);
 
         if (radius > 0 && hardness >= 0.2F && canHarvestBlock(stack, state)) {
             BlockPos.betweenClosedStream(pos.offset(-xRange, -yRange, -zRange), pos.offset(xRange, yRange, zRange)).forEach(aoePos -> {
                 if (aoePos != pos) {
                     var aoeState = level.getBlockState(aoePos);
 
-                    if (level.getBlockEntity(aoePos) == null && aoeState.getDestroySpeed(level, aoePos) <= hardness + 5.0F) {
-                        if (canHarvestBlock(stack, aoeState)) {
-                            tryHarvestBlock(level, aoePos, true, stack, player);
-                        }
+                    if (canHarvestBlock(stack, aoeState) && level.getBlockEntity(aoePos) == null && aoeState.getDestroySpeed(level, aoePos) <= hardness + 5.0F) {
+                        BlockHelper.harvestAOEBlock(stack, level, (ServerPlayer) player, aoePos.immutable());
                     }
                 }
             });
         }
 
         return true;
-    }
-
-    private static boolean tryHarvestBlock(Level world, BlockPos pos, boolean extra, ItemStack stack, Player player) {
-        var state = world.getBlockState(pos);
-        float hardness = state.getDestroySpeed(world, pos);
-        var harvest = (ForgeHooks.isCorrectToolForDrops(state, player) || stack.isCorrectToolForDrops(state)) && (!extra || stack.getDestroySpeed(state) > 1.0F);
-
-        if (hardness >= 0.0F && (!extra || harvest))
-            return BlockHelper.breakBlocksAOE(stack, world, player, pos, !extra);
-
-        return false;
     }
 
     private static boolean canHarvestBlock(ItemStack stack, BlockState state) {

@@ -86,7 +86,10 @@ public class EssenceShearsItem extends BaseShearsItem implements ITinkerable {
                 success = true;
         }
 
-        return success ? InteractionResult.SUCCESS : InteractionResult.PASS;
+        if (success)
+            return InteractionResult.SUCCESS;
+
+        return super.interactLivingEntity(stack, player, target, hand);
     }
 
     @Override

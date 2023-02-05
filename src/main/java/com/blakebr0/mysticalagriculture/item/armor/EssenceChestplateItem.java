@@ -5,6 +5,7 @@ import com.blakebr0.cucumber.util.Utils;
 import com.blakebr0.mysticalagriculture.api.tinkering.AugmentType;
 import com.blakebr0.mysticalagriculture.api.tinkering.ITinkerable;
 import com.blakebr0.mysticalagriculture.api.util.AugmentUtils;
+import com.blakebr0.mysticalagriculture.config.ModConfigs;
 import com.blakebr0.mysticalagriculture.init.ModItems;
 import com.blakebr0.mysticalagriculture.lib.ModTooltips;
 import com.google.common.collect.HashMultimap;
@@ -49,7 +50,7 @@ public class EssenceChestplateItem extends BaseArmorItem implements ITinkerable 
     public void onArmorTick(ItemStack stack, Level level, Player player) {
         AugmentUtils.getAugments(stack).forEach(a -> a.onArmorTick(stack, level, player));
 
-        if (!level.isClientSide() && level.getGameTime() % 20L == 0 && hasAwakenedSupremiumSet(player)) {
+        if (ModConfigs.AWAKENED_SUPREMIUM_SET_BONUS.get() && !level.isClientSide() && level.getGameTime() % 20L == 0 && hasAwakenedSupremiumSet(player)) {
             handleGrowthTicks(level, player);
         }
     }
@@ -59,7 +60,7 @@ public class EssenceChestplateItem extends BaseArmorItem implements ITinkerable 
     public void appendHoverText(ItemStack stack, Level level, List<Component> tooltip, TooltipFlag flag) {
         tooltip.add(ModTooltips.getTooltipForTier(this.tinkerableTier));
 
-        if (stack.is(ModItems.AWAKENED_SUPREMIUM_CHESTPLATE.get())) {
+        if (ModConfigs.AWAKENED_SUPREMIUM_SET_BONUS.get() && stack.is(ModItems.AWAKENED_SUPREMIUM_CHESTPLATE.get())) {
             tooltip.add(ModTooltips.SET_BONUS.args(ModTooltips.AWAKENED_SUPREMIUM_SET_BONUS.build()).build());
         }
 
