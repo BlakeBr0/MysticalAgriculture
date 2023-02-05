@@ -10,6 +10,7 @@ import com.blakebr0.mysticalagriculture.container.ReprocessorContainer;
 import com.blakebr0.mysticalagriculture.crafting.recipe.ReprocessorRecipe;
 import com.blakebr0.mysticalagriculture.init.ModRecipeTypes;
 import com.blakebr0.mysticalagriculture.init.ModTileEntities;
+import com.blakebr0.mysticalagriculture.util.RecipeIngredientCache;
 import com.blakebr0.mysticalagriculture.util.ReprocessorTier;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -212,7 +213,7 @@ public abstract class ReprocessorTileEntity extends BaseInventoryTileEntity impl
         if (direction == null)
             return true;
         if (slot == 0 && direction == Direction.UP)
-            return true;
+            return RecipeIngredientCache.INSTANCE.isValidInput(stack, ModRecipeTypes.REPROCESSOR.get());
         if (slot == 1 && direction == Direction.NORTH)
             return FurnaceBlockEntity.isFuel(stack);
 

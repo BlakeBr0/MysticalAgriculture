@@ -1,7 +1,6 @@
 package com.blakebr0.mysticalagriculture.container;
 
 import com.blakebr0.cucumber.container.BaseContainerMenu;
-import com.blakebr0.cucumber.helper.RecipeHelper;
 import com.blakebr0.cucumber.inventory.BaseItemStackHandler;
 import com.blakebr0.cucumber.inventory.slot.BaseItemStackHandlerSlot;
 import com.blakebr0.mysticalagriculture.container.inventory.UpgradeItemStackHandler;
@@ -10,6 +9,7 @@ import com.blakebr0.mysticalagriculture.init.ModItems;
 import com.blakebr0.mysticalagriculture.init.ModRecipeTypes;
 import com.blakebr0.mysticalagriculture.item.MachineUpgradeItem;
 import com.blakebr0.mysticalagriculture.tileentity.SoulExtractorTileEntity;
+import com.blakebr0.mysticalagriculture.util.RecipeIngredientCache;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.world.entity.player.Inventory;
@@ -63,9 +63,15 @@ public class SoulExtractorContainer extends BaseContainerMenu {
                     }
                 } else if (ForgeHooks.getBurnTime(itemstack1, null) > 0) {
                     if (!this.moveItemStackTo(itemstack1, 2, 3, false)) {
-                        return ItemStack.EMPTY;
+                        if (RecipeIngredientCache.INSTANCE.isValidInput(itemstack1, ModRecipeTypes.SOUL_EXTRACTION.get())) {
+                            if (!this.moveItemStackTo(itemstack1, 1, 2, false)) {
+                                return ItemStack.EMPTY;
+                            }
+                        } else {
+                            return ItemStack.EMPTY;
+                        }
                     }
-                } else if (RecipeHelper.getRecipes(ModRecipeTypes.SOUL_EXTRACTION.get()).values().stream().anyMatch(r -> r.getIngredients().get(0).test(itemstack1))) {
+                } else if (RecipeIngredientCache.INSTANCE.isValidInput(itemstack1, ModRecipeTypes.SOUL_EXTRACTION.get())) {
                     if (!this.moveItemStackTo(itemstack1, 1, 2, false)) {
                         return ItemStack.EMPTY;
                     }

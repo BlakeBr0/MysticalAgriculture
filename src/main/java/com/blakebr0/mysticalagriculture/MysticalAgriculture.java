@@ -31,6 +31,7 @@ import com.blakebr0.mysticalagriculture.registry.AugmentRegistry;
 import com.blakebr0.mysticalagriculture.registry.CropRegistry;
 import com.blakebr0.mysticalagriculture.registry.MobSoulTypeRegistry;
 import com.blakebr0.mysticalagriculture.registry.PluginRegistry;
+import com.blakebr0.mysticalagriculture.util.RecipeIngredientCache;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -95,6 +96,7 @@ public final class MysticalAgriculture {
 		MinecraftForge.EVENT_BUS.register(new ExperienceCapsuleHandler());
 		MinecraftForge.EVENT_BUS.register(new AugmentHandler());
 		MinecraftForge.EVENT_BUS.register(DynamicRecipeManager.getInstance());
+		MinecraftForge.EVENT_BUS.register(RecipeIngredientCache.INSTANCE);
 
 		ModRecipeSerializers.onCommonSetup();
 		ModItemTier.onCommonSetup();

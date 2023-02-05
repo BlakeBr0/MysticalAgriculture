@@ -15,6 +15,7 @@ import com.blakebr0.mysticalagriculture.init.ModTileEntities;
 import com.blakebr0.mysticalagriculture.item.SoulJarItem;
 import com.blakebr0.mysticalagriculture.util.IUpgradeableMachine;
 import com.blakebr0.mysticalagriculture.util.MachineUpgradeTier;
+import com.blakebr0.mysticalagriculture.util.RecipeIngredientCache;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
@@ -239,7 +240,7 @@ public class SoulExtractorTileEntity extends BaseInventoryTileEntity implements 
         if (direction == null)
             return true;
         if (slot == 0 && direction == Direction.UP)
-            return true;
+            return RecipeIngredientCache.INSTANCE.isValidInput(stack, ModRecipeTypes.SOUL_EXTRACTION.get());
         if (slot == 1 && direction == Direction.NORTH)
             return FurnaceBlockEntity.isFuel(stack);
         if (slot == 2 && direction == Direction.NORTH)
