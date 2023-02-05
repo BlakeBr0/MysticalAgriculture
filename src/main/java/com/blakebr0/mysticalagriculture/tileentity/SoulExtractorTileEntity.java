@@ -177,7 +177,7 @@ public class SoulExtractorTileEntity extends BaseInventoryTileEntity implements 
                 tile.energy.extractEnergy(tile.getFuelUsage(), false);
 
                 if (tile.progress >= tile.getOperationTime()) {
-                    tile.inventory.setStackInSlot(0, StackHelper.shrink(tile.inventory.getStackInSlot(1), 1, false));
+                    tile.inventory.setStackInSlot(0, StackHelper.shrink(tile.inventory.getStackInSlot(0), 1, false));
                     tile.inventory.setStackInSlot(2, tile.recipe.assemble(tile.inventory));
 
                     tile.progress = 0;
