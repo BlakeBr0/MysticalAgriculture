@@ -90,7 +90,7 @@ public class EssenceCrossbowItem extends BaseCrossbowItem implements ITinkerable
     @Override
     public boolean hurtEnemy(ItemStack stack, LivingEntity target, LivingEntity attacker) {
         var augments = AugmentUtils.getAugments(stack);
-        var success = false;
+        var success = super.hurtEnemy(stack, target, attacker);
 
         for (var augment : augments) {
             if (augment.onHitEntity(stack, target, attacker))
@@ -102,10 +102,8 @@ public class EssenceCrossbowItem extends BaseCrossbowItem implements ITinkerable
 
     @Override
     public boolean mineBlock(ItemStack stack, Level level, BlockState state, BlockPos pos, LivingEntity entity) {
-        super.mineBlock(stack, level, state, pos, entity);
-
         var augments = AugmentUtils.getAugments(stack);
-        var success = false;
+        var success = super.mineBlock(stack, level, state, pos, entity);;
 
         for (var augment : augments) {
             if (augment.onBlockDestroyed(stack, level, state, pos, entity))
