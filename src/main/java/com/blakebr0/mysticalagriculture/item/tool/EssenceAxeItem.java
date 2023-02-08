@@ -65,13 +65,13 @@ public class EssenceAxeItem extends BaseAxeItem implements ITinkerable {
     }
 
     @Override
-    public InteractionResultHolder<ItemStack> use(Level world, Player player, InteractionHand hand) {
+    public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
         var stack = player.getItemInHand(hand);
         var augments = AugmentUtils.getAugments(stack);
         var success = false;
 
         for (var augment : augments) {
-            if (augment.onRightClick(stack, world, player, hand))
+            if (augment.onRightClick(stack, level, player, hand))
                 success = true;
         }
 
@@ -97,7 +97,7 @@ public class EssenceAxeItem extends BaseAxeItem implements ITinkerable {
     @Override
     public boolean hurtEnemy(ItemStack stack, LivingEntity target, LivingEntity attacker) {
         var augments = AugmentUtils.getAugments(stack);
-        var success = false;
+        var success = super.hurtEnemy(stack, target, attacker);
 
         for (var augment : augments) {
             if (augment.onHitEntity(stack, target, attacker))
@@ -108,14 +108,12 @@ public class EssenceAxeItem extends BaseAxeItem implements ITinkerable {
     }
 
     @Override
-    public boolean mineBlock(ItemStack stack, Level world, BlockState state, BlockPos pos, LivingEntity entity) {
-        super.mineBlock(stack, world, state, pos, entity);
-
+    public boolean mineBlock(ItemStack stack, Level level, BlockState state, BlockPos pos, LivingEntity entity) {
         var augments = AugmentUtils.getAugments(stack);
-        var success = false;
+        var success = super.mineBlock(stack, level, state, pos, entity);;
 
         for (var augment : augments) {
-            if (augment.onBlockDestroyed(stack, world, state, pos, entity))
+            if (augment.onBlockDestroyed(stack, level, state, pos, entity))
                 success = true;
         }
 
@@ -136,8 +134,8 @@ public class EssenceAxeItem extends BaseAxeItem implements ITinkerable {
     }
 
     @Override
-    public void inventoryTick(ItemStack stack, Level world, Entity entity, int slot, boolean isSelected) {
-        AugmentUtils.getAugments(stack).forEach(a -> a.onInventoryTick(stack, world, entity, slot, isSelected));
+    public void inventoryTick(ItemStack stack, Level level, Entity entity, int slot, boolean isSelected) {
+        AugmentUtils.getAugments(stack).forEach(a -> a.onInventoryTick(stack, level, entity, slot, isSelected));
     }
 
     @Override
@@ -163,7 +161,7 @@ public class EssenceAxeItem extends BaseAxeItem implements ITinkerable {
 
     @OnlyIn(Dist.CLIENT)
     @Override
-    public void appendHoverText(ItemStack stack, Level world, List<Component> tooltip, TooltipFlag flag) {
+    public void appendHoverText(ItemStack stack, Level level, List<Component> tooltip, TooltipFlag flag) {
         tooltip.add(ModTooltips.getTooltipForTier(this.tinkerableTier));
 
         AugmentUtils.getAugments(stack).forEach(a -> {
