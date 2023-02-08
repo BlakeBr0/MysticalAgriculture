@@ -275,6 +275,8 @@
 
   "enchantment.mysticalagriculture.mystical_enlightenment": "Mystical Enlightenment",
   "enchantment.mysticalagriculture.mystical_enlightenment.desc": "Ender Dragons and Withers will drop Cognizant Dust when killed with an Essence Weapon.",
+  "enchantment.mysticalagriculture.soul_siphoner": "Soul Siphoner",
+  "enchantment.mysticalagriculture.soul_siphoner.desc": "Increases souls collected by killing mobs by 10 percent per level.",
 
   "tooltip.mysticalagriculture.empty": "Empty",
   "tooltip.mysticalagriculture.filled": "Filled",
