@@ -9,6 +9,8 @@ import com.blakebr0.mysticalagriculture.lib.ModTooltips;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
+import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.stats.Stats;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.InteractionResultHolder;
@@ -20,12 +22,14 @@ import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 
 import java.util.EnumSet;
 import java.util.List;
+import java.util.function.Consumer;
 
 public class EssenceCrossbowItem extends BaseCrossbowItem implements ITinkerable {
     private static final EnumSet<AugmentType> TYPES = EnumSet.of(AugmentType.WEAPON, AugmentType.CROSSBOW);
@@ -130,6 +134,27 @@ public class EssenceCrossbowItem extends BaseCrossbowItem implements ITinkerable
     @Override
     public void inventoryTick(ItemStack stack, Level level, Entity entity, int slot, boolean isSelected) {
         AugmentUtils.getAugments(stack).forEach(a -> a.onInventoryTick(stack, level, entity, slot, isSelected));
+    }
+
+    @Override
+    public <T extends LivingEntity> int damageItem(ItemStack stack, int amount, T entity, Consumer<T> onBroken) {
+        if (stack.hurt(amount, entity.getRandom(), entity instanceof ServerPlayer ? (ServerPlayer) entity : null)) {
+            onBroken.accept(entity);
+
+            AugmentUtils.getAugments(stack).forEach(augment -> {
+                Block.popResource(entity.getLevel(), entity.getOnPos(), new ItemStack(augment.getItem()));
+            });
+
+            stack.shrink(1);
+
+            if (entity instanceof Player player) {
+                player.awardStat(Stats.ITEM_BROKEN.get(this));
+            }
+
+            stack.setDamageValue(0);
+        }
+
+        return 0;
     }
 
     @OnlyIn(Dist.CLIENT)

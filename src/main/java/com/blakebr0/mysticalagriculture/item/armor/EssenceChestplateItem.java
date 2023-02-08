@@ -15,7 +15,10 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.stats.Stats;
 import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
@@ -24,6 +27,7 @@ import net.minecraft.world.item.ArmorMaterial;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Block;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.common.IPlantable;
@@ -32,6 +36,7 @@ import net.minecraftforge.common.PlantType;
 import java.util.EnumSet;
 import java.util.List;
 import java.util.UUID;
+import java.util.function.Consumer;
 
 public class EssenceChestplateItem extends BaseArmorItem implements ITinkerable {
     private static final UUID[] ARMOR_MODIFIERS = new UUID[] { UUID.fromString("845DB27C-C624-495F-8C9F-6020A9A58B6B"), UUID.fromString("D8499B04-0E66-4726-AB29-64469D734E0D"), UUID.fromString("9F3D476D-C118-4544-8365-64846904B48E"), UUID.fromString("2AD3F246-FEE1-4E67-B886-69FD380BB150") };
@@ -52,6 +57,27 @@ public class EssenceChestplateItem extends BaseArmorItem implements ITinkerable 
         if (ModConfigs.AWAKENED_SUPREMIUM_SET_BONUS.get() && !level.isClientSide() && level.getGameTime() % 20L == 0 && hasAwakenedSupremiumSet(player)) {
             handleGrowthTicks(level, player);
         }
+    }
+
+    @Override
+    public <T extends LivingEntity> int damageItem(ItemStack stack, int amount, T entity, Consumer<T> onBroken) {
+        if (stack.hurt(amount, entity.getRandom(), entity instanceof ServerPlayer ? (ServerPlayer) entity : null)) {
+            onBroken.accept(entity);
+
+            AugmentUtils.getAugments(stack).forEach(augment -> {
+                Block.popResource(entity.getLevel(), entity.getOnPos(), new ItemStack(augment.getItem()));
+            });
+
+            stack.shrink(1);
+
+            if (entity instanceof Player player) {
+                player.awardStat(Stats.ITEM_BROKEN.get(this));
+            }
+
+            stack.setDamageValue(0);
+        }
+
+        return 0;
     }
 
     @OnlyIn(Dist.CLIENT)
