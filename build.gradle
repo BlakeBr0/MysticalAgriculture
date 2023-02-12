@@ -46,7 +46,7 @@ minecraft {
             property 'mixin.env.remapRefMap', 'true'
             property 'mixin.env.refMapRemappingFile', "${buildDir}/createSrgToMcp/output.srg"
 
-            ideaModule "${rootProject.name}.${project.name}.main"
+            ideaModule rootProject.name != project.name ? "${rootProject.name}.${project.name}.main" : "${project.name}.main"
 
             mods {
                 mysticalagriculture {
@@ -69,7 +69,7 @@ minecraft {
             property 'mixin.env.remapRefMap', 'true'
             property 'mixin.env.refMapRemappingFile', "${buildDir}/createSrgToMcp/output.srg"
 
-            ideaModule "${rootProject.name}.${project.name}.main"
+            ideaModule rootProject.name != project.name ? "${rootProject.name}.${project.name}.main" : "${project.name}.main"
 
             mods {
                 mysticalagriculture {
@@ -92,7 +92,7 @@ minecraft {
             property 'mixin.env.remapRefMap', 'true'
             property 'mixin.env.refMapRemappingFile', "${buildDir}/createSrgToMcp/output.srg"
 
-            ideaModule "${rootProject.name}.${project.name}.main"
+            ideaModule rootProject.name != project.name ? "${rootProject.name}.${project.name}.main" : "${project.name}.main"
 
             args '--mod', 'mysticalagriculture', '--all', '--output', file('src/generated/resources/'), '--existing', sourceSets.main.resources.srcDirs[0]
 
@@ -189,11 +189,13 @@ publishing {
     }
 }
 
-task addTestDatapacks(type: Copy) {
-    file('run/saves').eachDir { dir ->
-        project.copy {
-            from 'src/test/resources/datapacks'
-            into file(dir.path + '/datapacks')
+tasks.register('addTestDatapacks', Copy) {
+    if (file('run/saves').exists()) {
+        file('run/saves').eachDir { dir ->
+            project.copy {
+                from 'src/test/resources/datapacks'
+                into file(dir.path + '/datapacks')
+            }
         }
     }
 
@@ -203,7 +205,7 @@ task addTestDatapacks(type: Copy) {
     }
 }
 
-task addTestScripts(type: Copy) {
+tasks.register('addTestScripts', Copy) {
     from 'src/test/resources/scripts'
     into file('run/scripts')
 }
