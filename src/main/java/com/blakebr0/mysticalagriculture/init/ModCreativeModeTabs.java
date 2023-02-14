@@ -162,6 +162,7 @@ public final class ModCreativeModeTabs {
                 }
 
                 output.accept(ModItems.EXPERIENCE_DROPLET);
+                output.accept(ModItems.WAND);
                 output.accept(ModItems.BLANK_SKULL);
                 output.accept(ModItems.BLANK_RECORD);
                 output.accept(ModItems.UNATTUNED_AUGMENT);

@@ -4,6 +4,7 @@ import com.blakebr0.cucumber.block.BaseTileEntityBlock;
 import com.blakebr0.cucumber.helper.StackHelper;
 import com.blakebr0.cucumber.util.VoxelShapeBuilder;
 import com.blakebr0.mysticalagriculture.init.ModTileEntities;
+import com.blakebr0.mysticalagriculture.item.WandItem;
 import com.blakebr0.mysticalagriculture.lib.ModTooltips;
 import com.blakebr0.mysticalagriculture.tileentity.AwakeningAltarTileEntity;
 import net.minecraft.core.BlockPos;
@@ -73,12 +74,14 @@ public class AwakeningAltarBlock extends BaseTileEntityBlock {
                 inventory.setStackInSlot(1, ItemStack.EMPTY);
             } else {
                 var held = player.getItemInHand(hand);
-
                 if (input.isEmpty() && !held.isEmpty()) {
                     inventory.setStackInSlot(0, StackHelper.withSize(held, 1, false));
                     player.setItemInHand(hand, StackHelper.shrink(held, 1, false));
                     level.playSound(null, pos, SoundEvents.ITEM_PICKUP, SoundSource.BLOCKS, 1.0F, 1.0F);
                 } else if (!input.isEmpty()) {
+                    if (held.getItem() instanceof WandItem)
+                        return InteractionResult.PASS;
+
                     var item = new ItemEntity(level, player.getX(), player.getY(), player.getZ(), input);
 
                     item.setNoPickUpDelay();

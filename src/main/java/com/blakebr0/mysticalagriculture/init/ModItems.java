@@ -16,6 +16,7 @@ import com.blakebr0.mysticalagriculture.item.MasterInfusionCrystalItem;
 import com.blakebr0.mysticalagriculture.item.MysticalFertilizerItem;
 import com.blakebr0.mysticalagriculture.item.SoulJarItem;
 import com.blakebr0.mysticalagriculture.item.SouliumDaggerItem;
+import com.blakebr0.mysticalagriculture.item.WandItem;
 import com.blakebr0.mysticalagriculture.item.WateringCanItem;
 import com.blakebr0.mysticalagriculture.item.armor.EssenceBootsItem;
 import com.blakebr0.mysticalagriculture.item.armor.EssenceChestplateItem;
@@ -115,6 +116,7 @@ public final class ModItems {
     public static final RegistryObject<Item> END_AGGLOMERATIO = register("end_agglomeratio");
     public static final RegistryObject<Item> MYSTICAL_FLOWER_AGGLOMERATIO = register("mystical_flower_agglomeratio");
     public static final RegistryObject<Item> EXPERIENCE_DROPLET = register("experience_droplet", ExperienceDropletItem::new);
+    public static final RegistryObject<Item> WAND = register("wand", WandItem::new);
     public static final RegistryObject<Item> BLANK_SKULL = register("blank_skull");
     public static final RegistryObject<Item> BLANK_RECORD = register("blank_record");
     public static final RegistryObject<Item> UNATTUNED_AUGMENT = register("unattuned_augment");

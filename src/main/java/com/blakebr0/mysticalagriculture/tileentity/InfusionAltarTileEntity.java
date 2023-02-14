@@ -6,6 +6,7 @@ import com.blakebr0.cucumber.util.MultiblockPositions;
 import com.blakebr0.mysticalagriculture.crafting.recipe.InfusionRecipe;
 import com.blakebr0.mysticalagriculture.init.ModRecipeTypes;
 import com.blakebr0.mysticalagriculture.init.ModTileEntities;
+import com.blakebr0.mysticalagriculture.util.IActivatable;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ItemParticleOption;
 import net.minecraft.core.particles.ParticleOptions;
@@ -20,7 +21,7 @@ import net.minecraft.world.phys.AABB;
 import java.util.ArrayList;
 import java.util.List;
 
-public class InfusionAltarTileEntity extends BaseInventoryTileEntity {
+public class InfusionAltarTileEntity extends BaseInventoryTileEntity implements IActivatable {
     private final BaseItemStackHandler inventory;
     private final BaseItemStackHandler recipeInventory;
     private final MultiblockPositions pedestalLocations = new MultiblockPositions.Builder()
@@ -60,6 +61,21 @@ public class InfusionAltarTileEntity extends BaseInventoryTileEntity {
     @Override
     public AABB getRenderBoundingBox() {
         return INFINITE_EXTENT_AABB;
+    }
+
+    @Override
+    public boolean isActive() {
+        if (!this.active) {
+            var world = this.getLevel();
+            this.active = world != null && world.hasNeighborSignal(this.getBlockPos());
+        }
+
+        return this.active;
+    }
+
+    @Override
+    public void activate() {
+        this.active = true;
     }
 
     public static void tick(Level level, BlockPos pos, BlockState state, InfusionAltarTileEntity tile) {
@@ -119,19 +135,6 @@ public class InfusionAltarTileEntity extends BaseInventoryTileEntity {
 
     public List<BlockPos> getPedestalPositions() {
         return this.pedestalLocations.get(this.getBlockPos());
-    }
-
-    public boolean isActive() {
-        if (!this.active) {
-            var world = this.getLevel();
-            this.active = world != null && world.hasNeighborSignal(this.getBlockPos());
-        }
-
-        return this.active;
-    }
-
-    public void setActive() {
-        this.active = true;
     }
 
     private void reset() {

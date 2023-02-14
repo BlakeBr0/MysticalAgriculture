@@ -4,6 +4,7 @@ import com.blakebr0.cucumber.block.BaseTileEntityBlock;
 import com.blakebr0.cucumber.helper.StackHelper;
 import com.blakebr0.cucumber.util.VoxelShapeBuilder;
 import com.blakebr0.mysticalagriculture.init.ModTileEntities;
+import com.blakebr0.mysticalagriculture.item.WandItem;
 import com.blakebr0.mysticalagriculture.lib.ModTooltips;
 import com.blakebr0.mysticalagriculture.tileentity.InfusionAltarTileEntity;
 import net.minecraft.core.BlockPos;
@@ -57,8 +58,8 @@ public class InfusionAltarBlock extends BaseTileEntityBlock {
     }
 
     @Override
-    public InteractionResult use(BlockState state, Level world, BlockPos pos, Player player, InteractionHand hand, BlockHitResult rayTraceResult) {
-        var tile = world.getBlockEntity(pos);
+    public InteractionResult use(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult rayTraceResult) {
+        var tile = level.getBlockEntity(pos);
 
         if (tile instanceof InfusionAltarTileEntity altar) {
             var inventory = altar.getInventory();
@@ -66,23 +67,25 @@ public class InfusionAltarBlock extends BaseTileEntityBlock {
             var output = inventory.getStackInSlot(1);
 
             if (!output.isEmpty()) {
-                var item = new ItemEntity(world, player.getX(), player.getY(), player.getZ(), output);
+                var item = new ItemEntity(level, player.getX(), player.getY(), player.getZ(), output);
 
                 item.setNoPickUpDelay();
-                world.addFreshEntity(item);
+                level.addFreshEntity(item);
                 inventory.setStackInSlot(1, ItemStack.EMPTY);
             } else {
                 var held = player.getItemInHand(hand);
-
                 if (input.isEmpty() && !held.isEmpty()) {
                     inventory.setStackInSlot(0, StackHelper.withSize(held, 1, false));
                     player.setItemInHand(hand, StackHelper.shrink(held, 1, false));
-                    world.playSound(null, pos, SoundEvents.ITEM_PICKUP, SoundSource.BLOCKS, 1.0F, 1.0F);
+                    level.playSound(null, pos, SoundEvents.ITEM_PICKUP, SoundSource.BLOCKS, 1.0F, 1.0F);
                 } else if (!input.isEmpty()) {
-                    var item = new ItemEntity(world, player.getX(), player.getY(), player.getZ(), input);
+                    if (held.getItem() instanceof WandItem)
+                        return InteractionResult.PASS;
+
+                    var item = new ItemEntity(level, player.getX(), player.getY(), player.getZ(), input);
 
                     item.setNoPickUpDelay();
-                    world.addFreshEntity(item);
+                    level.addFreshEntity(item);
                     inventory.setStackInSlot(0, ItemStack.EMPTY);
                 }
             }
