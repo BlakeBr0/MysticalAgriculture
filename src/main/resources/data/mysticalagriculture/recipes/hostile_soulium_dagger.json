@@ -8,7 +8,7 @@
       "item": "mysticalagriculture:soulium_ingot"
     },
     {
-      "type": "forge:nbt",
+      "type": "forge:partial_nbt",
       "item": "mysticalagriculture:soul_jar",
       "nbt": {
         "Type": "mysticalagriculture:zombie",
@@ -19,7 +19,7 @@
       "item": "mysticalagriculture:soulium_gemstone"
     },
     {
-      "type": "forge:nbt",
+      "type": "forge:partial_nbt",
       "item": "mysticalagriculture:soul_jar",
       "nbt": {
         "Type": "mysticalagriculture:skeleton",
@@ -30,7 +30,7 @@
       "item": "mysticalagriculture:soulium_ingot"
     },
     {
-      "type": "forge:nbt",
+      "type": "forge:partial_nbt",
       "item": "mysticalagriculture:soul_jar",
       "nbt": {
         "Type": "mysticalagriculture:creeper",
@@ -41,7 +41,7 @@
       "item": "mysticalagriculture:soulium_gemstone"
     },
     {
-      "type": "forge:nbt",
+      "type": "forge:partial_nbt",
       "item": "mysticalagriculture:soul_jar",
       "nbt": {
         "Type": "mysticalagriculture:spider",

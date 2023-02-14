@@ -5,6 +5,7 @@ import com.blakebr0.mysticalagriculture.init.ModRecipeSerializers;
 import com.blakebr0.mysticalagriculture.registry.CropRegistry;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import net.minecraft.advancements.critereon.NbtPredicate;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.GsonHelper;
@@ -41,7 +42,8 @@ public class CropComponentIngredient extends Ingredient {
         if (!super.test(input))
             return false;
 
-        return Arrays.stream(this.getItems()).anyMatch(s -> s.getDamageValue() == input.getDamageValue() && (!s.hasTag() || s.areShareTagsEqual(input)));
+        return Arrays.stream(this.getItems())
+                .anyMatch(s -> s.getDamageValue() == input.getDamageValue() && (!s.hasTag() || new NbtPredicate(s.getTag()).matches(input)));
     }
 
     @Override
