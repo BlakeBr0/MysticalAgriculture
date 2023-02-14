@@ -9,8 +9,8 @@
           "Name": "mysticalagriculture:soulstone"
         },
         "target": {
-          "predicate_type": "minecraft:tag_match",
-          "tag": "minecraft:nether_ore_replaceables"
+          "block": "minecraft:netherrack",
+          "predicate_type": "minecraft:block_match"
         }
       }
     ]
