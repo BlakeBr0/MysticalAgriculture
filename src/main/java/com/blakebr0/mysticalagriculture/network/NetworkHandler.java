@@ -3,6 +3,7 @@ package com.blakebr0.mysticalagriculture.network;
 import com.blakebr0.cucumber.network.BaseNetworkHandler;
 import com.blakebr0.mysticalagriculture.MysticalAgriculture;
 import com.blakebr0.mysticalagriculture.network.message.ExperienceCapsulePickupMessage;
+import com.blakebr0.mysticalagriculture.network.message.ReloadIngredientCacheMessage;
 import net.minecraft.resources.ResourceLocation;
 
 public class NetworkHandler {
@@ -10,5 +11,6 @@ public class NetworkHandler {
 
     public static void onCommonSetup() {
         INSTANCE.register(ExperienceCapsulePickupMessage.class, new ExperienceCapsulePickupMessage());
+        INSTANCE.register(ReloadIngredientCacheMessage.class, new ReloadIngredientCacheMessage());
     }
 }
