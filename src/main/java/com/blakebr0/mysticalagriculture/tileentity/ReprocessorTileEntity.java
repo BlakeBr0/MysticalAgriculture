@@ -148,7 +148,7 @@ public abstract class ReprocessorTileEntity extends BaseInventoryTileEntity impl
                 }
 
                 if (tile.recipe != null) {
-                    var recipeOutput = tile.recipe.assemble(tile.inventory);
+                    var recipeOutput = tile.recipe.assemble(tile.inventory, level.registryAccess());
                     if (!recipeOutput.isEmpty() && (output.isEmpty() || StackHelper.canCombineStacks(output, recipeOutput))) {
                         tile.progress++;
                         tile.energy.extractEnergy(tile.tier.getFuelUsage(), false);

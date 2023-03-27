@@ -7,10 +7,10 @@ import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.math.Axis;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.MultiBufferSource;
-import net.minecraft.client.renderer.block.model.ItemTransforms;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderer;
 import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
 import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.item.ItemDisplayContext;
 import net.minecraftforge.client.model.data.ModelData;
 
 public class InfusionAltarRenderer implements BlockEntityRenderer<InfusionAltarTileEntity> {
@@ -18,8 +18,12 @@ public class InfusionAltarRenderer implements BlockEntityRenderer<InfusionAltarT
 
     @Override
     public void render(InfusionAltarTileEntity tile, float v, PoseStack matrix, MultiBufferSource buffer, int i, int i1) {
-        var inventory = tile.getInventory();
         var minecraft = Minecraft.getInstance();
+        var level = minecraft.level;
+        if (level == null)
+            return;
+
+        var inventory = tile.getInventory();
         var stack = inventory.getStackInSlot(1).isEmpty() ? inventory.getStackInSlot(0) : inventory.getStackInSlot(1);
 
         if (!stack.isEmpty()) {
@@ -30,19 +34,18 @@ public class InfusionAltarRenderer implements BlockEntityRenderer<InfusionAltarT
             double tick = System.currentTimeMillis() / 800.0D;
             matrix.translate(0.0D, Math.sin(tick % (2 * Math.PI)) * 0.065D, 0.0D);
             matrix.mulPose(Axis.YP.rotationDegrees((float) ((tick * 40.0D) % 360)));
-            minecraft.getItemRenderer().renderStatic(stack, ItemTransforms.TransformType.GROUND, i, i1, matrix, buffer, 0);
+            minecraft.getItemRenderer().renderStatic(stack, ItemDisplayContext.GROUND, i, i1, matrix, buffer, level, 0);
             matrix.popPose();
         }
 
         var pos = tile.getBlockPos();
-        var level = tile.getLevel();
         var builder = buffer.getBuffer(ModRenderTypes.GHOST);
 
         matrix.pushPose();
         matrix.translate(-pos.getX(), -pos.getY(), -pos.getZ());
 
         tile.getPedestalPositions().forEach(aoePos -> {
-            if (level != null && level.isEmptyBlock(aoePos)) {
+            if (level.isEmptyBlock(aoePos)) {
                 matrix.pushPose();
                 matrix.translate(aoePos.getX(), aoePos.getY(), aoePos.getZ());
                 minecraft.getBlockRenderer().renderBatched(ModBlocks.INFUSION_PEDESTAL.get().defaultBlockState(), aoePos, level, matrix, builder, false, level.getRandom(), ModelData.EMPTY, null);

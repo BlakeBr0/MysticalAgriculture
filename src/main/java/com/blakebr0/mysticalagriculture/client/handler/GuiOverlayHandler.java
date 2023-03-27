@@ -1,15 +1,8 @@
 package com.blakebr0.mysticalagriculture.client.handler;
 
-import com.blakebr0.cucumber.helper.ColorHelper;
-import com.blakebr0.cucumber.iface.IColored;
-import com.blakebr0.mysticalagriculture.api.util.MobSoulUtils;
-import com.blakebr0.mysticalagriculture.block.InfusedFarmlandBlock;
 import com.blakebr0.mysticalagriculture.crafting.recipe.AwakeningRecipe;
-import com.blakebr0.mysticalagriculture.init.ModItems;
 import com.blakebr0.mysticalagriculture.lib.ModCrops;
 import com.blakebr0.mysticalagriculture.lib.ModTooltips;
-import com.blakebr0.mysticalagriculture.registry.AugmentRegistry;
-import com.blakebr0.mysticalagriculture.registry.CropRegistry;
 import com.blakebr0.mysticalagriculture.tileentity.AwakeningAltarTileEntity;
 import com.blakebr0.mysticalagriculture.tileentity.EssenceVesselTileEntity;
 import com.blakebr0.mysticalagriculture.tileentity.InfusionAltarTileEntity;
@@ -17,7 +10,6 @@ import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.Minecraft;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.phys.BlockHitResult;
-import net.minecraftforge.client.event.RegisterColorHandlersEvent;
 import net.minecraftforge.client.event.RegisterGuiOverlaysEvent;
 import net.minecraftforge.client.gui.overlay.IGuiOverlay;
 import net.minecraftforge.client.gui.overlay.VanillaGuiOverlay;
@@ -30,22 +22,24 @@ public final class GuiOverlayHandler {
         if (mc.level == null)
             return;
 
+        var level = mc.level;
+
         if (mc.hitResult instanceof BlockHitResult result) {
             var pos = result.getBlockPos();
-            var tile = mc.level.getBlockEntity(pos);
+            var tile = level.getBlockEntity(pos);
             var stack = ItemStack.EMPTY;
 
             if (tile instanceof InfusionAltarTileEntity altar) {
                 var recipe = altar.getActiveRecipe();
                 if (recipe != null) {
-                    stack = recipe.getResultItem();
+                    stack = recipe.getResultItem(level.registryAccess());
                 }
             }
 
             if (tile instanceof AwakeningAltarTileEntity altar) {
                 var recipe = altar.getActiveRecipe();
                 if (recipe != null) {
-                    stack = recipe.getResultItem();
+                    stack = recipe.getResultItem(level.registryAccess());
 
                     drawEssenceRequirements(matrix, recipe, altar);
                 }
@@ -55,8 +49,8 @@ public final class GuiOverlayHandler {
                 int x = mc.getWindow().getGuiScaledWidth() / 2 - 11;
                 int y = mc.getWindow().getGuiScaledHeight() / 2 - 8;
 
-                mc.getItemRenderer().renderAndDecorateItem(stack, x + 26, y);
-                mc.getItemRenderer().renderGuiItemDecorations(mc.font, stack, x + 26, y);
+                mc.getItemRenderer().renderAndDecorateItem(matrix, stack, x + 26, y);
+                mc.getItemRenderer().renderGuiItemDecorations(matrix, mc.font, stack, x + 26, y);
                 mc.font.drawShadow(matrix, stack.getHoverName(), x + 48, y + 5, 16383998);
             }
         }
@@ -79,8 +73,8 @@ public final class GuiOverlayHandler {
                     int x = mc.getWindow().getGuiScaledWidth() / 2 - 11;
                     int y = mc.getWindow().getGuiScaledHeight() / 2 - 8;
 
-                    mc.getItemRenderer().renderAndDecorateItem(stack, x + 26, y);
-                    mc.getItemRenderer().renderGuiItemDecorations(mc.font, stack, x + 26, y);
+                    mc.getItemRenderer().renderAndDecorateItem(matrix, stack, x + 26, y);
+                    mc.getItemRenderer().renderGuiItemDecorations(matrix, mc.font, stack, x + 26, y);
                     mc.font.drawShadow(matrix, stack.getHoverName(), x + 48, y + 5, 16383998);
                 }
             }
@@ -110,28 +104,28 @@ public final class GuiOverlayHandler {
             var stack = vessel.getInventory().getStackInSlot(0);
 
             if (stack.is(ModCrops.AIR.getEssenceItem()) && stack.getCount() < requirements.air()) {
-                mc.getItemRenderer().renderAndDecorateItem(stack, x + 26 + xOffset, y + 2 * lineHeight);
+                mc.getItemRenderer().renderAndDecorateItem(matrix, stack, x + 26 + xOffset, y + 2 * lineHeight);
                 mc.font.drawShadow(matrix, getEssenceDisplayName(stack, requirements.air()), x + 48 + xOffset, y + 5 + 2 * lineHeight, 16383998);
                 xOffset += 56;
                 hasMissingEssences = true;
             }
 
             if (stack.is(ModCrops.EARTH.getEssenceItem()) && stack.getCount() < requirements.earth()) {
-                mc.getItemRenderer().renderAndDecorateItem(stack, x + 26 + xOffset, y + 2 * lineHeight);
+                mc.getItemRenderer().renderAndDecorateItem(matrix, stack, x + 26 + xOffset, y + 2 * lineHeight);
                 mc.font.drawShadow(matrix, getEssenceDisplayName(stack, requirements.earth()), x + 48 + xOffset, y + 5 + 2 * lineHeight, 16383998);
                 xOffset += 56;
                 hasMissingEssences = true;
             }
 
             if (stack.is(ModCrops.WATER.getEssenceItem()) && stack.getCount() < requirements.water()) {
-                mc.getItemRenderer().renderAndDecorateItem(stack, x + 26 + xOffset, y + 2 * lineHeight);
+                mc.getItemRenderer().renderAndDecorateItem(matrix, stack, x + 26 + xOffset, y + 2 * lineHeight);
                 mc.font.drawShadow(matrix, getEssenceDisplayName(stack, requirements.water()), x + 48 + xOffset, y + 5 + 2 * lineHeight, 16383998);
                 xOffset += 56;
                 hasMissingEssences = true;
             }
 
             if (stack.is(ModCrops.FIRE.getEssenceItem()) && stack.getCount() < requirements.fire()) {
-                mc.getItemRenderer().renderAndDecorateItem(stack, x + 26 + xOffset, y + 2 * lineHeight);
+                mc.getItemRenderer().renderAndDecorateItem(matrix, stack, x + 26 + xOffset, y + 2 * lineHeight);
                 mc.font.drawShadow(matrix, getEssenceDisplayName(stack, requirements.fire()), x + 48 + xOffset, y + 5 + 2 * lineHeight, 16383998);
                 xOffset += 56;
                 hasMissingEssences = true;

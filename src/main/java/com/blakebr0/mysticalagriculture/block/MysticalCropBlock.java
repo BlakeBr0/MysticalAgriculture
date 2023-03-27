@@ -73,9 +73,9 @@ public class MysticalCropBlock extends CropBlock implements ICropProvider {
             var vec = builder.getOptionalParameter(LootContextParams.ORIGIN);
 
             if (vec != null) {
-                var world = builder.getLevel();
-                var pos = new BlockPos(vec);
-                var below = world.getBlockState(pos.below()).getBlock();
+                var level = builder.getLevel();
+                var pos = new BlockPos((int) vec.x, (int) vec.y, (int) vec.z);
+                var below = level.getBlockState(pos.below()).getBlock();
                 double chance = this.crop.getSecondaryChance(below);
 
                 if (Math.random() < chance)

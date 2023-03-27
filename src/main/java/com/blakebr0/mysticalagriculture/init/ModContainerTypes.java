@@ -10,6 +10,7 @@ import com.blakebr0.mysticalagriculture.container.ReprocessorContainer;
 import com.blakebr0.mysticalagriculture.container.SoulExtractorContainer;
 import com.blakebr0.mysticalagriculture.container.TinkeringTableContainer;
 import net.minecraft.client.gui.screens.MenuScreens;
+import net.minecraft.world.flag.FeatureFlagSet;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.MenuType;
 import net.minecraftforge.api.distmarker.Dist;
@@ -24,10 +25,10 @@ import java.util.function.Supplier;
 public final class ModContainerTypes {
     public static final DeferredRegister<MenuType<?>> REGISTRY = DeferredRegister.create(ForgeRegistries.MENU_TYPES, MysticalAgriculture.MOD_ID);
 
-    public static final RegistryObject<MenuType<TinkeringTableContainer>> TINKERING_TABLE = register("tinkering_table", () -> new MenuType<>((IContainerFactory<TinkeringTableContainer>) TinkeringTableContainer::create));
-    public static final RegistryObject<MenuType<ReprocessorContainer>> REPROCESSOR = register("reprocessor", () -> new MenuType<>((IContainerFactory<ReprocessorContainer>) ReprocessorContainer::create));
-    public static final RegistryObject<MenuType<SoulExtractorContainer>> SOUL_EXTRACTOR = register("soul_extractor", () -> new MenuType<>((IContainerFactory<SoulExtractorContainer>) SoulExtractorContainer::create));
-    public static final RegistryObject<MenuType<HarvesterContainer>> HARVESTER = register("harvester", () -> new MenuType<>((IContainerFactory<HarvesterContainer>) HarvesterContainer::create));
+    public static final RegistryObject<MenuType<TinkeringTableContainer>> TINKERING_TABLE = register("tinkering_table", () -> new MenuType<>((IContainerFactory<TinkeringTableContainer>) TinkeringTableContainer::create, FeatureFlagSet.of()));
+    public static final RegistryObject<MenuType<ReprocessorContainer>> REPROCESSOR = register("reprocessor", () -> new MenuType<>((IContainerFactory<ReprocessorContainer>) ReprocessorContainer::create, FeatureFlagSet.of()));
+    public static final RegistryObject<MenuType<SoulExtractorContainer>> SOUL_EXTRACTOR = register("soul_extractor", () -> new MenuType<>((IContainerFactory<SoulExtractorContainer>) SoulExtractorContainer::create, FeatureFlagSet.of()));
+    public static final RegistryObject<MenuType<HarvesterContainer>> HARVESTER = register("harvester", () -> new MenuType<>((IContainerFactory<HarvesterContainer>) HarvesterContainer::create, FeatureFlagSet.of()));
 
     @OnlyIn(Dist.CLIENT)
     public static void onClientSetup() {

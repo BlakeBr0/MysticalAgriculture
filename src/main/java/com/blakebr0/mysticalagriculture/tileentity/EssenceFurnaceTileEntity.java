@@ -61,7 +61,7 @@ public abstract class EssenceFurnaceTileEntity extends AbstractFurnaceBlockEntit
 
     protected boolean canBurn(Recipe<?> recipe, NonNullList<ItemStack> items, int maxStackSize) {
         if (!items.get(0).isEmpty() && recipe != null) {
-            ItemStack itemstack = ((Recipe<WorldlyContainer>) recipe).assemble(this);
+            ItemStack itemstack = ((Recipe<WorldlyContainer>) recipe).assemble(this, this.level.registryAccess());
             if (itemstack.isEmpty()) {
                 return false;
             } else {
@@ -84,7 +84,7 @@ public abstract class EssenceFurnaceTileEntity extends AbstractFurnaceBlockEntit
     protected boolean burn(Recipe<?> recipe, NonNullList<ItemStack> items, int maxStackSize) {
         if (recipe != null && this.canBurn(recipe, items, maxStackSize)) {
             ItemStack itemstack = items.get(0);
-            ItemStack itemstack1 = ((Recipe<WorldlyContainer>) recipe).assemble(this);
+            ItemStack itemstack1 = ((Recipe<WorldlyContainer>) recipe).assemble(this, this.level.registryAccess());
             ItemStack itemstack2 = items.get(2);
             if (itemstack2.isEmpty()) {
                 items.set(2, itemstack1.copy());

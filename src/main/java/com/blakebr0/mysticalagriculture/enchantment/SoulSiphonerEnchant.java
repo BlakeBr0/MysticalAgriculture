@@ -1,7 +1,6 @@
 package com.blakebr0.mysticalagriculture.enchantment;
 
 import com.blakebr0.mysticalagriculture.api.soul.ISoulSiphoningItem;
-import com.blakebr0.mysticalagriculture.api.tinkering.ITinkerable;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.enchantment.Enchantment;

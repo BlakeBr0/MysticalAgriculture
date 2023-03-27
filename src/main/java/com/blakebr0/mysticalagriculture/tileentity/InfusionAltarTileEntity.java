@@ -103,7 +103,7 @@ public class InfusionAltarTileEntity extends BaseInventoryTileEntity implements 
                         tile.spawnParticles(ParticleTypes.SMOKE, pedestal.getBlockPos(), 1.2D, 20);
                     }
 
-                    var result = recipe.assemble(tile.recipeInventory);
+                    var result = recipe.assemble(tile.recipeInventory, level.registryAccess());
 
                     tile.setOutput(result);
                     tile.reset();

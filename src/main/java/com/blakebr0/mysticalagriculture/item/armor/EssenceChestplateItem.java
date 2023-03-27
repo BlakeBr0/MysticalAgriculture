@@ -45,7 +45,7 @@ public class EssenceChestplateItem extends BaseArmorItem implements ITinkerable 
     private final int slots;
 
     public EssenceChestplateItem(ArmorMaterial material, int tinkerableTier, int slots) {
-        super(material, EquipmentSlot.CHEST);
+        super(material, Type.CHESTPLATE);
         this.tinkerableTier = tinkerableTier;
         this.slots = slots;
     }
@@ -98,10 +98,10 @@ public class EssenceChestplateItem extends BaseArmorItem implements ITinkerable 
     public Multimap<Attribute, AttributeModifier> getAttributeModifiers(EquipmentSlot slot, ItemStack stack) {
         Multimap<Attribute, AttributeModifier> modifiers = HashMultimap.create();
 
-        if (slot == this.getSlot()) {
+        if (slot == this.type.getSlot()) {
             var material = this.getMaterial();
 
-            modifiers.put(Attributes.ARMOR, new AttributeModifier(ARMOR_MODIFIERS[slot.getIndex()], "Armor modifier", material.getDefenseForSlot(slot), AttributeModifier.Operation.ADDITION));
+            modifiers.put(Attributes.ARMOR, new AttributeModifier(ARMOR_MODIFIERS[slot.getIndex()], "Armor modifier", material.getDefenseForType(this.type), AttributeModifier.Operation.ADDITION));
             modifiers.put(Attributes.ARMOR_TOUGHNESS, new AttributeModifier(ARMOR_MODIFIERS[slot.getIndex()], "Armor toughness", material.getToughness(), AttributeModifier.Operation.ADDITION));
 
             if (material.getKnockbackResistance() > 0) {

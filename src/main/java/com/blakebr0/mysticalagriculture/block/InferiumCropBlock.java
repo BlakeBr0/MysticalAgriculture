@@ -4,9 +4,7 @@ import com.blakebr0.mysticalagriculture.api.crop.Crop;
 import com.blakebr0.mysticalagriculture.api.farmland.IEssenceFarmland;
 import com.blakebr0.mysticalagriculture.config.ModConfigs;
 import net.minecraft.core.BlockPos;
-import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.storage.loot.LootContext;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParams;
@@ -32,9 +30,9 @@ public class InferiumCropBlock extends MysticalCropBlock {
             var vec = builder.getOptionalParameter(LootContextParams.ORIGIN);
 
             if (vec != null) {
-                ServerLevel world = builder.getLevel();
-                BlockPos pos = new BlockPos(vec);
-                Block below = world.getBlockState(pos.below()).getBlock();
+                var world = builder.getLevel();
+                var pos = new BlockPos((int) vec.x, (int) vec.y, (int) vec.z);
+                var below = world.getBlockState(pos.below()).getBlock();
 
                 if (below instanceof IEssenceFarmland farmland) {
                     int tier = farmland.getTier().getValue();

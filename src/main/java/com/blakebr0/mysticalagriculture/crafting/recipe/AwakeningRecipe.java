@@ -8,6 +8,7 @@ import com.blakebr0.mysticalagriculture.init.ModRecipeTypes;
 import com.blakebr0.mysticalagriculture.lib.ModCrops;
 import com.google.gson.JsonObject;
 import net.minecraft.core.NonNullList;
+import net.minecraft.core.RegistryAccess;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.GsonHelper;
@@ -46,13 +47,13 @@ public class AwakeningRecipe implements ISpecialRecipe, IAwakeningRecipe {
     }
 
     @Override
-    public ItemStack assemble(IItemHandler inventory) {
+    public ItemStack assemble(IItemHandler inventory, RegistryAccess access) {
         return this.output.copy();
     }
 
     @Override
-    public ItemStack assemble(Container inv) {
-        return this.assemble(new InvWrapper(inv));
+    public ItemStack assemble(Container inventory, RegistryAccess access) {
+        return this.assemble(new InvWrapper(inventory), access);
     }
 
     @Override
@@ -61,7 +62,7 @@ public class AwakeningRecipe implements ISpecialRecipe, IAwakeningRecipe {
     }
 
     @Override
-    public ItemStack getResultItem() {
+    public ItemStack getResultItem(RegistryAccess access) {
         return this.output;
     }
 

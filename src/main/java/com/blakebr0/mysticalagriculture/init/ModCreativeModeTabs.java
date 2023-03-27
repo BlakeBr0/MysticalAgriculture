@@ -18,7 +18,7 @@ public final class ModCreativeModeTabs {
     @SubscribeEvent
     public void onRegisterCreativeModeTabs(CreativeModeTabEvent.Register event) {
         event.registerCreativeModeTab(new ResourceLocation(MysticalAgriculture.MOD_ID, "creative_mode_tab"), (builder) -> {
-            var displayItems = FeatureFlagDisplayItemGenerator.create((flagSet, output, hasPermission) -> {
+            var displayItems = FeatureFlagDisplayItemGenerator.create((parameters, output) -> {
                 var stack = ItemStack.EMPTY;
 
                 output.accept(ModBlocks.PROSPERITY_BLOCK);

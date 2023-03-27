@@ -19,8 +19,11 @@ import net.minecraft.world.item.crafting.ShapedRecipe;
 import net.minecraft.world.item.crafting.ShapelessRecipe;
 
 public class FarmlandTillRecipe extends ShapelessRecipe {
-    public FarmlandTillRecipe(ResourceLocation id, String group, ItemStack output, NonNullList<Ingredient> inputs) {
-        super(id, group, CraftingBookCategory.MISC, output, inputs);
+    private final ItemStack result;
+
+    public FarmlandTillRecipe(ResourceLocation id, String group, ItemStack result, NonNullList<Ingredient> inputs) {
+        super(id, group, CraftingBookCategory.MISC, result, inputs);
+        this.result = result;
     }
 
     @Override
@@ -99,7 +102,7 @@ public class FarmlandTillRecipe extends ShapelessRecipe {
                 ingredient.toNetwork(buffer);
             }
 
-            buffer.writeItem(recipe.getResultItem());
+            buffer.writeItem(recipe.result);
         }
     }
 }

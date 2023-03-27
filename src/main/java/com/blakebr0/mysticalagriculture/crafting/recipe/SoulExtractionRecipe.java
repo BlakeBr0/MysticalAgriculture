@@ -12,6 +12,7 @@ import com.blakebr0.mysticalagriculture.registry.MobSoulTypeRegistry;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import net.minecraft.core.NonNullList;
+import net.minecraft.core.RegistryAccess;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.GsonHelper;
@@ -40,7 +41,7 @@ public class SoulExtractionRecipe implements ISpecialRecipe, ISoulExtractionReci
     }
 
     @Override
-    public ItemStack assemble(IItemHandler inventory) {
+    public ItemStack assemble(IItemHandler inventory, RegistryAccess access) {
         var stack = inventory.getStackInSlot(2);
         var jar = StackHelper.withSize(stack, 1, false);
 
@@ -50,8 +51,8 @@ public class SoulExtractionRecipe implements ISpecialRecipe, ISoulExtractionReci
     }
 
     @Override
-    public ItemStack assemble(Container inv) {
-        return this.assemble(new InvWrapper(inv));
+    public ItemStack assemble(Container inventory, RegistryAccess access) {
+        return this.assemble(new InvWrapper(inventory), access);
     }
 
     @Override
@@ -60,7 +61,7 @@ public class SoulExtractionRecipe implements ISpecialRecipe, ISoulExtractionReci
     }
 
     @Override
-    public ItemStack getResultItem() {
+    public ItemStack getResultItem(RegistryAccess access) {
         return this.output;
     }
 

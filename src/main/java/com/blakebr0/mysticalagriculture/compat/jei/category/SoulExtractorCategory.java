@@ -15,6 +15,7 @@ import mezz.jei.api.recipe.IFocusGroup;
 import mezz.jei.api.recipe.RecipeIngredientRole;
 import mezz.jei.api.recipe.RecipeType;
 import mezz.jei.api.recipe.category.IRecipeCategory;
+import net.minecraft.core.RegistryAccess;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
@@ -64,7 +65,7 @@ public class SoulExtractorCategory implements IRecipeCategory<ISoulExtractionRec
     @Override
     public void setRecipe(IRecipeLayoutBuilder builder, ISoulExtractionRecipe recipe, IFocusGroup focuses) {
         var inputs = recipe.getIngredients();
-        var output = recipe.getResultItem();
+        var output = recipe.getResultItem(RegistryAccess.EMPTY);
 
         builder.addSlot(RecipeIngredientRole.INPUT, 1, 5).addIngredients(inputs.get(0));
 
