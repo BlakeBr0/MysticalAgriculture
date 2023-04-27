@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": { "model": "mysticalagriculture:block/harvester" },
+    "facing=south": { "model": "mysticalagriculture:block/harvester", "y": 180 },
+    "facing=west":  { "model": "mysticalagriculture:block/harvester", "y": 270 },
+    "facing=east":  { "model": "mysticalagriculture:block/harvester", "y": 90 }
+  }
+}

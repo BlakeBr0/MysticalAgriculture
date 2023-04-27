@@ -94,6 +94,7 @@ public final class ModCreativeModeTabs {
                 output.accept(ModBlocks.AWAKENING_ALTAR);
                 output.accept(ModBlocks.ESSENCE_VESSEL);
                 output.accept(ModBlocks.TINKERING_TABLE);
+                output.accept(ModBlocks.ENCHANTER);
                 output.accept(ModBlocks.MACHINE_FRAME);
                 output.accept(ModBlocks.REPROCESSOR);
                 output.accept(ModBlocks.SOUL_EXTRACTOR);

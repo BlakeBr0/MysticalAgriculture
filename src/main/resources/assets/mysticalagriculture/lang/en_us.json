@@ -71,6 +71,7 @@
   "block.mysticalagriculture.awakening_altar": "Awakening Altar",
   "block.mysticalagriculture.essence_vessel": "Essence Vessel",
   "block.mysticalagriculture.tinkering_table": "Tinkering Table",
+  "block.mysticalagriculture.enchanter": "Enchanter",
   "block.mysticalagriculture.machine_frame": "Machine Frame",
   "block.mysticalagriculture.seed_reprocessor": "Seed Reprocessor",
   "block.mysticalagriculture.soul_extractor": "Soul Extractor",
@@ -258,6 +259,7 @@
   "item.mysticalagriculture.augment": "%s Augment",
 
   "container.mysticalagriculture.tinkering_table": "Tinkering Table",
+  "container.mysticalagriculture.enchanter": "Enchanter",
   "container.mysticalagriculture.inferium_furnace": "Inferium Furnace",
   "container.mysticalagriculture.prudentium_furnace": "Prudentium Furnace",
   "container.mysticalagriculture.tertium_furnace": "Tertium Furnace",
@@ -317,6 +319,7 @@
 
   "jei.category.mysticalagriculture.infusion": "Infusion Crafting",
   "jei.category.mysticalagriculture.awakening": "Awakening",
+  "jei.category.mysticalagriculture.enchanting": "Enchanting",
   "jei.category.mysticalagriculture.reprocessor": "Seed Reprocessing",
   "jei.category.mysticalagriculture.soul_extractor": "Soul Extraction",
   "jei.category.mysticalagriculture.crux": "Cruxes",

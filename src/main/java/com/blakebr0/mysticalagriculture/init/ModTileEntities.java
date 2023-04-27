@@ -3,6 +3,7 @@ package com.blakebr0.mysticalagriculture.init;
 import com.blakebr0.mysticalagriculture.MysticalAgriculture;
 import com.blakebr0.mysticalagriculture.tileentity.AwakeningAltarTileEntity;
 import com.blakebr0.mysticalagriculture.tileentity.AwakeningPedestalTileEntity;
+import com.blakebr0.mysticalagriculture.tileentity.EnchanterTileEntity;
 import com.blakebr0.mysticalagriculture.tileentity.EssenceFurnaceTileEntity;
 import com.blakebr0.mysticalagriculture.tileentity.EssenceVesselTileEntity;
 import com.blakebr0.mysticalagriculture.tileentity.HarvesterTileEntity;
@@ -35,6 +36,7 @@ public final class ModTileEntities {
     public static final RegistryObject<BlockEntityType<AwakeningAltarTileEntity>> AWAKENING_ALTAR = register("awakening_altar", AwakeningAltarTileEntity::new, () -> new Block[] { ModBlocks.AWAKENING_ALTAR.get() });
     public static final RegistryObject<BlockEntityType<EssenceVesselTileEntity>> ESSENCE_VESSEL = register("essence_vessel", EssenceVesselTileEntity::new, () -> new Block[] { ModBlocks.ESSENCE_VESSEL.get() });
     public static final RegistryObject<BlockEntityType<TinkeringTableTileEntity>> TINKERING_TABLE = register("tinkering_table", TinkeringTableTileEntity::new, () -> new Block[] { ModBlocks.TINKERING_TABLE.get() });
+    public static final RegistryObject<BlockEntityType<EnchanterTileEntity>> ENCHANTER = register("enchanter", EnchanterTileEntity::new, () -> new Block[] { ModBlocks.ENCHANTER.get() });
     public static final RegistryObject<BlockEntityType<ReprocessorTileEntity>> REPROCESSOR = register("seed_reprocessor", ReprocessorTileEntity::new, () -> new Block[] { ModBlocks.REPROCESSOR.get() });
     public static final RegistryObject<BlockEntityType<SoulExtractorTileEntity>> SOUL_EXTRACTOR = register("soul_extractor", SoulExtractorTileEntity::new, () -> new Block[] { ModBlocks.SOUL_EXTRACTOR.get() });
     public static final RegistryObject<BlockEntityType<HarvesterTileEntity>> HARVESTER = register("harvester", HarvesterTileEntity::new, () -> new Block[] { ModBlocks.HARVESTER.get() });

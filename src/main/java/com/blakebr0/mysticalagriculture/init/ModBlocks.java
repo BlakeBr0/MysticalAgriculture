@@ -11,6 +11,7 @@ import com.blakebr0.mysticalagriculture.MysticalAgriculture;
 import com.blakebr0.mysticalagriculture.api.crop.CropTier;
 import com.blakebr0.mysticalagriculture.block.AwakeningAltarBlock;
 import com.blakebr0.mysticalagriculture.block.AwakeningPedestalBlock;
+import com.blakebr0.mysticalagriculture.block.EnchanterBlock;
 import com.blakebr0.mysticalagriculture.block.EssenceFurnaceBlock;
 import com.blakebr0.mysticalagriculture.block.EssenceVesselBlock;
 import com.blakebr0.mysticalagriculture.block.GrowthAcceleratorBlock;
@@ -113,6 +114,7 @@ public final class ModBlocks {
     public static final RegistryObject<Block> AWAKENING_ALTAR = register("awakening_altar", AwakeningAltarBlock::new);
     public static final RegistryObject<Block> ESSENCE_VESSEL = register("essence_vessel", EssenceVesselBlock::new);
     public static final RegistryObject<Block> TINKERING_TABLE = register("tinkering_table", TinkeringTableBlock::new);
+    public static final RegistryObject<Block> ENCHANTER = register("enchanter", EnchanterBlock::new);
     public static final RegistryObject<Block> MACHINE_FRAME = register("machine_frame", () -> new BaseBlock(SoundType.STONE, 1.5F, 6.0F, true));
     public static final RegistryObject<Block> REPROCESSOR = register("seed_reprocessor", ReprocessorBlock::new);
     public static final RegistryObject<Block> SOUL_EXTRACTOR = register("soul_extractor", SoulExtractorBlock::new);

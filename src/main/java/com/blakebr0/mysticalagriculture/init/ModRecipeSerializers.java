@@ -9,6 +9,7 @@ import com.blakebr0.mysticalagriculture.crafting.ingredient.CropComponentIngredi
 import com.blakebr0.mysticalagriculture.crafting.ingredient.FilledSoulJarIngredient;
 import com.blakebr0.mysticalagriculture.crafting.ingredient.HoeIngredient;
 import com.blakebr0.mysticalagriculture.crafting.recipe.AwakeningRecipe;
+import com.blakebr0.mysticalagriculture.crafting.recipe.EnchanterRecipe;
 import com.blakebr0.mysticalagriculture.crafting.recipe.FarmlandTillRecipe;
 import com.blakebr0.mysticalagriculture.crafting.recipe.InfusionRecipe;
 import com.blakebr0.mysticalagriculture.crafting.recipe.ReprocessorRecipe;
@@ -33,6 +34,7 @@ public final class ModRecipeSerializers {
     public static final RegistryObject<RecipeSerializer<?>> CRAFTING_FARMLAND_TILL = register("farmland_till", FarmlandTillRecipe.Serializer::new);
     public static final RegistryObject<RecipeSerializer<?>> INFUSION = register("infusion", InfusionRecipe.Serializer::new);
     public static final RegistryObject<RecipeSerializer<?>> AWAKENING = register("awakening", AwakeningRecipe.Serializer::new);
+    public static final RegistryObject<RecipeSerializer<?>> ENCHANTER = register("enchanter", EnchanterRecipe.Serializer::new);
     public static final RegistryObject<RecipeSerializer<?>> REPROCESSOR = register("reprocessor", ReprocessorRecipe.Serializer::new);
     public static final RegistryObject<RecipeSerializer<?>> SOUL_EXTRACTION = register("soul_extraction", SoulExtractionRecipe.Serializer::new);
     public static final RegistryObject<RecipeSerializer<?>> CRAFTING_SOUL_JAR_EMPTY = register("soul_jar_empty", SoulJarEmptyRecipe.Serializer::new);
