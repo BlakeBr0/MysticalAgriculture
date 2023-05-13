@@ -20,14 +20,19 @@ import net.minecraft.world.level.Level;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.wrapper.InvWrapper;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class EnchanterRecipe implements ISpecialRecipe, IEnchanterRecipe {
     private final ResourceLocation recipeId;
     private final NonNullList<Ingredient> inputs;
+    private final List<Integer> inputCounts;
     private final ItemStack output;
 
-    public EnchanterRecipe(ResourceLocation recipeId, NonNullList<Ingredient> inputs, ItemStack output) {
+    public EnchanterRecipe(ResourceLocation recipeId, NonNullList<Ingredient> inputs, List<Integer> inputCounts, ItemStack output) {
         this.recipeId = recipeId;
         this.inputs = inputs;
+        this.inputCounts = inputCounts;
         this.output = output;
     }
 
@@ -82,41 +87,51 @@ public class EnchanterRecipe implements ISpecialRecipe, IEnchanterRecipe {
         return this.matches(new InvWrapper(inv));
     }
 
+    @Override
+    public List<Integer> getIngredientCounts() {
+        return this.inputCounts;
+    }
+
     public static class Serializer implements RecipeSerializer<EnchanterRecipe> {
         @Override
         public EnchanterRecipe fromJson(ResourceLocation recipeId, JsonObject json) {
             var inputs = NonNullList.withSize(3, Ingredient.EMPTY);
+            var inputCounts = new ArrayList<Integer>(3);
             var ingredients = GsonHelper.getAsJsonArray(json, "ingredients");
 
             for (int i = 0; i < ingredients.size(); i++) {
                 inputs.set(i, Ingredient.fromJson(ingredients.get(i)));
+                inputCounts.add(GsonHelper.getAsInt(ingredients.get(i).getAsJsonObject(), "count", 1));
             }
 
             var output = ShapedRecipe.itemStackFromJson(json.getAsJsonObject("result"));
 
-            return new EnchanterRecipe(recipeId, inputs, output);
+            return new EnchanterRecipe(recipeId, inputs, inputCounts, output);
         }
 
         @Override
         public EnchanterRecipe fromNetwork(ResourceLocation recipeId, FriendlyByteBuf buffer) {
             var size = buffer.readVarInt();
             var inputs = NonNullList.withSize(size, Ingredient.EMPTY);
+            var inputCounts = new ArrayList<Integer>(size);
 
             for (int i = 0; i < size; i++) {
                 inputs.set(i, Ingredient.fromNetwork(buffer));
+                inputCounts.add(buffer.readVarInt());
             }
 
             var output = buffer.readItem();
 
-            return new EnchanterRecipe(recipeId, inputs, output);
+            return new EnchanterRecipe(recipeId, inputs, inputCounts, output);
         }
 
         @Override
         public void toNetwork(FriendlyByteBuf buffer, EnchanterRecipe recipe) {
             buffer.writeVarInt(recipe.inputs.size());
 
-            for (var ingredient : recipe.inputs) {
-                ingredient.toNetwork(buffer);
+            for (var i = 0; i < recipe.inputs.size(); i++) {
+                recipe.inputs.get(i).toNetwork(buffer);
+                buffer.writeVarInt(recipe.inputCounts.get(i));
             }
 
             buffer.writeItem(recipe.output);

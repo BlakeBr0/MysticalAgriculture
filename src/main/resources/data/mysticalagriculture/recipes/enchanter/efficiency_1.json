@@ -1,0 +1,27 @@
+{
+  "type": "mysticalagriculture:enchanter",
+  "ingredients": [
+    {
+      "item": "mysticalagriculture:redstone_essence",
+      "count": 4
+    },
+    {
+      "item": "mysticalagriculture:experience_essence",
+      "count": 16
+    },
+    {
+      "item": "minecraft:book"
+    }
+  ],
+  "result": {
+    "item": "minecraft:enchanted_book",
+    "nbt": {
+      "StoredEnchantments": [
+        {
+          "lvl": 1,
+          "id": "minecraft:efficiency"
+        }
+      ]
+    }
+  }
+}

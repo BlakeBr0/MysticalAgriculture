@@ -2,10 +2,12 @@ package com.blakebr0.mysticalagriculture.compat.jei;
 
 import com.blakebr0.mysticalagriculture.MysticalAgriculture;
 import com.blakebr0.mysticalagriculture.api.util.MobSoulUtils;
+import com.blakebr0.mysticalagriculture.client.screen.EnchanterScreen;
 import com.blakebr0.mysticalagriculture.client.screen.ReprocessorScreen;
 import com.blakebr0.mysticalagriculture.client.screen.SoulExtractorScreen;
 import com.blakebr0.mysticalagriculture.compat.jei.category.AwakeningCategory;
 import com.blakebr0.mysticalagriculture.compat.jei.category.CruxCategory;
+import com.blakebr0.mysticalagriculture.compat.jei.category.EnchanterCategory;
 import com.blakebr0.mysticalagriculture.compat.jei.category.InfusionCategory;
 import com.blakebr0.mysticalagriculture.compat.jei.category.ReprocessorCategory;
 import com.blakebr0.mysticalagriculture.compat.jei.category.SoulExtractorCategory;
@@ -41,6 +43,7 @@ public final class JeiCompat implements IModPlugin {
         registration.addRecipeCategories(
                 new InfusionCategory(guiHelper),
                 new AwakeningCategory(guiHelper),
+                new EnchanterCategory(guiHelper),
                 new ReprocessorCategory(guiHelper),
                 new SoulExtractorCategory(guiHelper),
                 new CruxCategory(guiHelper)
@@ -54,6 +57,7 @@ public final class JeiCompat implements IModPlugin {
         registration.addRecipeCatalyst(new ItemStack(ModBlocks.AWAKENING_ALTAR.get()), AwakeningCategory.RECIPE_TYPE);
         registration.addRecipeCatalyst(new ItemStack(ModBlocks.AWAKENING_PEDESTAL.get()), AwakeningCategory.RECIPE_TYPE);
         registration.addRecipeCatalyst(new ItemStack(ModBlocks.ESSENCE_VESSEL.get()), AwakeningCategory.RECIPE_TYPE);
+        registration.addRecipeCatalyst(new ItemStack(ModBlocks.ENCHANTER.get()), EnchanterCategory.RECIPE_TYPE);
         registration.addRecipeCatalyst(new ItemStack(ModBlocks.REPROCESSOR.get()), ReprocessorCategory.RECIPE_TYPE);
         registration.addRecipeCatalyst(new ItemStack(ModBlocks.SOUL_EXTRACTOR.get()), SoulExtractorCategory.RECIPE_TYPE);
     }
@@ -66,6 +70,7 @@ public final class JeiCompat implements IModPlugin {
 
             registration.addRecipes(InfusionCategory.RECIPE_TYPE, manager.getAllRecipesFor(ModRecipeTypes.INFUSION.get()));
             registration.addRecipes(AwakeningCategory.RECIPE_TYPE, manager.getAllRecipesFor(ModRecipeTypes.AWAKENING.get()));
+            registration.addRecipes(EnchanterCategory.RECIPE_TYPE, manager.getAllRecipesFor(ModRecipeTypes.ENCHANTER.get()));
             registration.addRecipes(ReprocessorCategory.RECIPE_TYPE, manager.getAllRecipesFor(ModRecipeTypes.REPROCESSOR.get()));
             registration.addRecipes(SoulExtractorCategory.RECIPE_TYPE, manager.getAllRecipesFor(ModRecipeTypes.SOUL_EXTRACTION.get()));
             registration.addRecipes(CruxCategory.RECIPE_TYPE, CruxRecipe.getGeneratedRecipes());
@@ -80,6 +85,7 @@ public final class JeiCompat implements IModPlugin {
 
     @Override
     public void registerGuiHandlers(IGuiHandlerRegistration registration) {
+        registration.addRecipeClickArea(EnchanterScreen.class, 99, 52, 22, 15, EnchanterCategory.RECIPE_TYPE);
         registration.addRecipeClickArea(ReprocessorScreen.class, 99, 52, 22, 15, ReprocessorCategory.RECIPE_TYPE);
         registration.addRecipeClickArea(SoulExtractorScreen.class, 99, 52, 22, 15, SoulExtractorCategory.RECIPE_TYPE);
     }
