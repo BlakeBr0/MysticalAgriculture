@@ -30,7 +30,7 @@ public class ReprocessorCategory implements IRecipeCategory<IReprocessorRecipe> 
 
     public ReprocessorCategory(IGuiHelper helper) {
         this.background = helper.createDrawable(TEXTURE, 0, 0, 82, 26);
-        this.icon = helper.createDrawableIngredient(VanillaTypes.ITEM_STACK, new ItemStack(ModBlocks.BASIC_REPROCESSOR.get()));
+        this.icon = helper.createDrawableIngredient(VanillaTypes.ITEM_STACK, new ItemStack(ModBlocks.REPROCESSOR.get()));
 
         var arrow = helper.createDrawable(TEXTURE, 85, 0, 24, 17);
 

@@ -92,13 +92,7 @@ public final class ModCreativeModeTabs {
                 output.accept(ModBlocks.ESSENCE_VESSEL);
                 output.accept(ModBlocks.TINKERING_TABLE);
                 output.accept(ModBlocks.MACHINE_FRAME);
-                output.accept(ModBlocks.BASIC_REPROCESSOR);
-                output.accept(ModBlocks.INFERIUM_REPROCESSOR);
-                output.accept(ModBlocks.PRUDENTIUM_REPROCESSOR);
-                output.accept(ModBlocks.TERTIUM_REPROCESSOR);
-                output.accept(ModBlocks.IMPERIUM_REPROCESSOR);
-                output.accept(ModBlocks.SUPREMIUM_REPROCESSOR);
-                output.accept(ModBlocks.AWAKENED_SUPREMIUM_REPROCESSOR);
+                output.accept(ModBlocks.REPROCESSOR);
                 output.accept(ModBlocks.SOUL_EXTRACTOR);
                 output.accept(ModBlocks.HARVESTER);
 

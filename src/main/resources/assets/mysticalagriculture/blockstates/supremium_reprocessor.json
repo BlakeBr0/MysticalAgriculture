@@ -1,8 +1,0 @@
-{
-  "variants": {
-    "facing=north": { "model": "mysticalagriculture:block/supremium_reprocessor" },
-    "facing=south": { "model": "mysticalagriculture:block/supremium_reprocessor", "y": 180 },
-    "facing=west":  { "model": "mysticalagriculture:block/supremium_reprocessor", "y": 270 },
-    "facing=east":  { "model": "mysticalagriculture:block/supremium_reprocessor", "y": 90 }
-  }
-}

@@ -2,6 +2,7 @@ package com.blakebr0.mysticalagriculture.client.screen;
 
 import com.blakebr0.cucumber.client.screen.BaseContainerScreen;
 import com.blakebr0.cucumber.client.screen.widget.EnergyBarWidget;
+import com.blakebr0.cucumber.util.Formatting;
 import com.blakebr0.mysticalagriculture.MysticalAgriculture;
 import com.blakebr0.mysticalagriculture.container.ReprocessorContainer;
 import com.blakebr0.mysticalagriculture.tileentity.ReprocessorTileEntity;
@@ -38,6 +39,18 @@ public class ReprocessorScreen extends BaseContainerScreen<ReprocessorContainer>
 
         this.font.draw(stack, title, (float) (this.imageWidth / 2 - this.font.width(title) / 2), 6.0F, 4210752);
         this.font.draw(stack, this.playerInventoryTitle, 8.0F, (float) (this.imageHeight - 96 + 2), 4210752);
+
+        // TODO: "temporary" workaround for dynamic energy storage
+        if (this.tile != null) {
+            var tier = this.tile.getMachineTier();
+            var energy = this.tile.getEnergy();
+
+            energy.resetMaxEnergyStorage();
+
+            if (tier != null) {
+                energy.setMaxEnergyStorage((int) (this.tile.getEnergy().getMaxEnergyStored() * tier.getFuelCapacityMultiplier()));
+            }
+        }
     }
 
     @Override
@@ -49,12 +62,12 @@ public class ReprocessorScreen extends BaseContainerScreen<ReprocessorContainer>
 
         if (this.getFuelItemValue() > 0) {
             int lol = this.getBurnLeftScaled(13);
-            this.blit(stack, x + 31, y + 52 - lol, 176, 12 - lol, 14, lol + 1);
+            blit(stack, x + 31, y + 52 - lol, 176, 12 - lol, 14, lol + 1);
         }
 
         if (this.getProgress() > 0) {
             int i2 = this.getProgressScaled(24);
-            this.blit(stack, x + 98, y + 51, 176, 14, i2 + 1, 16);
+            blit(stack, x + 98, y + 51, 176, 14, i2 + 1, 16);
         }
     }
 
@@ -66,8 +79,7 @@ public class ReprocessorScreen extends BaseContainerScreen<ReprocessorContainer>
         super.renderTooltip(stack, mouseX, mouseY);
 
         if (this.getFuelLeft() > 0 && mouseX > x + 30 && mouseX < x + 45 && mouseY > y + 39 && mouseY < y + 53) {
-            var text = Component.literal(number(this.getFuelLeft()) + " FE");
-            this.renderTooltip(stack, text, mouseX, mouseY);
+            this.renderTooltip(stack, Formatting.energy(this.getFuelLeft()), mouseX, mouseY);
         }
     }
 
@@ -96,7 +108,12 @@ public class ReprocessorScreen extends BaseContainerScreen<ReprocessorContainer>
         if (this.tile == null)
             return 0;
 
-        return this.tile.getTier().getOperationTime();
+        var tier = this.tile.getMachineTier();
+        if (tier != null) {
+            return (int) (this.tile.getOperationTime() * tier.getOperationTimeMultiplier());
+        }
+
+        return this.tile.getOperationTime();
     }
 
     public int getFuelLeft() {

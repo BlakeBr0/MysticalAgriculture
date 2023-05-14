@@ -3,6 +3,7 @@ package com.blakebr0.mysticalagriculture.container;
 import com.blakebr0.cucumber.container.BaseContainerMenu;
 import com.blakebr0.cucumber.inventory.BaseItemStackHandler;
 import com.blakebr0.cucumber.inventory.slot.BaseItemStackHandlerSlot;
+import com.blakebr0.mysticalagriculture.container.inventory.UpgradeItemStackHandler;
 import com.blakebr0.mysticalagriculture.init.ModContainerTypes;
 import com.blakebr0.mysticalagriculture.init.ModRecipeTypes;
 import com.blakebr0.mysticalagriculture.tileentity.ReprocessorTileEntity;
@@ -18,11 +19,13 @@ import net.minecraftforge.common.ForgeHooks;
 
 public class ReprocessorContainer extends BaseContainerMenu {
     private ReprocessorContainer(MenuType<?> type, int id, Inventory playerInventory, BlockPos pos) {
-        this(type, id, playerInventory, ReprocessorTileEntity.createInventoryHandler(), pos);
+        this(type, id, playerInventory, ReprocessorTileEntity.createInventoryHandler(), new UpgradeItemStackHandler(), pos);
     }
 
-    private ReprocessorContainer(MenuType<?> type, int id, Inventory playerInventory, BaseItemStackHandler inventory, BlockPos pos) {
+    private ReprocessorContainer(MenuType<?> type, int id, Inventory playerInventory, BaseItemStackHandler inventory, UpgradeItemStackHandler upgradeInventory, BlockPos pos) {
         super(type, id, pos);
+
+        this.addSlot(new BaseItemStackHandlerSlot(upgradeInventory, 0, 152, 9));
 
         this.addSlot(new BaseItemStackHandlerSlot(inventory, 0, 74, 52));
         this.addSlot(new BaseItemStackHandlerSlot(inventory, 1, 30, 56));
@@ -94,7 +97,7 @@ public class ReprocessorContainer extends BaseContainerMenu {
         return new ReprocessorContainer(ModContainerTypes.REPROCESSOR.get(), windowId, playerInventory, buffer.readBlockPos());
     }
 
-    public static ReprocessorContainer create(int windowId, Inventory playerInventory, BaseItemStackHandler inventory, BlockPos pos) {
-        return new ReprocessorContainer(ModContainerTypes.REPROCESSOR.get(), windowId, playerInventory, inventory, pos);
+    public static ReprocessorContainer create(int windowId, Inventory playerInventory, BaseItemStackHandler inventory, UpgradeItemStackHandler upgradeInventory, BlockPos pos) {
+        return new ReprocessorContainer(ModContainerTypes.REPROCESSOR.get(), windowId, playerInventory, inventory, upgradeInventory, pos);
     }
 }

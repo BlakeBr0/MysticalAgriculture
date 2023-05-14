@@ -1,8 +1,0 @@
-{
-  "variants": {
-    "facing=north": { "model": "mysticalagriculture:block/tertium_reprocessor" },
-    "facing=south": { "model": "mysticalagriculture:block/tertium_reprocessor", "y": 180 },
-    "facing=west":  { "model": "mysticalagriculture:block/tertium_reprocessor", "y": 270 },
-    "facing=east":  { "model": "mysticalagriculture:block/tertium_reprocessor", "y": 90 }
-  }
-}
