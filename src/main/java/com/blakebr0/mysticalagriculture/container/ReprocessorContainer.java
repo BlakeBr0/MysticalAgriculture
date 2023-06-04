@@ -6,6 +6,7 @@ import com.blakebr0.cucumber.inventory.slot.BaseItemStackHandlerSlot;
 import com.blakebr0.mysticalagriculture.container.inventory.UpgradeItemStackHandler;
 import com.blakebr0.mysticalagriculture.init.ModContainerTypes;
 import com.blakebr0.mysticalagriculture.init.ModRecipeTypes;
+import com.blakebr0.mysticalagriculture.item.MachineUpgradeItem;
 import com.blakebr0.mysticalagriculture.tileentity.ReprocessorTileEntity;
 import com.blakebr0.mysticalagriculture.util.RecipeIngredientCache;
 import net.minecraft.core.BlockPos;
@@ -51,29 +52,33 @@ public class ReprocessorContainer extends BaseContainerMenu {
             var itemstack1 = slot.getItem();
             itemstack = itemstack1.copy();
 
-            if (index == 2) {
-                if (!this.moveItemStackTo(itemstack1, 3, 39, true)) {
+            if (index == 3) {
+                if (!this.moveItemStackTo(itemstack1, 4, 40, true)) {
                     return ItemStack.EMPTY;
                 }
 
                 slot.onQuickCraft(itemstack1, itemstack);
-            } else if (index != 1 && index != 0) {
-                if (RecipeIngredientCache.INSTANCE.isValidInput(itemstack1, ModRecipeTypes.REPROCESSOR.get())) {
+            } else if (index != 2 && index != 1) {
+                if (itemstack1.getItem() instanceof MachineUpgradeItem) {
                     if (!this.moveItemStackTo(itemstack1, 0, 1, false)) {
                         return ItemStack.EMPTY;
                     }
-                } else if (ForgeHooks.getBurnTime(itemstack1, null) > 0) {
+                } else if (RecipeIngredientCache.INSTANCE.isValidInput(itemstack1, ModRecipeTypes.REPROCESSOR.get())) {
                     if (!this.moveItemStackTo(itemstack1, 1, 2, false)) {
                         return ItemStack.EMPTY;
                     }
-                } else if (index < 30) {
-                    if (!this.moveItemStackTo(itemstack1, 30, 39, false)) {
+                } else if (ForgeHooks.getBurnTime(itemstack1, null) > 0) {
+                    if (!this.moveItemStackTo(itemstack1, 2, 3, false)) {
                         return ItemStack.EMPTY;
                     }
-                } else if (index < 39 && !this.moveItemStackTo(itemstack1, 3, 30, false)) {
+                } else if (index < 31) {
+                    if (!this.moveItemStackTo(itemstack1, 31, 40, false)) {
+                        return ItemStack.EMPTY;
+                    }
+                } else if (index < 40 && !this.moveItemStackTo(itemstack1, 4, 30, false)) {
                     return ItemStack.EMPTY;
                 }
-            } else if (!this.moveItemStackTo(itemstack1, 3, 39, false)) {
+            } else if (!this.moveItemStackTo(itemstack1, 4, 40, false)) {
                 return ItemStack.EMPTY;
             }
 
