@@ -42,8 +42,8 @@ public class InfusedFarmlandBlock extends FarmBlock implements IColored, IEssenc
     }
 
     @Override
-    public boolean canSustainPlant(BlockState state, BlockGetter world, BlockPos pos, Direction direction, IPlantable plantable) {
-        var type = plantable.getPlantType(world, pos.relative(direction));
+    public boolean canSustainPlant(BlockState state, BlockGetter level, BlockPos pos, Direction direction, IPlantable plantable) {
+        var type = plantable.getPlantType(level, pos.relative(direction));
         return type == PlantType.CROP || type == PlantType.PLAINS;
     }
 
@@ -53,15 +53,20 @@ public class InfusedFarmlandBlock extends FarmBlock implements IColored, IEssenc
     }
 
     @Override
-    public void randomTick(BlockState state, ServerLevel world, BlockPos pos, RandomSource random) {
+    public boolean isFertile(BlockState state, BlockGetter level, BlockPos pos) {
+        return state.getValue(MOISTURE) > 0;
+    }
+
+    @Override
+    public void randomTick(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) {
         int moisture = state.getValue(MOISTURE);
 
-        if (!isNearWater(world, pos) && !world.isRainingAt(pos.above())) {
+        if (!isNearWater(level, pos) && !level.isRainingAt(pos.above())) {
             if (moisture > 0) {
-                world.setBlock(pos, state.setValue(MOISTURE, moisture - 1), 2);
+                level.setBlock(pos, state.setValue(MOISTURE, moisture - 1), 2);
             }
         } else if (moisture < 7) {
-            world.setBlock(pos, state.setValue(MOISTURE, 7), 2);
+            level.setBlock(pos, state.setValue(MOISTURE, 7), 2);
         }
     }
 
