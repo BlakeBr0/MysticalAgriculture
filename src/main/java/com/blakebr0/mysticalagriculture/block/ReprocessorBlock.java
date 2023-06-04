@@ -30,6 +30,7 @@ import net.minecraft.world.level.block.entity.BlockEntityTicker;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
+import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.DirectionProperty;
 import net.minecraft.world.level.material.Material;
 import net.minecraft.world.phys.BlockHitResult;
@@ -40,11 +41,12 @@ import net.minecraftforge.network.NetworkHooks;
 import java.util.List;
 
 public class ReprocessorBlock extends BaseTileEntityBlock {
-    private static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
+    public static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
+    public static final BooleanProperty RUNNING = BooleanProperty.create("running");
 
     public ReprocessorBlock() {
         super(Material.METAL, SoundType.METAL, 3.5F, 3.5F, true);
-        this.registerDefaultState(this.getStateDefinition().any().setValue(FACING, Direction.NORTH));
+        this.registerDefaultState(this.getStateDefinition().any().setValue(FACING, Direction.NORTH).setValue(RUNNING, false));
     }
 
     @Override
@@ -95,7 +97,7 @@ public class ReprocessorBlock extends BaseTileEntityBlock {
 
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
-        builder.add(FACING);
+        builder.add(FACING, RUNNING);
     }
 
     @OnlyIn(Dist.CLIENT)

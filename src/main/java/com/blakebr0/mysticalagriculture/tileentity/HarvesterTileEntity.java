@@ -51,14 +51,14 @@ public class HarvesterTileEntity extends BaseInventoryTileEntity implements Menu
     private final UpgradeItemStackHandler upgradeInventory;
     private final DynamicEnergyStorage energy;
     private final LazyOptional<IEnergyStorage> energyCapability = LazyOptional.of(this::getEnergy);
-    private int progress;
-    private int fuelLeft;
-    private int fuelItemValue;
-    private int oldEnergy;
     private List<BlockPos> positions;
     private BlockPos lastPosition = BlockPos.ZERO;
     private MachineUpgradeTier tier;
     private Direction direction;
+    private int progress;
+    private int fuelLeft;
+    private int fuelItemValue;
+    private boolean isRunning;
 
     static {
         GET_SEED = ObfuscationReflectionHelper.findMethod(CropBlock.class, "m_6404_");
@@ -175,9 +175,10 @@ public class HarvesterTileEntity extends BaseInventoryTileEntity implements Menu
             mark = true;
         }
 
+        var isDisabled = level.hasNeighborSignal(tile.getBlockPos());
         var operationTime = tile.getOperationTime();
 
-        if (tile.progress > operationTime && !level.hasNeighborSignal(tile.getBlockPos())) {
+        if (tile.progress > operationTime && !isDisabled) {
             var nextPos = tile.findNextPosition();
             var cropState = level.getBlockState(nextPos);
             var block = cropState.getBlock();
@@ -215,15 +216,19 @@ public class HarvesterTileEntity extends BaseInventoryTileEntity implements Menu
             mark = true;
         }
 
-        if (tile.energy.getEnergyStored() >= tile.getFuelUsage()) {
+        var wasRunning = tile.isRunning;
+
+        if (!isDisabled && tile.energy.getEnergyStored() >= tile.getFuelUsage()) {
             tile.progress++;
+            tile.isRunning = true;
 
             mark = true;
+        } else {
+            tile.isRunning = false;
         }
 
-        if (tile.oldEnergy != tile.energy.getEnergyStored()) {
-            tile.oldEnergy = tile.energy.getEnergyStored();
-
+        if (wasRunning != tile.isRunning) {
+            level.setBlock(pos, state.setValue(HarvesterBlock.RUNNING, tile.isRunning), 3);
             mark = true;
         }
 

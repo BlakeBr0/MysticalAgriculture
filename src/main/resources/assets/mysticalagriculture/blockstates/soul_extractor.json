@@ -1,8 +1,12 @@
 {
   "variants": {
-    "facing=north": { "model": "mysticalagriculture:block/soul_extractor" },
-    "facing=south": { "model": "mysticalagriculture:block/soul_extractor", "y": 180 },
-    "facing=west":  { "model": "mysticalagriculture:block/soul_extractor", "y": 270 },
-    "facing=east":  { "model": "mysticalagriculture:block/soul_extractor", "y": 90 }
+    "facing=east,running=false": { "model": "mysticalagriculture:block/soul_extractor", "y": 90 },
+    "facing=east,running=true": { "model": "mysticalagriculture:block/soul_extractor_on", "y": 90 },
+    "facing=north,running=false": { "model": "mysticalagriculture:block/soul_extractor" },
+    "facing=north,running=true": { "model": "mysticalagriculture:block/soul_extractor_on" },
+    "facing=south,running=false": { "model": "mysticalagriculture:block/soul_extractor", "y": 180 },
+    "facing=south,running=true": { "model": "mysticalagriculture:block/soul_extractor_on", "y": 180 },
+    "facing=west,running=false": { "model": "mysticalagriculture:block/soul_extractor", "y": 270 },
+    "facing=west,running=true": { "model": "mysticalagriculture:block/soul_extractor_on", "y": 270 }
   }
 }

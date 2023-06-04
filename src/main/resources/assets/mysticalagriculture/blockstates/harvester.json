@@ -1,8 +1,12 @@
 {
   "variants": {
-    "facing=north": { "model": "mysticalagriculture:block/harvester" },
-    "facing=south": { "model": "mysticalagriculture:block/harvester", "y": 180 },
-    "facing=west":  { "model": "mysticalagriculture:block/harvester", "y": 270 },
-    "facing=east":  { "model": "mysticalagriculture:block/harvester", "y": 90 }
+    "facing=east,running=false": { "model": "mysticalagriculture:block/harvester", "y": 90 },
+    "facing=east,running=true": { "model": "mysticalagriculture:block/harvester_on", "y": 90 },
+    "facing=north,running=false": { "model": "mysticalagriculture:block/harvester" },
+    "facing=north,running=true": { "model": "mysticalagriculture:block/harvester_on" },
+    "facing=south,running=false": { "model": "mysticalagriculture:block/harvester", "y": 180 },
+    "facing=south,running=true": { "model": "mysticalagriculture:block/harvester_on", "y": 180 },
+    "facing=west,running=false": { "model": "mysticalagriculture:block/harvester", "y": 270 },
+    "facing=west,running=true": { "model": "mysticalagriculture:block/harvester_on", "y": 270 }
   }
 }

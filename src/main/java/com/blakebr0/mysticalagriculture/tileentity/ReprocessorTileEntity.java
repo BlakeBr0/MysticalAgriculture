@@ -6,6 +6,7 @@ import com.blakebr0.cucumber.inventory.BaseItemStackHandler;
 import com.blakebr0.cucumber.inventory.SidedItemStackHandlerWrapper;
 import com.blakebr0.cucumber.tileentity.BaseInventoryTileEntity;
 import com.blakebr0.cucumber.util.Localizable;
+import com.blakebr0.mysticalagriculture.block.ReprocessorBlock;
 import com.blakebr0.mysticalagriculture.container.ReprocessorContainer;
 import com.blakebr0.mysticalagriculture.container.inventory.UpgradeItemStackHandler;
 import com.blakebr0.mysticalagriculture.crafting.recipe.ReprocessorRecipe;
@@ -49,6 +50,7 @@ public class ReprocessorTileEntity extends BaseInventoryTileEntity implements Me
     private int progress;
     private int fuelLeft;
     private int fuelItemValue;
+    private boolean isRunning;
 
     public ReprocessorTileEntity(BlockPos pos, BlockState state) {
         super(ModTileEntities.REPROCESSOR.get(), pos, state);
@@ -164,9 +166,13 @@ public class ReprocessorTileEntity extends BaseInventoryTileEntity implements Me
             mark = true;
         }
 
+        var wasRunning = tile.isRunning;
+
         if (tile.energy.getEnergyStored() >= tile.getFuelUsage()) {
             var input = tile.inventory.getStackInSlot(0);
             var output = tile.inventory.getStackInSlot(2);
+
+            tile.isRunning = false;
 
             if (!input.isEmpty()) {
                 if (tile.recipe == null || !tile.recipe.matches(tile.inventory)) {
@@ -177,6 +183,7 @@ public class ReprocessorTileEntity extends BaseInventoryTileEntity implements Me
                 if (tile.recipe != null) {
                     var recipeOutput = tile.recipe.assemble(tile.inventory, level.registryAccess());
                     if (!recipeOutput.isEmpty() && (output.isEmpty() || StackHelper.canCombineStacks(output, recipeOutput))) {
+                        tile.isRunning = true;
                         tile.progress++;
                         tile.energy.extractEnergy(tile.getFuelUsage(), false);
 
@@ -193,12 +200,22 @@ public class ReprocessorTileEntity extends BaseInventoryTileEntity implements Me
                     }
                 }
             } else {
+                tile.isRunning = false;
+
                 if (tile.progress > 0) {
                     tile.progress = 0;
                     tile.recipe = null;
+
                     mark = true;
                 }
             }
+        } else {
+            tile.isRunning = false;
+        }
+
+        if (wasRunning != tile.isRunning) {
+            level.setBlock(pos, state.setValue(ReprocessorBlock.RUNNING, tile.isRunning), 3);
+            mark = true;
         }
 
         if (mark) {
