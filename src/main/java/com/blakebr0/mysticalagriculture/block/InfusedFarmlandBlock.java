@@ -53,6 +53,11 @@ public class InfusedFarmlandBlock extends FarmBlock implements IColored, IEssenc
     }
 
     @Override
+    public boolean isFertile(BlockState state, BlockGetter level, BlockPos pos) {
+        return state.getValue(MOISTURE) > 0;
+    }
+
+    @Override
     public void randomTick(BlockState state, ServerLevel world, BlockPos pos, Random random) {
         int moisture = state.getValue(MOISTURE);
 
