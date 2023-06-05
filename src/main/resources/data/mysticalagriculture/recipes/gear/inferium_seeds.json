@@ -1,5 +1,6 @@
 {
   "type": "crafting_shaped",
+  "transfer_nbt": true,
   "pattern": [
     "EEE",
     "ESE",
