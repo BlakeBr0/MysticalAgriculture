@@ -1,5 +1,6 @@
 {
   "type": "cucumber:shaped_transfer_damage",
+  "transfer_nbt": true,
   "pattern": [
     " G ",
     "ISI",
