@@ -68,7 +68,7 @@ public class DynamicRecipeManager {
         var name = new ResourceLocation(MysticalAgriculture.MOD_ID, crop.getNameWithSuffix("seeds_infusion"));
         var output = new ItemStack(crop.getSeedsItem());
 
-        return new InfusionRecipe(name, inputs, output);
+        return new InfusionRecipe(name, inputs, output, false);
     }
 
     private static Recipe<?> makeRegularSeedRecipe(Crop crop) {

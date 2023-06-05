@@ -1,5 +1,6 @@
 {
   "type": "mysticalagriculture:infusion",
+  "transfer_nbt": true,
   "input": {
     "item": "mysticalagriculture:soulium_dagger"
   },
