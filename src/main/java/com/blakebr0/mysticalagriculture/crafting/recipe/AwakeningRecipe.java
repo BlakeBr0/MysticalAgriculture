@@ -1,6 +1,7 @@
 package com.blakebr0.mysticalagriculture.crafting.recipe;
 
 import com.blakebr0.cucumber.crafting.ISpecialRecipe;
+import com.blakebr0.cucumber.helper.NBTHelper;
 import com.blakebr0.mysticalagriculture.api.crafting.IAwakeningRecipe;
 import com.blakebr0.mysticalagriculture.api.crop.Crop;
 import com.blakebr0.mysticalagriculture.init.ModRecipeSerializers;
@@ -27,12 +28,14 @@ public class AwakeningRecipe implements ISpecialRecipe, IAwakeningRecipe {
     private final NonNullList<Ingredient> inputs;
     private final IAwakeningRecipe.EssenceVesselRequirements essences;
     private final ItemStack output;
+    private final boolean transferNBT;
 
-    public AwakeningRecipe(ResourceLocation recipeId, NonNullList<Ingredient> inputs, IAwakeningRecipe.EssenceVesselRequirements essences, ItemStack output) {
+    public AwakeningRecipe(ResourceLocation recipeId, NonNullList<Ingredient> inputs, IAwakeningRecipe.EssenceVesselRequirements essences, ItemStack output, boolean transferNBT) {
         this.recipeId = recipeId;
         this.inputs = NonNullList.withSize(9, Ingredient.EMPTY);
         this.essences = essences;
         this.output = output;
+        this.transferNBT = transferNBT;
 
         this.inputs.set(0, inputs.get(0));
         this.inputs.set(1, createEssenceIngredient(ModCrops.AIR));
@@ -47,7 +50,20 @@ public class AwakeningRecipe implements ISpecialRecipe, IAwakeningRecipe {
 
     @Override
     public ItemStack assemble(IItemHandler inventory) {
-        return this.output.copy();
+        var stack = inventory.getStackInSlot(0);
+        var result = this.output.copy();
+
+        if (this.transferNBT) {
+            var tag = stack.getTag();
+
+            if (tag != null) {
+                result.setTag(tag.copy());
+
+                return result;
+            }
+        }
+
+        return result;
     }
 
     @Override
@@ -130,8 +146,9 @@ public class AwakeningRecipe implements ISpecialRecipe, IAwakeningRecipe {
             );
 
             var result = ShapedRecipe.itemStackFromJson(json.getAsJsonObject("result"));
+            var transferNBT = GsonHelper.getAsBoolean(json, "transfer_nbt", false);
 
-            return new AwakeningRecipe(recipeId, inputs, essenceRequirements, result);
+            return new AwakeningRecipe(recipeId, inputs, essenceRequirements, result, transferNBT);
         }
 
         @Override
@@ -150,9 +167,10 @@ public class AwakeningRecipe implements ISpecialRecipe, IAwakeningRecipe {
                     buffer.readVarInt()
             );
 
-            ItemStack output = buffer.readItem();
+            var output = buffer.readItem();
+            var transferNBT = buffer.readBoolean();
 
-            return new AwakeningRecipe(recipeId, inputs, essences, output);
+            return new AwakeningRecipe(recipeId, inputs, essences, output, transferNBT);
         }
 
         @Override
@@ -170,6 +188,7 @@ public class AwakeningRecipe implements ISpecialRecipe, IAwakeningRecipe {
             buffer.writeVarInt(recipe.essences.fire());
 
             buffer.writeItem(recipe.output);
+            buffer.writeBoolean(recipe.transferNBT);
         }
     }
 }
