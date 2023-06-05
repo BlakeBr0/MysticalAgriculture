@@ -23,11 +23,16 @@ import java.util.HashMap;
 public final class AwakeningCrafting {
     @ZenCodeType.Method
     public static void addRecipe(String id, IItemStack output, IIngredient[] inputs, int[] essences) {
+        addRecipe(id, output, inputs, essences, false);
+    }
+
+    @ZenCodeType.Method
+    public static void addRecipe(String id, IItemStack output, IIngredient[] inputs, int[] essences, boolean transferNBT) {
         CraftTweakerAPI.apply(new IRuntimeAction() {
             @Override
             public void apply() {
                 var essenceRequirements = new IAwakeningRecipe.EssenceVesselRequirements(essences[0], essences[1], essences[2], essences[3]);
-                var recipe = new AwakeningRecipe(new ResourceLocation("crafttweaker", id), toIngredientsList(inputs), essenceRequirements, output.getInternal());
+                var recipe = new AwakeningRecipe(new ResourceLocation("crafttweaker", id), toIngredientsList(inputs), essenceRequirements, output.getInternal(), transferNBT);
 
                 RecipeHelper.addRecipe(recipe);
             }

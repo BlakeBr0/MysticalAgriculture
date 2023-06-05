@@ -22,10 +22,15 @@ import java.util.HashMap;
 public final class InfusionCrafting {
     @ZenCodeType.Method
     public static void addRecipe(String id, IItemStack output, IIngredient[] inputs) {
+        addRecipe(id, output, inputs, false);
+    }
+
+    @ZenCodeType.Method
+    public static void addRecipe(String id, IItemStack output, IIngredient[] inputs, boolean transferNBT) {
         CraftTweakerAPI.apply(new IRuntimeAction() {
             @Override
             public void apply() {
-                var recipe = new InfusionRecipe(new ResourceLocation("crafttweaker", id), toIngredientsList(inputs), output.getInternal());
+                var recipe = new InfusionRecipe(new ResourceLocation("crafttweaker", id), toIngredientsList(inputs), output.getInternal(), transferNBT);
 
                 RecipeHelper.addRecipe(recipe);
             }
