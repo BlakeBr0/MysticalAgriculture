@@ -24,20 +24,22 @@ public class MiningAOEAugment extends Augment {
 
     @Override
     public boolean onBlockStartBreak(ItemStack stack, BlockPos pos, Player player) {
-        var level = player.getCommandSenderWorld();
+        var level = player.getLevel();
+        if (level.isClientSide())
+            return false;
+
+        if (player.isShiftKeyDown())
+            return false;
+
         var trace = BlockHelper.rayTraceBlocks(level, player);
         int side = trace.getDirection().ordinal();
 
-        return harvest(stack, this.range, level, pos, side, player);
+        harvestAOEBlocks(stack, this.range, level, pos, side, player);
+
+        return false;
     }
 
-    private static boolean harvest(ItemStack stack, int radius, Level level, BlockPos pos, int side, Player player) {
-        if (level.isClientSide())
-            return true;
-
-        if (player.isShiftKeyDown())
-            radius = 0;
-
+    private static void harvestAOEBlocks(ItemStack stack, int radius, Level level, BlockPos pos, int side, Player player) {
         int xRange = radius;
         int yRange = radius;
         int zRange = 0;
@@ -55,21 +57,17 @@ public class MiningAOEAugment extends Augment {
         var state = level.getBlockState(pos);
         var hardness = state.getDestroySpeed(level, pos);
 
-        BlockHelper.harvestBlock(stack, level, (ServerPlayer) player, pos);
-
         if (radius > 0 && hardness >= 0.2F && canHarvestBlock(stack, state)) {
             BlockPos.betweenClosedStream(pos.offset(-xRange, -yRange, -zRange), pos.offset(xRange, yRange, zRange)).forEach(aoePos -> {
                 if (aoePos != pos) {
                     var aoeState = level.getBlockState(aoePos);
 
-                    if (canHarvestBlock(stack, aoeState) && level.getBlockEntity(aoePos) == null && aoeState.getDestroySpeed(level, aoePos) <= hardness + 5.0F) {
+                    if (canHarvestBlock(stack, aoeState) && !aoeState.hasBlockEntity() && aoeState.getDestroySpeed(level, aoePos) <= hardness + 5.0F) {
                         BlockHelper.harvestAOEBlock(stack, level, (ServerPlayer) player, aoePos.immutable());
                     }
                 }
             });
         }
-
-        return true;
     }
 
     private static boolean canHarvestBlock(ItemStack stack, BlockState state) {
