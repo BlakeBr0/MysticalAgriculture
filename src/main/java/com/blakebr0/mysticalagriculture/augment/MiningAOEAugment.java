@@ -52,9 +52,6 @@ public class MiningAOEAugment extends Augment {
         var state = level.getBlockState(pos);
         float hardness = state.getDestroySpeed(level, pos);
 
-        if (!tryHarvestBlock(level, pos, false, stack, player))
-            return false;
-
         if (radius > 0 && hardness >= 0.2F && canHarvestBlock(stack, state)) {
             BlockPos.betweenClosedStream(pos.offset(-xRange, -yRange, -zRange), pos.offset(xRange, yRange, zRange)).forEach(aoePos -> {
                 if (aoePos != pos) {
