@@ -24,17 +24,22 @@ public class MiningAOEAugment extends Augment {
 
     @Override
     public boolean onBlockStartBreak(ItemStack stack, BlockPos pos, Player player) {
-        var world = player.getCommandSenderWorld();
-        var trace = BlockHelper.rayTraceBlocks(world, player);
+        var level = player.getLevel();
+        if (level.isClientSide())
+            return false;
+
+        if (player.isShiftKeyDown())
+            return false;
+
+        var trace = BlockHelper.rayTraceBlocks(level, player);
         int side = trace.getDirection().ordinal();
 
-        return !harvest(stack, this.range, world, pos, side, player);
+        harvestAOEBlocks(stack, this.range, level, pos, side, player);
+
+        return false;
     }
 
-    private static boolean harvest(ItemStack stack, int radius, Level level, BlockPos pos, int side, Player player) {
-        if (player.isCrouching())
-            radius = 0;
-
+    private static void harvestAOEBlocks(ItemStack stack, int radius, Level level, BlockPos pos, int side, Player player) {
         int xRange = radius;
         int yRange = radius;
         int zRange = 0;
@@ -65,8 +70,6 @@ public class MiningAOEAugment extends Augment {
                 }
             });
         }
-
-        return true;
     }
 
     private static boolean tryHarvestBlock(Level world, BlockPos pos, boolean extra, ItemStack stack, Player player) {
