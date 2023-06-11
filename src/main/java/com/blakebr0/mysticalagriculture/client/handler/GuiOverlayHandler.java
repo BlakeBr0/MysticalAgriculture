@@ -6,8 +6,8 @@ import com.blakebr0.mysticalagriculture.lib.ModTooltips;
 import com.blakebr0.mysticalagriculture.tileentity.AwakeningAltarTileEntity;
 import com.blakebr0.mysticalagriculture.tileentity.EssenceVesselTileEntity;
 import com.blakebr0.mysticalagriculture.tileentity.InfusionAltarTileEntity;
-import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraftforge.client.event.RegisterGuiOverlaysEvent;
@@ -16,7 +16,7 @@ import net.minecraftforge.client.gui.overlay.VanillaGuiOverlay;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 
 public final class GuiOverlayHandler {
-    private static final IGuiOverlay ALTAR_OVERLAY = (gui, matrix, partialTicks, width, height) -> {
+    private static final IGuiOverlay ALTAR_OVERLAY = (gui, gfx, partialTicks, width, height) -> {
         var mc = Minecraft.getInstance();
 
         if (mc.level == null)
@@ -41,7 +41,7 @@ public final class GuiOverlayHandler {
                 if (recipe != null) {
                     stack = recipe.getResultItem(level.registryAccess());
 
-                    drawEssenceRequirements(matrix, recipe, altar);
+                    drawEssenceRequirements(gfx, recipe, altar);
                 }
             }
 
@@ -49,14 +49,14 @@ public final class GuiOverlayHandler {
                 int x = mc.getWindow().getGuiScaledWidth() / 2 - 11;
                 int y = mc.getWindow().getGuiScaledHeight() / 2 - 8;
 
-                mc.getItemRenderer().renderAndDecorateItem(matrix, stack, x + 26, y);
-                mc.getItemRenderer().renderGuiItemDecorations(matrix, mc.font, stack, x + 26, y);
-                mc.font.drawShadow(matrix, stack.getHoverName(), x + 48, y + 5, 16383998);
+                gfx.renderItem(stack, x + 26, y);
+                gfx.renderItemDecorations(mc.font, stack, x + 26, y);
+                gfx.drawString(mc.font, stack.getHoverName(), x + 48, y + 5, 16383998);
             }
         }
     };
 
-    private static final IGuiOverlay ESSENCE_VESSEL_OVERLAY = (gui, matrix, partialTicks, width, height) -> {
+    private static final IGuiOverlay ESSENCE_VESSEL_OVERLAY = (gui, gfx, partialTicks, width, height) -> {
         var mc = Minecraft.getInstance();
 
         if (mc.level == null)
@@ -73,9 +73,9 @@ public final class GuiOverlayHandler {
                     int x = mc.getWindow().getGuiScaledWidth() / 2 - 11;
                     int y = mc.getWindow().getGuiScaledHeight() / 2 - 8;
 
-                    mc.getItemRenderer().renderAndDecorateItem(matrix, stack, x + 26, y);
-                    mc.getItemRenderer().renderGuiItemDecorations(matrix, mc.font, stack, x + 26, y);
-                    mc.font.drawShadow(matrix, stack.getHoverName(), x + 48, y + 5, 16383998);
+                    gfx.renderItem(stack, x + 26, y);
+                    gfx.renderItemDecorations(mc.font, stack, x + 26, y);
+                    gfx.drawString(mc.font, stack.getHoverName(), x + 48, y + 5, 16383998);
                 }
             }
         }
@@ -87,7 +87,7 @@ public final class GuiOverlayHandler {
         event.registerAbove(VanillaGuiOverlay.CROSSHAIR.id(), "essence_vessel_overlay", ESSENCE_VESSEL_OVERLAY);
     }
 
-    private static void drawEssenceRequirements(PoseStack matrix, AwakeningRecipe recipe, AwakeningAltarTileEntity altar) {
+    private static void drawEssenceRequirements(GuiGraphics gfx, AwakeningRecipe recipe, AwakeningAltarTileEntity altar) {
         var mc = Minecraft.getInstance();
 
         int x = mc.getWindow().getGuiScaledWidth() / 2 - 11;
@@ -104,36 +104,36 @@ public final class GuiOverlayHandler {
             var stack = vessel.getInventory().getStackInSlot(0);
 
             if (stack.is(ModCrops.AIR.getEssenceItem()) && stack.getCount() < requirements.air()) {
-                mc.getItemRenderer().renderAndDecorateItem(matrix, stack, x + 26 + xOffset, y + 2 * lineHeight);
-                mc.font.drawShadow(matrix, getEssenceDisplayName(stack, requirements.air()), x + 48 + xOffset, y + 5 + 2 * lineHeight, 16383998);
+                gfx.renderItem(stack, x + 26 + xOffset, y + 2 * lineHeight);
+                gfx.drawString(mc.font, getEssenceDisplayName(stack, requirements.air()), x + 48 + xOffset, y + 5 + 2 * lineHeight, 16383998);
                 xOffset += 56;
                 hasMissingEssences = true;
             }
 
             if (stack.is(ModCrops.EARTH.getEssenceItem()) && stack.getCount() < requirements.earth()) {
-                mc.getItemRenderer().renderAndDecorateItem(matrix, stack, x + 26 + xOffset, y + 2 * lineHeight);
-                mc.font.drawShadow(matrix, getEssenceDisplayName(stack, requirements.earth()), x + 48 + xOffset, y + 5 + 2 * lineHeight, 16383998);
+                gfx.renderItem(stack, x + 26 + xOffset, y + 2 * lineHeight);
+                gfx.drawString(mc.font, getEssenceDisplayName(stack, requirements.earth()), x + 48 + xOffset, y + 5 + 2 * lineHeight, 16383998);
                 xOffset += 56;
                 hasMissingEssences = true;
             }
 
             if (stack.is(ModCrops.WATER.getEssenceItem()) && stack.getCount() < requirements.water()) {
-                mc.getItemRenderer().renderAndDecorateItem(matrix, stack, x + 26 + xOffset, y + 2 * lineHeight);
-                mc.font.drawShadow(matrix, getEssenceDisplayName(stack, requirements.water()), x + 48 + xOffset, y + 5 + 2 * lineHeight, 16383998);
+                gfx.renderItem(stack, x + 26 + xOffset, y + 2 * lineHeight);
+                gfx.drawString(mc.font, getEssenceDisplayName(stack, requirements.water()), x + 48 + xOffset, y + 5 + 2 * lineHeight, 16383998);
                 xOffset += 56;
                 hasMissingEssences = true;
             }
 
             if (stack.is(ModCrops.FIRE.getEssenceItem()) && stack.getCount() < requirements.fire()) {
-                mc.getItemRenderer().renderAndDecorateItem(matrix, stack, x + 26 + xOffset, y + 2 * lineHeight);
-                mc.font.drawShadow(matrix, getEssenceDisplayName(stack, requirements.fire()), x + 48 + xOffset, y + 5 + 2 * lineHeight, 16383998);
+                gfx.renderItem(stack, x + 26 + xOffset, y + 2 * lineHeight);
+                gfx.drawString(mc.font, getEssenceDisplayName(stack, requirements.fire()), x + 48 + xOffset, y + 5 + 2 * lineHeight, 16383998);
                 xOffset += 56;
                 hasMissingEssences = true;
             }
         }
 
         if (hasMissingEssences) {
-            mc.font.drawShadow(matrix, ModTooltips.MISSING_ESSENCES.buildString(), x + 28, y + 5 + lineHeight, 16383998);
+            gfx.drawString(mc.font, ModTooltips.MISSING_ESSENCES.build(), x + 28, y + 5 + lineHeight, 16383998);
         }
     }
 

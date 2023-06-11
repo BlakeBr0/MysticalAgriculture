@@ -25,7 +25,6 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityTicker;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.material.Material;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
@@ -49,7 +48,7 @@ public class AwakeningAltarBlock extends BaseTileEntityBlock {
             .cuboid(5, 8, 5, 11, 10, 11).build();
 
     public AwakeningAltarBlock() {
-        super(Material.STONE, SoundType.STONE, 10.0F, 12.0F, true);
+        super(SoundType.STONE, 10.0F, 12.0F, true);
     }
 
     @Override

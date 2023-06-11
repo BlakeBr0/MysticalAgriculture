@@ -53,7 +53,7 @@ public final class AwakeningCrafting {
                 var recipes = RecipeHelper.getRecipes()
                         .getOrDefault(ModRecipeTypes.AWAKENING.get(), new HashMap<>())
                         .values().stream()
-                        .filter(r -> r.getResultItem(access).sameItem(stack.getInternal()))
+                        .filter(r -> r.getResultItem(access).is(stack.getInternal().getItem()))
                         .map(Recipe::getId)
                         .toList();
 

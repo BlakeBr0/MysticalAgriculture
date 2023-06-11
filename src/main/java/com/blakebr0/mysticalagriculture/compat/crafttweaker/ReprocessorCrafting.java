@@ -44,7 +44,7 @@ public final class ReprocessorCrafting {
                 var recipes = RecipeHelper.getRecipes()
                         .getOrDefault(ModRecipeTypes.REPROCESSOR.get(), new HashMap<>())
                         .values().stream()
-                        .filter(r -> r.getResultItem(access).sameItem(stack.getInternal()))
+                        .filter(r -> r.getResultItem(access).is(stack.getInternal().getItem()))
                         .map(Recipe::getId)
                         .toList();
 

@@ -24,7 +24,7 @@ public class MiningAOEAugment extends Augment {
 
     @Override
     public boolean onBlockStartBreak(ItemStack stack, BlockPos pos, Player player) {
-        var level = player.getLevel();
+        var level = player.level();
         if (level.isClientSide())
             return false;
 

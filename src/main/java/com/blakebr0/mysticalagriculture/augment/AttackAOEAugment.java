@@ -24,8 +24,8 @@ public class AttackAOEAugment extends Augment {
     public boolean onHitEntity(ItemStack stack, LivingEntity target, LivingEntity attacker) {
         if (attacker instanceof Player player) {
             if (!player.getCooldowns().isOnCooldown(stack.getItem())) {
-                var entities = player.getCommandSenderWorld().getEntitiesOfClass(LivingEntity.class, target.getBoundingBox().inflate(1.5D * this.amplifier, 0.25D * this.amplifier, 1.5D * this.amplifier));
-                var level = player.level;
+                var level = player.level();
+                var entities = level.getEntitiesOfClass(LivingEntity.class, target.getBoundingBox().inflate(1.5D * this.amplifier, 0.25D * this.amplifier, 1.5D * this.amplifier));
 
                 for (var aoeEntity : entities) {
                     if (aoeEntity != player && aoeEntity != target && !player.isAlliedTo(target)) {

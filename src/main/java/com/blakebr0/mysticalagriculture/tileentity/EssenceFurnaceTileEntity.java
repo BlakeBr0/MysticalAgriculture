@@ -43,22 +43,6 @@ public abstract class EssenceFurnaceTileEntity extends AbstractFurnaceBlockEntit
         return (int) (super.getBurnDuration(stack) * this.getTier().getBurnTimeMultiplier());
     }
 
-    public void setItem(int slot, ItemStack stack) {
-        ItemStack itemstack = this.items.get(slot);
-        boolean flag = !stack.isEmpty() && stack.sameItem(itemstack) && ItemStack.tagMatches(stack, itemstack);
-        this.items.set(slot, stack);
-        if (stack.getCount() > this.getMaxStackSize()) {
-            stack.setCount(this.getMaxStackSize());
-        }
-
-        if (slot == 0 && !flag) {
-            this.cookingTotalTime = (int) (getTotalCookTime(level, this) * this.getTier().getCookTimeMultiplier());
-            this.cookingProgress = 0;
-            this.setChanged();
-        }
-
-    }
-
     protected boolean canBurn(Recipe<?> recipe, NonNullList<ItemStack> items, int maxStackSize) {
         if (!items.get(0).isEmpty() && recipe != null) {
             ItemStack itemstack = ((Recipe<WorldlyContainer>) recipe).assemble(this, this.level.registryAccess());
@@ -68,7 +52,7 @@ public abstract class EssenceFurnaceTileEntity extends AbstractFurnaceBlockEntit
                 ItemStack itemstack1 = items.get(2);
                 if (itemstack1.isEmpty()) {
                     return true;
-                } else if (!itemstack1.sameItem(itemstack)) {
+                } else if (!itemstack1.is(itemstack.getItem())) {
                     return false;
                 } else if (itemstack1.getCount() + itemstack.getCount() <= maxStackSize && itemstack1.getCount() + itemstack.getCount() <= itemstack1.getMaxStackSize()) { // Forge fix: make furnace respect stack sizes in furnace recipes
                     return true;

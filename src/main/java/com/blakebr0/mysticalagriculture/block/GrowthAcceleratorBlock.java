@@ -15,7 +15,6 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.BonemealableBlock;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.material.Material;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 
@@ -26,7 +25,7 @@ public class GrowthAcceleratorBlock extends BaseBlock {
     private final ChatFormatting textColor;
 
     public GrowthAcceleratorBlock(int range, ChatFormatting textColor) {
-        super(Material.STONE, SoundType.STONE, 5.0F, 8.0F, true);
+        super(SoundType.STONE, 5.0F, 8.0F, true);
         this.range = range;
         this.textColor = textColor;
     }

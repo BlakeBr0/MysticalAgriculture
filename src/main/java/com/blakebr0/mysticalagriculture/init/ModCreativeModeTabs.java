@@ -8,17 +8,20 @@ import com.blakebr0.mysticalagriculture.lib.ModCrops;
 import com.blakebr0.mysticalagriculture.registry.AugmentRegistry;
 import com.blakebr0.mysticalagriculture.registry.CropRegistry;
 import com.blakebr0.mysticalagriculture.registry.MobSoulTypeRegistry;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
-import net.minecraftforge.event.CreativeModeTabEvent;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.registries.DeferredRegister;
+import net.minecraftforge.registries.RegistryObject;
 
 public final class ModCreativeModeTabs {
-    @SubscribeEvent
-    public void onRegisterCreativeModeTabs(CreativeModeTabEvent.Register event) {
-        event.registerCreativeModeTab(new ResourceLocation(MysticalAgriculture.MOD_ID, "creative_mode_tab"), (builder) -> {
-            var displayItems = FeatureFlagDisplayItemGenerator.create((parameters, output) -> {
+    public static final DeferredRegister<CreativeModeTab> REGISTRY = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, MysticalAgriculture.MOD_ID);
+
+    public static final RegistryObject<CreativeModeTab> CREATIVE_TAB = REGISTRY.register("creative_tab", () -> CreativeModeTab.builder()
+            .title(Component.translatable("itemGroup.mysticalagriculture"))
+            .icon(() -> new ItemStack(ModItems.INFERIUM_ESSENCE.get()))
+            .displayItems(FeatureFlagDisplayItemGenerator.create((parameters, output) -> {
                 var stack = ItemStack.EMPTY;
 
                 output.accept(ModBlocks.PROSPERITY_BLOCK);
@@ -338,11 +341,6 @@ public final class ModCreativeModeTabs {
                         output.accept(augment.getItem());
                     }
                 }
-            });
-
-            builder.title(Component.translatable("itemGroup.mysticalagriculture"))
-                    .icon(() -> new ItemStack(ModItems.INFERIUM_ESSENCE.get()))
-                    .displayItems(displayItems);
-        });
-    }
+            }))
+            .build());
 }

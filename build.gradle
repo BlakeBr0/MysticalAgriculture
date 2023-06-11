@@ -1,23 +1,20 @@
-buildscript {
-    repositories {
-        maven { url = 'https://maven.minecraftforge.net' }
-        mavenCentral()
-    }
-    dependencies {
-        classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '5.1.+', changing: true
-    }
+plugins {
+    id 'eclipse'
+    id 'idea'
+    id 'maven-publish'
+    id 'net.minecraftforge.gradle' version '[6.0,6.2)'
 }
-apply plugin: 'net.minecraftforge.gradle'
-apply plugin: 'eclipse'
-apply plugin: 'maven-publish'
 
 version = '1.19.4-6.2.1'
 group = 'com.blakebr0.mysticalagriculture'
-archivesBaseName = 'MysticalAgriculture'
+
+base {
+    archivesName = 'MysticalAgriculture'
+}
 
 java.toolchain.languageVersion = JavaLanguageVersion.of(17)
 
-println('Java: ' + System.getProperty('java.version') + ' JVM: ' + System.getProperty('java.vm.version') + '(' + System.getProperty('java.vendor') + ') Arch: ' + System.getProperty('os.arch'))
+println "Java: ${System.getProperty 'java.version'}, JVM: ${System.getProperty 'java.vm.version'} (${System.getProperty 'java.vendor'}), Arch: ${System.getProperty 'os.arch'}"
 
 repositories {
     maven { url 'https://maven.blakesmods.com' }
@@ -32,9 +29,10 @@ repositories {
 }
 
 minecraft {
-    mappings channel: 'official', version: '1.19.4'
+    mappings channel: 'official', version: '1.20'
 
     accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg')
+    copyIdeResources = true
 
     runs {
         client {
@@ -129,7 +127,7 @@ dependencies {
     }
 
     implementation fg.deobf("curse.maven:jade-324717:${jade_version}")
-    implementation fg.deobf("curse.maven:top-245211:${top_version}")
+    implementation "curse.maven:the-one-probe-245211:${top_version}"
     compileOnly fg.deobf("com.blamejared.crafttweaker:CraftTweaker-forge-${crafttweaker_version}") // TODO: implementation
 
     // runtimeOnly fg.deobf("vazkii.patchouli:Patchouli:${patchouli_version}")
@@ -140,13 +138,11 @@ dependencies {
 }
 
 task apiJar(type: Jar) {
-    // Remove sources from the api jar when MinecraftForge/ForgeGradle#369 is fixed
-    from(sourceSets.main.allJava)
-    from(sourceSets.main.output)
-    include 'com/blakebr0/mysticalagriculture/api/**'
+    from(sourceSets.main.output) {
+        'com/blakebr0/mysticalagriculture/api/**'
+    }
 
-    classifier = 'api'
-    archiveName = "${baseName}-${version}-api.${extension}"
+    archiveClassifier = 'api'
 }
 
 artifacts {
@@ -173,7 +169,7 @@ publishing {
     publications {
         maven(MavenPublication) {
             artifact jar
-            artifact apiJar
+//            artifact apiJar
         }
     }
 

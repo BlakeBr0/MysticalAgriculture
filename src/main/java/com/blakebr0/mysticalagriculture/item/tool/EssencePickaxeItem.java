@@ -144,7 +144,7 @@ public class EssencePickaxeItem extends BasePickaxeItem implements ITinkerable {
             onBroken.accept(entity);
 
             AugmentUtils.getAugments(stack).forEach(augment -> {
-                Block.popResource(entity.getLevel(), entity.getOnPos(), new ItemStack(augment.getItem()));
+                Block.popResource(entity.level(), entity.getOnPos(), new ItemStack(augment.getItem()));
             });
 
             stack.shrink(1);

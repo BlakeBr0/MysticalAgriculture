@@ -5,11 +5,11 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.Explosion;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.SoundType;
-import net.minecraft.world.level.material.Material;
 
+// TODO: 1.20 test these
 public class WitherproofGlassBlock extends BaseGlassBlock {
     public WitherproofGlassBlock() {
-        super(Material.GLASS, p -> p
+        super(p -> p
             .strength(18.0F, 2000.0F)
             .sound(SoundType.STONE)
             .requiresCorrectToolForDrops()

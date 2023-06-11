@@ -80,7 +80,8 @@ public class MysticalFertilizerItem extends BaseItem {
                     if (growable instanceof CropBlock crop) {
                         level.setBlock(pos, crop.getStateForAge(crop.getMaxAge()), 2);
                     } else if (growable instanceof SaplingBlock sapling) {
-                        if (!ForgeEventFactory.saplingGrowTree(level, rand, pos))
+                        var event = ForgeEventFactory.blockGrowFeature(level, rand, pos, null);
+                        if (event.isCanceled())
                             return false;
 
                         var chunkGenerator = serverWorld.getChunkSource().getGenerator();

@@ -25,7 +25,7 @@ public class SpeedAugment extends Augment {
         var swimming = player.isSwimming();
         var inWater = player.isInWater();
 
-        if (player.isOnGround() || flying || swimming || inWater) {
+        if (player.onGround() || flying || swimming || inWater) {
             var sneaking = player.isCrouching();
             var sprinting = player.isSprinting();
 
