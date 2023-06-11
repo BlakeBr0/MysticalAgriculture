@@ -1,7 +1,7 @@
 {
   "name": "book.mysticalagriculture.entry.seed_reprocessors",
   "category": "mysticalagriculture:machines",
-  "icon": "mysticalagriculture:basic_reprocessor",
+  "icon": "mysticalagriculture:seed_reprocessor",
   "sortnum": 202,
   "pages": [
     {
@@ -11,7 +11,7 @@
     {
       "type": "crafting",
       "title": "book.mysticalagriculture.crafting",
-      "recipe": "mysticalagriculture:basic_reprocessor"
+      "recipe": "mysticalagriculture:seed_reprocessor"
     }
   ]
 }

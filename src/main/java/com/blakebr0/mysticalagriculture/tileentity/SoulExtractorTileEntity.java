@@ -7,6 +7,7 @@ import com.blakebr0.cucumber.inventory.SidedItemStackHandlerWrapper;
 import com.blakebr0.cucumber.tileentity.BaseInventoryTileEntity;
 import com.blakebr0.cucumber.util.Localizable;
 import com.blakebr0.mysticalagriculture.api.util.MobSoulUtils;
+import com.blakebr0.mysticalagriculture.block.SoulExtractorBlock;
 import com.blakebr0.mysticalagriculture.container.SoulExtractorContainer;
 import com.blakebr0.mysticalagriculture.container.inventory.UpgradeItemStackHandler;
 import com.blakebr0.mysticalagriculture.crafting.recipe.SoulExtractionRecipe;
@@ -46,11 +47,12 @@ public class SoulExtractorTileEntity extends BaseInventoryTileEntity implements 
     private final DynamicEnergyStorage energy;
     private final LazyOptional<IItemHandlerModifiable>[] inventoryCapabilities;
     private final LazyOptional<IEnergyStorage> energyCapability = LazyOptional.of(this::getEnergy);
+    private SoulExtractionRecipe recipe;
+    private MachineUpgradeTier tier;
     private int progress;
     private int fuelLeft;
     private int fuelItemValue;
-    private SoulExtractionRecipe recipe;
-    private MachineUpgradeTier tier;
+    private boolean isRunning;
 
     public SoulExtractorTileEntity(BlockPos pos, BlockState state) {
         super(ModTileEntities.SOUL_EXTRACTOR.get(), pos, state);
@@ -171,8 +173,13 @@ public class SoulExtractorTileEntity extends BaseInventoryTileEntity implements 
             mark = true;
         }
 
+        var wasRunning = tile.isRunning;
+
         if (tile.recipe != null) {
+            tile.isRunning = false;
+
             if (tile.energy.getEnergyStored() >= tile.getFuelUsage()) {
+                tile.isRunning = true;
                 tile.progress++;
                 tile.energy.extractEnergy(tile.getFuelUsage(), false);
 
@@ -186,11 +193,18 @@ public class SoulExtractorTileEntity extends BaseInventoryTileEntity implements 
                 mark = true;
             }
         } else {
+            tile.isRunning = false;
+
             if (tile.progress > 0) {
                 tile.progress = 0;
 
                 mark = true;
             }
+        }
+
+        if (wasRunning != tile.isRunning) {
+            level.setBlock(pos, state.setValue(SoulExtractorBlock.RUNNING, tile.isRunning), 3);
+            mark = true;
         }
 
         if (mark) {

@@ -1,0 +1,12 @@
+{
+  "variants": {
+    "facing=east,running=false": { "model": "mysticalagriculture:block/seed_reprocessor", "y": 90 },
+    "facing=east,running=true": { "model": "mysticalagriculture:block/seed_reprocessor_on", "y": 90 },
+    "facing=north,running=false": { "model": "mysticalagriculture:block/seed_reprocessor" },
+    "facing=north,running=true": { "model": "mysticalagriculture:block/seed_reprocessor_on" },
+    "facing=south,running=false": { "model": "mysticalagriculture:block/seed_reprocessor", "y": 180 },
+    "facing=south,running=true": { "model": "mysticalagriculture:block/seed_reprocessor_on", "y": 180 },
+    "facing=west,running=false": { "model": "mysticalagriculture:block/seed_reprocessor", "y": 270 },
+    "facing=west,running=true": { "model": "mysticalagriculture:block/seed_reprocessor_on", "y": 270 }
+  }
+}

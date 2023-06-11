@@ -40,7 +40,7 @@ public class HarvesterScreen extends BaseContainerScreen<HarvesterContainer> {
         gfx.drawString(this.font, title, (this.imageWidth / 2 - this.font.width(title) / 2), 6, 4210752);
         gfx.drawString(this.font, this.playerInventoryTitle, 8, (this.imageHeight - 96 + 2), 4210752);
 
-        // TODO: temporary workaround for dynamic energy storage
+        // TODO: "temporary" workaround for dynamic energy storage
         if (this.tile != null) {
             var tier = this.tile.getMachineTier();
             var energy = this.tile.getEnergy();

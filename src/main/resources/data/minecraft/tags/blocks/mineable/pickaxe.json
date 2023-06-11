@@ -66,13 +66,7 @@
     "mysticalagriculture:awakening_altar",
     "mysticalagriculture:tinkering_table",
     "mysticalagriculture:machine_frame",
-    "mysticalagriculture:basic_reprocessor",
-    "mysticalagriculture:inferium_reprocessor",
-    "mysticalagriculture:prudentium_reprocessor",
-    "mysticalagriculture:tertium_reprocessor",
-    "mysticalagriculture:imperium_reprocessor",
-    "mysticalagriculture:supremium_reprocessor",
-    "mysticalagriculture:awakened_supremium_reprocessor",
+    "mysticalagriculture:seed_reprocessor",
     "mysticalagriculture:soul_extractor",
     "mysticalagriculture:harvester"
   ]
