@@ -37,8 +37,8 @@ public class HarvesterScreen extends BaseContainerScreen<HarvesterContainer> {
     protected void renderLabels(GuiGraphics gfx, int mouseX, int mouseY) {
         var title = this.getTitle().getString();
 
-        gfx.drawString(this.font, title, (this.imageWidth / 2 - this.font.width(title) / 2), 6, 4210752);
-        gfx.drawString(this.font, this.playerInventoryTitle, 8, (this.imageHeight - 96 + 2), 4210752);
+        gfx.drawString(this.font, title, (this.imageWidth / 2 - this.font.width(title) / 2), 6, 4210752, false);
+        gfx.drawString(this.font, this.playerInventoryTitle, 8, (this.imageHeight - 96 + 2), 4210752, false);
 
         // TODO: "temporary" workaround for dynamic energy storage
         if (this.tile != null) {
