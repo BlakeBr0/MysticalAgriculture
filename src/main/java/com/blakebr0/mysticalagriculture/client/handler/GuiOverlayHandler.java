@@ -1,7 +1,6 @@
 package com.blakebr0.mysticalagriculture.client.handler;
 
 import com.blakebr0.mysticalagriculture.crafting.recipe.AwakeningRecipe;
-import com.blakebr0.mysticalagriculture.lib.ModCrops;
 import com.blakebr0.mysticalagriculture.lib.ModTooltips;
 import com.blakebr0.mysticalagriculture.tileentity.AwakeningAltarTileEntity;
 import com.blakebr0.mysticalagriculture.tileentity.EssenceVesselTileEntity;
@@ -94,42 +93,16 @@ public final class GuiOverlayHandler {
         int y = mc.getWindow().getGuiScaledHeight() / 2 - 4;
         var lineHeight = mc.font.lineHeight + 6;
 
-        var requirements = recipe.getEssenceRequirements();
-        var vessels = altar.getEssenceVessels();
-
         var hasMissingEssences = false;
         var xOffset = 0;
 
-        for (var vessel : vessels) {
-            var stack = vessel.getInventory().getStackInSlot(0);
+        var missingEssences = recipe.getMissingEssences(altar.getEssenceItems());
 
-            if (stack.is(ModCrops.AIR.getEssenceItem()) && stack.getCount() < requirements.air()) {
-                gfx.renderItem(stack, x + 26 + xOffset, y + 2 * lineHeight);
-                gfx.drawString(mc.font, getEssenceDisplayName(stack, requirements.air()), x + 48 + xOffset, y + 5 + 2 * lineHeight, 16383998);
-                xOffset += 56;
-                hasMissingEssences = true;
-            }
-
-            if (stack.is(ModCrops.EARTH.getEssenceItem()) && stack.getCount() < requirements.earth()) {
-                gfx.renderItem(stack, x + 26 + xOffset, y + 2 * lineHeight);
-                gfx.drawString(mc.font, getEssenceDisplayName(stack, requirements.earth()), x + 48 + xOffset, y + 5 + 2 * lineHeight, 16383998);
-                xOffset += 56;
-                hasMissingEssences = true;
-            }
-
-            if (stack.is(ModCrops.WATER.getEssenceItem()) && stack.getCount() < requirements.water()) {
-                gfx.renderItem(stack, x + 26 + xOffset, y + 2 * lineHeight);
-                gfx.drawString(mc.font, getEssenceDisplayName(stack, requirements.water()), x + 48 + xOffset, y + 5 + 2 * lineHeight, 16383998);
-                xOffset += 56;
-                hasMissingEssences = true;
-            }
-
-            if (stack.is(ModCrops.FIRE.getEssenceItem()) && stack.getCount() < requirements.fire()) {
-                gfx.renderItem(stack, x + 26 + xOffset, y + 2 * lineHeight);
-                gfx.drawString(mc.font, getEssenceDisplayName(stack, requirements.fire()), x + 48 + xOffset, y + 5 + 2 * lineHeight, 16383998);
-                xOffset += 56;
-                hasMissingEssences = true;
-            }
+        for (var essence : missingEssences.entrySet()) {
+            gfx.renderItem(essence.getKey(), x + 26 + xOffset, y + 2 * lineHeight);
+            gfx.drawString(mc.font, getEssenceDisplayName(essence.getKey(), essence.getValue()), x + 48 + xOffset, y + 5 + 2 * lineHeight, 16383998);
+            xOffset += 56;
+            hasMissingEssences = true;
         }
 
         if (hasMissingEssences) {
@@ -137,7 +110,8 @@ public final class GuiOverlayHandler {
         }
     }
 
-    private static String getEssenceDisplayName(ItemStack stack, int required) {
-        return stack.getCount() + "/" + required;
+    private static String getEssenceDisplayName(ItemStack stack, int missing) {
+        var required = stack.getCount();
+        return required - missing + "/" + required;
     }
 }

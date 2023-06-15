@@ -1,6 +1,5 @@
 package com.blakebr0.mysticalagriculture.compat.jei.category;
 
-import com.blakebr0.cucumber.helper.StackHelper;
 import com.blakebr0.cucumber.util.Localizable;
 import com.blakebr0.mysticalagriculture.MysticalAgriculture;
 import com.blakebr0.mysticalagriculture.api.crafting.IAwakeningRecipe;
@@ -18,6 +17,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class AwakeningCategory implements IRecipeCategory<IAwakeningRecipe> {
@@ -75,19 +75,20 @@ public class AwakeningCategory implements IRecipeCategory<IAwakeningRecipe> {
     }
 
     private static List<List<ItemStack>> toItemStackLists(IAwakeningRecipe recipe) {
-        var requirements = recipe.getEssenceRequirements();
-        var ingredients = recipe.getIngredients();
+        var result = new ArrayList<List<ItemStack>>(9);
 
-        return List.of(
-                List.of(ingredients.get(0).getItems()),
-                List.of(StackHelper.withSize(ingredients.get(1).getItems()[0], requirements.air(), false)),
-                List.of(ingredients.get(2).getItems()),
-                List.of(StackHelper.withSize(ingredients.get(3).getItems()[0], requirements.earth(), false)),
-                List.of(ingredients.get(4).getItems()),
-                List.of(StackHelper.withSize(ingredients.get(5).getItems()[0], requirements.water(), false)),
-                List.of(ingredients.get(6).getItems()),
-                List.of(StackHelper.withSize(ingredients.get(7).getItems()[0], requirements.fire(), false)),
-                List.of(ingredients.get(8).getItems())
-        );
+        var ingredients = recipe.getIngredients();
+        var essences = recipe.getEssences();
+
+        for (int i = 0; i < ingredients.size(); i++) {
+            // essence vessel ingredient
+            if (i % 2 == 1) {
+                result.add(List.of(essences.get(Math.floorDiv(i, 2))));
+            } else {
+                result.add(List.of(ingredients.get(i).getItems()));
+            }
+        }
+
+        return result;
     }
 }

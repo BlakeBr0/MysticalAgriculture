@@ -2,6 +2,7 @@ package com.blakebr0.mysticalagriculture;
 
 import com.blakebr0.cucumber.helper.ConfigHelper;
 import com.blakebr0.mysticalagriculture.api.MysticalAgricultureAPI;
+import com.blakebr0.mysticalagriculture.client.EssenceVesselColorManager;
 import com.blakebr0.mysticalagriculture.client.ModRecipeBookCategories;
 import com.blakebr0.mysticalagriculture.client.ModTESRs;
 import com.blakebr0.mysticalagriculture.client.ModelHandler;
@@ -77,6 +78,7 @@ public final class MysticalAgriculture {
 			bus.register(new ModTESRs());
 			bus.register(new ModRecipeBookCategories());
 			bus.register(new GuiOverlayHandler());
+			bus.register(EssenceVesselColorManager.INSTANCE);
 		});
 
 		ModLoadingContext.get().registerConfig(ModConfig.Type.CLIENT, ModConfigs.CLIENT);
@@ -95,7 +97,7 @@ public final class MysticalAgriculture {
 		MinecraftForge.EVENT_BUS.register(new MobSoulHandler());
 		MinecraftForge.EVENT_BUS.register(new ExperienceCapsuleHandler());
 		MinecraftForge.EVENT_BUS.register(new AugmentHandler());
-		MinecraftForge.EVENT_BUS.register(DynamicRecipeManager.getInstance());
+		MinecraftForge.EVENT_BUS.register(DynamicRecipeManager.INSTANCE);
 		MinecraftForge.EVENT_BUS.register(RecipeIngredientCache.INSTANCE);
 
 		ModRecipeSerializers.onCommonSetup();

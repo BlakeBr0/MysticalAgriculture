@@ -1,13 +1,25 @@
 {
   "type": "mysticalagriculture:awakening",
+  "essences": [
+    {
+      "item": "mysticalagriculture:diamond_essence",
+      "count": 20
+    },
+    {
+      "item": "minecraft:carrot",
+      "count": 40
+    },
+    {
+      "item": "minecraft:cobblestone",
+      "count": 10
+    },
+    {
+      "item": "mysticalagriculture:supremium_essence",
+      "count": 15
+    }
+  ],
   "input": {
     "item": "minecraft:apple"
-  },
-  "essences": {
-    "air": 40,
-    "earth": 40,
-    "water": 40,
-    "fire": 40
   },
   "ingredients": [
     {

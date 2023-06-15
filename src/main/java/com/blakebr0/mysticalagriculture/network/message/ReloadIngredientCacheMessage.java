@@ -11,19 +11,24 @@ import net.minecraftforge.registries.ForgeRegistries;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.function.Supplier;
 
 public class ReloadIngredientCacheMessage extends Message<ReloadIngredientCacheMessage> {
     private final Map<RecipeType<?>, Map<Item, List<Ingredient>>> caches;
+    private final Set<Item> validVesselItems;
 
     public ReloadIngredientCacheMessage() {
         this.caches = Map.of();
+        this.validVesselItems = Set.of();
     }
 
-    public ReloadIngredientCacheMessage(Map<RecipeType<?>, Map<Item, List<Ingredient>>> caches) {
+    public ReloadIngredientCacheMessage(Map<RecipeType<?>, Map<Item, List<Ingredient>>> caches, Set<Item> validVesselItems) {
         this.caches = caches;
+        this.validVesselItems = validVesselItems;
     }
 
     public ReloadIngredientCacheMessage read(FriendlyByteBuf buffer) {
@@ -48,7 +53,16 @@ public class ReloadIngredientCacheMessage extends Message<ReloadIngredientCacheM
             }
         }
 
-        return new ReloadIngredientCacheMessage(caches);
+        var validVesselItems = new HashSet<Item>();
+        var items = buffer.readVarInt();
+
+        for (var i = 0; i < items; i++) {
+            var item = ForgeRegistries.ITEMS.getValue(buffer.readResourceLocation());
+
+            validVesselItems.add(item);
+        }
+
+        return new ReloadIngredientCacheMessage(caches, validVesselItems);
     }
 
     public void write(ReloadIngredientCacheMessage message, FriendlyByteBuf buffer) {
@@ -77,11 +91,22 @@ public class ReloadIngredientCacheMessage extends Message<ReloadIngredientCacheM
                 }
             }
         }
+
+        buffer.writeVarInt(message.validVesselItems.size());
+
+        for (var item : message.validVesselItems) {
+            var id = ForgeRegistries.ITEMS.getKey(item);
+
+            assert id != null;
+
+            buffer.writeResourceLocation(id);
+        }
     }
 
     public void onMessage(ReloadIngredientCacheMessage message, Supplier<NetworkEvent.Context> context) {
         context.get().enqueueWork(() -> {
             RecipeIngredientCache.INSTANCE.setCaches(message.caches);
+            RecipeIngredientCache.INSTANCE.setValidVesselItems(message.validVesselItems);
         });
 
         context.get().setPacketHandled(true);

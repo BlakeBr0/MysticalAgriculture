@@ -1,11 +1,23 @@
 {
   "type": "mysticalagriculture:awakening",
-  "essences": {
-    "air": 40,
-    "earth": 40,
-    "water": 40,
-    "fire": 40
-  },
+  "essences": [
+    {
+      "item": "mysticalagriculture:air_essence",
+      "count": 40
+    },
+    {
+      "item": "mysticalagriculture:earth_essence",
+      "count": 40
+    },
+    {
+      "item": "mysticalagriculture:water_essence",
+      "count": 40
+    },
+    {
+      "item": "mysticalagriculture:fire_essence",
+      "count": 40
+    }
+  ],
   "input": {
     "item": "mysticalagriculture:supremium_watering_can"
   },

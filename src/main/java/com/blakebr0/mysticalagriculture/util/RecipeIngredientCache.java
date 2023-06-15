@@ -23,20 +23,23 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 public class RecipeIngredientCache {
     public static final RecipeIngredientCache INSTANCE = new RecipeIngredientCache();
 
     private final Map<RecipeType<?>, Map<Item, List<Ingredient>>> caches;
+    private final Set<Item> validVesselItems;
 
     private RecipeIngredientCache() {
         this.caches = new HashMap<>();
+        this.validVesselItems = new HashSet<>();
     }
 
     @SubscribeEvent
     public void onDatapackSyncEvent(OnDatapackSyncEvent event) {
-        var message = new ReloadIngredientCacheMessage(this.caches);
+        var message = new ReloadIngredientCacheMessage(this.caches, this.validVesselItems);
         var player = event.getPlayer();
 
         // send the new caches to the client
@@ -58,6 +61,10 @@ public class RecipeIngredientCache {
             cache(ModRecipeTypes.REPROCESSOR.get());
             cache(ModRecipeTypes.SOUL_EXTRACTION.get());
 
+            this.validVesselItems.clear();
+
+            cacheVesselItems();
+
             MysticalAgriculture.LOGGER.info("Recipe ingredient caching done in {} ms", stopwatch.stop().elapsed(TimeUnit.MILLISECONDS));
         }
     }
@@ -68,9 +75,19 @@ public class RecipeIngredientCache {
         this.caches.putAll(caches);
     }
 
+    // called on the client by ReloadIngredientCacheMessage
+    public void setValidVesselItems(Set<Item> validVesselItems) {
+        this.validVesselItems.clear();
+        this.validVesselItems.addAll(validVesselItems);
+    }
+
     public boolean isValidInput(ItemStack stack, RecipeType<?> type) {
         var cache = this.caches.getOrDefault(type, Collections.emptyMap()).get(stack.getItem());
         return cache != null && cache.stream().anyMatch(i -> i.test(stack));
+    }
+
+    public boolean isValidVesselItem(ItemStack stack) {
+        return this.validVesselItems.contains(stack.getItem());
     }
 
     private static <C extends Container, T extends Recipe<C>> void cache(RecipeType<T> type) {
@@ -89,6 +106,14 @@ public class RecipeIngredientCache {
                     items.add(item);
                     cache.add(ingredient);
                 }
+            }
+        }
+    }
+
+    private static void cacheVesselItems() {
+        for (var recipe : RecipeHelper.getRecipes(ModRecipeTypes.AWAKENING.get()).values()) {
+            for (var essence : recipe.getEssences()) {
+                INSTANCE.validVesselItems.add(essence.getItem());
             }
         }
     }

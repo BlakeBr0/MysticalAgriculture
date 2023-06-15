@@ -18,7 +18,7 @@ import net.minecraft.world.item.crafting.ShapedRecipe;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 
 public class DynamicRecipeManager {
-    private static final DynamicRecipeManager INSTANCE = new DynamicRecipeManager();
+    public static final DynamicRecipeManager INSTANCE = new DynamicRecipeManager();
 
     @SubscribeEvent
     public void onRegisterRecipes(RegisterRecipesEvent event) {
@@ -36,10 +36,6 @@ public class DynamicRecipeManager {
             if (reprocessor != null)
                 event.register(reprocessor);
         }
-    }
-
-    public static DynamicRecipeManager getInstance() {
-        return INSTANCE;
     }
 
     private static ISpecialRecipe makeSeedRecipe(Crop crop) {

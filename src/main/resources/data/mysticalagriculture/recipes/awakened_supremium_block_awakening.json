@@ -1,11 +1,23 @@
 {
   "type": "mysticalagriculture:awakening",
-  "essences": {
-    "air": 10,
-    "earth": 10,
-    "water": 10,
-    "fire": 10
-  },
+  "essences": [
+    {
+      "item": "mysticalagriculture:air_essence",
+      "count": 10
+    },
+    {
+      "item": "mysticalagriculture:earth_essence",
+      "count": 10
+    },
+    {
+      "item": "mysticalagriculture:water_essence",
+      "count": 10
+    },
+    {
+      "item": "mysticalagriculture:fire_essence",
+      "count": 10
+    }
+  ],
   "input": {
     "item": "mysticalagriculture:supremium_block"
   },

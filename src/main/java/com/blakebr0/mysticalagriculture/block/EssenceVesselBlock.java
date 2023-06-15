@@ -60,7 +60,7 @@ public class EssenceVesselBlock extends BaseTileEntityBlock {
             var input = inventory.getStackInSlot(0);
             var held = player.getItemInHand(hand);
 
-            var remaining = vessel.insert(held);
+            var remaining = inventory.insertItem(0, held, false);
             if (held != remaining) {
                 player.setItemInHand(hand, remaining);
                 level.playSound(null, pos, SoundEvents.ITEM_PICKUP, SoundSource.BLOCKS, 1.0F, 1.0F);
@@ -68,8 +68,8 @@ public class EssenceVesselBlock extends BaseTileEntityBlock {
                 inventory.setStackInSlot(0, ItemStack.EMPTY);
 
                 var item = new ItemEntity(level, player.getX(), player.getY(), player.getZ(), input);
-
                 item.setNoPickUpDelay();
+
                 level.addFreshEntity(item);
             }
         }

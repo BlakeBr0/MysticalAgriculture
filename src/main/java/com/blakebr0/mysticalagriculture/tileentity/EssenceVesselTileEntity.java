@@ -2,9 +2,8 @@ package com.blakebr0.mysticalagriculture.tileentity;
 
 import com.blakebr0.cucumber.inventory.BaseItemStackHandler;
 import com.blakebr0.cucumber.tileentity.BaseInventoryTileEntity;
-import com.blakebr0.mysticalagriculture.api.crop.ICropProvider;
 import com.blakebr0.mysticalagriculture.init.ModTileEntities;
-import com.blakebr0.mysticalagriculture.util.EssenceVesselType;
+import com.blakebr0.mysticalagriculture.util.RecipeIngredientCache;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.state.BlockState;
@@ -26,19 +25,7 @@ public class EssenceVesselTileEntity extends BaseInventoryTileEntity {
         return this.inventory;
     }
 
-    public ItemStack insert(ItemStack stack) {
-        return this.inventory.insertItem(0, stack, false);
-    }
-
-    public ItemStack extract(int amount) {
-        return this.inventory.extractItem(0, amount, false);
-    }
-
     private static boolean canInsertStack(ItemStack stack) {
-        if (stack.getItem() instanceof ICropProvider provider) {
-            return EssenceVesselType.fromCrop(provider) != null;
-        }
-
-        return false;
+        return RecipeIngredientCache.INSTANCE.isValidVesselItem(stack);
     }
 }

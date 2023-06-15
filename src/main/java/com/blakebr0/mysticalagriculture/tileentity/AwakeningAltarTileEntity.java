@@ -1,17 +1,14 @@
 package com.blakebr0.mysticalagriculture.tileentity;
 
-import com.blakebr0.cucumber.helper.StackHelper;
 import com.blakebr0.cucumber.inventory.BaseItemStackHandler;
 import com.blakebr0.cucumber.tileentity.BaseInventoryTileEntity;
 import com.blakebr0.cucumber.util.MultiblockPositions;
-import com.blakebr0.mysticalagriculture.api.crafting.IAwakeningRecipe;
-import com.blakebr0.mysticalagriculture.api.crop.ICropProvider;
 import com.blakebr0.mysticalagriculture.crafting.recipe.AwakeningRecipe;
 import com.blakebr0.mysticalagriculture.init.ModRecipeTypes;
 import com.blakebr0.mysticalagriculture.init.ModTileEntities;
-import com.blakebr0.mysticalagriculture.lib.ModCrops;
 import com.blakebr0.mysticalagriculture.util.IActivatable;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.NonNullList;
 import net.minecraft.core.particles.ItemParticleOption;
 import net.minecraft.core.particles.ParticleOptions;
 import net.minecraft.core.particles.ParticleTypes;
@@ -25,11 +22,13 @@ import net.minecraft.world.phys.AABB;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class AwakeningAltarTileEntity extends BaseInventoryTileEntity implements IActivatable {
-    private static final MultiblockPositions PEDESTAL_LOCATIONS = new MultiblockPositions.Builder()
-            .pos(3, 0, 0).pos(2, 0, 2).pos(-3, 0, 0).pos(-2, 0, -2)
-            .pos(0, 0, 3).pos(2, 0, -2).pos(0, 0, -3).pos(-2, 0, 2).build();
+    // the order of these matters, it needs to alternate where vessels end up being odd in the recipe inventory
+    private static final MultiblockPositions PEDESTAL_LOCATIONS = MultiblockPositions.builder()
+            .pos(2, 0, 2).pos(-3, 0, 0).pos(-2, 0, -2).pos(3, 0, 0)
+            .pos(2, 0, -2).pos(0, 0, -3).pos(-2, 0, 2).pos(0, 0, 3).build();
     private final BaseItemStackHandler inventory;
     private final BaseItemStackHandler recipeInventory;
     private AwakeningRecipe recipe;
@@ -110,11 +109,7 @@ public class AwakeningAltarTileEntity extends BaseInventoryTileEntity implements
                         var pedestal = pedestals.get(i);
                         var inventory = pedestal.getInventory();
 
-                        if (pedestal instanceof EssenceVesselTileEntity) {
-                            decrementVesselInventory(inventory, recipe.getEssenceRequirements());
-                        } else {
-                            inventory.setStackInSlot(0, remaining.get(i + 1));
-                        }
+                        inventory.setStackInSlot(0, remaining.get(i + 1));
 
                         tile.spawnParticles(ParticleTypes.SMOKE, pedestal.getBlockPos(), 1.2D, 20);
                     }
@@ -173,6 +168,13 @@ public class AwakeningAltarTileEntity extends BaseInventoryTileEntity implements
                 .filter(p -> p instanceof EssenceVesselTileEntity)
                 .map(p -> (EssenceVesselTileEntity) p)
                 .toList();
+    }
+
+    public NonNullList<ItemStack> getEssenceItems() {
+        return this.getEssenceVessels()
+                .stream()
+                .map(v -> v.getInventory().getStackInSlot(0))
+                .collect(Collectors.toCollection(NonNullList::create));
     }
 
     private void updateRecipeInventory(List<BaseInventoryTileEntity> pedestals) {
@@ -238,37 +240,7 @@ public class AwakeningAltarTileEntity extends BaseInventoryTileEntity implements
     }
 
     private boolean hasRequiredEssences() {
-        boolean hasAir = false, hasEarth = false, hasWater = false, hasFire = false;
-        var requirements = this.recipe.getEssenceRequirements();
-
-        for (int i = 1; i < this.recipeInventory.getSlots(); i++) {
-            var stack = this.recipeInventory.getStackInSlot(i);
-            var item = stack.getItem();
-
-            if (item instanceof ICropProvider provider) {
-                var crop = provider.getCrop();
-                var count = stack.getCount();
-
-                if (!hasAir && crop == ModCrops.AIR) hasAir = count >= requirements.air();
-                if (!hasEarth && crop == ModCrops.EARTH) hasEarth = count >= requirements.earth();
-                if (!hasWater && crop == ModCrops.WATER) hasWater = count >= requirements.water();
-                if (!hasFire && crop == ModCrops.FIRE) hasFire = count >= requirements.fire();
-            }
-        }
-
-        return hasAir && hasEarth && hasWater && hasFire;
-    }
-
-    private static void decrementVesselInventory(BaseItemStackHandler inventory, IAwakeningRecipe.EssenceVesselRequirements requirements) {
-        var item = inventory.getStackInSlot(0).getItem();
-
-        if (item instanceof ICropProvider provider) {
-            var crop = provider.getCrop();
-
-            if (crop == ModCrops.AIR) inventory.setStackInSlot(0, StackHelper.shrink(inventory.getStackInSlot(0), requirements.air(), false));
-            else if (crop == ModCrops.EARTH) inventory.setStackInSlot(0, StackHelper.shrink(inventory.getStackInSlot(0), requirements.earth(), false));
-            else if (crop == ModCrops.WATER) inventory.setStackInSlot(0, StackHelper.shrink(inventory.getStackInSlot(0), requirements.water(), false));
-            else if (crop == ModCrops.FIRE) inventory.setStackInSlot(0, StackHelper.shrink(inventory.getStackInSlot(0), requirements.fire(), false));
-        }
+        var essences = this.getEssenceItems();
+        return this.recipe.hasRequiredEssences(essences);
     }
 }

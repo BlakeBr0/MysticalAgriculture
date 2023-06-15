@@ -1,11 +1,10 @@
 package com.blakebr0.mysticalagriculture.crafting.recipe;
 
 import com.blakebr0.cucumber.crafting.ISpecialRecipe;
+import com.blakebr0.cucumber.helper.StackHelper;
 import com.blakebr0.mysticalagriculture.api.crafting.IAwakeningRecipe;
-import com.blakebr0.mysticalagriculture.api.crop.Crop;
 import com.blakebr0.mysticalagriculture.init.ModRecipeSerializers;
 import com.blakebr0.mysticalagriculture.init.ModRecipeTypes;
-import com.blakebr0.mysticalagriculture.lib.ModCrops;
 import com.google.gson.JsonObject;
 import net.minecraft.core.NonNullList;
 import net.minecraft.core.RegistryAccess;
@@ -22,30 +21,39 @@ import net.minecraft.world.level.Level;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.wrapper.InvWrapper;
 
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
+
 public class AwakeningRecipe implements ISpecialRecipe, IAwakeningRecipe {
     public static final int RECIPE_SIZE = 9;
+
     private final ResourceLocation recipeId;
     private final NonNullList<Ingredient> inputs;
-    private final IAwakeningRecipe.EssenceVesselRequirements essences;
+    private final NonNullList<ItemStack> essences;
     private final ItemStack output;
     private final boolean transferNBT;
 
-    public AwakeningRecipe(ResourceLocation recipeId, NonNullList<Ingredient> inputs, IAwakeningRecipe.EssenceVesselRequirements essences, ItemStack output, boolean transferNBT) {
+    public AwakeningRecipe(ResourceLocation recipeId, NonNullList<Ingredient> inputs, NonNullList<ItemStack> essences, ItemStack output, boolean transferNBT) {
         this.recipeId = recipeId;
-        this.inputs = NonNullList.withSize(9, Ingredient.EMPTY);
         this.essences = essences;
         this.output = output;
         this.transferNBT = transferNBT;
 
-        this.inputs.set(0, inputs.get(0));
-        this.inputs.set(1, createEssenceIngredient(ModCrops.AIR));
-        this.inputs.set(2, inputs.get(1));
-        this.inputs.set(3, createEssenceIngredient(ModCrops.EARTH));
-        this.inputs.set(4, inputs.get(2));
-        this.inputs.set(5, createEssenceIngredient(ModCrops.WATER));
-        this.inputs.set(6, inputs.get(3));
-        this.inputs.set(7, createEssenceIngredient(ModCrops.FIRE));
-        this.inputs.set(8, inputs.get(4));
+        var allInputs = NonNullList.withSize(9, Ingredient.EMPTY);
+
+        allInputs.set(0, inputs.get(0));
+        allInputs.set(1, Ingredient.of(essences.get(0)));
+        allInputs.set(2, inputs.get(1));
+        allInputs.set(3, Ingredient.of(essences.get(1)));
+        allInputs.set(4, inputs.get(2));
+        allInputs.set(5, Ingredient.of(essences.get(2)));
+        allInputs.set(6, inputs.get(3));
+        allInputs.set(7, Ingredient.of(essences.get(3)));
+        allInputs.set(8, inputs.get(4));
+
+        this.inputs = allInputs;
     }
 
     @Override
@@ -113,19 +121,72 @@ public class AwakeningRecipe implements ISpecialRecipe, IAwakeningRecipe {
     }
 
     @Override
-    public IAwakeningRecipe.EssenceVesselRequirements getEssenceRequirements() {
+    public NonNullList<ItemStack> getRemainingItems(IItemHandler inventory) {
+        var remaining = NonNullList.withSize(inventory.getSlots(), ItemStack.EMPTY);
+
+        for (int i = 0; i < remaining.size(); i++) {
+            var stack = inventory.getStackInSlot(i);
+
+            // all the odd indexes happen to be the essences
+            if (i % 2 == 1) {
+                var ingredient = this.inputs.get(i);
+                if (ingredient.isEmpty())
+                    continue;
+
+                // the ingredient will have the same ItemStack instance as the essence
+                // this *should* be the quickest way to find the exact essence in the recipe
+                for (var essence : this.essences) {
+                    if (ingredient.getItems()[0] == essence) {
+                        remaining.set(i, StackHelper.shrink(stack, essence.getCount(), false));
+                        break;
+                    }
+                }
+            } else if (stack.hasCraftingRemainingItem()) {
+                remaining.set(i, stack.getCraftingRemainingItem());
+            }
+        }
+
+        return remaining;
+    }
+
+    @Override
+    public NonNullList<ItemStack> getEssences() {
         return this.essences;
     }
 
-    private static Ingredient createEssenceIngredient(Crop crop) {
-        var item = crop.getEssenceItem();
-        return item == null ? Ingredient.EMPTY : Ingredient.of(item);
+    @Override
+    public Map<ItemStack, Integer> getMissingEssences(List<ItemStack> items) {
+        var remaining = new ArrayList<>(this.essences);
+        var missing = new LinkedHashMap<ItemStack, Integer>();
+
+        for (var item : items) {
+            for (var essence : remaining) {
+                if (ItemStack.isSameItemSameTags(item, essence)) {
+                    var current = item.getCount();
+                    var required = essence.getCount();
+
+                    if (current < required) {
+                        missing.put(essence, required - current);
+                    }
+
+                    remaining.remove(essence);
+
+                    break;
+                }
+            }
+        }
+
+        for (var essence : remaining) {
+            missing.put(essence, essence.getCount());
+        }
+
+        return missing;
     }
 
     public static class Serializer implements RecipeSerializer<AwakeningRecipe> {
         @Override
         public AwakeningRecipe fromJson(ResourceLocation recipeId, JsonObject json) {
-            var inputs = NonNullList.withSize(RECIPE_SIZE, Ingredient.EMPTY);
+            var inputs = NonNullList.withSize(5, Ingredient.EMPTY);
             var input = GsonHelper.getAsJsonObject(json, "input");
 
             inputs.set(0, Ingredient.fromJson(input));
@@ -136,19 +197,17 @@ public class AwakeningRecipe implements ISpecialRecipe, IAwakeningRecipe {
                 inputs.set(i + 1, Ingredient.fromJson(ingredients.get(i)));
             }
 
-            var essences = GsonHelper.getAsJsonObject(json, "essences");
+            var essences = NonNullList.withSize(4, ItemStack.EMPTY);
+            var essenceArray = GsonHelper.getAsJsonArray(json, "essences");
 
-            var essenceRequirements = new IAwakeningRecipe.EssenceVesselRequirements(
-                    GsonHelper.getAsInt(essences, "air"),
-                    GsonHelper.getAsInt(essences, "earth"),
-                    GsonHelper.getAsInt(essences, "water"),
-                    GsonHelper.getAsInt(essences, "fire")
-            );
+            for (int i = 0; i < essenceArray.size(); i++) {
+                essences.set(i, ShapedRecipe.itemStackFromJson(essenceArray.get(i).getAsJsonObject()));
+            }
 
             var result = ShapedRecipe.itemStackFromJson(json.getAsJsonObject("result"));
             var transferNBT = GsonHelper.getAsBoolean(json, "transfer_nbt", false);
 
-            return new AwakeningRecipe(recipeId, inputs, essenceRequirements, result, transferNBT);
+            return new AwakeningRecipe(recipeId, inputs, essences, result, transferNBT);
         }
 
         @Override
@@ -160,12 +219,12 @@ public class AwakeningRecipe implements ISpecialRecipe, IAwakeningRecipe {
                 inputs.set(i, Ingredient.fromNetwork(buffer));
             }
 
-            var essences = new IAwakeningRecipe.EssenceVesselRequirements(
-                    buffer.readVarInt(),
-                    buffer.readVarInt(),
-                    buffer.readVarInt(),
-                    buffer.readVarInt()
-            );
+            size = buffer.readVarInt();
+            var essences = NonNullList.withSize(size, ItemStack.EMPTY);
+
+            for (int i = 0; i < size; i++) {
+                essences.set(i, buffer.readItem());
+            }
 
             var output = buffer.readItem();
             var transferNBT = buffer.readBoolean();
@@ -182,10 +241,11 @@ public class AwakeningRecipe implements ISpecialRecipe, IAwakeningRecipe {
                 recipe.inputs.get(i).toNetwork(buffer);
             }
 
-            buffer.writeVarInt(recipe.essences.air());
-            buffer.writeVarInt(recipe.essences.earth());
-            buffer.writeVarInt(recipe.essences.water());
-            buffer.writeVarInt(recipe.essences.fire());
+            buffer.writeVarInt(4);
+
+            for (int i = 0; i < 4; i++) {
+                buffer.writeItem(recipe.essences.get(i));
+            }
 
             buffer.writeItem(recipe.output);
             buffer.writeBoolean(recipe.transferNBT);
