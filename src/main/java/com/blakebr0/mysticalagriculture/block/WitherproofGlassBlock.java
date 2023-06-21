@@ -6,7 +6,6 @@ import net.minecraft.world.level.Explosion;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.SoundType;
 
-// TODO: 1.20 test these
 public class WitherproofGlassBlock extends BaseGlassBlock {
     public WitherproofGlassBlock() {
         super(p -> p

@@ -50,14 +50,14 @@ public class WateringCanItem extends BaseItem {
     }
 
     @Override
-    public InteractionResultHolder<ItemStack> use(Level world, Player player, InteractionHand hand) {
+    public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
         var stack = player.getItemInHand(hand);
 
         if (NBTHelper.getBoolean(stack, "Water")) {
             return new InteractionResultHolder<>(InteractionResult.PASS, stack);
         }
 
-        var trace = getPlayerPOVHitResult(world, player, ClipContext.Fluid.SOURCE_ONLY);
+        var trace = getPlayerPOVHitResult(level, player, ClipContext.Fluid.SOURCE_ONLY);
 
         if (trace.getType() != HitResult.Type.BLOCK) {
             return new InteractionResultHolder<>(InteractionResult.PASS, stack);
@@ -66,11 +66,10 @@ public class WateringCanItem extends BaseItem {
         var pos = trace.getBlockPos();
         var direction = trace.getDirection();
 
-        if (world.mayInteract(player, pos) && player.mayUseItemAt(pos.relative(direction), direction, stack)) {
-            var state = world.getBlockState(pos);
+        if (level.mayInteract(player, pos) && player.mayUseItemAt(pos.relative(direction), direction, stack)) {
+            var fluid = level.getFluidState(pos);
 
-            // TODO: 1.20 is this the same as MATERIAL = WATER
-            if (state.getFluidState().is(FluidTags.WATER)) {
+            if (fluid.is(FluidTags.WATER)) {
                 NBTHelper.setString(stack, "ID", UUID.randomUUID().toString());
                 NBTHelper.setBoolean(stack, "Water", true);
 
