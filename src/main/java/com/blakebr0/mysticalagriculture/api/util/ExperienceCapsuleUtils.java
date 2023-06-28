@@ -5,7 +5,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 
 public class ExperienceCapsuleUtils {
-   /**
+    /**
      * The maximum amount of xp points an experience capsule can hold
      */
     public static final int MAX_XP_POINTS = 1200;
@@ -25,7 +25,8 @@ public class ExperienceCapsuleUtils {
 
     /**
      * Get a new experience capsule with the specified amount of xp
-     * @param xp the amount of xp points
+     * @param xp   the amount of xp points
+     * @param item the experience capsule item
      * @return the experience capsule
      */
     public static ItemStack getExperienceCapsule(int xp, Item item) {
@@ -51,7 +52,7 @@ public class ExperienceCapsuleUtils {
 
     /**
      * Add experience to an experience capsule
-     * @param stack the experience capsule stack
+     * @param stack  the experience capsule stack
      * @param amount the amount of experience to add
      * @return any experience that wasn't added
      */
@@ -73,5 +74,27 @@ public class ExperienceCapsuleUtils {
 
             return Math.max(0, amount - (newAmount - xp));
         }
+    }
+
+    /**
+     * Remove experience from an experience capsule
+     * @param stack  the experience capsule stack
+     * @param amount the amount of experience to remove
+     * @return any experience that wasn't removed
+     */
+    public static int removeExperienceFromCapsule(ItemStack stack, int amount) {
+        int xp = getExperience(stack);
+        int newAmount = Math.max(0, xp - amount);
+        var nbt = stack.getTag();
+
+        if (nbt == null) {
+            var tag = makeTag(newAmount);
+
+            stack.setTag(tag);
+        } else {
+            nbt.putInt("Experience", newAmount);
+        }
+
+        return Math.max(0, amount - xp);
     }
 }
