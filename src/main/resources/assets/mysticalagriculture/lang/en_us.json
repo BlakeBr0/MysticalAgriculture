@@ -281,6 +281,7 @@
   "tooltip.mysticalagriculture.augment_id": "Augment ID: %s",
   "tooltip.mysticalagriculture.added_by": "Added By: %s",
   "tooltip.mysticalagriculture.set_bonus": "Set Bonus: %s",
+  "tooltip.mysticalagriculture.augments": "Augments:",
   "tooltip.mysticalagriculture.required_biomes": "Required Biomes:",
   "tooltip.mysticalagriculture.secondary_chance": "Secondary Chance: %s",
   "tooltip.mysticalagriculture.inferium_output": "Inferium Output: %s",

@@ -8,7 +8,6 @@ import com.blakebr0.mysticalagriculture.config.ModConfigs;
 import com.blakebr0.mysticalagriculture.lib.ModTooltips;
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
-import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
@@ -65,13 +64,13 @@ public class EssenceSwordItem extends BaseSwordItem implements ITinkerable {
     }
 
     @Override
-    public InteractionResultHolder<ItemStack> use(Level world, Player player, InteractionHand hand) {
+    public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
         var stack = player.getItemInHand(hand);
         var augments = AugmentUtils.getAugments(stack);
         var success = false;
 
         for (var augment : augments) {
-            if (augment.onRightClick(stack, world, player, hand))
+            if (augment.onRightClick(stack, level, player, hand))
                 success = true;
         }
 
@@ -161,12 +160,9 @@ public class EssenceSwordItem extends BaseSwordItem implements ITinkerable {
 
     @OnlyIn(Dist.CLIENT)
     @Override
-    public void appendHoverText(ItemStack stack, Level world, List<Component> tooltip, TooltipFlag flag) {
+    public void appendHoverText(ItemStack stack, Level level, List<Component> tooltip, TooltipFlag flag) {
         tooltip.add(ModTooltips.getTooltipForTier(this.tinkerableTier));
-
-        AugmentUtils.getAugments(stack).forEach(a -> {
-            tooltip.add(a.getDisplayName().withStyle(ChatFormatting.GRAY));
-        });
+        ModTooltips.addAugmentListToTooltip(tooltip, stack, this.slots);
     }
 
     @Override

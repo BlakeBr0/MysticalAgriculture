@@ -6,7 +6,6 @@ import com.blakebr0.mysticalagriculture.api.tinkering.ITinkerable;
 import com.blakebr0.mysticalagriculture.api.util.AugmentUtils;
 import com.blakebr0.mysticalagriculture.config.ModConfigs;
 import com.blakebr0.mysticalagriculture.lib.ModTooltips;
-import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
@@ -161,10 +160,7 @@ public class EssenceCrossbowItem extends BaseCrossbowItem implements ITinkerable
         super.appendHoverText(stack, level, tooltip, flag);
 
         tooltip.add(ModTooltips.getTooltipForTier(this.tinkerableTier));
-
-        AugmentUtils.getAugments(stack).forEach(a -> {
-            tooltip.add(a.getDisplayName().withStyle(ChatFormatting.GRAY));
-        });
+        ModTooltips.addAugmentListToTooltip(tooltip, stack, this.slots);
     }
 
     @Override

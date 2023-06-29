@@ -173,9 +173,7 @@ public class EssenceScytheItem extends BaseScytheItem implements ITinkerable {
 
         tooltip.add(ModTooltips.TOOL_AREA.args(rangeNumber).build());
 
-        AugmentUtils.getAugments(stack).forEach(a -> {
-            tooltip.add(a.getDisplayName().withStyle(ChatFormatting.GRAY));
-        });
+        ModTooltips.addAugmentListToTooltip(tooltip, stack, this.slots);
     }
 
     @Override

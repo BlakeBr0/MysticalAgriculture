@@ -1,10 +1,14 @@
 package com.blakebr0.mysticalagriculture.lib;
 
 import com.blakebr0.cucumber.util.Tooltip;
+import com.blakebr0.mysticalagriculture.api.util.AugmentUtils;
 import com.blakebr0.mysticalagriculture.api.util.TinkerableUtils;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
+import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.fml.ModList;
+
+import java.util.List;
 
 public final class ModTooltips {
     public static final Tooltip EMPTY = new Tooltip("tooltip.mysticalagriculture.empty");
@@ -15,6 +19,7 @@ public final class ModTooltips {
     public static final Tooltip AUGMENT_ID = new Tooltip("tooltip.mysticalagriculture.augment_id");
     public static final Tooltip ADDED_BY = new Tooltip("tooltip.mysticalagriculture.added_by");
     public static final Tooltip SET_BONUS = new Tooltip("tooltip.mysticalagriculture.set_bonus");
+    public static final Tooltip AUGMENTS = new Tooltip("tooltip.mysticalagriculture.augments");
     public static final Tooltip REQUIRED_BIOMES = new Tooltip("tooltip.mysticalagriculture.required_biomes");
     public static final Tooltip SECONDARY_CHANCE = new Tooltip("tooltip.mysticalagriculture.secondary_chance");
     public static final Tooltip INFERIUM_OUTPUT = new Tooltip("tooltip.mysticalagriculture.inferium_output");
@@ -54,5 +59,17 @@ public final class ModTooltips {
     public static Component getAddedByTooltip(String modid) {
         var name = ModList.get().getModFileById(modid).getMods().get(0).getDisplayName();
         return ModTooltips.ADDED_BY.args(name).build();
+    }
+
+    public static void addAugmentListToTooltip(List<Component> tooltip, ItemStack stack, int slots) {
+        tooltip.add(ModTooltips.AUGMENTS.build());
+
+        var augments = AugmentUtils.getAugments(stack);
+
+        for (int i = 0; i < slots; i++) {
+            var augment = i < augments.size() ? augments.get(i).getDisplayName() : ModTooltips.EMPTY.build();
+
+            tooltip.add(Component.literal(" - ").withStyle(ChatFormatting.GRAY).append(augment));
+        }
     }
 }

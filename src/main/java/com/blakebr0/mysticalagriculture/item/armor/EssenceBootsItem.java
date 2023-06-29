@@ -9,7 +9,6 @@ import com.blakebr0.mysticalagriculture.init.ModItems;
 import com.blakebr0.mysticalagriculture.lib.ModTooltips;
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
-import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.stats.Stats;
@@ -79,9 +78,7 @@ public class EssenceBootsItem extends BaseArmorItem implements ITinkerable {
             tooltip.add(ModTooltips.SET_BONUS.args(ModTooltips.AWAKENED_SUPREMIUM_SET_BONUS.build()).build());
         }
 
-        AugmentUtils.getAugments(stack).forEach(a -> {
-            tooltip.add(a.getDisplayName().withStyle(ChatFormatting.GRAY));
-        });
+        ModTooltips.addAugmentListToTooltip(tooltip, stack, this.slots);
     }
 
     @Override

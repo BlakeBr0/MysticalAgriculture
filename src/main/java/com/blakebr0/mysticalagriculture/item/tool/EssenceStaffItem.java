@@ -29,9 +29,10 @@ public class EssenceStaffItem extends BaseItem implements ITinkerable, IElementa
 
     @OnlyIn(Dist.CLIENT)
     @Override
-    public void appendHoverText(ItemStack stack, Level world, List<Component> tooltip, TooltipFlag flag) {
-        tooltip.add(ModTooltips.getTooltipForTier(this.tinkerableTier));
+    public void appendHoverText(ItemStack stack, Level level, List<Component> tooltip, TooltipFlag flag) {
         tooltip.add(Tooltips.NOT_YET_IMPLEMENTED.build());
+        tooltip.add(ModTooltips.getTooltipForTier(this.tinkerableTier));
+        ModTooltips.addAugmentListToTooltip(tooltip, stack, this.slots);
     }
 
     @Override

@@ -167,7 +167,7 @@ public class EssenceSickleItem extends BaseSickleItem implements ITinkerable {
 
     @OnlyIn(Dist.CLIENT)
     @Override
-    public void appendHoverText(ItemStack stack, Level world, List<Component> tooltip, TooltipFlag flag) {
+    public void appendHoverText(ItemStack stack, Level level, List<Component> tooltip, TooltipFlag flag) {
         tooltip.add(ModTooltips.getTooltipForTier(this.tinkerableTier));
 
         var rangeString = String.valueOf(this.range * 2 + 1);
@@ -175,9 +175,7 @@ public class EssenceSickleItem extends BaseSickleItem implements ITinkerable {
 
         tooltip.add(ModTooltips.TOOL_AREA.args(rangeNumber).build());
 
-        AugmentUtils.getAugments(stack).forEach(a -> {
-            tooltip.add(a.getDisplayName().withStyle(ChatFormatting.GRAY));
-        });
+        ModTooltips.addAugmentListToTooltip(tooltip, stack, this.slots);
     }
 
     @Override
