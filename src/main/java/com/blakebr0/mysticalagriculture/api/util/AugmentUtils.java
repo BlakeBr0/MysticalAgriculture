@@ -1,7 +1,6 @@
 package com.blakebr0.mysticalagriculture.api.util;
 
 import com.blakebr0.mysticalagriculture.api.MysticalAgricultureAPI;
-import com.blakebr0.mysticalagriculture.api.crop.CropTier;
 import com.blakebr0.mysticalagriculture.api.tinkering.Augment;
 import com.blakebr0.mysticalagriculture.api.tinkering.ITinkerable;
 import net.minecraft.ChatFormatting;
@@ -128,15 +127,9 @@ public class AugmentUtils {
      * @param tier the tier
      * @return the color
      */
+    @Deprecated(forRemoval = true)
     public static ChatFormatting getColorForTier(int tier) {
-        return switch (tier) {
-            case 1 -> CropTier.ONE.getTextColor();
-            case 2 -> CropTier.TWO.getTextColor();
-            case 3 -> CropTier.THREE.getTextColor();
-            case 4 -> CropTier.FOUR.getTextColor();
-            case 5 -> CropTier.FIVE.getTextColor();
-            default -> ChatFormatting.GRAY;
-        };
+        return TinkerableUtils.getColorForTier(tier);
     }
 
     /**
@@ -144,6 +137,7 @@ public class AugmentUtils {
      * @param tier the tier
      * @return the formatted tier
      */
+    @Deprecated(forRemoval = true)
     public static Component getTooltipForTier(int tier) {
         return Component.literal(String.valueOf(tier)).withStyle(getColorForTier(tier));
     }

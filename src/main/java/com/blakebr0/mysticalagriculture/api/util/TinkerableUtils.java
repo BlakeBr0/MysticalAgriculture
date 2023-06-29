@@ -1,6 +1,9 @@
 package com.blakebr0.mysticalagriculture.api.util;
 
+import com.blakebr0.mysticalagriculture.api.crop.CropTier;
 import com.blakebr0.mysticalagriculture.api.tinkering.ITinkerable;
+import net.minecraft.ChatFormatting;
+import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
@@ -43,5 +46,30 @@ public class TinkerableUtils {
      */
     public static boolean hasArmorSetMinimumTier(Player player, int tier) {
         return getArmorSetMinimumTier(player) == tier;
+    }
+
+    /**
+     * Get the tooltip color for the provided int tier
+     * @param tier the tier
+     * @return the color
+     */
+    public static ChatFormatting getColorForTier(int tier) {
+        return switch (tier) {
+            case 1 -> CropTier.ONE.getTextColor();
+            case 2 -> CropTier.TWO.getTextColor();
+            case 3 -> CropTier.THREE.getTextColor();
+            case 4 -> CropTier.FOUR.getTextColor();
+            case 5 -> CropTier.FIVE.getTextColor();
+            default -> ChatFormatting.GRAY;
+        };
+    }
+
+    /**
+     * Gets the text component variant of the provided tier number for use in tooltips
+     * @param tier the tier
+     * @return the formatted tier
+     */
+    public static Component getTooltipForTier(int tier) {
+        return Component.literal(String.valueOf(tier)).withStyle(getColorForTier(tier));
     }
 }
