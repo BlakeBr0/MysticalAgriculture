@@ -1,6 +1,8 @@
 package com.blakebr0.mysticalagriculture.api.farmland;
 
 import com.blakebr0.mysticalagriculture.api.crop.ICropTierProvider;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -15,15 +17,18 @@ public final class FarmlandConverter {
      */
     public static InteractionResult convert(IFarmlandConverter converter, UseOnContext context) {
         var pos = context.getClickedPos();
-        var world = context.getLevel();
+        var level = context.getLevel();
         var stack = context.getItemInHand();
-        var state = world.getBlockState(pos);
+        var player = context.getPlayer();
+        var state = level.getBlockState(pos);
         var block = state.getBlock();
 
         if (block == Blocks.FARMLAND) {
             var newState = converter.getConvertedFarmland().defaultBlockState().setValue(FarmBlock.MOISTURE, state.getValue(FarmBlock.MOISTURE));
 
-            world.setBlockAndUpdate(pos, newState);
+            level.setBlockAndUpdate(pos, newState);
+            level.playSound(player, pos, SoundEvents.SAND_BREAK, SoundSource.BLOCKS, 1.0F, 1.0F);
+
             stack.shrink(1);
 
             return InteractionResult.SUCCESS;
@@ -36,11 +41,13 @@ public final class FarmlandConverter {
                 if (tier != farmland.getTier()) {
                     var newState = converter.getConvertedFarmland().defaultBlockState().setValue(FarmBlock.MOISTURE, state.getValue(FarmBlock.MOISTURE));
 
-                    world.setBlockAndUpdate(pos, newState);
+                    level.setBlockAndUpdate(pos, newState);
+                    level.playSound(player, pos, SoundEvents.SAND_BREAK, SoundSource.BLOCKS, 1.0F, 1.0F);
+
                     stack.shrink(1);
 
                     if (Math.random() < 0.25) {
-                        Block.popResource(world, pos.above(), new ItemStack(farmland.getTier().getEssence()));
+                        Block.popResource(level, pos.above(), new ItemStack(farmland.getTier().getEssence()));
                     }
 
                     return InteractionResult.SUCCESS;
