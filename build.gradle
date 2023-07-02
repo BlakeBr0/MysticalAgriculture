@@ -121,7 +121,9 @@ dependencies {
     minecraft "net.minecraftforge:forge:${forge_version}"
 
     if (findProject(':Cucumber') != null) {
-        implementation project(':Cucumber')
+        implementation(project(':Cucumber')) {
+            transitive = false
+        }
     } else {
         implementation fg.deobf("com.blakebr0.cucumber:Cucumber:${cucumber_version}")
     }
