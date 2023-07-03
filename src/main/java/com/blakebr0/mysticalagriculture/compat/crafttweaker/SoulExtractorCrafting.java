@@ -1,6 +1,7 @@
 package com.blakebr0.mysticalagriculture.compat.crafttweaker;
 
 import com.blakebr0.cucumber.helper.RecipeHelper;
+import com.blakebr0.mysticalagriculture.MysticalAgriculture;
 import com.blakebr0.mysticalagriculture.api.crafting.ISoulExtractionRecipe;
 import com.blakebr0.mysticalagriculture.crafting.recipe.SoulExtractionRecipe;
 import com.blakebr0.mysticalagriculture.init.ModRecipeTypes;
@@ -34,6 +35,11 @@ public final class SoulExtractorCrafting {
             public String describe() {
                 return "Adding Soul Extractor Crafting recipe for " + input.getCommandString() + " to " + type;
             }
+
+            @Override
+            public String systemName() {
+                return MysticalAgriculture.MOD_ID;
+            }
         });
     }
 
@@ -58,6 +64,11 @@ public final class SoulExtractorCrafting {
             public String describe() {
                 return "Removing Soul Extractor Crafting recipes for item " + stack.getCommandString();
             }
+
+            @Override
+            public String systemName() {
+                return MysticalAgriculture.MOD_ID;
+            }
         });
     }
 
@@ -81,6 +92,11 @@ public final class SoulExtractorCrafting {
             @Override
             public String describe() {
                 return "Removing Soul Extractor Crafting recipes for mob soul type " + type;
+            }
+
+            @Override
+            public String systemName() {
+                return MysticalAgriculture.MOD_ID;
             }
         });
     }

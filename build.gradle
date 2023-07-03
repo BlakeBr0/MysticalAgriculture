@@ -132,16 +132,16 @@ dependencies {
     implementation fg.deobf("curse.maven:the-one-probe-245211:${top_version}")
     compileOnly fg.deobf("com.blamejared.crafttweaker:CraftTweaker-forge-${crafttweaker_version}") // TODO: implementation
 
-    // runtimeOnly fg.deobf("vazkii.patchouli:Patchouli:${patchouli_version}")
+    runtimeOnly fg.deobf("vazkii.patchouli:Patchouli:${patchouli_version}")
     runtimeOnly fg.deobf("mezz.jei:jei-${jei_mc_version}-forge:${jei_version}")
 
     compileOnly "mezz.jei:jei-${jei_mc_version}-common-api:${jei_version}"
     compileOnly "mezz.jei:jei-${jei_mc_version}-forge-api:${jei_version}"
 }
 
-task apiJar(type: Jar) {
+tasks.register('apiJar', Jar) {
     from(sourceSets.main.output) {
-        'com/blakebr0/mysticalagriculture/api/**'
+        include 'com/blakebr0/mysticalagriculture/api/**'
     }
 
     archiveClassifier = 'api'
@@ -171,7 +171,7 @@ publishing {
     publications {
         maven(MavenPublication) {
             artifact jar
-//            artifact apiJar
+            artifact apiJar
         }
     }
 

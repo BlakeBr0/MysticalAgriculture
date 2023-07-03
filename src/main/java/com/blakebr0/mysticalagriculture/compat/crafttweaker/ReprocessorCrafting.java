@@ -1,6 +1,7 @@
 package com.blakebr0.mysticalagriculture.compat.crafttweaker;
 
 import com.blakebr0.cucumber.helper.RecipeHelper;
+import com.blakebr0.mysticalagriculture.MysticalAgriculture;
 import com.blakebr0.mysticalagriculture.crafting.recipe.ReprocessorRecipe;
 import com.blakebr0.mysticalagriculture.init.ModRecipeTypes;
 import com.blamejared.crafttweaker.api.CraftTweakerAPI;
@@ -32,6 +33,11 @@ public final class ReprocessorCrafting {
             public String describe() {
                 return "Adding Reprocessor Crafting recipe for " + output.getCommandString();
             }
+
+            @Override
+            public String systemName() {
+                return MysticalAgriculture.MOD_ID;
+            }
         });
     }
 
@@ -56,6 +62,11 @@ public final class ReprocessorCrafting {
             @Override
             public String describe() {
                 return "Removing Reprocessor Crafting recipes for " + stack.getCommandString();
+            }
+
+            @Override
+            public String systemName() {
+                return MysticalAgriculture.MOD_ID;
             }
         });
     }
