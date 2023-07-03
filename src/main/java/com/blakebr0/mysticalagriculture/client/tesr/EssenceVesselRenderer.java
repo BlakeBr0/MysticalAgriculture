@@ -30,12 +30,12 @@ public class EssenceVesselRenderer implements BlockEntityRenderer<EssenceVesselT
                     .getTextureAtlas(TextureAtlas.LOCATION_BLOCKS)
                     .apply(VESSEL_CONTENT_TEXTURE);
 
-            float filledAmount = 0.4f * ((float) stack.getCount() / (float) inventory.getSlotLimit(0));
+            float fillPercentage = (float) stack.getCount() / (float) inventory.getSlotLimit(0);
+
+            float filledAmount = 0.4f * fillPercentage;
+            float textureOffset = 16.0f - (11.0f * fillPercentage);
 
             matrix.pushPose();
-
-            matrix.translate(.5, .5, .5);
-            matrix.translate(-.5, -.5, -.5);
 
             var color = EssenceVesselColorManager.INSTANCE.getColor(stack);
 
@@ -63,10 +63,10 @@ public class EssenceVesselRenderer implements BlockEntityRenderer<EssenceVesselT
             matrix.mulPose(Axis.ZP.rotationDegrees(90));
 
             // west
-            addVertex(builder, matrix, 0.2f, 1, 0.8f, sprite.getU0(), sprite.getV1(), color, combinedLight);
+            addVertex(builder, matrix, 0.2f, 1, 0.8f, sprite.getU(textureOffset), sprite.getV1(), color, combinedLight);
             addVertex(builder, matrix, 0.2f + filledAmount, 1, 0.8f, sprite.getU1(), sprite.getV1(), color, combinedLight);
             addVertex(builder, matrix, 0.2f + filledAmount, 1, 0.2f, sprite.getU1(), sprite.getV0(), color, combinedLight);
-            addVertex(builder, matrix, 0.2f, 1, 0.2f, sprite.getU0(), sprite.getV0(), color, combinedLight);
+            addVertex(builder, matrix, 0.2f, 1, 0.2f, sprite.getU(textureOffset), sprite.getV0(), color, combinedLight);
 
             matrix.popPose();
             matrix.pushPose();
@@ -76,10 +76,10 @@ public class EssenceVesselRenderer implements BlockEntityRenderer<EssenceVesselT
             matrix.mulPose(Axis.YP.rotationDegrees(180));
 
             // east
-            addVertex(builder, matrix, 0.2f, 1, 0.8f, sprite.getU0(), sprite.getV1(), color, combinedLight);
+            addVertex(builder, matrix, 0.2f, 1, 0.8f, sprite.getU(textureOffset), sprite.getV1(), color, combinedLight);
             addVertex(builder, matrix, 0.2f + filledAmount, 1, 0.8f, sprite.getU1(), sprite.getV1(), color, combinedLight);
             addVertex(builder, matrix, 0.2f + filledAmount, 1, 0.2f, sprite.getU1(), sprite.getV0(), color, combinedLight);
-            addVertex(builder, matrix, 0.2f, 1, 0.2f, sprite.getU0(), sprite.getV0(), color, combinedLight);
+            addVertex(builder, matrix, 0.2f, 1, 0.2f, sprite.getU(textureOffset), sprite.getV0(), color, combinedLight);
 
             matrix.popPose();
             matrix.pushPose();
@@ -91,8 +91,8 @@ public class EssenceVesselRenderer implements BlockEntityRenderer<EssenceVesselT
             // south
             addVertex(builder, matrix, 0.2f, 1, 0.2f + filledAmount, sprite.getU0(), sprite.getV1(), color, combinedLight);
             addVertex(builder, matrix, 0.8f, 1, 0.2f + filledAmount, sprite.getU1(), sprite.getV1(), color, combinedLight);
-            addVertex(builder, matrix, 0.8f, 1, 0.2f, sprite.getU1(), sprite.getV0(), color, combinedLight);
-            addVertex(builder, matrix, 0.2f, 1, 0.2f, sprite.getU0(), sprite.getV0(), color, combinedLight);
+            addVertex(builder, matrix, 0.8f, 1, 0.2f, sprite.getU1(), sprite.getV(textureOffset), color, combinedLight);
+            addVertex(builder, matrix, 0.2f, 1, 0.2f, sprite.getU0(), sprite.getV(textureOffset), color, combinedLight);
 
             matrix.popPose();
             matrix.pushPose();
@@ -103,14 +103,12 @@ public class EssenceVesselRenderer implements BlockEntityRenderer<EssenceVesselT
             // north
             addVertex(builder, matrix, 0.2f, 1, 0.2f + filledAmount, sprite.getU0(), sprite.getV1(), color, combinedLight);
             addVertex(builder, matrix, 0.8f, 1, 0.2f + filledAmount, sprite.getU1(), sprite.getV1(), color, combinedLight);
-            addVertex(builder, matrix, 0.8f, 1, 0.2f, sprite.getU1(), sprite.getV0(), color, combinedLight);
-            addVertex(builder, matrix, 0.2f, 1, 0.2f, sprite.getU0(), sprite.getV0(), color, combinedLight);
+            addVertex(builder, matrix, 0.8f, 1, 0.2f, sprite.getU1(), sprite.getV(textureOffset), color, combinedLight);
+            addVertex(builder, matrix, 0.2f, 1, 0.2f, sprite.getU0(), sprite.getV(textureOffset), color, combinedLight);
 
             matrix.popPose();
 
             matrix.popPose();
-
-            sprite.contents().close();
         }
     }
 
