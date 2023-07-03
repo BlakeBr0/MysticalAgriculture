@@ -16,10 +16,10 @@ public final class AugmentHandler {
         var entity = event.getEntity();
 
         if (entity instanceof Player player) {
-            var world = player.getCommandSenderWorld();
+            var level = player.getCommandSenderWorld();
             var augments = AugmentUtils.getArmorAugments(player);
 
-            augments.forEach(a -> a.onPlayerTick(world, player, ABILITY_CACHE));
+            augments.forEach(a -> a.onPlayerTick(level, player, ABILITY_CACHE));
 
             ABILITY_CACHE.getCachedAbilities(player).forEach(c -> {
                 if (augments.stream().noneMatch(a -> c.equals(a.getId().toString()))) {
@@ -34,10 +34,10 @@ public final class AugmentHandler {
         var entity = event.getEntity();
 
         if (entity instanceof Player player) {
-            var world = player.getCommandSenderWorld();
+            var level = player.getCommandSenderWorld();
 
             AugmentUtils.getArmorAugments(player).forEach(a -> {
-                a.onPlayerFall(world, player, event);
+                a.onPlayerFall(level, player, event);
             });
         }
     }

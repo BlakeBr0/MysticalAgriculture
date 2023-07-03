@@ -4,6 +4,7 @@ import com.blakebr0.cucumber.util.Tooltip;
 import com.blakebr0.mysticalagriculture.api.util.AugmentUtils;
 import com.blakebr0.mysticalagriculture.api.util.TinkerableUtils;
 import net.minecraft.ChatFormatting;
+import net.minecraft.client.Minecraft;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.fml.ModList;
@@ -65,11 +66,17 @@ public final class ModTooltips {
         tooltip.add(ModTooltips.AUGMENTS.build());
 
         var augments = AugmentUtils.getAugments(stack);
+        var player = Minecraft.getInstance().player;
 
         for (int i = 0; i < slots; i++) {
-            var augment = i < augments.size() ? augments.get(i).getDisplayName() : ModTooltips.EMPTY.build();
+            var augment = i < augments.size() ? augments.get(i) : null;
+            var name = augment != null ? augment.getDisplayName() : ModTooltips.EMPTY.build();
 
-            tooltip.add(Component.literal(" - ").withStyle(ChatFormatting.GRAY).append(augment));
+            if (augment != null && augment.hasSetBonus() && TinkerableUtils.hasArmorSetMinimumTier(player, augment.getTier())) {
+                name.withStyle(ChatFormatting.GREEN);
+            }
+
+            tooltip.add(Component.literal(" - ").withStyle(ChatFormatting.GRAY).append(name));
         }
     }
 }

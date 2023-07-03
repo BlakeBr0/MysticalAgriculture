@@ -43,7 +43,7 @@ public class AugmentItem extends BaseItem implements IAugmentProvider {
 
     @OnlyIn(Dist.CLIENT)
     @Override
-    public void appendHoverText(ItemStack stack, Level world, List<Component> tooltip, TooltipFlag flag) {
+    public void appendHoverText(ItemStack stack, Level level, List<Component> tooltip, TooltipFlag flag) {
         tooltip.add(ModTooltips.getTooltipForTier(this.augment.getTier()));
         tooltip.add(Component.literal(Colors.GRAY + this.augment.getAugmentTypes()
                 .stream()
@@ -51,6 +51,10 @@ public class AugmentItem extends BaseItem implements IAugmentProvider {
                 .map(Component::getString)
                 .collect(Collectors.joining(", "))
         ));
+
+        if (this.augment.hasSetBonus()) {
+            tooltip.add(ModTooltips.SET_BONUS.args(this.augment.getSetBonusDisplayText()).build());
+        }
 
         if (flag.isAdvanced()) {
             tooltip.add(ModTooltips.AUGMENT_ID.args(this.augment.getId()).color(ChatFormatting.DARK_GRAY).build());

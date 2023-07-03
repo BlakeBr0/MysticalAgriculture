@@ -39,15 +39,15 @@ public class PathingAOEAugment extends Augment {
             return false;
 
         var stack = context.getItemInHand();
-        var world = context.getLevel();
+        var level = context.getLevel();
         var pos = context.getClickedPos();
         var direction = context.getClickedFace();
         var hand = context.getHand();
 
         var playedSound = false;
 
-        if (tryPath(stack, player, world, pos, direction, hand)) {
-            world.playSound(player, pos, SoundEvents.SHOVEL_FLATTEN, SoundSource.BLOCKS, 1.0F, 1.0F);
+        if (tryPath(stack, player, level, pos, direction, hand)) {
+            level.playSound(player, pos, SoundEvents.SHOVEL_FLATTEN, SoundSource.BLOCKS, 1.0F, 1.0F);
 
             playedSound = true;
 
@@ -61,8 +61,8 @@ public class PathingAOEAugment extends Augment {
             while (positions.hasNext()) {
                 var aoePos = positions.next();
 
-                if (tryPath(stack, player, world, aoePos, direction, hand) && !playedSound) {
-                    world.playSound(player, pos, SoundEvents.HOE_TILL, SoundSource.BLOCKS, 1.0F, 1.0F);
+                if (tryPath(stack, player, level, aoePos, direction, hand) && !playedSound) {
+                    level.playSound(player, pos, SoundEvents.HOE_TILL, SoundSource.BLOCKS, 1.0F, 1.0F);
 
                     playedSound = true;
                 }

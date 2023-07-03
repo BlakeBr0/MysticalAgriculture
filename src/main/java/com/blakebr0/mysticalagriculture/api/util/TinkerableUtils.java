@@ -33,6 +33,11 @@ public class TinkerableUtils {
 
             if (tinkerable == null)
                 return -1;
+
+            var tinkerableTier = tinkerable.getTinkerableTier();
+
+            if (tinkerableTier > tier)
+                tier = tinkerableTier;
         }
 
         return tier;
@@ -45,7 +50,7 @@ public class TinkerableUtils {
      * @return has the minimum tier equipped
      */
     public static boolean hasArmorSetMinimumTier(Player player, int tier) {
-        return getArmorSetMinimumTier(player) == tier;
+        return getArmorSetMinimumTier(player) >= tier;
     }
 
     /**

@@ -17,7 +17,7 @@ public class WaterBreathingAugment extends Augment {
     }
 
     @Override
-    public void onArmorTick(ItemStack stack, Level world, Player player) {
+    public void onArmorTick(ItemStack stack, Level level, Player player) {
         player.addEffect(new MobEffectInstance(MobEffects.WATER_BREATHING, 5, 0, true, false));
     }
 }

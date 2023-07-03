@@ -15,7 +15,7 @@ public class NoFallDamageAugment extends Augment {
     }
 
     @Override
-    public void onPlayerFall(Level world, Player player, LivingFallEvent event) {
+    public void onPlayerFall(Level level, Player player, LivingFallEvent event) {
         event.setDamageMultiplier(0);
     }
 }

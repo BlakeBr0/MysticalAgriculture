@@ -17,7 +17,7 @@ public class NightVisionAugment extends Augment {
     }
 
     @Override
-    public void onArmorTick(ItemStack stack, Level world, Player player) {
+    public void onArmorTick(ItemStack stack, Level level, Player player) {
         player.addEffect(new MobEffectInstance(MobEffects.NIGHT_VISION, 240, 0, true, false));
     }
 }

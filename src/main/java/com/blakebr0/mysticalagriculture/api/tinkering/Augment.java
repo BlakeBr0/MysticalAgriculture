@@ -28,7 +28,7 @@ import java.util.EnumSet;
 
 /**
  * The default implementation of an Augment
- *
+ * <p>
  * Extend this class for your augments
  */
 public class Augment {
@@ -190,12 +190,12 @@ public class Augment {
     /**
      * Called when the item is right-clicked while not targeting a block, {@link Item#use(Level, Player, InteractionHand)}
      * @param stack the item
-     * @param world the world
+     * @param level the level
      * @param player the player
      * @param hand the hand
      * @return was the action successful
      */
-    public boolean onRightClick(ItemStack stack, Level world, Player player, InteractionHand hand) {
+    public boolean onRightClick(ItemStack stack, Level level, Player player, InteractionHand hand) {
         return false;
     }
 
@@ -225,13 +225,13 @@ public class Augment {
     /**
      * Called when a block is destroyed using this item, {@link Item#mineBlock(ItemStack, Level, BlockState, BlockPos, LivingEntity)}
      * @param stack the item
-     * @param world the world
+     * @param level the level
      * @param state the block destroyed
      * @param pos the pos of the block destroyed
      * @param entity the entity that destroyed the block
      * @return was the action successful
      */
-    public boolean onBlockDestroyed(ItemStack stack, Level world, BlockState state, BlockPos pos, LivingEntity entity) {
+    public boolean onBlockDestroyed(ItemStack stack, Level level, BlockState state, BlockPos pos, LivingEntity entity) {
         return false;
     }
 
@@ -249,36 +249,36 @@ public class Augment {
     /**
      * Called when the item is ticked in the player's inventory
      * @param stack the item
-     * @param world the world
+     * @param level the level
      * @param entity the player
      * @param slot the slot
      * @param isSelected is currently being held
      */
-    public void onInventoryTick(ItemStack stack, Level world, Entity entity, int slot, boolean isSelected) { }
+    public void onInventoryTick(ItemStack stack, Level level, Entity entity, int slot, boolean isSelected) { }
 
     /**
      * Called every tick for equipped armor, {@link Item#onArmorTick(ItemStack, Level, Player)}
      * @param stack the item
-     * @param world the world
+     * @param level the level
      * @param player the player
      */
-    public void onArmorTick(ItemStack stack, Level world, Player player) { }
+    public void onArmorTick(ItemStack stack, Level level, Player player) { }
 
     /**
      * Called every tick for equipped armor, meant for player ability changes, {@link LivingEvent.LivingTickEvent}
-     * @param world the world
+     * @param level the level
      * @param player the player
      * @param cache the ability cache
      */
-    public void onPlayerTick(Level world, Player player, AbilityCache cache) { }
+    public void onPlayerTick(Level level, Player player, AbilityCache cache) { }
 
     /**
      * Called when the player hits the ground
-     * @param world the world
+     * @param level the level
      * @param player the player
      * @param event the fall event
      */
-    public void onPlayerFall(Level world, Player player, LivingFallEvent event) { }
+    public void onPlayerFall(Level level, Player player, LivingFallEvent event) { }
 
     /**
      * Add or modify the tool attributes
@@ -295,4 +295,20 @@ public class Augment {
      * @param stack the item
      */
     public void addArmorAttributeModifiers(Multimap<Attribute, AttributeModifier> attributes, EquipmentSlot slot, ItemStack stack) { }
+
+    /**
+     * Does this augment have a set bonus
+     * @return has set bonus
+     */
+    public boolean hasSetBonus() {
+        return false;
+    }
+
+    /**
+     * Get the localized text of the set bonus using the key augment.{@link Augment#getModId()}.{@link Augment#getName()}.set_bonus
+     * @return the localized text of the set bonus
+     */
+    public Component getSetBonusDisplayText() {
+        return Component.translatable(String.format("augment.%s.%s.set_bonus", this.getModId(), this.getName()));
+    }
 }

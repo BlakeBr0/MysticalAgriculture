@@ -15,7 +15,7 @@ public class FlightAugment extends Augment {
     }
 
     @Override
-    public void onPlayerTick(Level world, Player player, AbilityCache cache) {
+    public void onPlayerTick(Level level, Player player, AbilityCache cache) {
         var abilities = player.getAbilities();
 
         if (!abilities.mayfly || !cache.isCached(this, player)) {
