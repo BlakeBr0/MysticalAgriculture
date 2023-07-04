@@ -6,6 +6,7 @@ import com.blakebr0.cucumber.util.Formatting;
 import com.blakebr0.mysticalagriculture.init.ModTileEntities;
 import com.blakebr0.mysticalagriculture.lib.ModTooltips;
 import com.blakebr0.mysticalagriculture.tileentity.HarvesterTileEntity;
+import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -100,12 +101,16 @@ public class HarvesterBlock extends BaseTileEntityBlock {
     public void appendHoverText(ItemStack stack, BlockGetter level, List<Component> tooltip, TooltipFlag flag) {
         if (Screen.hasShiftDown()) {
             var rangeString = String.valueOf(HarvesterTileEntity.BASE_RANGE * 2 + 1);
-            var rangeNumber = Component.literal(rangeString + "x" + rangeString);
 
-            tooltip.add(ModTooltips.MACHINE_AREA.args(rangeNumber).build());
-            tooltip.add(ModTooltips.MACHINE_SPEED.args(Formatting.number(HarvesterTileEntity.OPERATION_TIME)).build());
-            tooltip.add(ModTooltips.MACHINE_FUEL_RATE.args(Formatting.number(HarvesterTileEntity.SCAN_FUEL_USAGE)).build());
-            tooltip.add(ModTooltips.MACHINE_FUEL_CAPACITY.args(Formatting.number(HarvesterTileEntity.FUEL_CAPACITY)).build());
+            var area = Component.literal(rangeString + "x" + rangeString).withStyle(ChatFormatting.WHITE);
+            var speed = Formatting.number(HarvesterTileEntity.OPERATION_TIME).withStyle(ChatFormatting.WHITE);
+            var fuelRate = Formatting.number(HarvesterTileEntity.SCAN_FUEL_USAGE).withStyle(ChatFormatting.WHITE);
+            var fuelCapacity = Formatting.number(HarvesterTileEntity.FUEL_CAPACITY).withStyle(ChatFormatting.WHITE);
+
+            tooltip.add(ModTooltips.MACHINE_AREA.args(area).build());
+            tooltip.add(ModTooltips.MACHINE_SPEED.args(speed).build());
+            tooltip.add(ModTooltips.MACHINE_FUEL_RATE.args(fuelRate).build());
+            tooltip.add(ModTooltips.MACHINE_FUEL_CAPACITY.args(fuelCapacity).build());
         } else {
             tooltip.add(Tooltips.HOLD_SHIFT_FOR_INFO.build());
         }

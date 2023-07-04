@@ -6,6 +6,7 @@ import com.blakebr0.cucumber.util.Formatting;
 import com.blakebr0.mysticalagriculture.init.ModTileEntities;
 import com.blakebr0.mysticalagriculture.lib.ModTooltips;
 import com.blakebr0.mysticalagriculture.tileentity.SoulExtractorTileEntity;
+import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -99,9 +100,13 @@ public class SoulExtractorBlock extends BaseTileEntityBlock {
     @Override
     public void appendHoverText(ItemStack stack, BlockGetter level, List<Component> tooltip, TooltipFlag flag) {
         if (Screen.hasShiftDown()) {
-            tooltip.add(ModTooltips.MACHINE_SPEED.args(Formatting.number(SoulExtractorTileEntity.OPERATION_TIME)).build());
-            tooltip.add(ModTooltips.MACHINE_FUEL_RATE.args(Formatting.number(SoulExtractorTileEntity.FUEL_USAGE)).build());
-            tooltip.add(ModTooltips.MACHINE_FUEL_CAPACITY.args(Formatting.number(SoulExtractorTileEntity.FUEL_CAPACITY)).build());
+            var speed = Formatting.number(SoulExtractorTileEntity.OPERATION_TIME).withStyle(ChatFormatting.WHITE);
+            var fuelRate = Formatting.number(SoulExtractorTileEntity.FUEL_USAGE).withStyle(ChatFormatting.WHITE);
+            var fuelCapacity = Formatting.number(SoulExtractorTileEntity.FUEL_CAPACITY).withStyle(ChatFormatting.WHITE);
+
+            tooltip.add(ModTooltips.MACHINE_SPEED.args(speed).build());
+            tooltip.add(ModTooltips.MACHINE_FUEL_RATE.args(fuelRate).build());
+            tooltip.add(ModTooltips.MACHINE_FUEL_CAPACITY.args(fuelCapacity).build());
         } else {
             tooltip.add(Tooltips.HOLD_SHIFT_FOR_INFO.build());
         }

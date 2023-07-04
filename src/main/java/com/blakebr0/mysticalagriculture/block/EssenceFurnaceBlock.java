@@ -1,10 +1,13 @@
 package com.blakebr0.mysticalagriculture.block;
 
+import com.blakebr0.cucumber.lib.Tooltips;
 import com.blakebr0.cucumber.util.Formatting;
 import com.blakebr0.mysticalagriculture.init.ModTileEntities;
 import com.blakebr0.mysticalagriculture.lib.ModTooltips;
 import com.blakebr0.mysticalagriculture.tileentity.EssenceFurnaceTileEntity;
 import com.blakebr0.mysticalagriculture.util.FurnaceTier;
+import net.minecraft.ChatFormatting;
+import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.stats.Stats;
@@ -68,15 +71,19 @@ public abstract class EssenceFurnaceBlock extends AbstractFurnaceBlock {
     @OnlyIn(Dist.CLIENT)
     @Override
     public void appendHoverText(ItemStack stack, BlockGetter level, List<Component> tooltip, TooltipFlag flag) {
-        double cookingSpeedDifference = 200D * this.tier.getCookTimeMultiplier();
-        double cookingSpeedValue = Math.ceil(((200D - cookingSpeedDifference) / cookingSpeedDifference) * 100D) + 100D;
-        var cookingSpeed = Formatting.percent(cookingSpeedValue);
-        double burnTimeDifference = (1600D * this.tier.getBurnTimeMultiplier()) / cookingSpeedDifference;
-        double burnTimeValue = Math.ceil(((burnTimeDifference - 8D) / 8D) * 100D) + 100D;
-        var fuelEfficiency = Formatting.percent(burnTimeValue);
+        if (Screen.hasShiftDown()) {
+            double cookingSpeedDifference = 200D * this.tier.getCookTimeMultiplier();
+            double cookingSpeedValue = Math.ceil(((200D - cookingSpeedDifference) / cookingSpeedDifference) * 100D) + 100D;
+            var cookingSpeed = Formatting.percent(cookingSpeedValue).withStyle(ChatFormatting.WHITE);
+            double burnTimeDifference = (1600D * this.tier.getBurnTimeMultiplier()) / cookingSpeedDifference;
+            double burnTimeValue = Math.ceil(((burnTimeDifference - 8D) / 8D) * 100D) + 100D;
+            var fuelEfficiency = Formatting.percent(burnTimeValue).withStyle(ChatFormatting.WHITE);
 
-        tooltip.add(ModTooltips.COOKING_SPEED.args(cookingSpeed).build());
-        tooltip.add(ModTooltips.FUEL_EFFICIENCY.args(fuelEfficiency).build());
+            tooltip.add(ModTooltips.COOKING_SPEED.args(cookingSpeed).build());
+            tooltip.add(ModTooltips.FUEL_EFFICIENCY.args(fuelEfficiency).build());
+        } else {
+            tooltip.add(Tooltips.HOLD_SHIFT_FOR_INFO.build());
+        }
     }
 
     public static class Inferium extends EssenceFurnaceBlock {

@@ -2,6 +2,7 @@ package com.blakebr0.mysticalagriculture.item;
 
 import com.blakebr0.cucumber.item.BaseItem;
 import com.blakebr0.cucumber.lib.Tooltips;
+import com.blakebr0.cucumber.util.Formatting;
 import com.blakebr0.mysticalagriculture.lib.ModTooltips;
 import com.blakebr0.mysticalagriculture.util.IUpgradeableMachine;
 import com.blakebr0.mysticalagriculture.util.MachineUpgradeTier;
@@ -16,7 +17,6 @@ import net.minecraft.world.level.Level;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 
-import java.text.NumberFormat;
 import java.util.List;
 
 public class MachineUpgradeItem extends BaseItem {
@@ -55,10 +55,15 @@ public class MachineUpgradeItem extends BaseItem {
     @Override
     public void appendHoverText(ItemStack stack, Level level, List<Component> tooltip, TooltipFlag flag) {
         if (Screen.hasShiftDown()) {
-            tooltip.add(ModTooltips.UPGRADE_SPEED.args(this.getStatText(this.tier.getOperationTimeMultiplier())).build());
-            tooltip.add(ModTooltips.UPGRADE_FUEL_RATE.args(this.getStatText(this.tier.getFuelUsageMultiplier())).build());
-            tooltip.add(ModTooltips.UPGRADE_FUEL_CAPACITY.args(this.getStatText(this.tier.getFuelCapacityMultiplier())).build());
-            tooltip.add(ModTooltips.UPGRADE_AREA.args(this.getStatText(this.tier.getAddedRange())).build());
+            var speed = Formatting.number(1 / this.tier.getOperationTimeMultiplier()).withStyle(this.tier.getTextColor());
+            var fuelRate = Formatting.number(this.tier.getFuelUsageMultiplier()).withStyle(this.tier.getTextColor());
+            var fuelCapacity = Formatting.number(this.tier.getFuelCapacityMultiplier()).withStyle(this.tier.getTextColor());
+            var area = Formatting.number(this.tier.getAddedRange()).withStyle(this.tier.getTextColor());
+
+            tooltip.add(ModTooltips.UPGRADE_SPEED.args(speed).build());
+            tooltip.add(ModTooltips.UPGRADE_FUEL_RATE.args(fuelRate).build());
+            tooltip.add(ModTooltips.UPGRADE_FUEL_CAPACITY.args(fuelCapacity).build());
+            tooltip.add(ModTooltips.UPGRADE_AREA.args(area).build());
         } else {
             tooltip.add(Tooltips.HOLD_SHIFT_FOR_INFO.build());
         }
@@ -66,10 +71,5 @@ public class MachineUpgradeItem extends BaseItem {
 
     public MachineUpgradeTier getTier() {
         return this.tier;
-    }
-
-    private Component getStatText(Object stat) {
-        var number = NumberFormat.getInstance().format(stat);
-        return Component.literal(number).withStyle(this.tier.getTextColor());
     }
 }
