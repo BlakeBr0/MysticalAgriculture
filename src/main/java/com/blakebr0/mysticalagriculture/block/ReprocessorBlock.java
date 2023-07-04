@@ -74,6 +74,7 @@ public class ReprocessorBlock extends BaseTileEntityBlock {
 
             if (tile instanceof ReprocessorTileEntity reprocessor) {
                 Containers.dropContents(level, pos, reprocessor.getInventory().getStacks());
+                Containers.dropContents(level, pos, reprocessor.getUpgradeInventory().getStacks());
             }
         }
 
