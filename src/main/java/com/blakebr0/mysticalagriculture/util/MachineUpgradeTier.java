@@ -4,10 +4,10 @@ import com.blakebr0.mysticalagriculture.api.crop.CropTier;
 import net.minecraft.ChatFormatting;
 
 public enum MachineUpgradeTier {
-    INFERIUM(CropTier.ONE, 0.84D, 2, 2, 1),
+    INFERIUM(CropTier.ONE, 0.833D, 2, 2, 1),
     PRUDENTIUM(CropTier.TWO, 0.625D, 4, 3, 2),
     TERTIUM(CropTier.THREE, 0.4D, 6, 4, 3),
-    IMPERIUM(CropTier.FOUR, 0.145D, 16, 5, 4),
+    IMPERIUM(CropTier.FOUR, 0.125D, 16, 5, 4),
     SUPREMIUM(CropTier.FIVE, 0.025D, 48, 6, 5),
     AWAKENED_SUPREMIUM(CropTier.FIVE, 0.005D, 96, 7, 6);
 
