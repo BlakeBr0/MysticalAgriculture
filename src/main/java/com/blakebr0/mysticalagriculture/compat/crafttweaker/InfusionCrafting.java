@@ -1,6 +1,7 @@
 package com.blakebr0.mysticalagriculture.compat.crafttweaker;
 
 import com.blakebr0.cucumber.helper.RecipeHelper;
+import com.blakebr0.mysticalagriculture.MysticalAgriculture;
 import com.blakebr0.mysticalagriculture.crafting.recipe.InfusionRecipe;
 import com.blakebr0.mysticalagriculture.init.ModRecipeTypes;
 import com.blamejared.crafttweaker.api.CraftTweakerAPI;
@@ -39,6 +40,11 @@ public final class InfusionCrafting {
             public String describe() {
                 return "Adding Infusion Crafting recipe for " + output.getCommandString();
             }
+
+            @Override
+            public String systemName() {
+                return MysticalAgriculture.MOD_ID;
+            }
         });
     }
 
@@ -63,6 +69,11 @@ public final class InfusionCrafting {
             @Override
             public String describe() {
                 return "Removing Infusion Crafting recipes for " + stack.getCommandString();
+            }
+
+            @Override
+            public String systemName() {
+                return MysticalAgriculture.MOD_ID;
             }
         });
     }
