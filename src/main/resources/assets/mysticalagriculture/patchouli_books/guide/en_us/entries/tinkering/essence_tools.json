@@ -11,7 +11,7 @@
     {
       "type": "crafting",
       "title": "book.mysticalagriculture.crafting",
-      "recipe": "mysticalagriculture:inferium_pickaxe"
+      "recipe": "mysticalagriculture:gear/inferium_pickaxe"
     }
   ]
 }

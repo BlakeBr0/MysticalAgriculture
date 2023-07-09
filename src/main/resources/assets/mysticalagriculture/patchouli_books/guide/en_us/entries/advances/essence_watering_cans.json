@@ -11,7 +11,7 @@
     {
       "type": "crafting",
       "title": "book.mysticalagriculture.crafting",
-      "recipe": "mysticalagriculture:inferium_watering_can"
+      "recipe": "mysticalagriculture:gear/inferium_watering_can"
     }
   ]
 }

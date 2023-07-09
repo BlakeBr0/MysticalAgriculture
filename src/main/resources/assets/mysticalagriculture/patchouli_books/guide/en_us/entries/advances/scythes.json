@@ -12,7 +12,7 @@
       "type": "crafting",
       "title": "book.mysticalagriculture.crafting",
       "recipe": "mysticalagriculture:diamond_scythe",
-      "recipe2": "mysticalagriculture:inferium_scythe"
+      "recipe2": "mysticalagriculture:gear/inferium_scythe"
     }
   ]
 }
