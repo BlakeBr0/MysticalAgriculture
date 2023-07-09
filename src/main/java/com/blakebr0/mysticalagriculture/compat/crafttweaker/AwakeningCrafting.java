@@ -1,6 +1,7 @@
 package com.blakebr0.mysticalagriculture.compat.crafttweaker;
 
 import com.blakebr0.cucumber.helper.RecipeHelper;
+import com.blakebr0.mysticalagriculture.MysticalAgriculture;
 import com.blakebr0.mysticalagriculture.api.crafting.IAwakeningRecipe;
 import com.blakebr0.mysticalagriculture.crafting.recipe.AwakeningRecipe;
 import com.blakebr0.mysticalagriculture.init.ModRecipeTypes;
@@ -40,6 +41,11 @@ public final class AwakeningCrafting {
             public String describe() {
                 return "Adding Awakening Crafting recipe for " + output.getCommandString();
             }
+
+            @Override
+            public String systemName() {
+                return MysticalAgriculture.MOD_ID;
+            }
         });
     }
 
@@ -63,6 +69,11 @@ public final class AwakeningCrafting {
             @Override
             public String describe() {
                 return "Removing Awakening Crafting recipes for " + stack.getCommandString();
+            }
+
+            @Override
+            public String systemName() {
+                return MysticalAgriculture.MOD_ID;
             }
         });
     }
