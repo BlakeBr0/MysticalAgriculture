@@ -52,6 +52,8 @@ public class AugmentItem extends BaseItem implements IAugmentProvider {
                 .collect(Collectors.joining(", "))
         ));
 
+        tooltip.add(this.augment.getDescriptionDisplayText());
+
         if (this.augment.hasSetBonus()) {
             tooltip.add(ModTooltips.SET_BONUS.args(this.augment.getSetBonusDisplayText()).build());
         }

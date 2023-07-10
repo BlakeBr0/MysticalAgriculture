@@ -3,6 +3,7 @@ package com.blakebr0.mysticalagriculture.api.tinkering;
 import com.blakebr0.mysticalagriculture.api.MysticalAgricultureAPI;
 import com.blakebr0.mysticalagriculture.api.lib.AbilityCache;
 import com.google.common.collect.Multimap;
+import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
@@ -91,6 +92,14 @@ public class Augment {
      */
     public MutableComponent getDisplayName() {
         return Component.translatable(String.format("augment.%s.%s", this.getModId(), this.getName()));
+    }
+
+    /**
+     * Get the localized description of this augment using the key augment.{@link Augment#getModId()}.{@link Augment#getName()}.description
+     * @return the localized description of this augment
+     */
+    public MutableComponent getDescriptionDisplayText() {
+        return Component.translatable(String.format("augment.%s.%s.description", this.getModId(), this.getName())).withStyle(ChatFormatting.GRAY);
     }
 
     /**
@@ -308,7 +317,7 @@ public class Augment {
      * Get the localized text of the set bonus using the key augment.{@link Augment#getModId()}.{@link Augment#getName()}.set_bonus
      * @return the localized text of the set bonus
      */
-    public Component getSetBonusDisplayText() {
-        return Component.translatable(String.format("augment.%s.%s.set_bonus", this.getModId(), this.getName()));
+    public MutableComponent getSetBonusDisplayText() {
+        return Component.translatable(String.format("augment.%s.%s.set_bonus", this.getModId(), this.getName())).withStyle(ChatFormatting.GRAY);
     }
 }
