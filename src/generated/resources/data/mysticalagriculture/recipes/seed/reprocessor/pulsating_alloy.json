@@ -1,0 +1,16 @@
+{
+  "type": "mysticalagriculture:reprocessor",
+  "conditions": [
+    {
+      "type": "mysticalagriculture:crop_enabled",
+      "crop": "mysticalagriculture:pulsating_alloy"
+    }
+  ],
+  "input": {
+    "item": "mysticalagriculture:pulsating_alloy_seeds"
+  },
+  "result": {
+    "count": 2,
+    "item": "mysticalagriculture:pulsating_alloy_essence"
+  }
+}

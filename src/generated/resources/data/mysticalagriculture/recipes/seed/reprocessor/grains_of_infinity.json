@@ -1,0 +1,16 @@
+{
+  "type": "mysticalagriculture:reprocessor",
+  "conditions": [
+    {
+      "type": "mysticalagriculture:crop_enabled",
+      "crop": "mysticalagriculture:grains_of_infinity"
+    }
+  ],
+  "input": {
+    "item": "mysticalagriculture:grains_of_infinity_seeds"
+  },
+  "result": {
+    "count": 2,
+    "item": "mysticalagriculture:grains_of_infinity_essence"
+  }
+}

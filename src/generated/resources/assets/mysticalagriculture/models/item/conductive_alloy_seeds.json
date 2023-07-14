@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "mysticalagriculture:item/seeds/conductive_alloy_seeds"
+  }
+}

@@ -1,0 +1,63 @@
+{
+  "type": "mysticalagriculture:infusion",
+  "conditions": [
+    {
+      "type": "mysticalagriculture:crop_enabled",
+      "crop": "mysticalagriculture:soularium"
+    },
+    {
+      "type": "mysticalagriculture:crop_has_material",
+      "crop": "mysticalagriculture:soularium"
+    }
+  ],
+  "ingredients": [
+    {
+      "type": "mysticalagriculture:crop_component",
+      "component": "material",
+      "crop": "mysticalagriculture:soularium"
+    },
+    {
+      "type": "mysticalagriculture:crop_component",
+      "component": "essence",
+      "crop": "mysticalagriculture:soularium"
+    },
+    {
+      "type": "mysticalagriculture:crop_component",
+      "component": "material",
+      "crop": "mysticalagriculture:soularium"
+    },
+    {
+      "type": "mysticalagriculture:crop_component",
+      "component": "essence",
+      "crop": "mysticalagriculture:soularium"
+    },
+    {
+      "type": "mysticalagriculture:crop_component",
+      "component": "material",
+      "crop": "mysticalagriculture:soularium"
+    },
+    {
+      "type": "mysticalagriculture:crop_component",
+      "component": "essence",
+      "crop": "mysticalagriculture:soularium"
+    },
+    {
+      "type": "mysticalagriculture:crop_component",
+      "component": "material",
+      "crop": "mysticalagriculture:soularium"
+    },
+    {
+      "type": "mysticalagriculture:crop_component",
+      "component": "essence",
+      "crop": "mysticalagriculture:soularium"
+    }
+  ],
+  "input": {
+    "type": "mysticalagriculture:crop_component",
+    "component": "seed",
+    "crop": "mysticalagriculture:soularium"
+  },
+  "result": {
+    "item": "mysticalagriculture:soularium_seeds"
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "conditions": [
+    {
+      "type": "mysticalagriculture:seed_crafting_recipes_enabled"
+    },
+    {
+      "type": "mysticalagriculture:crop_enabled",
+      "crop": "mysticalagriculture:end_steel"
+    },
+    {
+      "type": "mysticalagriculture:crop_has_material",
+      "crop": "mysticalagriculture:end_steel"
+    }
+  ],
+  "group": "mysticalagriculture:seeds",
+  "key": {
+    "E": {
+      "type": "mysticalagriculture:crop_component",
+      "component": "essence",
+      "crop": "mysticalagriculture:end_steel"
+    },
+    "M": {
+      "type": "mysticalagriculture:crop_component",
+      "component": "material",
+      "crop": "mysticalagriculture:end_steel"
+    },
+    "S": {
+      "type": "mysticalagriculture:crop_component",
+      "component": "seed",
+      "crop": "mysticalagriculture:end_steel"
+    }
+  },
+  "pattern": [
+    "MEM",
+    "ESE",
+    "MEM"
+  ],
+  "result": {
+    "item": "mysticalagriculture:end_steel_seeds"
+  }
+}

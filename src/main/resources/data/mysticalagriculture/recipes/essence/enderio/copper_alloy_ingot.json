@@ -1,0 +1,23 @@
+{
+  "type": "cucumber:shaped_no_mirror",
+  "conditions": [
+    {
+      "type": "mysticalagriculture:crop_enabled",
+      "crop": "mysticalagriculture:copper_alloy"
+    }
+  ],
+  "pattern": [
+    "EEE",
+    "E E",
+    "EEE"
+  ],
+  "key": {
+    "E": {
+      "item": "mysticalagriculture:copper_alloy_essence"
+    }
+  },
+  "result": {
+    "item": "enderio:copper_alloy_ingot",
+    "count": 6
+  }
+}

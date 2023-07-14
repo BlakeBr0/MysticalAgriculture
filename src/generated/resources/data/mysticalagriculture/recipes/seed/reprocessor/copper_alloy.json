@@ -1,0 +1,16 @@
+{
+  "type": "mysticalagriculture:reprocessor",
+  "conditions": [
+    {
+      "type": "mysticalagriculture:crop_enabled",
+      "crop": "mysticalagriculture:copper_alloy"
+    }
+  ],
+  "input": {
+    "item": "mysticalagriculture:copper_alloy_seeds"
+  },
+  "result": {
+    "count": 2,
+    "item": "mysticalagriculture:copper_alloy_essence"
+  }
+}

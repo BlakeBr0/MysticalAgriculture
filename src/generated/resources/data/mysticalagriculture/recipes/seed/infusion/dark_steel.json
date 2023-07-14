@@ -1,0 +1,63 @@
+{
+  "type": "mysticalagriculture:infusion",
+  "conditions": [
+    {
+      "type": "mysticalagriculture:crop_enabled",
+      "crop": "mysticalagriculture:dark_steel"
+    },
+    {
+      "type": "mysticalagriculture:crop_has_material",
+      "crop": "mysticalagriculture:dark_steel"
+    }
+  ],
+  "ingredients": [
+    {
+      "type": "mysticalagriculture:crop_component",
+      "component": "material",
+      "crop": "mysticalagriculture:dark_steel"
+    },
+    {
+      "type": "mysticalagriculture:crop_component",
+      "component": "essence",
+      "crop": "mysticalagriculture:dark_steel"
+    },
+    {
+      "type": "mysticalagriculture:crop_component",
+      "component": "material",
+      "crop": "mysticalagriculture:dark_steel"
+    },
+    {
+      "type": "mysticalagriculture:crop_component",
+      "component": "essence",
+      "crop": "mysticalagriculture:dark_steel"
+    },
+    {
+      "type": "mysticalagriculture:crop_component",
+      "component": "material",
+      "crop": "mysticalagriculture:dark_steel"
+    },
+    {
+      "type": "mysticalagriculture:crop_component",
+      "component": "essence",
+      "crop": "mysticalagriculture:dark_steel"
+    },
+    {
+      "type": "mysticalagriculture:crop_component",
+      "component": "material",
+      "crop": "mysticalagriculture:dark_steel"
+    },
+    {
+      "type": "mysticalagriculture:crop_component",
+      "component": "essence",
+      "crop": "mysticalagriculture:dark_steel"
+    }
+  ],
+  "input": {
+    "type": "mysticalagriculture:crop_component",
+    "component": "seed",
+    "crop": "mysticalagriculture:dark_steel"
+  },
+  "result": {
+    "item": "mysticalagriculture:dark_steel_seeds"
+  }
+}

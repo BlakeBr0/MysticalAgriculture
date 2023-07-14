@@ -1,0 +1,23 @@
+{
+  "type": "cucumber:shaped_no_mirror",
+  "conditions": [
+    {
+      "type": "mysticalagriculture:crop_enabled",
+      "crop": "mysticalagriculture:grains_of_infinity"
+    }
+  ],
+  "pattern": [
+    "EEE",
+    "   ",
+    "   "
+  ],
+  "key": {
+    "E": {
+      "item": "mysticalagriculture:grains_of_infinity_essence"
+    }
+  },
+  "result": {
+    "item": "enderio:grains_of_infinity",
+    "count": 8
+  }
+}

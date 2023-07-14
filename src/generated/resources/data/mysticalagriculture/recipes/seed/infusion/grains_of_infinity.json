@@ -1,0 +1,63 @@
+{
+  "type": "mysticalagriculture:infusion",
+  "conditions": [
+    {
+      "type": "mysticalagriculture:crop_enabled",
+      "crop": "mysticalagriculture:grains_of_infinity"
+    },
+    {
+      "type": "mysticalagriculture:crop_has_material",
+      "crop": "mysticalagriculture:grains_of_infinity"
+    }
+  ],
+  "ingredients": [
+    {
+      "type": "mysticalagriculture:crop_component",
+      "component": "material",
+      "crop": "mysticalagriculture:grains_of_infinity"
+    },
+    {
+      "type": "mysticalagriculture:crop_component",
+      "component": "essence",
+      "crop": "mysticalagriculture:grains_of_infinity"
+    },
+    {
+      "type": "mysticalagriculture:crop_component",
+      "component": "material",
+      "crop": "mysticalagriculture:grains_of_infinity"
+    },
+    {
+      "type": "mysticalagriculture:crop_component",
+      "component": "essence",
+      "crop": "mysticalagriculture:grains_of_infinity"
+    },
+    {
+      "type": "mysticalagriculture:crop_component",
+      "component": "material",
+      "crop": "mysticalagriculture:grains_of_infinity"
+    },
+    {
+      "type": "mysticalagriculture:crop_component",
+      "component": "essence",
+      "crop": "mysticalagriculture:grains_of_infinity"
+    },
+    {
+      "type": "mysticalagriculture:crop_component",
+      "component": "material",
+      "crop": "mysticalagriculture:grains_of_infinity"
+    },
+    {
+      "type": "mysticalagriculture:crop_component",
+      "component": "essence",
+      "crop": "mysticalagriculture:grains_of_infinity"
+    }
+  ],
+  "input": {
+    "type": "mysticalagriculture:crop_component",
+    "component": "seed",
+    "crop": "mysticalagriculture:grains_of_infinity"
+  },
+  "result": {
+    "item": "mysticalagriculture:grains_of_infinity_seeds"
+  }
+}

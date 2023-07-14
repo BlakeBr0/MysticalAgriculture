@@ -128,6 +128,18 @@ public final class ModCrops {
     public static final Crop QUEENS_SLIME = new Crop(new ResourceLocation(MOD_ID, "queens_slime"), CropTier.FIVE, CropType.RESOURCE, LazyIngredient.tag("forge:ingots/queens_slime"));
     public static final Crop HEPATIZON = new Crop(new ResourceLocation(MOD_ID, "hepatizon"), CropTier.FIVE, CropType.RESOURCE, LazyIngredient.tag("forge:ingots/hepatizon"));
 
+    // ENDER IO
+    public static final Crop GRAINS_OF_INFINITY = new Crop(new ResourceLocation(MOD_ID, "grains_of_infinity"), CropTier.TWO, CropType.RESOURCE, LazyIngredient.item("enderio:grains_of_infinity"));
+    public static final Crop COPPER_ALLOY = new Crop(new ResourceLocation(MOD_ID, "copper_alloy"), CropTier.THREE, CropType.RESOURCE, LazyIngredient.item("enderio:copper_alloy_ingot"));
+    public static final Crop REDSTONE_ALLOY = new Crop(new ResourceLocation(MOD_ID, "redstone_alloy"), CropTier.THREE, CropType.RESOURCE, LazyIngredient.item("enderio:redstone_alloy_ingot"));
+    public static final Crop CONDUCTIVE_ALLOY = new Crop(new ResourceLocation(MOD_ID, "conductive_alloy"), CropTier.THREE, CropType.RESOURCE, LazyIngredient.item("enderio:conductive_alloy_ingot"));
+    public static final Crop SOULARIUM = new Crop(new ResourceLocation(MOD_ID, "soularium"), CropTier.FOUR, CropType.RESOURCE, LazyIngredient.item("enderio:soularium_ingot"));
+    public static final Crop DARK_STEEL = new Crop(new ResourceLocation(MOD_ID, "dark_steel"), CropTier.FOUR, CropType.RESOURCE, LazyIngredient.item("enderio:dark_steel_ingot"));
+    public static final Crop PULSATING_ALLOY = new Crop(new ResourceLocation(MOD_ID, "pulsating_alloy"), CropTier.FOUR, CropType.RESOURCE, LazyIngredient.item("enderio:pulsating_alloy_ingot"));
+    public static final Crop ENERGETIC_ALLOY = new Crop(new ResourceLocation(MOD_ID, "energetic_alloy"), CropTier.FOUR, CropType.RESOURCE, LazyIngredient.item("enderio:energetic_alloy_ingot"));
+    public static final Crop VIBRANT_ALLOY = new Crop(new ResourceLocation(MOD_ID, "vibrant_alloy"), CropTier.FIVE, CropType.RESOURCE, LazyIngredient.item("enderio:vibrant_alloy_ingot"));
+    public static final Crop END_STEEL = new Crop(new ResourceLocation(MOD_ID, "end_steel"), CropTier.FIVE, CropType.RESOURCE, LazyIngredient.item("enderio:end_steel_ingot"));
+
     // BOTANIA
     public static final Crop MYSTICAL_FLOWER = new Crop(new ResourceLocation(MOD_ID, "mystical_flower"), CropTier.TWO, CropType.RESOURCE, LazyIngredient.item("mysticalagriculture:mystical_flower_agglomeratio"));
     public static final Crop MANASTEEL = new Crop(new ResourceLocation(MOD_ID, "manasteel"), CropTier.THREE, CropType.RESOURCE, LazyIngredient.item("botania:manasteel_ingot"));
@@ -294,6 +306,18 @@ public final class ModCrops {
         registry.register(withRequiredMods(MANYULLYN, "tconstruct"));
         registry.register(withRequiredMods(QUEENS_SLIME, "tconstruct"));
         registry.register(withRequiredMods(HEPATIZON, "tconstruct"));
+
+        // ENDER IO
+        registry.register(withRequiredMods(GRAINS_OF_INFINITY, "enderio"));
+        registry.register(withRequiredMods(COPPER_ALLOY, "enderio"));
+        registry.register(withRequiredMods(REDSTONE_ALLOY, "enderio"));
+        registry.register(withRequiredMods(CONDUCTIVE_ALLOY, "enderio"));
+        registry.register(withRequiredMods(SOULARIUM, "enderio"));
+        registry.register(withRequiredMods(DARK_STEEL, "enderio"));
+        registry.register(withRequiredMods(PULSATING_ALLOY, "enderio"));
+        registry.register(withRequiredMods(ENERGETIC_ALLOY, "enderio"));
+        registry.register(withRequiredMods(VIBRANT_ALLOY, "enderio"));
+        registry.register(withRequiredMods(END_STEEL, "enderio"));
 
         // BOTANIA
         registry.register(withRequiredMods(MYSTICAL_FLOWER, "botania"));

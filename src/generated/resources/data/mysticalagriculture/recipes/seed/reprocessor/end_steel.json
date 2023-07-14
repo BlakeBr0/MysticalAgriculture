@@ -1,0 +1,16 @@
+{
+  "type": "mysticalagriculture:reprocessor",
+  "conditions": [
+    {
+      "type": "mysticalagriculture:crop_enabled",
+      "crop": "mysticalagriculture:end_steel"
+    }
+  ],
+  "input": {
+    "item": "mysticalagriculture:end_steel_seeds"
+  },
+  "result": {
+    "count": 2,
+    "item": "mysticalagriculture:end_steel_essence"
+  }
+}

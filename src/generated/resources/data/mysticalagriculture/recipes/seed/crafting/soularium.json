@@ -1,0 +1,42 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "conditions": [
+    {
+      "type": "mysticalagriculture:seed_crafting_recipes_enabled"
+    },
+    {
+      "type": "mysticalagriculture:crop_enabled",
+      "crop": "mysticalagriculture:soularium"
+    },
+    {
+      "type": "mysticalagriculture:crop_has_material",
+      "crop": "mysticalagriculture:soularium"
+    }
+  ],
+  "group": "mysticalagriculture:seeds",
+  "key": {
+    "E": {
+      "type": "mysticalagriculture:crop_component",
+      "component": "essence",
+      "crop": "mysticalagriculture:soularium"
+    },
+    "M": {
+      "type": "mysticalagriculture:crop_component",
+      "component": "material",
+      "crop": "mysticalagriculture:soularium"
+    },
+    "S": {
+      "type": "mysticalagriculture:crop_component",
+      "component": "seed",
+      "crop": "mysticalagriculture:soularium"
+    }
+  },
+  "pattern": [
+    "MEM",
+    "ESE",
+    "MEM"
+  ],
+  "result": {
+    "item": "mysticalagriculture:soularium_seeds"
+  }
+}

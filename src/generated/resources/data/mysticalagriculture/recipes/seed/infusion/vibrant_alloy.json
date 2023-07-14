@@ -1,0 +1,63 @@
+{
+  "type": "mysticalagriculture:infusion",
+  "conditions": [
+    {
+      "type": "mysticalagriculture:crop_enabled",
+      "crop": "mysticalagriculture:vibrant_alloy"
+    },
+    {
+      "type": "mysticalagriculture:crop_has_material",
+      "crop": "mysticalagriculture:vibrant_alloy"
+    }
+  ],
+  "ingredients": [
+    {
+      "type": "mysticalagriculture:crop_component",
+      "component": "material",
+      "crop": "mysticalagriculture:vibrant_alloy"
+    },
+    {
+      "type": "mysticalagriculture:crop_component",
+      "component": "essence",
+      "crop": "mysticalagriculture:vibrant_alloy"
+    },
+    {
+      "type": "mysticalagriculture:crop_component",
+      "component": "material",
+      "crop": "mysticalagriculture:vibrant_alloy"
+    },
+    {
+      "type": "mysticalagriculture:crop_component",
+      "component": "essence",
+      "crop": "mysticalagriculture:vibrant_alloy"
+    },
+    {
+      "type": "mysticalagriculture:crop_component",
+      "component": "material",
+      "crop": "mysticalagriculture:vibrant_alloy"
+    },
+    {
+      "type": "mysticalagriculture:crop_component",
+      "component": "essence",
+      "crop": "mysticalagriculture:vibrant_alloy"
+    },
+    {
+      "type": "mysticalagriculture:crop_component",
+      "component": "material",
+      "crop": "mysticalagriculture:vibrant_alloy"
+    },
+    {
+      "type": "mysticalagriculture:crop_component",
+      "component": "essence",
+      "crop": "mysticalagriculture:vibrant_alloy"
+    }
+  ],
+  "input": {
+    "type": "mysticalagriculture:crop_component",
+    "component": "seed",
+    "crop": "mysticalagriculture:vibrant_alloy"
+  },
+  "result": {
+    "item": "mysticalagriculture:vibrant_alloy_seeds"
+  }
+}

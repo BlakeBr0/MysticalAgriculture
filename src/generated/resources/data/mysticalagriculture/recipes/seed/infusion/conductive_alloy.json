@@ -1,0 +1,63 @@
+{
+  "type": "mysticalagriculture:infusion",
+  "conditions": [
+    {
+      "type": "mysticalagriculture:crop_enabled",
+      "crop": "mysticalagriculture:conductive_alloy"
+    },
+    {
+      "type": "mysticalagriculture:crop_has_material",
+      "crop": "mysticalagriculture:conductive_alloy"
+    }
+  ],
+  "ingredients": [
+    {
+      "type": "mysticalagriculture:crop_component",
+      "component": "material",
+      "crop": "mysticalagriculture:conductive_alloy"
+    },
+    {
+      "type": "mysticalagriculture:crop_component",
+      "component": "essence",
+      "crop": "mysticalagriculture:conductive_alloy"
+    },
+    {
+      "type": "mysticalagriculture:crop_component",
+      "component": "material",
+      "crop": "mysticalagriculture:conductive_alloy"
+    },
+    {
+      "type": "mysticalagriculture:crop_component",
+      "component": "essence",
+      "crop": "mysticalagriculture:conductive_alloy"
+    },
+    {
+      "type": "mysticalagriculture:crop_component",
+      "component": "material",
+      "crop": "mysticalagriculture:conductive_alloy"
+    },
+    {
+      "type": "mysticalagriculture:crop_component",
+      "component": "essence",
+      "crop": "mysticalagriculture:conductive_alloy"
+    },
+    {
+      "type": "mysticalagriculture:crop_component",
+      "component": "material",
+      "crop": "mysticalagriculture:conductive_alloy"
+    },
+    {
+      "type": "mysticalagriculture:crop_component",
+      "component": "essence",
+      "crop": "mysticalagriculture:conductive_alloy"
+    }
+  ],
+  "input": {
+    "type": "mysticalagriculture:crop_component",
+    "component": "seed",
+    "crop": "mysticalagriculture:conductive_alloy"
+  },
+  "result": {
+    "item": "mysticalagriculture:conductive_alloy_seeds"
+  }
+}
