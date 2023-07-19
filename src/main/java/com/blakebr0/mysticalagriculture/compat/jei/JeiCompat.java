@@ -85,7 +85,7 @@ public final class JeiCompat implements IModPlugin {
 
     @Override
     public void registerGuiHandlers(IGuiHandlerRegistration registration) {
-        registration.addRecipeClickArea(EnchanterScreen.class, 99, 52, 22, 15, EnchanterCategory.RECIPE_TYPE);
+        registration.addRecipeClickArea(EnchanterScreen.class, 97, 41, 22, 15, EnchanterCategory.RECIPE_TYPE);
         registration.addRecipeClickArea(ReprocessorScreen.class, 99, 52, 22, 15, ReprocessorCategory.RECIPE_TYPE);
         registration.addRecipeClickArea(SoulExtractorScreen.class, 99, 52, 22, 15, SoulExtractorCategory.RECIPE_TYPE);
     }

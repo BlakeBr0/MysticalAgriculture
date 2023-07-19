@@ -3,11 +3,11 @@
   "ingredients": [
     {
       "item": "mysticalagriculture:redstone_essence",
-      "count": 4
+      "count": 40
     },
     {
       "item": "mysticalagriculture:experience_essence",
-      "count": 16
+      "count": 160
     },
     {
       "item": "minecraft:book"
