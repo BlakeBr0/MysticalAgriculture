@@ -1,4 +1,4 @@
-// 1.20.1	2023-07-12T20:57:41.1184639	Recipes
+// 1.20.1	2023-07-20T15:55:05.9378812	Recipes
 2d9771ce5f2b6839d92423a86134b16c1e1e4c56 data/mysticalagriculture/recipes/seed/crafting/air.json
 f63f063bfcf352aee66050102a960570aa8e0ccc data/mysticalagriculture/recipes/seed/crafting/aluminum.json
 127bdadb8c6b224ead8a61a3b81563154a8ffc53 data/mysticalagriculture/recipes/seed/crafting/amethyst.json
@@ -82,6 +82,7 @@ b3782923b0153f9d8ce81a061001a5e2d7631bc4 data/mysticalagriculture/recipes/seed/c
 f7054322cbfbebea92b9b5fd32f92ddba7a0d257 data/mysticalagriculture/recipes/seed/crafting/niotic_crystal.json
 448c18167f7bd93cc72bba501f1815bc2c0ae83a data/mysticalagriculture/recipes/seed/crafting/obsidian.json
 f6c6452f578531d68f4c161f3532d9684ebad2ba data/mysticalagriculture/recipes/seed/crafting/osmium.json
+e0d06b54aac4b1c6a1d0fb2c4f025bb5c9e0660b data/mysticalagriculture/recipes/seed/crafting/peridot.json
 5912109317bc8233824ac0268762f1830aab0e02 data/mysticalagriculture/recipes/seed/crafting/pig.json
 8acac8e1570bd64c20bc2873ae4586d0a8197cba data/mysticalagriculture/recipes/seed/crafting/pig_iron.json
 746184b1268c181f34c464b141163b55b22e7c17 data/mysticalagriculture/recipes/seed/crafting/platinum.json
@@ -214,6 +215,7 @@ d0fbd491d378fd597bbcd2a62d9d40bdbf7fc263 data/mysticalagriculture/recipes/seed/i
 5304175741a98bdab593f54b7f8fb7aece085372 data/mysticalagriculture/recipes/seed/infusion/niotic_crystal.json
 2b8e6bae64a8e48069561de1d910087a8430670b data/mysticalagriculture/recipes/seed/infusion/obsidian.json
 5c5823de6e48503a342f1f35a6b53a79be7153f7 data/mysticalagriculture/recipes/seed/infusion/osmium.json
+2997e5ccd229a892d98796ec8ac63f49017ca3a4 data/mysticalagriculture/recipes/seed/infusion/peridot.json
 17b20bf2c122be760cd2ddbfae20efdaca6a3551 data/mysticalagriculture/recipes/seed/infusion/pig.json
 060407d0bc06e5d5cec27d7e130271a522c80e33 data/mysticalagriculture/recipes/seed/infusion/pig_iron.json
 f1c0c4140b81a16ad6eff5846545f745f72085dd data/mysticalagriculture/recipes/seed/infusion/platinum.json
@@ -346,6 +348,7 @@ e720f07991b1b2b7ba0791d677099075400f104e data/mysticalagriculture/recipes/seed/r
 81ca2db8f76a45892a779bc8dc5706d315b94740 data/mysticalagriculture/recipes/seed/reprocessor/niotic_crystal.json
 7b7fc8c0cfdec69adcf279b6a05030632f19de74 data/mysticalagriculture/recipes/seed/reprocessor/obsidian.json
 1a1cd8fd06020eec42f9f03f0bc15c2da6b45c63 data/mysticalagriculture/recipes/seed/reprocessor/osmium.json
+e85d8a22e7fc12cc7d33e945a28bf135c55f2790 data/mysticalagriculture/recipes/seed/reprocessor/peridot.json
 0fb08de5b6c4fa64a389cbfb77f865e2f14d6b7b data/mysticalagriculture/recipes/seed/reprocessor/pig.json
 65ec28a2eab23c1edb07d383f32ed5a29dabeb66 data/mysticalagriculture/recipes/seed/reprocessor/pig_iron.json
 58485c1c07384672784bc9426bdb81ebd13ffdd0 data/mysticalagriculture/recipes/seed/reprocessor/platinum.json
