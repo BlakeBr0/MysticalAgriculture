@@ -3,33 +3,40 @@ package com.blakebr0.mysticalagriculture.container;
 import com.blakebr0.cucumber.container.BaseContainerMenu;
 import com.blakebr0.cucumber.inventory.BaseItemStackHandler;
 import com.blakebr0.cucumber.inventory.slot.BaseItemStackHandlerSlot;
-import com.blakebr0.cucumber.inventory.slot.OutputSlot;
+import com.blakebr0.mysticalagriculture.container.slot.EnchanterOutputSlot;
 import com.blakebr0.mysticalagriculture.init.ModContainerTypes;
 import com.blakebr0.mysticalagriculture.init.ModRecipeTypes;
 import com.blakebr0.mysticalagriculture.tileentity.EnchanterTileEntity;
-import com.blakebr0.mysticalagriculture.util.RecipeIngredientCache;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.FriendlyByteBuf;
+import net.minecraft.world.Container;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.MenuType;
+import net.minecraft.world.inventory.ResultContainer;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
-import net.minecraftforge.common.ForgeHooks;
+import net.minecraft.world.level.Level;
+import net.minecraftforge.items.wrapper.RecipeWrapper;
 
 public class EnchanterContainer extends BaseContainerMenu {
+    private final Level level;
+    private final Container result;
+
     private EnchanterContainer(MenuType<?> type, int id, Inventory playerInventory, BlockPos pos) {
         this(type, id, playerInventory, EnchanterTileEntity.createInventoryHandler(), pos);
     }
 
     private EnchanterContainer(MenuType<?> type, int id, Inventory playerInventory, BaseItemStackHandler inventory, BlockPos pos) {
         super(type, id, pos);
+        this.level = playerInventory.player.level();
+        this.result = new ResultContainer();
 
         this.addSlot(new BaseItemStackHandlerSlot(inventory, 0, 28, 41));
         this.addSlot(new BaseItemStackHandlerSlot(inventory, 1, 50, 41));
         this.addSlot(new BaseItemStackHandlerSlot(inventory, 2, 72, 41));
 
-        this.addSlot(new OutputSlot(inventory, 3, 132, 41));
+        this.addSlot(new EnchanterOutputSlot(this, new RecipeWrapper(inventory), this.result, 3, 132, 41));
 
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 9; j++) {
@@ -40,6 +47,19 @@ public class EnchanterContainer extends BaseContainerMenu {
         for (int i = 0; i < 9; i++) {
             this.addSlot(new Slot(playerInventory, i, 8 + i * 18, 153));
         }
+    }
+
+    @Override
+    public void slotsChanged(Container inventory) {
+        var recipe = this.level.getRecipeManager().getRecipeFor(ModRecipeTypes.ENCHANTER.get(), inventory, this.level);
+
+        if (recipe.isPresent()) {
+            this.result.setItem(0, recipe.get().assemble(inventory, this.level.registryAccess()));
+        } else {
+            this.result.setItem(0, ItemStack.EMPTY);
+        }
+
+        super.slotsChanged(inventory);
     }
 
     @Override

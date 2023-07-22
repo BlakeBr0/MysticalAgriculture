@@ -21,6 +21,7 @@ import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.wrapper.InvWrapper;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 
 public class EnchanterRecipe implements ISpecialRecipe, IEnchanterRecipe {
@@ -78,13 +79,57 @@ public class EnchanterRecipe implements ISpecialRecipe, IEnchanterRecipe {
 
     @Override
     public boolean matches(IItemHandler inventory) {
-        var stack = inventory.getStackInSlot(0);
-        return this.inputs.get(0).test(stack);
+        for (int i = 0; i < inventory.getSlots(); i++) {
+            var stack = inventory.getStackInSlot(i);
+            var found = false;
+
+            for (var j = 0; j < this.inputs.size(); j++) {
+                var ingredient = this.inputs.get(j);
+                var count = this.inputCounts.get(j);
+
+                if (ingredient.test(stack) && stack.getCount() >= count) {
+                    found = true;
+                    break;
+                }
+            }
+
+            if (!found) {
+                return false;
+            }
+        }
+
+        return true;
     }
 
     @Override
     public boolean matches(Container inv, Level level) {
         return this.matches(new InvWrapper(inv));
+    }
+
+    @Override
+    public NonNullList<ItemStack> getRemainingItems(IItemHandler inventory) {
+        var remaining = NonNullList.withSize(inventory.getSlots(), ItemStack.EMPTY);
+        var claimed = new HashSet<Integer>();
+
+        for (int i = 0; i < remaining.size(); i++) {
+            var stack = inventory.getStackInSlot(i);
+
+            for (var j = 0; j < this.inputs.size(); j++) {
+                if (claimed.contains(j))
+                    continue;
+
+                var ingredient = this.inputs.get(j);
+                var count = this.inputCounts.get(j);
+
+                if (ingredient.test(stack) && stack.getCount() >= count) {
+                    claimed.add(i);
+                    remaining.set(i, stack.copyWithCount(stack.getCount() - count));
+                    break;
+                }
+            }
+        }
+
+        return remaining;
     }
 
     @Override
