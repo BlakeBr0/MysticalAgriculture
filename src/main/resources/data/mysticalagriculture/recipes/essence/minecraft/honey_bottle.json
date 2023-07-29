@@ -1,24 +1,19 @@
 {
-  "type": "cucumber:shaped_no_mirror",
+  "type": "minecraft:crafting_shapeless",
   "conditions": [
     {
       "type": "mysticalagriculture:crop_enabled",
       "crop": "mysticalagriculture:honey"
     }
   ],
-  "pattern": [
-    "BE ",
-    "   ",
-    "   "
-  ],
-  "key": {
-    "E": {
-      "item": "mysticalagriculture:honey_essence"
-    },
-    "B": {
+  "ingredients": [
+    {
       "item": "minecraft:glass_bottle"
+    },
+    {
+      "item": "mysticalagriculture:honey_essence"
     }
-  },
+  ],
   "result": {
     "item": "minecraft:honey_bottle"
   }
