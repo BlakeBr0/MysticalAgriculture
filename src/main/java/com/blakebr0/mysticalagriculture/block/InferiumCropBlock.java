@@ -30,9 +30,9 @@ public class InferiumCropBlock extends MysticalCropBlock {
             var vec = builder.getOptionalParameter(LootContextParams.ORIGIN);
 
             if (vec != null) {
-                var world = builder.getLevel();
-                var pos = new BlockPos((int) vec.x, (int) vec.y, (int) vec.z);
-                var below = world.getBlockState(pos.below()).getBlock();
+                var level = builder.getLevel();
+                var pos = BlockPos.containing(vec);
+                var below = level.getBlockState(pos.below()).getBlock();
 
                 if (below instanceof IEssenceFarmland farmland) {
                     int tier = farmland.getTier().getValue();
