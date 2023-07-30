@@ -145,8 +145,23 @@ public abstract class EssenceFurnaceTileEntity extends AbstractFurnaceBlockEntit
         }
     }
 
-    private static int getTotalCookTime(Level p_222693_, AbstractFurnaceBlockEntity p_222694_) {
-        return p_222694_.quickCheck.getRecipeFor(p_222694_, p_222693_).map(AbstractCookingRecipe::getCookingTime).orElse(200);
+    public void setItem(int slot, ItemStack stack) {
+        ItemStack itemstack = this.items.get(slot);
+        boolean flag = !stack.isEmpty() && ItemStack.isSameItemSameTags(itemstack, stack);
+        this.items.set(slot, stack);
+        if (stack.getCount() > this.getMaxStackSize()) {
+            stack.setCount(this.getMaxStackSize());
+        }
+
+        if (slot == 0 && !flag) {
+            this.cookingTotalTime = (int) (getTotalCookTime(level, this) * this.getTier().getCookTimeMultiplier());
+            this.cookingProgress = 0;
+            this.setChanged();
+        }
+    }
+
+    private static int getTotalCookTime(Level level, AbstractFurnaceBlockEntity tile) {
+        return tile.quickCheck.getRecipeFor(tile, level).map(AbstractCookingRecipe::getCookingTime).orElse(200);
     }
 
     public abstract FurnaceTier getTier();
