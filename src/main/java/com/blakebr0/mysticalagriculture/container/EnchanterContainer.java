@@ -4,6 +4,7 @@ import com.blakebr0.cucumber.container.BaseContainerMenu;
 import com.blakebr0.cucumber.inventory.BaseItemStackHandler;
 import com.blakebr0.cucumber.inventory.slot.BaseItemStackHandlerSlot;
 import com.blakebr0.mysticalagriculture.container.slot.EnchanterOutputSlot;
+import com.blakebr0.mysticalagriculture.container.slot.EnchanterSlot;
 import com.blakebr0.mysticalagriculture.init.ModContainerTypes;
 import com.blakebr0.mysticalagriculture.init.ModRecipeTypes;
 import com.blakebr0.mysticalagriculture.tileentity.EnchanterTileEntity;
@@ -15,6 +16,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.MenuType;
 import net.minecraft.world.inventory.ResultContainer;
 import net.minecraft.world.inventory.Slot;
+import net.minecraft.world.inventory.TransientCraftingContainer;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.items.wrapper.RecipeWrapper;
@@ -32,11 +34,11 @@ public class EnchanterContainer extends BaseContainerMenu {
         this.level = playerInventory.player.level();
         this.result = new ResultContainer();
 
-        this.addSlot(new BaseItemStackHandlerSlot(inventory, 0, 28, 41));
-        this.addSlot(new BaseItemStackHandlerSlot(inventory, 1, 50, 41));
-        this.addSlot(new BaseItemStackHandlerSlot(inventory, 2, 72, 41));
+        this.addSlot(new EnchanterSlot(this, inventory, 0, 17, 41));
+        this.addSlot(new EnchanterSlot(this, inventory, 1, 39, 41));
+        this.addSlot(new EnchanterSlot(this, inventory, 2, 79, 41));
 
-        this.addSlot(new EnchanterOutputSlot(this, new RecipeWrapper(inventory), this.result, 3, 132, 41));
+        this.addSlot(new EnchanterOutputSlot(this, new RecipeWrapper(inventory), this.result, 3, 139, 41));
 
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 9; j++) {
@@ -47,6 +49,8 @@ public class EnchanterContainer extends BaseContainerMenu {
         for (int i = 0; i < 9; i++) {
             this.addSlot(new Slot(playerInventory, i, 8 + i * 18, 153));
         }
+
+        this.slotsChanged(new RecipeWrapper(inventory));
     }
 
     @Override

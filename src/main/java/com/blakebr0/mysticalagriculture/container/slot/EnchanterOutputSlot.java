@@ -27,20 +27,7 @@ public class EnchanterOutputSlot extends Slot {
         var remaining = player.level().getRecipeManager().getRemainingItemsFor(ModRecipeTypes.ENCHANTER.get(), this.matrix, player.level());
 
         for (int i = 0; i < remaining.size(); i++) {
-            var remainingStack = remaining.get(i);
-
-            if (!remainingStack.isEmpty()) {
-                var slotStack = this.matrix.getItem(i);
-
-                if (slotStack.isEmpty()) {
-                    this.matrix.setItem(i, remainingStack);
-                } else if (ItemStack.isSameItemSameTags(slotStack, remainingStack)) {
-                    remainingStack.grow(slotStack.getCount());
-                    this.matrix.setItem(i, remainingStack);
-                } else if (!player.getInventory().add(remainingStack)) {
-                    player.drop(remainingStack, false);
-                }
-            }
+            this.matrix.setItem(i, remaining.get(i));
         }
 
         this.container.slotsChanged(this.matrix);

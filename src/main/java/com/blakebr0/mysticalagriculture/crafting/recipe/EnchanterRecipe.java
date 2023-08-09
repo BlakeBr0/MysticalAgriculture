@@ -11,35 +11,41 @@ import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.GsonHelper;
 import net.minecraft.world.Container;
+import net.minecraft.world.item.EnchantedBookItem;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.item.crafting.RecipeType;
-import net.minecraft.world.item.crafting.ShapedRecipe;
+import net.minecraft.world.item.enchantment.Enchantment;
+import net.minecraft.world.item.enchantment.EnchantmentHelper;
+import net.minecraft.world.item.enchantment.EnchantmentInstance;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.wrapper.InvWrapper;
+import net.minecraftforge.registries.ForgeRegistries;
 
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Objects;
 
 public class EnchanterRecipe implements ISpecialRecipe, IEnchanterRecipe {
     private final ResourceLocation recipeId;
     private final NonNullList<Ingredient> inputs;
     private final List<Integer> inputCounts;
-    private final ItemStack output;
+    private final Enchantment enchantment;
 
-    public EnchanterRecipe(ResourceLocation recipeId, NonNullList<Ingredient> inputs, List<Integer> inputCounts, ItemStack output) {
+    public EnchanterRecipe(ResourceLocation recipeId, NonNullList<Ingredient> inputs, List<Integer> inputCounts, Enchantment enchantment) {
         this.recipeId = recipeId;
         this.inputs = inputs;
         this.inputCounts = inputCounts;
-        this.output = output;
+        this.enchantment = enchantment;
     }
 
     @Override
     public ItemStack assemble(IItemHandler inventory, RegistryAccess access) {
-        return this.output.copy();
+        return this.getEnchantedOutputItemStack(inventory);
     }
 
     @Override
@@ -54,7 +60,7 @@ public class EnchanterRecipe implements ISpecialRecipe, IEnchanterRecipe {
 
     @Override
     public ItemStack getResultItem(RegistryAccess access) {
-        return this.output;
+        return ItemStack.EMPTY;
     }
 
     @Override
@@ -79,23 +85,13 @@ public class EnchanterRecipe implements ISpecialRecipe, IEnchanterRecipe {
 
     @Override
     public boolean matches(IItemHandler inventory) {
-        for (int i = 0; i < inventory.getSlots(); i++) {
+        for (int i = 0; i < this.inputs.size(); i++) {
             var stack = inventory.getStackInSlot(i);
-            var found = false;
+            var ingredient = this.inputs.get(i);
+            var count = this.inputCounts.get(i);
 
-            for (var j = 0; j < this.inputs.size(); j++) {
-                var ingredient = this.inputs.get(j);
-                var count = this.inputCounts.get(j);
-
-                if (ingredient.test(stack) && stack.getCount() >= count) {
-                    found = true;
-                    break;
-                }
-            }
-
-            if (!found) {
+            if (!ingredient.test(stack) || stack.getCount() < count)
                 return false;
-            }
         }
 
         return true;
@@ -109,24 +105,17 @@ public class EnchanterRecipe implements ISpecialRecipe, IEnchanterRecipe {
     @Override
     public NonNullList<ItemStack> getRemainingItems(IItemHandler inventory) {
         var remaining = NonNullList.withSize(inventory.getSlots(), ItemStack.EMPTY);
-        var claimed = new HashSet<Integer>();
 
-        for (int i = 0; i < remaining.size(); i++) {
+        for (int i = 0; i < 2; i++) {
             var stack = inventory.getStackInSlot(i);
+            var count = this.inputCounts.get(i) * this.getOutputEnchantmentLevel(inventory);
 
-            for (var j = 0; j < this.inputs.size(); j++) {
-                if (claimed.contains(j))
-                    continue;
+            remaining.set(i, stack.copyWithCount(stack.getCount() - count));
+        }
 
-                var ingredient = this.inputs.get(j);
-                var count = this.inputCounts.get(j);
-
-                if (ingredient.test(stack) && stack.getCount() >= count) {
-                    claimed.add(i);
-                    remaining.set(i, stack.copyWithCount(stack.getCount() - count));
-                    break;
-                }
-            }
+        var stack = inventory.getStackInSlot(2);
+        if (stack.getCount() > 1) {
+            remaining.set(2, stack.copyWithCount(stack.getCount() - 1));
         }
 
         return remaining;
@@ -137,11 +126,64 @@ public class EnchanterRecipe implements ISpecialRecipe, IEnchanterRecipe {
         return this.inputCounts;
     }
 
+    @Override
+    public Enchantment getEnchantment() {
+        return this.enchantment;
+    }
+
+    private ItemStack getEnchantedOutputItemStack(IItemHandler inventory) {
+        var stack = inventory.getStackInSlot(2);
+
+        if (this.enchantment.canEnchant(stack)) {
+            var enchantments = EnchantmentHelper.getEnchantments(stack);
+            var newLevel = this.getOutputEnchantmentLevel(inventory);
+
+            for (var enchantment : enchantments.keySet()) {
+                if (enchantment == this.enchantment && enchantments.get(enchantment) >= newLevel)
+                    return ItemStack.EMPTY;
+
+                if (enchantment != this.enchantment && !enchantment.isCompatibleWith(this.enchantment))
+                    return ItemStack.EMPTY;
+            }
+
+            enchantments.put(enchantment, newLevel);
+
+            var result = stack.copyWithCount(1);
+
+            EnchantmentHelper.setEnchantments(enchantments, result);
+
+            return result;
+        }
+
+        if (stack.is(Items.BOOK)) {
+            return EnchantedBookItem.createForEnchantment(new EnchantmentInstance(this.enchantment, this.getOutputEnchantmentLevel(inventory)));
+        }
+
+        return ItemStack.EMPTY;
+    }
+
+    private int getOutputEnchantmentLevel(IItemHandler inventory) {
+        var level = 0;
+
+        for (var i = 0; i < this.inputs.size(); i++) {
+            var stack = inventory.getStackInSlot(i);
+            var count = this.inputCounts.get(i);
+
+            var newLevel = stack.getCount() / count;
+
+            if (level == 0 || newLevel < level) {
+                level = Math.min(newLevel, this.enchantment.getMaxLevel());
+            }
+        }
+
+        return level;
+    }
+
     public static class Serializer implements RecipeSerializer<EnchanterRecipe> {
         @Override
         public EnchanterRecipe fromJson(ResourceLocation recipeId, JsonObject json) {
-            var inputs = NonNullList.withSize(3, Ingredient.EMPTY);
-            var inputCounts = new ArrayList<Integer>(3);
+            var inputs = NonNullList.withSize(2, Ingredient.EMPTY);
+            var inputCounts = new ArrayList<Integer>(2);
             var ingredients = GsonHelper.getAsJsonArray(json, "ingredients");
 
             for (int i = 0; i < ingredients.size(); i++) {
@@ -149,9 +191,9 @@ public class EnchanterRecipe implements ISpecialRecipe, IEnchanterRecipe {
                 inputCounts.add(GsonHelper.getAsInt(ingredients.get(i).getAsJsonObject(), "count", 1));
             }
 
-            var output = ShapedRecipe.itemStackFromJson(json.getAsJsonObject("result"));
+            var enchantment = ForgeRegistries.ENCHANTMENTS.getValue(new ResourceLocation(GsonHelper.getAsString(json, "enchantment")));
 
-            return new EnchanterRecipe(recipeId, inputs, inputCounts, output);
+            return new EnchanterRecipe(recipeId, inputs, inputCounts, enchantment);
         }
 
         @Override
@@ -165,9 +207,9 @@ public class EnchanterRecipe implements ISpecialRecipe, IEnchanterRecipe {
                 inputCounts.add(buffer.readVarInt());
             }
 
-            var output = buffer.readItem();
+            var enchantment = ForgeRegistries.ENCHANTMENTS.getValue(buffer.readResourceLocation());
 
-            return new EnchanterRecipe(recipeId, inputs, inputCounts, output);
+            return new EnchanterRecipe(recipeId, inputs, inputCounts, enchantment);
         }
 
         @Override
@@ -179,7 +221,9 @@ public class EnchanterRecipe implements ISpecialRecipe, IEnchanterRecipe {
                 buffer.writeVarInt(recipe.inputCounts.get(i));
             }
 
-            buffer.writeItem(recipe.output);
+            var enchantment = Objects.requireNonNull(ForgeRegistries.ENCHANTMENTS.getKey(recipe.enchantment));
+
+            buffer.writeResourceLocation(enchantment);
         }
     }
 }
