@@ -41,8 +41,8 @@ public class EnchanterTileEntity extends BaseInventoryTileEntity implements Menu
 
     public static BaseItemStackHandler createInventoryHandler(Runnable onContentsChanged) {
         return BaseItemStackHandler.create(3, onContentsChanged, handler -> {
-            handler.addSlotLimit(0, 2048);
-            handler.addSlotLimit(1, 2048);
+            handler.addSlotLimit(0, 512);
+            handler.addSlotLimit(1, 512);
         });
     }
 }

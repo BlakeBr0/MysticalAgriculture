@@ -2,7 +2,7 @@
   "type": "mysticalagriculture:enchanter",
   "ingredients": [
     {
-      "item": "minecraft:redstone",
+      "item": "minecraft:quartz",
       "count": 16
     },
     {
@@ -10,5 +10,5 @@
       "count": 64
     }
   ],
-  "enchantment": "minecraft:efficiency"
+  "enchantment": "minecraft:sharpness"
 }

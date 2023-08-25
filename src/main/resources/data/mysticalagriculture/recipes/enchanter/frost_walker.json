@@ -2,13 +2,13 @@
   "type": "mysticalagriculture:enchanter",
   "ingredients": [
     {
-      "item": "minecraft:redstone",
-      "count": 16
+      "item": "minecraft:ice",
+      "count": 24
     },
     {
       "item": "mysticalagriculture:experience_essence",
       "count": 64
     }
   ],
-  "enchantment": "minecraft:efficiency"
+  "enchantment": "minecraft:frost_walker"
 }

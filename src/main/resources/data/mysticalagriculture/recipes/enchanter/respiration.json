@@ -2,13 +2,13 @@
   "type": "mysticalagriculture:enchanter",
   "ingredients": [
     {
-      "item": "minecraft:redstone",
-      "count": 16
+      "item": "minecraft:glass_bottle",
+      "count": 18
     },
     {
       "item": "mysticalagriculture:experience_essence",
       "count": 64
     }
   ],
-  "enchantment": "minecraft:efficiency"
+  "enchantment": "minecraft:respiration"
 }

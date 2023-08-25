@@ -2,13 +2,13 @@
   "type": "mysticalagriculture:enchanter",
   "ingredients": [
     {
-      "item": "minecraft:redstone",
-      "count": 16
+      "item": "minecraft:emerald",
+      "count": 8
     },
     {
       "item": "mysticalagriculture:experience_essence",
       "count": 64
     }
   ],
-  "enchantment": "minecraft:efficiency"
+  "enchantment": "minecraft:looting"
 }

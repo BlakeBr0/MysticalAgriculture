@@ -2,13 +2,13 @@
   "type": "mysticalagriculture:enchanter",
   "ingredients": [
     {
-      "item": "minecraft:redstone",
-      "count": 16
+      "item": "minecraft:bone",
+      "count": 12
     },
     {
       "item": "mysticalagriculture:experience_essence",
       "count": 64
     }
   ],
-  "enchantment": "minecraft:efficiency"
+  "enchantment": "minecraft:projectile_protection"
 }
