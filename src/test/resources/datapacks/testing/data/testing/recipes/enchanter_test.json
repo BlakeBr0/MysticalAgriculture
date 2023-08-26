@@ -1,0 +1,14 @@
+{
+  "type": "mysticalagriculture:enchanter",
+  "ingredients": [
+    {
+      "item": "minecraft:cobblestone",
+      "count": 12
+    },
+    {
+      "item": "mysticalagriculture:experience_essence",
+      "count": 16
+    }
+  ],
+  "enchantment": "minecraft:impaling"
+}
