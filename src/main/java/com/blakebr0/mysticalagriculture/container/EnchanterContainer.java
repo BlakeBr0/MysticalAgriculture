@@ -1,6 +1,6 @@
 package com.blakebr0.mysticalagriculture.container;
 
-import com.blakebr0.cucumber.container.BaseContainerMenu;
+import com.blakebr0.cucumber.container.ExtendedContainerMenu;
 import com.blakebr0.cucumber.inventory.BaseItemStackHandler;
 import com.blakebr0.mysticalagriculture.container.slot.EnchanterOutputSlot;
 import com.blakebr0.mysticalagriculture.container.slot.EnchanterSlot;
@@ -19,7 +19,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.items.wrapper.RecipeWrapper;
 
-public class EnchanterContainer extends BaseContainerMenu {
+public class EnchanterContainer extends ExtendedContainerMenu {
     private final Level level;
     private final Container result;
 
