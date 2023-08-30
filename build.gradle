@@ -3,6 +3,7 @@ plugins {
     id 'idea'
     id 'maven-publish'
     id 'net.minecraftforge.gradle' version '[6.0,6.2)'
+    id 'org.spongepowered.mixin' version '0.7.+'
 }
 
 version = '1.20.1-7.0.2'
@@ -15,6 +16,8 @@ base {
 java.toolchain.languageVersion = JavaLanguageVersion.of(17)
 
 println "Java: ${System.getProperty 'java.version'}, JVM: ${System.getProperty 'java.vm.version'} (${System.getProperty 'java.vendor'}), Arch: ${System.getProperty 'os.arch'}"
+
+boolean isWorkspace = findProject(':Cucumber') != null
 
 repositories {
     maven { url 'https://maven.blakesmods.com' }
@@ -38,10 +41,10 @@ minecraft {
         client {
             workingDirectory project.file('run')
 
+            arg '-mixin.config=cucumber.mixins.json'
+
             property 'forge.logging.markers', 'REGISTRIES'
             property 'forge.logging.console.level', 'debug'
-            property 'mixin.env.remapRefMap', 'true'
-            property 'mixin.env.refMapRemappingFile', "${buildDir}/createSrgToMcp/output.srg"
 
             ideaModule rootProject.name != project.name ? "${rootProject.name}.${project.name}.main" : "${project.name}.main"
 
@@ -50,7 +53,7 @@ minecraft {
                     source sourceSets.main
                 }
 
-                if (findProject(':Cucumber') != null) {
+                if (isWorkspace) {
                     cucumber {
                         source project(':Cucumber').sourceSets.main
                     }
@@ -61,10 +64,10 @@ minecraft {
         server {
             workingDirectory project.file('run')
 
+            arg '-mixin.config=cucumber.mixins.json'
+
             property 'forge.logging.markers', 'REGISTRIES'
             property 'forge.logging.console.level', 'debug'
-            property 'mixin.env.remapRefMap', 'true'
-            property 'mixin.env.refMapRemappingFile', "${buildDir}/createSrgToMcp/output.srg"
 
             ideaModule rootProject.name != project.name ? "${rootProject.name}.${project.name}.main" : "${project.name}.main"
 
@@ -73,7 +76,7 @@ minecraft {
                     source sourceSets.main
                 }
 
-                if (findProject(':Cucumber') != null) {
+                if (isWorkspace) {
                     cucumber {
                         source project(':Cucumber').sourceSets.main
                     }
@@ -86,8 +89,6 @@ minecraft {
 
             property 'forge.logging.markers', 'REGISTRIES'
             property 'forge.logging.console.level', 'debug'
-            property 'mixin.env.remapRefMap', 'true'
-            property 'mixin.env.refMapRemappingFile', "${buildDir}/createSrgToMcp/output.srg"
 
             ideaModule rootProject.name != project.name ? "${rootProject.name}.${project.name}.main" : "${project.name}.main"
 
@@ -98,7 +99,7 @@ minecraft {
                     source sourceSets.main
                 }
 
-                if (findProject(':Cucumber') != null) {
+                if (isWorkspace) {
                     cucumber {
                         source project(':Cucumber').sourceSets.main
                     }
@@ -108,19 +109,15 @@ minecraft {
     }
 }
 
-sourceSets {
-    main {
-        resources {
-            srcDirs 'src/generated/resources'
-            exclude '.cache'
-        }
-    }
+sourceSets.main.resources {
+    srcDirs 'src/generated/resources'
+    exclude '.cache'
 }
 
 dependencies {
     minecraft "net.minecraftforge:forge:${forge_version}"
 
-    if (findProject(':Cucumber') != null) {
+    if (isWorkspace) {
         implementation(project(':Cucumber')) {
             transitive = false
         }
