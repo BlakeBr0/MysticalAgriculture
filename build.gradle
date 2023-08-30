@@ -1,15 +1,18 @@
 buildscript {
     repositories {
         maven { url = 'https://maven.minecraftforge.net' }
+        maven { url = 'https://repo.spongepowered.org/repository/maven-public' }
         mavenCentral()
     }
     dependencies {
         classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '5.1.+', changing: true
+        classpath 'org.spongepowered:mixingradle:0.7-SNAPSHOT'
     }
 }
 apply plugin: 'net.minecraftforge.gradle'
 apply plugin: 'eclipse'
 apply plugin: 'maven-publish'
+apply plugin: 'org.spongepowered.mixin'
 
 version = '1.19.3-6.1.7'
 group = 'com.blakebr0.mysticalagriculture'
@@ -18,6 +21,8 @@ archivesBaseName = 'MysticalAgriculture'
 java.toolchain.languageVersion = JavaLanguageVersion.of(17)
 
 println('Java: ' + System.getProperty('java.version') + ' JVM: ' + System.getProperty('java.vm.version') + '(' + System.getProperty('java.vendor') + ') Arch: ' + System.getProperty('os.arch'))
+
+boolean isWorkspace = findProject(':Cucumber') != null
 
 repositories {
     maven { url 'https://maven.blakesmods.com' }
@@ -40,10 +45,10 @@ minecraft {
         client {
             workingDirectory project.file('run')
 
+            arg '-mixin.config=cucumber.mixins.json'
+
             property 'forge.logging.markers', 'REGISTRIES'
             property 'forge.logging.console.level', 'debug'
-            property 'mixin.env.remapRefMap', 'true'
-            property 'mixin.env.refMapRemappingFile', "${buildDir}/createSrgToMcp/output.srg"
 
             ideaModule rootProject.name != project.name ? "${rootProject.name}.${project.name}.main" : "${project.name}.main"
 
@@ -52,7 +57,7 @@ minecraft {
                     source sourceSets.main
                 }
 
-                if (findProject(':Cucumber') != null) {
+                if (isWorkspace) {
                     cucumber {
                         source project(':Cucumber').sourceSets.main
                     }
@@ -63,10 +68,10 @@ minecraft {
         server {
             workingDirectory project.file('run')
 
+            arg '-mixin.config=cucumber.mixins.json'
+
             property 'forge.logging.markers', 'REGISTRIES'
             property 'forge.logging.console.level', 'debug'
-            property 'mixin.env.remapRefMap', 'true'
-            property 'mixin.env.refMapRemappingFile', "${buildDir}/createSrgToMcp/output.srg"
 
             ideaModule rootProject.name != project.name ? "${rootProject.name}.${project.name}.main" : "${project.name}.main"
 
@@ -75,7 +80,7 @@ minecraft {
                     source sourceSets.main
                 }
 
-                if (findProject(':Cucumber') != null) {
+                if (isWorkspace) {
                     cucumber {
                         source project(':Cucumber').sourceSets.main
                     }
@@ -88,8 +93,6 @@ minecraft {
 
             property 'forge.logging.markers', 'REGISTRIES'
             property 'forge.logging.console.level', 'debug'
-            property 'mixin.env.remapRefMap', 'true'
-            property 'mixin.env.refMapRemappingFile', "${buildDir}/createSrgToMcp/output.srg"
 
             ideaModule rootProject.name != project.name ? "${rootProject.name}.${project.name}.main" : "${project.name}.main"
 
@@ -100,7 +103,7 @@ minecraft {
                     source sourceSets.main
                 }
 
-                if (findProject(':Cucumber') != null) {
+                if (isWorkspace) {
                     cucumber {
                         source project(':Cucumber').sourceSets.main
                     }
@@ -110,13 +113,9 @@ minecraft {
     }
 }
 
-sourceSets {
-    main {
-        resources {
-            srcDirs 'src/generated/resources'
-            exclude '.cache'
-        }
-    }
+sourceSets.main.resources {
+    srcDirs 'src/generated/resources'
+    exclude '.cache'
 }
 
 dependencies {
