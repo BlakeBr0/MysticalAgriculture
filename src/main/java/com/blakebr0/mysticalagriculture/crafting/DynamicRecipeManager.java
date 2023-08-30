@@ -1,7 +1,7 @@
 package com.blakebr0.mysticalagriculture.crafting;
 
 import com.blakebr0.cucumber.crafting.ISpecialRecipe;
-import com.blakebr0.cucumber.event.RegisterRecipesEvent;
+import com.blakebr0.cucumber.event.RecipeManagerLoadingEvent;
 import com.blakebr0.mysticalagriculture.MysticalAgriculture;
 import com.blakebr0.mysticalagriculture.api.crop.Crop;
 import com.blakebr0.mysticalagriculture.config.ModConfigs;
@@ -21,20 +21,20 @@ public class DynamicRecipeManager {
     public static final DynamicRecipeManager INSTANCE = new DynamicRecipeManager();
 
     @SubscribeEvent
-    public void onRegisterRecipes(RegisterRecipesEvent event) {
+    public void onRecipeManagerLoading(RecipeManagerLoadingEvent event) {
         for (var crop : CropRegistry.getInstance().getCrops()) {
             var seed = makeSeedRecipe(crop);
             var seedRegular = makeRegularSeedRecipe(crop);
             var reprocessor = makeReprocessorRecipe(crop);
 
             if (seed != null)
-                event.register(seed);
+                event.addRecipe(seed);
 
             if (seedRegular != null)
-                event.register(seedRegular);
+                event.addRecipe(seedRegular);
 
             if (reprocessor != null)
-                event.register(reprocessor);
+                event.addRecipe(reprocessor);
         }
     }
 
