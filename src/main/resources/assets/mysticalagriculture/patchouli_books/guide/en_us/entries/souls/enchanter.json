@@ -1,0 +1,17 @@
+{
+  "name": "book.mysticalagriculture.entry.enchanter",
+  "category": "mysticalagriculture:souls",
+  "icon": "mysticalagriculture:enchanter",
+  "sortnum": 110,
+  "pages": [
+    {
+      "type": "text",
+      "text": "book.mysticalagriculture.entry.enchanter.page.1"
+    },
+    {
+      "type": "crafting",
+      "title": "book.mysticalagriculture.crafting",
+      "recipe": "mysticalagriculture:enchanter"
+    }
+  ]
+}

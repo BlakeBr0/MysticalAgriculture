@@ -1,0 +1,14 @@
+{
+  "type": "mysticalagriculture:enchanter",
+  "ingredients": [
+    {
+      "item": "minecraft:lead",
+      "count": 6
+    },
+    {
+      "item": "mysticalagriculture:experience_essence",
+      "count": 64
+    }
+  ],
+  "enchantment": "minecraft:loyalty"
+}

@@ -1,0 +1,14 @@
+{
+  "type": "mysticalagriculture:enchanter",
+  "ingredients": [
+    {
+      "item": "minecraft:slime_ball",
+      "count": 32
+    },
+    {
+      "item": "mysticalagriculture:experience_essence",
+      "count": 128
+    }
+  ],
+  "enchantment": "minecraft:silk_touch"
+}

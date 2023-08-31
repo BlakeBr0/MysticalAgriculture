@@ -10,6 +10,7 @@ public final class ModRecipeBookCategories {
     public void onRegisterRecipeBookCategories(RegisterRecipeBookCategoriesEvent event) {
         ModRecipeTypes.INFUSION.ifPresent(type -> event.registerRecipeCategoryFinder(type, recipe -> RecipeBookCategories.UNKNOWN));
         ModRecipeTypes.AWAKENING.ifPresent(type -> event.registerRecipeCategoryFinder(type, recipe -> RecipeBookCategories.UNKNOWN));
+        ModRecipeTypes.ENCHANTER.ifPresent(type -> event.registerRecipeCategoryFinder(type, recipe -> RecipeBookCategories.UNKNOWN));
         ModRecipeTypes.REPROCESSOR.ifPresent(type -> event.registerRecipeCategoryFinder(type, recipe -> RecipeBookCategories.UNKNOWN));
         ModRecipeTypes.SOUL_EXTRACTION.ifPresent(type -> event.registerRecipeCategoryFinder(type, recipe -> RecipeBookCategories.UNKNOWN));
     }

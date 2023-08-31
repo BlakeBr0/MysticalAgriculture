@@ -2,6 +2,7 @@ package com.blakebr0.mysticalagriculture.init;
 
 import com.blakebr0.mysticalagriculture.MysticalAgriculture;
 import com.blakebr0.mysticalagriculture.api.crafting.IAwakeningRecipe;
+import com.blakebr0.mysticalagriculture.api.crafting.IEnchanterRecipe;
 import com.blakebr0.mysticalagriculture.api.crafting.IInfusionRecipe;
 import com.blakebr0.mysticalagriculture.api.crafting.IReprocessorRecipe;
 import com.blakebr0.mysticalagriculture.api.crafting.ISoulExtractionRecipe;
@@ -20,6 +21,7 @@ public final class ModRecipeTypes {
 
     public static final RegistryObject<RecipeType<IInfusionRecipe>> INFUSION = register("infusion", () -> RecipeType.simple(new ResourceLocation(MysticalAgriculture.MOD_ID, "infusion")));
     public static final RegistryObject<RecipeType<IAwakeningRecipe>> AWAKENING = register("awakening", () -> RecipeType.simple(new ResourceLocation(MysticalAgriculture.MOD_ID, "awakening")));
+    public static final RegistryObject<RecipeType<IEnchanterRecipe>> ENCHANTER = register("enchanter", () -> RecipeType.simple(new ResourceLocation(MysticalAgriculture.MOD_ID, "enchanter")));
     public static final RegistryObject<RecipeType<IReprocessorRecipe>> REPROCESSOR = register("reprocessor", () -> RecipeType.simple(new ResourceLocation(MysticalAgriculture.MOD_ID, "reprocessor")));
     public static final RegistryObject<RecipeType<ISoulExtractionRecipe>> SOUL_EXTRACTION = register("soul_extraction", () -> RecipeType.simple(new ResourceLocation(MysticalAgriculture.MOD_ID, "soul_extraction")));
 

@@ -1,0 +1,50 @@
+{
+  "parent": "block/block",
+  "texture_size": [64, 64],
+  "textures": {
+    "0": "mysticalagriculture:block/enchanter",
+    "particle": "mysticalagriculture:block/enchanter"
+  },
+  "elements": [
+    {
+      "name": "Base",
+      "from": [0, 0, 0],
+      "to": [16, 2, 16],
+      "faces": {
+        "north": {"uv": [9.5, 0, 13.5, 0.5], "texture": "#0"},
+        "east": {"uv": [9.5, 0.5, 13.5, 1], "texture": "#0"},
+        "south": {"uv": [9.5, 1, 13.5, 1.5], "texture": "#0"},
+        "west": {"uv": [9.5, 1.5, 13.5, 2], "texture": "#0"},
+        "up": {"uv": [4, 4, 0, 0], "texture": "#0"},
+        "down": {"uv": [4, 4, 0, 8], "texture": "#0"}
+      }
+    },
+    {
+      "name": "Middle",
+      "from": [4, 2, 4],
+      "to": [12, 12, 12],
+      "faces": {
+        "north": {"uv": [4, 7, 6, 9.5], "texture": "#0"},
+        "east": {"uv": [6, 7, 8, 9.5], "texture": "#0"},
+        "south": {"uv": [7.5, 0, 9.5, 2.5], "texture": "#0"},
+        "west": {"uv": [7.5, 2.5, 9.5, 5], "texture": "#0"},
+        "up": {"uv": [9.5, 7, 7.5, 5], "texture": "#0"},
+        "down": {"uv": [2, 8, 0, 10], "texture": "#0"}
+      }
+    },
+    {
+      "name": "Top",
+      "from": [1, 11, -1],
+      "to": [15, 14, 13],
+      "rotation": {"angle": -22.5, "axis": "x", "origin": [8, 17, 8]},
+      "faces": {
+        "north": {"uv": [8, 7, 11.5, 7.75], "texture": "#0"},
+        "east": {"uv": [8, 7.75, 11.5, 8.5], "texture": "#0"},
+        "south": {"uv": [8, 8.5, 11.5, 9.25], "texture": "#0"},
+        "west": {"uv": [8, 9.25, 11.5, 10], "texture": "#0"},
+        "up": {"uv": [7.5, 3.5, 4, 0], "texture": "#0"},
+        "down": {"uv": [7.5, 3.5, 4, 7], "texture": "#0"}
+      }
+    }
+  ]
+}

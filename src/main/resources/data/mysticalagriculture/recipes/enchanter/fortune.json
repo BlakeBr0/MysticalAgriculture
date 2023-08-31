@@ -1,0 +1,14 @@
+{
+  "type": "mysticalagriculture:enchanter",
+  "ingredients": [
+    {
+      "item": "minecraft:gold_ingot",
+      "count": 12
+    },
+    {
+      "item": "mysticalagriculture:experience_essence",
+      "count": 64
+    }
+  ],
+  "enchantment": "minecraft:fortune"
+}

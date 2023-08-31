@@ -1,0 +1,24 @@
+{
+  "parent": "mysticalagriculture:block/enchanter",
+  "display": {
+    "firstperson_righthand": {
+      "rotation": [0, 135, 0],
+      "translation": [0, 0, 0],
+      "scale": [0.4, 0.4, 0.4]
+    },
+    "ground": {
+      "rotation": [0, 180, 0],
+      "translation": [0, 3, 0],
+      "scale": [0.25, 0.25, 0.25]
+    },
+    "gui": {
+      "rotation": [30, 225, 0],
+      "translation": [0, 0.75, 0],
+      "scale": [0.625, 0.625, 0.625]
+    },
+    "fixed": {
+      "rotation": [0, 180, 0],
+      "scale": [0.5, 0.5, 0.5]
+    }
+  }
+}

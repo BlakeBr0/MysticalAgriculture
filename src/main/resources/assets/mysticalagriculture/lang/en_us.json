@@ -71,6 +71,7 @@
   "block.mysticalagriculture.awakening_altar": "Awakening Altar",
   "block.mysticalagriculture.essence_vessel": "Essence Vessel",
   "block.mysticalagriculture.tinkering_table": "Tinkering Table",
+  "block.mysticalagriculture.enchanter": "Enchanter",
   "block.mysticalagriculture.machine_frame": "Machine Frame",
   "block.mysticalagriculture.seed_reprocessor": "Seed Reprocessor",
   "block.mysticalagriculture.soul_extractor": "Soul Extractor",
@@ -258,6 +259,7 @@
   "item.mysticalagriculture.augment": "%s Augment",
 
   "container.mysticalagriculture.tinkering_table": "Tinkering Table",
+  "container.mysticalagriculture.enchanter": "Enchanter",
   "container.mysticalagriculture.inferium_furnace": "Inferium Furnace",
   "container.mysticalagriculture.prudentium_furnace": "Prudentium Furnace",
   "container.mysticalagriculture.tertium_furnace": "Tertium Furnace",
@@ -317,6 +319,7 @@
 
   "jei.category.mysticalagriculture.infusion": "Infusion Crafting",
   "jei.category.mysticalagriculture.awakening": "Awakening",
+  "jei.category.mysticalagriculture.enchanter": "Enchanter",
   "jei.category.mysticalagriculture.reprocessor": "Seed Reprocessing",
   "jei.category.mysticalagriculture.soul_extractor": "Soul Extraction",
   "jei.category.mysticalagriculture.crux": "Cruxes",
@@ -675,9 +678,11 @@
   "book.mysticalagriculture.entry.soul_jars.page.1": "Soul Jars are used in combination with a $(l:souls/soulium_dagger)Soulium Dagger$() to collect mob souls. Filled Soul Jars can be used to create $(l:basics/resource_crops)Resource Crops$() for the corresponding entity. $(br2)Soul Jars can also be filled using mob drops with a $(l:machines/soul_extractor)Soul Extractor$().",
   "book.mysticalagriculture.entry.experience_capsule": "Experience Capsule",
   "book.mysticalagriculture.entry.experience_capsule.page.1": "Experience Capsules are used to collect experience for creating Experience Seeds. $(br2)To collect experience, simply have some Experience Capsules in your inventory and pick up Experience Orbs.",
+  "book.mysticalagriculture.entry.enchanter": "Enchanter",
+  "book.mysticalagriculture.entry.enchanter.page.1": "The Enchanter is a block that allows you to enchant your tools and armor using different crafting materials and Experience Essence. $(br2)The Enchanter can apply enchantments to both Books and tools/armor, similarly to an Anvil.",
 
   "book.mysticalagriculture.entry.elemental_essences": "Elemental Essences",
-  "book.mysticalagriculture.entry.elemental_essences.page.1": "WIP $(br2)Air, Earth, Water and Fire essences can be used in $(l:elemental/awakening_altar)Awakening Altar$() recipes using $(l:elemental/essence_vessel)Essence Vessels$().",
+  "book.mysticalagriculture.entry.elemental_essences.page.1": "Air, Earth, Water and Fire essences can be used in $(l:elemental/awakening_altar)Awakening Altar$() recipes using $(l:elemental/essence_vessel)Essence Vessels$().",
   "book.mysticalagriculture.entry.cognizant_dust": "Cognizant Dust",
   "book.mysticalagriculture.entry.cognizant_dust.page.1": "Cognizant Dust is $(bold)usually$() obtained by killing a Wither or Ender Dragon using an $(l:tinkering/essence_tools)Essence Weapon$() enchanted with Mystical Enlightenment. $(br2)Higher levels of Mystical Enlightenment will increase the amount of dust dropped on kill.",
   "book.mysticalagriculture.entry.essence_vessel": "Essence Vessel",

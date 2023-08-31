@@ -1,0 +1,14 @@
+{
+  "type": "mysticalagriculture:enchanter",
+  "ingredients": [
+    {
+      "item": "minecraft:obsidian",
+      "count": 12
+    },
+    {
+      "item": "mysticalagriculture:experience_essence",
+      "count": 64
+    }
+  ],
+  "enchantment": "minecraft:unbreaking"
+}

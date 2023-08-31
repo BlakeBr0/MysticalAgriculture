@@ -1,0 +1,14 @@
+{
+  "type": "mysticalagriculture:enchanter",
+  "ingredients": [
+    {
+      "item": "minecraft:bow",
+      "count": 3
+    },
+    {
+      "item": "mysticalagriculture:experience_essence",
+      "count": 128
+    }
+  ],
+  "enchantment": "minecraft:multishot"
+}
