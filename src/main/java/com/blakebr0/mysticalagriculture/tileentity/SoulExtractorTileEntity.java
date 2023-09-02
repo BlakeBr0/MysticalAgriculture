@@ -136,7 +136,7 @@ public class SoulExtractorTileEntity extends BaseInventoryTileEntity implements 
 
                 if (tile.fuelItemValue > 0) {
                     tile.fuelLeft = tile.fuelItemValue *= FUEL_TICK_MULTIPLIER;
-                    tile.inventory.setStackInSlot(1, StackHelper.shrink(tile.inventory.getStackInSlot(1), 1, false));
+                    tile.inventory.setStackInSlot(1, StackHelper.shrink(fuel, 1, true));
 
                     mark = true;
                 }
