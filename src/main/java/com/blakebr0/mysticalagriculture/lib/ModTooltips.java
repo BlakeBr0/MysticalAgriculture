@@ -7,6 +7,8 @@ import net.minecraft.ChatFormatting;
 import net.minecraft.client.Minecraft;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.ItemStack;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.fml.ModList;
 
 import java.util.List;
@@ -62,6 +64,7 @@ public final class ModTooltips {
         return ModTooltips.ADDED_BY.args(name).build();
     }
 
+    @OnlyIn(Dist.CLIENT) // hack: marked client only because of loading LocalPlayer on DEDICATED_SERVER in The One Probe integration
     public static void addAugmentListToTooltip(List<Component> tooltip, ItemStack stack, int slots) {
         tooltip.add(ModTooltips.AUGMENTS.build());
 
