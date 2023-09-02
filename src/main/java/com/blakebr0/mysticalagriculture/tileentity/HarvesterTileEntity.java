@@ -137,7 +137,7 @@ public class HarvesterTileEntity extends BaseInventoryTileEntity implements Menu
 
                 if (tile.fuelItemValue > 0) {
                     tile.fuelLeft = tile.fuelItemValue *= FUEL_TICK_MULTIPLIER;
-                    tile.inventory.setStackInSlot(0, StackHelper.shrink(tile.inventory.getStackInSlot(0), 1, false));
+                    tile.inventory.setStackInSlot(0, StackHelper.shrink(fuel, 1, true));
 
                     mark = true;
                 }
