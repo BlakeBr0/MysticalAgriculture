@@ -121,7 +121,7 @@ public abstract class ReprocessorTileEntity extends BaseInventoryTileEntity impl
 
                 if (tile.fuelItemValue > 0) {
                     tile.fuelLeft = tile.fuelItemValue *= FUEL_TICK_MULTIPLIER;
-                    tile.inventory.extractItemSuper(1, 1, false);
+                    tile.inventory.setStackInSlot(1, StackHelper.shrink(fuel, 1, true));
 
                     mark = true;
                 }
