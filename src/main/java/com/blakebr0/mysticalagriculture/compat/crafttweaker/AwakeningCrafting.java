@@ -1,82 +1,44 @@
 package com.blakebr0.mysticalagriculture.compat.crafttweaker;
 
-import com.blakebr0.cucumber.helper.RecipeHelper;
-import com.blakebr0.mysticalagriculture.MysticalAgriculture;
+import com.blakebr0.mysticalagriculture.api.crafting.IAwakeningRecipe;
 import com.blakebr0.mysticalagriculture.crafting.recipe.AwakeningRecipe;
 import com.blakebr0.mysticalagriculture.init.ModRecipeTypes;
 import com.blamejared.crafttweaker.api.CraftTweakerAPI;
-import com.blamejared.crafttweaker.api.action.base.IRuntimeAction;
+import com.blamejared.crafttweaker.api.CraftTweakerConstants;
+import com.blamejared.crafttweaker.api.action.recipe.ActionAddRecipe;
+import com.blamejared.crafttweaker.api.action.recipe.ActionRemoveRecipe;
 import com.blamejared.crafttweaker.api.annotation.ZenRegister;
 import com.blamejared.crafttweaker.api.ingredient.IIngredient;
 import com.blamejared.crafttweaker.api.item.IItemStack;
+import com.blamejared.crafttweaker.api.recipe.manager.base.IRecipeManager;
 import net.minecraft.core.NonNullList;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.core.RegistryAccess;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
-import net.minecraft.world.item.crafting.Recipe;
-import net.minecraftforge.server.ServerLifecycleHooks;
+import net.minecraft.world.item.crafting.RecipeType;
 import org.openzen.zencode.java.ZenCodeType;
-
-import java.util.HashMap;
 
 @ZenCodeType.Name("mods.mysticalagriculture.AwakeningCrafting")
 @ZenRegister
-public final class AwakeningCrafting {
-    @ZenCodeType.Method
-    public static void addRecipe(String id, IItemStack output, IIngredient[] inputs, IItemStack[] essences) {
-        addRecipe(id, output, inputs, essences, false);
+public final class AwakeningCrafting implements IRecipeManager<IAwakeningRecipe> {
+    private static final AwakeningCrafting INSTANCE = new AwakeningCrafting();
+
+    @Override
+    public RecipeType<IAwakeningRecipe> getRecipeType() {
+        return ModRecipeTypes.AWAKENING.get();
     }
 
     @ZenCodeType.Method
-    public static void addRecipe(String id, IItemStack output, IIngredient[] inputs, IItemStack[] essences, boolean transferNBT) {
-        CraftTweakerAPI.apply(new IRuntimeAction() {
-            @Override
-            public void apply() {
-                var recipe = new AwakeningRecipe(new ResourceLocation("crafttweaker", id), toIngredientsList(inputs), toItemStackList(essences), output.getInternal(), transferNBT);
+    public static void addRecipe(String name, IItemStack output, IIngredient[] inputs, IItemStack[] essences, @ZenCodeType.OptionalBoolean boolean transferNBT) {
+        var id = CraftTweakerConstants.rl(INSTANCE.fixRecipeName(name));
+        var recipe = new AwakeningRecipe(id, toIngredientsList(inputs), toItemStackList(essences), output.getInternal(), transferNBT);
 
-                RecipeHelper.addRecipe(recipe);
-            }
-
-            @Override
-            public String describe() {
-                return "Adding Awakening Crafting recipe for " + output.getCommandString();
-            }
-
-            @Override
-            public String systemName() {
-                return MysticalAgriculture.MOD_ID;
-            }
-        });
+        CraftTweakerAPI.apply(new ActionAddRecipe<>(INSTANCE, recipe));
     }
 
     @ZenCodeType.Method
     public static void remove(IItemStack stack) {
-        CraftTweakerAPI.apply(new IRuntimeAction() {
-            @Override
-            public void apply() {
-                var access = ServerLifecycleHooks.getCurrentServer().registryAccess();
-                var recipes = RecipeHelper.getRecipes()
-                        .getOrDefault(ModRecipeTypes.AWAKENING.get(), new HashMap<>())
-                        .values().stream()
-                        .filter(r -> r.getResultItem(access).is(stack.getInternal().getItem()))
-                        .map(Recipe::getId)
-                        .toList();
-
-                recipes.forEach(r -> {
-                    RecipeHelper.getRecipes().get(ModRecipeTypes.AWAKENING.get()).remove(r);
-                });
-            }
-
-            @Override
-            public String describe() {
-                return "Removing Awakening Crafting recipes for " + stack.getCommandString();
-            }
-
-            @Override
-            public String systemName() {
-                return MysticalAgriculture.MOD_ID;
-            }
-        });
+        CraftTweakerAPI.apply(new ActionRemoveRecipe<>(INSTANCE, recipe -> recipe.getResultItem(RegistryAccess.EMPTY).is(stack.getInternal().getItem())));
     }
 
     private static NonNullList<Ingredient> toIngredientsList(IIngredient... iingredients) {
