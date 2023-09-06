@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "mysticalagriculture:item/seeds/flux_infused_gem_seeds"
+  }
+}

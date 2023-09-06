@@ -1,4 +1,4 @@
-// 1.20.1	2023-07-20T15:55:05.9378812	Recipes
+// 1.20.1	2023-09-05T20:05:18.7621519	Recipes
 2d9771ce5f2b6839d92423a86134b16c1e1e4c56 data/mysticalagriculture/recipes/seed/crafting/air.json
 f63f063bfcf352aee66050102a960570aa8e0ccc data/mysticalagriculture/recipes/seed/crafting/aluminum.json
 127bdadb8c6b224ead8a61a3b81563154a8ffc53 data/mysticalagriculture/recipes/seed/crafting/amethyst.json
@@ -49,6 +49,8 @@ a1881765eb5b09e42085e90f711bd4357722a391 data/mysticalagriculture/recipes/seed/c
 d2fcaff6a3e25072706d2026b810a0b9120afcc0 data/mysticalagriculture/recipes/seed/crafting/fish.json
 3ed1af7020dcfcde4a9f6311c37a6644295e275d data/mysticalagriculture/recipes/seed/crafting/fluix.json
 d15d93e6adb6a3968edcd81afa7d16542e459e7b data/mysticalagriculture/recipes/seed/crafting/fluorite.json
+7bd2f8cb6ed69fb157a579780eca106a0930ce6b data/mysticalagriculture/recipes/seed/crafting/flux_infused_gem.json
+c5e4857d8b2781d119ffdbafb861e63cbd747f71 data/mysticalagriculture/recipes/seed/crafting/flux_infused_ingot.json
 61a7c5f5671545b480461b3c00945138189a54ef data/mysticalagriculture/recipes/seed/crafting/ghast.json
 7d0631d16c989642e382bab4d850eaaf0af251a5 data/mysticalagriculture/recipes/seed/crafting/glowstone.json
 e87d9ff939f033eb9f30b5a345f7f92274b290de data/mysticalagriculture/recipes/seed/crafting/gold.json
@@ -182,6 +184,8 @@ ff2fea5ff17f47c2069e25874b893ac50a815556 data/mysticalagriculture/recipes/seed/i
 048a6e5f083f8240e6eb23c9ab7a5640c8efaf96 data/mysticalagriculture/recipes/seed/infusion/fish.json
 2e13120f47e8e4a32bf73537700fcf10ed0b8441 data/mysticalagriculture/recipes/seed/infusion/fluix.json
 dfba55434b4b7253d0cbf3238b9a9881d16cd65c data/mysticalagriculture/recipes/seed/infusion/fluorite.json
+fa1ac629738e850fbedeaf673e71efd53abe582f data/mysticalagriculture/recipes/seed/infusion/flux_infused_gem.json
+fe58b5b0009dc800a05a8f865103bc6e141d6035 data/mysticalagriculture/recipes/seed/infusion/flux_infused_ingot.json
 46237a9cee3f207f9d39c4bb87942233a0e681da data/mysticalagriculture/recipes/seed/infusion/ghast.json
 84492c99d856de350c6c5923002ef1c627cf4195 data/mysticalagriculture/recipes/seed/infusion/glowstone.json
 302af2760a5f65fc6329f8cec2b902a6ab67f8bf data/mysticalagriculture/recipes/seed/infusion/gold.json
@@ -315,6 +319,8 @@ cc4da8f4540ec3fe47e83f5cb7fda6dd00b43146 data/mysticalagriculture/recipes/seed/r
 3bd944cded0cd3b606fe26bcc28c78bd8fe6bb07 data/mysticalagriculture/recipes/seed/reprocessor/fish.json
 32d9c68fe2ca89362f1c3c3e8d627e120c94adf0 data/mysticalagriculture/recipes/seed/reprocessor/fluix.json
 d1d48e86586c90783905488db3dba5820f62e3b1 data/mysticalagriculture/recipes/seed/reprocessor/fluorite.json
+4812a8101815ce3f643eeafbdbf3a8cca6e297ab data/mysticalagriculture/recipes/seed/reprocessor/flux_infused_gem.json
+2c6433f8771ca77d790756db350df6912b62d6e5 data/mysticalagriculture/recipes/seed/reprocessor/flux_infused_ingot.json
 f6b42c28de1ff54cec94915cc0a7da9dfd962d58 data/mysticalagriculture/recipes/seed/reprocessor/ghast.json
 32cd17b9ff66b4da8b13b8838ba38695400a6b50 data/mysticalagriculture/recipes/seed/reprocessor/glowstone.json
 b5bc790ea2500d4a7789f32e6fcc06189324687e data/mysticalagriculture/recipes/seed/reprocessor/gold.json
