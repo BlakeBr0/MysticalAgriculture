@@ -1,4 +1,4 @@
-// 1.19.3	2022-12-26T20:12:58.2968502	Mystical Agriculture item model generator
+// 1.19.3	2023-09-07T14:27:23.9321962	Mystical Agriculture item model generator
 e1edc02b041c3259cf941617688795d37b15c9b4 assets/mysticalagriculture/models/item/absorption_iii_augment.json
 e1edc02b041c3259cf941617688795d37b15c9b4 assets/mysticalagriculture/models/item/absorption_ii_augment.json
 e1edc02b041c3259cf941617688795d37b15c9b4 assets/mysticalagriculture/models/item/absorption_iv_augment.json
@@ -99,6 +99,10 @@ e1edc02b041c3259cf941617688795d37b15c9b4 assets/mysticalagriculture/models/item/
 3f73a069175b22905d3d643d20ef6c748ea7824e assets/mysticalagriculture/models/item/fluix_seeds.json
 740bc8e3c1195ce8302e717494b57750e71573d6 assets/mysticalagriculture/models/item/fluorite_essence.json
 2c8a988dcd8f5aafd658db1c86e8dad8436c6caf assets/mysticalagriculture/models/item/fluorite_seeds.json
+f9f422df276d4fd14c7717451f51f01917082054 assets/mysticalagriculture/models/item/flux_infused_gem_essence.json
+7e2908c28af844924a2cd63c98a68d411ad3b17f assets/mysticalagriculture/models/item/flux_infused_gem_seeds.json
+1850489e81e72720f631e94cb95cf7a4f7ed0c61 assets/mysticalagriculture/models/item/flux_infused_ingot_essence.json
+036ee57742b4c442ef46cf55018fc8e3232a5064 assets/mysticalagriculture/models/item/flux_infused_ingot_seeds.json
 f91b3f7e1e115a86fa2b52dbe3793390fd3ea8ae assets/mysticalagriculture/models/item/ghast_essence.json
 12a65b8fba9d533fb7f25ee93154b17beaa6763e assets/mysticalagriculture/models/item/ghast_seeds.json
 e99e85e7f18a3474c365d8efc75fd4fff88c11f7 assets/mysticalagriculture/models/item/glowstone_essence.json
