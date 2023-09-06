@@ -115,6 +115,10 @@ public final class ModCrops {
     public static final Crop LUMIUM = new Crop(new ResourceLocation(MOD_ID, "lumium"), CropTier.FOUR, CropType.RESOURCE, LazyIngredient.tag("forge:ingots/lumium"));
     public static final Crop ENDERIUM = new Crop(new ResourceLocation(MOD_ID, "enderium"), CropTier.FIVE, CropType.RESOURCE, LazyIngredient.tag("forge:ingots/enderium"));
 
+    // REDSTONE ARSENAL
+    public static final Crop FLUX_INFUSED_INGOT = new Crop(new ResourceLocation(MOD_ID, "flux_infused_ingot"), CropTier.FOUR, CropType.RESOURCE, LazyIngredient.item("redstone_arsenal:flux_ingot"));
+    public static final Crop FLUX_INFUSED_GEM = new Crop(new ResourceLocation(MOD_ID, "flux_infused_gem"), CropTier.FIVE, CropType.RESOURCE, LazyIngredient.item("redstone_arsenal:flux_gem"));
+
     // IMMERSIVE ENGINEERING
     public static final Crop HOP_GRAPHITE = new Crop(new ResourceLocation(MOD_ID, "hop_graphite"), CropTier.FOUR, CropType.RESOURCE, LazyIngredient.tag("forge:ingots/hop_graphite"));
 
@@ -281,6 +285,9 @@ public final class ModCrops {
         registry.register(withRequiredMods(SIGNALUM, "thermal"));
         registry.register(withRequiredMods(LUMIUM, "thermal"));
         registry.register(withRequiredMods(ENDERIUM, "thermal"));
+
+        registry.register(withRequiredMods(FLUX_INFUSED_INGOT, "redstone_arsenal"));
+        registry.register(withRequiredMods(FLUX_INFUSED_GEM, "redstone_arsenal"));
 
         // IMMERSIVE ENGINEERING
         registry.register(withRequiredMods(HOP_GRAPHITE, "immersiveengineering"));

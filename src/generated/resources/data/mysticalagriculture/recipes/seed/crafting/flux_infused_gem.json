@@ -1,0 +1,42 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "conditions": [
+    {
+      "type": "mysticalagriculture:seed_crafting_recipes_enabled"
+    },
+    {
+      "type": "mysticalagriculture:crop_enabled",
+      "crop": "mysticalagriculture:flux_infused_gem"
+    },
+    {
+      "type": "mysticalagriculture:crop_has_material",
+      "crop": "mysticalagriculture:flux_infused_gem"
+    }
+  ],
+  "group": "mysticalagriculture:seeds",
+  "key": {
+    "E": {
+      "type": "mysticalagriculture:crop_component",
+      "component": "essence",
+      "crop": "mysticalagriculture:flux_infused_gem"
+    },
+    "M": {
+      "type": "mysticalagriculture:crop_component",
+      "component": "material",
+      "crop": "mysticalagriculture:flux_infused_gem"
+    },
+    "S": {
+      "type": "mysticalagriculture:crop_component",
+      "component": "seed",
+      "crop": "mysticalagriculture:flux_infused_gem"
+    }
+  },
+  "pattern": [
+    "MEM",
+    "ESE",
+    "MEM"
+  ],
+  "result": {
+    "item": "mysticalagriculture:flux_infused_gem_seeds"
+  }
+}
