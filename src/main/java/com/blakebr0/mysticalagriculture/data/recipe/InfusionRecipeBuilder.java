@@ -1,6 +1,8 @@
 package com.blakebr0.mysticalagriculture.data.recipe;
 
 import com.blakebr0.mysticalagriculture.api.crop.Crop;
+import com.blakebr0.mysticalagriculture.crafting.condition.CropEnabledCondition;
+import com.blakebr0.mysticalagriculture.crafting.condition.CropHasMaterialCondition;
 import com.blakebr0.mysticalagriculture.crafting.ingredient.CropComponentIngredient;
 import com.blakebr0.mysticalagriculture.init.ModRecipeSerializers;
 import com.google.common.collect.Lists;
@@ -12,6 +14,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.level.ItemLike;
+import net.minecraftforge.common.crafting.conditions.TagEmptyCondition;
 import net.minecraftforge.registries.ForgeRegistries;
 
 import java.util.List;
@@ -31,10 +34,6 @@ public class InfusionRecipeBuilder {
 
     public void addIngredient(Ingredient ingredient) {
         this.ingredients.add(ingredient);
-    }
-
-    public void addIngredient(ItemLike ingredient) {
-        this.ingredients.add(Ingredient.of(ingredient));
     }
 
     public void addCondition(JsonObject condition) {
@@ -62,16 +61,30 @@ public class InfusionRecipeBuilder {
         JsonObject condition;
 
         condition = new JsonObject();
-        condition.addProperty("type", "mysticalagriculture:crop_enabled");
+        condition.addProperty("type", CropEnabledCondition.Serializer.INSTANCE.getID().toString());
         condition.addProperty("crop", crop.getId().toString());
 
         builder.addCondition(condition);
 
         condition = new JsonObject();
-        condition.addProperty("type", "mysticalagriculture:crop_has_material");
+        condition.addProperty("type", CropHasMaterialCondition.Serializer.INSTANCE.getID().toString());
         condition.addProperty("crop", crop.getId().toString());
 
         builder.addCondition(condition);
+
+        var ingredient = crop.getLazyIngredient();
+
+        if (ingredient.isTag()) {
+            var tagEmptyCondition = new JsonObject();
+            tagEmptyCondition.addProperty("type", TagEmptyCondition.Serializer.INSTANCE.getID().toString());
+            tagEmptyCondition.addProperty("tag", ingredient.getId());
+
+            condition = new JsonObject();
+            condition.addProperty("type", "forge:not");
+            condition.add("value", tagEmptyCondition);
+
+            builder.addCondition(condition);
+        }
 
         return builder;
     }

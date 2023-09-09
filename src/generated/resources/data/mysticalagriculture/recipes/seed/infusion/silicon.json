@@ -8,6 +8,13 @@
     {
       "type": "mysticalagriculture:crop_has_material",
       "crop": "mysticalagriculture:silicon"
+    },
+    {
+      "type": "forge:not",
+      "value": {
+        "type": "forge:tag_empty",
+        "tag": "forge:silicon"
+      }
     }
   ],
   "ingredients": [

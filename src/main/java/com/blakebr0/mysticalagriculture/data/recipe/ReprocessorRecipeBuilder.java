@@ -1,6 +1,7 @@
 package com.blakebr0.mysticalagriculture.data.recipe;
 
 import com.blakebr0.mysticalagriculture.api.crop.Crop;
+import com.blakebr0.mysticalagriculture.crafting.condition.CropEnabledCondition;
 import com.blakebr0.mysticalagriculture.init.ModRecipeSerializers;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
@@ -37,7 +38,7 @@ public class ReprocessorRecipeBuilder {
         var builder = new ReprocessorRecipeBuilder(input, output, 2);
 
         var condition = new JsonObject();
-        condition.addProperty("type", "mysticalagriculture:crop_enabled");
+        condition.addProperty("type", CropEnabledCondition.Serializer.INSTANCE.getID().toString());
         condition.addProperty("crop", crop.getId().toString());
 
         builder.addCondition(condition);

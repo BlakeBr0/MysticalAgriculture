@@ -8,6 +8,13 @@
     {
       "type": "mysticalagriculture:crop_has_material",
       "crop": "mysticalagriculture:limestone"
+    },
+    {
+      "type": "forge:not",
+      "value": {
+        "type": "forge:tag_empty",
+        "tag": "mysticalagriculture:material/limestone"
+      }
     }
   ],
   "ingredients": [

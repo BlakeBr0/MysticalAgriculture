@@ -11,6 +11,13 @@
     {
       "type": "mysticalagriculture:crop_has_material",
       "crop": "mysticalagriculture:aluminum"
+    },
+    {
+      "type": "forge:not",
+      "value": {
+        "type": "forge:tag_empty",
+        "tag": "forge:ingots/aluminum"
+      }
     }
   ],
   "group": "mysticalagriculture:seeds",

@@ -8,6 +8,13 @@
     {
       "type": "mysticalagriculture:crop_has_material",
       "crop": "mysticalagriculture:nether_quartz"
+    },
+    {
+      "type": "forge:not",
+      "value": {
+        "type": "forge:tag_empty",
+        "tag": "forge:gems/quartz"
+      }
     }
   ],
   "ingredients": [

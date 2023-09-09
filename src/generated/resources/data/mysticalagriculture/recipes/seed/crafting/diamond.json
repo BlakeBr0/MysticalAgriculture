@@ -11,6 +11,13 @@
     {
       "type": "mysticalagriculture:crop_has_material",
       "crop": "mysticalagriculture:diamond"
+    },
+    {
+      "type": "forge:not",
+      "value": {
+        "type": "forge:tag_empty",
+        "tag": "forge:gems/diamond"
+      }
     }
   ],
   "group": "mysticalagriculture:seeds",

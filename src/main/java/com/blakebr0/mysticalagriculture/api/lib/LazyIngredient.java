@@ -17,13 +17,13 @@ public class LazyIngredient {
         }
     };
 
-    private final String name;
+    private final String id;
     private final CompoundTag nbt;
     private final Type type;
     private Ingredient ingredient;
 
-    private LazyIngredient(String name, Type type, CompoundTag nbt) {
-        this.name = name;
+    private LazyIngredient(String id, Type type, CompoundTag nbt) {
+        this.id = id;
         this.type = type;
         this.nbt = nbt;
     }
@@ -39,6 +39,10 @@ public class LazyIngredient {
     public static LazyIngredient tag(String name) {
         return new LazyIngredient(name, Type.TAG, null);
     }
+    
+    public String getId() {
+        return this.id;
+    }
 
     public boolean isItem() {
         return this.type == Type.ITEM;
@@ -50,10 +54,10 @@ public class LazyIngredient {
 
     public Ingredient.Value createValue() {
         if (this.isTag()) {
-            var tag = ItemTags.create(new ResourceLocation(this.name));
+            var tag = ItemTags.create(new ResourceLocation(this.id));
             return new Ingredient.TagValue(tag);
         } else if (this.isItem()) {
-            Item item = ForgeRegistries.ITEMS.getValue(new ResourceLocation(this.name));
+            Item item = ForgeRegistries.ITEMS.getValue(new ResourceLocation(this.id));
             if (item != null) {
                 ItemStack stack = new ItemStack(item);
 
@@ -71,10 +75,10 @@ public class LazyIngredient {
     public Ingredient getIngredient() {
         if (this.ingredient == null) {
             if (this.isTag()) {
-                var tag = ItemTags.create(new ResourceLocation(this.name));
+                var tag = ItemTags.create(new ResourceLocation(this.id));
                 this.ingredient = Ingredient.of(tag);
             } else if (this.isItem()) {
-                var item = ForgeRegistries.ITEMS.getValue(new ResourceLocation(this.name));
+                var item = ForgeRegistries.ITEMS.getValue(new ResourceLocation(this.id));
 
                 if (item != null) {
                     if (this.nbt == null || this.nbt.isEmpty()) {

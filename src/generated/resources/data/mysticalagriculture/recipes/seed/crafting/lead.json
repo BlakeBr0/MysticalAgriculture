@@ -11,6 +11,13 @@
     {
       "type": "mysticalagriculture:crop_has_material",
       "crop": "mysticalagriculture:lead"
+    },
+    {
+      "type": "forge:not",
+      "value": {
+        "type": "forge:tag_empty",
+        "tag": "forge:ingots/lead"
+      }
     }
   ],
   "group": "mysticalagriculture:seeds",
