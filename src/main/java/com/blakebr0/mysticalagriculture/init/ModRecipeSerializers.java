@@ -15,6 +15,7 @@ import com.blakebr0.mysticalagriculture.crafting.recipe.InfusionRecipe;
 import com.blakebr0.mysticalagriculture.crafting.recipe.ReprocessorRecipe;
 import com.blakebr0.mysticalagriculture.crafting.recipe.SoulExtractionRecipe;
 import com.blakebr0.mysticalagriculture.crafting.recipe.SoulJarEmptyRecipe;
+import com.blakebr0.mysticalagriculture.crafting.recipe.SouliumSpawnerRecipe;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.HoeItem;
 import net.minecraft.world.item.crafting.RecipeSerializer;
@@ -37,6 +38,7 @@ public final class ModRecipeSerializers {
     public static final RegistryObject<RecipeSerializer<?>> ENCHANTER = register("enchanter", EnchanterRecipe.Serializer::new);
     public static final RegistryObject<RecipeSerializer<?>> REPROCESSOR = register("reprocessor", ReprocessorRecipe.Serializer::new);
     public static final RegistryObject<RecipeSerializer<?>> SOUL_EXTRACTION = register("soul_extraction", SoulExtractionRecipe.Serializer::new);
+    public static final RegistryObject<RecipeSerializer<?>> SOULIUM_SPAWNER = register("soulium_spawner", SouliumSpawnerRecipe.Serializer::new);
     public static final RegistryObject<RecipeSerializer<?>> CRAFTING_SOUL_JAR_EMPTY = register("soul_jar_empty", SoulJarEmptyRecipe.Serializer::new);
 
     public static final IIngredientSerializer<HoeIngredient> HOE_INGREDIENT = new HoeIngredient.Serializer();

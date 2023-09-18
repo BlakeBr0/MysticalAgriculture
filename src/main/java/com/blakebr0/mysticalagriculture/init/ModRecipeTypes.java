@@ -6,6 +6,7 @@ import com.blakebr0.mysticalagriculture.api.crafting.IEnchanterRecipe;
 import com.blakebr0.mysticalagriculture.api.crafting.IInfusionRecipe;
 import com.blakebr0.mysticalagriculture.api.crafting.IReprocessorRecipe;
 import com.blakebr0.mysticalagriculture.api.crafting.ISoulExtractionRecipe;
+import com.blakebr0.mysticalagriculture.api.crafting.ISouliumSpawnerRecipe;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.Container;
 import net.minecraft.world.item.crafting.Recipe;
@@ -24,6 +25,7 @@ public final class ModRecipeTypes {
     public static final RegistryObject<RecipeType<IEnchanterRecipe>> ENCHANTER = register("enchanter", () -> RecipeType.simple(new ResourceLocation(MysticalAgriculture.MOD_ID, "enchanter")));
     public static final RegistryObject<RecipeType<IReprocessorRecipe>> REPROCESSOR = register("reprocessor", () -> RecipeType.simple(new ResourceLocation(MysticalAgriculture.MOD_ID, "reprocessor")));
     public static final RegistryObject<RecipeType<ISoulExtractionRecipe>> SOUL_EXTRACTION = register("soul_extraction", () -> RecipeType.simple(new ResourceLocation(MysticalAgriculture.MOD_ID, "soul_extraction")));
+    public static final RegistryObject<RecipeType<ISouliumSpawnerRecipe>> SOULIUM_SPAWNER = register("soulium_spawner", () -> RecipeType.simple(new ResourceLocation(MysticalAgriculture.MOD_ID, "soulium_spawner")));
 
     private static <T extends Recipe<Container>> RegistryObject<RecipeType<T>> register(String name, Supplier<RecipeType<T>> type) {
         return REGISTRY.register(name, type);

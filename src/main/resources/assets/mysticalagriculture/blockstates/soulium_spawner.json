@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=east": { "model": "mysticalagriculture:block/soulium_spawner", "y": 90 },
+    "facing=north": { "model": "mysticalagriculture:block/soulium_spawner" },
+    "facing=south": { "model": "mysticalagriculture:block/soulium_spawner", "y": 180 },
+    "facing=west": { "model": "mysticalagriculture:block/soulium_spawner", "y": 270 }
+  }
+}

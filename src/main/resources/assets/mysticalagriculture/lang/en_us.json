@@ -76,6 +76,7 @@
   "block.mysticalagriculture.seed_reprocessor": "Seed Reprocessor",
   "block.mysticalagriculture.soul_extractor": "Soul Extractor",
   "block.mysticalagriculture.harvester": "Harvester",
+  "block.mysticalagriculture.soulium_spawner": "Soulium Spawner",
 
   "block.mysticalagriculture.mystical_crop": "%s Crop",
 
@@ -269,6 +270,7 @@
   "container.mysticalagriculture.reprocessor": "Seed Reprocessor",
   "container.mysticalagriculture.soul_extractor": "Soul Extractor",
   "container.mysticalagriculture.harvester": "Harvester",
+  "container.mysticalagriculture.soulium_spawner": "Soulium Spawner",
 
   "enchantment.mysticalagriculture.mystical_enlightenment": "Mystical Enlightenment",
   "enchantment.mysticalagriculture.mystical_enlightenment.desc": "Ender Dragons and Withers will drop Cognizant Dust when killed with an Essence Weapon.",
