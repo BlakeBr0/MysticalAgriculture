@@ -4,21 +4,26 @@ import com.blakebr0.mysticalagriculture.api.registry.IAugmentRegistry;
 import com.blakebr0.mysticalagriculture.api.tinkering.Augment;
 import com.blakebr0.mysticalagriculture.augment.AbsorptionAugment;
 import com.blakebr0.mysticalagriculture.augment.AttackAOEAugment;
+import com.blakebr0.mysticalagriculture.augment.BlindnessResistanceAugment;
 import com.blakebr0.mysticalagriculture.augment.FireResistanceAugment;
 import com.blakebr0.mysticalagriculture.augment.FlightAugment;
 import com.blakebr0.mysticalagriculture.augment.HealthBoostAugment;
+import com.blakebr0.mysticalagriculture.augment.HungerResistanceAugment;
 import com.blakebr0.mysticalagriculture.augment.JumpBoostAugment;
 import com.blakebr0.mysticalagriculture.augment.MiningAOEAugment;
 import com.blakebr0.mysticalagriculture.augment.MiningFatigueResistanceAugment;
+import com.blakebr0.mysticalagriculture.augment.NauseaResistanceAugment;
 import com.blakebr0.mysticalagriculture.augment.NightVisionAugment;
 import com.blakebr0.mysticalagriculture.augment.NoFallDamageAugment;
 import com.blakebr0.mysticalagriculture.augment.PathingAOEAugment;
 import com.blakebr0.mysticalagriculture.augment.PoisonResistanceAugment;
+import com.blakebr0.mysticalagriculture.augment.SlownessResistanceAugment;
 import com.blakebr0.mysticalagriculture.augment.SpeedAugment;
 import com.blakebr0.mysticalagriculture.augment.StepAssistAugment;
 import com.blakebr0.mysticalagriculture.augment.StrengthAugment;
 import com.blakebr0.mysticalagriculture.augment.TillingAOEAugment;
 import com.blakebr0.mysticalagriculture.augment.WaterBreathingAugment;
+import com.blakebr0.mysticalagriculture.augment.WeaknessResistanceAugment;
 import com.blakebr0.mysticalagriculture.augment.WitherResistanceAugment;
 import net.minecraft.resources.ResourceLocation;
 
@@ -28,6 +33,7 @@ public final class ModAugments {
     public static final Augment ABSORPTION_I = new AbsorptionAugment(new ResourceLocation(MOD_ID, "absorption_i"), 1, 0);
     public static final Augment HEALTH_BOOST_I = new HealthBoostAugment(new ResourceLocation(MOD_ID, "health_boost_i"), 1, 1);
     public static final Augment PATHING_AOE_I = new PathingAOEAugment(new ResourceLocation(MOD_ID, "pathing_aoe_i"), 1, 1);
+    public static final Augment NAUSEA_RESISTANCE = new NauseaResistanceAugment(new ResourceLocation(MOD_ID, "nausea_resistance"), 1);
 
     public static final Augment NIGHT_VISION = new NightVisionAugment(new ResourceLocation(MOD_ID, "night_vision"), 2);
     public static final Augment WATER_BREATHING = new WaterBreathingAugment(new ResourceLocation(MOD_ID, "water_breathing"), 2);
@@ -38,6 +44,7 @@ public final class ModAugments {
     public static final Augment MINING_AOE_I = new MiningAOEAugment(new ResourceLocation(MOD_ID, "mining_aoe_i"), 2, 1);
     public static final Augment TILLING_AOE_I = new TillingAOEAugment(new ResourceLocation(MOD_ID, "tilling_aoe_i"), 2, 1);
     public static final Augment PATHING_AOE_II = new PathingAOEAugment(new ResourceLocation(MOD_ID, "pathing_aoe_ii"), 2, 2);
+    public static final Augment BLINDNESS_RESISTANCE = new BlindnessResistanceAugment(new ResourceLocation(MOD_ID, "blindness_resistance"), 2);
 
     public static final Augment ABSORPTION_III = new AbsorptionAugment(new ResourceLocation(MOD_ID, "absorption_iii"), 3, 2);
     public static final Augment FIRE_RESISTANCE = new FireResistanceAugment(new ResourceLocation(MOD_ID, "fire_resistance"), 3);
@@ -51,6 +58,8 @@ public final class ModAugments {
     public static final Augment ATTACK_AOE_I = new AttackAOEAugment(new ResourceLocation(MOD_ID, "attack_aoe_i"), 3, 1);
     public static final Augment TILLING_AOE_II = new TillingAOEAugment(new ResourceLocation(MOD_ID, "tilling_aoe_ii"), 3, 2);
     public static final Augment PATHING_AOE_III = new PathingAOEAugment(new ResourceLocation(MOD_ID, "pathing_aoe_iii"), 3, 3);
+    public static final Augment WEAKNESS_RESISTANCE = new WeaknessResistanceAugment(new ResourceLocation(MOD_ID, "weakness_resistance"), 3);
+    public static final Augment SLOWNESS_RESISTANCE = new SlownessResistanceAugment(new ResourceLocation(MOD_ID, "slowness_resistance"), 3);
 
     public static final Augment ABSORPTION_IV = new AbsorptionAugment(new ResourceLocation(MOD_ID, "absorption_iv"), 4, 3);
     public static final Augment POISON_RESISTANCE = new PoisonResistanceAugment(new ResourceLocation(MOD_ID, "poison_resistance"), 4);
@@ -63,6 +72,7 @@ public final class ModAugments {
     public static final Augment TILLING_AOE_III = new TillingAOEAugment(new ResourceLocation(MOD_ID, "tilling_aoe_iii"), 4, 3);
     public static final Augment PATHING_AOE_IV = new PathingAOEAugment(new ResourceLocation(MOD_ID, "pathing_aoe_iv"), 4, 4);
     public static final Augment MINING_FATIGUE_RESISTANCE = new MiningFatigueResistanceAugment(new ResourceLocation(MOD_ID, "mining_fatigue_resistance"), 4);
+    public static final Augment HUNGER_RESISTANCE = new HungerResistanceAugment(new ResourceLocation(MOD_ID, "hunger_resistance"), 4);
 
     public static final Augment ABSORPTION_V = new AbsorptionAugment(new ResourceLocation(MOD_ID, "absorption_v"), 5, 4);
     public static final Augment WITHER_RESISTANCE = new WitherResistanceAugment(new ResourceLocation(MOD_ID, "wither_resistance"), 5);
@@ -77,6 +87,7 @@ public final class ModAugments {
         registry.register(ABSORPTION_I);
         registry.register(HEALTH_BOOST_I);
         registry.register(PATHING_AOE_I);
+        registry.register(NAUSEA_RESISTANCE);
 
         registry.register(NIGHT_VISION);
         registry.register(WATER_BREATHING);
@@ -87,6 +98,7 @@ public final class ModAugments {
         registry.register(MINING_AOE_I);
         registry.register(TILLING_AOE_I);
         registry.register(PATHING_AOE_II);
+        registry.register(BLINDNESS_RESISTANCE);
 
         registry.register(ABSORPTION_III);
         registry.register(FIRE_RESISTANCE);
@@ -100,6 +112,8 @@ public final class ModAugments {
         registry.register(ATTACK_AOE_I);
         registry.register(TILLING_AOE_II);
         registry.register(PATHING_AOE_III);
+        registry.register(WEAKNESS_RESISTANCE);
+        registry.register(SLOWNESS_RESISTANCE);
 
         registry.register(ABSORPTION_IV);
         registry.register(POISON_RESISTANCE);
@@ -112,6 +126,7 @@ public final class ModAugments {
         registry.register(TILLING_AOE_III);
         registry.register(PATHING_AOE_IV);
         registry.register(MINING_FATIGUE_RESISTANCE);
+        registry.register(HUNGER_RESISTANCE);
 
         registry.register(ABSORPTION_V);
         registry.register(WITHER_RESISTANCE);

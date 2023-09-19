@@ -1,0 +1,41 @@
+{
+  "type": "mysticalagriculture:infusion",
+  "conditions": [
+    {
+      "type": "mysticalagriculture:augment_enabled",
+      "augment": "mysticalagriculture:weakness_resistance"
+    }
+  ],
+  "input": {
+    "item": "mysticalagriculture:unattuned_augment"
+  },
+  "ingredients": [
+    {
+      "tag": "forge:storage_blocks/quartz"
+    },
+    {
+      "item": "mysticalagriculture:tertium_essence"
+    },
+    {
+      "item": "minecraft:iron_axe"
+    },
+    {
+      "item": "mysticalagriculture:tertium_essence"
+    },
+    {
+      "tag": "forge:storage_blocks/quartz"
+    },
+    {
+      "item": "mysticalagriculture:tertium_essence"
+    },
+    {
+      "item": "minecraft:iron_axe"
+    },
+    {
+      "item": "mysticalagriculture:tertium_essence"
+    }
+  ],
+  "result": {
+    "item": "mysticalagriculture:weakness_resistance_augment"
+  }
+}

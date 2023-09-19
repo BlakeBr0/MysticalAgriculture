@@ -1,0 +1,41 @@
+{
+  "type": "mysticalagriculture:infusion",
+  "conditions": [
+    {
+      "type": "mysticalagriculture:augment_enabled",
+      "augment": "mysticalagriculture:slowness_resistance"
+    }
+  ],
+  "input": {
+    "item": "mysticalagriculture:unattuned_augment"
+  },
+  "ingredients": [
+    {
+      "item": "minecraft:rabbit_foot"
+    },
+    {
+      "item": "mysticalagriculture:tertium_essence"
+    },
+    {
+      "item": "minecraft:sugar"
+    },
+    {
+      "item": "mysticalagriculture:tertium_essence"
+    },
+    {
+      "item": "minecraft:rabbit_foot"
+    },
+    {
+      "item": "mysticalagriculture:tertium_essence"
+    },
+    {
+      "item": "minecraft:sugar"
+    },
+    {
+      "item": "mysticalagriculture:tertium_essence"
+    }
+  ],
+  "result": {
+    "item": "mysticalagriculture:slowness_resistance_augment"
+  }
+}

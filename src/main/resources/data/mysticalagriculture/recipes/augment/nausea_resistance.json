@@ -1,0 +1,41 @@
+{
+  "type": "mysticalagriculture:infusion",
+  "conditions": [
+    {
+      "type": "mysticalagriculture:augment_enabled",
+      "augment": "mysticalagriculture:nausea_resistance"
+    }
+  ],
+  "input": {
+    "item": "mysticalagriculture:unattuned_augment"
+  },
+  "ingredients": [
+    {
+      "tag": "forge:leather"
+    },
+    {
+      "item": "mysticalagriculture:inferium_essence"
+    },
+    {
+      "item": "minecraft:milk_bucket"
+    },
+    {
+      "item": "mysticalagriculture:inferium_essence"
+    },
+    {
+      "tag": "forge:leather"
+    },
+    {
+      "item": "mysticalagriculture:inferium_essence"
+    },
+    {
+      "item": "minecraft:milk_bucket"
+    },
+    {
+      "item": "mysticalagriculture:inferium_essence"
+    }
+  ],
+  "result": {
+    "item": "mysticalagriculture:nausea_resistance_augment"
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "type": "mysticalagriculture:infusion",
+  "conditions": [
+    {
+      "type": "mysticalagriculture:augment_enabled",
+      "augment": "mysticalagriculture:blindness_resistance"
+    }
+  ],
+  "input": {
+    "item": "mysticalagriculture:unattuned_augment"
+  },
+  "ingredients": [
+    {
+      "item": "minecraft:torch"
+    },
+    {
+      "item": "mysticalagriculture:prudentium_essence"
+    },
+    {
+      "item": "minecraft:glowstone"
+    },
+    {
+      "item": "mysticalagriculture:prudentium_essence"
+    },
+    {
+      "item": "minecraft:torch"
+    },
+    {
+      "item": "mysticalagriculture:prudentium_essence"
+    },
+    {
+      "item": "minecraft:glowstone"
+    },
+    {
+      "item": "mysticalagriculture:prudentium_essence"
+    }
+  ],
+  "result": {
+    "item": "mysticalagriculture:blindness_resistance_augment"
+  }
+}
