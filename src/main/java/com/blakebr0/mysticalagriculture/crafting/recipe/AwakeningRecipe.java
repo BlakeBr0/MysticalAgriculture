@@ -127,9 +127,9 @@ public class AwakeningRecipe implements ISpecialRecipe, IAwakeningRecipe {
         for (int i = 0; i < remaining.size(); i++) {
             var stack = inventory.getStackInSlot(i);
 
-            // all the odd indexes happen to be the essences
-            if (i % 2 == 1) {
-                var ingredient = this.inputs.get(i);
+            // all the even indexes happen to be the essences
+            if (i > 0 && i % 2 == 0) {
+                var ingredient = this.inputs.get(i - 1);
                 if (ingredient.isEmpty())
                     continue;
 
