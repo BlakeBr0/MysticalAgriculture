@@ -295,6 +295,7 @@ public class Augment {
      * @param slot the equipment slot type
      * @param stack the item
      */
+    @Deprecated(forRemoval = true)
     public void addToolAttributeModifiers(Multimap<Attribute, AttributeModifier> attributes, EquipmentSlot slot, ItemStack stack) { }
 
     /**
@@ -303,6 +304,7 @@ public class Augment {
      * @param slot the equipment slot type
      * @param stack the item
      */
+    @Deprecated(forRemoval = true)
     public void addArmorAttributeModifiers(Multimap<Attribute, AttributeModifier> attributes, EquipmentSlot slot, ItemStack stack) { }
 
     /**

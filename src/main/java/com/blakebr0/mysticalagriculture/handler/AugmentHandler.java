@@ -16,16 +16,18 @@ public final class AugmentHandler {
         var entity = event.getEntity();
 
         if (entity instanceof Player player) {
-            var level = player.getCommandSenderWorld();
+            var level = player.level();
             var augments = AugmentUtils.getArmorAugments(player);
 
-            augments.forEach(a -> a.onPlayerTick(level, player, ABILITY_CACHE));
+            for (var augment : augments) {
+                augment.onPlayerTick(level, player, ABILITY_CACHE);
+            }
 
-            ABILITY_CACHE.getCachedAbilities(player).forEach(c -> {
-                if (augments.stream().noneMatch(a -> c.equals(a.getId().toString()))) {
-                    ABILITY_CACHE.remove(c, player);
+            for (var augment : ABILITY_CACHE.getCachedAbilities(player)) {
+                if (augments.stream().noneMatch(a -> augment.equals(a.getId().toString()))) {
+                    ABILITY_CACHE.remove(augment, player);
                 }
-            });
+            }
         }
     }
 
@@ -34,11 +36,11 @@ public final class AugmentHandler {
         var entity = event.getEntity();
 
         if (entity instanceof Player player) {
-            var level = player.getCommandSenderWorld();
+            var level = player.level();
 
-            AugmentUtils.getArmorAugments(player).forEach(a -> {
-                a.onPlayerFall(level, player, event);
-            });
+            for (var augment : AugmentUtils.getArmorAugments(player)) {
+                augment.onPlayerFall(level, player, event);
+            }
         }
     }
 
@@ -46,8 +48,8 @@ public final class AugmentHandler {
     public void onPlayerLoggedOut(PlayerEvent.PlayerLoggedOutEvent event) {
         var player = event.getEntity();
 
-        ABILITY_CACHE.getCachedAbilities(player).forEach(c -> {
-            ABILITY_CACHE.removeQuietly(c, player);
-        });
+        for (var augment : ABILITY_CACHE.getCachedAbilities(player)) {
+            ABILITY_CACHE.removeQuietly(augment, player);
+        }
     }
 }
