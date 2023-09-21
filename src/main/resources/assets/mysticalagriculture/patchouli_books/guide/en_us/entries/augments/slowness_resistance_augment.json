@@ -1,0 +1,12 @@
+{
+  "name": "book.mysticalagriculture.entry.slowness_resistance_augment",
+  "category": "mysticalagriculture:augments",
+  "icon": "mysticalagriculture:slowness_resistance_augment",
+  "sortnum": 320,
+  "pages": [
+    {
+      "type": "text",
+      "text": "book.mysticalagriculture.entry.slowness_resistance_augment.page.1"
+    }
+  ]
+}

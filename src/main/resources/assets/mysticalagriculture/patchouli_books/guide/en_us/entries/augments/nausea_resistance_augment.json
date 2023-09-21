@@ -1,0 +1,12 @@
+{
+  "name": "book.mysticalagriculture.entry.nausea_resistance_augment",
+  "category": "mysticalagriculture:augments",
+  "icon": "mysticalagriculture:nausea_resistance_augment",
+  "sortnum": 319,
+  "pages": [
+    {
+      "type": "text",
+      "text": "book.mysticalagriculture.entry.nausea_resistance_augment.page.1"
+    }
+  ]
+}

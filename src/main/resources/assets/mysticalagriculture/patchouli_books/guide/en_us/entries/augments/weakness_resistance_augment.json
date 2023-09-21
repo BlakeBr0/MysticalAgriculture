@@ -1,0 +1,12 @@
+{
+  "name": "book.mysticalagriculture.entry.weakness_resistance_augment",
+  "category": "mysticalagriculture:augments",
+  "icon": "mysticalagriculture:weakness_resistance_augment",
+  "sortnum": 321,
+  "pages": [
+    {
+      "type": "text",
+      "text": "book.mysticalagriculture.entry.weakness_resistance_augment.page.1"
+    }
+  ]
+}

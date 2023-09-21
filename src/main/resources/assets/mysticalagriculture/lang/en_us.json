@@ -763,5 +763,15 @@
   "book.mysticalagriculture.entry.wither_resistance_augment": "Wither Resistance Augment",
   "book.mysticalagriculture.entry.wither_resistance_augment.page.1": "The Wither Resistance Augment is an armor augment that prevents the wearer from getting the Wither effect while they have the armor equipped.",
   "book.mysticalagriculture.entry.flight_augment": "Flight Augment",
-  "book.mysticalagriculture.entry.flight_augment.page.1": "The Flight Augment is a chestplate augment that gives the wearer creative flight while they have the armor equipped."
+  "book.mysticalagriculture.entry.flight_augment.page.1": "The Flight Augment is a chestplate augment that gives the wearer creative flight while they have the armor equipped.",
+  "book.mysticalagriculture.entry.blindness_resistance_augment": "Blindness Resistance Augment",
+  "book.mysticalagriculture.entry.blindness_resistance_augment.page.1": "The Blindness Resistance Augment is a helmet augment that prevents the wearer from getting the Blindness effect while they have the armor equipped.",
+  "book.mysticalagriculture.entry.hunger_resistance_augment": "Hunger Resistance Augment",
+  "book.mysticalagriculture.entry.hunger_resistance_augment.page.1": "The Hunger Resistance Augment is a helmet augment that prevents the wearer from getting the Hunger effect while they have the armor equipped.",
+  "book.mysticalagriculture.entry.nausea_resistance_augment": "Nausea Resistance Augment",
+  "book.mysticalagriculture.entry.nausea_resistance_augment.page.1": "The Nausea Resistance Augment is a helmet augment that prevents the wearer from getting the Nausea effect while they have the armor equipped.",
+  "book.mysticalagriculture.entry.slowness_resistance_augment": "Slowness Resistance Augment",
+  "book.mysticalagriculture.entry.slowness_resistance_augment.page.1": "The Slowness Resistance Augment is a leggings augment that prevents the wearer from getting the Slowness effect while they have the armor equipped.",
+  "book.mysticalagriculture.entry.weakness_resistance_augment": "Weakness Resistance Augment",
+  "book.mysticalagriculture.entry.weakness_resistance_augment.page.1": "The Weakness Resistance Augment is a chestplate augment that prevents the wearer from getting the Weakness effect while they have the armor equipped."
 }

@@ -1,0 +1,12 @@
+{
+  "name": "book.mysticalagriculture.entry.blindness_resistance_augment",
+  "category": "mysticalagriculture:augments",
+  "icon": "mysticalagriculture:blindness_resistance_augment",
+  "sortnum": 317,
+  "pages": [
+    {
+      "type": "text",
+      "text": "book.mysticalagriculture.entry.blindness_resistance_augment.page.1"
+    }
+  ]
+}

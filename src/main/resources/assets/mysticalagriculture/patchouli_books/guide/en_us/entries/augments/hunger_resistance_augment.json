@@ -1,0 +1,12 @@
+{
+  "name": "book.mysticalagriculture.entry.hunger_resistance_augment",
+  "category": "mysticalagriculture:augments",
+  "icon": "mysticalagriculture:hunger_resistance_augment",
+  "sortnum": 318,
+  "pages": [
+    {
+      "type": "text",
+      "text": "book.mysticalagriculture.entry.hunger_resistance_augment.page.1"
+    }
+  ]
+}
