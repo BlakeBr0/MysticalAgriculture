@@ -27,7 +27,10 @@ public class StepAssistAugment extends Augment {
             if (height == null)
                 return;
 
-            height.addPermanentModifier(new AttributeModifier(ATTRIBUTE_ID, MysticalAgriculture.MOD_ID + ":step_assist_augment", 1, AttributeModifier.Operation.ADDITION));
+            var hasStepAssist = height.getModifier(ATTRIBUTE_ID) != null;
+            if (!hasStepAssist) {
+                height.addPermanentModifier(new AttributeModifier(ATTRIBUTE_ID, MysticalAgriculture.MOD_ID + ":step_assist_augment", 1, AttributeModifier.Operation.ADDITION));
+            }
 
             cache.add(this, player, () -> {
                 height.removeModifier(ATTRIBUTE_ID);
