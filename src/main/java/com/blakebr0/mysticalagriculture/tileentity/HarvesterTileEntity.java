@@ -1,11 +1,11 @@
 package com.blakebr0.mysticalagriculture.tileentity;
 
 import com.blakebr0.cucumber.energy.DynamicEnergyStorage;
+import com.blakebr0.cucumber.helper.CropHelper;
 import com.blakebr0.cucumber.helper.StackHelper;
 import com.blakebr0.cucumber.inventory.BaseItemStackHandler;
 import com.blakebr0.cucumber.tileentity.BaseInventoryTileEntity;
 import com.blakebr0.cucumber.util.Localizable;
-import com.blakebr0.mysticalagriculture.MysticalAgriculture;
 import com.blakebr0.mysticalagriculture.block.HarvesterBlock;
 import com.blakebr0.mysticalagriculture.container.HarvesterContainer;
 import com.blakebr0.mysticalagriculture.container.inventory.UpgradeItemStackHandler;
@@ -21,7 +21,6 @@ import net.minecraft.world.MenuProvider;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
@@ -32,14 +31,11 @@ import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.capabilities.ForgeCapabilities;
 import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.energy.IEnergyStorage;
-import net.minecraftforge.fml.util.ObfuscationReflectionHelper;
 
-import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
 
 public class HarvesterTileEntity extends BaseInventoryTileEntity implements MenuProvider, IUpgradeableMachine {
-    private static final Method GET_SEED;
     private static final int FUEL_TICK_MULTIPLIER = 20;
     public static final int OPERATION_TIME = 100;
     public static final int FUEL_USAGE = 40;
@@ -59,10 +55,6 @@ public class HarvesterTileEntity extends BaseInventoryTileEntity implements Menu
     private int fuelLeft;
     private int fuelItemValue;
     private boolean isRunning;
-
-    static {
-        GET_SEED = ObfuscationReflectionHelper.findMethod(CropBlock.class, "m_6404_");
-    }
 
     public HarvesterTileEntity(BlockPos pos, BlockState state) {
         super(ModTileEntities.HARVESTER.get(), pos, state);
@@ -184,7 +176,7 @@ public class HarvesterTileEntity extends BaseInventoryTileEntity implements Menu
             var block = cropState.getBlock();
 
             if (block instanceof CropBlock crop) {
-                var seed = getSeed(block);
+                var seed = CropHelper.getSeedsItem(block);
                 if (seed != null && crop.isMaxAge(cropState)) {
                     var drops = Block.getDrops(cropState, (ServerLevel) level, nextPos, tile);
 
@@ -355,15 +347,5 @@ public class HarvesterTileEntity extends BaseInventoryTileEntity implements Menu
         }
 
         Block.popResource(level, pos, StackHelper.withSize(stack, remaining, false));
-    }
-
-    private static Item getSeed(Block block) {
-        try {
-            return (Item) GET_SEED.invoke(block);
-        } catch (Exception e) {
-            MysticalAgriculture.LOGGER.error("Unable to get seed from crop {}", e.getLocalizedMessage());
-        }
-
-        return null;
     }
 }
