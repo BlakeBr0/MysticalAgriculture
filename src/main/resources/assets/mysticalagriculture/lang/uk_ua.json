@@ -35,12 +35,6 @@
   "block.mysticalagriculture.tertium_growth_accelerator": "Тертієвий прискорювач зростання",
   "block.mysticalagriculture.imperium_growth_accelerator": "Імперієвий прискорювач зростання",
   "block.mysticalagriculture.supremium_growth_accelerator": "Супремієвий прискорювач зростання",
-  "block.mysticalagriculture.inferium_furnace": "Інферієва піч",
-  "block.mysticalagriculture.prudentium_furnace": "Прудентієва піч",
-  "block.mysticalagriculture.tertium_furnace": "Тертієва піч",
-  "block.mysticalagriculture.imperium_furnace": "Імперієва піч",
-  "block.mysticalagriculture.supremium_furnace": "Супремієва піч",
-  "block.mysticalagriculture.awakened_supremium_furnace": "Пробуджена супремієва піч  ",
   "block.mysticalagriculture.prosperity_ore": "Руда процвітання",
   "block.mysticalagriculture.deepslate_prosperity_ore": "Глибосланцева руда процвітання",
   "block.mysticalagriculture.inferium_ore": "Інферієва руда",
@@ -72,17 +66,11 @@
   "block.mysticalagriculture.essence_vessel": "Посудина для есенції",
   "block.mysticalagriculture.tinkering_table": "Складальний стіл",
   "block.mysticalagriculture.machine_frame": "Корпус механізму",
-  "block.mysticalagriculture.basic_reprocessor": "Переробник насіння",
-  "block.mysticalagriculture.inferium_reprocessor": "Інферієвий переробник насіння",
-  "block.mysticalagriculture.prudentium_reprocessor": "Прудентієвий переробник насіння",
-  "block.mysticalagriculture.tertium_reprocessor": "Тертієвий переробник насіння",
-  "block.mysticalagriculture.imperium_reprocessor": "Імперієвий переробник насіння",
-  "block.mysticalagriculture.supremium_reprocessor": "Супремієвий переробник насіння",
-  "block.mysticalagriculture.awakened_supremium_reprocessor": "Пробуджений супремієвий переробник насіння  ",
+  "block.mysticalagriculture.furnace": "Піч",
   "block.mysticalagriculture.soul_extractor": "Витягувач душ",
   "block.mysticalagriculture.harvester": "Комбайн",
   
-    "block.mysticalagriculture.mystical_crop": "Посів %s",
+  "block.mysticalagriculture.mystical_crop": "Посів %s",
    
   "item.mysticalagriculture.prosperity_shard": "Уламок процвітання",
   "item.mysticalagriculture.inferium_essence": "Інферієва есенція",
@@ -261,12 +249,7 @@
   "item.mysticalagriculture.augment": "%s (Розширення)",
 
   "container.mysticalagriculture.tinkering_table": "Складальний стіл",
-  "container.mysticalagriculture.inferium_furnace": "Імперієва піч",
-  "container.mysticalagriculture.prudentium_furnace": "Прудентієва піч",
-  "container.mysticalagriculture.tertium_furnace": "Тертієва піч",
-  "container.mysticalagriculture.imperium_furnace": "Імперієва піч",
-  "container.mysticalagriculture.supremium_furnace": "Супремієва піч",
-  "container.mysticalagriculture.awakened_supremium_furnace": "Пробуджена супремієва піч",
+  "container.mysticalagriculture.furnace": "Піч",
   "container.mysticalagriculture.reprocessor": "Переробник насіння",
   "container.mysticalagriculture.soul_extractor": "Витягувач душ",
   "container.mysticalagriculture.harvester": "Комбайн",
@@ -428,7 +411,6 @@
 
   "crop.mysticalagriculture.hop_graphite": "HOP графіту",
 
-  "crop.mysticalagriculture.tinkers_bronze": "бронзи",
   "crop.mysticalagriculture.slimesteel": "слизесталі",
   "crop.mysticalagriculture.pig_iron": "свиносталі",
   "crop.mysticalagriculture.cobalt": "кобальту",
@@ -455,8 +437,6 @@
   "crop.mysticalagriculture.ironwood": "залізного дерева",
   "crop.mysticalagriculture.knightmetal": "лицарського металу",
   "crop.mysticalagriculture.fiery_ingot": "вогняного злитка",
-
-  "crop.mysticalagriculture.ender_biotite": "біотиту Енда",
 
   "crop.mysticalagriculture.aquamarine": "аквамарину",
   "crop.mysticalagriculture.starmetal": "зоряного металу",

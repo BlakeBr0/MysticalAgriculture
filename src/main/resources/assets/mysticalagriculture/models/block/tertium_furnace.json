@@ -1,8 +1,0 @@
-{
-  "parent": "block/orientable",
-  "textures": {
-    "top": "mysticalagriculture:block/tertium_furnace_top",
-    "front": "mysticalagriculture:block/tertium_furnace_front",
-    "side": "mysticalagriculture:block/tertium_furnace_side"
-  }
-}
