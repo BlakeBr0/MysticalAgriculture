@@ -2,6 +2,10 @@
   "type": "cucumber:shaped_no_mirror",
   "conditions": [
     {
+      "type": "forge:mod_loaded",
+      "modid": "refinedstorage"
+    },
+    {
       "type": "mysticalagriculture:crop_enabled",
       "crop": "mysticalagriculture:quartz_enriched_iron"
     }
