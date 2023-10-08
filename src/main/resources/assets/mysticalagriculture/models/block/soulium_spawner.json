@@ -1,7 +1,9 @@
 {
   "parent": "block/orientable",
+  "render_type": "cutout",
   "textures": {
     "top": "mysticalagriculture:block/machine_side",
+    "bottom": "mysticalagriculture:block/machine_side",
     "front": "minecraft:block/spawner",
     "side": "mysticalagriculture:block/machine_side"
   }

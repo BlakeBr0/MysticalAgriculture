@@ -1,0 +1,14 @@
+{
+  "type": "mysticalagriculture:soulium_spawner",
+  "conditions": [
+    {
+      "type": "mysticalagriculture:crop_enabled",
+      "crop": "mysticalagriculture:zombie"
+    }
+  ],
+  "input": {
+    "item": "mysticalagriculture:zombie_essence",
+    "count": 16
+  },
+  "entity": "minecraft:zombie"
+}

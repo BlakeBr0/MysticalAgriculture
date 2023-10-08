@@ -7,7 +7,6 @@ import com.blakebr0.mysticalagriculture.container.inventory.UpgradeItemStackHand
 import com.blakebr0.mysticalagriculture.init.ModContainerTypes;
 import com.blakebr0.mysticalagriculture.init.ModRecipeTypes;
 import com.blakebr0.mysticalagriculture.item.MachineUpgradeItem;
-import com.blakebr0.mysticalagriculture.tileentity.ReprocessorTileEntity;
 import com.blakebr0.mysticalagriculture.tileentity.SouliumSpawnerTileEntity;
 import com.blakebr0.mysticalagriculture.util.RecipeIngredientCache;
 import net.minecraft.core.BlockPos;
@@ -31,7 +30,6 @@ public class SouliumSpawnerContainer extends BaseContainerMenu {
 
         this.addSlot(new BaseItemStackHandlerSlot(inventory, 0, 74, 52));
         this.addSlot(new BaseItemStackHandlerSlot(inventory, 1, 30, 56));
-        this.addSlot(new BaseItemStackHandlerSlot(inventory, 2, 134, 52));
 
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 9; j++) {
@@ -53,18 +51,12 @@ public class SouliumSpawnerContainer extends BaseContainerMenu {
             var itemstack1 = slot.getItem();
             itemstack = itemstack1.copy();
 
-            if (index == 3) {
-                if (!this.moveItemStackTo(itemstack1, 4, 40, true)) {
-                    return ItemStack.EMPTY;
-                }
-
-                slot.onQuickCraft(itemstack1, itemstack);
-            } else if (index != 2 && index != 1) {
+            if (index > 2) {
                 if (itemstack1.getItem() instanceof MachineUpgradeItem) {
                     if (!this.moveItemStackTo(itemstack1, 0, 1, false)) {
                         return ItemStack.EMPTY;
                     }
-                } else if (RecipeIngredientCache.INSTANCE.isValidInput(itemstack1, ModRecipeTypes.REPROCESSOR.get())) {
+                } else if (RecipeIngredientCache.INSTANCE.isValidInput(itemstack1, ModRecipeTypes.SOULIUM_SPAWNER.get())) {
                     if (!this.moveItemStackTo(itemstack1, 1, 2, false)) {
                         return ItemStack.EMPTY;
                     }
@@ -72,14 +64,14 @@ public class SouliumSpawnerContainer extends BaseContainerMenu {
                     if (!this.moveItemStackTo(itemstack1, 2, 3, false)) {
                         return ItemStack.EMPTY;
                     }
-                } else if (index < 31) {
-                    if (!this.moveItemStackTo(itemstack1, 31, 40, false)) {
+                } else if (index < 30) {
+                    if (!this.moveItemStackTo(itemstack1, 30, 39, false)) {
                         return ItemStack.EMPTY;
                     }
-                } else if (index < 40 && !this.moveItemStackTo(itemstack1, 4, 30, false)) {
+                } else if (index < 39 && !this.moveItemStackTo(itemstack1, 3, 29, false)) {
                     return ItemStack.EMPTY;
                 }
-            } else if (!this.moveItemStackTo(itemstack1, 4, 40, false)) {
+            } else if (!this.moveItemStackTo(itemstack1, 3, 39, false)) {
                 return ItemStack.EMPTY;
             }
 

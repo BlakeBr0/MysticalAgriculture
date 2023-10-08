@@ -7,7 +7,7 @@ import com.blakebr0.cucumber.inventory.SidedItemStackHandlerWrapper;
 import com.blakebr0.cucumber.tileentity.BaseInventoryTileEntity;
 import com.blakebr0.cucumber.util.Localizable;
 import com.blakebr0.mysticalagriculture.block.SouliumSpawnerBlock;
-import com.blakebr0.mysticalagriculture.container.ReprocessorContainer;
+import com.blakebr0.mysticalagriculture.container.SouliumSpawnerContainer;
 import com.blakebr0.mysticalagriculture.container.inventory.UpgradeItemStackHandler;
 import com.blakebr0.mysticalagriculture.crafting.recipe.SouliumSpawnerRecipe;
 import com.blakebr0.mysticalagriculture.init.ModRecipeTypes;
@@ -20,25 +20,34 @@ import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.MenuProvider;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.Mob;
+import net.minecraft.world.entity.MobSpawnType;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.block.entity.FurnaceBlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.phys.AABB;
 import net.minecraftforge.common.ForgeHooks;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.capabilities.ForgeCapabilities;
 import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.energy.IEnergyStorage;
 import net.minecraftforge.items.IItemHandlerModifiable;
+import net.minecraftforge.items.wrapper.RecipeWrapper;
+
+import java.util.UUID;
 
 public class SouliumSpawnerTileEntity extends BaseInventoryTileEntity implements MenuProvider, IUpgradeableMachine {
     private static final int FUEL_TICK_MULTIPLIER = 20;
     public static final int OPERATION_TIME = 200;
     public static final int FUEL_USAGE = 20;
     public static final int FUEL_CAPACITY = 80000;
+    public static final int SPAWN_RADIUS = 3;
 
     private final BaseItemStackHandler inventory;
     private final UpgradeItemStackHandler upgradeInventory;
@@ -115,7 +124,7 @@ public class SouliumSpawnerTileEntity extends BaseInventoryTileEntity implements
 
     @Override
     public AbstractContainerMenu createMenu(int id, Inventory playerInventory, Player player) {
-        return ReprocessorContainer.create(id, playerInventory, this.inventory, this.upgradeInventory, this.getBlockPos());
+        return SouliumSpawnerContainer.create(id, playerInventory, this.inventory, this.upgradeInventory, this.getBlockPos());
     }
 
     @Override
@@ -175,19 +184,17 @@ public class SouliumSpawnerTileEntity extends BaseInventoryTileEntity implements
 
             if (!input.isEmpty()) {
                 if (tile.recipe == null || !tile.recipe.matches(tile.inventory)) {
-                    var recipe = level.getRecipeManager().getRecipeFor(ModRecipeTypes.SOULIUM_SPAWNER.get(), tile.inventory.toIInventory(), level).orElse(null);
+                    var recipe = level.getRecipeManager().getRecipeFor(ModRecipeTypes.SOULIUM_SPAWNER.get(), new RecipeWrapper(tile.inventory), level).orElse(null);
                     tile.recipe = recipe instanceof SouliumSpawnerRecipe ? (SouliumSpawnerRecipe) recipe : null;
                 }
 
-                if (tile.recipe != null) {
-                    var entity = tile.recipe.getEntityType();
-
+                if (tile.recipe != null && input.getCount() >= tile.recipe.getInputCount()) {
                     tile.isRunning = true;
                     tile.progress++;
                     tile.energy.extractEnergy(tile.getFuelUsage(), false);
 
-                    if (tile.progress >= tile.getOperationTime()) {
-                        tile.inventory.setStackInSlot(0, StackHelper.shrink(tile.inventory.getStackInSlot(0), 1, false));
+                    if (tile.progress >= tile.getOperationTime() && tile.attemptSpawn()) {
+                        tile.inventory.setStackInSlot(0, StackHelper.shrink(input, tile.recipe.getInputCount(), false));
                         tile.progress = 0;
                     }
 
@@ -259,6 +266,56 @@ public class SouliumSpawnerTileEntity extends BaseInventoryTileEntity implements
             return FUEL_USAGE;
 
         return (int) (FUEL_USAGE * this.tier.getFuelUsageMultiplier());
+    }
+
+    private boolean attemptSpawn() {
+        if (this.level == null)
+            return false;
+
+        var entity = this.recipe.getEntityType().create(this.level);
+        if (entity == null)
+            return false;
+
+        var entities = this.level.getEntitiesOfClass(entity.getClass(), AABB.ofSize(this.getBlockPos().getCenter(), SPAWN_RADIUS * 2, SPAWN_RADIUS * 2, SPAWN_RADIUS * 2))
+                .stream()
+                .filter(Entity::isAlive)
+                .count();
+
+        if (entities >= 32)
+            return false;
+
+        var positions = BlockPos.betweenClosedStream(
+                this.getBlockPos().offset(-SPAWN_RADIUS, 0, -SPAWN_RADIUS),
+                this.getBlockPos().offset(SPAWN_RADIUS, 0, SPAWN_RADIUS)
+        ).map(BlockPos::immutable).toList();
+
+        var pos = positions.get(this.level.random.nextInt(positions.size()));
+
+        entity.setUUID(UUID.randomUUID());
+        entity.moveTo(pos.getX(), pos.getY(), pos.getZ(), this.level.random.nextFloat() * 360F, 0);
+
+        if (entity instanceof Mob mob) {
+            mob.finalizeSpawn((ServerLevelAccessor) this.level, this.level.getCurrentDifficultyAt(this.getBlockPos()), MobSpawnType.MOB_SUMMONED, null, null);
+        }
+
+        int attempts = 20;
+
+        while (attempts-- > 0 && !this.canEntitySpawn(entity)) {
+            pos = positions.get(this.level.random.nextInt(positions.size()));
+
+            entity.moveTo(pos.getX(), pos.getY(), pos.getZ(), this.level.random.nextFloat() * 360F, 0);
+        }
+
+        if (attempts <= 0)
+            return false;
+
+        this.level.addFreshEntity(entity);
+
+        return true;
+    }
+
+    private boolean canEntitySpawn(Entity entity) {
+        return this.level != null && this.level.isUnobstructed(entity) && !this.level.containsAnyLiquid(entity.getBoundingBox());
     }
 
     private boolean canInsertStackSided(int slot, ItemStack stack, Direction direction) {

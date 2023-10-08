@@ -299,6 +299,7 @@
   "tooltip.mysticalagriculture.machine_fuel_rate": "Fuel Usage: %s/t",
   "tooltip.mysticalagriculture.machine_fuel_capacity": "Fuel Capacity: %s",
   "tooltip.mysticalagriculture.machine_area": "Area: %s",
+  "tooltip.mysticalagriculture.machine_spawn_radius": "Spawn Radius: %s",
   "tooltip.mysticalagriculture.tool_area": "Area: %s",
   "tooltip.mysticalagriculture.experience_capsule": "%s / %s Experience Points",
   "tooltip.mysticalagriculture.soul_jar": "%s (%s/%s)",
@@ -324,6 +325,7 @@
   "jei.category.mysticalagriculture.enchanter": "Enchanter",
   "jei.category.mysticalagriculture.reprocessor": "Seed Reprocessing",
   "jei.category.mysticalagriculture.soul_extractor": "Soul Extraction",
+  "jei.category.mysticalagriculture.soulium_spawner": "Soulium Spawner",
   "jei.category.mysticalagriculture.crux": "Cruxes",
 
   "jei.desc.mysticalagriculture.cognizant_dust": "Dropped by the Wither and the Ender Dragon when killed with an Essence Weapon enchanted with Mystical Enlightenment.",

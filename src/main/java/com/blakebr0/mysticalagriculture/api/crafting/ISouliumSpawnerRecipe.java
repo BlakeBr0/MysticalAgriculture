@@ -6,4 +6,5 @@ import net.minecraft.world.item.crafting.Recipe;
 
 public interface ISouliumSpawnerRecipe extends Recipe<Container> {
     EntityType<?> getEntityType();
+    int getInputCount();
 }

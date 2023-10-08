@@ -45,7 +45,13 @@ public class SouliumSpawnerBlock extends BaseTileEntityBlock {
     public static final BooleanProperty RUNNING = BooleanProperty.create("running");
 
     public SouliumSpawnerBlock() {
-        super(SoundType.METAL, 3.5F, 3.5F, true);
+        super(p -> p
+                .sound(SoundType.METAL)
+                .strength(3.5F)
+                .requiresCorrectToolForDrops()
+                .noOcclusion()
+        );
+
         this.registerDefaultState(this.getStateDefinition().any().setValue(FACING, Direction.NORTH).setValue(RUNNING, false));
     }
 
@@ -108,10 +114,12 @@ public class SouliumSpawnerBlock extends BaseTileEntityBlock {
             var speed = Formatting.number(SouliumSpawnerTileEntity.OPERATION_TIME).withStyle(ChatFormatting.WHITE);
             var fuelRate = Formatting.number(SouliumSpawnerTileEntity.FUEL_USAGE).withStyle(ChatFormatting.WHITE);
             var fuelCapacity = Formatting.number(SouliumSpawnerTileEntity.FUEL_CAPACITY).withStyle(ChatFormatting.WHITE);
+            var spawnRadius = Formatting.number(SouliumSpawnerTileEntity.SPAWN_RADIUS).withStyle(ChatFormatting.WHITE);
 
             tooltip.add(ModTooltips.MACHINE_SPEED.args(speed).build());
             tooltip.add(ModTooltips.MACHINE_FUEL_RATE.args(fuelRate).build());
             tooltip.add(ModTooltips.MACHINE_FUEL_CAPACITY.args(fuelCapacity).build());
+            tooltip.add(ModTooltips.MACHINE_SPAWN_RADIUS.args(spawnRadius).build());
         } else {
             tooltip.add(Tooltips.HOLD_SHIFT_FOR_INFO.build());
         }
