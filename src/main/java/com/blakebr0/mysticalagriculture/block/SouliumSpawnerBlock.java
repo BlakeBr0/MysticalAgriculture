@@ -129,4 +129,9 @@ public class SouliumSpawnerBlock extends BaseTileEntityBlock {
     protected <T extends BlockEntity> BlockEntityTicker<T> getServerTicker(Level level, BlockState state, BlockEntityType<T> type) {
         return createTicker(type, ModTileEntities.SOULIUM_SPAWNER.get(), SouliumSpawnerTileEntity::tick);
     }
+
+    @Override
+    protected <T extends BlockEntity> BlockEntityTicker<T> getClientTicker(Level level, BlockState state, BlockEntityType<T> type) {
+        return createTicker(type, ModTileEntities.SOULIUM_SPAWNER.get(), SouliumSpawnerTileEntity::clientTick);
+    }
 }

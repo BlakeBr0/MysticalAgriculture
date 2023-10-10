@@ -14,11 +14,16 @@ import mezz.jei.api.recipe.IFocusGroup;
 import mezz.jei.api.recipe.RecipeIngredientRole;
 import mezz.jei.api.recipe.RecipeType;
 import mezz.jei.api.recipe.category.IRecipeCategory;
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.util.random.WeightedEntry;
 import net.minecraft.world.item.ItemStack;
+import net.minecraftforge.common.ForgeSpawnEggItem;
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.Objects;
 
 public class SouliumSpawnerCategory implements IRecipeCategory<ISouliumSpawnerRecipe> {
     private static final ResourceLocation TEXTURE = new ResourceLocation(MysticalAgriculture.MOD_ID, "textures/jei/soulium_spawner.png");
@@ -64,15 +69,29 @@ public class SouliumSpawnerCategory implements IRecipeCategory<ISouliumSpawnerRe
 
     @Override
     public void setRecipe(IRecipeLayoutBuilder builder, ISouliumSpawnerRecipe recipe, IFocusGroup focuses) {
-        var level = Minecraft.getInstance().level;
+        var inputs = createInputsList(recipe);
+        var outputs = createOutputsList(recipe);
 
-        assert level != null;
+        builder.addSlot(RecipeIngredientRole.INPUT, 1, 5).addItemStacks(inputs);
 
-        var inputs = recipe.getIngredients();
-        var output = recipe.getResultItem(level.registryAccess());
+        builder.addSlot(RecipeIngredientRole.OUTPUT, 61, 5).addItemStacks(outputs);
+    }
 
-        builder.addSlot(RecipeIngredientRole.INPUT, 1, 5).addIngredients(inputs.get(0));
+    private static List<ItemStack> createInputsList(ISouliumSpawnerRecipe recipe) {
+        return recipe.getIngredients()
+                .stream()
+                .flatMap(i -> Arrays.stream(i.getItems()))
+                .map(s -> s.copyWithCount(recipe.getInputCount()))
+                .toList();
+    }
 
-        builder.addSlot(RecipeIngredientRole.OUTPUT, 61, 5).addItemStack(output);
+    private static List<ItemStack> createOutputsList(ISouliumSpawnerRecipe recipe) {
+        return recipe.getEntityTypes().unwrap()
+                .stream()
+                .map(WeightedEntry.Wrapper::getData)
+                .map(ForgeSpawnEggItem::fromEntityType)
+                .filter(Objects::nonNull)
+                .map(ItemStack::new)
+                .toList();
     }
 }

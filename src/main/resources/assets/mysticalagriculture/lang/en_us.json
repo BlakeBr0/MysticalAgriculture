@@ -711,6 +711,9 @@
   "book.mysticalagriculture.entry.harvester": "Harvester",
   "book.mysticalagriculture.entry.harvester.page.1": "Harvesters are used to automatically harvest fully grown crops. They run off of solid fuels and have an internal power storage buffer. $(br2)The harvester will automatically re-plant the crops it harvests. $(br2)The harvester will place all resources into it's internal inventory. If there's no space, the items will be placed on the crop.",
   "book.mysticalagriculture.entry.harvester.page.2": "The Harvester will use a bit of power every time it checks a crop for growth. Harvesting fully grown crops uses an increased amount of power. $(br2)These machines can upgraded with $(l:machines/machine_upgrades)Machine Upgrades$().",
+  "book.mysticalagriculture.entry.soulium_spawner": "Soulium Spawner",
+  "book.mysticalagriculture.entry.soulium_spawner.page.1": "The Soulium Spawner is used to spawn both hostile and passive mobs using Essences. They run off of solid fuels and have an internal power storage buffer. $(br2)The Spawner has an internal inventory that can hold up to 512 items. Each operation will take a certain amount of items and power to spawn a corresponding mob.",
+  "book.mysticalagriculture.entry.soulium_spawner.page.2": "The Spawner will spawn the mob randomly in a 3 block radius around it. $(br2)These machines can upgraded with $(l:machines/machine_upgrades)Machine Upgrades$().",
 
   "book.mysticalagriculture.entry.essence_tools": "Essence Tools",
   "book.mysticalagriculture.entry.essence_tools.page.1": "Upgrading your Diamond* tools with essence improves their durability and mining speed. This also allows them to be equipped with $(l:tinkering/augments)Augments$(). $(br2)Essence Tools can be repaired in an Anvil with their corresponding Essence Ingot. These tools each have 1 augment slot.",

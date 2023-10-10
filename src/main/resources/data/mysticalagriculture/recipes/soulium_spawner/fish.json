@@ -1,0 +1,31 @@
+{
+  "type": "mysticalagriculture:soulium_spawner",
+  "conditions": [
+    {
+      "type": "mysticalagriculture:crop_enabled",
+      "crop": "mysticalagriculture:fish"
+    }
+  ],
+  "input": {
+    "item": "mysticalagriculture:fish_essence",
+    "count": 12
+  },
+  "entities": [
+    {
+      "entity": "minecraft:cod",
+      "weight": 8
+    },
+    {
+      "entity": "minecraft:salmon",
+      "weight": 8
+    },
+    {
+      "entity": "minecraft:tropical_fish",
+      "weight": 3
+    },
+    {
+      "entity": "minecraft:pufferfish",
+      "weight": 1
+    }
+  ]
+}

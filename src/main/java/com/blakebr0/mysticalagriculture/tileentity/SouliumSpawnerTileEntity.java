@@ -18,7 +18,9 @@ import com.blakebr0.mysticalagriculture.util.RecipeIngredientCache;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.Connection;
 import net.minecraft.network.chat.Component;
+import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
 import net.minecraft.world.MenuProvider;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.Mob;
@@ -60,10 +62,12 @@ public class SouliumSpawnerTileEntity extends BaseInventoryTileEntity implements
     private int fuelLeft;
     private int fuelItemValue;
     private boolean isRunning;
+    private double spin, oSpin;
+    private Entity currentEntity;
 
     public SouliumSpawnerTileEntity(BlockPos pos, BlockState state) {
         super(ModTileEntities.SOULIUM_SPAWNER.get(), pos, state);
-        this.inventory = createInventoryHandler(this::markDirtyAndDispatch);
+        this.inventory = createInventoryHandler(this::onInventoryChanged);
         this.upgradeInventory = new UpgradeItemStackHandler();
         this.energy = new DynamicEnergyStorage(FUEL_CAPACITY, this::markDirtyAndDispatch);
         this.inventoryCapabilities = SidedItemStackHandlerWrapper.create(this.inventory, new Direction[] { Direction.UP, Direction.DOWN, Direction.NORTH }, this::canInsertStackSided, null);
@@ -94,6 +98,20 @@ public class SouliumSpawnerTileEntity extends BaseInventoryTileEntity implements
         tag.putInt("FuelItemValue", this.fuelItemValue);
         tag.put("Energy", this.energy.serializeNBT());
         tag.put("UpgradeInventory", this.upgradeInventory.serializeNBT());
+    }
+
+    @Override
+    public void onLoad() {
+        super.onLoad();
+
+        this.reloadActiveRecipe();
+    }
+
+    @Override
+    public void onDataPacket(Connection connection, ClientboundBlockEntityDataPacket packet) {
+        super.onDataPacket(connection, packet);
+
+        this.reloadActiveRecipe();
     }
 
     @Override
@@ -183,11 +201,6 @@ public class SouliumSpawnerTileEntity extends BaseInventoryTileEntity implements
             tile.isRunning = false;
 
             if (!input.isEmpty()) {
-                if (tile.recipe == null || !tile.recipe.matches(tile.inventory)) {
-                    var recipe = level.getRecipeManager().getRecipeFor(ModRecipeTypes.SOULIUM_SPAWNER.get(), new RecipeWrapper(tile.inventory), level).orElse(null);
-                    tile.recipe = recipe instanceof SouliumSpawnerRecipe ? (SouliumSpawnerRecipe) recipe : null;
-                }
-
                 if (tile.recipe != null && input.getCount() >= tile.recipe.getInputCount()) {
                     tile.isRunning = true;
                     tile.progress++;
@@ -222,6 +235,11 @@ public class SouliumSpawnerTileEntity extends BaseInventoryTileEntity implements
         if (mark) {
             tile.markDirtyAndDispatch();
         }
+    }
+
+    public static void clientTick(Level level, BlockPos pos, BlockState state, SouliumSpawnerTileEntity tile) {
+        tile.oSpin = tile.spin;
+        tile.spin = (tile.spin + (double) (1000.0F / 200.0F)) % 360.0D;
     }
 
     public static BaseItemStackHandler createInventoryHandler() {
@@ -268,11 +286,26 @@ public class SouliumSpawnerTileEntity extends BaseInventoryTileEntity implements
         return (int) (FUEL_USAGE * this.tier.getFuelUsageMultiplier());
     }
 
+    public double getSpin() {
+        return this.spin;
+    }
+
+    public double getoSpin() {
+        return this.oSpin;
+    }
+
+    public Entity getCurrentEntity() {
+        return this.currentEntity;
+    }
+
     private boolean attemptSpawn() {
         if (this.level == null)
             return false;
 
-        var entity = this.recipe.getEntityType().create(this.level);
+        var entity = this.recipe.getRandomEntityType(this.level.random)
+                .map(e -> e.getData().create(this.level))
+                .orElse(null);
+
         if (entity == null)
             return false;
 
@@ -316,6 +349,30 @@ public class SouliumSpawnerTileEntity extends BaseInventoryTileEntity implements
 
     private boolean canEntitySpawn(Entity entity) {
         return this.level != null && this.level.isUnobstructed(entity) && !this.level.containsAnyLiquid(entity.getBoundingBox());
+    }
+
+    private void onInventoryChanged() {
+        this.reloadActiveRecipe();
+        this.markDirtyAndDispatch();
+    }
+
+    private void reloadActiveRecipe() {
+        if (this.level == null)
+            return;
+
+        var input = this.inventory.getStackInSlot(0);
+
+        if (!input.isEmpty()) {
+            if (this.recipe == null || !this.recipe.matches(this.inventory)) {
+                var recipe = this.level.getRecipeManager().getRecipeFor(ModRecipeTypes.SOULIUM_SPAWNER.get(), new RecipeWrapper(this.inventory), this.level).orElse(null);
+
+                this.recipe = recipe instanceof SouliumSpawnerRecipe ? (SouliumSpawnerRecipe) recipe : null;
+                this.currentEntity = this.recipe != null ? this.recipe.getFirstEntityType().create(this.level) : null;
+            }
+        } else {
+            this.recipe = null;
+            this.currentEntity = null;
+        }
     }
 
     private boolean canInsertStackSided(int slot, ItemStack stack, Direction direction) {

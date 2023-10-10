@@ -1,0 +1,19 @@
+{
+  "type": "mysticalagriculture:soulium_spawner",
+  "conditions": [
+    {
+      "type": "mysticalagriculture:crop_enabled",
+      "crop": "mysticalagriculture:ghast"
+    }
+  ],
+  "input": {
+    "item": "mysticalagriculture:ghast_essence",
+    "count": 24
+  },
+  "entities": [
+    {
+      "entity": "minecraft:ghast",
+      "weight": 1
+    }
+  ]
+}

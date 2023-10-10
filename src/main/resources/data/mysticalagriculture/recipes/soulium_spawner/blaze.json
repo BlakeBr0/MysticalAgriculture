@@ -1,0 +1,19 @@
+{
+  "type": "mysticalagriculture:soulium_spawner",
+  "conditions": [
+    {
+      "type": "mysticalagriculture:crop_enabled",
+      "crop": "mysticalagriculture:blaze"
+    }
+  ],
+  "input": {
+    "item": "mysticalagriculture:blaze_essence",
+    "count": 24
+  },
+  "entities": [
+    {
+      "entity": "minecraft:blaze",
+      "weight": 1
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "name": "book.mysticalagriculture.entry.soulium_spawner",
+  "category": "mysticalagriculture:machines",
+  "icon": "mysticalagriculture:soulium_spawner",
+  "sortnum": 205,
+  "pages": [
+    {
+      "type": "text",
+      "text": "book.mysticalagriculture.entry.soulium_spawner.page.1"
+    },
+    {
+      "type": "crafting",
+      "title": "book.mysticalagriculture.crafting",
+      "text": "book.mysticalagriculture.entry.soulium_spawner.page.2",
+      "recipe": "mysticalagriculture:soulium_spawner"
+    }
+  ]
+}

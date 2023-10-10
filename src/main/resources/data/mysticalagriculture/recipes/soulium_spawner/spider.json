@@ -3,20 +3,16 @@
   "conditions": [
     {
       "type": "mysticalagriculture:crop_enabled",
-      "crop": "mysticalagriculture:zombie"
+      "crop": "mysticalagriculture:spider"
     }
   ],
   "input": {
-    "item": "mysticalagriculture:zombie_essence",
+    "item": "mysticalagriculture:spider_essence",
     "count": 16
   },
   "entities": [
     {
-      "entity": "minecraft:zombie",
-      "weight": 19
-    },
-    {
-      "entity": "minecraft:zombie_villager",
+      "entity": "minecraft:spider",
       "weight": 1
     }
   ]
