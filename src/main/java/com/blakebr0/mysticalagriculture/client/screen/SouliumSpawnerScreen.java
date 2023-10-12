@@ -6,6 +6,8 @@ import com.blakebr0.cucumber.util.Formatting;
 import com.blakebr0.mysticalagriculture.MysticalAgriculture;
 import com.blakebr0.mysticalagriculture.container.SouliumSpawnerContainer;
 import com.blakebr0.mysticalagriculture.tileentity.SouliumSpawnerTileEntity;
+import com.mojang.math.Axis;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
@@ -69,6 +71,8 @@ public class SouliumSpawnerScreen extends BaseContainerScreen<SouliumSpawnerCont
             int i2 = this.getProgressScaled(24);
             gfx.blit(BACKGROUND, x + 98, y + 51, 176, 14, i2 + 1, 16);
         }
+
+        this.renderEntityPreview(gfx);
     }
 
     @Override
@@ -140,5 +144,36 @@ public class SouliumSpawnerScreen extends BaseContainerScreen<SouliumSpawnerCont
         int i = this.getFuelLeft();
         int j = this.getFuelItemValue();
         return (int) (j != 0 && i != 0 ? (long) i * pixels / j : 0);
+    }
+
+    private void renderEntityPreview(GuiGraphics gfx) {
+        if (this.tile == null)
+            return;
+
+        var entity = this.tile.getCurrentEntity();
+        if (entity == null)
+            return;
+
+        float scale = 20.0F;
+        float bbMax = Math.max(entity.getBbWidth(), entity.getBbHeight());
+
+        if ((double) bbMax > 1.0D) {
+            scale /= bbMax;
+        }
+
+        var matrix = gfx.pose();
+
+        matrix.pushPose();
+
+        matrix.translate(this.leftPos + 142, this.topPos + 70, 32.0F);
+        matrix.mulPose(Axis.YP.rotationDegrees(135.0F));
+        matrix.mulPose(Axis.XP.rotationDegrees(180.0F));
+        matrix.scale(scale, scale, scale);
+
+        var buffer = gfx.bufferSource();
+
+        Minecraft.getInstance().getEntityRenderDispatcher().render(entity, 0.0D, 0.0D, 0.0D, 0.0F, 1, matrix, buffer, 255);
+
+        matrix.popPose();
     }
 }

@@ -17,10 +17,12 @@ import com.blakebr0.mysticalagriculture.util.MachineUpgradeTier;
 import com.blakebr0.mysticalagriculture.util.RecipeIngredientCache;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.Connection;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.MenuProvider;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.Mob;
@@ -209,6 +211,7 @@ public class SouliumSpawnerTileEntity extends BaseInventoryTileEntity implements
                     if (tile.progress >= tile.getOperationTime() && tile.attemptSpawn()) {
                         tile.inventory.setStackInSlot(0, StackHelper.shrink(input, tile.recipe.getInputCount(), false));
                         tile.progress = 0;
+                        tile.sendSpawnParticles();
                     }
 
                     mark = true;
@@ -240,6 +243,10 @@ public class SouliumSpawnerTileEntity extends BaseInventoryTileEntity implements
     public static void clientTick(Level level, BlockPos pos, BlockState state, SouliumSpawnerTileEntity tile) {
         tile.oSpin = tile.spin;
         tile.spin = (tile.spin + (double) (1000.0F / 200.0F)) % 360.0D;
+
+        if (tile.progress > 0) {
+            tile.sendRunningParticles();
+        }
     }
 
     public static BaseItemStackHandler createInventoryHandler() {
@@ -372,6 +379,35 @@ public class SouliumSpawnerTileEntity extends BaseInventoryTileEntity implements
         } else {
             this.recipe = null;
             this.currentEntity = null;
+        }
+    }
+
+    private void sendRunningParticles() {
+        if (this.level == null)
+            return;
+
+        var pos = this.getBlockPos();
+
+        double x = pos.getX() + (Math.random() / 2) + 0.25D;
+        double y = pos.getY() + (Math.random() / 2) + 0.25D;
+        double z = pos.getZ() + (Math.random() / 2) + 0.25D;
+
+        this.level.addParticle(ParticleTypes.FLAME, x, y, z, 0, 0, 0);
+    }
+
+    private void sendSpawnParticles() {
+        if (this.getLevel() == null || this.getLevel().isClientSide())
+            return;
+
+        var level = (ServerLevel) this.getLevel();
+        var pos = this.getBlockPos();
+
+        for (int i = 0; i < 20; i++) {
+            double x = pos.getX() + Math.random();
+            double y = pos.getY() + Math.random();
+            double z = pos.getZ() + Math.random();
+
+            level.sendParticles(ParticleTypes.FLAME, x, y, z, 1, 0, 0, 0, 0.1D);
         }
     }
 
