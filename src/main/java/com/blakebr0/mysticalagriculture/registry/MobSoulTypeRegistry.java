@@ -85,4 +85,8 @@ public final class MobSoulTypeRegistry implements IMobSoulTypeRegistry {
     public static MobSoulTypeRegistry getInstance() {
         return INSTANCE;
     }
+
+    public void onCommonSetup() {
+        MysticalAgriculture.LOGGER.info("Loaded {} mob soul types", this.mobSoulTypes.size());
+    }
 }

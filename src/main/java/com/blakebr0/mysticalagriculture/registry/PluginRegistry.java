@@ -44,6 +44,8 @@ public final class PluginRegistry {
         this.forEach((plugin, config) -> {
             plugin.onPostRegisterMobSoulTypes(MobSoulTypeRegistry.getInstance());
         });
+
+        MysticalAgriculture.LOGGER.info("Loaded {} plugins", this.plugins.size());
     }
 
     public void forEach(BiConsumer<IMysticalAgriculturePlugin, PluginConfig> action) {

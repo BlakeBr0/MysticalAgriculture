@@ -40,6 +40,10 @@ public final class AugmentRegistry implements IAugmentRegistry {
         return INSTANCE;
     }
 
+    public void onCommonSetup() {
+        MysticalAgriculture.LOGGER.info("Loaded {} augments", this.augments.size());
+    }
+
     public void onRegisterItems(IForgeRegistry<Item> registry) {
         PluginRegistry.getInstance().forEach((plugin, config) -> plugin.onRegisterAugments(this));
 

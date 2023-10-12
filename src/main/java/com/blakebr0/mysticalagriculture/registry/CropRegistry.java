@@ -101,6 +101,12 @@ public final class CropRegistry implements ICropRegistry {
         return INSTANCE;
     }
 
+    public void onCommonSetup() {
+        MysticalAgriculture.LOGGER.info("Loaded {} crops", this.crops.size());
+        MysticalAgriculture.LOGGER.info("Loaded {} crop tiers", this.tiers.size());
+        MysticalAgriculture.LOGGER.info("Loaded {} crop types", this.types.size());
+    }
+
     public void setAllowRegistration(boolean allowed) {
         this.allowRegistration = allowed;
     }
