@@ -22,7 +22,7 @@ public class StepAssistAugment extends Augment {
 
     @Override
     public void onPlayerTick(Level level, Player player, AbilityCache cache) {
-        if (!cache.isCached(this, player)) {
+        if (!player.isShiftKeyDown() && !cache.isCached(this, player)) {
             var height = player.getAttribute(ForgeMod.STEP_HEIGHT_ADDITION.get());
             if (height == null)
                 return;
@@ -35,6 +35,10 @@ public class StepAssistAugment extends Augment {
             cache.add(this, player, () -> {
                 height.removeModifier(ATTRIBUTE_ID);
             });
+        }
+
+        if (player.isShiftKeyDown() && cache.isCached(this, player)) {
+            cache.remove(this, player);
         }
     }
 }
