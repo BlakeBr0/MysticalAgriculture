@@ -1,4 +1,4 @@
-// 1.20.1	2023-09-18T21:11:10.5003634	Mystical Agriculture item model generator
+// 1.20.1	2023-10-12T17:53:34.7477604	Mystical Agriculture item model generator
 e1edc02b041c3259cf941617688795d37b15c9b4 assets/mysticalagriculture/models/item/absorption_iii_augment.json
 e1edc02b041c3259cf941617688795d37b15c9b4 assets/mysticalagriculture/models/item/absorption_ii_augment.json
 e1edc02b041c3259cf941617688795d37b15c9b4 assets/mysticalagriculture/models/item/absorption_iv_augment.json
@@ -141,8 +141,8 @@ caf60100bdbcf63b9a59aab9c3424480a71a4d21 assets/mysticalagriculture/models/item/
 d0dbacaabeaa214a04ce3021ee781e0e1c03cca3 assets/mysticalagriculture/models/item/inferium_seeds.json
 710028c7dc9642401427c576f8c66fb158f1e57e assets/mysticalagriculture/models/item/invar_essence.json
 3b9e88798fa01ff70b5a0b7be7fd928624403a8f assets/mysticalagriculture/models/item/invar_seeds.json
-ba527785aac0bead8d27cceb897367efbd09a7ee assets/mysticalagriculture/models/item/iridium_essence.json
-097319a27bbc1caf88013c447332d881e3989e80 assets/mysticalagriculture/models/item/iridium_seeds.json
+0f2b826b1944bbf348bfb77a877b14fb59f17813 assets/mysticalagriculture/models/item/iridium_essence.json
+ee10e859f739c958dde20984158bda2455bf8d60 assets/mysticalagriculture/models/item/iridium_seeds.json
 7e0a9fb69dfb24bdc82c63a422c8780d63722383 assets/mysticalagriculture/models/item/ironwood_essence.json
 0dd02faa9405dbb289fe83ccd99918050f8bb159 assets/mysticalagriculture/models/item/ironwood_seeds.json
 17c966803e62dba53f7766b7375976f5c6191cb7 assets/mysticalagriculture/models/item/iron_essence.json
