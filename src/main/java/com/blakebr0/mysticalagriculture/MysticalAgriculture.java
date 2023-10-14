@@ -3,9 +3,11 @@ package com.blakebr0.mysticalagriculture;
 import com.blakebr0.cucumber.helper.ConfigHelper;
 import com.blakebr0.mysticalagriculture.api.MysticalAgricultureAPI;
 import com.blakebr0.mysticalagriculture.client.EssenceVesselColorManager;
+import com.blakebr0.mysticalagriculture.client.ModClientTooltipComponentFactories;
 import com.blakebr0.mysticalagriculture.client.ModRecipeBookCategories;
 import com.blakebr0.mysticalagriculture.client.ModTESRs;
 import com.blakebr0.mysticalagriculture.client.ModelHandler;
+import com.blakebr0.mysticalagriculture.client.handler.AugmentTooltipHandler;
 import com.blakebr0.mysticalagriculture.client.handler.ColorHandler;
 import com.blakebr0.mysticalagriculture.client.handler.GuiOverlayHandler;
 import com.blakebr0.mysticalagriculture.compat.TOPCompat;
@@ -76,6 +78,7 @@ public final class MysticalAgriculture {
 			bus.register(new ModelHandler());
 			bus.register(new ModTESRs());
 			bus.register(new ModRecipeBookCategories());
+			bus.register(new ModClientTooltipComponentFactories());
 			bus.register(new GuiOverlayHandler());
 			bus.register(EssenceVesselColorManager.INSTANCE);
 		});
@@ -110,6 +113,8 @@ public final class MysticalAgriculture {
 
 	@SubscribeEvent
 	public void onClientSetup(FMLClientSetupEvent event) {
+		MinecraftForge.EVENT_BUS.register(new AugmentTooltipHandler());
+
 		ModelHandler.onClientSetup(event);
 		ModContainerTypes.onClientSetup();
 	}
