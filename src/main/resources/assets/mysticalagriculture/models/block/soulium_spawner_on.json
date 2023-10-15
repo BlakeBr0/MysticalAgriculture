@@ -4,7 +4,7 @@
   "textures": {
     "top": "mysticalagriculture:block/soulium_spawner_top",
     "bottom": "mysticalagriculture:block/machine_side",
-    "front": "mysticalagriculture:block/soulium_spawner_front",
+    "front": "mysticalagriculture:block/soulium_spawner_front_on",
     "side": "mysticalagriculture:block/soulium_spawner_side"
   },
   "elements": [
