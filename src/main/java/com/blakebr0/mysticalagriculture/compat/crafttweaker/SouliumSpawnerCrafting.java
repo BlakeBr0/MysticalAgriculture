@@ -42,8 +42,14 @@ public final class SouliumSpawnerCrafting implements IRecipeManager<ISouliumSpaw
     }
 
     @ZenCodeType.Method
-    public static void remove(IItemStack stack) {
-        CraftTweakerAPI.apply(new ActionRemoveRecipe<>(INSTANCE, recipe -> recipe.getResultItem(RegistryAccess.EMPTY).is(stack.getInternal().getItem())));
+    public static void remove(String entity) {
+        CraftTweakerAPI.apply(new ActionRemoveRecipe<>(INSTANCE, recipe -> recipe.getEntityTypes().unwrap()
+                .stream()
+                .anyMatch(e -> {
+                    var id = ForgeRegistries.ENTITY_TYPES.getKey(e.getData());
+                    return id != null && id.toString().equals(entity);
+                }))
+        );
     }
 
     private static WeightedRandomList<WeightedEntry.Wrapper<EntityType<?>>> toEntityTypeList(String[] entities) {
