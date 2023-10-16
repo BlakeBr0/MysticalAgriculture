@@ -1,0 +1,36 @@
+{
+  "parent": "block/orientable",
+  "render_type": "cutout",
+  "textures": {
+    "top": "mysticalagriculture:block/soulium_spawner_top",
+    "bottom": "mysticalagriculture:block/machine_side",
+    "front": "mysticalagriculture:block/soulium_spawner_front_on",
+    "side": "mysticalagriculture:block/soulium_spawner_side"
+  },
+  "elements": [
+    {
+      "from": [ 0, 0, 0 ],
+      "to": [ 16, 16, 16 ],
+      "faces": {
+        "down":  { "texture": "#down" },
+        "up":    { "texture": "#up" },
+        "north": { "texture": "#north" },
+        "south": { "texture": "#south" },
+        "west":  { "texture": "#west" },
+        "east":  { "texture": "#east" }
+      }
+    },
+    {
+      "from": [ 15.9, 15.9, 15.9 ],
+      "to": [ 0.1, 0.1, 0.1 ],
+      "faces": {
+        "down":  { "texture": "#up" },
+        "up":    { "texture": "#down" },
+        "north": { "texture": "#south" },
+        "south": { "texture": "#north" },
+        "west":  { "texture": "#east" },
+        "east":  { "texture": "#west" }
+      }
+    }
+  ]
+}

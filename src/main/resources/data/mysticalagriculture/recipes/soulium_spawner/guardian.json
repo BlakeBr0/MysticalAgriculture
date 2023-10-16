@@ -1,0 +1,19 @@
+{
+  "type": "mysticalagriculture:soulium_spawner",
+  "conditions": [
+    {
+      "type": "mysticalagriculture:crop_enabled",
+      "crop": "mysticalagriculture:prismarine"
+    }
+  ],
+  "input": {
+    "item": "mysticalagriculture:prismarine_essence",
+    "count": 16
+  },
+  "entities": [
+    {
+      "entity": "minecraft:guardian",
+      "weight": 1
+    }
+  ]
+}

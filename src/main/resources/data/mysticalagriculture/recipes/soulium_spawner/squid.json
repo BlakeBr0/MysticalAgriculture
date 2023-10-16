@@ -1,0 +1,19 @@
+{
+  "type": "mysticalagriculture:soulium_spawner",
+  "conditions": [
+    {
+      "type": "mysticalagriculture:crop_enabled",
+      "crop": "mysticalagriculture:squid"
+    }
+  ],
+  "input": {
+    "item": "mysticalagriculture:squid_essence",
+    "count": 12
+  },
+  "entities": [
+    {
+      "entity": "minecraft:squid",
+      "weight": 1
+    }
+  ]
+}

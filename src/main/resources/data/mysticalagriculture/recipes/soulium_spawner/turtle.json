@@ -1,0 +1,19 @@
+{
+  "type": "mysticalagriculture:soulium_spawner",
+  "conditions": [
+    {
+      "type": "mysticalagriculture:crop_enabled",
+      "crop": "mysticalagriculture:turtle"
+    }
+  ],
+  "input": {
+    "item": "mysticalagriculture:turtle_essence",
+    "count": 12
+  },
+  "entities": [
+    {
+      "entity": "minecraft:turtle",
+      "weight": 1
+    }
+  ]
+}

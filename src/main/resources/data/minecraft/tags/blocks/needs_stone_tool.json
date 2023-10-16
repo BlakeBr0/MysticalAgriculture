@@ -15,6 +15,7 @@
     "mysticalagriculture:machine_frame",
     "mysticalagriculture:seed_reprocessor",
     "mysticalagriculture:soul_extractor",
-    "mysticalagriculture:harvester"
+    "mysticalagriculture:harvester",
+    "mysticalagriculture:soulium_spawner"
   ]
 }

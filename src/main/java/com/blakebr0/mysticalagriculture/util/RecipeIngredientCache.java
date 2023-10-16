@@ -60,6 +60,7 @@ public class RecipeIngredientCache {
 
             cache(ModRecipeTypes.REPROCESSOR.get());
             cache(ModRecipeTypes.SOUL_EXTRACTION.get());
+            cache(ModRecipeTypes.SOULIUM_SPAWNER.get());
 
             this.validVesselItems.clear();
 

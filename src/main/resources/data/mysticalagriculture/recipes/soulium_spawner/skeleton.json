@@ -1,0 +1,19 @@
+{
+  "type": "mysticalagriculture:soulium_spawner",
+  "conditions": [
+    {
+      "type": "mysticalagriculture:crop_enabled",
+      "crop": "mysticalagriculture:skeleton"
+    }
+  ],
+  "input": {
+    "item": "mysticalagriculture:skeleton_essence",
+    "count": 16
+  },
+  "entities": [
+    {
+      "entity": "minecraft:skeleton",
+      "weight": 1
+    }
+  ]
+}
