@@ -1,0 +1,12 @@
+{
+  "name": "book.mysticalagriculture.entry.luck_augment",
+  "category": "mysticalagriculture:augments",
+  "icon": "mysticalagriculture:luck_iii_augment",
+  "sortnum": 322,
+  "pages": [
+    {
+      "type": "text",
+      "text": "book.mysticalagriculture.entry.luck_augment.page.1"
+    }
+  ]
+}
