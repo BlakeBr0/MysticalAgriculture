@@ -21,11 +21,9 @@ import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.crafting.AbstractCookingRecipe;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.item.crafting.SmeltingRecipe;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.entity.AbstractFurnaceBlockEntity;
 import net.minecraft.world.level.block.entity.FurnaceBlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.common.ForgeHooks;
@@ -273,9 +271,5 @@ public class EssenceFurnaceTileEntity extends BaseInventoryTileEntity implements
     public static BaseItemStackHandler createInventoryHandler(Runnable onContentsChanged) {
         return BaseItemStackHandler.create(3, onContentsChanged, builder -> {
         });
-    }
-
-    private static int getTotalCookTime(Level level, AbstractFurnaceBlockEntity tile) {
-        return tile.quickCheck.getRecipeFor(tile, level).map(AbstractCookingRecipe::getCookingTime).orElse(200);
     }
 }

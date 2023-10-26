@@ -698,8 +698,8 @@
 
   "book.mysticalagriculture.entry.machine_upgrades": "Machine Upgrades",
   "book.mysticalagriculture.entry.machine_upgrades.page.1": "Machine Upgrades can be placed in applicable machines to increase their effectiveness. $(br2)Higher tier machines will both use and generate power faster.",
-  "book.mysticalagriculture.entry.essence_furnaces": "Essence Furnaces",
-  "book.mysticalagriculture.entry.essence_furnaces.page.1": "Upgrading a regular Furnace with essences will increase its cooking speed and fuel efficiency.",
+  "book.mysticalagriculture.entry.essence_furnace": "Essence Furnace",
+  "book.mysticalagriculture.entry.essence_furnace.page.1": "The basic furnace can be upgraded to take advantage of $(l:machines/machine_upgrades)Machine Upgrades$() for increased cooking speed. They run off of solid fuels and have an internal power storage buffer.",
   "book.mysticalagriculture.entry.seed_reprocessors": "Seed Reprocessors",
   "book.mysticalagriculture.entry.seed_reprocessors.page.1": "Seed Reprocessors are used to convert your excess seeds into their respective essences. They run off of solid fuels and have an internal power storage buffer.",
   "book.mysticalagriculture.entry.soul_extractor": "Soul Extractor",
