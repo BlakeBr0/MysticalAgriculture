@@ -195,9 +195,11 @@ public class SouliumSpawnerTileEntity extends BaseInventoryTileEntity implements
             mark = true;
         }
 
+        var isDisabled = level.hasNeighborSignal(tile.getBlockPos());
+
         var wasRunning = tile.isRunning;
 
-        if (tile.energy.getEnergyStored() >= tile.getFuelUsage()) {
+        if (tile.energy.getEnergyStored() >= tile.getFuelUsage() && !isDisabled) {
             var input = tile.inventory.getStackInSlot(0);
 
             tile.isRunning = false;
