@@ -4,6 +4,7 @@ import com.blakebr0.mysticalagriculture.MysticalAgriculture;
 import com.blakebr0.mysticalagriculture.api.crop.ICropProvider;
 import com.blakebr0.mysticalagriculture.api.farmland.IEssenceFarmland;
 import com.blakebr0.mysticalagriculture.block.InferiumCropBlock;
+import com.blakebr0.mysticalagriculture.config.ModConfigs;
 import com.blakebr0.mysticalagriculture.lib.ModTooltips;
 import com.blakebr0.mysticalagriculture.tileentity.EssenceVesselTileEntity;
 import mcjty.theoneprobe.api.IProbeHitData;
@@ -43,13 +44,15 @@ public class TOPCompat implements Function<ITheOneProbe, Void> {
 
                     info.text(ModTooltips.TIER.args(crop.getTier().getDisplayName()).build());
 
-                    double secondaryChance = crop.getSecondaryChance(belowBlock);
-                    if (secondaryChance > 0) {
-                        var chanceText = Component.literal(String.valueOf((int) (secondaryChance * 100)))
-                                .append("%")
-                                .withStyle(crop.getTier().getTextColor());
+                    if (ModConfigs.SECONDARY_SEED_DROPS.get()) {
+                        double secondaryChance = crop.getSecondaryChance(belowBlock);
+                        if (secondaryChance > 0) {
+                            var chanceText = Component.literal(String.valueOf((int) (secondaryChance * 100)))
+                                    .append("%")
+                                    .withStyle(crop.getTier().getTextColor());
 
-                        info.text(ModTooltips.SECONDARY_CHANCE.args(chanceText).build());
+                            info.text(ModTooltips.SECONDARY_CHANCE.args(chanceText).build());
+                        }
                     }
 
                     var crux = crop.getCruxBlock();
