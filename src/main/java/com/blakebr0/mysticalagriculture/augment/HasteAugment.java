@@ -26,6 +26,6 @@ public class HasteAugment extends Augment {
     }
 
     private static int getColor(int color, int tier) {
-        return ColorHelper.saturate(color, Math.min((float) tier / 2, 1));
+        return ColorHelper.saturate(color, Math.min((float) tier / 3, 1));
     }
 }
