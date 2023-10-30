@@ -11,7 +11,7 @@ public class InfusionPedestalTileEntity extends BaseInventoryTileEntity {
 
     public InfusionPedestalTileEntity(BlockPos pos, BlockState state) {
         super(ModTileEntities.INFUSION_PEDESTAL.get(), pos, state);
-        this.inventory = createInventoryHandler(this::markDirtyAndDispatch);
+        this.inventory = createInventoryHandler(this::setChangedAndDispatch);
     }
 
     @Override

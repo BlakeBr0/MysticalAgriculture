@@ -58,9 +58,9 @@ public class HarvesterTileEntity extends BaseInventoryTileEntity implements Menu
 
     public HarvesterTileEntity(BlockPos pos, BlockState state) {
         super(ModTileEntities.HARVESTER.get(), pos, state);
-        this.inventory = createInventoryHandler(this::markDirtyAndDispatch);
+        this.inventory = createInventoryHandler(this::setChangedFast);
         this.upgradeInventory = new UpgradeItemStackHandler();
-        this.energy = new DynamicEnergyStorage(FUEL_CAPACITY, this::markDirtyAndDispatch);
+        this.energy = new DynamicEnergyStorage(FUEL_CAPACITY, this::setChangedFast);
     }
 
     @Override
@@ -119,8 +119,6 @@ public class HarvesterTileEntity extends BaseInventoryTileEntity implements Menu
     }
 
     public static void tick(Level level, BlockPos pos, BlockState state, HarvesterTileEntity tile) {
-        var mark = false;
-
         if (tile.energy.getEnergyStored() < tile.energy.getMaxEnergyStored()) {
             var fuel = tile.inventory.getStackInSlot(0);
 
@@ -131,7 +129,7 @@ public class HarvesterTileEntity extends BaseInventoryTileEntity implements Menu
                     tile.fuelLeft = tile.fuelItemValue *= FUEL_TICK_MULTIPLIER;
                     tile.inventory.setStackInSlot(0, StackHelper.shrink(fuel, 1, true));
 
-                    mark = true;
+                    tile.setChangedFast();
                 }
             }
 
@@ -143,7 +141,7 @@ public class HarvesterTileEntity extends BaseInventoryTileEntity implements Menu
                 if (tile.fuelLeft <= 0)
                     tile.fuelItemValue = 0;
 
-                mark = true;
+                tile.setChangedFast();
             }
         }
 
@@ -164,7 +162,7 @@ public class HarvesterTileEntity extends BaseInventoryTileEntity implements Menu
                 tile.energy.setMaxEnergyStorage((int) (FUEL_CAPACITY * tier.getFuelCapacityMultiplier()));
             }
 
-            mark = true;
+            tile.setChangedFast();
         }
 
         var isDisabled = level.hasNeighborSignal(tile.getBlockPos());
@@ -205,7 +203,7 @@ public class HarvesterTileEntity extends BaseInventoryTileEntity implements Menu
 
             tile.progress = 0;
 
-            mark = true;
+            tile.setChangedFast();
         }
 
         var wasRunning = tile.isRunning;
@@ -213,20 +211,18 @@ public class HarvesterTileEntity extends BaseInventoryTileEntity implements Menu
         if (!isDisabled && tile.energy.getEnergyStored() >= tile.getFuelUsage()) {
             tile.progress++;
             tile.isRunning = true;
-
-            mark = true;
+            tile.setChangedFast();
         } else {
             tile.isRunning = false;
         }
 
         if (wasRunning != tile.isRunning) {
             level.setBlock(pos, state.setValue(HarvesterBlock.RUNNING, tile.isRunning), 3);
-            mark = true;
+
+            tile.setChangedFast();
         }
 
-        if (mark) {
-            tile.markDirtyAndDispatch();
-        }
+        tile.dispatchIfChanged();
     }
 
     public static BaseItemStackHandler createInventoryHandler() {

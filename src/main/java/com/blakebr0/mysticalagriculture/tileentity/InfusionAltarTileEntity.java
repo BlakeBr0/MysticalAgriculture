@@ -1,8 +1,10 @@
 package com.blakebr0.mysticalagriculture.tileentity;
 
 import com.blakebr0.cucumber.inventory.BaseItemStackHandler;
+import com.blakebr0.cucumber.inventory.CachedRecipe;
 import com.blakebr0.cucumber.tileentity.BaseInventoryTileEntity;
 import com.blakebr0.cucumber.util.MultiblockPositions;
+import com.blakebr0.mysticalagriculture.api.crafting.IInfusionRecipe;
 import com.blakebr0.mysticalagriculture.crafting.recipe.InfusionRecipe;
 import com.blakebr0.mysticalagriculture.init.ModRecipeTypes;
 import com.blakebr0.mysticalagriculture.init.ModTileEntities;
@@ -19,6 +21,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.AABB;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class InfusionAltarTileEntity extends BaseInventoryTileEntity implements IActivatable {
@@ -27,14 +30,15 @@ public class InfusionAltarTileEntity extends BaseInventoryTileEntity implements 
     private final MultiblockPositions pedestalLocations = new MultiblockPositions.Builder()
             .pos(3, 0, 0).pos(0, 0, 3).pos(-3, 0, 0).pos(0, 0, -3)
             .pos(2, 0, 2).pos(2, 0, -2).pos(-2, 0, 2).pos(-2, 0, -2).build();
-    private InfusionRecipe recipe;
+    private final CachedRecipe<IInfusionRecipe> recipe;
     private int progress;
     private boolean active;
 
     public InfusionAltarTileEntity(BlockPos pos, BlockState state) {
         super(ModTileEntities.INFUSION_ALTAR.get(), pos, state);
-        this.inventory = createInventoryHandler(this::markDirtyAndDispatch);
+        this.inventory = createInventoryHandler(this::setChangedFast);
         this.recipeInventory = BaseItemStackHandler.create(9);
+        this.recipe = new CachedRecipe<>(ModRecipeTypes.INFUSION.get());
     }
 
     @Override
@@ -66,8 +70,7 @@ public class InfusionAltarTileEntity extends BaseInventoryTileEntity implements 
     @Override
     public boolean isActive() {
         if (!this.active) {
-            var world = this.getLevel();
-            this.active = world != null && world.hasNeighborSignal(this.getBlockPos());
+            this.active = this.level != null && this.level.hasNeighborSignal(this.getBlockPos());
         }
 
         return this.active;
@@ -95,7 +98,7 @@ public class InfusionAltarTileEntity extends BaseInventoryTileEntity implements 
                 var pedestals = tile.getPedestals();
 
                 if (tile.progress >= 100) {
-                    var remaining = recipe.getRemainingItems(tile.recipeInventory);
+                    var remaining = recipe.getRemainingItems(tile.recipeInventory.asRecipeWrapper());
 
                     for (var i = 0; i < pedestals.size(); i++) {
                         var pedestal = pedestals.get(i);
@@ -103,11 +106,11 @@ public class InfusionAltarTileEntity extends BaseInventoryTileEntity implements 
                         tile.spawnParticles(ParticleTypes.SMOKE, pedestal.getBlockPos(), 1.2D, 20);
                     }
 
-                    var result = recipe.assemble(tile.recipeInventory, level.registryAccess());
+                    var result = recipe.assemble(tile.recipeInventory.asRecipeWrapper(), level.registryAccess());
 
                     tile.setOutput(result);
                     tile.reset();
-                    tile.markDirtyAndDispatch();
+                    tile.setChangedFast();
                     tile.spawnParticles(ParticleTypes.HAPPY_VILLAGER, pos, 1.0D, 10);
                 } else {
                     for (var pedestal : pedestals) {
@@ -123,6 +126,8 @@ public class InfusionAltarTileEntity extends BaseInventoryTileEntity implements 
         } else {
             tile.progress = 0;
         }
+
+        tile.dispatchIfChanged();
     }
 
     public static BaseItemStackHandler createInventoryHandler(Runnable onContentsChanged) {
@@ -137,26 +142,18 @@ public class InfusionAltarTileEntity extends BaseInventoryTileEntity implements 
         return this.pedestalLocations.get(this.getBlockPos());
     }
 
-    private void reset() {
-        this.progress = 0;
-        this.active = false;
-    }
-
-    public InfusionRecipe getActiveRecipe() {
+    public IInfusionRecipe getActiveRecipe() {
         if (this.level == null)
             return null;
 
         this.updateRecipeInventory(this.getPedestals());
 
-        if (this.recipe == null || !this.recipe.matches(this.recipeInventory)) {
-            var recipe = this.level.getRecipeManager()
-                    .getRecipeFor(ModRecipeTypes.INFUSION.get(), this.recipeInventory.toIInventory(), this.level)
-                    .orElse(null);
+        return this.recipe.checkAndGet(this.recipeInventory, this.level);
+    }
 
-            this.recipe = recipe instanceof InfusionRecipe ? (InfusionRecipe) recipe : null;
-        }
-
-        return this.recipe;
+    private void reset() {
+        this.progress = 0;
+        this.active = false;
     }
 
     private void updateRecipeInventory(List<InfusionPedestalTileEntity> pedestals) {
@@ -171,25 +168,26 @@ public class InfusionAltarTileEntity extends BaseInventoryTileEntity implements 
     }
 
     private List<InfusionPedestalTileEntity> getPedestals() {
-        if (this.getLevel() == null)
-            return new ArrayList<>();
+        if (this.level == null) {
+            return Collections.emptyList();
+        }
 
         List<InfusionPedestalTileEntity> pedestals = new ArrayList<>();
 
-        this.getPedestalPositions().forEach(pos -> {
-            var tile = this.getLevel().getBlockEntity(pos);
+        for (var pos : this.getPedestalPositions()) {
+            var tile = this.level.getBlockEntity(pos);
             if (tile instanceof InfusionPedestalTileEntity pedestal)
                 pedestals.add(pedestal);
-        });
+        }
 
         return pedestals;
     }
 
     private <T extends ParticleOptions> void spawnParticles(T particle, BlockPos pos, double yOffset, int count) {
-        if (this.getLevel() == null || this.getLevel().isClientSide())
+        if (this.level == null || this.level.isClientSide())
             return;
 
-        var level = (ServerLevel) this.getLevel();
+        var level = (ServerLevel) this.level;
 
         double x = pos.getX() + 0.5D;
         double y = pos.getY() + yOffset;
@@ -199,10 +197,10 @@ public class InfusionAltarTileEntity extends BaseInventoryTileEntity implements 
     }
 
     private void spawnItemParticles(BlockPos pedestalPos, ItemStack stack) {
-        if (this.getLevel() == null || this.getLevel().isClientSide() || stack.isEmpty())
+        if (this.level == null || this.level.isClientSide() || stack.isEmpty())
             return;
 
-        var level = (ServerLevel) this.getLevel();
+        var level = (ServerLevel) this.level;
         var pos = this.getBlockPos();
 
         double x = pedestalPos.getX() + (level.getRandom().nextDouble() * 0.2D) + 0.4D;
@@ -217,7 +215,9 @@ public class InfusionAltarTileEntity extends BaseInventoryTileEntity implements 
     }
 
     private void setOutput(ItemStack stack) {
-        this.inventory.getStacks().set(0, ItemStack.EMPTY);
-        this.inventory.getStacks().set(1, stack);
+        var stacks = this.inventory.getStacks();
+
+        stacks.set(0, ItemStack.EMPTY);
+        stacks.set(1, stack);
     }
 }

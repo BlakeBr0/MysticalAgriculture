@@ -24,11 +24,7 @@ public class TinkeringTableTileEntity extends BaseInventoryTileEntity implements
 
     public TinkeringTableTileEntity(BlockPos pos, BlockState state) {
         super(ModTileEntities.TINKERING_TABLE.get(), pos, state);
-        this.inventory = createInventoryHandler(() -> {
-            if (this.getLevel() != null && !this.getLevel().isClientSide()) {
-                this.markDirtyAndDispatch();
-            }
-        });
+        this.inventory = createInventoryHandler(this::setChangedAndDispatch);
     }
 
     @Override

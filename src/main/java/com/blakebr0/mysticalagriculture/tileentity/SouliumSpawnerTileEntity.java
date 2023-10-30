@@ -3,13 +3,14 @@ package com.blakebr0.mysticalagriculture.tileentity;
 import com.blakebr0.cucumber.energy.DynamicEnergyStorage;
 import com.blakebr0.cucumber.helper.StackHelper;
 import com.blakebr0.cucumber.inventory.BaseItemStackHandler;
+import com.blakebr0.cucumber.inventory.CachedRecipe;
 import com.blakebr0.cucumber.inventory.SidedItemStackHandlerWrapper;
 import com.blakebr0.cucumber.tileentity.BaseInventoryTileEntity;
 import com.blakebr0.cucumber.util.Localizable;
+import com.blakebr0.mysticalagriculture.api.crafting.ISouliumSpawnerRecipe;
 import com.blakebr0.mysticalagriculture.block.SouliumSpawnerBlock;
 import com.blakebr0.mysticalagriculture.container.SouliumSpawnerContainer;
 import com.blakebr0.mysticalagriculture.container.inventory.UpgradeItemStackHandler;
-import com.blakebr0.mysticalagriculture.crafting.recipe.SouliumSpawnerRecipe;
 import com.blakebr0.mysticalagriculture.init.ModRecipeTypes;
 import com.blakebr0.mysticalagriculture.init.ModTileEntities;
 import com.blakebr0.mysticalagriculture.util.IUpgradeableMachine;
@@ -42,7 +43,6 @@ import net.minecraftforge.common.capabilities.ForgeCapabilities;
 import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.energy.IEnergyStorage;
 import net.minecraftforge.items.IItemHandlerModifiable;
-import net.minecraftforge.items.wrapper.RecipeWrapper;
 
 import java.util.UUID;
 
@@ -58,7 +58,7 @@ public class SouliumSpawnerTileEntity extends BaseInventoryTileEntity implements
     private final DynamicEnergyStorage energy;
     private final LazyOptional<IItemHandlerModifiable>[] inventoryCapabilities;
     private final LazyOptional<IEnergyStorage> energyCapability = LazyOptional.of(this::getEnergy);
-    private SouliumSpawnerRecipe recipe;
+    private final CachedRecipe<ISouliumSpawnerRecipe> recipe;
     private MachineUpgradeTier tier;
     private int progress;
     private int fuelLeft;
@@ -71,8 +71,9 @@ public class SouliumSpawnerTileEntity extends BaseInventoryTileEntity implements
         super(ModTileEntities.SOULIUM_SPAWNER.get(), pos, state);
         this.inventory = createInventoryHandler(this::onInventoryChanged);
         this.upgradeInventory = new UpgradeItemStackHandler();
-        this.energy = new DynamicEnergyStorage(FUEL_CAPACITY, this::markDirtyAndDispatch);
+        this.energy = new DynamicEnergyStorage(FUEL_CAPACITY, this::setChangedFast);
         this.inventoryCapabilities = SidedItemStackHandlerWrapper.create(this.inventory, new Direction[] { Direction.UP, Direction.DOWN, Direction.NORTH }, this::canInsertStackSided, null);
+        this.recipe = new CachedRecipe<>(ModRecipeTypes.SOULIUM_SPAWNER.get());
     }
 
     @Override
@@ -153,8 +154,6 @@ public class SouliumSpawnerTileEntity extends BaseInventoryTileEntity implements
     }
 
     public static void tick(Level level, BlockPos pos, BlockState state, SouliumSpawnerTileEntity tile) {
-        var mark = false;
-
         if (tile.energy.getEnergyStored() < tile.energy.getMaxEnergyStored()) {
             var fuel = tile.inventory.getStackInSlot(1);
 
@@ -165,7 +164,7 @@ public class SouliumSpawnerTileEntity extends BaseInventoryTileEntity implements
                     tile.fuelLeft = tile.fuelItemValue *= FUEL_TICK_MULTIPLIER;
                     tile.inventory.setStackInSlot(1, StackHelper.shrink(fuel, 1, true));
 
-                    mark = true;
+                    tile.setChangedFast();
                 }
             }
 
@@ -177,7 +176,7 @@ public class SouliumSpawnerTileEntity extends BaseInventoryTileEntity implements
                 if (tile.fuelLeft <= 0)
                     tile.fuelItemValue = 0;
 
-                mark = true;
+                tile.setChangedFast();
             }
         }
 
@@ -192,54 +191,51 @@ public class SouliumSpawnerTileEntity extends BaseInventoryTileEntity implements
                 tile.energy.setMaxEnergyStorage((int) (FUEL_CAPACITY * tier.getFuelCapacityMultiplier()));
             }
 
-            mark = true;
+            tile.setChangedFast();
         }
 
         var isDisabled = level.hasNeighborSignal(tile.getBlockPos());
-
         var wasRunning = tile.isRunning;
+
+        tile.isRunning = false;
 
         if (tile.energy.getEnergyStored() >= tile.getFuelUsage() && !isDisabled) {
             var input = tile.inventory.getStackInSlot(0);
 
-            tile.isRunning = false;
-
             if (!input.isEmpty()) {
-                if (tile.recipe != null && input.getCount() >= tile.recipe.getInputCount()) {
+                var recipe = tile.getActiveRecipe();
+
+                if (recipe != null && input.getCount() >= recipe.getInputCount()) {
                     tile.isRunning = true;
                     tile.progress++;
                     tile.energy.extractEnergy(tile.getFuelUsage(), false);
 
-                    if (tile.progress >= tile.getOperationTime() && tile.attemptSpawn()) {
-                        tile.inventory.setStackInSlot(0, StackHelper.shrink(input, tile.recipe.getInputCount(), false));
+                    if (tile.progress >= tile.getOperationTime() && tile.attemptSpawn(recipe)) {
+                        tile.inventory.setStackInSlot(0, StackHelper.shrink(input, recipe.getInputCount(), false));
                         tile.progress = 0;
                         tile.sendSpawnParticles();
                     }
 
-                    mark = true;
+                    tile.setChangedFast();
                 }
             } else {
                 tile.isRunning = false;
 
                 if (tile.progress > 0) {
                     tile.progress = 0;
-                    tile.recipe = null;
 
-                    mark = true;
+                    tile.setChangedFast();
                 }
             }
-        } else {
-            tile.isRunning = false;
         }
 
         if (wasRunning != tile.isRunning) {
             level.setBlock(pos, state.setValue(SouliumSpawnerBlock.RUNNING, tile.isRunning), 3);
-            mark = true;
+
+            tile.setChangedFast();
         }
 
-        if (mark) {
-            tile.markDirtyAndDispatch();
-        }
+        tile.dispatchIfChanged();
     }
 
     public static void clientTick(Level level, BlockPos pos, BlockState state, SouliumSpawnerTileEntity tile) {
@@ -261,12 +257,12 @@ public class SouliumSpawnerTileEntity extends BaseInventoryTileEntity implements
         });
     }
 
-    public DynamicEnergyStorage getEnergy() {
-        return this.energy;
+    public ISouliumSpawnerRecipe getActiveRecipe() {
+        return this.recipe.get();
     }
 
-    public SouliumSpawnerRecipe getActiveRecipe() {
-        return this.recipe;
+    public DynamicEnergyStorage getEnergy() {
+        return this.energy;
     }
 
     public int getProgress() {
@@ -307,11 +303,11 @@ public class SouliumSpawnerTileEntity extends BaseInventoryTileEntity implements
         return this.currentEntity;
     }
 
-    private boolean attemptSpawn() {
+    private boolean attemptSpawn(ISouliumSpawnerRecipe recipe) {
         if (this.level == null)
             return false;
 
-        var entity = this.recipe.getRandomEntityType(this.level.random)
+        var entity = recipe.getRandomEntityType(this.level.random)
                 .map(e -> e.getData().create(this.level))
                 .orElse(null);
 
@@ -362,26 +358,16 @@ public class SouliumSpawnerTileEntity extends BaseInventoryTileEntity implements
 
     private void onInventoryChanged() {
         this.reloadActiveRecipe();
-        this.markDirtyAndDispatch();
+        this.setChangedFast();
     }
 
     private void reloadActiveRecipe() {
         if (this.level == null)
             return;
 
-        var input = this.inventory.getStackInSlot(0);
+        var recipe = this.recipe.checkAndGet(this.inventory, this.level);
 
-        if (!input.isEmpty()) {
-            if (this.recipe == null || !this.recipe.matches(this.inventory)) {
-                var recipe = this.level.getRecipeManager().getRecipeFor(ModRecipeTypes.SOULIUM_SPAWNER.get(), new RecipeWrapper(this.inventory), this.level).orElse(null);
-
-                this.recipe = recipe instanceof SouliumSpawnerRecipe ? (SouliumSpawnerRecipe) recipe : null;
-                this.currentEntity = this.recipe != null ? this.recipe.getFirstEntityType().create(this.level) : null;
-            }
-        } else {
-            this.recipe = null;
-            this.currentEntity = null;
-        }
+        this.currentEntity = recipe != null ? recipe.getFirstEntityType().create(this.level) : null;
     }
 
     private void sendRunningParticles() {

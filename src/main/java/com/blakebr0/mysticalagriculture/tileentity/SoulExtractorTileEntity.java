@@ -3,14 +3,15 @@ package com.blakebr0.mysticalagriculture.tileentity;
 import com.blakebr0.cucumber.energy.DynamicEnergyStorage;
 import com.blakebr0.cucumber.helper.StackHelper;
 import com.blakebr0.cucumber.inventory.BaseItemStackHandler;
+import com.blakebr0.cucumber.inventory.CachedRecipe;
 import com.blakebr0.cucumber.inventory.SidedItemStackHandlerWrapper;
 import com.blakebr0.cucumber.tileentity.BaseInventoryTileEntity;
 import com.blakebr0.cucumber.util.Localizable;
+import com.blakebr0.mysticalagriculture.api.crafting.ISoulExtractionRecipe;
 import com.blakebr0.mysticalagriculture.api.util.MobSoulUtils;
 import com.blakebr0.mysticalagriculture.block.SoulExtractorBlock;
 import com.blakebr0.mysticalagriculture.container.SoulExtractorContainer;
 import com.blakebr0.mysticalagriculture.container.inventory.UpgradeItemStackHandler;
-import com.blakebr0.mysticalagriculture.crafting.recipe.SoulExtractionRecipe;
 import com.blakebr0.mysticalagriculture.init.ModRecipeTypes;
 import com.blakebr0.mysticalagriculture.init.ModTileEntities;
 import com.blakebr0.mysticalagriculture.item.SoulJarItem;
@@ -47,7 +48,7 @@ public class SoulExtractorTileEntity extends BaseInventoryTileEntity implements 
     private final DynamicEnergyStorage energy;
     private final LazyOptional<IItemHandlerModifiable>[] inventoryCapabilities;
     private final LazyOptional<IEnergyStorage> energyCapability = LazyOptional.of(this::getEnergy);
-    private SoulExtractionRecipe recipe;
+    private final CachedRecipe<ISoulExtractionRecipe> recipe;
     private MachineUpgradeTier tier;
     private int progress;
     private int fuelLeft;
@@ -56,10 +57,11 @@ public class SoulExtractorTileEntity extends BaseInventoryTileEntity implements 
 
     public SoulExtractorTileEntity(BlockPos pos, BlockState state) {
         super(ModTileEntities.SOUL_EXTRACTOR.get(), pos, state);
-        this.inventory = createInventoryHandler(this::markDirtyAndDispatch);
+        this.inventory = createInventoryHandler(this::setChangedFast);
         this.upgradeInventory = new UpgradeItemStackHandler();
-        this.energy = new DynamicEnergyStorage(FUEL_CAPACITY, this::markDirtyAndDispatch);
+        this.energy = new DynamicEnergyStorage(FUEL_CAPACITY, this::setChangedFast);
         this.inventoryCapabilities = SidedItemStackHandlerWrapper.create(this.inventory, new Direction[] { Direction.UP, Direction.DOWN, Direction.NORTH }, this::canInsertStackSided, this::canExtractStackSided);
+        this.recipe = new CachedRecipe<>(ModRecipeTypes.SOUL_EXTRACTION.get());
     }
 
     @Override
@@ -126,8 +128,6 @@ public class SoulExtractorTileEntity extends BaseInventoryTileEntity implements 
     }
 
     public static void tick(Level level, BlockPos pos, BlockState state, SoulExtractorTileEntity tile) {
-        var mark = false;
-
         if (tile.energy.getEnergyStored() < tile.energy.getMaxEnergyStored()) {
             var fuel = tile.inventory.getStackInSlot(1);
 
@@ -138,7 +138,7 @@ public class SoulExtractorTileEntity extends BaseInventoryTileEntity implements 
                     tile.fuelLeft = tile.fuelItemValue *= FUEL_TICK_MULTIPLIER;
                     tile.inventory.setStackInSlot(1, StackHelper.shrink(fuel, 1, true));
 
-                    mark = true;
+                    tile.setChangedFast();
                 }
             }
 
@@ -150,13 +150,8 @@ public class SoulExtractorTileEntity extends BaseInventoryTileEntity implements 
                 if (tile.fuelLeft <= 0)
                     tile.fuelItemValue = 0;
 
-                mark = true;
+                tile.setChangedFast();
             }
-        }
-
-        if (tile.recipe == null || !tile.recipe.matches(tile.inventory)) {
-            var recipe = level.getRecipeManager().getRecipeFor(ModRecipeTypes.SOUL_EXTRACTION.get(), tile.inventory.toIInventory(), level).orElse(null);
-            tile.recipe = recipe instanceof SoulExtractionRecipe ? (SoulExtractionRecipe) recipe : null;
         }
 
         var tier = tile.getMachineTier();
@@ -170,14 +165,15 @@ public class SoulExtractorTileEntity extends BaseInventoryTileEntity implements 
                 tile.energy.setMaxEnergyStorage((int) (FUEL_CAPACITY * tier.getFuelCapacityMultiplier()));
             }
 
-            mark = true;
+            tile.setChangedFast();
         }
 
         var wasRunning = tile.isRunning;
+        var recipe = tile.getActiveRecipe();
 
-        if (tile.recipe != null) {
-            tile.isRunning = false;
+        tile.isRunning = false;
 
+        if (recipe != null) {
             if (tile.energy.getEnergyStored() >= tile.getFuelUsage()) {
                 tile.isRunning = true;
                 tile.progress++;
@@ -185,31 +181,28 @@ public class SoulExtractorTileEntity extends BaseInventoryTileEntity implements 
 
                 if (tile.progress >= tile.getOperationTime()) {
                     tile.inventory.setStackInSlot(0, StackHelper.shrink(tile.inventory.getStackInSlot(0), 1, false));
-                    tile.inventory.setStackInSlot(2, tile.recipe.assemble(tile.inventory, level.registryAccess()));
+                    tile.inventory.setStackInSlot(2, recipe.assemble(tile.inventory.asRecipeWrapper(), level.registryAccess()));
 
                     tile.progress = 0;
                 }
 
-                mark = true;
+                tile.setChangedFast();
             }
         } else {
-            tile.isRunning = false;
-
             if (tile.progress > 0) {
                 tile.progress = 0;
 
-                mark = true;
+                tile.setChangedFast();
             }
         }
 
         if (wasRunning != tile.isRunning) {
             level.setBlock(pos, state.setValue(SoulExtractorBlock.RUNNING, tile.isRunning), 3);
-            mark = true;
+
+            tile.setChangedFast();
         }
 
-        if (mark) {
-            tile.markDirtyAndDispatch();
-        }
+        tile.dispatchIfChanged();
     }
 
     public static BaseItemStackHandler createInventoryHandler() {
@@ -218,6 +211,13 @@ public class SoulExtractorTileEntity extends BaseInventoryTileEntity implements 
 
     public static BaseItemStackHandler createInventoryHandler(Runnable onContentsChanged) {
         return BaseItemStackHandler.create(3, onContentsChanged);
+    }
+
+    public ISoulExtractionRecipe getActiveRecipe() {
+        if (this.level == null)
+            return null;
+
+        return this.recipe.checkAndGet(this.inventory, this.level);
     }
 
     public DynamicEnergyStorage getEnergy() {

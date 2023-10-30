@@ -14,7 +14,7 @@ public class EssenceVesselTileEntity extends BaseInventoryTileEntity {
 
     public EssenceVesselTileEntity(BlockPos pos, BlockState state) {
         super(ModTileEntities.ESSENCE_VESSEL.get(), pos, state);
-        this.inventory = BaseItemStackHandler.create(1, this::markDirtyAndDispatch, handler -> {
+        this.inventory = BaseItemStackHandler.create(1, this::setChangedAndDispatch, handler -> {
             handler.setDefaultSlotLimit(MAX_STACK_SIZE);
             handler.setCanInsert((slot, stack) -> canInsertStack(stack));
         });
