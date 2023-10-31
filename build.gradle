@@ -6,7 +6,7 @@ plugins {
     id 'org.spongepowered.mixin' version '0.7.+'
 }
 
-version = '1.20.1-7.0.5'
+version = '1.20.1-7.0.6'
 group = 'com.blakebr0.mysticalagriculture'
 
 base {
