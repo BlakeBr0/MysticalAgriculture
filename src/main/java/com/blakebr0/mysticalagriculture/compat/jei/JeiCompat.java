@@ -6,12 +6,14 @@ import com.blakebr0.mysticalagriculture.client.screen.EnchanterScreen;
 import com.blakebr0.mysticalagriculture.client.screen.EssenceFurnaceScreen;
 import com.blakebr0.mysticalagriculture.client.screen.ReprocessorScreen;
 import com.blakebr0.mysticalagriculture.client.screen.SoulExtractorScreen;
+import com.blakebr0.mysticalagriculture.client.screen.SouliumSpawnerScreen;
 import com.blakebr0.mysticalagriculture.compat.jei.category.AwakeningCategory;
 import com.blakebr0.mysticalagriculture.compat.jei.category.CruxCategory;
 import com.blakebr0.mysticalagriculture.compat.jei.category.EnchanterCategory;
 import com.blakebr0.mysticalagriculture.compat.jei.category.InfusionCategory;
 import com.blakebr0.mysticalagriculture.compat.jei.category.ReprocessorCategory;
 import com.blakebr0.mysticalagriculture.compat.jei.category.SoulExtractorCategory;
+import com.blakebr0.mysticalagriculture.compat.jei.category.SouliumSpawnerCategory;
 import com.blakebr0.mysticalagriculture.init.ModBlocks;
 import com.blakebr0.mysticalagriculture.init.ModItems;
 import com.blakebr0.mysticalagriculture.init.ModRecipeTypes;
@@ -47,6 +49,7 @@ public final class JeiCompat implements IModPlugin {
                 new EnchanterCategory(guiHelper),
                 new ReprocessorCategory(guiHelper),
                 new SoulExtractorCategory(guiHelper),
+                new SouliumSpawnerCategory(guiHelper),
                 new CruxCategory(guiHelper)
         );
     }
@@ -62,6 +65,7 @@ public final class JeiCompat implements IModPlugin {
         registration.addRecipeCatalyst(new ItemStack(ModBlocks.FURNACE.get()), mezz.jei.api.constants.RecipeTypes.SMELTING);
         registration.addRecipeCatalyst(new ItemStack(ModBlocks.REPROCESSOR.get()), ReprocessorCategory.RECIPE_TYPE);
         registration.addRecipeCatalyst(new ItemStack(ModBlocks.SOUL_EXTRACTOR.get()), SoulExtractorCategory.RECIPE_TYPE);
+        registration.addRecipeCatalyst(new ItemStack(ModBlocks.SOULIUM_SPAWNER.get()), SouliumSpawnerCategory.RECIPE_TYPE);
     }
 
     @Override
@@ -75,6 +79,7 @@ public final class JeiCompat implements IModPlugin {
             registration.addRecipes(EnchanterCategory.RECIPE_TYPE, manager.getAllRecipesFor(ModRecipeTypes.ENCHANTER.get()));
             registration.addRecipes(ReprocessorCategory.RECIPE_TYPE, manager.getAllRecipesFor(ModRecipeTypes.REPROCESSOR.get()));
             registration.addRecipes(SoulExtractorCategory.RECIPE_TYPE, manager.getAllRecipesFor(ModRecipeTypes.SOUL_EXTRACTION.get()));
+            registration.addRecipes(SouliumSpawnerCategory.RECIPE_TYPE, manager.getAllRecipesFor(ModRecipeTypes.SOULIUM_SPAWNER.get()));
             registration.addRecipes(CruxCategory.RECIPE_TYPE, CruxRecipe.getGeneratedRecipes());
         }
 
@@ -91,6 +96,7 @@ public final class JeiCompat implements IModPlugin {
         registration.addRecipeClickArea(EssenceFurnaceScreen.class, 99, 52, 22, 15, mezz.jei.api.constants.RecipeTypes.SMELTING);
         registration.addRecipeClickArea(ReprocessorScreen.class, 99, 52, 22, 15, ReprocessorCategory.RECIPE_TYPE);
         registration.addRecipeClickArea(SoulExtractorScreen.class, 99, 52, 22, 15, SoulExtractorCategory.RECIPE_TYPE);
+        registration.addRecipeClickArea(SouliumSpawnerScreen.class, 99, 52, 22, 15, SouliumSpawnerCategory.RECIPE_TYPE);
     }
 
     @Override

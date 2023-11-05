@@ -100,7 +100,7 @@ public final class ModCrops {
     public static final Crop URANIUM = new Crop(new ResourceLocation(MOD_ID, "uranium"), CropTier.FOUR, CropType.RESOURCE, LazyIngredient.tag("forge:ingots/uranium"));
     public static final Crop CHROME = new Crop(new ResourceLocation(MOD_ID, "chrome"), CropTier.FOUR, CropType.RESOURCE, CropTextures.INGOT_CROP_TEXTURES, 0xCDB9BD, LazyIngredient.tag("forge:ingots/chrome"));
     public static final Crop PLATINUM = new Crop(new ResourceLocation(MOD_ID, "platinum"), CropTier.FIVE, CropType.RESOURCE, LazyIngredient.tag("forge:ingots/platinum"));
-    public static final Crop IRIDIUM = new Crop(new ResourceLocation(MOD_ID, "iridium"), CropTier.FIVE, CropType.RESOURCE, CropTextures.INGOT_CROP_TEXTURES, 0xC7C5DC, LazyIngredient.tag("forge:ingots/iridium"));
+    public static final Crop IRIDIUM = new Crop(new ResourceLocation(MOD_ID, "iridium"), CropTier.FIVE, CropType.RESOURCE, LazyIngredient.tag("forge:ingots/iridium"));
 
     // GEMS
     public static final Crop APATITE = new Crop(new ResourceLocation(MOD_ID, "apatite"), CropTier.TWO, CropType.RESOURCE, LazyIngredient.tag("forge:gems/apatite"));

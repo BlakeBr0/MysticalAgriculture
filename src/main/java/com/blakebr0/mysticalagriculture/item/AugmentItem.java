@@ -1,10 +1,8 @@
 package com.blakebr0.mysticalagriculture.item;
 
 import com.blakebr0.cucumber.item.BaseItem;
-import com.blakebr0.cucumber.lib.Colors;
 import com.blakebr0.cucumber.util.Localizable;
 import com.blakebr0.mysticalagriculture.api.tinkering.Augment;
-import com.blakebr0.mysticalagriculture.api.tinkering.AugmentType;
 import com.blakebr0.mysticalagriculture.api.tinkering.IAugmentProvider;
 import com.blakebr0.mysticalagriculture.lib.ModTooltips;
 import net.minecraft.ChatFormatting;
@@ -16,7 +14,6 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class AugmentItem extends BaseItem implements IAugmentProvider {
     private final Augment augment;
@@ -45,13 +42,6 @@ public class AugmentItem extends BaseItem implements IAugmentProvider {
     @Override
     public void appendHoverText(ItemStack stack, Level level, List<Component> tooltip, TooltipFlag flag) {
         tooltip.add(ModTooltips.getTooltipForTier(this.augment.getTier()));
-        tooltip.add(Component.literal(Colors.GRAY + this.augment.getAugmentTypes()
-                .stream()
-                .map(AugmentType::getDisplayName)
-                .map(Component::getString)
-                .collect(Collectors.joining(", "))
-        ));
-
         tooltip.add(this.augment.getDescriptionDisplayText());
 
         if (this.augment.hasSetBonus()) {

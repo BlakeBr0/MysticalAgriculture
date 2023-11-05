@@ -2,6 +2,10 @@
   "type": "cucumber:shaped_no_mirror",
   "conditions": [
     {
+      "type": "forge:mod_loaded",
+      "modid": "thermal"
+    },
+    {
       "type": "mysticalagriculture:crop_enabled",
       "crop": "mysticalagriculture:blitz"
     }

@@ -5,6 +5,7 @@ import com.blakebr0.mysticalagriculture.client.tesr.AwakeningPedestalRenderer;
 import com.blakebr0.mysticalagriculture.client.tesr.EssenceVesselRenderer;
 import com.blakebr0.mysticalagriculture.client.tesr.InfusionAltarRenderer;
 import com.blakebr0.mysticalagriculture.client.tesr.InfusionPedestalRenderer;
+import com.blakebr0.mysticalagriculture.client.tesr.SouliumSpawnerRenderer;
 import com.blakebr0.mysticalagriculture.client.tesr.TinkeringTableRenderer;
 import com.blakebr0.mysticalagriculture.init.ModTileEntities;
 import net.minecraftforge.client.event.EntityRenderersEvent;
@@ -19,5 +20,6 @@ public final class ModTESRs {
         event.registerBlockEntityRenderer(ModTileEntities.AWAKENING_PEDESTAL.get(), AwakeningPedestalRenderer::new);
         event.registerBlockEntityRenderer(ModTileEntities.AWAKENING_ALTAR.get(), AwakeningAltarRenderer::new);
         event.registerBlockEntityRenderer(ModTileEntities.ESSENCE_VESSEL.get(), EssenceVesselRenderer::new);
+        event.registerBlockEntityRenderer(ModTileEntities.SOULIUM_SPAWNER.get(), SouliumSpawnerRenderer::new);
     }
 }

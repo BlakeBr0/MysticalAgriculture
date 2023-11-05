@@ -1,6 +1,6 @@
 package com.blakebr0.mysticalagriculture.client.handler;
 
-import com.blakebr0.mysticalagriculture.crafting.recipe.AwakeningRecipe;
+import com.blakebr0.mysticalagriculture.api.crafting.IAwakeningRecipe;
 import com.blakebr0.mysticalagriculture.lib.ModTooltips;
 import com.blakebr0.mysticalagriculture.tileentity.AwakeningAltarTileEntity;
 import com.blakebr0.mysticalagriculture.tileentity.EssenceVesselTileEntity;
@@ -86,7 +86,7 @@ public final class GuiOverlayHandler {
         event.registerAbove(VanillaGuiOverlay.CROSSHAIR.id(), "essence_vessel_overlay", ESSENCE_VESSEL_OVERLAY);
     }
 
-    private static void drawEssenceRequirements(GuiGraphics gfx, AwakeningRecipe recipe, AwakeningAltarTileEntity altar) {
+    private static void drawEssenceRequirements(GuiGraphics gfx, IAwakeningRecipe recipe, AwakeningAltarTileEntity altar) {
         var mc = Minecraft.getInstance();
 
         int x = mc.getWindow().getGuiScaledWidth() / 2 - 11;

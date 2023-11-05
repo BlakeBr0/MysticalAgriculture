@@ -2,7 +2,7 @@
   "type": "mysticalagriculture:enchanter",
   "ingredients": [
     {
-      "item": "mysticalagriculture:blaze_powder",
+      "item": "minecraft:blaze_powder",
       "count": 16
     },
     {

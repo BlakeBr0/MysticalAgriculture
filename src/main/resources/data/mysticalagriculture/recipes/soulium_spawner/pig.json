@@ -1,0 +1,19 @@
+{
+  "type": "mysticalagriculture:soulium_spawner",
+  "conditions": [
+    {
+      "type": "mysticalagriculture:crop_enabled",
+      "crop": "mysticalagriculture:slime"
+    }
+  ],
+  "input": {
+    "item": "mysticalagriculture:slime_essence",
+    "count": 12
+  },
+  "entities": [
+    {
+      "entity": "minecraft:slime",
+      "weight": 1
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "type": "cucumber:shaped_no_mirror",
+  "conditions": [
+    {
+      "type": "mysticalagriculture:crop_enabled",
+      "crop": "mysticalagriculture:water"
+    }
+  ],
+  "pattern": [
+    "CCC",
+    "CEC",
+    "CCC"
+  ],
+  "key": {
+    "E": {
+      "item": "mysticalagriculture:water_essence"
+    },
+    "C": {
+      "item": "minecraft:purple_concrete_powder"
+    }
+  },
+  "result": {
+    "item": "minecraft:purple_concrete",
+    "count": 8
+  }
+}

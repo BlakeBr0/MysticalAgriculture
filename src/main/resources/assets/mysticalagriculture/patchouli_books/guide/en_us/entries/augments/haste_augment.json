@@ -1,0 +1,12 @@
+{
+  "name": "book.mysticalagriculture.entry.haste_augment",
+  "category": "mysticalagriculture:augments",
+  "icon": "mysticalagriculture:haste_iii_augment",
+  "sortnum": 323,
+  "pages": [
+    {
+      "type": "text",
+      "text": "book.mysticalagriculture.entry.haste_augment.page.1"
+    }
+  ]
+}

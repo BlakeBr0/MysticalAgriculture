@@ -1,0 +1,19 @@
+{
+  "type": "mysticalagriculture:soulium_spawner",
+  "conditions": [
+    {
+      "type": "mysticalagriculture:crop_enabled",
+      "crop": "mysticalagriculture:enderman"
+    }
+  ],
+  "input": {
+    "item": "mysticalagriculture:enderman_essence",
+    "count": 24
+  },
+  "entities": [
+    {
+      "entity": "minecraft:enderman",
+      "weight": 1
+    }
+  ]
+}

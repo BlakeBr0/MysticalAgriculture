@@ -1,0 +1,19 @@
+{
+  "type": "mysticalagriculture:soulium_spawner",
+  "conditions": [
+    {
+      "type": "mysticalagriculture:crop_enabled",
+      "crop": "mysticalagriculture:wither_skeleton"
+    }
+  ],
+  "input": {
+    "item": "mysticalagriculture:wither_skeleton_essence",
+    "count": 32
+  },
+  "entities": [
+    {
+      "entity": "minecraft:wither_skeleton",
+      "weight": 1
+    }
+  ]
+}

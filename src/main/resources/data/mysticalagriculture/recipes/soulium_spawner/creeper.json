@@ -1,0 +1,19 @@
+{
+  "type": "mysticalagriculture:soulium_spawner",
+  "conditions": [
+    {
+      "type": "mysticalagriculture:crop_enabled",
+      "crop": "mysticalagriculture:creeper"
+    }
+  ],
+  "input": {
+    "item": "mysticalagriculture:creeper_essence",
+    "count": 16
+  },
+  "entities": [
+    {
+      "entity": "minecraft:creeper",
+      "weight": 1
+    }
+  ]
+}

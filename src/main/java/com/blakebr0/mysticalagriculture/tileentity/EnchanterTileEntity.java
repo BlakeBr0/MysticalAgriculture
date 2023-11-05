@@ -17,7 +17,7 @@ public class EnchanterTileEntity extends BaseInventoryTileEntity implements Menu
 
     public EnchanterTileEntity(BlockPos pos, BlockState state) {
         super(ModTileEntities.ENCHANTER.get(), pos, state);
-        this.inventory = createInventoryHandler(this::markDirtyAndDispatch);
+        this.inventory = createInventoryHandler(this::setChangedAndDispatch);
     }
 
     @Override

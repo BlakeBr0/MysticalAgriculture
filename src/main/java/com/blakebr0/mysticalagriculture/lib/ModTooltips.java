@@ -36,6 +36,7 @@ public final class ModTooltips {
     public static final Tooltip MACHINE_FUEL_RATE = new Tooltip("tooltip.mysticalagriculture.machine_fuel_rate");
     public static final Tooltip MACHINE_FUEL_CAPACITY = new Tooltip("tooltip.mysticalagriculture.machine_fuel_capacity");
     public static final Tooltip MACHINE_AREA = new Tooltip("tooltip.mysticalagriculture.machine_area");
+    public static final Tooltip MACHINE_SPAWN_RADIUS = new Tooltip("tooltip.mysticalagriculture.machine_spawn_radius");
     public static final Tooltip TOOL_AREA = new Tooltip("tooltip.mysticalagriculture.tool_area");
     public static final Tooltip EXPERIENCE_CAPSULE = new Tooltip("tooltip.mysticalagriculture.experience_capsule");
     public static final Tooltip SOUL_JAR = new Tooltip("tooltip.mysticalagriculture.soul_jar");

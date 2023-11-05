@@ -6,12 +6,14 @@ import com.blakebr0.mysticalagriculture.client.screen.EssenceFurnaceScreen;
 import com.blakebr0.mysticalagriculture.client.screen.HarvesterScreen;
 import com.blakebr0.mysticalagriculture.client.screen.ReprocessorScreen;
 import com.blakebr0.mysticalagriculture.client.screen.SoulExtractorScreen;
+import com.blakebr0.mysticalagriculture.client.screen.SouliumSpawnerScreen;
 import com.blakebr0.mysticalagriculture.client.screen.TinkeringTableScreen;
 import com.blakebr0.mysticalagriculture.container.EnchanterContainer;
 import com.blakebr0.mysticalagriculture.container.EssenceFurnaceContainer;
 import com.blakebr0.mysticalagriculture.container.HarvesterContainer;
 import com.blakebr0.mysticalagriculture.container.ReprocessorContainer;
 import com.blakebr0.mysticalagriculture.container.SoulExtractorContainer;
+import com.blakebr0.mysticalagriculture.container.SouliumSpawnerContainer;
 import com.blakebr0.mysticalagriculture.container.TinkeringTableContainer;
 import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.world.flag.FeatureFlagSet;
@@ -35,6 +37,7 @@ public final class ModContainerTypes {
     public static final RegistryObject<MenuType<ReprocessorContainer>> REPROCESSOR = register("reprocessor", () -> new MenuType<>((IContainerFactory<ReprocessorContainer>) ReprocessorContainer::create, FeatureFlagSet.of()));
     public static final RegistryObject<MenuType<SoulExtractorContainer>> SOUL_EXTRACTOR = register("soul_extractor", () -> new MenuType<>((IContainerFactory<SoulExtractorContainer>) SoulExtractorContainer::create, FeatureFlagSet.of()));
     public static final RegistryObject<MenuType<HarvesterContainer>> HARVESTER = register("harvester", () -> new MenuType<>((IContainerFactory<HarvesterContainer>) HarvesterContainer::create, FeatureFlagSet.of()));
+    public static final RegistryObject<MenuType<SouliumSpawnerContainer>> SOULIUM_SPAWNER = register("soulium_spawner", () -> new MenuType<>((IContainerFactory<SouliumSpawnerContainer>) SouliumSpawnerContainer::create, FeatureFlagSet.of()));
 
     @OnlyIn(Dist.CLIENT)
     public static void onClientSetup() {
@@ -44,6 +47,7 @@ public final class ModContainerTypes {
         REPROCESSOR.ifPresent(container -> MenuScreens.register(container, ReprocessorScreen::new));
         SOUL_EXTRACTOR.ifPresent(container -> MenuScreens.register(container, SoulExtractorScreen::new));
         HARVESTER.ifPresent(container -> MenuScreens.register(container, HarvesterScreen::new));
+        SOULIUM_SPAWNER.ifPresent(container -> MenuScreens.register(container, SouliumSpawnerScreen::new));
     }
 
     private static <T extends AbstractContainerMenu> RegistryObject<MenuType<T>> register(String name, Supplier<? extends MenuType<T>> container) {

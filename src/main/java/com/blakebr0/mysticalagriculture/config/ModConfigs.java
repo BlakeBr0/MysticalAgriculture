@@ -1,6 +1,7 @@
 package com.blakebr0.mysticalagriculture.config;
 
 import net.minecraftforge.common.ForgeConfigSpec;
+import net.minecraftforge.fml.ModList;
 
 public final class ModConfigs {
     public static final ForgeConfigSpec CLIENT;
@@ -106,5 +107,9 @@ public final class ModConfigs {
         common.pop();
 
         COMMON = common.build();
+    }
+
+    public static boolean isTheOneProbeInstalled() {
+        return ModList.get().isLoaded("theoneprobe");
     }
 }

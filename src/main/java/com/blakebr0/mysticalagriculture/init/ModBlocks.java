@@ -22,6 +22,7 @@ import com.blakebr0.mysticalagriculture.block.InfusionAltarBlock;
 import com.blakebr0.mysticalagriculture.block.InfusionPedestalBlock;
 import com.blakebr0.mysticalagriculture.block.ReprocessorBlock;
 import com.blakebr0.mysticalagriculture.block.SoulExtractorBlock;
+import com.blakebr0.mysticalagriculture.block.SouliumSpawnerBlock;
 import com.blakebr0.mysticalagriculture.block.TinkeringTableBlock;
 import com.blakebr0.mysticalagriculture.block.WitherproofBlock;
 import com.blakebr0.mysticalagriculture.block.WitherproofGlassBlock;
@@ -114,6 +115,7 @@ public final class ModBlocks {
     public static final RegistryObject<Block> REPROCESSOR = register("seed_reprocessor", ReprocessorBlock::new);
     public static final RegistryObject<Block> SOUL_EXTRACTOR = register("soul_extractor", SoulExtractorBlock::new);
     public static final RegistryObject<Block> HARVESTER = register("harvester", HarvesterBlock::new);
+    public static final RegistryObject<Block> SOULIUM_SPAWNER = register("soulium_spawner", SouliumSpawnerBlock::new);
 
     public static final RegistryObject<Block> INFERIUM_CROP = registerNoItem("inferium_crop", () -> new InferiumCropBlock(ModCrops.INFERIUM));
 

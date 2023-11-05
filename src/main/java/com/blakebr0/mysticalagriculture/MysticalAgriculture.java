@@ -3,9 +3,11 @@ package com.blakebr0.mysticalagriculture;
 import com.blakebr0.cucumber.helper.ConfigHelper;
 import com.blakebr0.mysticalagriculture.api.MysticalAgricultureAPI;
 import com.blakebr0.mysticalagriculture.client.EssenceVesselColorManager;
+import com.blakebr0.mysticalagriculture.client.ModClientTooltipComponentFactories;
 import com.blakebr0.mysticalagriculture.client.ModRecipeBookCategories;
 import com.blakebr0.mysticalagriculture.client.ModTESRs;
 import com.blakebr0.mysticalagriculture.client.ModelHandler;
+import com.blakebr0.mysticalagriculture.client.handler.AugmentTooltipHandler;
 import com.blakebr0.mysticalagriculture.client.handler.ColorHandler;
 import com.blakebr0.mysticalagriculture.client.handler.GuiOverlayHandler;
 import com.blakebr0.mysticalagriculture.compat.TOPCompat;
@@ -37,7 +39,6 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.DistExecutor;
-import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.config.ModConfig;
@@ -77,6 +78,7 @@ public final class MysticalAgriculture {
 			bus.register(new ModelHandler());
 			bus.register(new ModTESRs());
 			bus.register(new ModRecipeBookCategories());
+			bus.register(new ModClientTooltipComponentFactories());
 			bus.register(new GuiOverlayHandler());
 			bus.register(EssenceVesselColorManager.INSTANCE);
 		});
@@ -102,21 +104,24 @@ public final class MysticalAgriculture {
 
 		ModRecipeSerializers.onCommonSetup();
 		ModItemTier.onCommonSetup();
+		NetworkHandler.onCommonSetup(event);
 
-		event.enqueueWork(() -> {
-			NetworkHandler.onCommonSetup();
-		});
+		CropRegistry.getInstance().onCommonSetup();
+		AugmentRegistry.getInstance().onCommonSetup();
+		MobSoulTypeRegistry.getInstance().onCommonSetup();
 	}
 
 	@SubscribeEvent
 	public void onClientSetup(FMLClientSetupEvent event) {
+		MinecraftForge.EVENT_BUS.register(new AugmentTooltipHandler());
+
 		ModelHandler.onClientSetup(event);
 		ModContainerTypes.onClientSetup();
 	}
 
 	@SubscribeEvent
 	public void onInterModEnqueue(InterModEnqueueEvent event) {
-		if (ModList.get().isLoaded("theoneprobe")) {
+		if (ModConfigs.isTheOneProbeInstalled()) {
 			TOPCompat.onInterModEnqueue();
 		}
 	}
