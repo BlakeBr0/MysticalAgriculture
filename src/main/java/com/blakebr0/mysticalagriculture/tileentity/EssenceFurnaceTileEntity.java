@@ -3,6 +3,7 @@ package com.blakebr0.mysticalagriculture.tileentity;
 import com.blakebr0.cucumber.energy.DynamicEnergyStorage;
 import com.blakebr0.cucumber.helper.StackHelper;
 import com.blakebr0.cucumber.inventory.BaseItemStackHandler;
+import com.blakebr0.cucumber.inventory.CachedRecipe;
 import com.blakebr0.cucumber.inventory.SidedItemStackHandlerWrapper;
 import com.blakebr0.cucumber.tileentity.BaseInventoryTileEntity;
 import com.blakebr0.cucumber.util.Localizable;
@@ -32,7 +33,6 @@ import net.minecraftforge.common.capabilities.ForgeCapabilities;
 import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.energy.IEnergyStorage;
 import net.minecraftforge.items.IItemHandlerModifiable;
-import net.minecraftforge.items.wrapper.RecipeWrapper;
 
 public class EssenceFurnaceTileEntity extends BaseInventoryTileEntity implements MenuProvider, IUpgradeableMachine {
     private static final int FUEL_TICK_MULTIPLIER = 20;
@@ -45,7 +45,7 @@ public class EssenceFurnaceTileEntity extends BaseInventoryTileEntity implements
     private final DynamicEnergyStorage energy;
     private final LazyOptional<IItemHandlerModifiable>[] inventoryCapabilities;
     private final LazyOptional<IEnergyStorage> energyCapability = LazyOptional.of(this::getEnergy);
-    private SmeltingRecipe recipe;
+    private final CachedRecipe<SmeltingRecipe> recipe;
     private MachineUpgradeTier tier;
     private int progress;
     private int fuelLeft;
@@ -54,10 +54,11 @@ public class EssenceFurnaceTileEntity extends BaseInventoryTileEntity implements
 
     public EssenceFurnaceTileEntity(BlockPos pos, BlockState state) {
         super(ModTileEntities.FURNACE.get(), pos, state);
-        this.inventory = createInventoryHandler(this::markDirtyAndDispatch);
+        this.inventory = createInventoryHandler(this::setChangedFast);
         this.upgradeInventory = new UpgradeItemStackHandler();
-        this.energy = new DynamicEnergyStorage(FUEL_CAPACITY, this::markDirtyAndDispatch);
+        this.energy = new DynamicEnergyStorage(FUEL_CAPACITY, this::setChangedFast);
         this.inventoryCapabilities = SidedItemStackHandlerWrapper.create(this.inventory, new Direction[] { Direction.UP, Direction.DOWN, Direction.NORTH }, this::canInsertStackSided, null);
+        this.recipe = new CachedRecipe<>(RecipeType.SMELTING);
     }
 
     @Override
@@ -124,8 +125,6 @@ public class EssenceFurnaceTileEntity extends BaseInventoryTileEntity implements
     }
 
     public static void tick(Level level, BlockPos pos, BlockState state, EssenceFurnaceTileEntity tile) {
-        var mark = false;
-
         if (tile.energy.getEnergyStored() < tile.energy.getMaxEnergyStored()) {
             var fuel = tile.inventory.getStackInSlot(1);
 
@@ -136,7 +135,7 @@ public class EssenceFurnaceTileEntity extends BaseInventoryTileEntity implements
                     tile.fuelLeft = tile.fuelItemValue *= FUEL_TICK_MULTIPLIER;
                     tile.inventory.setStackInSlot(1, StackHelper.shrink(fuel, 1, true));
 
-                    mark = true;
+                    tile.setChangedFast();
                 }
             }
 
@@ -148,7 +147,7 @@ public class EssenceFurnaceTileEntity extends BaseInventoryTileEntity implements
                 if (tile.fuelLeft <= 0)
                     tile.fuelItemValue = 0;
 
-                mark = true;
+                tile.setChangedFast();
             }
         }
 
@@ -163,7 +162,7 @@ public class EssenceFurnaceTileEntity extends BaseInventoryTileEntity implements
                 tile.energy.setMaxEnergyStorage((int) (FUEL_CAPACITY * tier.getFuelCapacityMultiplier()));
             }
 
-            mark = true;
+            tile.setChangedFast();
         }
 
         var wasRunning = tile.isRunning;
@@ -175,12 +174,10 @@ public class EssenceFurnaceTileEntity extends BaseInventoryTileEntity implements
             tile.isRunning = false;
 
             if (!input.isEmpty()) {
-                if (tile.recipe == null || !tile.recipe.matches(new RecipeWrapper(tile.inventory), level)) {
-                    tile.recipe = level.getRecipeManager().getRecipeFor(RecipeType.SMELTING, new RecipeWrapper(tile.inventory), level).orElse(null);
-                }
+                var recipe = tile.getActiveRecipe();
 
-                if (tile.recipe != null) {
-                    var recipeOutput = tile.recipe.assemble(new RecipeWrapper(tile.inventory), level.registryAccess());
+                if (recipe != null) {
+                    var recipeOutput = recipe.assemble(tile.inventory.asRecipeWrapper(), level.registryAccess());
                     if (!recipeOutput.isEmpty() && (output.isEmpty() || StackHelper.canCombineStacks(output, recipeOutput))) {
                         tile.isRunning = true;
                         tile.progress++;
@@ -194,7 +191,7 @@ public class EssenceFurnaceTileEntity extends BaseInventoryTileEntity implements
                             tile.progress = 0;
                         }
 
-                        mark = true;
+                        tile.setChangedFast();
                     }
                 }
             } else {
@@ -202,9 +199,8 @@ public class EssenceFurnaceTileEntity extends BaseInventoryTileEntity implements
 
                 if (tile.progress > 0) {
                     tile.progress = 0;
-                    tile.recipe = null;
 
-                    mark = true;
+                    tile.setChangedFast();
                 }
             }
         } else {
@@ -213,12 +209,15 @@ public class EssenceFurnaceTileEntity extends BaseInventoryTileEntity implements
 
         if (wasRunning != tile.isRunning) {
             level.setBlock(pos, state.setValue(EssenceFurnaceBlock.RUNNING, tile.isRunning), 3);
-            mark = true;
+
+            tile.setChangedFast();
         }
 
-        if (mark) {
-            tile.markDirtyAndDispatch();
-        }
+        tile.dispatchIfChanged();
+    }
+
+    public SmeltingRecipe getActiveRecipe() {
+        return this.recipe.checkAndGet(this.inventory, this.level);
     }
 
     public DynamicEnergyStorage getEnergy() {
@@ -230,7 +229,8 @@ public class EssenceFurnaceTileEntity extends BaseInventoryTileEntity implements
     }
 
     public int getOperationTime() {
-        var operationTime = this.recipe != null ? this.recipe.getCookingTime() : OPERATION_TIME;
+        var recipe = this.recipe.get();
+        var operationTime = recipe != null ? recipe.getCookingTime() : OPERATION_TIME;
 
         if (this.tier == null)
             return operationTime;
@@ -269,7 +269,6 @@ public class EssenceFurnaceTileEntity extends BaseInventoryTileEntity implements
     }
 
     public static BaseItemStackHandler createInventoryHandler(Runnable onContentsChanged) {
-        return BaseItemStackHandler.create(3, onContentsChanged, builder -> {
-        });
+        return BaseItemStackHandler.create(3, onContentsChanged);
     }
 }
