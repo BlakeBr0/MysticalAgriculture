@@ -21,8 +21,10 @@ public class SouliumSpawnerRenderer implements BlockEntityRenderer<SouliumSpawne
         matrix.pushPose();
         matrix.translate(0.5F, 0.0F, 0.5F);
 
-        var entity = tile.getCurrentEntity();
-        if (entity != null) {
+        var displayEntity = tile.getDisplayEntity();
+        if (displayEntity != null) {
+            var entity = displayEntity.entity();
+
             float scale = 0.53125F;
             float bbMax = Math.max(entity.getBbWidth(), entity.getBbHeight());
 

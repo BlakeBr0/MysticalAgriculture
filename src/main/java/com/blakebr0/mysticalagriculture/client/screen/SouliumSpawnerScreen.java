@@ -73,6 +73,10 @@ public class SouliumSpawnerScreen extends BaseContainerScreen<SouliumSpawnerCont
         }
 
         this.renderEntityPreview(gfx);
+
+        if (isHoveringSlot(x + 134, y + 52, mouseX, mouseY)) {
+            renderSlotHighlight(gfx, x + 134, y + 52, 0);
+        }
     }
 
     @Override
@@ -84,6 +88,19 @@ public class SouliumSpawnerScreen extends BaseContainerScreen<SouliumSpawnerCont
 
         if (this.getFuelLeft() > 0 && mouseX > x + 30 && mouseX < x + 45 && mouseY > y + 39 && mouseY < y + 53) {
             gfx.renderTooltip(this.font, Formatting.energy(this.getFuelLeft()), mouseX, mouseY);
+        }
+
+        if (this.tile != null) {
+            var displayEntity = this.tile.getDisplayEntity();
+
+            if (displayEntity != null && isHoveringSlot(x + 134, y + 52, mouseX, mouseY)) {
+                var entity = displayEntity.entity();
+                var chance = displayEntity.chance();
+
+                var text = Component.empty().append(entity.getDisplayName()).append(" (%.2f%%)".formatted(chance));
+
+                gfx.renderTooltip(this.font, text, mouseX, mouseY);
+            }
         }
     }
 
@@ -150,11 +167,13 @@ public class SouliumSpawnerScreen extends BaseContainerScreen<SouliumSpawnerCont
         if (this.tile == null)
             return;
 
-        var entity = this.tile.getCurrentEntity();
-        if (entity == null)
+        var displayEntity = this.tile.getDisplayEntity();
+        if (displayEntity == null)
             return;
 
-        float scale = 20.0F;
+        var entity = displayEntity.entity();
+
+        float scale = 16.0F;
         float bbMax = Math.max(entity.getBbWidth(), entity.getBbHeight());
 
         if ((double) bbMax > 1.0D) {
@@ -165,7 +184,7 @@ public class SouliumSpawnerScreen extends BaseContainerScreen<SouliumSpawnerCont
 
         matrix.pushPose();
 
-        matrix.translate(this.leftPos + 142, this.topPos + 70, 32.0F);
+        matrix.translate(this.leftPos + 142, this.topPos + 68, 32.0F);
         matrix.mulPose(Axis.YP.rotationDegrees(135.0F));
         matrix.mulPose(Axis.XP.rotationDegrees(180.0F));
         matrix.scale(scale, scale, scale);
@@ -175,5 +194,9 @@ public class SouliumSpawnerScreen extends BaseContainerScreen<SouliumSpawnerCont
         Minecraft.getInstance().getEntityRenderDispatcher().render(entity, 0.0D, 0.0D, 0.0D, 0.0F, 1, matrix, buffer, 255);
 
         matrix.popPose();
+    }
+
+    private static boolean isHoveringSlot(int x, int y, int mouseX, int mouseY) {
+        return mouseX > x - 1 && mouseX < x + 16 && mouseY > y - 1 && mouseY < y + 16;
     }
 }
