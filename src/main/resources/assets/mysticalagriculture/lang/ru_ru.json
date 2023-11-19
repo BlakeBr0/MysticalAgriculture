@@ -275,7 +275,6 @@
   "enchantment.mysticalagriculture.mystical_enlightenment.desc": "Из Эндер-драконов и Визеров будет выпадать Пыль Знаний, если они были убиты оружием из эссенции.",
   
   "tooltip.mysticalagriculture.empty": "Пусто",
-  "tooltip.mysticalagriculture.filled": "Заполнено",
   "tooltip.mysticalagriculture.tier": "Уровень: %s",
   "tooltip.mysticalagriculture.crop_id": "ID растения: %s",
   "tooltip.mysticalagriculture.mst_id": "MST ID: %s",

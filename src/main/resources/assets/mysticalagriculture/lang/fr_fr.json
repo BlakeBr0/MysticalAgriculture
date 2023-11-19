@@ -274,7 +274,6 @@
   "enchantment.mysticalagriculture.soul_siphoner.desc": "Augmente les âmes collecté en tuant des mobs de 10 pour cent par niveau.",
 
   "tooltip.mysticalagriculture.empty": "Vide",
-  "tooltip.mysticalagriculture.filled": "Rempli",
   "tooltip.mysticalagriculture.tier": "Tier: %s",
   "tooltip.mysticalagriculture.crop_id": "Id du Plant: %s",
   "tooltip.mysticalagriculture.mst_id": "Id MST: %s",

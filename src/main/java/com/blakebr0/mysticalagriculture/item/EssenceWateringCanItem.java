@@ -21,7 +21,6 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 
 import java.util.List;
-import java.util.UUID;
 
 public class EssenceWateringCanItem extends WateringCanItem {
     private final ChatFormatting textColor;
@@ -32,12 +31,12 @@ public class EssenceWateringCanItem extends WateringCanItem {
     }
 
     @Override
-    public void inventoryTick(ItemStack stack, Level world, Entity entity, int slot, boolean selected) {
+    public void inventoryTick(ItemStack stack, Level level, Entity entity, int slot, boolean selected) {
         if (selected && NBTHelper.getBoolean(stack, "Active") && entity instanceof Player player) {
-            var result = getPlayerPOVHitResult(world, player, ClipContext.Fluid.SOURCE_ONLY);
+            var result = getPlayerPOVHitResult(level, player, ClipContext.Fluid.SOURCE_ONLY);
 
             if (result.getType() != HitResult.Type.MISS) {
-                this.doWater(stack, world, player, result.getBlockPos(), result.getDirection());
+                this.doWater(stack, level, player, result.getBlockPos(), result.getDirection());
             }
         }
     }
@@ -71,7 +70,6 @@ public class EssenceWateringCanItem extends WateringCanItem {
             var fluid = level.getFluidState(pos);
 
             if (fluid.is(FluidTags.WATER)) {
-                NBTHelper.setString(stack, "ID", UUID.randomUUID().toString());
                 NBTHelper.setBoolean(stack, "Water", true);
 
                 player.playSound(SoundEvents.BUCKET_FILL, 1.0F, 1.0F);
@@ -85,11 +83,6 @@ public class EssenceWateringCanItem extends WateringCanItem {
 
     @Override
     public InteractionResult onItemUseFirst(ItemStack stack, UseOnContext context) {
-        var player = context.getPlayer();
-
-        if (player == null)
-            return InteractionResult.PASS;
-
         if (NBTHelper.getBoolean(stack, "Active"))
             return InteractionResult.PASS;
 
@@ -98,8 +91,8 @@ public class EssenceWateringCanItem extends WateringCanItem {
 
     @OnlyIn(Dist.CLIENT)
     @Override
-    public void appendHoverText(ItemStack stack, Level world, List<Component> tooltip, TooltipFlag advanced) {
-        super.appendHoverText(stack, world, tooltip, advanced);
+    public void appendHoverText(ItemStack stack, Level level, List<Component> tooltip, TooltipFlag advanced) {
+        super.appendHoverText(stack, level, tooltip, advanced);
 
         var rangeString = String.valueOf(this.range);
         var rangeNumber = Component.literal(rangeString + "x" + rangeString).withStyle(this.textColor);

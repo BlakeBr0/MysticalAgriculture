@@ -194,7 +194,6 @@
   "container.mysticalagriculture.reprocessor": "씨앗 재처리기",
 
   "tooltip.mysticalagriculture.empty": "비어있음",
-  "tooltip.mysticalagriculture.filled": "가득참",
   "tooltip.mysticalagriculture.tier": "티어: %s",
   "tooltip.mysticalagriculture.crop_id": "작물 ID: %s",
   "tooltip.mysticalagriculture.mst_id": "몹 영혼 유형 ID: %s",

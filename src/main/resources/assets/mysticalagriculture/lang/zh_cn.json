@@ -267,7 +267,6 @@
   "enchantment.mysticalagriculture.soul_siphoner.desc": "使击杀生物时收集到的灵魂数量每级增加 10%.",
 
   "tooltip.mysticalagriculture.empty": "空的",
-  "tooltip.mysticalagriculture.filled": "满的",
   "tooltip.mysticalagriculture.tier": "等级: %s",
   "tooltip.mysticalagriculture.crop_id": "作物 ID: %s",
   "tooltip.mysticalagriculture.mst_id": "灵魂 ID: %s",

@@ -278,7 +278,6 @@
   "enchantment.mysticalagriculture.soul_siphoner.desc": "Increases souls collected by killing mobs by 10 percent per level.",
 
   "tooltip.mysticalagriculture.empty": "Empty",
-  "tooltip.mysticalagriculture.filled": "Filled",
   "tooltip.mysticalagriculture.tier": "Tier: %s",
   "tooltip.mysticalagriculture.crop_id": "Crop ID: %s",
   "tooltip.mysticalagriculture.mst_id": "MST ID: %s",

@@ -275,7 +275,6 @@
   "enchantment.mysticalagriculture.mystical_enlightenment.desc": "З Ендер-драконів і Візерів випадатиме Пил Знань, якщо вони були вбиті зброєю з есенції.",
   
   "tooltip.mysticalagriculture.empty": "Порожньо",
-  "tooltip.mysticalagriculture.filled": "Заповнено",
   "tooltip.mysticalagriculture.tier": "Рівень: %s",
   "tooltip.mysticalagriculture.crop_id": "ID рослини: %s",
   "tooltip.mysticalagriculture.mst_id": "MST ID: %s",
