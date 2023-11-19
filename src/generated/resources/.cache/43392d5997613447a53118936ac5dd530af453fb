@@ -1,4 +1,4 @@
-// 1.20.1	2023-10-22T14:06:36.0572392	Mystical Agriculture item model generator
+// 1.20.1	2023-11-18T13:21:14.6717834	Mystical Agriculture item model generator
 e1edc02b041c3259cf941617688795d37b15c9b4 assets/mysticalagriculture/models/item/absorption_iii_augment.json
 e1edc02b041c3259cf941617688795d37b15c9b4 assets/mysticalagriculture/models/item/absorption_ii_augment.json
 e1edc02b041c3259cf941617688795d37b15c9b4 assets/mysticalagriculture/models/item/absorption_iv_augment.json
@@ -265,6 +265,8 @@ e1edc02b041c3259cf941617688795d37b15c9b4 assets/mysticalagriculture/models/item/
 e1edc02b041c3259cf941617688795d37b15c9b4 assets/mysticalagriculture/models/item/slow_falling_augment.json
 7da5d89f5b67bf953251b0e330f18ec15df75ae2 assets/mysticalagriculture/models/item/soularium_essence.json
 9480f275d06ca82ceb480202a1db708155e87d1a assets/mysticalagriculture/models/item/soularium_seeds.json
+333511405213f1ca1170c9f8e5112f35583af06c assets/mysticalagriculture/models/item/soulium_essence.json
+33e83728aa59a0b4d1eae5da0992e29d2eac9a04 assets/mysticalagriculture/models/item/soulium_seeds.json
 e1edc02b041c3259cf941617688795d37b15c9b4 assets/mysticalagriculture/models/item/speed_iii_augment.json
 e1edc02b041c3259cf941617688795d37b15c9b4 assets/mysticalagriculture/models/item/speed_ii_augment.json
 e1edc02b041c3259cf941617688795d37b15c9b4 assets/mysticalagriculture/models/item/speed_i_augment.json

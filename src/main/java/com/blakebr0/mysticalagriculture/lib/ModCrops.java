@@ -108,6 +108,9 @@ public final class ModCrops {
     public static final Crop SAPPHIRE = new Crop(new ResourceLocation(MOD_ID, "sapphire"), CropTier.FOUR, CropType.RESOURCE, LazyIngredient.tag("forge:gems/sapphire"));
     public static final Crop PERIDOT = new Crop(new ResourceLocation(MOD_ID, "peridot"), CropTier.FOUR, CropType.RESOURCE, LazyIngredient.tag("forge:gems/peridot"));
 
+    // MYSTICAL AGRICULTURE
+    public static final Crop SOULIUM = new Crop(new ResourceLocation(MOD_ID, "soulium"), CropTier.FOUR, CropType.RESOURCE, LazyIngredient.item("mysticalagriculture:soulium_dust"));
+
     // THERMAL SERIES
     public static final Crop BLIZZ = new Crop(new ResourceLocation(MOD_ID, "blizz"), CropTier.THREE, CropType.MOB, LazyIngredient.item("mysticalagriculture:soul_jar", MobSoulUtils.makeTag(ModMobSoulTypes.BLIZZ)));
     public static final Crop BLITZ = new Crop(new ResourceLocation(MOD_ID, "blitz"), CropTier.THREE, CropType.MOB, LazyIngredient.item("mysticalagriculture:soul_jar", MobSoulUtils.makeTag(ModMobSoulTypes.BLITZ)));
@@ -291,6 +294,9 @@ public final class ModCrops {
         registry.register(RUBY);
         registry.register(SAPPHIRE);
         registry.register(PERIDOT);
+
+        // MYSTICAL AGRICULTURE
+        registry.register(SOULIUM);
 
         // THERMAL SERIES
         registry.register(withRequiredMods(BLIZZ, "thermal"));

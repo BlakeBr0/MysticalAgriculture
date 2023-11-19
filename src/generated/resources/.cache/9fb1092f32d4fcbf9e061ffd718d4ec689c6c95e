@@ -1,4 +1,4 @@
-// 1.20.1	2023-09-09T17:42:35.1535037	Recipes
+// 1.20.1	2023-11-18T13:21:14.6757945	Recipes
 2d9771ce5f2b6839d92423a86134b16c1e1e4c56 data/mysticalagriculture/recipes/seed/crafting/air.json
 aa2166fe295ecb2f4f62cea0140b76ffb661b364 data/mysticalagriculture/recipes/seed/crafting/aluminum.json
 127bdadb8c6b224ead8a61a3b81563154a8ffc53 data/mysticalagriculture/recipes/seed/crafting/amethyst.json
@@ -112,6 +112,7 @@ faca546557f47d90d20409c30b25291ff3e45631 data/mysticalagriculture/recipes/seed/c
 3c32d1a1cdc26903a359a26dd9ecde13316aab86 data/mysticalagriculture/recipes/seed/crafting/slime.json
 74bd2c52b7c702ff6625a963549b7a10f4fa4367 data/mysticalagriculture/recipes/seed/crafting/slimesteel.json
 23b2d268808bd4ca4274a418ad5ecc383b058cec data/mysticalagriculture/recipes/seed/crafting/soularium.json
+d31c6f6e6107681ee5639c76f08a04d2e649c2d1 data/mysticalagriculture/recipes/seed/crafting/soulium.json
 7abcfc965218560f21605da7d954665be4724c8c data/mysticalagriculture/recipes/seed/crafting/spider.json
 6fb5c6b5e9bc6e25ec6679ddda1f457cb53d7faa data/mysticalagriculture/recipes/seed/crafting/spirited_crystal.json
 1d78b950cbf7e6a3ab9265dac23b0ce60b87a492 data/mysticalagriculture/recipes/seed/crafting/squid.json
@@ -247,6 +248,7 @@ b9705a481c7501b0cd3da9d563796e313cba239e data/mysticalagriculture/recipes/seed/i
 17ab602b6441e14f5f6e53ac11112bd0e052ea32 data/mysticalagriculture/recipes/seed/infusion/slime.json
 01adf1a7892661035f4988995a1628af5104c46e data/mysticalagriculture/recipes/seed/infusion/slimesteel.json
 ade90e11bd1e26ed764063a3464aa1446650745e data/mysticalagriculture/recipes/seed/infusion/soularium.json
+34b063716b0c9eb25f8d30cd59a117ef6d3a5b10 data/mysticalagriculture/recipes/seed/infusion/soulium.json
 867cd1998f2dc6142b27e47ef1f84fcfb8ed3d51 data/mysticalagriculture/recipes/seed/infusion/spider.json
 53d6683a4dd6b9e51333ccda8bf9f624ff3fbfa9 data/mysticalagriculture/recipes/seed/infusion/spirited_crystal.json
 b71e42da5bb9a7398b7cf94a0d394d0de9e06baa data/mysticalagriculture/recipes/seed/infusion/squid.json
@@ -382,6 +384,7 @@ cd2a88a29aa5f9c65f47f137f042abc3fb3faf54 data/mysticalagriculture/recipes/seed/r
 d076109c96c786d7c51e3b79582c0f06e59e9381 data/mysticalagriculture/recipes/seed/reprocessor/slime.json
 da09cbab22c3ce008eaf3ab658d566f1b20dbfd7 data/mysticalagriculture/recipes/seed/reprocessor/slimesteel.json
 86742ff23d4df7dbefb235c24e90859cc068d541 data/mysticalagriculture/recipes/seed/reprocessor/soularium.json
+da8201a52949f4d2070f4b0d8fdb23a809d706c4 data/mysticalagriculture/recipes/seed/reprocessor/soulium.json
 fa6ccabbb67cdd2ce176d09dbb9ac08f3423c947 data/mysticalagriculture/recipes/seed/reprocessor/spider.json
 1c04e5e9594c197f48f66fa13bcf1b475db2a73a data/mysticalagriculture/recipes/seed/reprocessor/spirited_crystal.json
 4a9683de63f1e3d60a3888c18decdc858306c7e9 data/mysticalagriculture/recipes/seed/reprocessor/squid.json
