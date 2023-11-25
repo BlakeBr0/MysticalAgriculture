@@ -140,8 +140,8 @@ public final class ModItems {
     public static final RegistryObject<Item> INFERIUM_HOE = registerGear("inferium_hoe", () -> new EssenceHoeItem(ModItemTier.INFERIUM, 1, 1));
     public static final RegistryObject<Item> INFERIUM_STAFF = registerGear("inferium_staff", () -> new EssenceStaffItem(1, 1));
     public static final RegistryObject<Item> INFERIUM_WATERING_CAN = registerGear("inferium_watering_can", () -> new EssenceWateringCanItem(3, 0.25, CropTier.ONE.getTextColor()));
-    public static final RegistryObject<Item> INFERIUM_BOW = registerGear("inferium_bow", () -> new EssenceBowItem(ModItemTier.INFERIUM, 1, 1, 1.1F));
-    public static final RegistryObject<Item> INFERIUM_CROSSBOW = registerGear("inferium_crossbow", () -> new EssenceCrossbowItem(ModItemTier.INFERIUM, 1, 1, 1.1F));
+    public static final RegistryObject<Item> INFERIUM_BOW = registerGear("inferium_bow", () -> new EssenceBowItem(ModItemTier.INFERIUM, 1, 1, 1.1F, 1.0F));
+    public static final RegistryObject<Item> INFERIUM_CROSSBOW = registerGear("inferium_crossbow", () -> new EssenceCrossbowItem(ModItemTier.INFERIUM, 1, 1, 1.1F, 1.0F));
     public static final RegistryObject<Item> INFERIUM_SHEARS = registerGear("inferium_shears", () -> new EssenceShearsItem(ModItemTier.INFERIUM, 1, 1));
     public static final RegistryObject<Item> INFERIUM_FISHING_ROD = registerGear("inferium_fishing_rod", () -> new EssenceFishingRodItem(ModItemTier.INFERIUM, 1, 1));
     public static final RegistryObject<Item> INFERIUM_SICKLE = registerGear("inferium_sickle", () -> new EssenceSickleItem(ModItemTier.INFERIUM, 3, CropTier.ONE.getTextColor(), 1, 1));
@@ -153,8 +153,8 @@ public final class ModItems {
     public static final RegistryObject<Item> PRUDENTIUM_HOE = registerGear("prudentium_hoe", () -> new EssenceHoeItem(ModItemTier.PRUDENTIUM, 2, 1));
     public static final RegistryObject<Item> PRUDENTIUM_STAFF = registerGear("prudentium_staff", () -> new EssenceStaffItem(2, 1));
     public static final RegistryObject<Item> PRUDENTIUM_WATERING_CAN = registerGear("prudentium_watering_can", () -> new EssenceWateringCanItem(5, 0.30, CropTier.TWO.getTextColor()));
-    public static final RegistryObject<Item> PRUDENTIUM_BOW = registerGear("prudentium_bow", () ->  new EssenceBowItem(ModItemTier.PRUDENTIUM, 2, 1, 1.2F));
-    public static final RegistryObject<Item> PRUDENTIUM_CROSSBOW = registerGear("prudentium_crossbow", () -> new EssenceCrossbowItem(ModItemTier.PRUDENTIUM, 2, 1, 1.2F));
+    public static final RegistryObject<Item> PRUDENTIUM_BOW = registerGear("prudentium_bow", () ->  new EssenceBowItem(ModItemTier.PRUDENTIUM, 2, 1, 1.2F, 1.5F));
+    public static final RegistryObject<Item> PRUDENTIUM_CROSSBOW = registerGear("prudentium_crossbow", () -> new EssenceCrossbowItem(ModItemTier.PRUDENTIUM, 2, 1, 1.2F, 1.5F));
     public static final RegistryObject<Item> PRUDENTIUM_SHEARS = registerGear("prudentium_shears", () -> new EssenceShearsItem(ModItemTier.PRUDENTIUM, 2, 1));
     public static final RegistryObject<Item> PRUDENTIUM_FISHING_ROD = registerGear("prudentium_fishing_rod", () -> new EssenceFishingRodItem(ModItemTier.PRUDENTIUM, 2, 1));
     public static final RegistryObject<Item> PRUDENTIUM_SICKLE = registerGear("prudentium_sickle", () -> new EssenceSickleItem(ModItemTier.PRUDENTIUM, 4, CropTier.TWO.getTextColor(), 2, 1));
@@ -166,8 +166,8 @@ public final class ModItems {
     public static final RegistryObject<Item> TERTIUM_HOE = registerGear("tertium_hoe", () -> new EssenceHoeItem(ModItemTier.TERTIUM, 3, 1));
     public static final RegistryObject<Item> TERTIUM_STAFF = registerGear("tertium_staff", () -> new EssenceStaffItem(3, 1));
     public static final RegistryObject<Item> TERTIUM_WATERING_CAN = registerGear("tertium_watering_can", () -> new EssenceWateringCanItem(7, 0.35, CropTier.THREE.getTextColor()));
-    public static final RegistryObject<Item> TERTIUM_BOW = registerGear("tertium_bow", () -> new EssenceBowItem(ModItemTier.TERTIUM, 3, 1, 1.35F));
-    public static final RegistryObject<Item> TERTIUM_CROSSBOW = registerGear("tertium_crossbow", () -> new EssenceCrossbowItem(ModItemTier.TERTIUM, 3, 1, 1.35F));
+    public static final RegistryObject<Item> TERTIUM_BOW = registerGear("tertium_bow", () -> new EssenceBowItem(ModItemTier.TERTIUM, 3, 1, 1.35F, 2.0F));
+    public static final RegistryObject<Item> TERTIUM_CROSSBOW = registerGear("tertium_crossbow", () -> new EssenceCrossbowItem(ModItemTier.TERTIUM, 3, 1, 1.35F, 2.0F));
     public static final RegistryObject<Item> TERTIUM_SHEARS = registerGear("tertium_shears", () -> new EssenceShearsItem(ModItemTier.TERTIUM, 3, 1));
     public static final RegistryObject<Item> TERTIUM_FISHING_ROD = registerGear("tertium_fishing_rod", () -> new EssenceFishingRodItem(ModItemTier.TERTIUM, 3, 1));
     public static final RegistryObject<Item> TERTIUM_SICKLE = registerGear("tertium_sickle", () -> new EssenceSickleItem(ModItemTier.TERTIUM, 5, CropTier.THREE.getTextColor(), 3, 1));
@@ -179,8 +179,8 @@ public final class ModItems {
     public static final RegistryObject<Item> IMPERIUM_HOE = registerGear("imperium_hoe", () -> new EssenceHoeItem(ModItemTier.IMPERIUM, 4, 1));
     public static final RegistryObject<Item> IMPERIUM_STAFF = registerGear("imperium_staff", () -> new EssenceStaffItem(4, 1));
     public static final RegistryObject<Item> IMPERIUM_WATERING_CAN = registerGear("imperium_watering_can", () -> new EssenceWateringCanItem(9, 0.40, CropTier.FOUR.getTextColor()));
-    public static final RegistryObject<Item> IMPERIUM_BOW = registerGear("imperium_bow", () -> new EssenceBowItem(ModItemTier.IMPERIUM, 4, 1, 1.55F));
-    public static final RegistryObject<Item> IMPERIUM_CROSSBOW = registerGear("imperium_crossbow", () -> new EssenceCrossbowItem(ModItemTier.IMPERIUM, 4, 1, 1.55F));
+    public static final RegistryObject<Item> IMPERIUM_BOW = registerGear("imperium_bow", () -> new EssenceBowItem(ModItemTier.IMPERIUM, 4, 1, 1.55F, 2.5F));
+    public static final RegistryObject<Item> IMPERIUM_CROSSBOW = registerGear("imperium_crossbow", () -> new EssenceCrossbowItem(ModItemTier.IMPERIUM, 4, 1, 1.55F, 2.5F));
     public static final RegistryObject<Item> IMPERIUM_SHEARS = registerGear("imperium_shears", () -> new EssenceShearsItem(ModItemTier.IMPERIUM, 4, 1));
     public static final RegistryObject<Item> IMPERIUM_FISHING_ROD = registerGear("imperium_fishing_rod", () -> new EssenceFishingRodItem(ModItemTier.IMPERIUM, 4, 1));
     public static final RegistryObject<Item> IMPERIUM_SICKLE = registerGear("imperium_sickle", () -> new EssenceSickleItem(ModItemTier.IMPERIUM, 6, CropTier.FOUR.getTextColor(), 4, 1));
@@ -192,8 +192,8 @@ public final class ModItems {
     public static final RegistryObject<Item> SUPREMIUM_HOE = registerGear("supremium_hoe", () -> new EssenceHoeItem(ModItemTier.SUPREMIUM, 5, 1));
     public static final RegistryObject<Item> SUPREMIUM_STAFF = registerGear("supremium_staff", () -> new EssenceStaffItem(5, 1));
     public static final RegistryObject<Item> SUPREMIUM_WATERING_CAN = registerGear("supremium_watering_can", () -> new EssenceWateringCanItem(11, 0.45, CropTier.FIVE.getTextColor()));
-    public static final RegistryObject<Item> SUPREMIUM_BOW = registerGear("supremium_bow", () -> new EssenceBowItem(ModItemTier.SUPREMIUM, 5, 1, 1.80F));
-    public static final RegistryObject<Item> SUPREMIUM_CROSSBOW = registerGear("supremium_crossbow", () -> new EssenceCrossbowItem(ModItemTier.SUPREMIUM, 5, 1, 1.80F));
+    public static final RegistryObject<Item> SUPREMIUM_BOW = registerGear("supremium_bow", () -> new EssenceBowItem(ModItemTier.SUPREMIUM, 5, 1, 1.80F, 3.0F));
+    public static final RegistryObject<Item> SUPREMIUM_CROSSBOW = registerGear("supremium_crossbow", () -> new EssenceCrossbowItem(ModItemTier.SUPREMIUM, 5, 1, 1.80F, 3.0F));
     public static final RegistryObject<Item> SUPREMIUM_SHEARS = registerGear("supremium_shears", () -> new EssenceShearsItem(ModItemTier.SUPREMIUM, 5, 1));
     public static final RegistryObject<Item> SUPREMIUM_FISHING_ROD = registerGear("supremium_fishing_rod", () -> new EssenceFishingRodItem(ModItemTier.SUPREMIUM, 5, 1));
     public static final RegistryObject<Item> SUPREMIUM_SICKLE = registerGear("supremium_sickle", () -> new EssenceSickleItem(ModItemTier.SUPREMIUM, 7, CropTier.FIVE.getTextColor(), 5, 1));
@@ -205,8 +205,8 @@ public final class ModItems {
     public static final RegistryObject<Item> AWAKENED_SUPREMIUM_HOE = registerGear("awakened_supremium_hoe", () -> new EssenceHoeItem(ModItemTier.AWAKENED_SUPREMIUM, 5, 2));
     public static final RegistryObject<Item> AWAKENED_SUPREMIUM_STAFF = registerGear("awakened_supremium_staff", () -> new EssenceStaffItem(5, 1));
     public static final RegistryObject<Item> AWAKENED_SUPREMIUM_WATERING_CAN = registerGear("awakened_supremium_watering_can", () -> new EssenceWateringCanItem(13, 0.50, CropTier.FIVE.getTextColor()));
-    public static final RegistryObject<Item> AWAKENED_SUPREMIUM_BOW = registerGear("awakened_supremium_bow", () -> new EssenceBowItem(ModItemTier.AWAKENED_SUPREMIUM, 5, 2, 2.10F));
-    public static final RegistryObject<Item> AWAKENED_SUPREMIUM_CROSSBOW = registerGear("awakened_supremium_crossbow", () -> new EssenceCrossbowItem(ModItemTier.AWAKENED_SUPREMIUM, 5, 2, 2.10F));
+    public static final RegistryObject<Item> AWAKENED_SUPREMIUM_BOW = registerGear("awakened_supremium_bow", () -> new EssenceBowItem(ModItemTier.AWAKENED_SUPREMIUM, 5, 2, 2.10F, 4.0F));
+    public static final RegistryObject<Item> AWAKENED_SUPREMIUM_CROSSBOW = registerGear("awakened_supremium_crossbow", () -> new EssenceCrossbowItem(ModItemTier.AWAKENED_SUPREMIUM, 5, 2, 2.10F, 4.0F));
     public static final RegistryObject<Item> AWAKENED_SUPREMIUM_SHEARS = registerGear("awakened_supremium_shears", () -> new EssenceShearsItem(ModItemTier.AWAKENED_SUPREMIUM, 5, 2));
     public static final RegistryObject<Item> AWAKENED_SUPREMIUM_FISHING_ROD = registerGear("awakened_supremium_fishing_rod", () -> new EssenceFishingRodItem(ModItemTier.AWAKENED_SUPREMIUM, 5, 2));
     public static final RegistryObject<Item> AWAKENED_SUPREMIUM_SICKLE = registerGear("awakened_supremium_sickle", () -> new EssenceSickleItem(ModItemTier.AWAKENED_SUPREMIUM, 8, CropTier.FIVE.getTextColor(), 5, 2));
