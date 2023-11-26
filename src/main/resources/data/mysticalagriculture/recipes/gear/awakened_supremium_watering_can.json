@@ -1,5 +1,6 @@
 {
   "type": "mysticalagriculture:awakening",
+  "transfer_nbt": true,
   "essences": [
     {
       "item": "mysticalagriculture:air_essence",
