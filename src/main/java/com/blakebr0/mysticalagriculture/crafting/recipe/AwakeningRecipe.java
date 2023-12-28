@@ -127,16 +127,17 @@ public class AwakeningRecipe implements ISpecialRecipe, IAwakeningRecipe {
         for (int i = 0; i < remaining.size(); i++) {
             var stack = inventory.getStackInSlot(i);
 
-            // all the even indexes happen to be the essences
-            if (i > 0 && i % 2 == 0) {
-                var ingredient = this.inputs.get(i - 1);
-                if (ingredient.isEmpty())
+            // all the odd indexes happen to be the essences
+            if (i % 2 == 1) {
+                // index - 1 because the inputs list order is inverse to the inventory order
+                var input = this.inputs.get(i);
+                if (input.isEmpty())
                     continue;
 
                 // the ingredient will have the same ItemStack instance as the essence
                 // this *should* be the quickest way to find the exact essence in the recipe
                 for (var essence : this.essences) {
-                    if (ingredient.getItems()[0] == essence) {
+                    if (input.getItems()[0] == essence) {
                         remaining.set(i, StackHelper.shrink(stack, essence.getCount(), false));
                         break;
                     }
