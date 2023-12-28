@@ -20,12 +20,16 @@ import net.minecraft.world.level.Level;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.wrapper.InvWrapper;
 
+import java.util.function.BiFunction;
+
 public class InfusionRecipe implements ISpecialRecipe, IInfusionRecipe {
     public static final int RECIPE_SIZE = 9;
     private final ResourceLocation recipeId;
     private final NonNullList<Ingredient> inputs;
     private final ItemStack output;
     private final boolean transferNBT;
+    // for CraftTweaker recipes
+    private BiFunction<Integer, ItemStack, ItemStack> transformer;
 
     public InfusionRecipe(ResourceLocation recipeId, NonNullList<Ingredient> inputs, ItemStack output, boolean transferNBT) {
         this.recipeId = recipeId;
@@ -96,6 +100,38 @@ public class InfusionRecipe implements ISpecialRecipe, IInfusionRecipe {
     @Override
     public boolean matches(Container inv, Level level) {
         return this.matches(new InvWrapper(inv));
+    }
+
+    @Override
+    public NonNullList<ItemStack> getRemainingItems(IItemHandler inventory) {
+        var remaining = ISpecialRecipe.super.getRemainingItems(inventory);
+
+        if (this.transformer != null) {
+            var used = new boolean[remaining.size()];
+            // skip the first slot since it's the altar item
+            for (int i = 1; i < remaining.size(); i++) {
+                var stack = inventory.getStackInSlot(i);
+
+                for (int j = 1; j < this.inputs.size(); j++) {
+                    var input = this.inputs.get(j);
+
+                    if (!used[j] && input.test(stack)) {
+                        var ingredient = this.transformer.apply(j, stack);
+
+                        used[j] = true;
+                        remaining.set(i, ingredient);
+
+                        break;
+                    }
+                }
+            }
+        }
+
+        return remaining;
+    }
+
+    public void setTransformer(BiFunction<Integer, ItemStack, ItemStack> transformer) {
+        this.transformer = transformer;
     }
 
     public static class Serializer implements RecipeSerializer<InfusionRecipe> {

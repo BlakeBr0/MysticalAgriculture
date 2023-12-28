@@ -25,6 +25,7 @@ import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.function.BiFunction;
 
 public class AwakeningRecipe implements ISpecialRecipe, IAwakeningRecipe {
     public static final int RECIPE_SIZE = 9;
@@ -34,6 +35,8 @@ public class AwakeningRecipe implements ISpecialRecipe, IAwakeningRecipe {
     private final NonNullList<ItemStack> essences;
     private final ItemStack output;
     private final boolean transferNBT;
+    // for CraftTweaker recipes
+    private BiFunction<Integer, ItemStack, ItemStack> transformer;
 
     public AwakeningRecipe(ResourceLocation recipeId, NonNullList<Ingredient> inputs, NonNullList<ItemStack> essences, ItemStack output, boolean transferNBT) {
         this.recipeId = recipeId;
@@ -129,7 +132,6 @@ public class AwakeningRecipe implements ISpecialRecipe, IAwakeningRecipe {
 
             // all the odd indexes happen to be the essences
             if (i % 2 == 1) {
-                // index - 1 because the inputs list order is inverse to the inventory order
                 var input = this.inputs.get(i);
                 if (input.isEmpty())
                     continue;
@@ -142,8 +144,29 @@ public class AwakeningRecipe implements ISpecialRecipe, IAwakeningRecipe {
                         break;
                     }
                 }
-            } else if (stack.hasCraftingRemainingItem()) {
-                remaining.set(i, stack.getCraftingRemainingItem());
+            } else {
+                if (stack.hasCraftingRemainingItem()) {
+                    remaining.set(i, stack.getCraftingRemainingItem());
+                }
+
+                if (this.transformer != null) {
+                    var used = new boolean[remaining.size()];
+
+                    // skip the first slot since it's the altar item
+                    for (int j = 2; j < this.inputs.size(); j += 2) {
+                        var input = this.inputs.get(j);
+
+                        if (!used[j] && input.test(stack)) {
+                            var index = Math.floorDiv(i, 2);
+                            var ingredient = this.transformer.apply(index, stack);
+
+                            used[j] = true;
+                            remaining.set(i, ingredient);
+
+                            break;
+                        }
+                    }
+                }
             }
         }
 
@@ -182,6 +205,10 @@ public class AwakeningRecipe implements ISpecialRecipe, IAwakeningRecipe {
         }
 
         return missing;
+    }
+
+    public void setTransformer(BiFunction<Integer, ItemStack, ItemStack> transformer) {
+        this.transformer = transformer;
     }
 
     public static class Serializer implements RecipeSerializer<AwakeningRecipe> {
