@@ -38,7 +38,7 @@ public class AugmentSlot extends SlotItemHandler implements IToggleableSlot {
 
     @Override
     public boolean mayPlace(ItemStack stack) {
-        if (!super.mayPlace(stack))
+        if (!super.mayPlace(stack) || !this.isActive())
             return false;
 
         var stackInSlot = this.getItemHandler().getStackInSlot(0);
