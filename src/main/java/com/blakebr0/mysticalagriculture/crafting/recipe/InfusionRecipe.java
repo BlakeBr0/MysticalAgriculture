@@ -108,11 +108,11 @@ public class InfusionRecipe implements ISpecialRecipe, IInfusionRecipe {
 
         if (this.transformer != null) {
             var used = new boolean[remaining.size()];
-            // skip the first slot since it's the altar item
-            for (int i = 1; i < remaining.size(); i++) {
+
+            for (int i = 0; i < remaining.size(); i++) {
                 var stack = inventory.getStackInSlot(i);
 
-                for (int j = 1; j < this.inputs.size(); j++) {
+                for (int j = 0; j < this.inputs.size(); j++) {
                     var input = this.inputs.get(j);
 
                     if (!used[j] && input.test(stack)) {

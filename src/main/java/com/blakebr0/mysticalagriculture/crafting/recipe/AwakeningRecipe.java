@@ -152,8 +152,7 @@ public class AwakeningRecipe implements ISpecialRecipe, IAwakeningRecipe {
                 if (this.transformer != null) {
                     var used = new boolean[remaining.size()];
 
-                    // skip the first slot since it's the altar item
-                    for (int j = 2; j < this.inputs.size(); j += 2) {
+                    for (int j = 0; j < this.inputs.size(); j += 2) {
                         var input = this.inputs.get(j);
 
                         if (!used[j] && input.test(stack)) {

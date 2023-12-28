@@ -108,7 +108,7 @@ public class InfusionAltarTileEntity extends BaseInventoryTileEntity implements 
 
                     var result = recipe.assemble(tile.recipeInventory.asRecipeWrapper(), level.registryAccess());
 
-                    tile.setOutput(result);
+                    tile.setOutput(result, remaining.get(0));
                     tile.reset();
                     tile.setChangedFast();
                     tile.spawnParticles(ParticleTypes.HAPPY_VILLAGER, pos, 1.0D, 10);
@@ -214,10 +214,10 @@ public class InfusionAltarTileEntity extends BaseInventoryTileEntity implements 
         level.sendParticles(new ItemParticleOption(ParticleTypes.ITEM, stack), x, y, z, 0, velX, velY, velZ, 0.18D);
     }
 
-    private void setOutput(ItemStack stack) {
+    private void setOutput(ItemStack stack, ItemStack remaining) {
         var stacks = this.inventory.getStacks();
 
-        stacks.set(0, ItemStack.EMPTY);
+        stacks.set(0, remaining);
         stacks.set(1, stack);
     }
 }
