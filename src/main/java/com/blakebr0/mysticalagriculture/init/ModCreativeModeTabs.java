@@ -148,6 +148,7 @@ public final class ModCreativeModeTabs {
                 output.accept(ModItems.AIR_AGGLOMERATIO);
                 output.accept(ModItems.EARTH_AGGLOMERATIO);
                 output.accept(ModItems.WATER_AGGLOMERATIO);
+                output.accept(ModItems.FIRE_AGGLOMERATIO);
                 output.accept(ModItems.NATURE_AGGLOMERATIO);
                 output.accept(ModItems.DYE_AGGLOMERATIO);
                 output.accept(ModItems.NETHER_AGGLOMERATIO);
