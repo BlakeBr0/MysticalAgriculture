@@ -25,12 +25,6 @@ import java.util.function.Supplier;
 public final class ModTileEntities {
     public static final DeferredRegister<BlockEntityType<?>> REGISTRY = DeferredRegister.create(ForgeRegistries.BLOCK_ENTITY_TYPES, MysticalAgriculture.MOD_ID);
 
-    public static final RegistryObject<BlockEntityType<EssenceFurnaceTileEntity.Inferium>> INFERIUM_FURNACE = register("inferium_furnace", EssenceFurnaceTileEntity.Inferium::new, () -> new Block[] { ModBlocks.INFERIUM_FURNACE.get() });
-    public static final RegistryObject<BlockEntityType<EssenceFurnaceTileEntity.Prudentium>> PRUDENTIUM_FURNACE = register("prudentium_furnace", EssenceFurnaceTileEntity.Prudentium::new, () -> new Block[] { ModBlocks.PRUDENTIUM_FURNACE.get() });
-    public static final RegistryObject<BlockEntityType<EssenceFurnaceTileEntity.Tertium>> TERTIUM_FURNACE = register("tertium_furnace", EssenceFurnaceTileEntity.Tertium::new, () -> new Block[] { ModBlocks.TERTIUM_FURNACE.get() });
-    public static final RegistryObject<BlockEntityType<EssenceFurnaceTileEntity.Imperium>> IMPERIUM_FURNACE = register("imperium_furnace", EssenceFurnaceTileEntity.Imperium::new, () -> new Block[] { ModBlocks.IMPERIUM_FURNACE.get() });
-    public static final RegistryObject<BlockEntityType<EssenceFurnaceTileEntity.Supremium>> SUPREMIUM_FURNACE = register("supremium_furnace", EssenceFurnaceTileEntity.Supremium::new, () -> new Block[] { ModBlocks.SUPREMIUM_FURNACE.get() });
-    public static final RegistryObject<BlockEntityType<EssenceFurnaceTileEntity.AwakenedSupremium>> AWAKENED_SUPREMIUM_FURNACE = register("awakened_supremium_furnace", EssenceFurnaceTileEntity.AwakenedSupremium::new, () -> new Block[] { ModBlocks.AWAKENED_SUPREMIUM_FURNACE.get() });
     public static final RegistryObject<BlockEntityType<InfusionPedestalTileEntity>> INFUSION_PEDESTAL = register("infusion_pedestal", InfusionPedestalTileEntity::new, () -> new Block[] { ModBlocks.INFUSION_PEDESTAL.get() });
     public static final RegistryObject<BlockEntityType<InfusionAltarTileEntity>> INFUSION_ALTAR = register("infusion_altar", InfusionAltarTileEntity::new, () -> new Block[] { ModBlocks.INFUSION_ALTAR.get() });
     public static final RegistryObject<BlockEntityType<AwakeningPedestalTileEntity>> AWAKENING_PEDESTAL = register("awakening_pedestal", AwakeningPedestalTileEntity::new, () -> new Block[] { ModBlocks.AWAKENING_PEDESTAL.get() });
@@ -38,6 +32,7 @@ public final class ModTileEntities {
     public static final RegistryObject<BlockEntityType<EssenceVesselTileEntity>> ESSENCE_VESSEL = register("essence_vessel", EssenceVesselTileEntity::new, () -> new Block[] { ModBlocks.ESSENCE_VESSEL.get() });
     public static final RegistryObject<BlockEntityType<TinkeringTableTileEntity>> TINKERING_TABLE = register("tinkering_table", TinkeringTableTileEntity::new, () -> new Block[] { ModBlocks.TINKERING_TABLE.get() });
     public static final RegistryObject<BlockEntityType<EnchanterTileEntity>> ENCHANTER = register("enchanter", EnchanterTileEntity::new, () -> new Block[] { ModBlocks.ENCHANTER.get() });
+    public static final RegistryObject<BlockEntityType<EssenceFurnaceTileEntity>> FURNACE = register("furnace", EssenceFurnaceTileEntity::new, () -> new Block[] { ModBlocks.FURNACE.get() });
     public static final RegistryObject<BlockEntityType<ReprocessorTileEntity>> REPROCESSOR = register("seed_reprocessor", ReprocessorTileEntity::new, () -> new Block[] { ModBlocks.REPROCESSOR.get() });
     public static final RegistryObject<BlockEntityType<SoulExtractorTileEntity>> SOUL_EXTRACTOR = register("soul_extractor", SoulExtractorTileEntity::new, () -> new Block[] { ModBlocks.SOUL_EXTRACTOR.get() });
     public static final RegistryObject<BlockEntityType<HarvesterTileEntity>> HARVESTER = register("harvester", HarvesterTileEntity::new, () -> new Block[] { ModBlocks.HARVESTER.get() });

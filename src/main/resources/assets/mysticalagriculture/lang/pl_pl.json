@@ -32,11 +32,6 @@
   "block.mysticalagriculture.tertium_growth_accelerator": "Akcelerator wzrostu z Tertium",
   "block.mysticalagriculture.imperium_growth_accelerator": "Akcelerator wzrostu z Imperium",
   "block.mysticalagriculture.supremium_growth_accelerator": "Akcelerator wzrostu z Supremium",
-  "block.mysticalagriculture.inferium_furnace": "Piec Inferium",
-  "block.mysticalagriculture.prudentium_furnace": "Piec Prudentium",
-  "block.mysticalagriculture.tertium_furnace": "Piec Tertium",
-  "block.mysticalagriculture.imperium_furnace": "Piec Imperium",
-  "block.mysticalagriculture.supremium_furnace": "Piec Supremium",
   "block.mysticalagriculture.prosperity_ore": "Ruda prosperytu",
   "block.mysticalagriculture.deepslate_prosperity_ore": "Łupkowa ruda prosperytu",
   "block.mysticalagriculture.inferium_ore": "Ruda Inferium",
@@ -65,12 +60,7 @@
   "block.mysticalagriculture.infusion_altar": "Ołtarz infuzji",
   "block.mysticalagriculture.tinkering_table": "Stół do majsterkowania",
   "block.mysticalagriculture.machine_frame": "Rama maszyn",
-  "block.mysticalagriculture.basic_reprocessor": "Przetwarzacz nasion",
-  "block.mysticalagriculture.inferium_reprocessor": "Przetwarzacz nasion z Inferium",
-  "block.mysticalagriculture.prudentium_reprocessor": "Przetwarzacz nasion z Prudentium",
-  "block.mysticalagriculture.tertium_reprocessor": "Przetwarzacz nasion z Tertium",
-  "block.mysticalagriculture.imperium_reprocessor": "Przetwarzacz nasion z Imperium",
-  "block.mysticalagriculture.supremium_reprocessor": "Przetwarzacz nasion z Supremium",
+  "block.mysticalagriculture.furnace": "Piec",
   "block.mysticalagriculture.soul_extractor": "Wysysacz dusz",
   
   "block.mysticalagriculture.mystical_crop": "Uprawa %s",
@@ -193,11 +183,7 @@
   "item.mysticalagriculture.augment": "Ulepszenie (%s)",
   
   "container.mysticalagriculture.tinkering_table": "Stół do majsterkowania",
-  "container.mysticalagriculture.inferium_furnace": "Piec Inferium",
-  "container.mysticalagriculture.prudentium_furnace": "Piec Prudentium",
-  "container.mysticalagriculture.tertium_furnace": "Piec Tertium",
-  "container.mysticalagriculture.imperium_furnace": "Piec Imperium",
-  "container.mysticalagriculture.supremium_furnace": "Piec Supremium",
+  "container.mysticalagriculture.furnace": "Piec",
   "container.mysticalagriculture.reprocessor": "Przetwarzacz nasion",
   "container.mysticalagriculture.soul_extractor": "Wysysacz dusz",
   
@@ -343,7 +329,6 @@
   
   "crop.mysticalagriculture.hop_graphite": "Graphitu HOP",
   
-  "crop.mysticalagriculture.tinkers_bronze": "Brązu metalurga",
   "crop.mysticalagriculture.slimesteel": "Szlamostali",
   "crop.mysticalagriculture.pig_iron": "Świńskiego żelaza",
   "crop.mysticalagriculture.cobalt": "Kobaltu",

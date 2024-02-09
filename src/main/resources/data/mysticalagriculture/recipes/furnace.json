@@ -1,0 +1,25 @@
+{
+  "type": "crafting_shaped",
+  "pattern": [
+    "ISI",
+    "HBH",
+    "ISI"
+  ],
+  "key": {
+    "I": {
+      "tag": "forge:ingots/iron"
+    },
+    "S": {
+      "item": "mysticalagriculture:prosperity_ingot"
+    },
+    "H": {
+      "item": "minecraft:furnace"
+    },
+    "B": {
+      "item": "mysticalagriculture:machine_frame"
+    }
+  },
+  "result": {
+    "item": "mysticalagriculture:furnace"
+  }
+}

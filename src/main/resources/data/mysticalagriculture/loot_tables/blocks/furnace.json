@@ -2,12 +2,12 @@
   "type": "minecraft:block",
   "pools": [
     {
-      "name": "mysticalagriculture:awakened_supremium_furnace",
+      "name": "mysticalagriculture:furnace",
       "rolls": 1,
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "mysticalagriculture:awakened_supremium_furnace"
+          "name": "mysticalagriculture:furnace"
         }
       ],
       "conditions": [

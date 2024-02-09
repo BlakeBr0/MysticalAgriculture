@@ -1,234 +1,274 @@
 package com.blakebr0.mysticalagriculture.tileentity;
 
+import com.blakebr0.cucumber.energy.DynamicEnergyStorage;
+import com.blakebr0.cucumber.helper.StackHelper;
+import com.blakebr0.cucumber.inventory.BaseItemStackHandler;
+import com.blakebr0.cucumber.inventory.CachedRecipe;
+import com.blakebr0.cucumber.inventory.SidedItemStackHandlerWrapper;
+import com.blakebr0.cucumber.tileentity.BaseInventoryTileEntity;
 import com.blakebr0.cucumber.util.Localizable;
+import com.blakebr0.mysticalagriculture.block.EssenceFurnaceBlock;
+import com.blakebr0.mysticalagriculture.container.EssenceFurnaceContainer;
+import com.blakebr0.mysticalagriculture.container.inventory.UpgradeItemStackHandler;
 import com.blakebr0.mysticalagriculture.init.ModTileEntities;
-import com.blakebr0.mysticalagriculture.util.FurnaceTier;
+import com.blakebr0.mysticalagriculture.util.IUpgradeableMachine;
+import com.blakebr0.mysticalagriculture.util.MachineUpgradeTier;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.NonNullList;
+import net.minecraft.core.Direction;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
-import net.minecraft.util.Mth;
-import net.minecraft.world.WorldlyContainer;
+import net.minecraft.world.MenuProvider;
 import net.minecraft.world.entity.player.Inventory;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
-import net.minecraft.world.inventory.FurnaceMenu;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
-import net.minecraft.world.item.crafting.AbstractCookingRecipe;
-import net.minecraft.world.item.crafting.Recipe;
 import net.minecraft.world.item.crafting.RecipeType;
+import net.minecraft.world.item.crafting.SmeltingRecipe;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.AbstractFurnaceBlock;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.entity.AbstractFurnaceBlockEntity;
-import net.minecraft.world.level.block.entity.BlockEntityType;
+import net.minecraft.world.level.block.entity.FurnaceBlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraftforge.common.ForgeHooks;
+import net.minecraftforge.common.capabilities.Capability;
+import net.minecraftforge.common.capabilities.ForgeCapabilities;
+import net.minecraftforge.common.util.LazyOptional;
+import net.minecraftforge.energy.IEnergyStorage;
+import net.minecraftforge.items.IItemHandlerModifiable;
 
-public abstract class EssenceFurnaceTileEntity extends AbstractFurnaceBlockEntity {
-    public EssenceFurnaceTileEntity(BlockEntityType<?> type, BlockPos pos, BlockState state) {
-        super(type, pos, state, RecipeType.SMELTING);
+public class EssenceFurnaceTileEntity extends BaseInventoryTileEntity implements MenuProvider, IUpgradeableMachine {
+    private static final int FUEL_TICK_MULTIPLIER = 20;
+    public static final int OPERATION_TIME = 200;
+    public static final int FUEL_USAGE = 20;
+    public static final int FUEL_CAPACITY = 80000;
+
+    private final BaseItemStackHandler inventory;
+    private final UpgradeItemStackHandler upgradeInventory;
+    private final DynamicEnergyStorage energy;
+    private final LazyOptional<IItemHandlerModifiable>[] inventoryCapabilities;
+    private final LazyOptional<IEnergyStorage> energyCapability = LazyOptional.of(this::getEnergy);
+    private final CachedRecipe<SmeltingRecipe> recipe;
+    private MachineUpgradeTier tier;
+    private int progress;
+    private int fuelLeft;
+    private int fuelItemValue;
+    private boolean isRunning;
+
+    public EssenceFurnaceTileEntity(BlockPos pos, BlockState state) {
+        super(ModTileEntities.FURNACE.get(), pos, state);
+        this.inventory = createInventoryHandler(this::setChangedFast);
+        this.upgradeInventory = new UpgradeItemStackHandler();
+        this.energy = new DynamicEnergyStorage(FUEL_CAPACITY, this::setChangedFast);
+        this.inventoryCapabilities = SidedItemStackHandlerWrapper.create(this.inventory, new Direction[] { Direction.UP, Direction.DOWN, Direction.NORTH }, this::canInsertStackSided, null);
+        this.recipe = new CachedRecipe<>(RecipeType.SMELTING);
     }
 
     @Override
-    protected Component getDefaultName() {
-        return Localizable.of(String.format("container.mysticalagriculture.%s_furnace", this.getTier().getName())).build();
+    public BaseItemStackHandler getInventory() {
+        return this.inventory;
     }
 
     @Override
-    protected AbstractContainerMenu createMenu(int id, Inventory player) {
-        return new FurnaceMenu(id, player, this, this.dataAccess);
+    public void load(CompoundTag tag) {
+        super.load(tag);
+
+        this.progress = tag.getInt("Progress");
+        this.fuelLeft = tag.getInt("FuelLeft");
+        this.fuelItemValue = tag.getInt("FuelItemValue");
+        this.energy.deserializeNBT(tag.get("Energy"));
+        this.upgradeInventory.deserializeNBT(tag.getCompound("UpgradeInventory"));
     }
 
     @Override
-    protected int getBurnDuration(ItemStack stack) {
-        return (int) (super.getBurnDuration(stack) * this.getTier().getBurnTimeMultiplier());
+    public void saveAdditional(CompoundTag tag) {
+        super.saveAdditional(tag);
+
+        tag.putInt("Progress", this.progress);
+        tag.putInt("FuelLeft", this.fuelLeft);
+        tag.putInt("FuelItemValue", this.fuelItemValue);
+        tag.put("Energy", this.energy.serializeNBT());
+        tag.put("UpgradeInventory", this.upgradeInventory.serializeNBT());
     }
 
-    protected boolean canBurn(Recipe<?> recipe, NonNullList<ItemStack> items, int maxStackSize) {
-        if (!items.get(0).isEmpty() && recipe != null) {
-            ItemStack itemstack = ((Recipe<WorldlyContainer>) recipe).assemble(this, this.level.registryAccess());
-            if (itemstack.isEmpty()) {
-                return false;
-            } else {
-                ItemStack itemstack1 = items.get(2);
-                if (itemstack1.isEmpty()) {
-                    return true;
-                } else if (!itemstack1.is(itemstack.getItem())) {
-                    return false;
-                } else if (itemstack1.getCount() + itemstack.getCount() <= maxStackSize && itemstack1.getCount() + itemstack.getCount() <= itemstack1.getMaxStackSize()) { // Forge fix: make furnace respect stack sizes in furnace recipes
-                    return true;
+    @Override
+    public <T> LazyOptional<T> getCapability(Capability<T> cap, Direction side) {
+        if (!this.isRemoved()) {
+            if (cap == ForgeCapabilities.ENERGY) {
+                return ForgeCapabilities.ENERGY.orEmpty(cap, this.energyCapability);
+            }
+
+            if (side != null && cap == ForgeCapabilities.ITEM_HANDLER) {
+                if (side == Direction.UP) {
+                    return this.inventoryCapabilities[0].cast();
+                } else if (side == Direction.DOWN) {
+                    return this.inventoryCapabilities[1].cast();
                 } else {
-                    return itemstack1.getCount() + itemstack.getCount() <= itemstack.getMaxStackSize(); // Forge fix: make furnace respect stack sizes in furnace recipes
+                    return this.inventoryCapabilities[2].cast();
                 }
             }
-        } else {
-            return false;
         }
+
+        return super.getCapability(cap, side);
     }
 
-    protected boolean burn(Recipe<?> recipe, NonNullList<ItemStack> items, int maxStackSize) {
-        if (recipe != null && this.canBurn(recipe, items, maxStackSize)) {
-            ItemStack itemstack = items.get(0);
-            ItemStack itemstack1 = ((Recipe<WorldlyContainer>) recipe).assemble(this, this.level.registryAccess());
-            ItemStack itemstack2 = items.get(2);
-            if (itemstack2.isEmpty()) {
-                items.set(2, itemstack1.copy());
-            } else if (itemstack2.is(itemstack1.getItem())) {
-                itemstack2.grow(itemstack1.getCount());
-            }
+    @Override
+    public Component getDisplayName() {
+        return Localizable.of("container.mysticalagriculture.furnace").build();
+    }
 
-            if (itemstack.is(Blocks.WET_SPONGE.asItem()) && !items.get(1).isEmpty() && items.get(1).is(Items.BUCKET)) {
-                items.set(1, new ItemStack(Items.WATER_BUCKET));
-            }
+    @Override
+    public AbstractContainerMenu createMenu(int id, Inventory playerInventory, Player player) {
+        return EssenceFurnaceContainer.create(id, playerInventory, this.inventory, this.upgradeInventory, this.getBlockPos());
+    }
 
-            itemstack.shrink(1);
-            return true;
-        } else {
-            return false;
-        }
+    @Override
+    public UpgradeItemStackHandler getUpgradeInventory() {
+        return this.upgradeInventory;
     }
 
     public static void tick(Level level, BlockPos pos, BlockState state, EssenceFurnaceTileEntity tile) {
-        var flag = tile.isLit();
-        var flag1 = false;
+        if (tile.energy.getEnergyStored() < tile.energy.getMaxEnergyStored()) {
+            var fuel = tile.inventory.getStackInSlot(1);
 
-        if (tile.isLit()) {
-            --tile.litTime;
-        }
+            if (tile.fuelLeft <= 0 && !fuel.isEmpty()) {
+                tile.fuelItemValue = ForgeHooks.getBurnTime(fuel, null);
 
-        var stack = tile.items.get(1);
-        if (tile.isLit() || !stack.isEmpty() && !tile.items.get(0).isEmpty()) {
-            Recipe<?> recipe = level.getRecipeManager().getRecipeFor(RecipeType.SMELTING, tile, level).orElse(null);
-            int i = tile.getMaxStackSize();
-            if (!tile.isLit() && tile.canBurn(recipe, tile.items, i)) {
-                tile.litTime = tile.getBurnDuration(stack);
-                tile.litDuration = tile.litTime;
-                if (tile.isLit()) {
-                    flag1 = true;
-                    if (stack.hasCraftingRemainingItem())
-                        tile.items.set(1, stack.getCraftingRemainingItem());
-                    else
-                    if (!stack.isEmpty()) {
-                        stack.shrink(1);
+                if (tile.fuelItemValue > 0) {
+                    tile.fuelLeft = tile.fuelItemValue *= FUEL_TICK_MULTIPLIER;
+                    tile.inventory.setStackInSlot(1, StackHelper.shrink(fuel, 1, true));
 
-                        if (stack.isEmpty()) {
-                            tile.items.set(1, stack.getCraftingRemainingItem());
-                        }
-                    }
+                    tile.setChangedFast();
                 }
             }
 
-            if (tile.isLit() && tile.canBurn(recipe, tile.items, i)) {
-                ++tile.cookingProgress;
-                if (tile.cookingProgress == tile.cookingTotalTime) {
-                    tile.cookingProgress = 0;
-                    tile.cookingTotalTime = (int) (getTotalCookTime(level, tile) * tile.getTier().getCookTimeMultiplier());
-                    if (tile.burn(recipe, tile.items, i)) {
-                        tile.setRecipeUsed(recipe);
-                    }
+            if (tile.fuelLeft > 0) {
+                var fuelPerTick = Math.min(Math.min(tile.fuelLeft, tile.getFuelUsage() * 2), tile.energy.getMaxEnergyStored() - tile.energy.getEnergyStored());
 
+                tile.fuelLeft -= tile.energy.receiveEnergy(fuelPerTick, false);
+
+                if (tile.fuelLeft <= 0)
+                    tile.fuelItemValue = 0;
+
+                tile.setChangedFast();
+            }
+        }
+
+        var tier = tile.getMachineTier();
+
+        if (tier != tile.tier) {
+            tile.tier = tier;
+
+            if (tier == null) {
+                tile.energy.resetMaxEnergyStorage();
+            } else {
+                tile.energy.setMaxEnergyStorage((int) (FUEL_CAPACITY * tier.getFuelCapacityMultiplier()));
+            }
+
+            tile.setChangedFast();
+        }
+
+        var wasRunning = tile.isRunning;
+
+        if (tile.energy.getEnergyStored() >= tile.getFuelUsage()) {
+            var input = tile.inventory.getStackInSlot(0);
+            var output = tile.inventory.getStackInSlot(2);
+
+            tile.isRunning = false;
+
+            if (!input.isEmpty()) {
+                var recipe = tile.getActiveRecipe();
+
+                if (recipe != null) {
+                    var recipeOutput = recipe.assemble(tile.inventory.asRecipeWrapper(), level.registryAccess());
+                    if (!recipeOutput.isEmpty() && (output.isEmpty() || StackHelper.canCombineStacks(output, recipeOutput))) {
+                        tile.isRunning = true;
+                        tile.progress++;
+
+                        tile.energy.extractEnergy(tile.getFuelUsage(), false);
+
+                        if (tile.progress >= tile.getOperationTime()) {
+                            tile.inventory.setStackInSlot(0, StackHelper.shrink(input, 1, false));
+                            tile.inventory.setStackInSlot(2, StackHelper.combineStacks(output, recipeOutput));
+
+                            tile.progress = 0;
+                        }
+
+                        tile.setChangedFast();
+                    }
                 }
             } else {
-                tile.cookingProgress = 0;
+                tile.isRunning = false;
+
+                if (tile.progress > 0) {
+                    tile.progress = 0;
+
+                    tile.setChangedFast();
+                }
             }
-        } else if (!tile.isLit() && tile.cookingProgress > 0) {
-            tile.cookingProgress = Mth.clamp(tile.cookingProgress - 2, 0, tile.cookingTotalTime);
+        } else {
+            tile.isRunning = false;
         }
 
-        if (flag != tile.isLit()) {
-            flag1 = true;
-            state = state.setValue(AbstractFurnaceBlock.LIT, tile.isLit());
-            level.setBlock(pos, state, 3);
+        if (wasRunning != tile.isRunning) {
+            level.setBlock(pos, state.setValue(EssenceFurnaceBlock.RUNNING, tile.isRunning), 3);
+
+            tile.setChangedFast();
         }
 
-        if (flag1) {
-            setChanged(level, pos, state);
-        }
+        tile.dispatchIfChanged();
     }
 
-    public void setItem(int slot, ItemStack stack) {
-        ItemStack itemstack = this.items.get(slot);
-        boolean flag = !stack.isEmpty() && ItemStack.isSameItemSameTags(itemstack, stack);
-        this.items.set(slot, stack);
-        if (stack.getCount() > this.getMaxStackSize()) {
-            stack.setCount(this.getMaxStackSize());
-        }
-
-        if (slot == 0 && !flag) {
-            this.cookingTotalTime = (int) (getTotalCookTime(level, this) * this.getTier().getCookTimeMultiplier());
-            this.cookingProgress = 0;
-            this.setChanged();
-        }
+    public SmeltingRecipe getActiveRecipe() {
+        return this.recipe.checkAndGet(this.inventory, this.level);
     }
 
-    private static int getTotalCookTime(Level level, AbstractFurnaceBlockEntity tile) {
-        return tile.quickCheck.getRecipeFor(tile, level).map(AbstractCookingRecipe::getCookingTime).orElse(200);
+    public DynamicEnergyStorage getEnergy() {
+        return this.energy;
     }
 
-    public abstract FurnaceTier getTier();
-
-    public static class Inferium extends EssenceFurnaceTileEntity {
-        public Inferium(BlockPos pos, BlockState state) {
-            super(ModTileEntities.INFERIUM_FURNACE.get(), pos, state);
-        }
-
-        @Override
-        public FurnaceTier getTier() {
-            return FurnaceTier.INFERIUM;
-        }
+    public int getProgress() {
+        return this.progress;
     }
 
-    public static class Prudentium extends EssenceFurnaceTileEntity {
-        public Prudentium(BlockPos pos, BlockState state) {
-            super(ModTileEntities.PRUDENTIUM_FURNACE.get(), pos, state);
-        }
+    public int getOperationTime() {
+        var recipe = this.recipe.get();
+        var operationTime = recipe != null ? recipe.getCookingTime() : OPERATION_TIME;
 
-        @Override
-        public FurnaceTier getTier() {
-            return FurnaceTier.PRUDENTIUM;
-        }
+        if (this.tier == null)
+            return operationTime;
+
+        return (int) (operationTime * this.tier.getOperationTimeMultiplier());
     }
 
-    public static class Tertium extends EssenceFurnaceTileEntity {
-        public Tertium(BlockPos pos, BlockState state) {
-            super(ModTileEntities.TERTIUM_FURNACE.get(), pos, state);
-        }
-
-        @Override
-        public FurnaceTier getTier() {
-            return FurnaceTier.TERTIUM;
-        }
+    public int getFuelLeft() {
+        return this.fuelLeft;
     }
 
-    public static class Imperium extends EssenceFurnaceTileEntity {
-        public Imperium(BlockPos pos, BlockState state) {
-            super(ModTileEntities.IMPERIUM_FURNACE.get(), pos, state);
-        }
-
-        @Override
-        public FurnaceTier getTier() {
-            return FurnaceTier.IMPERIUM;
-        }
+    public int getFuelItemValue() {
+        return this.fuelItemValue;
     }
 
-    public static class Supremium extends EssenceFurnaceTileEntity {
-        public Supremium(BlockPos pos, BlockState state) {
-            super(ModTileEntities.SUPREMIUM_FURNACE.get(), pos, state);
-        }
+    public int getFuelUsage() {
+        if (this.tier == null)
+            return FUEL_USAGE;
 
-        @Override
-        public FurnaceTier getTier() {
-            return FurnaceTier.SUPREMIUM;
-        }
+        return (int) (FUEL_USAGE * this.tier.getFuelUsageMultiplier());
     }
 
-    public static class AwakenedSupremium extends EssenceFurnaceTileEntity {
-        public AwakenedSupremium(BlockPos pos, BlockState state) {
-            super(ModTileEntities.AWAKENED_SUPREMIUM_FURNACE.get(), pos, state);
-        }
+    private boolean canInsertStackSided(int slot, ItemStack stack, Direction direction) {
+        if (direction == null)
+            return true;
+        if (slot == 0 && direction == Direction.UP)
+            return true;
+        if (slot == 1 && direction == Direction.NORTH)
+            return FurnaceBlockEntity.isFuel(stack);
 
-        @Override
-        public FurnaceTier getTier() {
-            return FurnaceTier.AWAKENED_SUPREMIUM;
-        }
+        return false;
+    }
+
+    public static BaseItemStackHandler createInventoryHandler() {
+        return createInventoryHandler(null);
+    }
+
+    public static BaseItemStackHandler createInventoryHandler(Runnable onContentsChanged) {
+        return BaseItemStackHandler.create(3, onContentsChanged);
     }
 }

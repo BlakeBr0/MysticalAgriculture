@@ -58,12 +58,6 @@ public final class ModCreativeModeTabs {
                 output.accept(ModBlocks.TERTIUM_GROWTH_ACCELERATOR);
                 output.accept(ModBlocks.IMPERIUM_GROWTH_ACCELERATOR);
                 output.accept(ModBlocks.SUPREMIUM_GROWTH_ACCELERATOR);
-                output.accept(ModBlocks.INFERIUM_FURNACE);
-                output.accept(ModBlocks.PRUDENTIUM_FURNACE);
-                output.accept(ModBlocks.TERTIUM_FURNACE);
-                output.accept(ModBlocks.IMPERIUM_FURNACE);
-                output.accept(ModBlocks.SUPREMIUM_FURNACE);
-                output.accept(ModBlocks.AWAKENED_SUPREMIUM_FURNACE);
                 output.accept(ModBlocks.PROSPERITY_ORE);
                 output.accept(ModBlocks.DEEPSLATE_PROSPERITY_ORE);
                 output.accept(ModBlocks.INFERIUM_ORE);
@@ -96,6 +90,7 @@ public final class ModCreativeModeTabs {
                 output.accept(ModBlocks.TINKERING_TABLE);
                 output.accept(ModBlocks.ENCHANTER);
                 output.accept(ModBlocks.MACHINE_FRAME);
+                output.accept(ModBlocks.FURNACE);
                 output.accept(ModBlocks.REPROCESSOR);
                 output.accept(ModBlocks.SOUL_EXTRACTOR);
                 output.accept(ModBlocks.HARVESTER);

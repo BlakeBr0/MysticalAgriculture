@@ -3,6 +3,7 @@ package com.blakebr0.mysticalagriculture.compat.jei;
 import com.blakebr0.mysticalagriculture.MysticalAgriculture;
 import com.blakebr0.mysticalagriculture.api.util.MobSoulUtils;
 import com.blakebr0.mysticalagriculture.client.screen.EnchanterScreen;
+import com.blakebr0.mysticalagriculture.client.screen.EssenceFurnaceScreen;
 import com.blakebr0.mysticalagriculture.client.screen.ReprocessorScreen;
 import com.blakebr0.mysticalagriculture.client.screen.SoulExtractorScreen;
 import com.blakebr0.mysticalagriculture.client.screen.SouliumSpawnerScreen;
@@ -61,6 +62,7 @@ public final class JeiCompat implements IModPlugin {
         registration.addRecipeCatalyst(new ItemStack(ModBlocks.AWAKENING_PEDESTAL.get()), AwakeningCategory.RECIPE_TYPE);
         registration.addRecipeCatalyst(new ItemStack(ModBlocks.ESSENCE_VESSEL.get()), AwakeningCategory.RECIPE_TYPE);
         registration.addRecipeCatalyst(new ItemStack(ModBlocks.ENCHANTER.get()), EnchanterCategory.RECIPE_TYPE);
+        registration.addRecipeCatalyst(new ItemStack(ModBlocks.FURNACE.get()), mezz.jei.api.constants.RecipeTypes.SMELTING);
         registration.addRecipeCatalyst(new ItemStack(ModBlocks.REPROCESSOR.get()), ReprocessorCategory.RECIPE_TYPE);
         registration.addRecipeCatalyst(new ItemStack(ModBlocks.SOUL_EXTRACTOR.get()), SoulExtractorCategory.RECIPE_TYPE);
         registration.addRecipeCatalyst(new ItemStack(ModBlocks.SOULIUM_SPAWNER.get()), SouliumSpawnerCategory.RECIPE_TYPE);
@@ -91,6 +93,7 @@ public final class JeiCompat implements IModPlugin {
     @Override
     public void registerGuiHandlers(IGuiHandlerRegistration registration) {
         registration.addRecipeClickArea(EnchanterScreen.class, 104, 41, 22, 15, EnchanterCategory.RECIPE_TYPE);
+        registration.addRecipeClickArea(EssenceFurnaceScreen.class, 99, 52, 22, 15, mezz.jei.api.constants.RecipeTypes.SMELTING);
         registration.addRecipeClickArea(ReprocessorScreen.class, 99, 52, 22, 15, ReprocessorCategory.RECIPE_TYPE);
         registration.addRecipeClickArea(SoulExtractorScreen.class, 99, 52, 22, 15, SoulExtractorCategory.RECIPE_TYPE);
         registration.addRecipeClickArea(SouliumSpawnerScreen.class, 99, 52, 22, 15, SouliumSpawnerCategory.RECIPE_TYPE);

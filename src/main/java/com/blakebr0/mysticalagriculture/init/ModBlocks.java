@@ -79,12 +79,6 @@ public final class ModBlocks {
     public static final RegistryObject<Block> TERTIUM_GROWTH_ACCELERATOR = register("tertium_growth_accelerator", () -> new GrowthAcceleratorBlock(36, CropTier.THREE.getTextColor()));
     public static final RegistryObject<Block> IMPERIUM_GROWTH_ACCELERATOR = register("imperium_growth_accelerator", () -> new GrowthAcceleratorBlock(48, CropTier.FOUR.getTextColor()));
     public static final RegistryObject<Block> SUPREMIUM_GROWTH_ACCELERATOR = register("supremium_growth_accelerator", () -> new GrowthAcceleratorBlock(60, CropTier.FIVE.getTextColor()));
-    public static final RegistryObject<Block> INFERIUM_FURNACE = register("inferium_furnace", EssenceFurnaceBlock.Inferium::new);
-    public static final RegistryObject<Block> PRUDENTIUM_FURNACE = register("prudentium_furnace", EssenceFurnaceBlock.Prudentium::new);
-    public static final RegistryObject<Block> TERTIUM_FURNACE = register("tertium_furnace", EssenceFurnaceBlock.Tertium::new);
-    public static final RegistryObject<Block> IMPERIUM_FURNACE = register("imperium_furnace", EssenceFurnaceBlock.Imperium::new);
-    public static final RegistryObject<Block> SUPREMIUM_FURNACE = register("supremium_furnace", EssenceFurnaceBlock.Supremium::new);
-    public static final RegistryObject<Block> AWAKENED_SUPREMIUM_FURNACE = register("awakened_supremium_furnace", EssenceFurnaceBlock.AwakenedSupremium::new);
     public static final RegistryObject<Block> PROSPERITY_ORE = register("prosperity_ore", () -> new BaseOreBlock(SoundType.STONE, 3.0F, 3.0F, 2, 5));
     public static final RegistryObject<Block> DEEPSLATE_PROSPERITY_ORE = register("deepslate_prosperity_ore", () -> new BaseOreBlock(SoundType.DEEPSLATE, 4.5F, 3.0F, 2, 5));
     public static final RegistryObject<Block> INFERIUM_ORE = register("inferium_ore", () -> new BaseOreBlock(SoundType.STONE, 3.0F, 3.0F, 2, 5));
@@ -117,6 +111,7 @@ public final class ModBlocks {
     public static final RegistryObject<Block> TINKERING_TABLE = register("tinkering_table", TinkeringTableBlock::new);
     public static final RegistryObject<Block> ENCHANTER = register("enchanter", EnchanterBlock::new);
     public static final RegistryObject<Block> MACHINE_FRAME = register("machine_frame", () -> new BaseBlock(SoundType.STONE, 1.5F, 6.0F, true));
+    public static final RegistryObject<Block> FURNACE = register("furnace", EssenceFurnaceBlock::new);
     public static final RegistryObject<Block> REPROCESSOR = register("seed_reprocessor", ReprocessorBlock::new);
     public static final RegistryObject<Block> SOUL_EXTRACTOR = register("soul_extractor", SoulExtractorBlock::new);
     public static final RegistryObject<Block> HARVESTER = register("harvester", HarvesterBlock::new);

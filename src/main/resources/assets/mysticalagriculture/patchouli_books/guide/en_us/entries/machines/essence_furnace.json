@@ -1,0 +1,17 @@
+{
+  "name": "book.mysticalagriculture.entry.essence_furnace",
+  "category": "mysticalagriculture:machines",
+  "icon": "mysticalagriculture:furnace",
+  "sortnum": 201,
+  "pages": [
+    {
+      "type": "text",
+      "text": "book.mysticalagriculture.entry.essence_furnace.page.1"
+    },
+    {
+      "type": "crafting",
+      "title": "book.mysticalagriculture.crafting",
+      "recipe": "mysticalagriculture:furnace"
+    }
+  ]
+}
