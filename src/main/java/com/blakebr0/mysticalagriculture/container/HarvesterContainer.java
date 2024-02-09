@@ -63,7 +63,12 @@ public class HarvesterContainer extends BaseContainerMenu {
                         return ItemStack.EMPTY;
                     }
                 } else if (index < 44) {
-                    if (!this.moveItemStackTo(itemstack1, 44, 53, false)) {
+                    // these are the Harvester output slots
+                    if (index < 17) {
+                        if (!this.moveItemStackTo(itemstack1, 17, 53, false)) {
+                            return ItemStack.EMPTY;
+                        }
+                    } else if (!this.moveItemStackTo(itemstack1, 44, 53, false)) {
                         return ItemStack.EMPTY;
                     }
                 } else if (index < 53 && !this.moveItemStackTo(itemstack1, 17, 44, false)) {
