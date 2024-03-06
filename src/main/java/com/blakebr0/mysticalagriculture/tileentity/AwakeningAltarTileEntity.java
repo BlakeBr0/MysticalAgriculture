@@ -93,6 +93,7 @@ public class AwakeningAltarTileEntity extends BaseInventoryTileEntity implements
 
         if (input.isEmpty()) {
             tile.reset();
+            tile.dispatchIfChanged();
             return;
         }
 

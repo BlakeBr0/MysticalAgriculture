@@ -86,6 +86,7 @@ public class InfusionAltarTileEntity extends BaseInventoryTileEntity implements 
 
         if (input.isEmpty()) {
             tile.reset();
+            tile.dispatchIfChanged();
             return;
         }
 
