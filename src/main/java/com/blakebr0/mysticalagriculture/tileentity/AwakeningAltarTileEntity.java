@@ -22,7 +22,6 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.AABB;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -103,18 +102,27 @@ public class AwakeningAltarTileEntity extends BaseInventoryTileEntity implements
             if (recipe != null && tile.hasRequiredEssences()) {
                 tile.progress++;
 
-                var pedestals = tile.getPedestals();
+                var collections = tile.getPedestalCollections();
 
                 if (tile.progress >= 100) {
                     var remaining = recipe.getRemainingItems(tile.recipeInventory.asRecipeWrapper());
 
-                    for (var i = 0; i < pedestals.size(); i++) {
-                        var pedestal = pedestals.get(i);
+                    for (var i = 0; i < collections.pedestals.size(); i++) {
+                        var pedestal = collections.pedestals.get(i);
                         var inventory = pedestal.getInventory();
 
                         inventory.setStackInSlot(0, remaining.get(i + 1));
 
                         tile.spawnParticles(ParticleTypes.SMOKE, pedestal.getBlockPos(), 1.2D, 20);
+                    }
+
+                    for (var i = 0; i < collections.vessels.size(); i++) {
+                        var vessel = collections.vessels.get(i);
+                        var inventory = vessel.getInventory();
+
+                        inventory.setStackInSlot(0, remaining.get(i + 5));
+
+                        tile.spawnParticles(ParticleTypes.SMOKE, vessel.getBlockPos(), 1.2D, 20);
                     }
 
                     var result = recipe.assemble(tile.recipeInventory.asRecipeWrapper(), level.registryAccess());
@@ -124,7 +132,7 @@ public class AwakeningAltarTileEntity extends BaseInventoryTileEntity implements
                     tile.setChangedFast();
                     tile.spawnParticles(ParticleTypes.HAPPY_VILLAGER, pos, 1.0D, 10);
                 } else {
-                    for (var pedestal : pedestals) {
+                    for (var pedestal : collections.all()) {
                         var pedestalPos = pedestal.getBlockPos();
                         var stack = pedestal.getInventory().getStackInSlot(0);
 
@@ -154,51 +162,56 @@ public class AwakeningAltarTileEntity extends BaseInventoryTileEntity implements
         if (this.level == null)
             return null;
 
-        this.updateRecipeInventory(this.getPedestals());
+        this.updateRecipeInventory(this.getPedestalCollections());
 
         return this.recipe.checkAndGet(this.recipeInventory, this.level);
     }
 
-    public List<EssenceVesselTileEntity> getEssenceVessels() {
-        return this.getPedestals()
-                .stream()
-                .filter(p -> p instanceof EssenceVesselTileEntity)
-                .map(p -> (EssenceVesselTileEntity) p)
-                .toList();
-    }
-
     public NonNullList<ItemStack> getEssenceItems() {
-        return this.getEssenceVessels()
+        return this.getPedestalCollections()
+                .vessels
                 .stream()
                 .map(v -> v.getInventory().getStackInSlot(0))
                 .collect(Collectors.toCollection(NonNullList::create));
     }
 
-    private void updateRecipeInventory(List<BaseInventoryTileEntity> pedestals) {
+    private void updateRecipeInventory(PedestalTileEntityCollections collections) {
         this.recipeInventory.setSize(AwakeningRecipe.RECIPE_SIZE);
         this.recipeInventory.setStackInSlot(0, this.inventory.getStackInSlot(0));
 
-        for (int i = 0; i < pedestals.size(); i++) {
-            var stack = pedestals.get(i).getInventory().getStackInSlot(0);
+        for (int i = 0; i < collections.pedestals.size(); i++) {
+            var stack = collections.pedestals.get(i).getInventory().getStackInSlot(0);
 
             this.recipeInventory.setStackInSlot(i + 1, stack);
         }
+
+        for (int i = 0; i < collections.vessels.size(); i++) {
+            var stack = collections.vessels.get(i).getInventory().getStackInSlot(0);
+
+            this.recipeInventory.setStackInSlot(i + 5, stack);
+        }
     }
 
-    private List<BaseInventoryTileEntity> getPedestals() {
+    private PedestalTileEntityCollections getPedestalCollections() {
         if (this.level == null) {
-            return Collections.emptyList();
+            return PedestalTileEntityCollections.EMPTY;
         }
 
-        List<BaseInventoryTileEntity> pedestals = new ArrayList<>();
+        var collections = new PedestalTileEntityCollections();
 
         for (var pos : this.getPedestalPositions()) {
             var tile = this.level.getBlockEntity(pos);
-            if (tile instanceof AwakeningPedestalTileEntity || tile instanceof EssenceVesselTileEntity)
-                pedestals.add((BaseInventoryTileEntity) tile);
+
+            if (tile instanceof AwakeningPedestalTileEntity pedestal) {
+                collections.pedestals.add(pedestal);
+            }
+
+            if (tile instanceof EssenceVesselTileEntity vessel) {
+                collections.vessels.add(vessel);
+            }
         }
 
-        return pedestals;
+        return collections;
     }
 
     private <T extends ParticleOptions> void spawnParticles(T particle, BlockPos pos, double yOffset, int count) {
@@ -242,5 +255,19 @@ public class AwakeningAltarTileEntity extends BaseInventoryTileEntity implements
     private boolean hasRequiredEssences() {
         var essences = this.getEssenceItems();
         return this.recipe.get().hasRequiredEssences(essences);
+    }
+
+    private static class PedestalTileEntityCollections {
+        public static final PedestalTileEntityCollections EMPTY = new PedestalTileEntityCollections();
+
+        public final List<AwakeningPedestalTileEntity> pedestals = new ArrayList<>();
+        public final List<EssenceVesselTileEntity> vessels = new ArrayList<>();
+
+        public List<BaseInventoryTileEntity> all() {
+            var list = new ArrayList<BaseInventoryTileEntity>();
+            list.addAll(this.pedestals);
+            list.addAll(this.vessels);
+            return list;
+        }
     }
 }

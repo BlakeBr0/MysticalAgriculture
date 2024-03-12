@@ -126,13 +126,19 @@ public class AwakeningRecipe implements ISpecialRecipe, IAwakeningRecipe {
     @Override
     public NonNullList<ItemStack> getRemainingItems(IItemHandler inventory) {
         var remaining = NonNullList.withSize(inventory.getSlots(), ItemStack.EMPTY);
+        // we need to track this separately since the recipe stores vessels and pedestals in alternating order,
+        // while the recipe inventory stores them in sequential order
+        var vesselIndex = 1;
 
         for (int i = 0; i < remaining.size(); i++) {
             var stack = inventory.getStackInSlot(i);
 
-            // all the odd indexes happen to be the essences
-            if (i % 2 == 1) {
-                var input = this.inputs.get(i);
+            // slot indexes 5 -> 8 are the essence vessels
+            if (i > 4) {
+                var input = this.inputs.get(vesselIndex);
+
+                vesselIndex += 2;
+
                 if (input.isEmpty())
                     continue;
 
