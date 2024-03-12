@@ -27,10 +27,10 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class AwakeningAltarTileEntity extends BaseInventoryTileEntity implements IActivatable {
-    // the order of these matters, it needs to alternate where vessels end up being even in the recipe inventory
+    // the order of these matters because it's affects the order they are rendered
     private static final MultiblockPositions PEDESTAL_LOCATIONS = MultiblockPositions.builder()
-            .pos(2, 0, 2).pos(-3, 0, 0).pos(-2, 0, -2).pos(3, 0, 0)
-            .pos(2, 0, -2).pos(0, 0, -3).pos(-2, 0, 2).pos(0, 0, 3).build();
+            .pos(-3, 0, 0).pos(2, 0, 2).pos(3, 0, 0).pos(-2, 0, -2)
+            .pos(0, 0, -3).pos(2, 0, -2).pos(0, 0, 3).pos(-2, 0, 2).build();
     private final BaseItemStackHandler inventory;
     private final BaseItemStackHandler recipeInventory;
     private final CachedRecipe<IAwakeningRecipe> recipe;
