@@ -278,7 +278,7 @@
     "enchantment.mysticalagriculture.soul_siphoner.desc": "Mobを倒したとき、収集できる魂がレベル毎に10%増加します。",
   
     "tooltip.mysticalagriculture.empty": "空",
-    "tooltip.mysticalagriculture.ランク": "ランク：%s",
+    "tooltip.mysticalagriculture.tier": "ランク：%s",
     "tooltip.mysticalagriculture.crop_id": "作物ID：%s",
     "tooltip.mysticalagriculture.mst_id": "MST ID：%s",
     "tooltip.mysticalagriculture.augment_id": "オーグメントID：%s",
@@ -290,7 +290,7 @@
     "tooltip.mysticalagriculture.inferium_output": "インフェリウムのドロップ：%s",
     "tooltip.mysticalagriculture.cooking_speed": "製錬速度：%s",
     "tooltip.mysticalagriculture.fuel_efficiency": "燃料効率：%s",
-    "tooltip.mysticalagriculture.requires_crux": "%sの下に必要",
+    "tooltip.mysticalagriculture.requires_crux": "下に%sが必要",
     "tooltip.mysticalagriculture.invalid_biome": "無効なバイオーム",
     "tooltip.mysticalagriculture.growth_accelerator": "上にある植物の成長を加速します。",
     "tooltip.mysticalagriculture.growth_accelerator_range": "範囲：%sブロック",
