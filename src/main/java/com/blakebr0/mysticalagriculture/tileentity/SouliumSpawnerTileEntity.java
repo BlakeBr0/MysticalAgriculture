@@ -65,7 +65,7 @@ public class SouliumSpawnerTileEntity extends BaseInventoryTileEntity implements
     private int fuelItemValue;
     private boolean isRunning;
     private double spin, oSpin;
-    private Entity currentEntity;
+    private DisplayEntity[] displayEntities;
 
     public SouliumSpawnerTileEntity(BlockPos pos, BlockState state) {
         super(ModTileEntities.SOULIUM_SPAWNER.get(), pos, state);
@@ -113,6 +113,13 @@ public class SouliumSpawnerTileEntity extends BaseInventoryTileEntity implements
     @Override
     public void onDataPacket(Connection connection, ClientboundBlockEntityDataPacket packet) {
         super.onDataPacket(connection, packet);
+
+        this.reloadActiveRecipe();
+    }
+
+    @Override
+    public void handleUpdateTag(CompoundTag tag) {
+        super.handleUpdateTag(tag);
 
         this.reloadActiveRecipe();
     }
@@ -239,10 +246,13 @@ public class SouliumSpawnerTileEntity extends BaseInventoryTileEntity implements
     }
 
     public static void clientTick(Level level, BlockPos pos, BlockState state, SouliumSpawnerTileEntity tile) {
-        tile.oSpin = tile.spin;
-        tile.spin = (tile.spin + (double) (1000.0F / 200.0F)) % 360.0D;
+        var isRunning = state.getValue(SouliumSpawnerBlock.RUNNING);
+        var spinSpeed = isRunning ? 200D : 400D;
 
-        if (tile.progress > 0) {
+        tile.oSpin = tile.spin;
+        tile.spin = (tile.spin + (1000.0D / spinSpeed)) % 360.0D;
+
+        if (isRunning) {
             tile.sendRunningParticles();
         }
     }
@@ -299,8 +309,13 @@ public class SouliumSpawnerTileEntity extends BaseInventoryTileEntity implements
         return this.oSpin;
     }
 
-    public Entity getCurrentEntity() {
-        return this.currentEntity;
+    public DisplayEntity getDisplayEntity() {
+        if (this.displayEntities == null)
+            return null;
+
+        var index = Math.toIntExact((System.currentTimeMillis() / 2000L) % this.displayEntities.length);
+
+        return this.displayEntities[index];
     }
 
     private boolean attemptSpawn(ISouliumSpawnerRecipe recipe) {
@@ -367,7 +382,17 @@ public class SouliumSpawnerTileEntity extends BaseInventoryTileEntity implements
 
         var recipe = this.recipe.checkAndGet(this.inventory, this.level);
 
-        this.currentEntity = recipe != null ? recipe.getFirstEntityType().create(this.level) : null;
+        if (recipe != null) {
+            var entities = recipe.getEntityTypes().unwrap();
+            var totalWeight = entities.stream().map(e -> e.getWeight().asInt()).reduce(0, Integer::sum);
+
+            this.displayEntities = entities
+                    .stream()
+                    .map(e -> new DisplayEntity(e.getData().create(this.level), ((double) e.getWeight().asInt() / totalWeight) * 100D))
+                    .toArray(DisplayEntity[]::new);
+        } else {
+            this.displayEntities = null;
+        }
     }
 
     private void sendRunningParticles() {
@@ -409,4 +434,6 @@ public class SouliumSpawnerTileEntity extends BaseInventoryTileEntity implements
 
         return false;
     }
+
+    public record DisplayEntity(Entity entity, double chance) {}
 }

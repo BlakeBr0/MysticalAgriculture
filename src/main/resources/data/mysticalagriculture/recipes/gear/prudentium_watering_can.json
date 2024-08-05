@@ -1,5 +1,6 @@
 {
-  "type": "crafting_shaped",
+  "type": "cucumber:shaped_transfer_nbt",
+  "transfer_slot": 4,
   "pattern": [
     "FGF",
     "ISI",

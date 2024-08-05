@@ -87,6 +87,7 @@ public enum ModItemTier implements Tier {
         TierSortingRegistry.registerTier(TERTIUM, new ResourceLocation(MysticalAgriculture.MOD_ID, "tertium"), List.of(PRUDENTIUM), List.of());
         TierSortingRegistry.registerTier(IMPERIUM, new ResourceLocation(MysticalAgriculture.MOD_ID, "imperium"), List.of(TERTIUM), List.of());
         TierSortingRegistry.registerTier(SUPREMIUM, new ResourceLocation(MysticalAgriculture.MOD_ID, "supremium"), List.of(IMPERIUM), List.of());
+        TierSortingRegistry.registerTier(AWAKENED_SUPREMIUM, new ResourceLocation(MysticalAgriculture.MOD_ID, "awakened_supremium"), List.of(SUPREMIUM), List.of());
         TierSortingRegistry.registerTier(SOULIUM, new ResourceLocation(MysticalAgriculture.MOD_ID, "soulium"), List.of(Tiers.WOOD), List.of());
     }
 }

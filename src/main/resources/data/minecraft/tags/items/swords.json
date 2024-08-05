@@ -1,0 +1,15 @@
+{
+  "replace": false,
+  "values": [
+    "mysticalagriculture:soulium_dagger",
+    "mysticalagriculture:passive_soulium_dagger",
+    "mysticalagriculture:hostile_soulium_dagger",
+    "mysticalagriculture:creative_soulium_dagger",
+    "mysticalagriculture:inferium_sword",
+    "mysticalagriculture:prudentium_sword",
+    "mysticalagriculture:tertium_sword",
+    "mysticalagriculture:imperium_sword",
+    "mysticalagriculture:supremium_sword",
+    "mysticalagriculture:awakened_supremium_sword"
+  ]
+}

@@ -27,7 +27,7 @@ public final class ModCrops {
     public static final Crop WATER = new Crop(new ResourceLocation(MOD_ID, "water"), CropTier.ELEMENTAL, CropType.RESOURCE, CropTextures.ELEMENTAL_CROP_TEXTURES, 0x4D7EDA, LazyIngredient.item("mysticalagriculture:water_agglomeratio"));
     public static final Crop FIRE = new Crop(new ResourceLocation(MOD_ID, "fire"), CropTier.ELEMENTAL, CropType.RESOURCE, CropTextures.ELEMENTAL_CROP_TEXTURES, 0xDA4D4D, LazyIngredient.item("mysticalagriculture:fire_agglomeratio"));
 
-    public static final Crop INFERIUM = new Crop(new ResourceLocation(MOD_ID, "inferium"), CropTier.ONE, CropType.RESOURCE, LazyIngredient.EMPTY);
+    public static final Crop INFERIUM = new Crop(new ResourceLocation(MOD_ID, "inferium"), CropTier.ONE, CropType.RESOURCE, LazyIngredient.item("mysticalagriculture:inferium_essence"));
     public static final Crop STONE = new Crop(new ResourceLocation(MOD_ID, "stone"), CropTier.ONE, CropType.RESOURCE, LazyIngredient.item("minecraft:stone"));
     public static final Crop DIRT = new Crop(new ResourceLocation(MOD_ID, "dirt"), CropTier.ONE, CropType.RESOURCE, LazyIngredient.item("minecraft:dirt"));
     public static final Crop WOOD = new Crop(new ResourceLocation(MOD_ID, "wood"), CropTier.ONE, CropType.RESOURCE, LazyIngredient.tag("minecraft:logs"));
@@ -107,6 +107,9 @@ public final class ModCrops {
     public static final Crop RUBY = new Crop(new ResourceLocation(MOD_ID, "ruby"), CropTier.FOUR, CropType.RESOURCE, LazyIngredient.tag("forge:gems/ruby"));
     public static final Crop SAPPHIRE = new Crop(new ResourceLocation(MOD_ID, "sapphire"), CropTier.FOUR, CropType.RESOURCE, LazyIngredient.tag("forge:gems/sapphire"));
     public static final Crop PERIDOT = new Crop(new ResourceLocation(MOD_ID, "peridot"), CropTier.FOUR, CropType.RESOURCE, LazyIngredient.tag("forge:gems/peridot"));
+
+    // MYSTICAL AGRICULTURE
+    public static final Crop SOULIUM = new Crop(new ResourceLocation(MOD_ID, "soulium"), CropTier.FOUR, CropType.RESOURCE, LazyIngredient.item("mysticalagriculture:soulium_dust"));
 
     // THERMAL SERIES
     public static final Crop BLIZZ = new Crop(new ResourceLocation(MOD_ID, "blizz"), CropTier.THREE, CropType.MOB, LazyIngredient.item("mysticalagriculture:soul_jar", MobSoulUtils.makeTag(ModMobSoulTypes.BLIZZ)));
@@ -203,6 +206,7 @@ public final class ModCrops {
 
     public static void onRegisterCrops(ICropRegistry registry) {
         INFERIUM.getTextures().setEssenceTexture(new ResourceLocation(MOD_ID, "item/inferium_essence"));
+        INFERIUM.getRecipeConfig().setSeedCraftingRecipeEnabled(false).setSeedInfusionRecipeEnabled(false);
         INFERIUM.setCropBlock(() -> (CropBlock) ModBlocks.INFERIUM_CROP.get())
                 .setEssenceItem(ModItems.INFERIUM_ESSENCE);
 
@@ -291,6 +295,9 @@ public final class ModCrops {
         registry.register(RUBY);
         registry.register(SAPPHIRE);
         registry.register(PERIDOT);
+
+        // MYSTICAL AGRICULTURE
+        registry.register(SOULIUM);
 
         // THERMAL SERIES
         registry.register(withRequiredMods(BLIZZ, "thermal"));

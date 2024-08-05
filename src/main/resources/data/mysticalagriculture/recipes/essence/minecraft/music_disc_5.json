@@ -1,0 +1,39 @@
+{
+  "type": "cucumber:shaped_no_mirror",
+  "conditions": [
+    {
+      "type": "mysticalagriculture:crop_enabled",
+      "crop": "mysticalagriculture:deepslate"
+    },
+    {
+      "type": "mysticalagriculture:crop_enabled",
+      "crop": "mysticalagriculture:end"
+    },
+    {
+      "type": "mysticalagriculture:crop_enabled",
+      "crop": "mysticalagriculture:end"
+    }
+  ],
+  "pattern": [
+    "RC ",
+    "SD ",
+    "   "
+  ],
+  "key": {
+    "R": {
+      "item": "mysticalagriculture:blank_record"
+    },
+    "C": {
+      "item": "mysticalagriculture:deepslate_essence"
+    },
+    "S": {
+      "item": "mysticalagriculture:end_essence"
+    },
+    "D": {
+      "tag": "forge:dyes/cyan"
+    }
+  },
+  "result": {
+    "item": "minecraft:music_disc_5"
+  }
+}

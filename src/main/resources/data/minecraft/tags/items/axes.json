@@ -1,0 +1,11 @@
+{
+  "replace": false,
+  "values": [
+    "mysticalagriculture:inferium_axe",
+    "mysticalagriculture:prudentium_axe",
+    "mysticalagriculture:tertium_axe",
+    "mysticalagriculture:imperium_axe",
+    "mysticalagriculture:supremium_axe",
+    "mysticalagriculture:awakened_supremium_axe"
+  ]
+}

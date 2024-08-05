@@ -35,12 +35,14 @@ public class EssenceBowItem extends BaseBowItem implements ITinkerable {
     private final int tinkerableTier;
     private final int slots;
     private final float drawSpeedMulti;
+    private final float bonusDamage;
 
-    public EssenceBowItem(Tier tier, int tinkerableTier, int slots, float drawSpeedMulti) {
+    public EssenceBowItem(Tier tier, int tinkerableTier, int slots, float drawSpeedMulti, float bonusDamage) {
         super(p -> p.durability(tier.getUses()));
         this.tinkerableTier = tinkerableTier;
         this.slots = slots;
         this.drawSpeedMulti = drawSpeedMulti;
+        this.bonusDamage = bonusDamage;
     }
 
     @Override
@@ -184,5 +186,10 @@ public class EssenceBowItem extends BaseBowItem implements ITinkerable {
     @Override
     public float getDrawSpeedMulti(ItemStack stack) {
         return this.drawSpeedMulti;
+    }
+
+    @Override
+    public float getBonusDamage(ItemStack stack) {
+        return this.bonusDamage;
     }
 }

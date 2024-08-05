@@ -1,0 +1,11 @@
+{
+  "replace": false,
+  "values": [
+    "mysticalagriculture:inferium_shovel",
+    "mysticalagriculture:prudentium_shovel",
+    "mysticalagriculture:tertium_shovel",
+    "mysticalagriculture:imperium_shovel",
+    "mysticalagriculture:supremium_shovel",
+    "mysticalagriculture:awakened_supremium_shovel"
+  ]
+}

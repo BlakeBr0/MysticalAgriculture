@@ -15,7 +15,6 @@ import java.util.List;
 
 public final class ModTooltips {
     public static final Tooltip EMPTY = new Tooltip("tooltip.mysticalagriculture.empty");
-    public static final Tooltip FILLED = new Tooltip("tooltip.mysticalagriculture.filled");
     public static final Tooltip TIER = new Tooltip("tooltip.mysticalagriculture.tier");
     public static final Tooltip CROP_ID = new Tooltip("tooltip.mysticalagriculture.crop_id");
     public static final Tooltip MST_ID = new Tooltip("tooltip.mysticalagriculture.mst_id");

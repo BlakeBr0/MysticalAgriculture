@@ -35,6 +35,7 @@ public class Crop {
     private Supplier<? extends Block> crux;
     private LazyIngredient craftingMaterial;
     private double baseSecondaryChance;
+    private boolean respectsEffectiveFarmland;
     private boolean enabled;
     private boolean registerCropBlock;
     private boolean registerEssenceItem;
@@ -94,6 +95,7 @@ public class Crop {
         this.setColor(color);
         this.craftingMaterial = craftingMaterial;
         this.baseSecondaryChance = -1;
+        this.respectsEffectiveFarmland = true;
         this.enabled = true;
         this.registerCropBlock = true;
         this.registerEssenceItem = true;
@@ -404,7 +406,7 @@ public class Crop {
             return chance;
         if (block instanceof IEssenceFarmland)
             chance += this.baseSecondaryChance > -1 ? this.baseSecondaryChance : this.tier.getBaseSecondaryChance();
-        if (this.getTier().isEffectiveFarmland(block))
+        if (this.respectsEffectiveFarmland && this.getTier().isEffectiveFarmland(block))
             chance += 0.1;
 
         return Math.min(chance, 1.0);
@@ -427,6 +429,24 @@ public class Crop {
      */
     public Crop setBaseSecondaryChance(double chance) {
         this.baseSecondaryChance = chance;
+        return this;
+    }
+
+    /**
+     * Whether this crop respects the effective farmland of the {@link CropTier}
+     * @return does this crop respect effective farmland
+     */
+    public boolean respectsEffectiveFarmland() {
+        return this.respectsEffectiveFarmland;
+    }
+
+    /**
+     * Set whether this crop should respect the effective farmland of the {@link CropTier}
+     * @param respects should this crop respect effective farmland
+     * @return this crop
+     */
+    public Crop setRespectsEffectiveFarmland(boolean respects) {
+        this.respectsEffectiveFarmland = respects;
         return this;
     }
 

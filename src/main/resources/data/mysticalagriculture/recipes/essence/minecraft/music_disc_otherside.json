@@ -1,0 +1,35 @@
+{
+  "type": "cucumber:shaped_no_mirror",
+  "conditions": [
+    {
+      "type": "mysticalagriculture:crop_enabled",
+      "crop": "mysticalagriculture:stone"
+    },
+    {
+      "type": "mysticalagriculture:crop_enabled",
+      "crop": "mysticalagriculture:enderman"
+    }
+  ],
+  "pattern": [
+    "RC ",
+    "SD ",
+    "   "
+  ],
+  "key": {
+    "R": {
+      "item": "mysticalagriculture:blank_record"
+    },
+    "C": {
+      "item": "mysticalagriculture:stone_essence"
+    },
+    "S": {
+      "item": "mysticalagriculture:enderman_essence"
+    },
+    "D": {
+      "tag": "forge:dyes/cyan"
+    }
+  },
+  "result": {
+    "item": "minecraft:music_disc_otherside"
+  }
+}

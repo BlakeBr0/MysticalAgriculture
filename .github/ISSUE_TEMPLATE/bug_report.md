@@ -24,3 +24,4 @@ Please add your logs and scripts (if applicable).
  - Forge:
  - Cucumber:
  - Mystical Agriculture:
+ - Singleplayer or Multiplayer:

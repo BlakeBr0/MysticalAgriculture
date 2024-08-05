@@ -1,0 +1,39 @@
+{
+  "type": "cucumber:shaped_no_mirror",
+  "conditions": [
+    {
+      "type": "mysticalagriculture:crop_enabled",
+      "crop": "mysticalagriculture:stone"
+    },
+    {
+      "type": "mysticalagriculture:crop_enabled",
+      "crop": "mysticalagriculture:copper"
+    },
+    {
+      "type": "mysticalagriculture:crop_enabled",
+      "crop": "mysticalagriculture:diamond"
+    }
+  ],
+  "pattern": [
+    "RC ",
+    "SD ",
+    "   "
+  ],
+  "key": {
+    "R": {
+      "item": "mysticalagriculture:blank_record"
+    },
+    "C": {
+      "item": "mysticalagriculture:stone_essence"
+    },
+    "S": {
+      "item": "mysticalagriculture:copper_essence"
+    },
+    "D": {
+      "item": "mysticalagriculture:diamond_essence"
+    }
+  },
+  "result": {
+    "item": "minecraft:music_disc_relic"
+  }
+}

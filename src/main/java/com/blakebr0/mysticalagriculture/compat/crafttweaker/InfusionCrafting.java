@@ -10,6 +10,7 @@ import com.blamejared.crafttweaker.api.action.recipe.ActionRemoveRecipe;
 import com.blamejared.crafttweaker.api.annotation.ZenRegister;
 import com.blamejared.crafttweaker.api.ingredient.IIngredient;
 import com.blamejared.crafttweaker.api.item.IItemStack;
+import com.blamejared.crafttweaker.api.item.MCItemStack;
 import com.blamejared.crafttweaker.api.recipe.manager.base.IRecipeManager;
 import net.minecraft.core.NonNullList;
 import net.minecraft.core.RegistryAccess;
@@ -31,6 +32,8 @@ public final class InfusionCrafting implements IRecipeManager<IInfusionRecipe> {
     public static void addRecipe(String name, IItemStack output, IIngredient[] inputs, @ZenCodeType.OptionalBoolean boolean transferNBT) {
         var id = CraftTweakerConstants.rl(INSTANCE.fixRecipeName(name));
         var recipe = new InfusionRecipe(id, toIngredientsList(inputs), output.getInternal(), transferNBT);
+
+        recipe.setTransformer((slot, stack) -> inputs[slot].getRemainingItem(new MCItemStack(stack)).getInternal());
 
         CraftTweakerAPI.apply(new ActionAddRecipe<>(INSTANCE, recipe));
     }

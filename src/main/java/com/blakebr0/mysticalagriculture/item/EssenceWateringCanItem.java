@@ -21,7 +21,6 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 
 import java.util.List;
-import java.util.UUID;
 
 public class EssenceWateringCanItem extends WateringCanItem {
     private final ChatFormatting textColor;
@@ -32,13 +31,23 @@ public class EssenceWateringCanItem extends WateringCanItem {
     }
 
     @Override
-    public void inventoryTick(ItemStack stack, Level world, Entity entity, int slot, boolean selected) {
-        if (selected && NBTHelper.getBoolean(stack, "Active") && entity instanceof Player player) {
-            var result = getPlayerPOVHitResult(world, player, ClipContext.Fluid.SOURCE_ONLY);
+    public void inventoryTick(ItemStack stack, Level level, Entity entity, int slot, boolean selected) {
+        var isActive = NBTHelper.getBoolean(stack, "Active");
 
-            if (result.getType() != HitResult.Type.MISS) {
-                this.doWater(stack, world, player, result.getBlockPos(), result.getDirection());
+        if (selected && isActive && entity instanceof Player player) {
+            var trace = getPlayerPOVHitResult(level, player, ClipContext.Fluid.SOURCE_ONLY);
+
+            if (trace.getType() == HitResult.Type.BLOCK) {
+                this.doWater(stack, level, player, trace.getBlockPos(), trace.getDirection());
+            } else {
+                stopPlayingSound(player);
             }
+        }
+
+        // we need to actively check if the watering can was playing the sound in any case where it's not actively
+        // watering the ground
+        if (!selected && isActive && entity instanceof Player player) {
+            stopPlayingSound(player);
         }
     }
 
@@ -71,7 +80,6 @@ public class EssenceWateringCanItem extends WateringCanItem {
             var fluid = level.getFluidState(pos);
 
             if (fluid.is(FluidTags.WATER)) {
-                NBTHelper.setString(stack, "ID", UUID.randomUUID().toString());
                 NBTHelper.setBoolean(stack, "Water", true);
 
                 player.playSound(SoundEvents.BUCKET_FILL, 1.0F, 1.0F);
@@ -84,22 +92,24 @@ public class EssenceWateringCanItem extends WateringCanItem {
     }
 
     @Override
-    public InteractionResult onItemUseFirst(ItemStack stack, UseOnContext context) {
+    public InteractionResult useOn(UseOnContext context) {
         var player = context.getPlayer();
-
         if (player == null)
-            return InteractionResult.PASS;
+            return InteractionResult.FAIL;
+
+        var hand = context.getHand();
+        var stack = player.getItemInHand(hand);
 
         if (NBTHelper.getBoolean(stack, "Active"))
             return InteractionResult.PASS;
 
-        return super.onItemUseFirst(stack, context);
+        return super.useOn(context);
     }
 
     @OnlyIn(Dist.CLIENT)
     @Override
-    public void appendHoverText(ItemStack stack, Level world, List<Component> tooltip, TooltipFlag advanced) {
-        super.appendHoverText(stack, world, tooltip, advanced);
+    public void appendHoverText(ItemStack stack, Level level, List<Component> tooltip, TooltipFlag advanced) {
+        super.appendHoverText(stack, level, tooltip, advanced);
 
         var rangeString = String.valueOf(this.range);
         var rangeNumber = Component.literal(rangeString + "x" + rangeString).withStyle(this.textColor);

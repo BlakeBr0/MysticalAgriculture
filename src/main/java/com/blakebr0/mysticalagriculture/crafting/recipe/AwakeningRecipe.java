@@ -25,6 +25,7 @@ import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.function.BiFunction;
 
 public class AwakeningRecipe implements ISpecialRecipe, IAwakeningRecipe {
     public static final int RECIPE_SIZE = 9;
@@ -34,6 +35,8 @@ public class AwakeningRecipe implements ISpecialRecipe, IAwakeningRecipe {
     private final NonNullList<ItemStack> essences;
     private final ItemStack output;
     private final boolean transferNBT;
+    // for CraftTweaker recipes
+    private BiFunction<Integer, ItemStack, ItemStack> transformer;
 
     public AwakeningRecipe(ResourceLocation recipeId, NonNullList<Ingredient> inputs, NonNullList<ItemStack> essences, ItemStack output, boolean transferNBT) {
         this.recipeId = recipeId;
@@ -123,26 +126,52 @@ public class AwakeningRecipe implements ISpecialRecipe, IAwakeningRecipe {
     @Override
     public NonNullList<ItemStack> getRemainingItems(IItemHandler inventory) {
         var remaining = NonNullList.withSize(inventory.getSlots(), ItemStack.EMPTY);
+        // we need to track this separately since the recipe stores vessels and pedestals in alternating order,
+        // while the recipe inventory stores them in sequential order
+        var vesselIndex = 1;
 
         for (int i = 0; i < remaining.size(); i++) {
             var stack = inventory.getStackInSlot(i);
 
-            // all the even indexes happen to be the essences
-            if (i > 0 && i % 2 == 0) {
-                var ingredient = this.inputs.get(i - 1);
-                if (ingredient.isEmpty())
+            // slot indexes 5 -> 8 are the essence vessels
+            if (i > 4) {
+                var input = this.inputs.get(vesselIndex);
+
+                vesselIndex += 2;
+
+                if (input.isEmpty())
                     continue;
 
                 // the ingredient will have the same ItemStack instance as the essence
                 // this *should* be the quickest way to find the exact essence in the recipe
                 for (var essence : this.essences) {
-                    if (ingredient.getItems()[0] == essence) {
+                    if (input.getItems()[0] == essence) {
                         remaining.set(i, StackHelper.shrink(stack, essence.getCount(), false));
                         break;
                     }
                 }
-            } else if (stack.hasCraftingRemainingItem()) {
-                remaining.set(i, stack.getCraftingRemainingItem());
+            } else {
+                if (stack.hasCraftingRemainingItem()) {
+                    remaining.set(i, stack.getCraftingRemainingItem());
+                }
+
+                if (this.transformer != null) {
+                    var used = new boolean[remaining.size()];
+
+                    for (int j = 0; j < this.inputs.size(); j += 2) {
+                        var input = this.inputs.get(j);
+
+                        if (!used[j] && input.test(stack)) {
+                            var index = Math.floorDiv(i, 2);
+                            var ingredient = this.transformer.apply(index, stack);
+
+                            used[j] = true;
+                            remaining.set(i, ingredient);
+
+                            break;
+                        }
+                    }
+                }
             }
         }
 
@@ -181,6 +210,10 @@ public class AwakeningRecipe implements ISpecialRecipe, IAwakeningRecipe {
         }
 
         return missing;
+    }
+
+    public void setTransformer(BiFunction<Integer, ItemStack, ItemStack> transformer) {
+        this.transformer = transformer;
     }
 
     public static class Serializer implements RecipeSerializer<AwakeningRecipe> {

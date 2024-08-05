@@ -3,6 +3,7 @@ package com.blakebr0.mysticalagriculture.handler;
 import com.blakebr0.mysticalagriculture.api.lib.AbilityCache;
 import com.blakebr0.mysticalagriculture.api.util.AugmentUtils;
 import net.minecraft.world.entity.player.Player;
+import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.event.entity.living.LivingEvent;
 import net.minecraftforge.event.entity.living.LivingFallEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent;
@@ -15,7 +16,7 @@ public final class AugmentHandler {
     public void onPlayerUpdate(LivingEvent.LivingTickEvent event) {
         var entity = event.getEntity();
 
-        if (entity instanceof Player player) {
+        if (entity instanceof Player player && !player.isDeadOrDying()) {
             var level = player.level();
             var augments = AugmentUtils.getArmorAugments(player);
 
@@ -50,6 +51,17 @@ public final class AugmentHandler {
 
         for (var augment : ABILITY_CACHE.getCachedAbilities(player)) {
             ABILITY_CACHE.removeQuietly(augment, player);
+        }
+    }
+
+    @SubscribeEvent
+    public void onPlayerDeath(LivingDeathEvent event) {
+        var entity = event.getEntity();
+
+        if (entity instanceof Player player) {
+            for (var augment : ABILITY_CACHE.getCachedAbilities(player)) {
+                ABILITY_CACHE.removeQuietly(augment, player);
+            }
         }
     }
 }
