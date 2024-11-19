@@ -301,7 +301,7 @@ public class AwakeningRecipe implements IAwakeningRecipe {
             var essences = NonNullList.withSize(size, ItemStack.EMPTY);
 
             for (int i = 0; i < size; i++) {
-                essences.set(i, ItemStack.STREAM_CODEC.decode(buffer));
+                essences.set(i, ItemStack.OPTIONAL_STREAM_CODEC.decode(buffer));
             }
 
             var result = ItemStack.STREAM_CODEC.decode(buffer);
@@ -323,7 +323,7 @@ public class AwakeningRecipe implements IAwakeningRecipe {
             buffer.writeVarInt(4);
 
             for (int i = 0; i < 4; i++) {
-                ItemStack.STREAM_CODEC.encode(buffer, recipe.essences.get(i));
+                ItemStack.OPTIONAL_STREAM_CODEC.encode(buffer, recipe.essences.get(i));
             }
 
             ItemStack.STREAM_CODEC.encode(buffer, recipe.result);
