@@ -2,6 +2,12 @@
   "replace": false,
   "values": [
     "mysticalagriculture:watering_can",
+    "mysticalagriculture:inferium_watering_can",
+    "mysticalagriculture:prudentium_watering_can",
+    "mysticalagriculture:tertium_watering_can",
+    "mysticalagriculture:imperium_watering_can",
+    "mysticalagriculture:supremium_watering_can",
+    "mysticalagriculture:awakened_supremium_watering_can",
     {
       "id": "pickletweaks:watering_can",
       "required": false
