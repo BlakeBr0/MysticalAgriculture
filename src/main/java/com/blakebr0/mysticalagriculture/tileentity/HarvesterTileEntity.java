@@ -209,7 +209,7 @@ public class HarvesterTileEntity extends BaseInventoryTileEntity implements Menu
     public static BaseItemStackHandler createInventoryHandler(OnContentsChangedFunction onContentsChanged) {
         return BaseItemStackHandler.create(16, onContentsChanged, builder -> {
             builder.setCanInsert((slot, stack) -> slot == 0 && stack.getBurnTime(null) > 0);
-            builder.setCanExtract(slot -> slot > 0);
+            builder.setCanExtract(slot -> slot > true);
         });
     }
 
