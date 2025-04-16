@@ -1,6 +1,7 @@
 package com.blakebr0.mysticalagriculture.init;
 
 import com.blakebr0.mysticalagriculture.MysticalAgriculture;
+import com.blakebr0.mysticalagriculture.api.components.AOEOffsetComponent;
 import com.blakebr0.mysticalagriculture.api.components.AugmentComponent;
 import com.blakebr0.mysticalagriculture.api.components.SoulJarComponent;
 import com.mojang.serialization.Codec;
@@ -23,4 +24,6 @@ public final class ModDataComponentTypes {
             () -> DataComponentType.<Integer>builder().persistent(Codec.INT).networkSynchronized(ByteBufCodecs.INT).build());
     public static final DeferredHolder<DataComponentType<?>, DataComponentType<SoulJarComponent>> SOUL_JAR = REGISTRY.register("soul_jar",
             () -> DataComponentType.<SoulJarComponent>builder().persistent(SoulJarComponent.CODEC).networkSynchronized(SoulJarComponent.STREAM_CODEC).build());
+    public static final DeferredHolder<DataComponentType<?>, DataComponentType<AOEOffsetComponent>> AOE_OFFSET = REGISTRY.register("aoe_offset",
+        () -> DataComponentType.<AOEOffsetComponent>builder().persistent(AOEOffsetComponent.CODEC).networkSynchronized(AOEOffsetComponent.STREAM_CODEC).build());
 }

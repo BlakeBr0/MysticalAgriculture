@@ -2,9 +2,10 @@ package com.blakebr0.mysticalagriculture.augment;
 
 import com.blakebr0.cucumber.helper.BlockHelper;
 import com.blakebr0.cucumber.helper.ColorHelper;
-import com.blakebr0.mysticalagriculture.api.tinkering.Augment;
+import com.blakebr0.mysticalagriculture.api.tinkering.AOEAugment;
 import com.blakebr0.mysticalagriculture.api.tinkering.AugmentType;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.LivingEntity;
@@ -15,12 +16,11 @@ import net.minecraft.world.level.block.state.BlockState;
 
 import java.util.EnumSet;
 
-public class MiningAOEAugment extends Augment {
-    private final int range;
 
+public class MiningAOEAugment extends AOEAugment
+{
     public MiningAOEAugment(ResourceLocation id, int tier, int range) {
-        super(id, tier, EnumSet.of(AugmentType.PICKAXE, AugmentType.AXE, AugmentType.SHOVEL), getColor(0xD5FFF6, tier), getColor(0x0EBABD, tier));
-        this.range = range;
+        super(id, tier, EnumSet.of(AugmentType.PICKAXE, AugmentType.AXE, AugmentType.SHOVEL), getColor(0xD5FFF6, tier), getColor(0x0EBABD, tier), range);
     }
 
     @Override
@@ -33,7 +33,7 @@ public class MiningAOEAugment extends Augment {
 
         if (entity instanceof Player player) {
             var trace = BlockHelper.rayTraceBlocks(level, player);
-            int side = trace.getDirection().ordinal();
+            Direction side = trace.getDirection();
 
             harvestAOEBlocks(stack, this.range, level, pos, side, player);
         }
@@ -41,26 +41,14 @@ public class MiningAOEAugment extends Augment {
         return false;
     }
 
-    private static void harvestAOEBlocks(ItemStack stack, int radius, Level level, BlockPos pos, int side, Player player) {
-        int xRange = radius;
-        int yRange = radius;
-        int zRange = 0;
 
-        if (side == 0 || side == 1) {
-            zRange = radius;
-            yRange = 0;
-        }
-
-        if (side == 4 || side == 5) {
-            xRange = 0;
-            zRange = radius;
-        }
-
+    private static void harvestAOEBlocks(ItemStack stack, int radius, Level level, BlockPos pos, Direction side, Player player)
+    {
         var state = level.getBlockState(pos);
         var hardness = state.getDestroySpeed(level, pos);
 
         if (radius > 0 && hardness >= 0.2F && canHarvestBlock(stack, state)) {
-            BlockPos.betweenClosedStream(pos.offset(-xRange, -yRange, -zRange), pos.offset(xRange, yRange, zRange)).forEach(aoePos -> {
+            getAOEBlocks(stack, radius, pos, side, player).forEach(aoePos -> {
                 if (aoePos != pos) {
                     var aoeState = level.getBlockState(aoePos);
 

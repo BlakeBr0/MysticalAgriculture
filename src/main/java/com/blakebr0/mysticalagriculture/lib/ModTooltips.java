@@ -1,6 +1,8 @@
 package com.blakebr0.mysticalagriculture.lib;
 
 import com.blakebr0.cucumber.util.Tooltip;
+import com.blakebr0.mysticalagriculture.api.MysticalAgricultureDataComponentTypes;
+import com.blakebr0.mysticalagriculture.api.components.AOEOffsetComponent;
 import com.blakebr0.mysticalagriculture.api.util.AugmentUtils;
 import com.blakebr0.mysticalagriculture.api.util.TinkerableUtils;
 import com.blakebr0.mysticalagriculture.client.ClientPlayerProxy;
@@ -52,6 +54,7 @@ public final class ModTooltips {
     public static final Tooltip UPGRADE_FUEL_CAPACITY = new Tooltip("tooltip.mysticalagriculture.upgrade_fuel_capacity");
     public static final Tooltip UPGRADE_AREA = new Tooltip("tooltip.mysticalagriculture.upgrade_area");
     public static final Tooltip MISSING_ESSENCES = new Tooltip("tooltip.mysticalagriculture.missing_essences", ChatFormatting.WHITE);
+    public static final Tooltip AOE_OFFSET_TOOLTIP = new Tooltip("tooltip.mysticalagriculture.aoe_offset");
 
     public static Component getTooltipForTier(int tier) {
         return TIER.args(TinkerableUtils.getTooltipForTier(tier)).color(ChatFormatting.GRAY).build();
@@ -78,5 +81,23 @@ public final class ModTooltips {
 
             tooltip.add(Component.literal(" - ").withStyle(ChatFormatting.GRAY).append(name));
         }
+    }
+
+
+    /**
+     * Adds tooltip to applied offset of AOE effect.
+     */
+    public static void addAOEOffsetToTooltip(List<Component> tooltip, ItemStack stack)
+    {
+        AOEOffsetComponent component = stack.getOrDefault(MysticalAgricultureDataComponentTypes.AOE_OFFSET,
+            new AOEOffsetComponent(0, 0));
+
+        if (component.verticalOffset() == 0 && component.horizontalOffset() == 0)
+        {
+            // No offset applied. Do not display it.
+            return;
+        }
+
+        tooltip.add(ModTooltips.AOE_OFFSET_TOOLTIP.args(component.horizontalOffset(), component.verticalOffset()).build());
     }
 }

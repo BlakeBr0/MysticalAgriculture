@@ -1,7 +1,7 @@
 package com.blakebr0.mysticalagriculture.augment;
 
 import com.blakebr0.cucumber.helper.ColorHelper;
-import com.blakebr0.mysticalagriculture.api.tinkering.Augment;
+import com.blakebr0.mysticalagriculture.api.tinkering.AOEAugment;
 import com.blakebr0.mysticalagriculture.api.tinkering.AugmentType;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -9,19 +9,15 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.entity.EquipmentSlot;
-import net.minecraft.world.item.HoeItem;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.gameevent.GameEvent;
 import net.neoforged.neoforge.common.ItemAbilities;
 
 import java.util.EnumSet;
 
-public class TillingAOEAugment extends Augment {
-    private final int range;
-
+public class TillingAOEAugment extends AOEAugment {
     public TillingAOEAugment(ResourceLocation id, int tier, int range) {
-        super(id, tier, EnumSet.of(AugmentType.HOE), getColor(0xB9855C, tier), getColor(0x593D29, tier));
-        this.range = range;
+        super(id, tier, EnumSet.of(AugmentType.HOE), getColor(0xB9855C, tier), getColor(0x593D29, tier), range);
     }
 
     @Override
@@ -46,7 +42,7 @@ public class TillingAOEAugment extends Augment {
         }
 
         if (player.isCrouching()) {
-            var positions = BlockPos.betweenClosedStream(pos.offset(-this.range, 0, -this.range), pos.offset(this.range, 0, this.range)).iterator();
+            var positions = getAOEBlocks(player.getMainHandItem(), this.range, pos, Direction.UP, player).iterator();
 
             while (positions.hasNext()) {
                 var aoePos = positions.next();

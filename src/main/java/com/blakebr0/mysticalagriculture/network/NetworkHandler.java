@@ -2,6 +2,8 @@ package com.blakebr0.mysticalagriculture.network;
 
 import com.blakebr0.mysticalagriculture.network.payloads.ExperienceCapsulePickupPayload;
 import com.blakebr0.mysticalagriculture.network.payloads.ReloadIngredientCachePayload;
+import com.blakebr0.mysticalagriculture.network.payloads.UpdateAOEOffsetPayload;
+
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.neoforge.network.event.RegisterPayloadHandlersEvent;
 
@@ -12,5 +14,6 @@ public final class NetworkHandler {
 
         registrar.playToClient(ExperienceCapsulePickupPayload.TYPE, ExperienceCapsulePickupPayload.STREAM_CODEC, ExperienceCapsulePickupPayload::handleClient);
         registrar.playToClient(ReloadIngredientCachePayload.TYPE, ReloadIngredientCachePayload.STREAM_CODEC, ReloadIngredientCachePayload::handleClient);
+        registrar.playToServer(UpdateAOEOffsetPayload.TYPE, UpdateAOEOffsetPayload.STREAM_CODEC, UpdateAOEOffsetPayload::handle);
     }
 }
