@@ -4,6 +4,7 @@ import com.blakebr0.mysticalagriculture.api.MysticalAgricultureDataComponentType
 import com.blakebr0.mysticalagriculture.api.components.AOEOffsetComponent;
 import com.blakebr0.mysticalagriculture.api.tinkering.AOEAugment;
 import com.blakebr0.mysticalagriculture.api.tinkering.Augment;
+import com.blakebr0.mysticalagriculture.api.tinkering.ITinkerable;
 import com.blakebr0.mysticalagriculture.api.util.AugmentUtils;
 import com.blakebr0.mysticalagriculture.augment.MiningAOEAugment;
 import com.blakebr0.mysticalagriculture.network.payloads.UpdateAOEOffsetPayload;
@@ -14,7 +15,6 @@ import net.minecraft.client.renderer.RenderType;
 import net.minecraft.core.Direction;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.phys.AABB;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.neoforge.client.event.InputEvent;
@@ -23,14 +23,16 @@ import net.neoforged.neoforge.network.PacketDistributor;
 
 import java.util.List;
 
-/**
- * This class handles rendering AOE area rendering and changing.
- */
-public class AOERenderingHandler {
+public class AOEAugmentClientHandler {
     @SubscribeEvent
     public void onKeyInput(InputEvent.Key event) {
         var minecraft = Minecraft.getInstance();
         if (minecraft.level == null || minecraft.player == null)
+            return;
+
+        var stack = minecraft.player.getMainHandItem();
+        var item = stack.getItem();
+        if (!(item instanceof ITinkerable))
             return;
 
         var window = minecraft.getWindow().getWindow();
@@ -39,35 +41,33 @@ public class AOERenderingHandler {
         if (!InputConstants.isKeyDown(window, InputConstants.KEY_RCONTROL) && !InputConstants.isKeyDown(window, InputConstants.KEY_LCONTROL))
             return;
 
-        ItemStack mainHandItem = minecraft.player.getMainHandItem();
-        List<Augment> augments = AugmentUtils.getAugments(mainHandItem);
-        if (augments.isEmpty()) return;
+        var augments = AugmentUtils.getAugments(stack);
+        if (augments.isEmpty())
+            return;
 
-        // Get range based on player action.
         int range = getRange(augments, minecraft.player.isCrouching());
         if (range == 0)
             return;
 
-        var offset = mainHandItem.getOrDefault(MysticalAgricultureDataComponentTypes.AOE_OFFSET, AOEOffsetComponent.DEFAULT);
+        var offset = stack.getOrDefault(MysticalAgricultureDataComponentTypes.AOE_OFFSET, AOEOffsetComponent.DEFAULT);
 
         final int horizontalOffset;
         final int verticalOffset;
 
-        if (InputConstants.isKeyDown(minecraft.getWindow().getWindow(), InputConstants.KEY_LEFT)) {
+        if (InputConstants.isKeyDown(window, InputConstants.KEY_LEFT)) {
             horizontalOffset = Mth.clamp(offset.horizontalOffset() - 1, -range, range);
             verticalOffset = offset.verticalOffset();
-        } else if (InputConstants.isKeyDown(minecraft.getWindow().getWindow(), InputConstants.KEY_RIGHT)) {
+        } else if (InputConstants.isKeyDown(window, InputConstants.KEY_RIGHT)) {
             horizontalOffset = Mth.clamp(offset.horizontalOffset() + 1, -range, range);
             verticalOffset = offset.verticalOffset();
-        } else if (InputConstants.isKeyDown(minecraft.getWindow().getWindow(), InputConstants.KEY_DOWN)) {
+        } else if (InputConstants.isKeyDown(window, InputConstants.KEY_UP)) {
             horizontalOffset = offset.horizontalOffset();
             verticalOffset = Mth.clamp(offset.verticalOffset() - 1, -range, range);
-        } else if (InputConstants.isKeyDown(minecraft.getWindow().getWindow(), InputConstants.KEY_UP)) {
+        } else if (InputConstants.isKeyDown(window, InputConstants.KEY_DOWN)) {
             horizontalOffset = offset.horizontalOffset();
             verticalOffset = Mth.clamp(offset.verticalOffset() + 1, -range, range);
         } else {
-            horizontalOffset = offset.horizontalOffset();
-            verticalOffset = offset.verticalOffset();
+            return;
         }
 
         PacketDistributor.sendToServer(new UpdateAOEOffsetPayload(new AOEOffsetComponent(horizontalOffset, verticalOffset)));
@@ -110,14 +110,19 @@ public class AOERenderingHandler {
         if (!(entity instanceof Player player))
             return;
 
+        var stack = player.getMainHandItem();
+        var item = stack.getItem();
+        if (!(item instanceof ITinkerable))
+            return;
+
         var window = Minecraft.getInstance().getWindow().getWindow();
 
         if (!InputConstants.isKeyDown(window, InputConstants.KEY_RCONTROL) && !InputConstants.isKeyDown(window, InputConstants.KEY_LCONTROL))
             return;
 
-        ItemStack mainHandItem = player.getMainHandItem();
-        List<Augment> augments = AugmentUtils.getAugments(mainHandItem);
-        if (augments.isEmpty()) return;
+        var augments = AugmentUtils.getAugments(stack);
+        if (augments.isEmpty())
+            return;
 
         int range = getRange(augments, player.isCrouching());
         if (range == 0)
@@ -138,7 +143,7 @@ public class AOERenderingHandler {
 
         var direction = player.isCrouching() ? Direction.UP : event.getTarget().getDirection();
 
-        MiningAOEAugment.getAOEBlocks(mainHandItem, range, event.getTarget().getBlockPos(), direction, player).
+        MiningAOEAugment.getAOEBlocks(stack, range, event.getTarget().getBlockPos(), direction, player).
             forEach(aoePos -> {
                 var state = player.level().getBlockState(aoePos);
                 if (state.isAir())

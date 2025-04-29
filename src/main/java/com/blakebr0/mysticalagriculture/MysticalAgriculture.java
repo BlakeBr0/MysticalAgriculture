@@ -8,7 +8,7 @@ import com.blakebr0.mysticalagriculture.client.ModMenuScreens;
 import com.blakebr0.mysticalagriculture.client.ModRecipeBookCategories;
 import com.blakebr0.mysticalagriculture.client.ModTESRs;
 import com.blakebr0.mysticalagriculture.client.ModelHandler;
-import com.blakebr0.mysticalagriculture.client.handler.AOERenderingHandler;
+import com.blakebr0.mysticalagriculture.client.handler.AOEAugmentClientHandler;
 import com.blakebr0.mysticalagriculture.client.handler.AugmentTooltipHandler;
 import com.blakebr0.mysticalagriculture.client.handler.ColorHandler;
 import com.blakebr0.mysticalagriculture.client.handler.GuiOverlayHandler;
@@ -120,7 +120,7 @@ public final class MysticalAgriculture {
 	public void onClientSetup(FMLClientSetupEvent event) {
 		NeoForge.EVENT_BUS.register(new AugmentTooltipHandler());
 		NeoForge.EVENT_BUS.register(new GuiOverlayHandler());
-		NeoForge.EVENT_BUS.register(new AOERenderingHandler());
+		NeoForge.EVENT_BUS.register(new AOEAugmentClientHandler());
 
 		ModelHandler.onClientSetup(event);
 	}

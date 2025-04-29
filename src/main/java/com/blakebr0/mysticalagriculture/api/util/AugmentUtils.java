@@ -64,6 +64,7 @@ public class AugmentUtils {
                 augments.removeIf(a -> a.slot() == slot);
 
                 stack.set(MysticalAgricultureDataComponentTypes.EQUIPPED_AUGMENTS, augments);
+                stack.remove(MysticalAgricultureDataComponentTypes.AOE_OFFSET);
             }
         }
     }
