@@ -41,6 +41,7 @@ public class EssenceScytheItem extends BaseScytheItem implements ITinkerable {
     public EssenceScytheItem(Tier tier, int range, ChatFormatting textColor, int tinkerableTier, int slots) {
         super(tier, range, p -> {
             p.component(ModDataComponentTypes.EQUIPPED_AUGMENTS, new ArrayList<>(slots));
+            p.component(ModDataComponentTypes.AOE_OFFSET, new AOEOffsetComponent(0, 0));
 
             var uses = tier.getUses();
             if (uses == 0) {
@@ -48,8 +49,6 @@ public class EssenceScytheItem extends BaseScytheItem implements ITinkerable {
             }
 
             p.durability(uses);
-
-            p.component(ModDataComponentTypes.AOE_OFFSET, new AOEOffsetComponent(0, 0));
 
             return p;
         });
@@ -149,8 +148,7 @@ public class EssenceScytheItem extends BaseScytheItem implements ITinkerable {
 
         ModTooltips.addAugmentListToTooltip(tooltip, stack, this.slots);
 
-        if (stack.has(MysticalAgricultureDataComponentTypes.AOE_OFFSET))
-        {
+        if (stack.has(MysticalAgricultureDataComponentTypes.AOE_OFFSET)) {
             ModTooltips.addAOEOffsetToTooltip(tooltip, stack);
         }
     }

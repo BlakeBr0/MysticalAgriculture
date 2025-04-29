@@ -15,8 +15,7 @@ import net.neoforged.neoforge.common.ItemAbilities;
 
 import java.util.EnumSet;
 
-public class PathingAOEAugment extends AOEAugment
-{
+public class PathingAOEAugment extends AOEAugment {
     public PathingAOEAugment(ResourceLocation id, int tier, int range) {
         super(id, tier, EnumSet.of(AugmentType.SHOVEL), getColor(0xAA8D4A, tier), getColor(0x856B3A, tier), range);
     }

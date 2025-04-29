@@ -38,6 +38,7 @@ public class EssenceHoeItem extends BaseHoeItem implements ITinkerable {
     public EssenceHoeItem(Tier tier, int tinkerableTier, int slots) {
         super(tier, 0, tinkerableTier - 1.0F, p -> {
             p.component(ModDataComponentTypes.EQUIPPED_AUGMENTS, new ArrayList<>(slots));
+            p.component(ModDataComponentTypes.AOE_OFFSET, new AOEOffsetComponent(0, 0));
 
             var uses = tier.getUses();
             if (uses == 0) {
@@ -45,8 +46,6 @@ public class EssenceHoeItem extends BaseHoeItem implements ITinkerable {
             }
 
             p.durability(uses);
-
-            p.component(ModDataComponentTypes.AOE_OFFSET, new AOEOffsetComponent(0, 0));
 
             return p;
         });
@@ -138,8 +137,7 @@ public class EssenceHoeItem extends BaseHoeItem implements ITinkerable {
         tooltip.add(ModTooltips.getTooltipForTier(this.tinkerableTier));
         ModTooltips.addAugmentListToTooltip(tooltip, stack, this.slots);
 
-        if (stack.has(MysticalAgricultureDataComponentTypes.AOE_OFFSET))
-        {
+        if (stack.has(MysticalAgricultureDataComponentTypes.AOE_OFFSET)) {
             ModTooltips.addAOEOffsetToTooltip(tooltip, stack);
         }
     }

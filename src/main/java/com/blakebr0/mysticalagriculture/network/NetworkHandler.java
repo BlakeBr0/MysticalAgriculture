@@ -3,7 +3,6 @@ package com.blakebr0.mysticalagriculture.network;
 import com.blakebr0.mysticalagriculture.network.payloads.ExperienceCapsulePickupPayload;
 import com.blakebr0.mysticalagriculture.network.payloads.ReloadIngredientCachePayload;
 import com.blakebr0.mysticalagriculture.network.payloads.UpdateAOEOffsetPayload;
-
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.neoforge.network.event.RegisterPayloadHandlersEvent;
 

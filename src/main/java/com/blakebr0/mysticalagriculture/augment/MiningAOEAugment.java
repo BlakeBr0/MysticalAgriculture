@@ -16,9 +16,7 @@ import net.minecraft.world.level.block.state.BlockState;
 
 import java.util.EnumSet;
 
-
-public class MiningAOEAugment extends AOEAugment
-{
+public class MiningAOEAugment extends AOEAugment {
     public MiningAOEAugment(ResourceLocation id, int tier, int range) {
         super(id, tier, EnumSet.of(AugmentType.PICKAXE, AugmentType.AXE, AugmentType.SHOVEL), getColor(0xD5FFF6, tier), getColor(0x0EBABD, tier), range);
     }
@@ -33,7 +31,7 @@ public class MiningAOEAugment extends AOEAugment
 
         if (entity instanceof Player player) {
             var trace = BlockHelper.rayTraceBlocks(level, player);
-            Direction side = trace.getDirection();
+            var side = trace.getDirection();
 
             harvestAOEBlocks(stack, this.range, level, pos, side, player);
         }
@@ -41,9 +39,7 @@ public class MiningAOEAugment extends AOEAugment
         return false;
     }
 
-
-    private static void harvestAOEBlocks(ItemStack stack, int radius, Level level, BlockPos pos, Direction side, Player player)
-    {
+    private static void harvestAOEBlocks(ItemStack stack, int radius, Level level, BlockPos pos, Direction side, Player player) {
         var state = level.getBlockState(pos);
         var hardness = state.getDestroySpeed(level, pos);
 

@@ -1,7 +1,13 @@
 package com.blakebr0.mysticalagriculture;
 
 import com.blakebr0.mysticalagriculture.api.MysticalAgricultureAPI;
-import com.blakebr0.mysticalagriculture.client.*;
+import com.blakebr0.mysticalagriculture.client.EssenceVesselColorManager;
+import com.blakebr0.mysticalagriculture.client.ModClientExtensions;
+import com.blakebr0.mysticalagriculture.client.ModClientTooltipComponentFactories;
+import com.blakebr0.mysticalagriculture.client.ModMenuScreens;
+import com.blakebr0.mysticalagriculture.client.ModRecipeBookCategories;
+import com.blakebr0.mysticalagriculture.client.ModTESRs;
+import com.blakebr0.mysticalagriculture.client.ModelHandler;
 import com.blakebr0.mysticalagriculture.client.handler.AOERenderingHandler;
 import com.blakebr0.mysticalagriculture.client.handler.AugmentTooltipHandler;
 import com.blakebr0.mysticalagriculture.client.handler.ColorHandler;

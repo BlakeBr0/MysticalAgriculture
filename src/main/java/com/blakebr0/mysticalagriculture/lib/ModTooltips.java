@@ -83,13 +83,8 @@ public final class ModTooltips {
         }
     }
 
-
-    /**
-     * Adds tooltip to applied offset of AOE effect.
-     */
-    public static void addAOEOffsetToTooltip(List<Component> tooltip, ItemStack stack)
-    {
-        AOEOffsetComponent component = stack.getOrDefault(MysticalAgricultureDataComponentTypes.AOE_OFFSET,
+    public static void addAOEOffsetToTooltip(List<Component> tooltip, ItemStack stack) {
+        var component = stack.getOrDefault(MysticalAgricultureDataComponentTypes.AOE_OFFSET,
             new AOEOffsetComponent(0, 0));
 
         if (component.verticalOffset() == 0 && component.horizontalOffset() == 0)
