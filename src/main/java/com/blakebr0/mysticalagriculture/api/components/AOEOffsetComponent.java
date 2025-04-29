@@ -23,4 +23,8 @@ public record AOEOffsetComponent(int horizontalOffset, int verticalOffset) {
         AOEOffsetComponent::verticalOffset,
         AOEOffsetComponent::new
     );
+
+    public boolean isOffset() {
+        return this.horizontalOffset != 0 || this.verticalOffset != 0;
+    }
 }

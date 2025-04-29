@@ -1,7 +1,6 @@
 package com.blakebr0.mysticalagriculture.item.tool;
 
 import com.blakebr0.cucumber.item.tool.BaseSickleItem;
-import com.blakebr0.mysticalagriculture.api.MysticalAgricultureDataComponentTypes;
 import com.blakebr0.mysticalagriculture.api.components.AOEOffsetComponent;
 import com.blakebr0.mysticalagriculture.api.tinkering.AugmentType;
 import com.blakebr0.mysticalagriculture.api.tinkering.ITinkerable;
@@ -147,10 +146,6 @@ public class EssenceSickleItem extends BaseSickleItem implements ITinkerable {
         tooltip.add(ModTooltips.TOOL_AREA.args(rangeNumber).build());
 
         ModTooltips.addAugmentListToTooltip(tooltip, stack, this.slots);
-
-        if (stack.has(MysticalAgricultureDataComponentTypes.AOE_OFFSET)) {
-            ModTooltips.addAOEOffsetToTooltip(tooltip, stack);
-        }
     }
 
     @Override

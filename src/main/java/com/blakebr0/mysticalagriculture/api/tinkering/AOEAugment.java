@@ -1,7 +1,6 @@
 package com.blakebr0.mysticalagriculture.api.tinkering;
 
 import com.blakebr0.mysticalagriculture.api.MysticalAgricultureDataComponentTypes;
-import com.blakebr0.mysticalagriculture.api.components.AOEOffsetComponent;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.resources.ResourceLocation;

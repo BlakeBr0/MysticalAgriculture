@@ -1,7 +1,6 @@
 package com.blakebr0.mysticalagriculture.item.tool;
 
 import com.blakebr0.cucumber.item.tool.BasePickaxeItem;
-import com.blakebr0.mysticalagriculture.api.MysticalAgricultureDataComponentTypes;
 import com.blakebr0.mysticalagriculture.api.components.AOEOffsetComponent;
 import com.blakebr0.mysticalagriculture.api.tinkering.AugmentType;
 import com.blakebr0.mysticalagriculture.api.tinkering.ITinkerable;
@@ -136,10 +135,6 @@ public class EssencePickaxeItem extends BasePickaxeItem implements ITinkerable {
     public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltip, TooltipFlag flag) {
         tooltip.add(ModTooltips.getTooltipForTier(this.tinkerableTier));
         ModTooltips.addAugmentListToTooltip(tooltip, stack, this.slots);
-
-        if (stack.has(MysticalAgricultureDataComponentTypes.AOE_OFFSET)) {
-            ModTooltips.addAOEOffsetToTooltip(tooltip, stack);
-        }
     }
 
     @Override

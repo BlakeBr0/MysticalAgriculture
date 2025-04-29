@@ -1,11 +1,12 @@
 package com.blakebr0.mysticalagriculture.lib;
 
 import com.blakebr0.cucumber.util.Tooltip;
-import com.blakebr0.mysticalagriculture.api.MysticalAgricultureDataComponentTypes;
 import com.blakebr0.mysticalagriculture.api.components.AOEOffsetComponent;
+import com.blakebr0.mysticalagriculture.api.tinkering.AOEAugment;
 import com.blakebr0.mysticalagriculture.api.util.AugmentUtils;
 import com.blakebr0.mysticalagriculture.api.util.TinkerableUtils;
 import com.blakebr0.mysticalagriculture.client.ClientPlayerProxy;
+import com.blakebr0.mysticalagriculture.init.ModDataComponentTypes;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.ItemStack;
@@ -79,20 +80,17 @@ public final class ModTooltips {
                 name.withStyle(ChatFormatting.GREEN);
             }
 
+            if (augment instanceof AOEAugment) {
+                var offset = stack.getOrDefault(ModDataComponentTypes.AOE_OFFSET, AOEOffsetComponent.DEFAULT);
+                if (offset.isOffset()) {
+                    var horizontalOffset = String.format("%+d", offset.horizontalOffset());
+                    var verticalOffset = String.format("%+d", offset.verticalOffset());
+
+                    name.append(ModTooltips.AOE_OFFSET_TOOLTIP.args(horizontalOffset, verticalOffset).prepend(" (").append(")").build());
+                }
+            }
+
             tooltip.add(Component.literal(" - ").withStyle(ChatFormatting.GRAY).append(name));
         }
-    }
-
-    public static void addAOEOffsetToTooltip(List<Component> tooltip, ItemStack stack) {
-        var component = stack.getOrDefault(MysticalAgricultureDataComponentTypes.AOE_OFFSET,
-            new AOEOffsetComponent(0, 0));
-
-        if (component.verticalOffset() == 0 && component.horizontalOffset() == 0)
-        {
-            // No offset applied. Do not display it.
-            return;
-        }
-
-        tooltip.add(ModTooltips.AOE_OFFSET_TOOLTIP.args(component.horizontalOffset(), component.verticalOffset()).build());
     }
 }

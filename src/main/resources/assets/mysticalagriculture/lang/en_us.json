@@ -309,7 +309,7 @@
   "tooltip.mysticalagriculture.upgrade_fuel_capacity": "Fuel Capacity: %sx",
   "tooltip.mysticalagriculture.upgrade_area": "Area: +%s",
   "tooltip.mysticalagriculture.missing_essences": "Missing Essences",
-  "tooltip.mysticalagriculture.aoe_offset": "Offset: %s x %s",
+  "tooltip.mysticalagriculture.aoe_offset": "Offset: %s, %s",
 
   "jei.category.mysticalagriculture.infusion": "Infusion Crafting",
   "jei.category.mysticalagriculture.awakening": "Awakening",
