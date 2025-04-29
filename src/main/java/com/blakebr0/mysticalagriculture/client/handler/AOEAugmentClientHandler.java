@@ -1,5 +1,6 @@
 package com.blakebr0.mysticalagriculture.client.handler;
 
+import com.blakebr0.cucumber.helper.BlockHelper;
 import com.blakebr0.mysticalagriculture.api.tinkering.ITinkerable;
 import com.blakebr0.mysticalagriculture.api.util.AugmentUtils;
 import com.blakebr0.mysticalagriculture.augment.MiningAOEAugment;
@@ -45,9 +46,9 @@ public final class AOEAugmentClientHandler {
             horizontalOffsetChange = -1;
         } else if (InputConstants.isKeyDown(window, InputConstants.KEY_RIGHT)) {
             horizontalOffsetChange = 1;
-        } else if (InputConstants.isKeyDown(window, InputConstants.KEY_UP)) {
-            verticalOffsetChange = -1;
         } else if (InputConstants.isKeyDown(window, InputConstants.KEY_DOWN)) {
+            verticalOffsetChange = -1;
+        } else if (InputConstants.isKeyDown(window, InputConstants.KEY_UP)) {
             verticalOffsetChange = 1;
         }
 
