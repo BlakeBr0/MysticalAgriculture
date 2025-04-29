@@ -3,6 +3,7 @@ package com.blakebr0.mysticalagriculture.api.util;
 import com.blakebr0.mysticalagriculture.api.MysticalAgricultureAPI;
 import com.blakebr0.mysticalagriculture.api.MysticalAgricultureDataComponentTypes;
 import com.blakebr0.mysticalagriculture.api.components.AugmentComponent;
+import com.blakebr0.mysticalagriculture.api.tinkering.AOEAugment;
 import com.blakebr0.mysticalagriculture.api.tinkering.Augment;
 import com.blakebr0.mysticalagriculture.api.tinkering.ITinkerable;
 import net.minecraft.world.entity.player.Player;
@@ -143,5 +144,23 @@ public class AugmentUtils {
         }
 
         return augments;
+    }
+
+    /**
+     * Gets that largest AOE augment size
+     * @param stack the {@link ITinkerable}
+     * @return the range
+     */
+    public static int getMaxAOEAugmentRange(ItemStack stack) {
+        int range = 0;
+
+        var augments = getAugments(stack);
+        for (var augment : augments) {
+            if (augment instanceof AOEAugment aoeAugment) {
+                range = Math.max(range, aoeAugment.getRange());
+            }
+        }
+
+        return range;
     }
 }

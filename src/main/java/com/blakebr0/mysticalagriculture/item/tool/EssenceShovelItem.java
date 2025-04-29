@@ -1,7 +1,7 @@
 package com.blakebr0.mysticalagriculture.item.tool;
 
 import com.blakebr0.cucumber.item.tool.BaseShovelItem;
-import com.blakebr0.mysticalagriculture.api.components.AOEOffsetComponent;
+import com.blakebr0.mysticalagriculture.api.components.AOEAugmentOffsetComponent;
 import com.blakebr0.mysticalagriculture.api.tinkering.AugmentType;
 import com.blakebr0.mysticalagriculture.api.tinkering.ITinkerable;
 import com.blakebr0.mysticalagriculture.api.util.AugmentUtils;
@@ -37,7 +37,7 @@ public class EssenceShovelItem extends BaseShovelItem implements ITinkerable {
     public EssenceShovelItem(Tier tier, int tinkerableTier, int slots) {
         super(tier, p -> {
             p.component(ModDataComponentTypes.EQUIPPED_AUGMENTS, new ArrayList<>(slots));
-            p.component(ModDataComponentTypes.AOE_OFFSET, new AOEOffsetComponent(0, 0));
+            p.component(ModDataComponentTypes.AOE_AUGMENT_OFFSET, new AOEAugmentOffsetComponent(0, 0));
 
             var uses = tier.getUses();
             if (uses == 0) {

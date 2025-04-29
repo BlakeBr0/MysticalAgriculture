@@ -1,19 +1,14 @@
 package com.blakebr0.mysticalagriculture.client.handler;
 
-import com.blakebr0.mysticalagriculture.api.MysticalAgricultureDataComponentTypes;
-import com.blakebr0.mysticalagriculture.api.components.AOEOffsetComponent;
-import com.blakebr0.mysticalagriculture.api.tinkering.AOEAugment;
-import com.blakebr0.mysticalagriculture.api.tinkering.Augment;
 import com.blakebr0.mysticalagriculture.api.tinkering.ITinkerable;
 import com.blakebr0.mysticalagriculture.api.util.AugmentUtils;
 import com.blakebr0.mysticalagriculture.augment.MiningAOEAugment;
-import com.blakebr0.mysticalagriculture.network.payloads.UpdateAOEOffsetPayload;
+import com.blakebr0.mysticalagriculture.network.payloads.UpdateAOEAugmentOffsetPayload;
 import com.mojang.blaze3d.platform.InputConstants;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.LevelRenderer;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.core.Direction;
-import net.minecraft.util.Mth;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.phys.AABB;
 import net.neoforged.bus.api.SubscribeEvent;
@@ -21,9 +16,7 @@ import net.neoforged.neoforge.client.event.InputEvent;
 import net.neoforged.neoforge.client.event.RenderHighlightEvent;
 import net.neoforged.neoforge.network.PacketDistributor;
 
-import java.util.List;
-
-public class AOEAugmentClientHandler {
+public final class AOEAugmentClientHandler {
     @SubscribeEvent
     public void onKeyInput(InputEvent.Key event) {
         var minecraft = Minecraft.getInstance();
@@ -41,62 +34,27 @@ public class AOEAugmentClientHandler {
         if (!InputConstants.isKeyDown(window, InputConstants.KEY_RCONTROL) && !InputConstants.isKeyDown(window, InputConstants.KEY_LCONTROL))
             return;
 
-        var augments = AugmentUtils.getAugments(stack);
-        if (augments.isEmpty())
-            return;
-
-        int range = getRange(augments, minecraft.player.isCrouching());
+        int range = AugmentUtils.getMaxAOEAugmentRange(stack);
         if (range == 0)
             return;
 
-        var offset = stack.getOrDefault(MysticalAgricultureDataComponentTypes.AOE_OFFSET, AOEOffsetComponent.DEFAULT);
-
-        final int horizontalOffset;
-        final int verticalOffset;
+        int horizontalOffsetChange = 0;
+        int verticalOffsetChange = 0;
 
         if (InputConstants.isKeyDown(window, InputConstants.KEY_LEFT)) {
-            horizontalOffset = Mth.clamp(offset.horizontalOffset() - 1, -range, range);
-            verticalOffset = offset.verticalOffset();
+            horizontalOffsetChange = -1;
         } else if (InputConstants.isKeyDown(window, InputConstants.KEY_RIGHT)) {
-            horizontalOffset = Mth.clamp(offset.horizontalOffset() + 1, -range, range);
-            verticalOffset = offset.verticalOffset();
+            horizontalOffsetChange = 1;
         } else if (InputConstants.isKeyDown(window, InputConstants.KEY_UP)) {
-            horizontalOffset = offset.horizontalOffset();
-            verticalOffset = Mth.clamp(offset.verticalOffset() - 1, -range, range);
+            verticalOffsetChange = -1;
         } else if (InputConstants.isKeyDown(window, InputConstants.KEY_DOWN)) {
-            horizontalOffset = offset.horizontalOffset();
-            verticalOffset = Mth.clamp(offset.verticalOffset() + 1, -range, range);
-        } else {
-            return;
+            verticalOffsetChange = 1;
         }
 
-        PacketDistributor.sendToServer(new UpdateAOEOffsetPayload(new AOEOffsetComponent(horizontalOffset, verticalOffset)));
-    }
-
-
-    /**
-     * This method gets that largest AOE augment size.
-     * @param augments The list of augments.
-     * @param crouching indicates that need tiling or pathing AOE upgrade.
-     * @return the range
-     */
-    private static int getRange(List<Augment> augments, boolean crouching) {
-        int range = 0;
-
-        for (var augment : augments) {
-            if (crouching && augment instanceof MiningAOEAugment) {
-                // Skip mining augment if player is crouching
-                continue;
-            }
-
-            if (augment instanceof AOEAugment aoeAugment) {
-                range = Math.max(range, aoeAugment.getRange());
-            }
+        if (horizontalOffsetChange != 0 || verticalOffsetChange != 0) {
+            PacketDistributor.sendToServer(new UpdateAOEAugmentOffsetPayload(horizontalOffsetChange, verticalOffsetChange));
         }
-
-        return range;
     }
-
 
     /**
      * This method highlights selected blocks that will be affected by AOE effect.
@@ -120,11 +78,7 @@ public class AOEAugmentClientHandler {
         if (!InputConstants.isKeyDown(window, InputConstants.KEY_RCONTROL) && !InputConstants.isKeyDown(window, InputConstants.KEY_LCONTROL))
             return;
 
-        var augments = AugmentUtils.getAugments(stack);
-        if (augments.isEmpty())
-            return;
-
-        int range = getRange(augments, player.isCrouching());
+        int range = AugmentUtils.getMaxAOEAugmentRange(stack);
         if (range == 0)
             return;
 

@@ -1,7 +1,7 @@
 package com.blakebr0.mysticalagriculture.lib;
 
 import com.blakebr0.cucumber.util.Tooltip;
-import com.blakebr0.mysticalagriculture.api.components.AOEOffsetComponent;
+import com.blakebr0.mysticalagriculture.api.components.AOEAugmentOffsetComponent;
 import com.blakebr0.mysticalagriculture.api.tinkering.AOEAugment;
 import com.blakebr0.mysticalagriculture.api.util.AugmentUtils;
 import com.blakebr0.mysticalagriculture.api.util.TinkerableUtils;
@@ -81,7 +81,7 @@ public final class ModTooltips {
             }
 
             if (augment instanceof AOEAugment) {
-                var offset = stack.getOrDefault(ModDataComponentTypes.AOE_OFFSET, AOEOffsetComponent.DEFAULT);
+                var offset = stack.getOrDefault(ModDataComponentTypes.AOE_AUGMENT_OFFSET, AOEAugmentOffsetComponent.DEFAULT);
                 if (offset.isOffset()) {
                     var horizontalOffset = String.format("%+d", offset.horizontalOffset());
                     var verticalOffset = String.format("%+d", offset.verticalOffset());
