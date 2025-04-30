@@ -1,9 +1,8 @@
 package com.blakebr0.mysticalagriculture.client.handler;
 
-import com.blakebr0.cucumber.helper.BlockHelper;
+import com.blakebr0.mysticalagriculture.api.tinkering.AOEAugment;
 import com.blakebr0.mysticalagriculture.api.tinkering.ITinkerable;
 import com.blakebr0.mysticalagriculture.api.util.AugmentUtils;
-import com.blakebr0.mysticalagriculture.augment.MiningAOEAugment;
 import com.blakebr0.mysticalagriculture.network.payloads.UpdateAOEAugmentOffsetPayload;
 import com.mojang.blaze3d.platform.InputConstants;
 import net.minecraft.client.Minecraft;
@@ -98,7 +97,7 @@ public final class AOEAugmentClientHandler {
 
         var direction = player.isCrouching() ? Direction.UP : event.getTarget().getDirection();
 
-        MiningAOEAugment.getAOEBlocks(stack, range, event.getTarget().getBlockPos(), direction, player).
+        AOEAugment.getAOEBlocks(stack, range, event.getTarget().getBlockPos(), direction, player).
             forEach(aoePos -> {
                 var state = player.level().getBlockState(aoePos);
                 if (state.isAir())

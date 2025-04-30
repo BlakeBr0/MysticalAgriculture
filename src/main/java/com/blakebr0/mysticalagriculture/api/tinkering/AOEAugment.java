@@ -22,8 +22,7 @@ public abstract class AOEAugment extends Augment {
         this.range = range;
     }
 
-    public int getRange()
-    {
+    public int getRange() {
         return this.range;
     }
 
@@ -39,7 +38,7 @@ public abstract class AOEAugment extends Augment {
         int horizontalOffset = 0;
         int verticalOffset = 0;
 
-        var offset = stack.get(MysticalAgricultureDataComponentTypes.AOE_OFFSET);
+        var offset = stack.get(MysticalAgricultureDataComponentTypes.AOE_AUGMENT_OFFSET);
         if (offset != null) {
             horizontalOffset = Mth.clamp(offset.horizontalOffset(), -radius, radius);
             verticalOffset = Mth.clamp(offset.verticalOffset(), -radius, radius);
