@@ -301,7 +301,7 @@
     "tooltip.mysticalagriculture.hostile_attuned": "敵対的同調",
     "tooltip.mysticalagriculture.creative_attuned": "クリエイティブ同調",
     "tooltip.mysticalagriculture.activate_with_redstone": "魔法の杖かレッドストーン信号で起動します。",
-    "tooltip.mysticalagriculture.fertilized_essence_chance": "%s ドロップ確率",
+    "tooltip.mysticalagriculture.fertilized_essence_chance": "ドロップ確率：%s",
     "tooltip.mysticalagriculture.mystical_fertilizer": "作物や苗木を瞬時に成長させます。",
     "tooltip.mysticalagriculture.awakened_supremium_set_bonus": "範囲植物成長",
     "tooltip.mysticalagriculture.upgrade_speed": "処理速度：%sx",
