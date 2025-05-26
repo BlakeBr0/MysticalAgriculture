@@ -20,7 +20,7 @@ public final class ModCreativeModeTabs {
 
     public static final RegistryObject<CreativeModeTab> CREATIVE_TAB = REGISTRY.register("creative_tab", () -> CreativeModeTab.builder()
             .title(Component.translatable("itemGroup.mysticalagriculture"))
-            .icon(() -> new ItemStack(ModItems.SUPREMIUM_ESSENCE.get()))
+            .icon(() -> new ItemStack(ModItems.INFERIUM_ESSENCE.get()))
             .displayItems(FeatureFlagDisplayItemGenerator.create((parameters, output) -> {
                 var stack = ItemStack.EMPTY;
 
