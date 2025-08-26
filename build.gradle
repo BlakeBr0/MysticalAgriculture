@@ -29,6 +29,7 @@ repositories {
             includeGroup 'curse.maven'
         }
     }
+    maven { url 'https://maven.teamresourceful.com/repository/maven-public/' }
 }
 
 minecraft {
@@ -127,6 +128,7 @@ dependencies {
 
     implementation fg.deobf("curse.maven:jade-324717:${jade_version}")
     implementation fg.deobf("curse.maven:the-one-probe-245211:${top_version}")
+    implementation fg.deobf("curse.maven:agricraft-225635:${agricraft_version}")
     implementation fg.deobf("com.blamejared.crafttweaker:CraftTweaker-forge-${crafttweaker_version}")
 
     runtimeOnly fg.deobf("vazkii.patchouli:Patchouli:${patchouli_version}")
