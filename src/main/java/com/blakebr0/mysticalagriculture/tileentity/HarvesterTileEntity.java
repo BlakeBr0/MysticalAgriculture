@@ -1,5 +1,6 @@
 package com.blakebr0.mysticalagriculture.tileentity;
 
+import com.agricraft.agricraft.api.crop.AgriCrop;
 import com.blakebr0.cucumber.energy.DynamicEnergyStorage;
 import com.blakebr0.cucumber.helper.CropHelper;
 import com.blakebr0.cucumber.helper.StackHelper;
@@ -32,6 +33,8 @@ import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.capabilities.ForgeCapabilities;
 import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.energy.IEnergyStorage;
+
+import java.util.function.Consumer;
 
 public class HarvesterTileEntity extends BaseInventoryTileEntity implements MenuProvider, IUpgradeableMachine {
     private static final int FUEL_TICK_MULTIPLIER = 20;
@@ -166,6 +169,11 @@ public class HarvesterTileEntity extends BaseInventoryTileEntity implements Menu
             var cropState = level.getBlockState(nextPos);
             var block = cropState.getBlock();
 
+            Consumer<ItemStack> insert = drop -> {
+                if (!drop.isEmpty()) {
+                    tile.addItemToInventory(drop, level, nextPos);
+                }
+            };
             if (block instanceof CropBlock crop) {
                 var seed = CropHelper.getSeedsItem(block);
                 if (seed != null && crop.isMaxAge(cropState)) {
@@ -181,13 +189,18 @@ public class HarvesterTileEntity extends BaseInventoryTileEntity implements Menu
                     }
 
                     for (var drop : drops) {
-                        if (!drop.isEmpty()) {
-                            tile.addItemToInventory(drop, level, nextPos);
-                        }
+                        insert.accept(drop);
                     }
 
                     level.setBlockAndUpdate(nextPos, crop.getStateForAge(0));
 
+                    tile.energy.extractEnergy(tile.getFuelUsage(), false);
+                } else {
+                    tile.energy.extractEnergy(SCAN_FUEL_USAGE, false);
+                }
+            } else if (level.getBlockEntity(nextPos) instanceof AgriCrop agriCrop && agriCrop.hasPlant()) {
+                // there's no seed removing as harvest only adds the plant's products
+                if (agriCrop.harvest(insert, null)) {
                     tile.energy.extractEnergy(tile.getFuelUsage(), false);
                 } else {
                     tile.energy.extractEnergy(SCAN_FUEL_USAGE, false);
