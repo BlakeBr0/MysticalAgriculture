@@ -50,7 +50,7 @@ public final class AugmentRegistry implements IAugmentRegistry {
         this.augments.forEach((id, a) -> {
             var item = new AugmentItem(a);
 
-            registry.register(id.withSuffix("_augment"), item);
+            registry.register(MysticalAgriculture.resource(a.getNameWithSuffix("augment")), item);
         });
 
         PluginRegistry.getInstance().forEach((plugin, config) -> plugin.onPostRegisterAugments(this));
