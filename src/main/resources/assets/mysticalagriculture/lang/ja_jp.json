@@ -74,6 +74,7 @@
     "block.mysticalagriculture.soul_extractor": "魂抽出機",
     "block.mysticalagriculture.harvester": "収穫機",
     "block.mysticalagriculture.soulium_spawner": "ソウリウムのスポナー",
+    "block.mysticalagriculture.ore_infuser": "鉱石注入機",
   
     "block.mysticalagriculture.mystical_crop": "%sの作物",
   
@@ -339,6 +340,7 @@
     "jei.category.mysticalagriculture.reprocessor": "種の再処理",
     "jei.category.mysticalagriculture.soul_extractor": "魂の抽出",
     "jei.category.mysticalagriculture.soulium_spawner": "ソウリウムのスポナー",
+    "jei.category.mysticalagriculture.ore_infuser": "鉱石注入",
     "jei.category.mysticalagriculture.crux": "核",
   
     "jei.desc.mysticalagriculture.cognizant_dust": "神秘の啓示のエンチャントが付与されたエッセンスの武器で、ウィザーやエンダードラゴンを倒したときにドロップします。",
