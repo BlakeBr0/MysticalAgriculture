@@ -6,7 +6,7 @@ plugins {
     id 'net.neoforged.moddev' version '2.0.141'
 }
 
-version = '26.1.2-9.0.3'
+version = '26.2-9.0.3'
 group = 'com.blakebr0.mysticalagriculture'
 
 base {
@@ -18,7 +18,19 @@ java.toolchain.languageVersion = JavaLanguageVersion.of(25)
 println "Java: ${System.getProperty 'java.version'}, JVM: ${System.getProperty 'java.vm.version'} (${System.getProperty 'java.vendor'}), Arch: ${System.getProperty 'os.arch'}"
 
 repositories {
-    maven { url 'https://maven.blakesmods.com' }
+    maven {
+        name = 'GitHubPackages'
+        url = 'https://maven.pkg.github.com/ethan-gallant/Cucumber'
+
+        credentials {
+            username = System.getenv('GPR_USER') ?: findProperty('gpr.user')
+            password = System.getenv('GPR_TOKEN') ?: findProperty('gpr.key')
+        }
+
+        content {
+            includeGroup 'com.ethangallant'
+        }
+    }
     maven { url 'https://maven.blamejared.com' }
     maven { url 'https://maven.tterrag.com' }
     maven {
@@ -96,7 +108,7 @@ sourceSets.main.resources {
 }
 
 dependencies {
-    implementation "com.blakebr0.cucumber:Cucumber:${cucumber_version}"
+    implementation "com.ethangallant:cucumber:${cucumber_version}"
 
     implementation "curse.maven:jade-324717:${jade_version}"
 //  implementation "curse.maven:the-one-probe-245211:${top_version}"
@@ -144,15 +156,12 @@ publishing {
 
     repositories {
         maven {
-            url = 'https://maven.blakesmods.com'
+            name = 'GitHubPackages'
+            url = 'https://maven.pkg.github.com/ethan-gallant/MysticalAgriculture'
 
             credentials {
-                username = System.getenv('BLAKESMODS_MAVEN_USERNAME')
-                password = System.getenv('BLAKESMODS_MAVEN_PASSWORD')
-            }
-
-            authentication {
-                basic(BasicAuthentication)
+                username = System.getenv('GPR_USER') ?: findProperty('gpr.user')
+                password = System.getenv('GPR_TOKEN') ?: findProperty('gpr.key')
             }
         }
     }

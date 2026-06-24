@@ -29,7 +29,7 @@ public class AttackAOEAugment extends Augment {
 
                 for (var aoeEntity : entities) {
                     if (aoeEntity != player && aoeEntity != target && !player.isAlliedTo(target)) {
-                        aoeEntity.knockback(0.4F, Mth.sin(player.getYRot() * 0.017453292F), -Mth.cos(player.getYRot() * 0.017453292F));
+                        aoeEntity.knockback(0.4F, Mth.sin(player.getYRot() * 0.017453292F), -Mth.cos(player.getYRot() * 0.017453292F), level.damageSources().playerAttack(player), 5.0F + (5.0F * this.amplifier), false);
                         aoeEntity.hurt(level.damageSources().playerAttack(player), 5.0F + (5.0F * this.amplifier));
                     }
                 }

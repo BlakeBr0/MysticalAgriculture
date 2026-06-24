@@ -5,7 +5,7 @@ license="MIT"
     modId="mysticalagriculture"
     version="${mod_version}"
     displayName="Mystical Agriculture"
-    updateJSONURL="https://api.blakesmods.com/v2/mods/mysticalagriculture/26.1/updates"
+    updateJSONURL="https://api.blakesmods.com/v2/mods/mysticalagriculture/26.2/updates"
     displayURL="https://blakesmods.com/mystical-agriculture"
     # logoFile="examplemod.png"
     authors="BlakeBr0"
@@ -17,13 +17,13 @@ license="MIT"
     [[dependencies.mysticalagriculture]]
         modId="neoforge"
         mandatory=true
-        versionRange="[26.1.2.41-beta,)"
+        versionRange="[26.2.0.7-beta,)"
         ordering="NONE"
         side="BOTH"
     [[dependencies.mysticalagriculture]]
         modId="minecraft"
         mandatory=true
-        versionRange="[26.1.2,26.2)"
+        versionRange="[26.2,26.3)"
         ordering="NONE"
         side="BOTH"
     [[dependencies.mysticalagriculture]]
