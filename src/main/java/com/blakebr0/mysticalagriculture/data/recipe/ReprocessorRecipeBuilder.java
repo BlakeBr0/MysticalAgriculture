@@ -3,7 +3,7 @@ package com.blakebr0.mysticalagriculture.data.recipe;
 import com.blakebr0.mysticalagriculture.api.crop.Crop;
 import com.blakebr0.mysticalagriculture.crafting.condition.CropEnabledCondition;
 import com.blakebr0.mysticalagriculture.crafting.recipe.ReprocessorRecipe;
-import net.minecraft.advancements.Criterion;
+import net.minecraft.advancements.triggers.Criterion;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.recipes.RecipeBuilder;
 import net.minecraft.data.recipes.RecipeOutput;

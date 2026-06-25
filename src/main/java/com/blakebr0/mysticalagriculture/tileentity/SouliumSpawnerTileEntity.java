@@ -42,6 +42,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
 import net.minecraft.world.phys.AABB;
+import net.minecraft.world.phys.Vec3;
 import net.neoforged.neoforge.transfer.item.ItemResource;
 import net.neoforged.neoforge.transfer.item.ItemStacksResourceHandler;
 import net.neoforged.neoforge.transfer.transaction.Transaction;
@@ -378,7 +379,7 @@ public class SouliumSpawnerTileEntity extends BaseInventoryTileEntity implements
         if (entity == null)
             return false;
 
-        var entities = this.level.getEntitiesOfClass(entity.getClass(), AABB.ofSize(this.getBlockPos().getCenter(), SPAWN_RADIUS * 2, SPAWN_RADIUS * 2, SPAWN_RADIUS * 2))
+        var entities = this.level.getEntitiesOfClass(entity.getClass(), AABB.ofSize(Vec3.atCenterOf(this.getBlockPos()), SPAWN_RADIUS * 2, SPAWN_RADIUS * 2, SPAWN_RADIUS * 2))
                 .stream()
                 .filter(Entity::isAlive)
                 .count();

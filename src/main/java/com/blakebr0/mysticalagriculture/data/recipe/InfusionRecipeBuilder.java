@@ -5,7 +5,7 @@ import com.blakebr0.mysticalagriculture.crafting.condition.CropEnabledCondition;
 import com.blakebr0.mysticalagriculture.crafting.condition.CropHasMaterialCondition;
 import com.blakebr0.mysticalagriculture.crafting.ingredient.CropComponentIngredient;
 import com.blakebr0.mysticalagriculture.crafting.recipe.InfusionRecipe;
-import net.minecraft.advancements.Criterion;
+import net.minecraft.advancements.triggers.Criterion;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.recipes.RecipeBuilder;
 import net.minecraft.data.recipes.RecipeOutput;

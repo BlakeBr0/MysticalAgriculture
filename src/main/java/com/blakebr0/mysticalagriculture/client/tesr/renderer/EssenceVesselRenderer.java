@@ -14,6 +14,7 @@ import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
 import net.minecraft.client.renderer.feature.ModelFeatureRenderer;
 import net.minecraft.client.renderer.rendertype.RenderTypes;
 import net.minecraft.client.renderer.state.level.CameraRenderState;
+import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.minecraft.data.AtlasIds;
 import net.minecraft.resources.Identifier;
 import net.minecraft.world.phys.Vec3;
@@ -41,99 +42,109 @@ public class EssenceVesselRenderer implements BlockEntityRenderer<EssenceVesselT
 
     @Override
     public void submit(EssenceVesselRenderState state, PoseStack matrix, SubmitNodeCollector submitNodeCollector, CameraRenderState camera) {
-        if (!state.itemResource.isEmpty()) {
-            var builder = Minecraft.getInstance().renderBuffers().bufferSource().getBuffer(RenderTypes.solidMovingBlock());
-            var sprite = Minecraft.getInstance()
-                    .getAtlasManager()
-                    .getAtlasOrThrow(AtlasIds.BLOCKS)
-                    .getSprite(VESSEL_CONTENT_TEXTURE);
+        if (state.itemResource.isEmpty())
+            return;
 
-            float filledAmount = 0.4f * state.fillPercentage;
-            float textureOffset = ((16.0f - (11.0f * state.fillPercentage)) / 16.0F);
+        var sprite = Minecraft.getInstance()
+                .getAtlasManager()
+                .getAtlasOrThrow(AtlasIds.BLOCKS)
+                .getSprite(VESSEL_CONTENT_TEXTURE);
 
-            matrix.pushPose();
+        float filledAmount = 0.4f * state.fillPercentage;
+        float textureOffset = ((16.0f - (11.0f * state.fillPercentage)) / 16.0F);
+        int color = EssenceVesselColorManager.INSTANCE.getColor(state.itemResource);
+        int lightCoords = state.lightCoords;
 
-            var color = EssenceVesselColorManager.INSTANCE.getColor(state.itemResource);
+        matrix.pushPose();
 
-            // top
-            addVertex(builder, matrix, 0.2f, 0.75f + filledAmount, 0.8f, sprite.getU0(), sprite.getV1(), color, state.lightCoords);
-            addVertex(builder, matrix, 0.8f, 0.75f + filledAmount, 0.8f, sprite.getU1(), sprite.getV1(), color, state.lightCoords);
-            addVertex(builder, matrix, 0.8f, 0.75f + filledAmount, 0.2f, sprite.getU1(), sprite.getV0(), color, state.lightCoords);
-            addVertex(builder, matrix, 0.2f, 0.75f + filledAmount, 0.2f, sprite.getU0(), sprite.getV0(), color, state.lightCoords);
+        // top
+        submitFace(submitNodeCollector, matrix, (pose, buffer) -> {
+            addVertex(buffer, pose, 0.2f, 0.75f + filledAmount, 0.8f, sprite.getU0(), sprite.getV1(), color, lightCoords);
+            addVertex(buffer, pose, 0.8f, 0.75f + filledAmount, 0.8f, sprite.getU1(), sprite.getV1(), color, lightCoords);
+            addVertex(buffer, pose, 0.8f, 0.75f + filledAmount, 0.2f, sprite.getU1(), sprite.getV0(), color, lightCoords);
+            addVertex(buffer, pose, 0.2f, 0.75f + filledAmount, 0.2f, sprite.getU0(), sprite.getV0(), color, lightCoords);
+        });
 
-            matrix.pushPose();
-            matrix.translate(0, 1, 1);
-            matrix.mulPose(Axis.XP.rotationDegrees(180));
+        matrix.pushPose();
+        matrix.translate(0, 1, 1);
+        matrix.mulPose(Axis.XP.rotationDegrees(180));
 
-            // bottom
-            addVertex(builder, matrix, 0.2f, 0.25f, 0.8f, sprite.getU0(), sprite.getV1(), color, state.lightCoords);
-            addVertex(builder, matrix, 0.8f, 0.25f, 0.8f, sprite.getU1(), sprite.getV1(), color, state.lightCoords);
-            addVertex(builder, matrix, 0.8f, 0.25f, 0.2f, sprite.getU1(), sprite.getV0(), color, state.lightCoords);
-            addVertex(builder, matrix, 0.2f, 0.25f, 0.2f, sprite.getU0(), sprite.getV0(), color, state.lightCoords);
+        // bottom
+        submitFace(submitNodeCollector, matrix, (pose, buffer) -> {
+            addVertex(buffer, pose, 0.2f, 0.25f, 0.8f, sprite.getU0(), sprite.getV1(), color, lightCoords);
+            addVertex(buffer, pose, 0.8f, 0.25f, 0.8f, sprite.getU1(), sprite.getV1(), color, lightCoords);
+            addVertex(buffer, pose, 0.8f, 0.25f, 0.2f, sprite.getU1(), sprite.getV0(), color, lightCoords);
+            addVertex(buffer, pose, 0.2f, 0.25f, 0.2f, sprite.getU0(), sprite.getV0(), color, lightCoords);
+        });
 
-            matrix.popPose();
+        matrix.popPose();
 
-            matrix.pushPose();
+        matrix.pushPose();
+        matrix.translate(1.2, 0.55, 0);
+        matrix.mulPose(Axis.ZP.rotationDegrees(90));
 
-            matrix.translate(1.2, 0.55, 0);
-            matrix.mulPose(Axis.ZP.rotationDegrees(90));
+        // west
+        submitFace(submitNodeCollector, matrix, (pose, buffer) -> {
+            addVertex(buffer, pose, 0.2f, 1, 0.8f, sprite.getU(textureOffset), sprite.getV1(), color, lightCoords);
+            addVertex(buffer, pose, 0.2f + filledAmount, 1, 0.8f, sprite.getU1(), sprite.getV1(), color, lightCoords);
+            addVertex(buffer, pose, 0.2f + filledAmount, 1, 0.2f, sprite.getU1(), sprite.getV0(), color, lightCoords);
+            addVertex(buffer, pose, 0.2f, 1, 0.2f, sprite.getU(textureOffset), sprite.getV0(), color, lightCoords);
+        });
 
-            // west
-            addVertex(builder, matrix, 0.2f, 1, 0.8f, sprite.getU(textureOffset), sprite.getV1(), color, state.lightCoords);
-            addVertex(builder, matrix, 0.2f + filledAmount, 1, 0.8f, sprite.getU1(), sprite.getV1(), color, state.lightCoords);
-            addVertex(builder, matrix, 0.2f + filledAmount, 1, 0.2f, sprite.getU1(), sprite.getV0(), color, state.lightCoords);
-            addVertex(builder, matrix, 0.2f, 1, 0.2f, sprite.getU(textureOffset), sprite.getV0(), color, state.lightCoords);
+        matrix.popPose();
+        matrix.pushPose();
+        matrix.translate(-0.2, 0.55, 1);
+        matrix.mulPose(Axis.ZP.rotationDegrees(270));
+        matrix.mulPose(Axis.YP.rotationDegrees(180));
 
-            matrix.popPose();
-            matrix.pushPose();
+        // east
+        submitFace(submitNodeCollector, matrix, (pose, buffer) -> {
+            addVertex(buffer, pose, 0.2f, 1, 0.8f, sprite.getU(textureOffset), sprite.getV1(), color, lightCoords);
+            addVertex(buffer, pose, 0.2f + filledAmount, 1, 0.8f, sprite.getU1(), sprite.getV1(), color, lightCoords);
+            addVertex(buffer, pose, 0.2f + filledAmount, 1, 0.2f, sprite.getU1(), sprite.getV0(), color, lightCoords);
+            addVertex(buffer, pose, 0.2f, 1, 0.2f, sprite.getU(textureOffset), sprite.getV0(), color, lightCoords);
+        });
 
-            matrix.translate(-0.2, 0.55, 1);
-            matrix.mulPose(Axis.ZP.rotationDegrees(270));
-            matrix.mulPose(Axis.YP.rotationDegrees(180));
+        matrix.popPose();
+        matrix.pushPose();
+        matrix.translate(1, 0.55, -0.2);
+        matrix.mulPose(Axis.XP.rotationDegrees(90));
+        matrix.mulPose(Axis.YP.rotationDegrees(180));
 
-            // east
-            addVertex(builder, matrix, 0.2f, 1, 0.8f, sprite.getU(textureOffset), sprite.getV1(), color, state.lightCoords);
-            addVertex(builder, matrix, 0.2f + filledAmount, 1, 0.8f, sprite.getU1(), sprite.getV1(), color, state.lightCoords);
-            addVertex(builder, matrix, 0.2f + filledAmount, 1, 0.2f, sprite.getU1(), sprite.getV0(), color, state.lightCoords);
-            addVertex(builder, matrix, 0.2f, 1, 0.2f, sprite.getU(textureOffset), sprite.getV0(), color, state.lightCoords);
+        // south
+        submitFace(submitNodeCollector, matrix, (pose, buffer) -> {
+            addVertex(buffer, pose, 0.2f, 1, 0.2f + filledAmount, sprite.getU0(), sprite.getV1(), color, lightCoords);
+            addVertex(buffer, pose, 0.8f, 1, 0.2f + filledAmount, sprite.getU1(), sprite.getV1(), color, lightCoords);
+            addVertex(buffer, pose, 0.8f, 1, 0.2f, sprite.getU1(), sprite.getV(textureOffset), color, lightCoords);
+            addVertex(buffer, pose, 0.2f, 1, 0.2f, sprite.getU0(), sprite.getV(textureOffset), color, lightCoords);
+        });
 
-            matrix.popPose();
-            matrix.pushPose();
+        matrix.popPose();
+        matrix.pushPose();
+        matrix.translate(0, 0.55, 1.2);
+        matrix.mulPose(Axis.XP.rotationDegrees(270));
 
-            matrix.translate(1, 0.55, -0.2);
-            matrix.mulPose(Axis.XP.rotationDegrees(90));
-            matrix.mulPose(Axis.YP.rotationDegrees(180));
+        // north
+        submitFace(submitNodeCollector, matrix, (pose, buffer) -> {
+            addVertex(buffer, pose, 0.2f, 1, 0.2f + filledAmount, sprite.getU0(), sprite.getV1(), color, lightCoords);
+            addVertex(buffer, pose, 0.8f, 1, 0.2f + filledAmount, sprite.getU1(), sprite.getV1(), color, lightCoords);
+            addVertex(buffer, pose, 0.8f, 1, 0.2f, sprite.getU1(), sprite.getV(textureOffset), color, lightCoords);
+            addVertex(buffer, pose, 0.2f, 1, 0.2f, sprite.getU0(), sprite.getV(textureOffset), color, lightCoords);
+        });
 
-            // south
-            addVertex(builder, matrix, 0.2f, 1, 0.2f + filledAmount, sprite.getU0(), sprite.getV1(), color, state.lightCoords);
-            addVertex(builder, matrix, 0.8f, 1, 0.2f + filledAmount, sprite.getU1(), sprite.getV1(), color, state.lightCoords);
-            addVertex(builder, matrix, 0.8f, 1, 0.2f, sprite.getU1(), sprite.getV(textureOffset), color, state.lightCoords);
-            addVertex(builder, matrix, 0.2f, 1, 0.2f, sprite.getU0(), sprite.getV(textureOffset), color, state.lightCoords);
-
-            matrix.popPose();
-            matrix.pushPose();
-
-            matrix.translate(0, 0.55, 1.2);
-            matrix.mulPose(Axis.XP.rotationDegrees(270));
-
-            // north
-            addVertex(builder, matrix, 0.2f, 1, 0.2f + filledAmount, sprite.getU0(), sprite.getV1(), color, state.lightCoords);
-            addVertex(builder, matrix, 0.8f, 1, 0.2f + filledAmount, sprite.getU1(), sprite.getV1(), color, state.lightCoords);
-            addVertex(builder, matrix, 0.8f, 1, 0.2f, sprite.getU1(), sprite.getV(textureOffset), color, state.lightCoords);
-            addVertex(builder, matrix, 0.2f, 1, 0.2f, sprite.getU0(), sprite.getV(textureOffset), color, state.lightCoords);
-
-            matrix.popPose();
-
-            matrix.popPose();
-        }
+        matrix.popPose();
+        matrix.popPose();
     }
 
-    private static void addVertex(VertexConsumer renderer, PoseStack stack, float x, float y, float z, float u, float v, int color, int lightCoords) {
-        renderer.addVertex(stack.last(), x, y, z)
+    private static void submitFace(SubmitNodeCollector submitNodeCollector, PoseStack matrix, SubmitNodeCollector.CustomGeometryRenderer renderer) {
+        submitNodeCollector.submitCustomGeometry(matrix, RenderTypes.solidMovingBlock(), renderer);
+    }
+
+    private static void addVertex(VertexConsumer renderer, PoseStack.Pose pose, float x, float y, float z, float u, float v, int color, int lightCoords) {
+        renderer.addVertex(pose, x, y, z)
                 .setColor(color)
                 .setUv(u, v)
                 .setLight(lightCoords)
                 .setNormal(1, 0, 0);
     }
 }
-
