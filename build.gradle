@@ -7,10 +7,10 @@ plugins {
 }
 
 version = '26.2-9.0.3'
-group = 'com.blakebr0.mysticalagriculture'
+group = 'com.ethangallant'
 
 base {
-    archivesName = 'MysticalAgriculture'
+    archivesName = 'mysticalagriculture'
 }
 
 java.toolchain.languageVersion = JavaLanguageVersion.of(25)
@@ -151,6 +151,7 @@ publishing {
     publications {
         maven(MavenPublication) {
             from components.java
+            artifactId = 'mysticalagriculture'
         }
     }
 
