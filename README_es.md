@@ -1,20 +1,21 @@
-# Mystical Agriculture
+# Agricultura Mística
 
 <!-- hy-mt2-i18n:start -->
-**English** · [中文](./README_zh-CN.md) · [日本語](./README_ja.md) · [Español](./README_es.md)
+[English](./README.md) | [中文](./README_zh-CN.md) | [日本語](./README_ja.md) | **Español**
 <!-- hy-mt2-i18n:end -->
 
+
 <p align="left">
-    <a href="https://blakesmods.com/mystical-agriculture" alt="Downloads">
+    <a href="https://blakesmods.com/mystical-agriculture" alt="Descargas">
         <img src="https://img.shields.io/endpoint?url=https://api.blakesmods.com/v2/badges/mysticalagriculture/downloads&style=for-the-badge" />
     </a>
-    <a href="https://blakesmods.com/mystical-agriculture" alt="Latest Version">
+    <a href="https://blakesmods.com/mystical-agriculture" alt="Versión más reciente">
         <img src="https://img.shields.io/endpoint?url=https://api.blakesmods.com/v2/badges/mysticalagriculture/version&style=for-the-badge" />
     </a>
-    <a href="https://blakesmods.com/mystical-agriculture" alt="Minecraft Version">
+    <a href="https://blakesmods.com/mystical-agriculture" alt="Versión de Minecraft">
         <img src="https://img.shields.io/endpoint?url=https://api.blakesmods.com/v2/badges/mysticalagriculture/mc_version&style=for-the-badge" />
     </a>
-    <a href="https://blakesmods.com/docs/mysticalagriculture" alt="Docs">
+    <a href="https://blakesmods.com/docs/mysticalagriculture" alt="Documentación">
         <img src="https://img.shields.io/static/v1?label=docs&message=view&color=brightgreen&style=for-the-badge" />
     </a>
     <a href="https://blakesmods.com/wiki/mysticalagriculture" alt="Wiki">
@@ -22,19 +23,19 @@
     </a>
 </p>
 
-Adds Resource Crops, Armor, Tools, and other cool things!
+¡Añade cultivos que generan recursos, armaduras, herramientas y otras cosas geniales!
 
-## Download
+## Descarga
 
-The official release builds can be downloaded from the following websites.
+Las versiones oficiales publicadas pueden descargarse desde los siguientes sitios web.
 
 - [Blake's Mods](https://blakesmods.com/mystical-agriculture/download)
 - [CurseForge](https://www.curseforge.com/minecraft/mc-mods/mystical-agriculture)
 - [Modrinth](https://modrinth.com/mod/mystical-agriculture)
 
-## Development
+## Desarrollo
 
-To use this mod in a development environment, you will need to add the following to your `build.gradle`.
+Para utilizar este mod en un entorno de desarrollo, deberá añadir lo siguiente a su `build.gradle`.
 
 ```groovy
 repositories {
@@ -49,6 +50,6 @@ dependencies {
 }
 ```
 
-## License
+## Licencia
 
-[MIT License](./LICENSE)
+[Licencia MIT](./LICENSE)
