@@ -6,7 +6,7 @@ plugins {
     id 'net.neoforged.moddev' version '2.0.141'
 }
 
-version = '26.1.2-9.0.8'
+version = '26.1.2-9.0.9'
 group = 'com.blakebr0.mysticalagriculture'
 
 base {
