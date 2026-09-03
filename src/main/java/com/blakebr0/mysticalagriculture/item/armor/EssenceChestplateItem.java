@@ -78,6 +78,11 @@ public class EssenceChestplateItem extends BaseArmorItem implements ITinkerable 
     }
 
     @Override
+    public boolean isEnchantable(ItemStack stack) {
+        return ModConfigs.ENCHANTABLE_SUPREMIUM_ARMOR.get();
+    }
+
+    @Override
     public int getAugmentSlots() {
         return this.slots;
     }

@@ -19,6 +19,7 @@ public final class ModConfigs {
     public static final ModConfigSpec.BooleanValue ESSENCE_FARMLAND_CONVERSION;
     public static final ModConfigSpec.BooleanValue SEED_CRAFTING_RECIPES;
     public static final ModConfigSpec.BooleanValue ENCHANTABLE_SUPREMIUM_TOOLS;
+    public static final ModConfigSpec.BooleanValue ENCHANTABLE_SUPREMIUM_ARMOR;
     public static final ModConfigSpec.BooleanValue UNBREAKABLE_SUPREMIUM_ARMOR;
     public static final ModConfigSpec.BooleanValue FAKE_PLAYER_WATERING;
     public static final ModConfigSpec.BooleanValue AWAKENED_SUPREMIUM_SET_BONUS;
@@ -72,6 +73,9 @@ public final class ModConfigs {
         ENCHANTABLE_SUPREMIUM_TOOLS = common
                 .comment("Should Supremium & Awakened Supremium Tools be enchantable in an Enchanting Table?")
                 .define("enchantableSupremiumTools", true);
+        ENCHANTABLE_SUPREMIUM_ARMOR = common
+                .comment("Should Supremium & Awakened Supremium Armor be enchantable in an Enchanting Table?")
+                .define("enchantableSupremiumArmor", true);
         UNBREAKABLE_SUPREMIUM_ARMOR = common
                 .comment("Should Supremium & Awakened Supremium Armor be unbreakable?")
                 .define("unbreakableSupremiumArmor", false);
