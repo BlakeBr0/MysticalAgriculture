@@ -17,7 +17,6 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.component.TooltipDisplay;
-import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.FarmlandBlock;
@@ -41,11 +40,6 @@ public class InfusedFarmlandBlock extends FarmlandBlock implements IColored, IEs
     @Override
     public void fallOn(Level level, BlockState state, BlockPos pos, Entity entity, double fallDistance) {
         entity.causeFallDamage(fallDistance, 1.0F, level.damageSources().fall());
-    }
-
-    @Override
-    public boolean isFertile(BlockState state, BlockGetter level, BlockPos pos) {
-        return state.getValue(MOISTURE) > 0;
     }
 
     @Override
