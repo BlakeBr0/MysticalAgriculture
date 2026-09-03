@@ -139,7 +139,7 @@ public class EssenceShovelItem extends BaseShovelItem implements ITinkerable {
 
     @Override
     public boolean isEnchantable(ItemStack stack) {
-        return ModConfigs.ENCHANTABLE_SUPREMIUM_TOOLS.get() || super.isEnchantable(stack);
+        return ModConfigs.ENCHANTABLE_SUPREMIUM_TOOLS.get();
     }
 
     @Override
