@@ -2,11 +2,11 @@
   "replace": false,
   "values": [
     {
-      "id": "#forge:dusts/saltpeter",
+      "id": "#c:dusts/saltpeter",
       "required": false
     },
     {
-      "id": "#forge:dusts/niter",
+      "id": "#c:dusts/niter",
       "required": false
     },
     {

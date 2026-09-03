@@ -2,7 +2,7 @@
   "replace": false,
   "values": [
     {
-      "id": "#chisel:limestone",
+      "id": "chisel:limestone_raw",
       "required": false
     },
     {

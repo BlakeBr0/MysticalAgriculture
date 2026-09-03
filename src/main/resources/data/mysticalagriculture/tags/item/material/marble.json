@@ -2,7 +2,7 @@
   "replace": false,
   "values": [
     {
-      "id": "#chisel:marble",
+      "id": "chisel:marble_raw",
       "required": false
     },
     {
