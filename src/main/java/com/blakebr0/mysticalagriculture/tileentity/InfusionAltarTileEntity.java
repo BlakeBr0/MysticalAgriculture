@@ -178,6 +178,10 @@ public class InfusionAltarTileEntity extends BaseInventoryTileEntity implements 
         List<InfusionPedestalTileEntity> pedestals = new ArrayList<>();
 
         for (var pos : this.getPedestalPositions()) {
+            if (!this.level.isLoaded(pos)) {
+                return Collections.emptyList();
+            }
+
             var tile = this.level.getBlockEntity(pos);
             if (tile instanceof InfusionPedestalTileEntity pedestal)
                 pedestals.add(pedestal);

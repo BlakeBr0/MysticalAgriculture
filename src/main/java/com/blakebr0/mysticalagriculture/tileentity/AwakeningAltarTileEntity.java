@@ -200,6 +200,10 @@ public class AwakeningAltarTileEntity extends BaseInventoryTileEntity implements
         var collections = new PedestalTileEntityCollections();
 
         for (var pos : this.getPedestalPositions()) {
+            if (!this.level.isLoaded(pos)) {
+                return PedestalTileEntityCollections.EMPTY;
+            }
+
             var tile = this.level.getBlockEntity(pos);
 
             if (tile instanceof AwakeningPedestalTileEntity pedestal) {
