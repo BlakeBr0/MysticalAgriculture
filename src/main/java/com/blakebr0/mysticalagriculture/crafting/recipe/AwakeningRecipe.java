@@ -50,7 +50,7 @@ public class AwakeningRecipe implements IAwakeningRecipe {
                                     },
                                     DataResult::success
                             )
-                            .forGetter(recipe -> recipe.allIngredients),
+                            .forGetter(recipe -> recipe.ingredients),
                     SizedIngredient.NESTED_CODEC
                             .listOf()
                             .fieldOf("essences")
