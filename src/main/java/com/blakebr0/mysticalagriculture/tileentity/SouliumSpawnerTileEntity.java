@@ -294,7 +294,7 @@ public class SouliumSpawnerTileEntity extends BaseInventoryTileEntity implements
     }
 
     public static CItemStacksHandler createInventoryHandler() {
-        return createInventoryHandler(null, null);
+        return createInventoryHandler(null, () -> null);
     }
 
     public static CItemStacksHandler createInventoryHandler(@Nullable OnContentsChangedFunction onContentsChanged, Supplier<Level> level) {
