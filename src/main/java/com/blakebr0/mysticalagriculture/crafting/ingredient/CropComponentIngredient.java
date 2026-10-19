@@ -5,6 +5,7 @@ import com.blakebr0.mysticalagriculture.registry.CropRegistry;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
+import net.minecraft.core.component.DataComponentMap;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.StringRepresentable;
 import net.minecraft.world.item.ItemStack;
@@ -38,7 +39,9 @@ public class CropComponentIngredient implements ICustomIngredient {
         if (input == null)
             return false;
 
-        return this.getItems().anyMatch(s -> ItemStack.isSameItemSameComponents(s, input));
+        var stack = this.getItems().filter(s -> input.is(s.getItem())).findFirst();
+
+        return stack.filter(s -> this.testComponents(s.getComponents(), input)).isPresent();
     }
 
     @Override
@@ -68,6 +71,18 @@ public class CropComponentIngredient implements ICustomIngredient {
             case SEED -> new ItemStack[] { new ItemStack(crop.getType().getCraftingSeed()) };
             case MATERIAL -> crop.getCraftingMaterial().getItems();
         };
+    }
+
+    private boolean testComponents(DataComponentMap components, ItemStack stack) {
+        for (var entry : components) {
+            var type = entry.type();
+            var value = entry.value();
+            if (!stack.has(type) || !value.equals(stack.get(type))) {
+                return false;
+            }
+        }
+
+        return true;
     }
 
     public static Ingredient of(ResourceLocation crop, ComponentType type) {
