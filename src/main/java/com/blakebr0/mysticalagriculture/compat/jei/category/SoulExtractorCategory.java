@@ -3,6 +3,7 @@ package com.blakebr0.mysticalagriculture.compat.jei.category;
 import com.blakebr0.mysticalagriculture.MysticalAgriculture;
 import com.blakebr0.mysticalagriculture.api.crafting.ISoulExtractionRecipe;
 import com.blakebr0.mysticalagriculture.init.ModBlocks;
+import com.blakebr0.mysticalagriculture.init.ModItems;
 import mezz.jei.api.constants.VanillaTypes;
 import mezz.jei.api.gui.builder.IRecipeLayoutBuilder;
 import mezz.jei.api.gui.drawable.IDrawable;
@@ -22,7 +23,7 @@ import net.minecraft.world.item.crafting.CraftingInput;
 import net.minecraft.world.item.crafting.RecipeHolder;
 
 public class SoulExtractorCategory implements IRecipeCategory<RecipeHolder<ISoulExtractionRecipe>> {
-    private static final Identifier TEXTURE = MysticalAgriculture.resource("textures/jei/reprocessor.png");
+    private static final Identifier TEXTURE = MysticalAgriculture.resource("textures/jei/soul_extractor.png");
     public static final IRecipeHolderType<ISoulExtractionRecipe> RECIPE_TYPE = IRecipeHolderType.create(MysticalAgriculture.resource("soul_extractor"));
 
     private final IDrawable background;
@@ -30,10 +31,10 @@ public class SoulExtractorCategory implements IRecipeCategory<RecipeHolder<ISoul
     private final IDrawableAnimated arrow;
 
     public SoulExtractorCategory(IGuiHelper helper) {
-        this.background = helper.createDrawable(TEXTURE, 0, 0, 82, 26);
+        this.background = helper.createDrawable(TEXTURE, 0, 0, 104, 26);
         this.icon = helper.createDrawableIngredient(VanillaTypes.ITEM_STACK, new ItemStack(ModBlocks.SOUL_EXTRACTOR.get()));
 
-        var arrow = helper.createDrawable(TEXTURE, 85, 0, 24, 17);
+        var arrow = helper.createDrawable(TEXTURE, 107, 0, 24, 17);
 
         this.arrow = helper.createAnimatedDrawable(arrow, 100, IDrawableAnimated.StartDirection.LEFT, false);
     }
@@ -66,7 +67,7 @@ public class SoulExtractorCategory implements IRecipeCategory<RecipeHolder<ISoul
     @Override
     public void draw(RecipeHolder<ISoulExtractionRecipe> recipe, IRecipeSlotsView slots, GuiGraphicsExtractor gfx, double mouseX, double mouseY) {
         this.background.draw(gfx);
-        this.arrow.draw(gfx, 24, 4);
+        this.arrow.draw(gfx, 46, 4);
     }
 
     @Override
@@ -75,7 +76,8 @@ public class SoulExtractorCategory implements IRecipeCategory<RecipeHolder<ISoul
         var input = recipe.getIngredient();
         var result = recipe.assemble(CraftingInput.EMPTY);
 
-        builder.addSlot(RecipeIngredientRole.INPUT, 1, 5).add(input);
-        builder.addSlot(RecipeIngredientRole.OUTPUT, 61, 5).add(result);
+        builder.addSlot(RecipeIngredientRole.CRAFTING_STATION, 1, 5).add(new ItemStack(ModItems.SOUL_JAR.get()));
+        builder.addSlot(RecipeIngredientRole.INPUT, 23, 5).add(input);
+        builder.addSlot(RecipeIngredientRole.OUTPUT, 83, 5).add(result);
     }
 }
