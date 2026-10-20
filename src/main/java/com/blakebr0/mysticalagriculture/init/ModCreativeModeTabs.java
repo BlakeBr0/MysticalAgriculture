@@ -196,13 +196,13 @@ public final class ModCreativeModeTabs {
                 output.accept(ModItems.NETHERITE_SCYTHE);
 
                 for (var crop : CropRegistry.getInstance().getCrops()) {
-                    if (crop.isEnabled()) {
+                    if (crop.isEnabled() && crop.shouldRegisterEssenceItem()) {
                         output.accept(crop.getEssenceItem());
                     }
                 }
 
                 for (var crop : CropRegistry.getInstance().getCrops()) {
-                    if (crop.isEnabled()) {
+                    if (crop.isEnabled() && crop.shouldRegisterSeedsItem()) {
                         output.accept(crop.getSeedsItem());
                     }
                 }
