@@ -181,13 +181,13 @@ public final class ModCreativeModeTabs {
                 output.accept(ModItems.AWAKENED_SUPREMIUM_UPGRADE);
 
                 for (var crop : CropRegistry.getInstance().getCrops()) {
-                    if (crop.isEnabled()) {
+                    if (crop.isEnabled() && crop.shouldRegisterEssenceItem()) {
                         output.accept(crop.getEssenceItem());
                     }
                 }
 
                 for (var crop : CropRegistry.getInstance().getCrops()) {
-                    if (crop.isEnabled()) {
+                    if (crop.isEnabled() && crop.shouldRegisterSeedsItem()) {
                         output.accept(crop.getSeedsItem());
                     }
                 }
