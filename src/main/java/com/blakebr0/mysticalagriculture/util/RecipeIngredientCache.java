@@ -106,7 +106,7 @@ public class RecipeIngredientCache {
         for (var recipe : manager.recipeMap().byType(type)) {
             for (var ingredient : ingredients.apply(recipe.value())) {
                 var items = new HashSet<>();
-                for (var stack : ingredient.getValues()) {
+                for (var stack : ingredient.items().toList()) {
                     var item = stack.value();
                     if (items.contains(item))
                         continue;
@@ -123,7 +123,7 @@ public class RecipeIngredientCache {
     private static void cacheVesselItems(RecipeManager manager) {
         for (var recipe : manager.recipeMap().byType(ModRecipeTypes.AWAKENING.get())) {
             for (var essence : recipe.value().getEssenceIngredients()) {
-                INSTANCE.validVesselItems.addAll(essence.ingredient().getValues().stream().map(Holder::value).toList());
+                INSTANCE.validVesselItems.addAll(essence.ingredient().items().map(Holder::value).toList());
             }
         }
     }
