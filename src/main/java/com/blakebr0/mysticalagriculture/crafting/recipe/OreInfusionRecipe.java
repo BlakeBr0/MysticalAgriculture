@@ -40,7 +40,7 @@ public class OreInfusionRecipe implements IOreInfusionRecipe {
                                     DataResult::success
                             )
                             .forGetter(recipe -> recipe.inputs),
-                    OutputResolver.RESULT_CODEC.fieldOf("result").forGetter(recipe -> recipe.result)
+                    OutputResolver.RESOLVER_CODEC.fieldOf("result").forGetter(recipe -> recipe.result)
             ).apply(builder, OreInfusionRecipe::new)
     );
     public static final StreamCodec<RegistryFriendlyByteBuf, OreInfusionRecipe> STREAM_CODEC = StreamCodec.of(
@@ -49,9 +49,9 @@ public class OreInfusionRecipe implements IOreInfusionRecipe {
     public static final RecipeSerializer<OreInfusionRecipe> SERIALIZER = new RecipeSerializer<>(MAP_CODEC, STREAM_CODEC);
 
     private final List<SizedIngredient> inputs;
-    private final ItemStackTemplate result;
+    private final OutputResolver result;
 
-    public OreInfusionRecipe(List<SizedIngredient> inputs, ItemStackTemplate result) {
+    public OreInfusionRecipe(List<SizedIngredient> inputs, OutputResolver result) {
         this.inputs = inputs;
         this.result = result;
     }
@@ -75,7 +75,7 @@ public class OreInfusionRecipe implements IOreInfusionRecipe {
 
     @Override
     public ItemStack assemble(CraftingInput inventory) {
-        return this.result.create();
+        return this.result.resolve().create();
     }
 
     @Override
@@ -95,13 +95,13 @@ public class OreInfusionRecipe implements IOreInfusionRecipe {
 
     private static OreInfusionRecipe fromNetwork(RegistryFriendlyByteBuf buffer) {
         var inputs = SizedIngredient.STREAM_CODEC.apply(ByteBufCodecs.list()).decode(buffer);
-        var result = ItemStackTemplate.STREAM_CODEC.decode(buffer);
+        var result = OutputResolver.create(buffer);
 
         return new OreInfusionRecipe(inputs, result);
     }
 
     private static void toNetwork(RegistryFriendlyByteBuf buffer, OreInfusionRecipe recipe) {
         SizedIngredient.STREAM_CODEC.apply(ByteBufCodecs.list()).encode(buffer, recipe.inputs);
-        ItemStackTemplate.STREAM_CODEC.encode(buffer, recipe.result);
+        ItemStackTemplate.STREAM_CODEC.encode(buffer, recipe.result.resolve());
     }
 }
