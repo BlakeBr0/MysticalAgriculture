@@ -7,7 +7,7 @@ import net.minecraft.core.NonNullList;
 import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.network.codec.ByteBufCodecs;
 import net.minecraft.network.codec.StreamCodec;
-import net.minecraft.world.item.HoeItem;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.ItemStackTemplate;
 import net.minecraft.world.item.Items;
@@ -22,6 +22,7 @@ import net.minecraft.world.item.crafting.display.RecipeDisplay;
 import net.minecraft.world.item.crafting.display.ShapelessCraftingRecipeDisplay;
 import net.minecraft.world.item.crafting.display.SlotDisplay;
 import net.minecraft.world.level.Level;
+import net.neoforged.neoforge.common.ItemAbilities;
 import net.neoforged.neoforge.common.util.RecipeMatcher;
 
 import java.util.Arrays;
@@ -36,7 +37,7 @@ public class FarmlandTillRecipe implements CraftingRecipe {
                             .fieldOf("ingredients")
                             .flatXmap(
                                     field -> {
-                                        Ingredient[] ingredients = field.toArray(Ingredient[]::new); // Neo skip the empty check and immediately create the array.
+                                        Ingredient[] ingredients = field.toArray(Ingredient[]::new);
                                         if (ingredients.length == 0) {
                                             return DataResult.error(() -> "No ingredients for shapeless recipe");
                                         } else {
@@ -72,7 +73,7 @@ public class FarmlandTillRecipe implements CraftingRecipe {
         for (int i = 0; i < inventory.size(); i++) {
             var stack = inventory.getItem(i);
 
-            if (stack.getItem() instanceof HoeItem) {
+            if (stack.is(ItemTags.HOES) || stack.canPerformAction(ItemAbilities.HOE_TILL)) {
                 var hoe = stack.copy();
 
                 if (hoe.isDamageableItem()) {
